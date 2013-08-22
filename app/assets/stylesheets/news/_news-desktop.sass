@@ -1,0 +1,96 @@
+.twelve-col
+  margin: 0 auto
+  width: 962px
+  
+.eight-col, .four-col
+  margin-right: 22px
+  
+.eight-col
+  width: 634px
+
+.four-col
+  width: 306px
+  
+.edge
+  margin-right: 0
+
+section.widget
+  ul.tabs
+    li
+      &.current a, a
+        font-size: 16px
+        padding: 0 14px
+        height: 39px
+        line-height: 39px
+        
+.tab-content
+  margin-bottom: 20px
+
+.crumb-nav
+  margin: 15px 0 20px !important
+
+.crumb-nav, .page-intro, .author-intro
+  padding: 0
+
+.page-intro
+  margin-bottom: 60px
+
+.author-intro
+  img.author
+    display: block
+
+.article-list
+  li
+    padding-left: 0
+    &:hover
+      h3 b
+        color: $white
+        background-color: $blue-21
+      img
+        border: 1px solid $blue-21
+        outline: 2px solid $blue-21
+    .summary
+      width: 280px
+    &.listing
+      img
+        margin-right: 20px
+        width: 142px
+      span
+        left: 0
+      .summary
+        width: 470px
+      &:hover
+        h3
+          text-decoration: none
+      
+nav.news
+  li
+    a
+      margin-bottom: 13px
+      +transition(background .10s linear)
+      &:hover
+        background: $blue-21
+        color: white
+        text-decoration: none
+        &:after
+          border-left-color: $white
+
+.pagination
+  li
+    padding: 0
+    &.current
+      width: 50%
+      
+.categories
+  margin-bottom: 40px
+  overflow: hidden
+  ul
+    li
+      margin-left: 0
+      margin-right: 22px
+      &.four-col
+        width: 306px
+      li:hover
+        background-color: $light-blue-7
+      &.edge
+        margin-right: 0 !important

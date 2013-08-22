@@ -1,0 +1,43 @@
+.main-content 
+  a:link:after,
+  a:visited:after
+    content: " [http://www.uswitch.com" attr(href) "]" !important
+
+body, 
+p,
+div,
+span,
+h1, h2, h3, h4, h5, h6,
+a,
+label, 
+footer,
+th, td, 
+.btn
+  color: $black !important
+  background-image: none !important
+  background-color: transparent !important
+
+.btn
+  border: 0 !important
+  +box-shadow(0 0 0 $black)
+
+p
+  font-size: 14px !important  
+
+#global_nav,
+#search_icon,
+#footer-wrapper,
+.crumb-nav
+  display: none !important
+
+footer
+  border-top: 1px solid $grey-13 !important
+  padding: 10px !important 
+  margin-top: 30px !important
+  
+.print-footer
+  display: block !important
+  p
+    margin: 0 0 5px
+    
+    

@@ -1,0 +1,257 @@
+/**** USWITCH INPUT/TEXTBOX ***/
+
+/* don't replace with mixins, this requires fine control over properties and cascade order */
+
+.us-form
+  input,textarea
+    -webkit-appearance: none
+    -webkit-box-sizing: border-box
+    -moz-box-sizing: border-box
+    box-sizing: border-box
+    display: inline-block
+    vertical-align: middle
+    height: 2.2em
+    margin: 2px
+    padding: 0.3em 0.4em
+    border: 1px solid #C4C0C0
+    border-radius: 2px
+    box-shadow: 0px 3px 2px #eee inset
+    font-family: $normal-font-2
+    font-size: 14px
+    -webkit-transition: box-shadow 200ms, border-color 200ms
+    -moz-transition: box-shadow 200ms, border-color 200ms
+    transition: box-shadow 200ms, border-color 200ms
+    &.error
+      border-color: #bf212e
+    &:focus
+      outline: none
+      color: #333
+      border-color: #6cf
+      box-shadow: 1px 3px 2px #eee inset, 0 0 4px #6cf
+    &:disabled,&:disabled:hover
+      background-color: #fafafa !important
+      color: #ccc !important
+      border-color: #ccc
+      box-shadow: none !important
+    &.input-big
+      font-size: 17px
+    &.btn
+      height: auto
+  &.error,.error
+    input,textarea
+      border-color: #bf212e
+      color: #bf212e
+  textarea
+    height: auto
+
+.no-touch .us-form
+  input:not([type]):hover,input[type]:hover,input[type="text"]:hover, input[type="password"]:hover, input[type="date"]:hover, input[type="datetime"]:hover, input[type="email"]:hover, input[type="month"]:hover, input[type="number"]:hover, input[type="search"]:hover, input[type="tel"]:hover, input[type="time"]:hover, input[type="url"]:hover,textarea:hover
+    border-color: #C4C0C0
+    box-shadow: inset 1px 3px 2px #eee, 0 0 0 3px #ff8
+
+/**** USWITCH RADIO/CHECKBOXES ***/
+
+.us-form 
+  input
+    &[type="checkbox"],&[type="radio"]
+      display: inline-block
+      vertical-align: middle
+      margin: -0.3em 0.25em 0 0
+      padding: 0
+      width: 1.6em
+      height: 1.6em
+      background: #fff
+      border: 1px solid #C4C0C0
+      border-radius: 0.3em
+      font-size: 0.9em
+      cursor: pointer
+      box-shadow: inset 0 1px 3px #666
+      -webkit-transition: box-shadow 200ms, border-color 200ms, background 300ms
+      -moz-transition: box-shadow 200ms, border-color 200ms, background 300ms
+      transition: box-shadow 200ms, border-color 200ms, background 300ms
+      &:focus
+        outline: none
+        border-color: #6cf
+        box-shadow: inset 0 1px 3px #666, 0 0 4px #6cf
+      &:disabled
+        color: #999
+        background-color: #eee
+      &.input-big
+        font-size: 17px
+    &[type="radio"]
+      border-radius: 3em
+
+.no-touch .us-form 
+  input
+    &[type="checkbox"]:hover, &[type="radio"]:hover
+      box-shadow: inset 0 1px 3px #666, 0 0 1px 3px #ff8
+
+.us-form
+  .error input[type="checkbox"], &.error input[type="checkbox"], input[type="checkbox"].error, .error input[type="radio"], &.error input[type="radio"], input[type="radio"].error
+    border-color: #bf212e
+    
+/* ie9/10 */
+@media screen and (min-width: 0 \0)
+  .us-form 
+    input
+      &[type="radio"]::-ms-check
+        padding: 0.1em
+        border: none
+        color: #333
+        box-shadow: inset 0 1px 4px #999
+      &[type="checkbox"]
+        &::-ms-check
+          padding: 0.1em
+          border: none
+          color: #333
+          box-shadow: inset 0 1px 4px #999
+        border-radius: 3px
+        &:disabled::-ms-check
+          color: #999
+      &[type="radio"]:disabled::-ms-check
+        color: #999
+
+/* webkit */
+@media all and (-webkit-min-device-pixel-ratio: 0)
+  .us-form 
+    input
+      &[type="checkbox"]
+        -webkit-appearance: none
+        position: relative
+        &:after
+          content: '\2714'
+          display: block
+          position: absolute
+          left: 2px
+          bottom: 0
+          width: 1em
+          height: 1em
+          color: #333
+          font-size: 1.5em
+          font-family: 'uswitch-icon',meiryo,'sans-serif'
+          line-height: 1
+          text-align: center
+          -webkit-transform: scale3d(2, 2, 1)
+          opacity: 0
+          -webkit-transition: -webkit-transform 100ms ease-in, opacity 100ms ease-in
+          pointer-events: none
+        &:checked:after
+          -webkit-transform: scale3d(1, 1, 1)
+          opacity: 1
+        &:disabled:checked:after
+          color: #999
+      &[type="radio"]
+        -webkit-appearance: none
+        position: relative
+        &:checked
+          background: #333
+          box-shadow: inset 0 1px 3px #666, inset 0 0 0 0.4em #fff
+          &:disabled
+            background: #999
+            box-shadow: inset 0 1px 3px #666, inset 0 0 0 0.4em #eee
+  .no-touch .us-form 
+    input[type="radio"]:checked
+      &:hover
+        box-shadow: inset 0 1px 3px #666, inset 0 0 0 0.3em #fff, 0 0 1px 3px #ff8
+      &:active
+        background: #02bcfc
+
+/* hidden */
+.us-form
+  input.hidden
+    &[type="text"], &[type="password"], &[type="date"], &[type="datetime"], &[type="email"], &[type="month"], &[type="number"], &[type="search"], &[type="tel"], &[type="time"], &[type="url"], &[type]
+      display: none
+  textarea.hidden
+    display: none
+    
+/* custom backgrounds */
+
+.us-form
+  input
+    &.input-postcode,&.input-email,&.input-phone,&.input-pound,&.input-password,&.input-kwh
+      background-image: url(../images/input-backgrounds.gif)
+      background-repeat: no-repeat
+      padding-left: 30px
+    &.input-postcode
+      background-position: 5px -297px
+    &.input-email
+      background-position: 5px -695px
+    &.input-phone
+      background-position: 5px -1095px
+    &.input-pound
+      background-position: 5px -1497px
+    &.input-password
+      background-position: 5px -2296px
+    &.input-kwh
+      padding-left: 0.4em
+      padding-right: 30px
+      background-position: 100% -1895px
+      &::-webkit-outer-spin-button,&::-webkit-inner-spin-button
+        -webkit-appearance: none
+        margin: 0
+
+    &.input-big
+      &.input-postcode,&.input-email,&.input-phone,&.input-pound,&.input-password,&.input-kwh
+        padding-left: 35px
+      &.input-postcode
+        background-position: 5px -197px
+      &.input-email
+        background-position: 5px -597px
+      &.input-phone
+        background-position: 5px -996px
+      &.input-pound
+        background-position: 5px -1397px
+      &.input-password
+        background-position: 5px -2197px
+      &.input-kwh
+        padding-right: 40px
+        background-position: 100% -1797px
+
+@media (-webkit-min-device-pixel-ratio: 1.3), (min-resolution: 124.8dpi)
+  .us-form
+    input
+      &.input-postcode,&.input-email,&.input-phone,&.input-pound,&.input-password,&.input-kwh
+        background-size: 50px 1200px
+        
+      &.input-postcode
+        background-position: 5px -0
+      &.input-email
+        background-position: 5px -200px
+      &.input-phone
+        background-position: 5px -401px
+      &.input-pound
+        background-position: 5px -601px
+      &.input-password
+        background-position: 5px -999px
+      &.input-kwh
+        padding-right: 45px
+        background-position: 100% -800px   
+  
+      &.input-big
+        &.input-postcode
+          background-position: 5px 3px
+        &.input-email
+          background-position: 5px -198px
+        &.input-phone
+          background-position: 5px -398px
+        &.input-pound
+          background-position: 5px -598px
+        &.input-password
+          background-position: 5px -995px
+        &.input-kwh
+          background-position: 100% -797px       
+
+/* remove number spinner if required */
+.input-no-spinner
+  &::-webkit-outer-spin-button,&::-webkit-inner-spin-button
+    -webkit-appearance: none
+    margin: 0
+
+/* <IE9 */
+
+.ie6,.ie7,.ie8
+  .us-form 
+    input
+      &[type="checkbox"],&[type="radio"]
+        border: none
+        background: transparent

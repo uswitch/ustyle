@@ -1,0 +1,38 @@
+@import url("https://dhs7e4xw115sr.cloudfront.net/v2.0.5/stylesheets/crumb-nav-ie.css")
+@import "bourbon"
+@import "../basic/variables"
+@import "news-tablet"
+@import "news-desktop"
+
+.article-meta
+  img
+    box-shadow: 1px 1px 4px $grey-13, 1px -1px 2px $grey-13
+    border-radius: 80px
+    border: none
+    behavior: url(/PIE.htc)
+
+nav.news li a,
+.article-list li, 
+.tab-content li,
+.tab-content li a,
+.categories li,
+.author-intro
+  zoom: 1
+    
+.pagination
+  li.current
+    width: 49%
+    
+section.widget
+  ul.tabs
+    li.current
+      a
+        font-size: 14px
+
+.ie6
+  .article-list
+    clear: left
+  section.widget
+    h2, ul.tabs
+      zoom: 1
+        

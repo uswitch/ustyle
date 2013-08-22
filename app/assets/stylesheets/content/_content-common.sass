@@ -1,0 +1,530 @@
+/* structure */
+.eight-col, 
+.three-col, 
+.tag nav, .guide nav, .post nav,
+.tag header, .guide header, .post header, 
+.author-index nav,
+.category nav, .category header,
+.archive header, .archive nav
+  margin: 0 10px 20px
+  width: auto
+
+.post
+  header
+    margin-left: 0
+    margin-right: 0
+
+/* main elements */
+nav, article, figure, figcaption, aside
+  display: block
+
+article, section.comments, section.comment-form
+  p, li, .byline, div.comments
+    color: $grey-1
+
+.main-content
+  header
+    margin-bottom: 20px
+    img
+      margin-bottom: 5px
+      max-width: 100%
+    .byline img
+      max-width: auto
+    time
+      display: inline
+
+.featured-guides a h3, .fl
+  color: $blue-10
+  cursor: pointer
+  &:hover
+    color: $blue-3
+  &:visited
+    color: $blue-4
+
+figure, figcaption
+  margin: 0
+  padding: 0
+
+figcaption
+  color: $grey-2
+  font-style: italic
+  margin-top: 5px
+
+article
+  p
+    line-height: 18px
+    margin-bottom: 20px
+
+h1, h2, h3, h4, .standard-heading, blockquote p, .pagination a, .month time
+  color: $blue-18
+  font-family: $heading-font-bold
+  font-weight: normal
+
+.standard-heading, blockquote p
+  font-family: $heading-font-regular
+  b
+    font-family: $heading-font-bold
+    
+h1
+  font-size: 24px
+  line-height: 24px
+  margin-bottom: 10px
+
+h2, blockquote p, .standard-heading, .catalog h2
+  font-size: 18px
+  line-height: 20px
+  margin-bottom: 15px
+
+.plain-heading
+  color: $grey-1
+  font-size: 14px
+  font-family: $normal-font
+  font-weight: bold
+  line-height: 17px
+
+blockquote
+  border-left: 2px solid $lightMidnightBlue
+  color: $lightMidnightBlue
+  padding-left: 10px
+  margin-left: 40px
+  p
+    font-style: italic
+
+input, textarea
+  +box-shadow(inset 1px 1px 5px $grey-5)
+  border: 1px solid $grey-14
+  margin-bottom: 10px
+
+/* other set up */
+article, section.comments, section.comment-form, .intro
+  margin-bottom: 30px
+  h1
+    margin-bottom: 20px
+
+section.comments, .byline-footer, .intro, ul.articles
+  p
+    line-height: 21px
+
+aside h2, h2.side-heading
+  font-size: 18px
+  line-height: 20px
+  color: $blue-20
+    
+.author
+  font-weight: bold
+  margin-bottom: 0
+
+.byline-footer
+  overflow: hidden
+  img
+    float: left
+    margin-right: 30px
+  p
+    margin-left: 160px
+    margin-bottom: 0
+    a
+      margin-top: 5px
+      margin-bottom: 3px
+
+/* main article */
+article
+  clear: left
+  .byline, div.comments
+    font-size: 14px
+    line-height: 60px
+    img
+      float: left
+      margin-right: 10px
+  div.comments
+    font-weight: bold
+    float: right
+    background: url(../../images/content/comment.gif) no-repeat 0 50%
+    padding-left: 25px
+    line-height: 21px
+  h2
+    clear: right
+  object
+    margin-bottom: 25px
+    display: block
+  table
+    margin: 12px 0 36px 0
+    th
+      background: $light-blue-1
+      color: $blue-18
+      font-weight: bold
+    td, th
+      padding: 6px 3px
+      border-bottom: 1px solid $grey-15
+  figure
+    margin-bottom: 20px
+  p+ul, p+ol
+    margin-top: -19px
+  li p+ul, li p+ol
+    margin-top: 0
+  ol, ul
+    margin-left: 25px
+    margin-bottom: 25px
+    h3, h4
+      font-family: $normal-font
+      font-weight: bold
+      font-size: 14px
+      color: $grey-1
+    li
+      color: $grey-1
+      list-style-type: decimal
+      margin-bottom: 6px
+      p
+        font-weight: normal
+        margin-bottom: 9px
+      p, b
+        color: $grey-1
+    &.address
+      margin: 0 0 25px 0
+      li
+        list-style: none
+  ul
+    li
+      list-style-type: disc
+
+/* supplier index */
+.supplier-index
+  .big-six, .other-suppliers
+    overflow: hidden
+    li
+      float: left
+      padding-bottom: 30px
+      text-align: center
+      width: 50%
+      h3
+        background-color: $grey-31
+        color: $grey-12
+        padding: 5px
+  .main-content
+    padding: 0
+
+/* guide index */
+.guide-index
+  nav.guide-tabs, nav.guide
+    display: block
+    margin: 0 0 20px
+    overflow: hidden
+    li
+      background: url(../../images/btn_arrow.png) no-repeat 90% 50%
+      border-top: 1px solid $grey-19
+      float: left
+      padding: 10px 0
+      width: 47%
+  .tab-container
+    margin-bottom: 20px
+      
+ul.featured-guides
+  overflow: hidden
+  margin-bottom: 20px
+  .cat
+    background-color: $grey-31
+    display: block
+  h2
+    font-size: 14px
+    padding: 8px 8px 0
+    margin-bottom: 0
+  a h2
+    color: $grey-26
+  h3
+    min-height: 2.5em
+    padding: 0 8px 5px
+  li
+    margin-bottom: 20px
+    img
+      vertical-align: bottom
+      width: 100%
+
+  .two-col
+    float: left
+    width: 48% 
+    margin-right: 4%
+    .more
+      min-height: 2.5em
+    h3
+      min-height: 4em
+  .non-desktop-edge
+    margin-right: 0 !important
+
+  a
+    &.more
+      background: url(../../images/btn_arrow.png) no-repeat 100% 50%
+      border: 1px solid $grey-19
+      border-width: 1px 0
+      color: $grey-26
+      display: block
+      padding: 10px 15px 10px 0
+
+/* archive */
+.month
+  span
+    color: $white
+    display: inline-block
+    background-color: $grey-12
+    font-size: 11px
+    font-weight: bold
+    position: absolute
+    padding: 5px 0
+    right: 10px
+    text-align: center
+    width: 45px
+  li 
+    margin-bottom: 20px
+    time
+      color: $blue-20
+      font-weight: bold
+    li
+      border-bottom: 1px solid $grey-19
+      margin-bottom: 0
+      overflow: hidden
+      position: relative
+  a
+    display: block
+    padding: 10px 50px 15px 0
+
+/* postcode form */
+section.postcode, section.cta
+  form, div
+    +linear-gradient($green-6, $green-3)
+    padding: 10px
+  margin-bottom: 20px
+  h3
+    margin-bottom: 10px
+  h3, label
+    color: $white
+  label
+    display: block
+    margin-bottom: 5px
+
+/* comments */
+section.comments
+  h1
+    line-height: 35px
+    float: left
+    margin-right: 20px
+  ol, ul
+    clear: left
+  li
+    border-bottom: 1px solid $grey-15
+    padding-bottom: 10px
+    margin-bottom: 10px
+    overflow: hidden
+    &:last-child, &.last
+      border-bottom: 0
+      padding-bottom: 0
+      margin-bottom: 0
+  img
+    float: left
+    margin-right: 10px
+  p
+    margin-left: 80px
+  .tools
+    overflow: hidden
+    float: right
+    li
+      border: 0
+      color: $grey-28
+      float: left
+      font-size: 11px
+      margin: 5px 5px 0 0
+      padding-bottom: 0
+      a
+        color: $grey-28
+  .reply
+    margin-left: 30px
+    margin-top: 20px
+    li
+      border: 0
+      padding-bottom: 0
+      &:last-child
+        margin-bottom: 0
+
+section.comment-form, section.postcode, section.cta
+  label
+    font-weight: bold
+  input
+    height: 26px
+    width: 80%
+  textarea
+    height: 130px
+    width: 80%
+
+/* comment form */
+section.comment-form
+  label
+    display: block
+    margin-bottom: 5px
+  li
+    margin-bottom: 15px
+  form
+    overflow: hidden
+  button
+    float: right
+    margin: 0 19% 3px 0
+
+/* category article list */
+ul.articles
+  a
+    p
+      color: $grey-1
+  li
+    clear: left
+    overflow: hidden
+    margin-bottom: 20px
+  img
+    width: 50%
+  img, time, h3
+    margin-bottom: 2px
+  time
+    color: $grey-2
+    font-size: 12px
+
+section.more
+  overflow: hidden
+.pagination
+  // float: right
+  overflow: hidden
+  a
+    border-radius: 20px
+    background: $grey-12
+    color: $white
+    display: block
+    float: left
+    font-size: 18px
+    height: 40px
+    line-height: 40px
+    text-align: center
+    width: 40px
+    &:hover
+      color: $white !important
+      background: $blue-16
+  li
+    float: left
+    margin-right: 10px
+    margin-bottom: 10px
+    &.current
+      a
+        background: $blue-18
+
+/* right hand column */
+aside
+  background: url(../../images/content/shadow-horizontal.png) no-repeat 50% 0
+  padding-top: 30px
+
+aside, section.blogroll, .internal-menu
+  li
+    border-bottom: 1px solid $grey-17
+    font-weight: bold
+    font-size: 14px
+    line-height: 18px
+    list-style-type: none
+    margin-bottom: 7px
+    padding-bottom: 8px
+    a
+      font-weight: normal
+      position: relative
+      display: block
+      max-width: 95%
+      &:after
+        background: url(../../images/btn_arrow_light.png) no-repeat
+        content: ""
+        display: inline-block
+        height: 8px
+        margin-left: 7px
+        position: relative
+        width: 6px
+
+.internal-menu
+  margin-top: -9px
+  li
+    font-size: 14px
+
+aside
+  section
+    margin-bottom: 30px
+
+  .latest-news, .subscribe, .tweets
+    li
+      border: 0
+      a
+        max-width: none
+        &:after
+          background: none
+          height: 0
+          margin: 0
+          width: 0
+
+  .subscribe
+    li
+      background: url(../../images/content/subscribe-email.png) no-repeat 0 0
+      padding-left: 30px
+      padding-top: 2px
+      margin-bottom: 2px
+      &.twitter
+        background-image: url(../../images/content/subscribe-twitter.png)
+      &.facebook
+        background-image: url(../../images/content/subscribe-facebook.png)
+      &.rss
+        background-image: url(../../images/content/subscribe-rss.png)
+    
+section.share
+  .button-container
+    margin-bottom: 20px
+    margin-left: 10px
+  .email
+    padding: 5px 0 5px 30px
+    background: url(../../images/content/subscribe-email.png) no-repeat 0 50%
+  .fb-like
+    float: left
+    margin-right: 10px
+  .twitter-share-button
+    margin-right: 15px
+
+.tag, .guide, .post, .author-index, .guide-tabs
+  img
+    max-width: 100%
+
+.author-index
+  .catalog
+    overflow: hidden
+    time
+      font-size: 12px
+      margin-top: 5px
+      color: $grey-2
+    li
+      float: left
+      margin-bottom:  30px
+      width: 45%
+  figure
+    position: relative
+    span
+      background: $grey-2
+      background: rgba(0,0,0,0.6)
+      color: $white
+      font-size: 11px
+      font-weight: bold
+      position: absolute
+      top: 0
+      left: 0
+      padding: 5px
+
+.to-top
+  font-size: 14px
+  float: right
+  color: $grey-27 !important
+  font-weight: normal
+  
+.right-image
+  display: inline-block
+  float: right
+  margin: 0 0 25px 25px
+
+.center
+  text-align: center
+
+.center img
+  display: block
+  margin: 0 auto

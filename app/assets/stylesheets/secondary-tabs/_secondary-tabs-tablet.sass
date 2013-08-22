@@ -1,0 +1,40 @@
+.tab-container
+  // height: 28px
+  margin: 0 auto
+  overflow: hidden
+
+  .secondary-tabs
+    display: block
+    position: absolute
+    margin: 0 0 0 5px
+    min-width: 660px
+    li
+      +border-top-radius(5px)
+      background-color: $grey-20
+      border: 2px solid $grey-17
+      float: left
+      font-size: 14px
+      margin-right: 5px
+      padding: 5px 10px
+      a
+        color: $grey-12
+        padding: 0
+        display: inline
+      &:hover
+        background-color: $white
+        a
+          color: $grey-25
+      &.current
+        background-color: $light-blue-2
+        border-bottom: 0
+        padding: 5px 10px 7px
+        a
+          color: $uswitch-blue-4
+  
+.secondary-with-tabs
+  +box-shadow(0 0 0 $grey-5)
+  border-top: 2px solid $grey-17
+  padding: 10px 0 30px
+  margin: 0
+  .hidden
+    display: none

@@ -1,0 +1,104 @@
+@import "../basic/mixins"
+
+.error-page
+  background-color: $grey-22
+  
+  #skyline, footer#uswitch-footer, #banner_advertisement
+    background-color: $grey-22
+    background-image: none
+  footer#uswitch-footer a
+    font-weight: bold
+    
+  #skyline
+    height: 66px
+    a.logo
+      height: 58px
+      width: 62px
+    a.logo, .logo img
+      position: relative
+      z-index: 20
+
+  .robot
+    display: none
+
+  .kitty
+    display: none
+
+  .main-content
+    +linear-gradient($grey-23, $green-5)
+    padding: 10px 0 20px
+    margin: 0
+    position: relative
+    width: 100%
+    h1, h2, p, a, form
+      position: relative
+      z-index: 20
+    a
+      color: $blue-19
+    h1, h2, p, li
+      color: $white
+      font-weight: normal
+      text-align: center
+    h1, h2
+      text-shadow: 3px -2px 3px $grey-11
+    h1, h2, p, form
+      padding: 0 10px
+      margin: 0 auto
+    h1
+      font-size: 28px
+      margin: 0 auto 5px
+    h2
+      font-size: 20px
+      margin: 0 auto 10px
+    p, li
+      font-size: 15px
+      line-height: 24px
+      padding: 0
+  
+    form
+      margin-bottom: 10px
+      text-align: center
+      label
+        display: none
+      input
+        display: inline
+        font-size: 15px
+        padding: 5px
+        margin-right: 10px
+        margin-bottom: 10px
+      button
+        border-radius: 7px
+        +linear-gradient($grey-18, $grey-16)
+        +box-shadow(inset 1px 10px 0 white, 1px 1px 1px $grey-1)
+        +background-clip(padding-box)
+        border: 1px solid $grey-5
+        color: $grey-1
+        cursor: pointer
+        display: inline-block
+        font-family: inherit
+        font-size: 17px
+        font-weight: normal
+        margin: 0
+        padding: 4px 14px
+        position: relative
+        text-decoration: none
+        text-shadow: none
+        white-space: nowrap
+
+  #global_nav, #search_icon, .fake-top, .social, .more-from, .trusted, .help, #help-content
+    display: none !important
+  
+  footer#uswitch-footer
+    border-top: 0
+    margin-top: 0
+  #footer-wrapper
+    position: static
+    
+    .site-links
+      margin-top: 30px
+      a
+        color: $white
+    
+    
+    
+    

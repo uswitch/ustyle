@@ -1,0 +1,188 @@
+/**** USWITCH SELECT ***/
+
+/* don't replace with mixins, this requires fine control over properties and cascade order */
+
+.us-form
+  select
+    position: relative
+    -webkit-appearance: button
+    -webkit-box-sizing: border-box
+    -moz-box-sizing: border-box
+    box-sizing: border-box
+    display: inline-block
+    vertical-align: middle
+    height: 2.2em
+    margin: 2px
+    padding: 0.3em 0.6em
+    background: #fff
+    border: 1px solid #aaa
+    border-radius: 0.3em
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.3), 0 1px 2px rgba(0,0,0,0.4)
+    font-family: $normal-font-2
+    font-size: 13px
+    font-weight: normal
+    overflow: hidden
+    text-shadow: 0 1px 0 #fff
+    -webkit-transition: box-shadow 200ms, border-color 200ms
+    -moz-transition: box-shadow 200ms, border-color 200ms
+    transition: box-shadow 200ms, border-color 200ms
+    white-space: nowrap
+    
+    option
+      text-shadow: none
+    &:disabled,&:disabled:hover
+      color: #ccc !important
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important
+    &.error
+      color: #bf212e
+      border-color: #bf212e
+    &.input-big
+      font-size: 17px
+  &.error select, .error select
+    color: #bf212e
+    border-color: #bf212e
+
+.boxshadow 
+  .us-form select:not([size])
+    &:focus
+      outline: none
+      border-color: #6cf
+      box-shadow: inset 0 1px 2px rgba(255,255,255,0.3), 0 1px 2px rgba(0,0,0,0.4), 0 0 4px #66ccff
+  &.no-touch .us-form select:not([size]):hover
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.3), 0 1px 2px rgba(0,0,0,0.4), 0 0 0 3px #ff8
+
+.cssgradients
+  .us-form select:not([size])
+    border-color: #ececec
+    +linear-gradient(top, white, #ececec, $fallback: #ececec)
+    &.focus
+      border-color: #6cf
+    &.error
+      border-color: #bf212e
+  .us-form.error select, .us-form .error select
+    border-color: #bf212e
+
+/* ie9/10 */
+@media screen and (min-width: 0 \0)
+  .us-form select:not([size])::-ms-expand
+    background: transparent
+    border: none
+    width: 12px
+    padding-left: 5px
+  .boxshadow .us-form select:not([size])
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.3), 0 1px 2px rgba(0,0,0,0.4)
+  .boxshadow .us-form select:not([size]):focus
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.3), 0 1px 2px rgba(0,0,0,0.4), 0 0 4px #66ccff
+  .no-touch.boxshadow .us-form select:not([size]):hover
+    border-color: #fff
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.3), 0 1px 2px rgba(0,0,0,0.4), 0 0 0 3px #ff8
+
+/* firefox - use a wrap */
+@-moz-document url-prefix()
+  .us-form select:not([size])
+    max-width: 999px !important
+  .us-form option
+    padding-right: 10px
+  .us-form-select-wrap
+    position: relative
+    display: inline-block
+    vertical-align: baseline
+    font-size: 14px
+    &.input-big
+      font-size: 17px
+    &:before
+      content: ''
+      position: absolute
+      right: 0.5em
+      top: 0.3em
+      z-index: 11
+      bottom: 0.3em
+      width: 1.55em
+      +linear-gradient(top, white, #ececec, $fallback: #ececec)
+      pointer-events: none
+    &:after
+      content: '\25bc'
+      position: absolute
+      right: 5px
+      top: 0.9em
+      bottom: 0.8em
+      z-index: 12
+      font-size: 0.6em
+      font-family: "uswitch-icon",helvetica,arial,sans-serif
+      line-height: 1
+      padding: 0.5em 4px 0
+      color: #999
+      border-left: 1px solid #fff
+      box-shadow: -1px 0 0 #dddddd
+      text-shadow: 0 1px 0 #fff
+      pointer-events: none
+
+/* webkit */
+@media all and (-webkit-min-device-pixel-ratio: 0)
+  .us-form select:not([size])
+    padding-right: 30px
+  .boxshadow .us-form 
+    select:not([size])
+      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAWCAYAAADafVyIAAAAzElEQVRIDWP8//8/Ay0BE8zws2fPgmyium1wC2AWUZsetYBgiI4GEcEgYiGoAqqgq6trGZAZia4emFGXlZeXR6OLw/hEx8G/f/+ygYY9hWkE0UD+IyCVhSyGzibagoqKiveMjIyJIHNBhgAN/wekYoGu/wji4wJEWwAyoKysbDfQ4ClQw7qAhh/CZTBMnOg4gGl4+fJluYSEhNC9e/fqYGJ4aaCLQN5lOHPmDJACAzAfyKIKTVIQ4XUpDslRC3AEDEJ46AcRIyg50hIAANnugKRDswA6AAAAAElFTkSuQmCC"), -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #ededed))
+      background-image: url("data:image/svg+xml;utf8,<svg width='24px' height='22px' version='1.1' xmlns='http://www.w3.org/2000/svg'><title>select-arrow</title><g id='arrow-group' fill='rgb(223,223,223)' fill-rule='evenodd'><path d='M10,9 L13.4690265,14 L17,9 L10,9 Z M10,9' id='arrow' fill='rgb(155,155,155)'></path><path d='M2,1 L2,21 L3,21 L3,1 L2,1 Z M2,1' id='dark-line' fill='rgb(213,213,213)'></path><path d='M3,1 L3,21 L4,21 L4,1 L3,1 Z M3,1' id='light-line' fill='rgb(254,255,255)'></path></g></svg>"), -webkit-linear-gradient(-90deg, white 0%, #ededed 100%)
+      background-repeat: no-repeat, repeat
+      background-position: 100% 50%, 0 0
+      &.error
+        color: #bf212e
+        border-color: #bf212e
+    &.error select:not([size]), .error select:not([size])
+      color: #bf212e
+      border-color: #bf212e
+  .boxshadow .us-form select:not([size]):focus
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.3), 0 1px 2px rgba(0,0,0,0.4), 0 0 4px #66ccff
+  .no-touch.boxshadow .us-form select:not([size]):hover
+    border-color: #c8c8c8
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.3), 0 1px 2px rgba(0,0,0,0.4), 0 0 0 3px #ff8
+
+/* multiple line select control (eg <select size="10">) */
+.us-form
+  select[size]
+    -webkit-appearance: none
+    -webkit-box-sizing: content-box
+    -moz-box-sizing: content-box
+    box-sizing: content-box
+    display: inline-block
+    height: auto
+    margin: 2px
+    padding: 0.3em 0 0.3em 0.4em
+    border: 1px solid #C4C0C0
+    border-radius: 2px
+    box-shadow: 0px 3px 2px #eee inset
+    font-family: "Lucida Grande",helvetica,arial,sans-serif
+    font-size: 0.85em !important
+    -webkit-transition: box-shadow 200ms, border-color 200ms
+    -moz-transition: box-shadow 200ms, border-color 200ms
+    -ms-transition: box-shadow 200ms, border-color 200ms
+    transition: box-shadow 200ms, border-color 200ms
+    vertical-align: middle
+    overflow: scroll
+    .error
+      border-color: #bf212e
+    &:focus
+      outline: none
+      color: #333
+      border-color: #6cf
+      box-shadow: 1px 3px 2px #eee inset, 0 0 4px #6cf
+      &:hover
+        outline: none
+        color: #333
+        border-color: #6cf
+        box-shadow: 1px 3px 2px #eee inset, 0 0 4px #6cf
+  &.error,.error
+    select[size]
+      border-color: #bf212e
+      color: inherit
+.no-touch .us-form
+  select[size]:hover
+    border-color: #C4C0C0
+    box-shadow: 1px 3px 2px #eee inset, 0 0 0 2px #ff8
+
+/* hidden */
+.us-form
+  select.hidden
+    display: none

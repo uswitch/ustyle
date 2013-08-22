@@ -1,0 +1,147 @@
+$standard: #eaeaea
+$red: #D3042E
+$skyblue: #0086E5
+$dullblue: #D3DDFF
+$pink: #E60096
+$purple: #8C1EB6
+$midnightblue: #0055C9
+$orange: #FFAD3D
+$plum: #8A2166
+$magenta: #E10174
+$green: #5D9823
+$yellow: #F8C600
+
+button
+  position: relative
+  margin: 0
+  background: transparent
+  border: 0
+  cursor: pointer
+  overflow: visible
+
+.btn,.us-form .btn,.pds-vote-button,/* This class is used by polldaddy buttons */.flat_btn
+
+  position: relative
+  -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box
+  box-sizing: border-box
+  display: inline-block
+  vertical-align: middle
+  height: auto
+  margin: 2px
+  padding: 0.5em 1em  
+  
+  color: #333 !important
+  +linear-gradient(top, white, #ececec, $fallback: #ececec)
+  border: 1px solid #eaeaea
+  border-radius: 0.3em
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.3), 0 1px 2px rgba(0,0,0,0.4)
+  font-family: $normal-font-2
+  font-weight: bold
+  font-size: 14px
+  line-height: 1em
+  text-decoration: none
+  
+  overflow: hidden
+  white-space: nowrap
+  cursor: pointer
+  
+  +transition(box-shadow 200ms, border-color 200ms)
+  
+  &.btn_big
+    font-size: 17px
+  &:hover
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.3), 0 1px 2px rgba(0,0,0,0.4), 0 0 0 3px $yellow-2
+  &:active
+    box-shadow: inset 0 2px 3px rgba(0,0,0,0.4), 0 0 0 3px $yellow-3
+
+.btn_dark_bg
+  color: $black
+  box-shadow: inset 1px 10px 0 $white, 1px 1px 2px $grey-1
+
+/* disabled */
+.btn_disabled,.btn_disabled:hover,.btn_disabled:active,.us-form .btn_disabled
+  opacity: 0.5
+  filter: alpha(opacity=50)
+  box-shadow: none!important
+  cursor: default
+
+/* arrowed (input="submit" won't use this - you can't add pseudo elements to inputs) */
+.btn_arrowed
+  &:after
+    content: "\25b6"
+    position: relative
+    display: static
+    margin: 0 0 0 0.6em
+    opacity: 0.5
+    font-family: uswitch-icon,sans-serif
+    font-size: 0.7em
+    line-height: 1.1em
+
+/* colours */
+
+.btn_red,.us-form .btn_red
+  color: $white !important
+  background: $red
+  border-color: #D3042E
+  +linear-gradient(top, #FF0033, #D3042E, $fallback: #D3042E)
+
+.btn_pink,.us-form .btn_pink
+  color: $white !important
+  background: $pink
+  border-color: #E22E92
+  +linear-gradient(top, #EA4CA4, #E22E92, $fallback: #E22E92)
+
+.btn_purple,.us-form .btn_purple
+  color: $white !important
+  background: $purple
+  border-color: #8C1EB6
+  +linear-gradient(top, #BD2BF1, #8C1EB6, $fallback: #8C1EB6)
+
+.btn_midnightblue,.us-form .btn_midnightblue
+  color: $white !important
+  background: $midnightblue
+  border-color: #153F7D
+  +linear-gradient(top, #0077DE, #1951A5, $fallback: #1951A5)
+
+.btn_skyblue,.us-form .btn_skyblue
+  color: $white !important
+  background: $skyblue
+  border-color: #0673C0
+  +linear-gradient(top, #42A4E4, #0789E5, $fallback: #0789E5)
+
+.btn_orange,.us-form .btn_orange
+  color: $white !important
+  background: $orange
+  border-color: #E83F00
+  +linear-gradient(top, #F47829, #E83F00, $fallback: #E83F00)
+
+.btn_green,.us-form .btn_green
+  color: $white !important
+  background: $green
+  border-color: #459D0B
+  +linear-gradient(top, #89CB06, #4FB40D, $fallback: #4FB40D)
+
+.btn_yellow,.us-form .btn_yellow
+  color: #000 !important
+  background: $yellow
+  border-color: #F8C600
+  +linear-gradient(top, #FFDD55, #4FB40D, $fallback: #F8C600)
+
+.btn_plum,.us-form .btn_plum
+  color: $white !important
+  background: $plum
+  border-color: #8A2166
+  +linear-gradient(top, #A55389, #8A2166, $fallback: #8A2166)
+
+.btn_magenta,.us-form .btn_magenta
+  color: $white !important
+  background: $magenta
+  border-color: #8A2166
+  +linear-gradient(top, #FF0184, #E10174, $fallback: #E10174)
+
+.btn_dullblue,.us-form .btn_dullblue
+  color: #0C1424 !important
+  background: $dullblue
+  border-color: #B3C7EB
+  +linear-gradient(top, #D3DDFF, #B3C7EB, $fallback: #B3C7EB)

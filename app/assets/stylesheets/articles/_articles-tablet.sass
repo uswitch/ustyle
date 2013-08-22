@@ -1,0 +1,25 @@
+.main-content, .secondary-content, .secondary
+  .articles
+    li
+      clear: none
+      +transition(background-color 200ms ease 0)
+    li:hover
+      background-color: $light-blue-5
+    .featured
+      margin-bottom: 0
+      img
+        display: block
+        float: none
+        max-height: 100%
+        max-width: 100%
+        width: 100%
+      h3
+        margin: 10px 0
+      .intro
+        p
+          margin-left: 0
+          color: $grey-2
+          
+    .non-desktop-edge
+      margin-right: 0 !important
+      

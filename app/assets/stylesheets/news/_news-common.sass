@@ -1,0 +1,357 @@
+body, h1, h2, h3, h4, h5, p, ul, ol, li
+  margin: 0
+  padding: 0
+
+li
+  list-style-type: none
+
+nav, article, time, header, footer, section
+  display: block
+
+body
+  color: $grey-1
+  font-family: $normal-font-2
+  font-size: 14px
+  margin: 0
+  padding: 0
+
+a, .fake-link
+  text-decoration: none
+  color: $blue-2
+  cursor: pointer
+  &:hover,
+    color: $blue-3
+  &:visited
+    color: $blue-4
+
+.crumb-nav
+  margin: 20px 0 10px
+  padding: 0 10px
+
+section.widget
+  h2, ul.tabs li.current
+    background-color: $light-blue-1
+    border-bottom: 2px solid $blue-21
+    display: block
+    font-family: "FS Elliot Web Bold", $normal-font-2
+    font-weight: normal
+    overflow: hidden
+    span, a
+      background: $blue-21
+      color: white
+      float: left
+      font-size: 16px
+      font-weight: bold
+      height: 39px
+      line-height: 39px
+      text-align: center
+      padding: 0 16px
+      text-decoration: none
+
+  ul.tabs 
+    background-color: $light-blue-7
+    border-bottom: 2px solid $blue-21
+    overflow: hidden
+    li
+      float: left
+      font-family: "FS Elliot Web Bold", $normal-font-2
+      font-weight: normal
+      a
+        color: $grey-12
+        text-align: center
+        text-decoration: underline
+      &.current a, a
+        font-size: 14px
+        height: 30px
+        padding: 0 9px
+        line-height: 30px
+    
+  .tab-content
+    background-color: $light-blue-6
+    clear: left
+    margin-bottom: 10px
+    li
+      position: relative
+      border-bottom: 2px solid $darkPink
+      padding-top: 8px
+      &:hover
+        a
+          color: $blue-17
+      &.rank-2
+        border-color: $green-4
+        span
+          background-color: $green-4
+      &.rank-3
+        border-color: $orange-2
+        span
+          background-color: $orange-2
+      &.rank-4
+        border-color: $purple-2
+        span
+          background-color: $purple-2
+      &.rank-5
+        border-color: $yellow-4
+        span
+          background-color: $yellow-4
+    span
+      background-color: $darkPink
+      color: $white
+      display: block
+      font-size: 16px
+      height: 20px
+      left: 0
+      line-height: 20px
+      position: absolute
+      text-align: center
+      width: 20px
+      z-index: 11
+    img
+      border: 0
+      float: left
+      margin: -8px 11px 0 0
+      position: relative
+      z-index: 10
+    a
+      color: $grey-1
+      font-size: 13px
+      font-weight: bold
+      min-height: 55px
+      _height: 55px
+      display: block
+      margin-bottom: 9px
+      padding: 8px 11px 0 0
+      position: relative
+      text-decoration: underline
+
+.print-footer, .hidden
+  display: none
+
+nav.news
+  margin-bottom: 10px
+  li
+    font-family: "FS Elliot Web Bold", $normal-font-2
+    font-weight: normal
+    a
+      background: $light-blue-1
+      color: $blue-18
+      display: block
+      font-size: 20px
+      font-weight: bold
+      line-height: 40px
+      margin-bottom: 2px
+      padding: 0 17px
+      position: relative
+      text-decoration: none
+      &:after
+        border-top: 5px solid transparent
+        border-right: none
+        border-bottom: 5px solid transparent
+        border-left: 9px solid $blue-18
+        content: ""
+        display: inline-block
+        margin-left: 7px
+        position: relative
+        height: 0
+        width: 11px
+
+
+.page-intro, .article-intro, .author-intro
+  h1, h2
+    color: $blue-18
+    font-family: "FS Elliot Web Bold", $normal-font-2
+    font-weight: normal
+  h1
+    font-size: 24px
+    line-height: 1.25
+    margin-bottom: 6px
+  h2
+    font-size: 16px
+    font-weight: 400
+    line-height: 1.3
+    margin-bottom: 7px
+
+.page-intro
+  padding: 0 10px
+  margin-bottom: 20px
+
+.author-intro
+  overflow: hidden
+  position: relative
+  padding: 0 10px
+  h1, a.google-plus
+    float: left
+    margin-right: 10px
+  a.google-plus
+    margin-top: 5px
+  img.author
+    display: none
+  .author-body
+    clear: left
+    margin-bottom: 0
+
+.article-body, .author-body
+  margin-bottom: 20px
+  a
+    color: $grey-1
+    text-decoration: underline
+    &:hover
+      color: $blue-18
+  p, li
+    line-height: 1.7
+    margin: 1em 0
+  p.first
+    font-weight: bold
+
+.article-list
+  margin-bottom: 10px
+  img
+    display: none
+  li
+    border-bottom: 1px dotted $grey-12
+    clear: both
+    padding: 10px 10px 12px
+    h3
+      clear: left
+      font-size: 16px
+      font-family: "FS Elliot Web Bold", $normal-font-2
+      font-weight: normal
+      margin-bottom: 12px
+    a
+      color: $grey-1
+    .meta
+      font-size: 14px
+      line-height: 26px
+    span
+      background-color: $blue-15
+      color: white
+      clear: left
+      display: block
+      float: left
+      font-size: 14px
+      font-family: "FS Elliot Web Bold", $normal-font-2
+      height: 26px
+      line-height: 26px
+      margin-right: 7px
+      margin-bottom: 11px
+      padding: 0 7px
+    &.listing
+      h3
+        font-family: $normal-font-2
+        font-size: 14px
+        margin-bottom: 10px
+        text-decoration: underline
+      span
+        float: none
+        display: inline-block
+        margin: 0
+      p
+        margin-bottom: 5px
+  
+.pagination
+  margin-bottom: 20px
+  overflow: hidden
+  li
+    float: left
+    padding-left: 10px
+    width: 45%
+    a
+      color: $grey-1
+      text-decoration: underline
+    &.current
+      padding: 0
+      display: none
+    &.next
+      padding: 0 10px 0 0
+      text-align: right
+    &.disabled
+      color: $grey-12
+      
+.tags
+  p:first-child
+    font-weight: normal
+  li a
+    font-weight: bold
+    color: $grey-1
+    text-decoration: underline
+
+.article-meta
+  font-family: $normal-font-2
+  font-weight: bold
+  margin-bottom: 35px
+  img
+    border-radius: 80px
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2), 1px -1px 2px rgba(0, 0, 0, 0.2)
+    margin-right: 17px
+  a
+    color: $grey-1
+  time
+    color: $grey-12
+    font-size: 12px
+    font-weight: bold
+  .article-info, .author
+    float: left
+  .article-info
+    overflow: hidden
+    p
+      font-weight: bold
+      margin: 20px 0 5px
+
+.share
+  margin-top: 15px
+  
+.comments, .fb, .twitter
+  float: left
+  margin-right: 30px
+  
+.comments
+  background: url(../../images/news/news_sprite.png) -1px -213px no-repeat
+  float: left
+  margin-right: 33px
+  a
+    cursor: pointer
+    padding: 5px 0px 0 0
+    display: block
+    height: 36px
+    width: 50px
+    text-align: center
+    overflow: hidden
+    line-height: 2
+    color: white
+    font-weight: bold
+  
+.categories
+  clear: both
+  ul
+    margin-top: 10px
+    padding: 0 10px
+    li
+      line-height: 2
+      ul
+        margin-top: 0
+        margin-bottom: 15px
+        padding: 0
+        li
+          overflow: hidden
+      a
+        color: $blue-18
+        font-weight: bold
+        span
+          float: left
+          &.num
+            color: $grey-12
+            float: right
+            font-weight: normal
+        &.see-all
+          color: $grey-1
+          font-weight: normal
+          text-decoration: underline
+          float: right
+      h3
+        margin-bottom: 10px
+        a
+          border-bottom: 1px dotted $grey-5
+          display: block
+          font-family: $heading-font-bold
+          font-weight: normal
+          font-size: 18px
+          line-height: 1.8

@@ -1,0 +1,23 @@
+@import "bourbon"
+@import "basic/variables"
+@import "basic/mixins"
+
+.main-content .crumb-nav, .crumb-nav
+  display: block
+  overflow: hidden
+  li
+    color: $grey-3
+    float: left
+    font-size: 12px
+    margin-right: 10px
+    padding-bottom: 5px
+    a
+      color: $grey-3
+      padding: 0 15px 0 0
+      background-image: url(../images/chevron.png)
+      background-position: 100% 50%
+      background-repeat: no-repeat
+      &:hover
+        color: $blue-10
+        &:visited
+          color: $blue-4

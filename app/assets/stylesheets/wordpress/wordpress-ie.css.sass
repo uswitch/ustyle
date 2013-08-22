@@ -1,0 +1,25 @@
+@import url("https://dhs7e4xw115sr.cloudfront.net/v0.24.1/stylesheets/crumb-nav.css")
+@import "bourbon"
+@import "../basic/variables"
+@import "../basic/mixins"
+@import "../content/content-tablet"
+@import "../content/content-desktop"
+
+.ie6
+  header, nav, aside, figure, section, form
+    zoom: 1
+  section.postcode, section.cta
+    margin-bottom: 0
+    background: none
+
+.ie7, .ie6
+  .guide
+    header
+      h1, .byline
+        background-color: $white
+        
+  .category
+    header
+      h1, .byline
+        background-color: $blue-18
+        

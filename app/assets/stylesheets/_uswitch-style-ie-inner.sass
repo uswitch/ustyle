@@ -1,0 +1,26 @@
+@import "tablet-grid"
+@import "desktop-grid"
+@import "final-grid"
+@import "buttons-ie"
+
+.ie6 
+  ul
+    margin-left: 0
+  form li
+    zoom: 1
+  .progress
+    li
+      text-align: left
+      span
+        margin: 0
+
+.progress
+  position: relative
+  z-index: 100
+  li
+    span
+      border-radius: 16px
+      @if $has-pie
+        behavior: url($pie)
+      position: relative
+      z-index: 100000
