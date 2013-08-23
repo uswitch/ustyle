@@ -4,6 +4,8 @@
 @import "articles/desktop"
 @import "articles/final"
 
-.js .featured .intro
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#95FFFFFF, endColorstr=#95FFFFFF)"
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#95FFFFFF, endColorstr=#95FFFFFF)
+.js
+&.js // IE inheritance
+  .featured .intro
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#95FFFFFF, endColorstr=#95FFFFFF)"
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#95FFFFFF, endColorstr=#95FFFFFF)
