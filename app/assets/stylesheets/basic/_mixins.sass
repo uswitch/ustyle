@@ -1,9 +1,0 @@
-// Add custom mixins here
-
-@mixin background-clip($prop)
-  +prefixer(background-clip, $prop, webkit moz spec)
-
-=background-clip($type)
-  -moz-background-clip: $type
-  -webkit-background-clip: $type
-  background-clip: $type
