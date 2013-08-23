@@ -4,6 +4,7 @@
 
 .us-form
   input,textarea
+    @extend %normal-font
     -webkit-appearance: none
     -webkit-box-sizing: border-box
     -moz-box-sizing: border-box
@@ -16,7 +17,6 @@
     border: 1px solid #C4C0C0
     border-radius: 2px
     box-shadow: 0px 3px 2px #eee inset
-    font-family: $normal-font-2
     font-size: 14px
     -webkit-transition: box-shadow 200ms, border-color 200ms
     -moz-transition: box-shadow 200ms, border-color 200ms
@@ -25,7 +25,7 @@
       border-color: #bf212e
     &:focus
       outline: none
-      color: #333
+      color: $grey-1
       border-color: #6cf
       box-shadow: 1px 3px 2px #eee inset, 0 0 4px #6cf
     &:disabled,&:disabled:hover
@@ -97,13 +97,13 @@
       &[type="radio"]::-ms-check
         padding: 0.1em
         border: none
-        color: #333
+        color: $grey-1
         box-shadow: inset 0 1px 4px #999
       &[type="checkbox"]
         &::-ms-check
           padding: 0.1em
           border: none
-          color: #333
+          color: $grey-1
           box-shadow: inset 0 1px 4px #999
         border-radius: 3px
         &:disabled::-ms-check
@@ -126,7 +126,7 @@
           bottom: 0
           width: 1em
           height: 1em
-          color: #333
+          color: $grey-1
           font-size: 1.5em
           font-family: 'uswitch-icon',meiryo,'sans-serif'
           line-height: 1
@@ -144,7 +144,7 @@
         -webkit-appearance: none
         position: relative
         &:checked
-          background: #333
+          background: $grey-1
           box-shadow: inset 0 1px 3px #666, inset 0 0 0 0.4em #fff
           &:disabled
             background: #999

@@ -9,8 +9,8 @@ nav, article, time, header, footer, section
   display: block
 
 body
+  @extend %normal-font
   color: $grey-1
-  font-family: $normal-font-2
   font-size: 14px
   margin: 0
   padding: 0
@@ -30,11 +30,10 @@ a, .fake-link
 
 section.widget
   h2, ul.tabs li.current
+    @extend %heading-font-bold
     background-color: $light-blue-1
     border-bottom: 2px solid $blue-21
     display: block
-    font-family: "FS Elliot Web Bold", $normal-font-2
-    font-weight: normal
     overflow: hidden
     span, a
       background: $blue-21
@@ -53,9 +52,8 @@ section.widget
     border-bottom: 2px solid $blue-21
     overflow: hidden
     li
+      @extend %heading-font-bold
       float: left
-      font-family: "FS Elliot Web Bold", $normal-font-2
-      font-weight: normal
       a
         color: $grey-12
         text-align: center
@@ -129,8 +127,7 @@ section.widget
 nav.news
   margin-bottom: 10px
   li
-    font-family: "FS Elliot Web Bold", $normal-font-2
-    font-weight: normal
+    @extend %heading-font-bold
     a
       background: $light-blue-1
       color: $blue-18
@@ -157,9 +154,8 @@ nav.news
 
 .page-intro, .article-intro, .author-intro
   h1, h2
+    @extend %heading-font-bold
     color: $blue-18
-    font-family: "FS Elliot Web Bold", $normal-font-2
-    font-weight: normal
   h1
     font-size: 24px
     line-height: 1.25
@@ -211,10 +207,9 @@ nav.news
     clear: both
     padding: 10px 10px 12px
     h3
+      @extend %heading-font-bold
       clear: left
       font-size: 16px
-      font-family: "FS Elliot Web Bold", $normal-font-2
-      font-weight: normal
       margin-bottom: 12px
     a
       color: $grey-1
@@ -222,13 +217,13 @@ nav.news
       font-size: 14px
       line-height: 26px
     span
+      @extend %heading-font-bold
       background-color: $blue-15
       color: white
       clear: left
       display: block
       float: left
       font-size: 14px
-      font-family: "FS Elliot Web Bold", $normal-font-2
       height: 26px
       line-height: 26px
       margin-right: 7px
@@ -236,7 +231,7 @@ nav.news
       padding: 0 7px
     &.listing
       h3
-        font-family: $normal-font-2
+        @extend %normal-font
         font-size: 14px
         margin-bottom: 10px
         text-decoration: underline
@@ -275,7 +270,7 @@ nav.news
     text-decoration: underline
 
 .article-meta
-  font-family: $normal-font-2
+  @extend %normal-font
   font-weight: bold
   margin-bottom: 35px
   img
@@ -349,9 +344,8 @@ nav.news
       h3
         margin-bottom: 10px
         a
+          @extend %heading-font-bold
           border-bottom: 1px dotted $grey-5
           display: block
-          font-family: $heading-font-bold
-          font-weight: normal
           font-size: 18px
           line-height: 1.8

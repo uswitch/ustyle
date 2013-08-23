@@ -12,14 +12,12 @@
   margin: 0
 
   h1, h2, h3
-    font:
-      family: $heading-font-bold
-      weight: normal
+    @extend %heading-font-bold
       
   .font-bold
-    font-family: $heading-font-bold
+    @extend %heading-font-bold
   .font-reg
-    font-family: $heading-font-regular
+    @extend %heading-font-regular
 
   h1, h2, h3, h4, h5
     margin: 0
@@ -313,10 +311,10 @@ p.help
             text-align: center
       &.current
         span
+          @extend %heading-font-bold
           color: white
           background: #166ac3
-          font-family: "FS Elliot Web Bold", Helvetica, Arial, sans-serif
-          font-weight: normal
+          
         b
           display: block
           max-width: 5em
@@ -436,9 +434,9 @@ table
           font-size: 14px
 
       .amount
+        @extend %normal-font
         color: $green-1
         font-size: 18px
-        font-family: $normal-font-2
         font-weight: bold
         line-height: 1.2
         margin-bottom: 0

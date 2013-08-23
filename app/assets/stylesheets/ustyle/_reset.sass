@@ -3,13 +3,13 @@
 
 @import "basic/reset-common"
 
-@media all and (min-width: 500px)
+@media all and (min-width: $tablet-width)
   @import "grid/tablet"
   
-@media screen and (min-width: 868px)
+@media screen and (min-width: $desktop-width)
   @import "grid/desktop"
 
-@media screen and (min-width: 962px)
+@media screen and (min-width: $grid-width)
   @import "grid/final"
 
 @media print
