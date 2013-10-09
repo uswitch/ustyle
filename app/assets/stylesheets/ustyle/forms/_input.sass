@@ -1,0 +1,17 @@
+input,
+textarea
+  +transition(border 333ms, box-shadow 333ms)
+  border: 1px solid $grey-10
+
+  &:hover
+    border-color: $uswitch-light-blue
+
+  &:focus
+    border-color: $uswitch-light-blue
+    box-shadow: 1px 2px $uswitch-light-blue
+
+  &::-webkit-input-placeholder,
+  &:-moz-placeholder,
+  &::-moz-placeholder,
+  &:-ms-input-placeholder
+    color: $grey-10
