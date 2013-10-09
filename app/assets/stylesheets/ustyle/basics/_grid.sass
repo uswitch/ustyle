@@ -1,0 +1,27 @@
+%container
+  +us-pie-clearfix
+  width: 100%
+  margin-left: auto
+  margin-right: auto
+  position: relative
+
+  +respond-to(tablet)
+    width: em($tablet-container-width)
+
+  +respond-to(desktop)
+    width: em($desktop-container-width)
+
+  +respond-to(large-desktop)
+    width: em($large-container-width)
+
+@mixin us-col($cols)
+  float: left
+  margin-right: gutter-width()
+  width: col-width($cols)
+
+  &:last-child
+    margin-right: 0
+
+.ie8
+  .last
+    margin-right: 0 !important

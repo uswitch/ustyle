@@ -1,0 +1,38 @@
+// ! Respond to device mixins
+// --------------------------
+
+= respond-to($device, $ie-fallback: false)
+
+  @each $listed-device in $devices
+    @if nth($listed-device, 1) == $device
+      @media screen and (unquote("#{nth($listed-device, 2)}-width:") nth($listed-device, 3))
+        @content
+
+      @if nth($listed-device, 4)
+        .ie8 &
+          @content
+
+      @if $ie-fallback
+        .ie8 &
+          @content
+
+  // Vertical responsive
+  @if $device == "laptop"
+    @media screen and (max-height: em(768px)) and (min-width: $desktop-width)
+      @content
+
+  @if $device == "netbook"
+    @media screen and (max-height: em(721px)) and (min-width: $desktop-start)
+      @content
+      
+  @if $device == "old-screen"
+    @media screen and (max-height: em(768px)) and (max-width: em(1024px))
+      @content
+
+  @if $device == "small-screen"
+    @media screen and (max-height: em(900px))
+      @content
+
+  @if $device == "large-screen"
+    @media screen and (min-height: em(768px))
+      @content

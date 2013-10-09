@@ -1,0 +1,88 @@
+// -------
+// Colours
+// -------
+
+// Standard uSwitch colours from the brand guidelines
+
+$uswitch-blue: #184699
+$uswitch-dark-blue: #1c1f4e
+$uswitch-light-blue: #00B8FF
+$uswitch-lightest-blue: #99E2FF
+$uswitch-red: #DF4A3A
+$uswitch-yellow: #F7BD35
+$uswitch-turquoise: #56B2A4
+$uswitch-black: #2F3335
+$uswitch-orange: #EC801B
+$uswitch-green: #52B50D
+// Highlights
+
+$pink: #ff0099
+$pink-light: #ffe5f5
+$pine-green: #2b9087
+$pine-green-light: #d6eeed
+$lime-green: #3cb906
+$lime-green-light: #d2f7cd
+$yellow: #feda3b
+$orange: #ff9c00
+
+// Greys
+$grey-10: #f4f4f4 !default
+$grey-9: #eee !default
+$grey-8: #ddd !default
+$grey-7: #ccc !default
+$grey-6: #bbb !default
+$grey-5: #aaa !default
+$grey-4: #999 !default
+$grey-3: #666 !default
+$grey-2: #555 !default
+$grey-1: #333 !default
+$grey-0: #222 !default
+// -----
+// Fonts
+// -----
+
+$heading-font-bold    : "FS Elliot Web Bold", Helvetica, Arial, sans-serif !default
+$heading-font-regular : "FS Elliot Web Regular", Helvetica, Arial, sans-serif !default
+$normal-font          : "Helvetica Neue", Helvetica, Arial, sans-serif !default
+
+
+// PIE
+$pie : "//www.uswitch.com/home-1/PIE.htc" !default
+$pie-development: false !default
+$has-pie: true !default
+
+// Typography
+// -----
+
+$base-font-size: 16px
+$base-line-height: 24px
+
+
+// Device sizes
+// -----
+
+$large-desktop-width: em(1200px)
+$desktop-width:       em(992px)
+$tablet-width:        em(768px)
+$mobile-width:        em(480px)
+
+$mobile-end: $mobile-width
+$tablet-start: $mobile-end + 1
+$tablet-end: $tablet-width + 1
+$desktop-start: $tablet-width
+
+$devices: (mobile, max, ($tablet-width - 1), false), (tablet, min, $tablet-width, false), (from-tablet, min, $tablet-end, false), (to-desktop, max, $desktop-width, false), (desktop, min, $desktop-width, true), (large-desktop, min, $large-desktop-width, true) !default
+
+// Grid settings
+// -----
+$col-width: 70px
+$gutter-width: 30px
+$grid-columns: 12
+$grid-columns-desktop: 10
+$grid-columns-tablet: 8
+
+$large-container-width: ($grid-columns * $col-width) + ( ($grid-columns - 1) * $gutter-width)
+
+$desktop-container-width: ($grid-columns-desktop * $col-width) + ( ($grid-columns-desktop - 1) * $gutter-width)
+
+$tablet-container-width: ($grid-columns-tablet * $col-width) + ( ($grid-columns-tablet - 1) * $gutter-width)
