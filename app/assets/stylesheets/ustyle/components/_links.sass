@@ -1,0 +1,14 @@
+.us-link
+  +transition(color 333ms)
+  color: $uswitch-blue
+  text-decoration: underline
+
+  &:hover
+    color: $uswitch-light-blue
+
+  &:focus,
+  &:visited
+    color: darken($uswitch-blue, 15%)
+
+    &:hover
+      color: $uswitch-light-blue

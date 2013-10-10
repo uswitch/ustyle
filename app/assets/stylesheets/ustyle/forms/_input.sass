@@ -9,6 +9,12 @@ textarea
   outline: 0
   color: $grey-1
 
+  &::-webkit-input-placeholder,
+  &:-moz-placeholder,
+  &::-moz-placeholder,
+  &:-ms-input-placeholder
+    color: $grey-4
+
   &:hover
     border-color: $uswitch-light-blue
 
@@ -16,11 +22,12 @@ textarea
     border-color: $uswitch-light-blue
     box-shadow: 0px 0px 3px $uswitch-light-blue
 
+    &::-webkit-input-placeholder,
+    &:-moz-placeholder,
+    &::-moz-placeholder,
+    &:-ms-input-placeholder
+      color: $grey-10
+
   &:disabled
     border-color: lighten($grey-10, 15%)
-
-  &::-webkit-input-placeholder,
-  &:-moz-placeholder,
-  &::-moz-placeholder,
-  &:-ms-input-placeholder
-    color: $grey-10
+    background-color: white
