@@ -8,9 +8,39 @@ input
     font-size: 0.8em
     cursor: pointer
     background-color: white
+    position: relative
 
   &[type="radio"]
     border-radius: 50%
 
   &[type="checkbox"]
     border-radius: 0.3em
+
+  @media all and (-webkit-min-device-pixel-ratio: 0)
+    &[type="checkbox"]
+      &:after
+        content: '\2714'
+        display: block
+        position: absolute
+        left: 2px
+        bottom: 0
+        width: 1em
+        height: 1em
+        color: $grey-1
+        font-size: 1.5em
+        font-family: 'uswitch-icon', meiryo, sans-serif
+        line-height: 1
+        text-align: center
+        opacity: 0
+        -webkit-transform: scale3d(2, 2, 1)
+        -webkit-transition: -webkit-transform 100ms ease-in, opacity 100ms ease-in
+        pointer-events: none
+
+      &:checked:after
+        opacity: 1
+        -webkit-transform: scale3d(1, 1, 1)
+
+    &[type="radio"]
+      &:checked
+        background: $grey-1
+        box-shadow: inset 0 0 0 0.35em white
