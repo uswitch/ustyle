@@ -1,14 +1,16 @@
-input,
-textarea
+.us-form-input
   -webkit-appearance: none
-  +box-sizing(border-box)
+  +us-box-sizing(border-box)
   +transition(border-color 200ms, box-shadow 200ms)
+  font-size: 1em
   border-radius: em(3px)
   padding: 0.35em 0.5em
   border: 1px solid $grey-10
   box-shadow: none
   outline: 0
   color: $grey-1
+  display: inline-block
+  height: 2.2em
 
   &::-webkit-input-placeholder,
   &:-moz-placeholder,
