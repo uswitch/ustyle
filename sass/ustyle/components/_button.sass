@@ -1,3 +1,22 @@
+// Default uSwitch buttons
+//
+// :hover - Hover state, darkens
+// :focus - Pressed animation
+// .primary - Usually used a save/update button
+// .primary:hover - Hover state for primary button
+// .primary:focus - Focus state for primary button
+// .secondary - Secondary use button, can be used multiple times
+// .secondary:hover - Hover state for secondary button
+// .secondary:focus - Focus state for secondary button
+// .arrowed - Arrowed button used for CTAs
+// .arrowed:hover - Hover state for arrowed button
+// .arrowed:focus - Focus state for arrowed button
+// .light - Light button used for dark backgrounds
+// .light:hover - Hover state for light button
+// .light:focus - Focus state for light button
+//
+// Styleguide 2.1
+
 %btn,
 .us-btn
   @extend %heading-font-bold
@@ -29,7 +48,7 @@
     top: 3px
     box-shadow: 0px 2px 0px mix($button-color, black, 65%)
 
-  &.us-btn_arrowed
+  &.arrowed
   
     &:after
       @extend %link-triangle
@@ -39,25 +58,33 @@
         margin-left: 0.8em
         margin-right: -0.3em
 
-  &.us-btn_white
-    color: black
-    background-color: white
-    box-shadow: 0px 5px 0px mix(white, black, 80%)
+  &.primary
+    background-color: $uswitch-green
+    box-shadow: 0 5px 0 mix($uswitch-green, black, 80%)
 
     &:hover
-      background-color: mix(white, black, 80%)
-      box-shadow: 0px 5px 0px mix(white, black, 70%)
+      background-color: mix($uswitch-green, black, 90%)
+      box-shadow: 0 5px 0 mix($uswitch-green, black, 80%)
 
     &:focus,
     &:active
-      background-color:  mix(white, black, 75%)
-      box-shadow: 0px 2px 0px mix(white, black, 65%)
+      background-color: mix($uswitch-green, black, 90%)
+      box-shadow: 0 2px 0 mix($uswitch-green, black, 80%)
 
-  &.us-btn_big
-    font-size: em(24px)
+  &.secondary
+    background-color: $uswitch-light-blue
+    box-shadow: 0 5px 0 mix($uswitch-light-blue, black, 75%)
 
-  &.us-btn_hero
-    font-size: 1.2em
+    &:hover
+      background-color: mix($uswitch-light-blue, black, 80%)
+      box-shadow: 0 5px 0 mix($uswitch-light-blue, black, 75%)
+
+    &:focus,
+    &:active
+      background-color: $uswitch-light-blue
+      box-shadow: 0 2px 0 mix($uswitch-light-blue, black, 80%)
+
+  &.light
     color: $uswitch-dark-blue
     background-color: white
     box-shadow: 0px 5px 0px mix(white, black, 80%)
@@ -70,4 +97,3 @@
     &:active
       background-color:  mix(white, black, 75%)
       box-shadow: 0px 2px 0px mix(white, black, 65%)
-      top: -7px
