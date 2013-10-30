@@ -8,12 +8,18 @@
 // .secondary - Secondary use button, can be used multiple times
 // .secondary:hover - Hover state for secondary button
 // .secondary:focus - Focus state for secondary button
+// .tertiary - Tertiary use button, can be used multiple times
+// .tertiary:hover - Hover state for tertiary button
+// .tertiary:focus - Focus state for tertiary button
 // .arrowed - Arrowed button used for CTAs
 // .arrowed:hover - Hover state for arrowed button
 // .arrowed:focus - Focus state for arrowed button
 // .light - Light button used for dark backgrounds
 // .light:hover - Hover state for light button
 // .light:focus - Focus state for light button
+// .dark - dark button used for dark backgrounds
+// .dark:hover - Hover state for dark button
+// .dark:focus - Focus state for dark button
 //
 // Styleguide 2.1
 
@@ -84,6 +90,19 @@
       background-color: $uswitch-light-blue
       box-shadow: 0 2px 0 mix($uswitch-light-blue, black, 80%)
 
+  &.tertiary
+    background-color: $uswitch-blue
+    box-shadow: 0 5px 0 mix($uswitch-blue, black, 75%)
+
+    &:hover
+      background-color: mix($uswitch-blue, black, 80%)
+      box-shadow: 0 5px 0 mix($uswitch-blue, black, 75%)
+
+    &:focus,
+    &:active
+      background-color: $uswitch-blue
+      box-shadow: 0 2px 0 mix($uswitch-blue, black, 80%)
+
   &.light
     color: $uswitch-dark-blue
     background-color: white
@@ -97,3 +116,16 @@
     &:active
       background-color:  mix(white, black, 75%)
       box-shadow: 0px 2px 0px mix(white, black, 65%)
+
+  &.dark
+    background-color: $uswitch-dark-blue
+    box-shadow: 0px 5px 0px mix($uswitch-dark-blue, black, 80%)
+
+    &:hover
+      background-color: mix($uswitch-dark-blue, black, 80%)
+      box-shadow: 0px 5px 0px mix($uswitch-dark-blue, black, 70%)
+
+    &:focus,
+    &:active
+      background-color:  mix($uswitch-dark-blue, black, 75%)
+      box-shadow: 0px 2px 0px mix($uswitch-dark-blue, black, 65%)

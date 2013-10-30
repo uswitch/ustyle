@@ -23,25 +23,25 @@ class KssStateGenerator
     'first-child',
     'last-child']
 
-  constructor: ->
-    pseudos = new RegExp "(\\:#{psuedo_selectors.join('|\\:')})", "g"
+  pseudos = new RegExp "(\\:#{psuedo_selectors.join('|\\:')})", "g"
+  styleEl = document.createElement('style')
+  styleEl.type = 'text/css'
 
+  constructor: ->
+    
     try
       for stylesheet in document.styleSheets
         if stylesheet.href and stylesheet.href.indexOf(document.domain) >= 0
           idxs = []
           for rule, idx in stylesheet.cssRules
-            console.log rule
-            @buildRule(rule, pseudos)
-
-            if (rule.type == CSSRule.MEDIA_RULE)
+            @buildRule(rule)
+            if (rule.type is CSSRule.MEDIA_RULE)
               for mediaRule, idx in rule.cssRules
-                @buildRule(mediaRule, pseudos)
-
+                @buildRule(mediaRule)
             pseudos.lastIndex = 0
 
-  buildRule: (rule, pseudos) ->
-    if (rule.type == CSSRule.STYLE_RULE) and pseudos.test(rule.selectorText)
+  buildRule: (rule) ->
+    if (rule.type is CSSRule.STYLE_RULE) and pseudos.test(rule.selectorText)
       if rule.parentRule is null
         ruleText = rule.cssText.replace(pseudos, @replaceRule)
       else
@@ -54,11 +54,10 @@ class KssStateGenerator
 
   insertRule: (rule) ->
     headEl = document.getElementsByTagName('head')[0]
-    styleEl = document.createElement('style')
-    styleEl.type = 'text/css'
-  
-    styleEl.appendChild(document.createTextNode(rule))
-      
+    if styleEl.styleSheet
+      styleEl.styleSheet.cssText = rule
+    else
+      styleEl.appendChild(document.createTextNode(rule))
     headEl.appendChild(styleEl)
 
 new KssStateGenerator
