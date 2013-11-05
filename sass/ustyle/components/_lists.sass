@@ -1,11 +1,13 @@
 // List links
 //
-// 
-//
 // Styleguide 2.3
 
 
-.us-list
+.us-list  
+  list-style: none
+  margin: 0
+  padding: 0
+
   a
     @extend .us-link
     display: block
@@ -14,3 +16,9 @@
 
     &:after
       @extend %link-triangle
+      font-size: 0.8em
+
+    &:hover
+      &:after
+        margin-left: 0.8em
+        margin-right: -0.3em

@@ -2,15 +2,17 @@
 
 uStyle, aptly named, is the styleguide gem for uSwitch. Include it in your Rails/Sinatra/Anything project as a gem and forget about those annoying additional cloudfront includes.
 
-This is still in *alpha* stages and requires a massive cleanup. However it's already working as a base.
+*The gem has been completely rewritten from the ground up with the new uSwitch styles, please look at the old branch if you want the old one*
 
 ## Why?
 
-Because Google hates more than one request to a stylesheet, and because this way you can pick and choose what you want without referencing more URLs. It's more manageable and means that all you need to do is "bundle update ustyle" to get the latest styleguide. 
+Google hates more than one request to a stylesheet, and because this way you can pick and choose what you want without referencing more URLs. It's more manageable and means that all you need to do is "bundle update ustyle" to get the latest styleguide.
 
 ## Requirements
 
 - SASS
+
+This is only for the gem, not the styleguide within this project.
 
 ## Installation
 
@@ -22,13 +24,12 @@ And then execute:
 
     $ bundle
 
+To run on PHP projects or non-Ruby ones, you're going to have to set up a watch file to precompile the SASS. Guard-sass is a good option for this.
+
 ## To do
 
-- Add uStyle generators for non-Rails websites.
-- Clean up stylesheets
 - Modularise (more)
-- Added helpful variables to pass through to your app
-- Test on Sinatra apps
+- Finish off new styles
 
 ## Usage
 
@@ -36,34 +37,32 @@ If using rails and SASS, just import the base uSwitch styles at the start of you
 
     @import "ustyle"
 
-That's it! You'll have the equivalent of this:
+This will import *everything*, so if you want to just grab certain things like the grid (still a WIP) then just do this:
 
-    uswitch-styleguide/vX.X.X/stylesheets/uswitch-style.css
+    @import "ustyle/grid"
 
-In your styles.
 
-All further styles (such as articles, ie styles etc are within ustyle/ folder). So if you wanted to import the Styleguide articles styling, all you would need to do is:
+## Variables
 
-    @import "ustyle/articles"
+### Default grid settings
 
-If you want to be awesome with your IE styles and bin those conditionals, you can do something like this:
+These are the default settings for the uSwitch grid
 
-    .ie8
-      @import "ustyle/ie"
+    $col-width: 70px !default
+    $gutter-width: 30px !default
+    $grid-columns: 12 !default
+    $grid-columns-desktop: 10 !default
+    $grid-columns-tablet: 8 !default
 
-Alternatively, have that inside a conditional IE stylesheet if you're using top level CSS classes for feature detection (such as .js or .no-js)
+### Default responsive devices
 
-## Useful variables
+    $large-desktop-width: em(1200px) !default
+    $desktop-width:       em(992px) !default
+    $tablet-width:        em(768px) !default
+    $small-tablet-width:  em(601px) !default
+    $mobile-width:        em(480px) !default
 
-By default, PIE is enabled on IE styles. In your variables file (I hope you have one...), just declare this:
-
-    $has-pie: false
-
-And then the IE styles won't load the PIE behaviour!
-
-All the variables that you can override (SASS !default allows you to override within your own styles) are located here:
-
-    app/assets/stylesheets/ustyle/basic/variables
+By default they are in EMs, you can change them to PX in your own variables file.
 
 ## Contributing
 
