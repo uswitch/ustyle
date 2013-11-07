@@ -1,4 +1,5 @@
-%container
+%container,
+.us-container
   +us-pie-clearfix
   width: 100%
   margin-left: auto
@@ -26,3 +27,8 @@
 .ie8
   .last
     margin-right: 0 !important
+
+@for $column from 1 through $grid-columns
+  .us-col-#{$column}
+    +respond-to(tablet)
+      +us-col($column)

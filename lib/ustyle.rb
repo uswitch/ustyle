@@ -18,6 +18,7 @@ end
 
 if defined?(Compass)
   Compass::Frameworks.register("ustyle",
-    :stylesheets_directory => File.join(root,"sass")
+    :stylesheets_directory => File.join(root,"sass"),
+    :javascripts_directory => File.join(root, "js")
   )
 end

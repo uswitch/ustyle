@@ -1,0 +1,8 @@
+p
+  margin: 0
+  +trailer(0.5)
+
+@for $i from 1 through 6
+  h#{$i}
+    @extend %heading-font-bold
+    color: $uswitch-blue

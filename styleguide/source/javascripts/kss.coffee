@@ -58,6 +58,7 @@ class KssStateGenerator
       styleEl.styleSheet.cssText = rule
     else
       styleEl.appendChild(document.createTextNode(rule))
+      
     headEl.appendChild(styleEl)
 
 new KssStateGenerator

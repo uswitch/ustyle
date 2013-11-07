@@ -1,0 +1,24 @@
+// Sidebar
+//
+// This sidebar can be used anywhere you want to display side content. More specifically used on the energy results section
+// as an "aside". They should be used for additional information.
+//
+// Styleguide 3.1
+
+.us-sidebar
+  border: 1px solid $grey-10
+  background-color: white
+
+.us-sidebar-header
+  @extend %heading-font-regular
+  padding: em(15px)
+  border-bottom: 1px solid lighten($grey-10, 10%)
+  border-top: 1px solid lighten($grey-10, 10%)
+  color: $uswitch-light-blue
+  background-color: lighten($grey-10, 15%)
+
+  &:first-child
+    border-top: 0
+
+.us-sidebar-body
+  padding: em(15px)
