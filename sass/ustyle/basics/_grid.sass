@@ -28,7 +28,7 @@
   .last
     margin-right: 0 !important
 
-@for $column from 1 through $grid-columns
-  .us-col-#{$column}
-    +respond-to(tablet)
++respond-to(tablet, false, true)
+  @for $column from 1 through $grid-columns
+    .us-col-#{$column}
       +us-col($column)
