@@ -1,4 +1,21 @@
 .modifier_block
-  +trailing-border(1px, 1)
-  +trailer(1)
+  max-height: 0
+  overflow: hidden
+  margin-left: 5%
   +pie-clearfix
+  +transition(all 200ms)
+
+  figcaption
+    float: right
+    width: 50%
+    text-align: left
+    color: #999
+
+.styleguide_module_on 
+  padding-bottom: 30px
+  .modifier_block
+    max-height: 50em
+    margin-top: 30px
+
+.modifier_block_max
+  max-width: 45%

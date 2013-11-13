@@ -1,12 +1,15 @@
-%h1 #{@section.section} #{@section.filename}
-%p.styleguide-description= @section.description
-- if @section.modifiers.any?
-  %ul
-    - @section.modifiers.each do |modifier|
-      %li #{modifier.name} - #{modifier.description}
+.styleguide_module
+  .styleguide_intro
+    %h2 #{@section.section} #{@section.filename}
+    .styleguide_description= @section.description
 
-.modifier_block= @example_html
+  %figure.modifier_block
+    %figcaption
+    = @example_html
 
-- @section.modifiers.each do |modifier|
-  .modifier_block
-    = @example_html.gsub("modifier-class", modifier.class_name)
+  - @section.modifiers.each do |modifier|
+    %figure.modifier_block
+      %figcaption
+        %i #{modifier.name} 
+        #{modifier.description}
+      = @example_html.gsub("modifier-class", modifier.class_name)
