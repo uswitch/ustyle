@@ -4,5 +4,33 @@
 a:focus
   outline: none
 
-.us-list
-  max-width: 45%
+.styleguide_module
+
+.styleguide_intro
+  margin: 1em 0
+  overflow: hidden
+  h2
+    margin: 0
+    float: left
+    cursor: pointer
+    &:before
+      content: '\2192'
+      display: inline-block
+      margin: 0 0.5em 0 0
+      font-family: "uswitch-icon"
+      font-size: 0.8em
+      vertical-align: middle
+      +transition(all 300ms)
+    &:hover:before
+      +transform(rotate(90deg))
+    &:active
+      color: #c00
+
+    .styleguide_module_on &
+      color: #000
+      &:before
+        +transform(rotate(90deg))
+
+
+.styleguide_description
+  margin-left: 52.5%
