@@ -57,11 +57,7 @@ KssStateGenerator = (function() {
   KssStateGenerator.prototype.insertRule = function(rule) {
     var headEl;
     headEl = document.getElementsByTagName('head')[0];
-    if (styleEl.styleSheet) {
-      styleEl.styleSheet.cssText = rule;
-    } else {
-      styleEl.appendChild(document.createTextNode(rule));
-    }
+    styleEl.appendChild(document.createTextNode(rule));
     return headEl.appendChild(styleEl);
   };
 

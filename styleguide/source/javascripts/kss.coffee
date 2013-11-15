@@ -54,10 +54,8 @@ class KssStateGenerator
 
   insertRule: (rule) ->
     headEl = document.getElementsByTagName('head')[0]
-    if styleEl.styleSheet
-      styleEl.styleSheet.cssText = rule
-    else
-      styleEl.appendChild(document.createTextNode(rule))
+      
+    styleEl.appendChild(document.createTextNode(rule))
       
     headEl.appendChild(styleEl)
 

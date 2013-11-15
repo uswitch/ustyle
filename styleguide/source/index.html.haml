@@ -6,10 +6,11 @@ title: uSwitch uGuide
   %input.us-form-input.modifier-class
 
 = styleblock "1.2" do
-  %select.us-form-select.modifier-class
-    %option A select menu
-    %option With lots of options
-    %option And a few more
+  .us-form-select-wrap
+    %select.us-form-select.modifier-class
+      %option A select menu
+      %option With lots of options
+      %option And a few more
 
 = styleblock "1.3" do
   %input.us-form-input{:type=>'radio',:name=>'null',:checked => :checked}
