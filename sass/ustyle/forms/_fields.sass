@@ -1,0 +1,29 @@
+// Standard form field
+//
+// .required - A required version
+//
+// Styleguide 1.1
+
+.us-field
+  margin-bottom: 1em
+
+  label,
+  .us-faux-label
+    @extend %heading-font-bold
+    display: block
+    color: $uswitch-light-blue
+    margin-bottom: 0.25em
+
+  &.required
+    label
+      &:after
+        content: "*"
+        display: inline-block
+        font-size: 1.1em
+        color: $uswitch-red
+        margin-left: 0.25em
+
+
+  &.checkboxed
+    label
+      display: inline-block
