@@ -1,0 +1,4 @@
+:aws_access_key_id: "AKIAILSI3ZFYGG6X22AQ"
+:aws_secret_access_key: "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"
+:aws_params:
+  :region: 'eu-west-1'  
