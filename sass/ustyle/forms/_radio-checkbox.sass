@@ -1,7 +1,5 @@
 // Standard radio and check boxes
 //
-// :hover - Blue border
-//
 // Styleguide 1.4
 
 .us-form-input
@@ -15,6 +13,11 @@
     cursor: pointer
     background-color: white
     position: relative
+
+    .us-field-toggle &
+      vertical-align: top
+      margin-right: 0.5em
+      margin-top: 0.1em
 
   &[type="radio"]
     border-radius: 50%
@@ -50,3 +53,4 @@
       &:checked
         background: $grey-1
         box-shadow: inset 0 0 0 0.35em white
+
