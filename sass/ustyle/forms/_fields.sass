@@ -5,6 +5,7 @@
 // Styleguide 1.1
 
 .us-field
+  +us-pie-clearfix
   margin-bottom: 1em
 
   label,
@@ -24,6 +25,16 @@
         margin-left: 0.25em
 
 
-  &.checkboxed
-    label
-      display: inline-block
+.us-field-toggle
+  label
+    @extend %heading-font-regular
+    +transition(border 333ms)
+    line-height: 1.5em
+    padding: 0.35em 0.5em
+    border: 1px solid transparent
+    color: $text-color
+    border-radius: em(3px)
+    cursor: pointer
+
+    &:hover
+      border-color: $grey-10
