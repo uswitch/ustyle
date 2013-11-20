@@ -1,4 +1,4 @@
-root = File.join(File.dirname(__FILE__), "..")
+project_root = File.join(File.dirname(__FILE__), "..")
 
 require "ustyle/version"
 
@@ -16,9 +16,10 @@ module Ustyle
   end
 end
 
+# TO-DO - Add a template so the framework works
 if defined?(Compass)
   Compass::Frameworks.register("ustyle",
-    :stylesheets_directory => File.join(root,"sass"),
-    :javascripts_directory => File.join(root, "js")
+    :stylesheets_directory => File.join(project_root,"sass"),
+    :javascripts_directory => File.join(project_root, "js")
   )
 end
