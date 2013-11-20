@@ -7,8 +7,8 @@ task :deploy do
   AWS::S3::DEFAULT_HOST = "s3-eu-west-1.amazonaws.com"
 
   connection = AWS::S3::Base.establish_connection!(
-      :access_key_id     => 'AKIAILSI3ZFYGG6X22AQ',
-      :secret_access_key => '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',
+      :access_key_id     => ENV['access_key_id'],
+      :secret_access_key => ENV['secret_access_key'],
       :server            => 's3-eu-west-1.amazonaws.com'
     )
   

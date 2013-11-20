@@ -28,7 +28,5 @@
   .last
     margin-right: 0 !important
 
-+respond-to(tablet, false, true)
-  @for $column from 1 through $grid-columns
-    .us-col-#{$column}
-      +us-col($column)
+@if $grid-classes
+  @import "ustyle/components/grid-classes"
