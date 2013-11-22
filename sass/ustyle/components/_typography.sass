@@ -1,1 +1,29 @@
+// Standard typography
+//
+// Styleguide 1.0
+
 @if $establish-type-rules
+  +establish-baseline
+
+  body
+    @extend %default-font
+
+  @for $i from 1 through 6
+    h#{$i}
+      @extend %heading-font-bold
+      +heading($i)
+      margin: 0
+      +trailer(0.25)
+      
+  p
+    +trailer(1)
+
+  .us-standfirst,
+  strong,
+  b
+    +adjust-font-size-to(18px, 1.15)
+    @extend %heading-font-regular
+
+  ul
+    li
+      +trailer(0.25)

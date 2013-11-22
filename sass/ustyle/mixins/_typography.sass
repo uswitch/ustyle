@@ -1,0 +1,4 @@
+= heading($level)
+  $font-size: nth($heading-font-sizes, $level)
+  $line-height: nth($heading-line-heights, $level)
+  +adjust-font-size-to($font-size, $line-height)
