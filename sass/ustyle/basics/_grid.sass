@@ -13,12 +13,9 @@
   +respond-to(desktop)
     max-width: em($desktop-container-width)
 
-  @if $ie-large-desktop
-    +respond-to(large-desktop)
-      max-width: em($large-container-width)
-  @else
-    +respond-to(large-desktop, false)
-      max-width: em($large-container-width)
+  +respond-to(large-desktop)
+    max-width: em($large-container-width)
+
 
 @mixin us-col($cols)
   float: left
