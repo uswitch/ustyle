@@ -1,0 +1,53 @@
+.us-header-override
+  #skyline
+    @extend %container
+    font-size: 1em
+
+    #skywrap
+      max-width: $large-container-width
+    
+    +respond-to(from-tablet)    
+      a.logo
+        margin-left: em(10px)
+
+    .ie8 &
+      a.logo
+        margin-left: em(10px)
+
+    #search_icon
+      +respond-to(desktop)
+        right: em(25px)
+        top: 39px
+
+      +respond-to(laptop)
+        right: 20px
+
+    #searchbox
+      box-sizing: content-box
+
+      &.showing
+        top: 74px
+
+  #main-nav
+    @extend %container
+    font-size: 1em
+
+    +respond-to(mobile)
+      position: absolute
+
+    +respond-to(large-desktop)
+      .lvl1
+        font-size: 1.1em
+
+    li.broadband ul
+      min-width: 310px
+
+  #main-nav #global_nav
+    .close-nav
+      box-sizing: content-box
+
+    +respond-to(tablet)
+      left: 70px
+
+    +respond-to(large-desktop)
+      left: 0px
