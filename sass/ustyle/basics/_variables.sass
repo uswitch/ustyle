@@ -78,7 +78,7 @@ $tablet-start: $mobile-end + 1
 $tablet-end: $tablet-width + 1
 $desktop-start: $tablet-width
 
-$devices: (mobile, max, ($tablet-width - 1), false), (small-tablet, min, $small-tablet-width, false), (tablet, min, $tablet-width, false), (from-tablet, min, $tablet-end, false), (to-desktop, max, $desktop-width, false), (desktop, min, $desktop-width, true), (large-desktop, min, $large-desktop-width, false) !default
+$devices: (mobile, max, ($small-tablet-width - 1), false), (small-tablet, min, $small-tablet-width, false), (tablet, min, $tablet-width, false), (from-tablet, min, $tablet-end, false), (to-desktop, max, $desktop-width, false), (desktop, min, $desktop-width, true), (large-desktop, min, $large-desktop-width, false) !default
 
 // Grid settings
 // -----
