@@ -39,5 +39,6 @@ if defined?(Sinatra)
 
       end
     end
+    register Ustyle
   end
 end
