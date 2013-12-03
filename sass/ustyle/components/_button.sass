@@ -25,7 +25,7 @@
 
 %btn,
 .us-btn
-  @extend %heading-font-bold
+  @extend %heading-font-regular
   +reset-box-model
   +transition(all 180ms)
   // +transform(scale3d(1,1,1))
@@ -53,6 +53,9 @@
     background-color:  mix($button-color, black, 75%)
     top: 3px
     box-shadow: 0px 2px 0px mix($button-color, black, 65%)
+
+  &.stronger
+    @extend %heading-font-bold
 
   &.arrowed
   

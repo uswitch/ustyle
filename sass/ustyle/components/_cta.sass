@@ -1,12 +1,16 @@
 .us-hero
   +padding-leader(1)
-  +padding-trailer(1)
+  +padding-trailer(1.5)
   background-color: $c-cyan
 
 .us-hero-container
   @extend %container
 
 .us-hero-title
-  +adjust-font-size-to(30px)
+  +adjust-font-size-to(36px)
   +leader(0.5)
-  
+  +trailer(0.15)
+
+.us-hero-title,
+.us-hero-description
+  color: $c-navy

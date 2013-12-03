@@ -22,3 +22,11 @@
       &:after
         margin-left: 0.8em
         margin-right: -0.3em
+
+
+  .us-hero &
+    +leader(1)
+
+    a
+      @extend %heading-font-regular
+      +adjust-font-size-to(18px, 1)
