@@ -12,4 +12,32 @@
   @extend h4
   color: $c-blue
 
+.us-news-meta
+  padding: em(9px)
 
+  .category,
+  .date
+    @extend %heading-font-regular
+    +adjust-font-size-to(14px)
+    padding-top: em(4px)
+    padding-bottom: em(4px)
+
+  .category
+    background-color: $c-typecyan
+    color: white
+    padding-left: em(9px)
+    padding-right: em(9px)
+    border-radius: em(3px)
+
+  .date
+    color: $c-navy
+    float: right
+    display: block
+
+.us-news-item-title,
+.us-news-item-snippet
+  padding: em(9px)
+
+.us-news-item-image
+  width: 100%
+  height: auto
