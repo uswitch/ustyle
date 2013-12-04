@@ -1,16 +1,25 @@
 .us-news-item
   @extend .us-col-3
+  +transition(border-color 333ms, background-color 333ms)
+  border: 1px solid $grey-10
+  border-radius: em(5px)
+  overflow: hidden
+  background-color: white
+
+  &:hover
+    border-color: darken($grey-10, 20%)
+    background-color: $c-lightgrey
+
+    .us-news-item-image
+      +opacity(0.8)
 
 .us-news-item-link
   display: block
-  border: 1px solid $grey-10
-  border-radius: em(3px)
-  overflow: hidden
   text-decoration: none
 
 .us-news-item-title
   @extend h4
-  color: $c-blue
+  color: $c-navy
 
 .us-news-meta
   padding: em(9px)
@@ -39,5 +48,8 @@
   padding: em(9px)
 
 .us-news-item-image
+  @extend %backface-visibility
+  +transition(opacity 333ms)
+  +border-top-radius(em(5px))
   width: 100%
   height: auto
