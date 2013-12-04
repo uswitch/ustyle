@@ -30,12 +30,14 @@
   cursor: pointer
 
   &:hover
+    color: white
     background-color: mix($button-color, black, 80%)
     box-shadow: 0px 5px 0px mix($button-color, black, 60%)
 
   &:focus,
   &:active
     +transition-delay(0)
+    color: white
     background-color:  mix($button-color, black, 75%)
     top: 3px
     box-shadow: 0px 2px 0px mix($button-color, black, 65%)
