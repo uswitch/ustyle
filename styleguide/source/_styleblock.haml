@@ -10,3 +10,7 @@
 - @section.modifiers.each do |modifier|
   .modifier_block
     = @example_html.gsub("modifier-class", modifier.class_name)
+
+%pre
+  %code{class: :html}
+    = h @example_html.gsub("modifier-class", "")

@@ -1,6 +1,11 @@
+// Standard uSwitch News item - used on landing pages
+//
+// Styleguide 4.1
+
 .us-news-item
   @extend .us-col-3
   +transition(border-color 333ms, background-color 333ms)
+  +trailer(1)
   border: 1px solid $grey-10
   border-radius: em(5px)
   overflow: hidden
@@ -48,9 +53,19 @@
 .us-news-item-snippet
   padding: em(9px)
 
+.us-news-item-image-container
+  +respond-to(mobile)
+    display: none
+
 .us-news-item-image
   @extend %backface-visibility
   +transition(opacity 333ms)
   +border-top-radius(em(5px))
   width: 100%
   height: auto
+
+  &.background
+    height: 128px
+    background-repeat: no-repeat
+    background-position: center center
+    +background-size(cover)

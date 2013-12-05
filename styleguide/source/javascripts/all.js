@@ -1,1 +1,3 @@
-//= require_tree .
+//= require kss
+//= require highlight
+//= require app
