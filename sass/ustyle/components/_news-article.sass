@@ -4,10 +4,9 @@
 
 .us-news-item
   @extend .us-col-3
+  @extend %bordered-box
   +transition(border-color 333ms, background-color 333ms)
   +trailer(1)
-  border: 1px solid $grey-10
-  border-radius: em(5px)
   overflow: hidden
   background-color: white
 

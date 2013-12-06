@@ -8,14 +8,14 @@
 a,
 .us-link
   +transition(color 333ms, border-color 333ms)
-  +link-colors($c-blue, $uswitch-light-blue, darken($uswitch-blue, 15%), darken($uswitch-blue, 15%))
+  +link-colors($c-blue, $c-typecyan, darken($uswitch-blue, 15%), darken($uswitch-blue, 15%))
   text-decoration: none
 
 .us-link
   border-bottom: 1px solid $uswitch-blue
 
   &:hover
-    border-color: $uswitch-light-blue
+    border-color: $c-typecyan
 
   &:focus,
   &:visited

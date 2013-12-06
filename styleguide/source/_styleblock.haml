@@ -12,5 +12,4 @@
     = @example_html.gsub("modifier-class", modifier.class_name)
 
 %pre
-  %code{class: :html}
-    = h @example_html.gsub("modifier-class", "")
+  %code{class: :xml}= h @example_html.gsub("modifier-class", "")
