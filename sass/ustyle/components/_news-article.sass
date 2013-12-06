@@ -11,8 +11,10 @@
   background-color: white
 
   &:hover
-    border-color: darken($grey-10, 20%)
-    background-color: $c-lightgrey
+    border-color: $c-typecyan
+
+    .us-news-item-title
+      color: $c-typecyan
 
     .us-news-item-image
       +opacity(0.8)
@@ -24,6 +26,7 @@
 
 .us-news-item-title
   @extend h4
+  +transition(color 333ms)
   color: $c-navy
 
 .us-news-meta
