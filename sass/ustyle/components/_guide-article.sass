@@ -19,6 +19,10 @@
 .us-guide-item-description
   padding: em(11px) em(20px)
 
+.us-guide-item-image-container
+  +respond-to(mobile)
+    display: none
+
 .us-guide-item-image
   @extend .us-news-item-image
   border-bottom: 1px solid $c-lightgrey
