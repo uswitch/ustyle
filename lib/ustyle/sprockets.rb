@@ -8,13 +8,12 @@ if defined?(Sinatra)
   module Sinatra
     module Ustyle
       def self.registered app
-        app.set :sprockets, Sprockets::Environment.new(app.root)
-        app.set :assets_prefix, '/assets'
-        app.set :assets_path, File.join(app.root, app.assets_prefix)
-        app.set :public_folder, File.join(app.root, 'public')
+        app.set_default :sprockets, Sprockets::Environment.new(app.root)
+        app.set_default :assets_prefix, '/assets'
+        app.set_default :assets_path, File.join(app.root, 'app', app.assets_prefix)
 
-        app.set :static, true
-        app.set :assets_digest, true
+        app.set_default :static, true
+        app.set_default :assets_digest, true
 
         app.configure do
           # Setup Sprockets
