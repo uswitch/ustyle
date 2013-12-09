@@ -10,7 +10,7 @@ if defined?(Sinatra)
       def self.registered app
         app.set :sprockets, Sprockets::Environment.new(app.root)
         app.set :assets_prefix, '/assets'
-        app.set :assets_path, File.join(app.root, 'app', 'assets')
+        app.set :assets_path, File.join(app.root, app.assets_prefix)
         app.set :public_folder, File.join(app.root, 'public')
 
         app.set :static, true

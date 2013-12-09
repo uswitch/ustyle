@@ -10,15 +10,20 @@
   +trailer(1)
   overflow: hidden
   background-color: white
-  min-height: 285px
+  
+  +respond-to(tablet, true)
+    min-height: 285px
 
-  +respond-to(tablet)
     &:nth-child(2n+2)
       margin-right: 0
 
   +respond-to(desktop)
+
     &:nth-child(2n+2)
       margin-right: gutter-width()
+
+    &:nth-child(4n+4)
+      margin-right: 0
 
     &:last-child
       margin-right: 0
