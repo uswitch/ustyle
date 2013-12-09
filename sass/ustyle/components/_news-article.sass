@@ -3,15 +3,27 @@
 // Styleguide 4.1
 
 .us-news-item
-  @extend .us-col-3
+  @extend %us-col-md-6
+  @extend %us-col-lg-3  
   @extend %bordered-box
   +transition(border-color 333ms, background-color 333ms)
   +trailer(1)
   overflow: hidden
   background-color: white
+  min-height: 285px
+
+  +respond-to(tablet)
+    &:nth-child(2n+2)
+      margin-right: 0
+
+  +respond-to(desktop)
+    &:nth-child(2n+2)
+      margin-right: gutter-width()
+
+    &:last-child
+      margin-right: 0
 
   &:hover
-    border-color: $c-typecyan
 
     .us-news-item-title
       color: $c-typecyan
@@ -35,9 +47,12 @@
   .category,
   .date
     @extend %heading-font-regular
-    +adjust-font-size-to(14px)
+    +adjust-font-size-to(13px)
     padding-top: em(4px)
     padding-bottom: em(4px)
+
+    +respond-to(large-desktop)
+      +adjust-font-size-to(14px)
 
   .category
     background-color: $c-typecyan

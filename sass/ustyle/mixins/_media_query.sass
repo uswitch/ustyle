@@ -7,10 +7,6 @@
       @media screen and (unquote("#{nth($listed-device, 2)}-width:") nth($listed-device, 3))
         @content
 
-      @if nth($listed-device, 4)
-        .ie8 &
-          @content
-
       @if $ie-fallback
         .ie8 &
           @content
