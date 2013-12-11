@@ -2,6 +2,16 @@
 //
 // Styleguide 4.1
 
+%readmore-link
+  @extend %heading-font-regular
+  @extend h4
+  border-bottom: 1px solid $c-typecyan
+
+%readmore
+  color: $c-typecyan
+  &:after
+    @extend %link-triangle
+
 .us-news-item
   @extend %us-col-md-6
   @extend %us-col-lg-3  
@@ -12,7 +22,6 @@
   background-color: white
   
   +respond-to(tablet, true)
-    min-height: 285px
     margin-bottom: 0
 
     &:nth-child(2n+2)
@@ -36,6 +45,11 @@
 
     .us-news-item-image
       +opacity(0.8)
+
+    %readmore
+      &:after
+        margin-left: 0.8em
+        margin-right: -0.3em
 
 .us-news-item-link
   display: block
@@ -92,3 +106,11 @@
     background-repeat: no-repeat
     background-position: center center
     +background-size(cover)
+
+.us-news-item-readmore
+  @extend %readmore
+  padding: em(9px)
+  border-top: 1px solid $grey-10
+
+.us-news-item-readmorelink
+  @extend %readmore-link
