@@ -12,12 +12,12 @@
   @extend .us-news-item-link
 
 .us-guide-item-title
-  @extend h4
+  @extend %heading-4
   color: $c-navy
+  padding: em(11px) em(20px) 0 em(20px)
 
-.us-guide-item-title,
 .us-guide-item-description
-  padding: em(11px) em(20px)
+  padding: 0 em(20px)
 
 .us-guide-item-image-container
   +respond-to(mobile)
