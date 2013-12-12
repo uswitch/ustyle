@@ -1,0 +1,46 @@
+.us-container
+  %h1 Components
+
+= styleblock "4.2" do
+  .us-hero
+    .us-hero-container
+      %h1.us-hero-title Hero title
+      %p.us-hero-description.us-standfirst Swat at dog intrigued by the shower missing until dinner time and run in circles use lap as chair. Swat at dog stretch and stand in front of the computer screen.
+
+.us-container
+  = styleblock "2.2" do
+    %a.us-link.modifier-class{href: "http://balbas"} Test link
+
+  = styleblock "2.3" do
+    %ul.us-list
+      %li
+        %a.modifier-class{href: "http://balbas"} Test link
+      %li
+        %a.modifier-class{href: "http://balbas"} Test link
+      %li
+        %a.modifier-class{href: "http://balbas"} Test link
+
+  = styleblock "3.1" do
+    %aside.us-sidebar.us-col-3
+      .us-sidebar-header
+        %strong Your current supplier
+      .us-sidebar-body
+        %p Gas unit rates: 450kWh
+      .us-sidebar-header
+        %strong Your current electricity
+      .us-sidebar-body
+        %p Standard variable
+
+  = styleblock "4.1" do
+    .us-news-item
+      %a.us-news-item-link{href: "#"}
+        .us-news-item-image-container
+          .us-news-item-image.background{:style => "background-image: url(http://uswitch-wp-blog-assets.s3-website-eu-west-1.amazonaws.com/wp-content/uploads/2013/09/Untitled-1.jpg)"}
+        .us-news-meta
+          %span.category Consumer rights
+          %span.date= Date.today.strftime("%d %b %Y")        
+        %h3.us-news-item-title Customer uses promoted tweet to complain about BA
+
+        .us-news-item-readmore
+          %span.us-news-item-readmorelink More consumer rights
+

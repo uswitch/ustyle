@@ -1,8 +1,8 @@
-// Standard typography
-//
-// Styleguide 1.0
-
 @if $establish-type-rules
+  // Headings
+  //
+  // Styleguide 1.0
+
   +establish-baseline
 
   body
@@ -17,6 +17,13 @@
     h#{$i}
       margin: 0
       +trailer(0.25)
+
+  // Paragraphs
+  //
+  // .us-standfirst - Used for heros and introductory paragraphs
+  //
+  // Styleguide 1.0.1
+
       
   p
     +trailer(1)
@@ -24,6 +31,11 @@
   .us-standfirst
     +adjust-font-size-to(18px, 1.15)
     @extend %heading-font-regular
+
+  // Additional
+  //
+  //
+  // Styleguide 1.0.2
 
   ul
     li

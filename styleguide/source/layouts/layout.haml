@@ -9,6 +9,9 @@
   %head
     %meta{charset: "utf-8"}
     %meta{content: "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}
+    %meta(name="HandheldFriendly" content="True")
+    %meta(name="MobileOptimized" content="320")
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
     %title uGuide
     %link{href: "http://www.uswitch.com/webfont/fonts/v19/stylesheet.css", media: :all, rel: :stylesheet, type: "text/css"}
     %script{src: "//dnpc2x3bdjjqt.cloudfront.net/s3/uswitch-styleguide/v4.2.6/javascripts/modernizr.js"}
@@ -16,8 +19,10 @@
     = stylesheet_link_tag "all"
 
 
-  %body  
-    = yield
+  %body
+    = partial "partials/header"
+    .wrapper
+      = yield
 
     <script src="http://yandex.st/highlightjs/7.5/highlight.min.js"></script>
     = javascript_include_tag "all"
