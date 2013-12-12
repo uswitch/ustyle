@@ -7,7 +7,7 @@
   margin-left: auto
   margin-right: auto
   position: relative
-  padding: 0 1em
+  padding: 0 em($gutter-width / 2)
 
   +respond-to(tablet)
     max-width: em($tablet-container-width)
@@ -18,10 +18,15 @@
   +respond-to(large-desktop)
     max-width: em($large-container-width)
 
+@mixin us-row
+  +respond-to(tablet, true)
+    margin-left: - em($gutter-width / 2)
+    margin-right: - em($gutter-width / 2)
 
 @mixin us-col($cols)
   float: left
-  margin-right: gutter-width()
+  padding-left: em($gutter-width / 2)
+  padding-right: em($gutter-width / 2)
   width: col-width($cols)
 
   &:last-child

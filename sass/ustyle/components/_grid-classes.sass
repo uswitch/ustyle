@@ -1,4 +1,7 @@
 @if $grid-classes
+  .us-grid-row
+    +us-row
+    
   +respond-to(small-tablet)
     @for $column from 1 through $grid-columns
       %us-col-sm-#{$column}
