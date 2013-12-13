@@ -11,13 +11,13 @@ if defined?(Sinatra)
         app.set :sprockets, Sprockets::Environment.new(app.root)
         app.set :assets_prefix, %w(assets)
         app.set :assets_path, File.join(app.root, 'app', app.assets_prefix.flatten)
-
+        app.set :assets_helper_path, "/assets"
         app.set :static, true
         app.set :assets_digest, true
 
         app.configure do
           # Setup Sprockets
-          %w(stylesheets javascripts images).each do |asset_directory|
+          %w(stylesheets javascripts images fonts).each do |asset_directory|
             app.sprockets.append_path File.join(app.settings.assets_path, asset_directory)
           end
 
@@ -28,7 +28,7 @@ if defined?(Sinatra)
 
           Sprockets::Helpers.configure do |config|
             config.environment = app.sprockets
-            config.prefix      = "/assets"
+            config.prefix      = app.assets_helper_path
             config.digest      = app.assets_digest
           end
         end
