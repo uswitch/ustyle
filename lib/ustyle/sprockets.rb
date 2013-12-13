@@ -9,8 +9,8 @@ if defined?(Sinatra)
     module Ustyle
       def self.registered app
         app.set :sprockets, Sprockets::Environment.new(app.root)
-        app.set :assets_prefix, '/assets'
-        app.set :assets_path, File.join(app.root, 'app', app.assets_prefix)
+        app.set :assets_prefix, %w(assets)
+        app.set :assets_path, File.join(app.root, 'app', app.assets_prefix.flatten)
 
         app.set :static, true
         app.set :assets_digest, true
@@ -28,7 +28,7 @@ if defined?(Sinatra)
 
           Sprockets::Helpers.configure do |config|
             config.environment = app.sprockets
-            config.prefix      = app.assets_prefix
+            config.prefix      = "/assets"
             config.digest      = app.assets_digest
           end
         end
