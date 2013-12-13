@@ -1,6 +1,5 @@
-.us-container
-  %h1 The grid
-  
+:ruby
+  @grid = Haml::Engine.new("
   .grid-example.us-grid-row
     .us-col-12
       .inner
@@ -29,7 +28,7 @@
     .us-col-9.last
       .inner
         9 cols
-    
+
   .grid-example.us-grid-row
     .us-col-4
       .inner
@@ -53,3 +52,12 @@
     .us-col-6.last
       .inner
         6 cols
+  ").render
+
+.us-container
+  %h1 The grid
+
+  = @grid
+
+  %pre
+    %code{class: :xml}= h @grid
