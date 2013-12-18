@@ -9,6 +9,7 @@
       .us-col-#{$column},
       %us-col-md-#{$column}
         +us-col($column)
+        min-height: 1px
 
   +respond-to(desktop, false, true)
     @for $column from 1 through $grid-columns

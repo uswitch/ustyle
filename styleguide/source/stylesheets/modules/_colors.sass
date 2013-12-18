@@ -1,0 +1,19 @@
+$colors: (c-cyan, $c-cyan), (c-blue, $c-blue), (c-navy, $c-navy), (c-green, $c-green), (c-red, $c-red), (c-lightgrey, $c-lightgrey), (c-darkgrey, $c-darkgrey), (c-yellow, $c-yellow), (c-orange, $c-orange), (c-purple, $c-purple), (c-typecyan, $c-typecyan)
+
+@each $color in $colors
+  .#{nth($color, 1)}
+    background-color: nth($color, 2)
+    height: 150px
+
+.color-block-inner
+  +adjust-font-size-to(20px)
+  font-family: "Inconsolata", sans-serif
+  line-height: 150px
+  text-align: center
+  color: white
+
+  .c-lightgrey &
+    color: $c-darkgrey
+
+.color-block
+  +trailer(2)
