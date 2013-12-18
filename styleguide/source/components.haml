@@ -1,7 +1,7 @@
 .us-container
   %h1 Components
 
-= styleblock "4.2" do
+= styleblock "3.2" do
   .us-hero
     .us-hero-container
       %h1.us-hero-title Hero title
@@ -40,7 +40,17 @@
           %span.category Consumer rights
           %span.date= Date.today.strftime("%d %b %Y")        
         %h3.us-news-item-title Customer uses promoted tweet to complain about BA
-
+        %p.us-news-item-snippet Sign of things to come? Social media helps to empower disgruntled consumer amid lost luggage row
         .us-news-item-readmore
           %span.us-news-item-readmorelink More consumer rights
+
+  = styleblock "4.2" do
+    .us-guide-item.modifier-class
+      %a.us-guide-item-link{:href => "http://www.uswitch.com/car-insurance/guides/"}
+        .us-guide-item-image-container
+          .us-guide-item-image.background{:style => "background-image: url(#{image_path('guide-car.jpg')})"}
+        %h4.us-guide-item-title Car insurance guides
+        %p.us-guide-item-description Read our car insurance advice guides for the facts on why you need car insurance, the types of cover available, and tips on how to make a claim.
+        .us-guide-item-readmore 
+          %span.us-news-item-readmorelink Read more
 

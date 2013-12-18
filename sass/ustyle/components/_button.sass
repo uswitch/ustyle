@@ -6,6 +6,8 @@
 // .arrowed - Arrowed button used for CTAs
 // .light - Light button used for dark backgrounds
 // .dark - dark button used for dark backgrounds
+// .large - Larger button for heros
+// .blocked - Full width button
 //
 // Styleguide 2.1
 
@@ -47,6 +49,15 @@
 
   &.stronger
     @extend %heading-font-bold
+
+  &.large
+    font-size: 1.2em
+
+  &.blocked
+    +trailer(1)
+    display: block
+    width: 100%
+
 
   &.arrowed
   

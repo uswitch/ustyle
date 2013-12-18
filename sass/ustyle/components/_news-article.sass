@@ -89,9 +89,12 @@
     float: right
     display: block
 
-.us-news-item-title,
-.us-news-item-snippet
+.us-news-item-title
   padding: em(9px)
+
+.us-news-item-snippet
+  +adjust-font-size-to(14px, 0.75)
+  padding: 0 em(9px)
 
 .us-news-item-image-container
   +respond-to(mobile)
