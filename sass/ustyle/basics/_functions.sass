@@ -7,3 +7,8 @@
 
 @function gutter-width($gutter-width: $gutter-width)
   @return percentage( $gutter-width / $large-container-width)
+
+@function cloudfront-url($asset)
+  $image-path: url("https://d184zpyoja0pfb.cloudfront.net/ustyle-assets/#{$asset}")
+
+  @return $image-path
