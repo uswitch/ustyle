@@ -5,6 +5,7 @@
 %readmore-link
   @extend %heading-font-regular
   @extend %heading-4
+  white-space: nowrap
   border-bottom: 1px solid $c-typecyan
 
 %readmore
@@ -14,32 +15,9 @@
 
 .us-news-item
   @extend %us-col-md-6
-  @extend %us-col-lg-3  
-  @extend %bordered-box
-  +transition(border-color 333ms, background-color 333ms)
+  @extend %us-col-lg-3
   +trailer(1)
   overflow: hidden
-  background-color: white
-  
-  +respond-to(tablet, true)
-    margin-bottom: 0
-
-    &:nth-child(2n+2)
-      margin-right: 0
-
-  +respond-to(desktop)
-
-    &:nth-child(2n+2)
-      margin-right: gutter-width()
-
-    &:nth-child(4n+4)
-      margin-right: 0
-
-    &:nth-child(4n+1)
-      clear: left
-      
-    &:last-child
-      margin-right: 0
 
   &:hover
 
@@ -55,9 +33,11 @@
         margin-right: -0.3em
 
 .us-news-item-link
+  @extend %bordered-box
+  +transition(border-color 333ms, background-color 333ms)
+  background-color: white
   display: block
   text-decoration: none
-  border: none
 
 .us-news-item-title
   @extend %heading-4
