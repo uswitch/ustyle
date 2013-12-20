@@ -2,7 +2,8 @@ $colors: (c-cyan, $c-cyan), (c-blue, $c-blue), (c-navy, $c-navy), (c-green, $c-g
 
 @each $color in $colors
   .#{nth($color, 1)}
-    background-color: nth($color, 2)
+    .color-block-inner
+      background-color: nth($color, 2)
     height: 150px
 
 .color-block-inner

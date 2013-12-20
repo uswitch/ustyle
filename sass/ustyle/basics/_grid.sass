@@ -21,13 +21,13 @@
 
 @mixin us-row
   +respond-to(tablet, true)
-    margin-left: - em($gutter-width / 2)
-    margin-right: - em($gutter-width / 2)
+    margin-left: - $gutter-width / 2
+    margin-right: - $gutter-width / 2
 
 @mixin us-col($cols)
   float: left
-  padding-left: em($gutter-width / 2)
-  padding-right: em($gutter-width / 2)
+  padding-left: $gutter-width / 2
+  padding-right: $gutter-width / 2
   width: col-width($cols)
 
   &:last-child

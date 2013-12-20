@@ -5,10 +5,10 @@
 %readmore-link
   @extend %heading-font-regular
   @extend %heading-4
-  white-space: nowrap
   border-bottom: 1px solid $c-typecyan
 
 %readmore
+  white-space: nowrap
   color: $c-typecyan
   &:after
     @extend %link-triangle
@@ -76,9 +76,11 @@
   +adjust-font-size-to(14px, 0.75)
   padding: 0 em(9px)
 
-.us-news-item-image-container
-  +respond-to(mobile)
-    display: none
+.us-news-item-image-container  
+  display: none
+
+  +respond-to(small-tablet, true)
+    display: block
 
 .us-news-item-image
   @extend %backface-visibility
