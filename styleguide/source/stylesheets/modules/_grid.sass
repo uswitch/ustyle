@@ -7,3 +7,30 @@
     padding: em(15px)
     background-color: $uswitch-light-blue
     color: white
+
+.us-logobar
+  +pie-clearfix                       /* clears the floats necessary for the grid */
+  +trailer(1)                         /* for example  */
+  +us-row()                           /* sets the grid container that deals with unwanted extra padding from the columns' "inner" wrappers */
+  a
+    padding: em(15px)                 /* as the grid uses padding, the columns touch. This puts gutters back (like ".inner" in example 1) */
+    +us-col(4)                        /* up to small tablet, each column is 4/12 cols (ie 3 across) */
+    +respond-to(small-tablet)
+      +us-col(3)                      /* from small tablet up, each column is 3/12 cols (ie 4 across) */
+    +respond-to(tablet,true)
+      +us-col(2)                      /* from big tablet up (plus IE8), each column is 2/12 cols (ie 6 across) */
+  img 
+    display: block
+    max-width: 100%                   /* for example: make logos scale with the container */
+    width: auto                       /* for example: make logos scale with the container */
+    height: auto                      /* for example: make logos scale with the container  */
+    padding: 15px
+    border: 1px solid #fff            /* for example: border for link hover effect */
+    +transition(border-color 300ms)
+  .no-touch &                         /* for example: link hover effects, only for non-touch devices */
+    &:hover
+      img
+        border-color: #eee
+      a:hover
+        img
+          border-color: #ccc

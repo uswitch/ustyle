@@ -54,10 +54,90 @@
         6 cols
   ").render
 
+
+:ruby
+  @grid_logos = Haml::Engine.new("
+  .us-logobar
+    %a{:href=>'#'}
+      %img{:src=>'http://dnpc2x3bdjjqt.cloudfront.net/s3/uswitch-assets-eu/logos/v0.18/retina/british-gas.png', :alt=>'British Gas', :width=>'120', :height=>'50' }
+    %a{:href=>'#'}
+      %img{:src=>'http://dnpc2x3bdjjqt.cloudfront.net/s3/uswitch-assets-eu/logos/v0.18/retina/edf.png', :alt=>'EDF', :width=>'120', :height=>'50' }
+    %a{:href=>'#'}
+      %img{:src=>'http://dnpc2x3bdjjqt.cloudfront.net/s3/uswitch-assets-eu/logos/v0.18/retina/e-dot-on.png', :alt=>'e.on', :width=>'120', :height=>'50' }
+    %a{:href=>'#'}
+      %img{:src=>'http://dnpc2x3bdjjqt.cloudfront.net/s3/uswitch-assets-eu/logos/v0.18/retina/npower.png', :alt=>'npower', :width=>'120', :height=>'50' }
+    %a{:href=>'#'}
+      %img{:src=>'http://dnpc2x3bdjjqt.cloudfront.net/s3/uswitch-assets-eu/logos/v0.18/retina/scottishpower.png', :alt=>'Scottishpower', :width=>'120', :height=>'50' }
+    %a{:href=>'#'}
+      %img{:src=>'http://dnpc2x3bdjjqt.cloudfront.net/s3/uswitch-assets-eu/logos/v0.18/retina/sse.png', :alt=>'SSE', :width=>'120', :height=>'50' }
+    %a{:href=>'#'}
+      %img{:src=>'http://dnpc2x3bdjjqt.cloudfront.net/s3/uswitch-assets-eu/logos/v0.18/retina/the-co-operative.png', :alt=>'The Co-operative Energy', :width=>'120', :height=>'50' }
+    %a{:href=>'#'}
+      %img{:src=>'http://dnpc2x3bdjjqt.cloudfront.net/s3/uswitch-assets-eu/logos/v0.18/retina/ecotricity.png', :alt=>'Ecotricity', :width=>'120', :height=>'50' }
+    %a{:href=>'#'}
+      %img{:src=>'http://dnpc2x3bdjjqt.cloudfront.net/s3/uswitch-assets-eu/logos/v0.18/retina/first-utility.png', :alt=>'First:utility', :width=>'120', :height=>'50' }
+    %a{:href=>'#'}
+      %img{:src=>'http://dnpc2x3bdjjqt.cloudfront.net/s3/uswitch-assets-eu/logos/v0.18/retina/marksandspencers.png', :alt=>'M&S', :width=>'120', :height=>'50' }
+    %a{:href=>'#'}
+      %img{:src=>'http://dnpc2x3bdjjqt.cloudfront.net/s3/uswitch-assets-eu/logos/v0.18/retina/ovo.png', :alt=>'Ovo Energy', :width=>'120', :height=>'50' }
+    %a{:href=>'#'}
+      %img{:src=>'http://dnpc2x3bdjjqt.cloudfront.net/s3/uswitch-assets-eu/logos/v0.18/retina/sainsburys.png', :alt=>'Sainburys Energy', :width=>'120', :height=>'50' }
+
+  ").render
+
+
+
 .us-container
-  %h1 The grid
+  %h1 The grid (via classes)
+  %p This grid is built with bootstrap style declared classes.
+
+  %p
+    %em The important thing to remember is that the grid columns no longer use margins, so the columns touch each other. This means that each column needs a 15px padded "inner" container (in this example literally called ".inner")
 
   = @grid
 
   %pre
     %code{class: :xml}= h @grid
+
+  %h1 The grid (via SASS)
+  %p This grid example is built with symantic classes, with the grid embedded using SASS mixins, and with more responsive breakpoints.
+
+  %p
+    %em The important thing to remember is that the grid columns no longer use margins, so the columns touch each other. This means that each column needs a 15px padded "inner" container.
+    In the example below, the anchor around the logo acts the same as the ".inner" wrappers in the first example
+
+  = @grid_logos
+
+  %pre
+    %code{class: :xml}= h @grid_logos
+
+  %h3 SASS for above example
+  %pre
+    %code
+      :plain
+        .us-logobar
+          +pie-clearfix                       /* clears the floats necessary for the grid */
+          +trailer(1)                         /* for example  */
+          +us-row()                           /* sets the grid container that deals with unwanted extra padding from the columns' "inner" wrappers */
+          a
+            padding: em(15px)                 /* as the grid uses padding, the columns touch. This puts gutters back (like ".inner" in example 1) */
+            +us-col(4)                        /* up to small tablet, each column is 4/12 cols (ie 3 across) */
+            +respond-to(small-tablet)
+              +us-col(3)                      /* from small tablet up, each column is 3/12 cols (ie 4 across) */
+            +respond-to(tablet,true)
+              +us-col(2)                      /* from big tablet up (plus IE8), each column is 2/12 cols (ie 6 across) */
+          img 
+            display: block
+            max-width: 100%                   /* for example: make logos scale with the container */
+            width: auto                       /* for example: make logos scale with the container */
+            height: auto                      /* for example: make logos scale with the container  */
+            padding: 15px
+            border: 1px solid #fff            /* for example: border for link hover effect */
+            +transition(border-color 300ms)
+          .no-touch &                         /* for example: link hover effects, only for non-touch devices */
+            &:hover
+              img
+                border-color: #eee
+              a:hover
+                img
+                  border-color: #ccc
