@@ -145,7 +145,7 @@
   %p This grid example is built with symantic classes, with the grid embedded using SASS mixins, and with more responsive breakpoints.
 
   %p
-    In the example below, the anchor around the logo acts the same as the ".inner" wrappers in the first example.
+    In the example below, the anchors act as the columns and the images inside have padding, acting like the ".inner" wrappers in previous example.
 
   = @grid_logos
 
@@ -159,20 +159,20 @@
         .us-logobar
           +pie-clearfix                       /* clears the floats necessary for the grid */
           +trailer(1)                         /* for example  */
-          +us-row()                           /* sets the grid container that deals with unwanted extra padding from the columns' "inner" wrappers */
+          +us-row()                           /* sets the grid container that deals with unwanted extra column padding (-15px margin l/r) */
           a
             padding-top: 15px                 /* for example: stops the rows of logos touching each other */
-            +us-col(4)                        /* up to small tablet, each column is 4/12 cols (ie 3 across). Also adds "inner" */
+            +us-col(4)                        /* up to small tablet, each column is 4/12 cols (ie 3 across) inc 15px padding l/r */
             +respond-to(small-tablet)
-              +us-col(3)                      /* from small tablet up, each column is 3/12 cols (ie 4 across) */
+              +us-col(3)                      /* from small tablet up, each column is 3/12 cols (ie 4 across) inc 15px padding l/r */
             +respond-to(tablet,true)
-              +us-col(2)                      /* from big tablet up (plus IE8), each column is 2/12 cols (ie 6 across) */
+              +us-col(2)                      /* from big tablet up (plus IE8), each column is 2/12 cols (ie 6 across) inc 15px padding l/r */
           img 
             display: block
             max-width: 100%                   /* for example: make logos scale with the container */
             width: auto                       /* for example: make logos scale with the container */
             height: auto                      /* for example: make logos scale with the container  */
-            padding: 5px
+            padding: 5px                      /*  */
             border: 1px solid #fff            /* for example: border for link hover effect */
             +transition(border-color 300ms)
             +respond-to(desktop,true)
