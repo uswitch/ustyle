@@ -88,22 +88,63 @@
 
 
 .us-container
-  %h1 The grid (via classes)
-  %p This grid is built with bootstrap style declared classes.
 
-  %p
-    %em The important thing to remember is that the grid columns no longer use margins, so the columns touch each other. This means that each column needs a 15px padded "inner" container (in this example literally called ".inner")
+  %h1 Understanding the grid
+
+  %p The grid no longer uses a system of floated elements seperated by a gutter created by "margin-right", instead each column has a left and right padding of 15px. This allows the designers to guarantee a consistent gutter in their layouts. But it does mean we need to bear in mind a few issues
+
+  %h2 the us-row wrapper
+
+  %p Each grid area needs to have a wrapper that either uses, or corresponds to the +us-row() SASS mixin. This gives a negative margin of 15px left and right of the grid, cancelling out the extra unwanted 15px padding on first or last child elements of each row. Without it, you grid may appear to not extend to the edge of the container. This has the benefit of never needing to set :first/last/nth child statements to clear the ends of rows and also works fine in IE8 without extra markup.
+
+  .grid-insight
+    .us-col-12
+      .inner
+        %p 12 col, but without the us-row wrapper
+
+  .grid-insight.us-grid-row
+    .us-col-12
+      .inner
+        %p 12 col, with the us-row wrapper
+
+  %h2 inner column wrappers
+
+  %p Because the grid uses padding instead of margins, adding a background colour or border to a column will make the columns appear to touch, even if the content has the correct gutter. You'll also notice that the grid appears to extend beyond the width of the container, as the us-row wrapper is doing it's job of making the content in the first and last child extend to the edge.
+
+  .grid-insight.us-grid-row
+    .us-col-6.grid-insight-nowrap
+      %p 6 col, no inner
+    .us-col-3.grid-insight-nowrap
+      %p 3 col, no inner
+    .us-col-3.grid-insight-nowrap
+      %p 3 col, no inner
+
+  %p Because of this, all columns need inner wrapper containers, which are the elements that you style to give the appearence of columns. Although this does mean extra DOM, it does have the benefit of givving designers and devs better options for deciding if content in columns should have gutters or not, eg images that fill a column width, with a caption below that has a standard gutter.
+
+  .grid-insight.us-grid-row
+    .us-col-6
+      .grid-insight-wrap
+        %p 6 col, with inner
+    .us-col-3
+      .grid-insight-wrap
+        %p 3 col, with inner
+    .us-col-3
+      .grid-insight-wrap
+        %p 3 col, with inner
+
+
+  %h1 Example grid (via classes)
+  %p This grid is built with bootstrap style declared classes.
 
   = @grid
 
   %pre
     %code{class: :xml}= h @grid
 
-  %h1 The grid (via SASS)
+  %h1 Example grid (via SASS)
   %p This grid example is built with symantic classes, with the grid embedded using SASS mixins, and with more responsive breakpoints.
 
   %p
-    %em The important thing to remember is that the grid columns no longer use margins, so the columns touch each other. This means that each column needs a 15px padded "inner" container.
     In the example below, the anchor around the logo acts the same as the ".inner" wrappers in the first example
 
   = @grid_logos
@@ -120,8 +161,8 @@
           +trailer(1)                         /* for example  */
           +us-row()                           /* sets the grid container that deals with unwanted extra padding from the columns' "inner" wrappers */
           a
-            padding: em(15px)                 /* as the grid uses padding, the columns touch. This puts gutters back (like ".inner" in example 1) */
-            +us-col(4)                        /* up to small tablet, each column is 4/12 cols (ie 3 across) */
+            padding-top: 15px                 /* for example: stops the rows of logos touching each other */
+            +us-col(4)                        /* up to small tablet, each column is 4/12 cols (ie 3 across). Also adds "inner" */
             +respond-to(small-tablet)
               +us-col(3)                      /* from small tablet up, each column is 3/12 cols (ie 4 across) */
             +respond-to(tablet,true)
@@ -131,9 +172,11 @@
             max-width: 100%                   /* for example: make logos scale with the container */
             width: auto                       /* for example: make logos scale with the container */
             height: auto                      /* for example: make logos scale with the container  */
-            padding: 15px
+            padding: 5px
             border: 1px solid #fff            /* for example: border for link hover effect */
             +transition(border-color 300ms)
+            +respond-to(desktop,true)
+              padding: 15px                   /* give logos more padding at larger screen sizes */
           .no-touch &                         /* for example: link hover effects, only for non-touch devices */
             &:hover
               img
