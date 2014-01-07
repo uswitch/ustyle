@@ -91,11 +91,11 @@
 
   %h1 Understanding the grid
 
-  %p The grid no longer uses a system of floated elements seperated by a gutter created by "margin-right", instead each column has a left and right padding of 15px. This allows the designers to guarantee a consistent gutter in their layouts. But it does mean we need to bear in mind a few issues
+  %p The grid no longer uses a system of floated elements seperated by a gutter created by "margin-right", instead each column has a left and right padding of 15px. This allows the designers to guarantee a consistent gutter in their layouts. But it does mean we need to bear in mind a few issues.
 
   %h2 the us-row wrapper
 
-  %p Each grid area needs to have a wrapper that either uses, or corresponds to the +us-row() SASS mixin. This gives a negative margin of 15px left and right of the grid, cancelling out the extra unwanted 15px padding on first or last child elements of each row. Without it, you grid may appear to not extend to the edge of the container. This has the benefit of never needing to set :first/last/nth child statements to clear the ends of rows and also works fine in IE8 without extra markup.
+  %p Each grid area needs to have a wrapper that either uses, or corresponds to the +us-row() SASS mixin. This gives a negative margin of 15px left and right of the grid, cancelling out the extra unwanted 15px padding on first or last child elements of each row. Without it, your grid may appear to not extend to the edge of the container. This has the benefit of never needing to set :first/last/nth child statements to clear the ends of rows and also works fine in IE8 without extra markup.
 
   .grid-insight
     .us-col-12
@@ -119,7 +119,7 @@
     .us-col-3.grid-insight-nowrap
       %p 3 col, no inner
 
-  %p Because of this, all columns need inner wrapper containers, which are the elements that you style to give the appearence of columns. Although this does mean extra DOM, it does have the benefit of givving designers and devs better options for deciding if content in columns should have gutters or not, eg images that fill a column width, with a caption below that has a standard gutter.
+  %p Because of this, all columns need inner wrapper containers, which are the elements that you style to give the appearence of columns. Although this does mean extra DOM, it does have the benefit of giving designers and devs better options for deciding if content in columns should have gutters or not, eg images that fill a column width, with a caption below that has a standard gutter.
 
   .grid-insight.us-grid-row
     .us-col-6
@@ -145,7 +145,7 @@
   %p This grid example is built with symantic classes, with the grid embedded using SASS mixins, and with more responsive breakpoints.
 
   %p
-    In the example below, the anchor around the logo acts the same as the ".inner" wrappers in the first example
+    In the example below, the anchor around the logo acts the same as the ".inner" wrappers in the first example.
 
   = @grid_logos
 
