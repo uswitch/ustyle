@@ -6,6 +6,8 @@ unless defined?(Sass)
   require 'sass'
 end
 
+require 'ustyle/sass'
+
 module Ustyle
   if defined?(Rails::Engine)
     require 'compass-rails'
