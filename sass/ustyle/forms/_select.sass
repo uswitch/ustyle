@@ -24,8 +24,12 @@
   &.active
     border-color: $select-active-color
 
+  &:disabled
+    border-color: lighten($grey-10, 10%)
+    color: $grey-10
+
   @media all and (-webkit-min-device-pixel-ratio: 0)
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='31' height='10' viewBox='-10 0 31 10'><polygon fill='%23fff' points='11,0 0,0 5.5,10'/></svg>"), url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='31px' height='41px' ><rect x='0' y='0' fill='#CBCCCC' width='31' height='40'/></svg>")
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='31' height='10' viewBox='-10 0 31 10'><polygon fill='%23fff' points='11,0 0,0 5.5,10'/></svg>"), url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='31px' height='41px' ><rect x='0' y='0' fill='#{$grey-10}' width='31' height='40'/></svg>")
     background-repeat: no-repeat
     background-position: 100% 50%, 100% 0
     padding-right: 40px
@@ -33,11 +37,12 @@
     &:hover,
     &:focus
       background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='31' height='10' viewBox='-10 0 31 10'><polygon fill='%23fff' points='11,0 0,0 5.5,10'/></svg>"), url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='31px' height='41px' ><rect x='0' y='0' fill='#{$select-hover-color}' width='31' height='40'/></svg>")
-      background-position: 100% 50%, 100% 0
 
     &.active
       background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='31' height='10' viewBox='-10 0 31 10'><polygon fill='%23fff' points='11,0 0,0 5.5,10'/></svg>"), url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='31px' height='41px' ><rect x='0' y='0' fill='#{$select-active-color}' width='31' height='40'/></svg>")
-      background-position: 100% 50%, 100% 0
+
+    &:disabled
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='31' height='10' viewBox='-10 0 31 10'><polygon fill='%23fff' points='11,0 0,0 5.5,10'/></svg>"), url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='31px' height='41px' ><rect x='0' y='0' fill='#{lighten($grey-10, 10%)}' width='31' height='40'/></svg>")
 
   +respond-to(tablet)
     width: auto
