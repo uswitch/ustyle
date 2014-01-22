@@ -1,4 +1,5 @@
-// Default guide item styling
+// This is the default guide item for uSwitch landing page. It extends the 
+// news item heavily, so the styles are near identical. 
 //
 // .larger - A larger, 3 col version of the guide
 //
@@ -15,8 +16,11 @@
 
 .us-guide-item-title
   @extend %heading-4
-  color: $c-navy
   padding: em(11px) em(20px) 0 em(20px)
+
+.us-guide-item-title,
+.us-guide-item-description
+  color: $c-navy
 
 .us-guide-item-description
   padding: 0 em(20px)

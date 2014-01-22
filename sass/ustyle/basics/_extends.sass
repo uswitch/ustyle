@@ -1,3 +1,6 @@
+// These are default, handy extends that can be used anywhere to minimise
+// repetition and keep everything compartmentalised in CSS
+
 %float-left
   float: left
 
@@ -10,6 +13,8 @@
   -ms-backface-visibility: hidden
   -webkit-backface-visibility: hidden
 
+// A bordered box used for all news/guide/seemore/block items
+
 %bordered-box
   +border-radius(em(5px))
   border: 1px solid $grey-10
@@ -20,3 +25,15 @@
 %reset-box-model
   padding: 0
   margin: 0
+
+// Triangle used across all buttons/link lists
+
+%link-triangle
+  +transition(margin 200ms)
+  font-family: "uswitch-icon"
+  content: "\25b6"
+  display: inline
+  margin: 0 0 0 0.5em
+  font-size: 0.6em
+  vertical-align: middle
+  line-height: 0

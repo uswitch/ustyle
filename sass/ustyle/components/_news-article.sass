@@ -1,6 +1,11 @@
-// Standard uSwitch News item - used on landing pages
+// The news item article standard. Built with .us-news-item. Is initially a 3col item
+// that drops down to 6col and then full width at mobile - without the image. 
+// The news item image is a background image as the problem of not displaying 
+// <img> tags on mobile hasn't been resolved.
 //
 // Styleguide 4.1
+
+$item-padding: em(9px)
 
 %readmore-link
   @extend %heading-font-regular
@@ -20,10 +25,6 @@
   overflow: hidden
 
   &:hover
-
-    .us-news-item-title
-      color: $c-typecyan
-
     .us-news-item-image
       +opacity(0.8)
 
@@ -35,8 +36,8 @@
 .us-news-item-link
   @extend %bordered-box
   +transition(border-color 333ms, background-color 333ms)
-  background-color: white
   display: block
+  background-color: white
   text-decoration: none
 
 .us-news-item-title
@@ -45,7 +46,7 @@
   color: $c-navy
 
 .us-news-meta
-  padding: em(9px)
+  padding: $item-padding
 
   .category,
   .date
@@ -58,23 +59,24 @@
       +adjust-font-size-to(14px)
 
   .category
+    padding-left: $item-padding
+    padding-right: $item-padding
+    border-radius: em(3px)
     background-color: $c-typecyan
     color: white
-    padding-left: em(9px)
-    padding-right: em(9px)
-    border-radius: em(3px)
 
   .date
-    color: $c-navy
     float: right
     display: block
-
+    color: $c-navy
+    
 .us-news-item-title
-  padding: em(9px)
+  padding: $item-padding
 
 .us-news-item-snippet
   +adjust-font-size-to(14px, 0.75)
-  padding: 0 em(9px)
+  padding: 0 $item-padding
+  color: $c-navy
 
 .us-news-item-image-container  
   display: none
@@ -97,7 +99,7 @@
 
 .us-news-item-readmore
   @extend %readmore
-  padding: em(9px)
+  padding: $item-padding
   border-top: 1px solid $grey-10
 
 .us-news-item-readmorelink

@@ -1,10 +1,13 @@
-// Standard radio and check boxes
+// Our standard radio and checkbox styling. Webkit/Blink browsers display
+// our font icon tick or a box shadow circle. Other browsers fallback to default
+// styling.
 //
 // Styleguide 1.4
 
 .us-form-input
   &[type="checkbox"],
   &[type="radio"]
+    position: relative
     vertical-align: middle
     padding: 0
     width: 1.6em
@@ -12,7 +15,6 @@
     font-size: 0.8em
     cursor: pointer
     background-color: white
-    position: relative
 
     .us-field-toggle &
       vertical-align: top

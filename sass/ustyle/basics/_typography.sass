@@ -1,5 +1,7 @@
 @if $establish-type-rules
-  // Headings
+  // The default heading styling across all uSwitch pages.
+  // We allow extending the sizes of these headings with %heading-{$i} so that
+  // we don't repeat similar font sizes across the site
   //
   // Styleguide 1.0
 
@@ -18,7 +20,7 @@
       margin: 0
       +trailer(0.25)
 
-  // Paragraphs
+  // Default paragraph styling with a margin bottom.
   //
   // .us-standfirst - Used for heros and introductory paragraphs
   //
@@ -32,7 +34,7 @@
     +adjust-font-size-to(18px, 1.15)
     @extend %heading-font-regular
 
-  // Additional
+  // Normal list styling
   //
   //
   // Styleguide 1.0.2

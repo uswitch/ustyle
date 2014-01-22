@@ -1,4 +1,8 @@
-// Standard form select
+// The select is built with inline background-image SVGs for Webkit/Blink browsers
+// that allow for Sass variable changes on the hover/normal colours. Firefox allows for
+// .us-form-select wrap to be added on top of the select to replicate styling, whilst
+// other browser fallback to native implementation. $select-base-color, $select-hover-color and
+// $select-active-color allow for different colouring of the border/dropdown.
 //
 // Styleguide 1.3
 
@@ -8,14 +12,14 @@
   -webkit-appearance: none
   position: relative
   display: inline-block
+  height: 2.2em
+  min-width: 150px
+  width: 100%
+  padding: 0.3em 0.6em
   vertical-align: middle
   border: 1px solid $select-base-color
   border-radius: 3px
   background-color: white
-  padding: 0.3em 0.6em
-  height: 2.2em
-  min-width: 150px
-  width: 100%
 
   &:hover,
   &:focus

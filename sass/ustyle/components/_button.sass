@@ -1,4 +1,7 @@
-// Default uSwitch buttons
+// There are several styles of the uSwitch button. 
+// There is a larger version of the button as well.
+// Each of these styles adheres to the uSwitch branding colours.
+// Currently we support anchor tags and button tags as the main ussage
 //
 // .primary - Usually used a save/update button
 // .secondary - Secondary use button, can be used multiple times
@@ -17,16 +20,16 @@
   +reset-box-model
   +transition(all 180ms)
   // +transform(scale3d(1,1,1))
+  position: relative
+  padding: em(10px) em(20px)
+  display: inline-block
+  border-radius: 5px
+  box-shadow: 0px 5px 0px mix($button-color, black, 80%)
   font-size: 1em
   line-height: 1em
-  position: relative
-  display: inline-block
-  padding: em(10px) em(20px)
   color: white
   background-color: $button-color
   white-space: nowrap
-  border-radius: 5px
-  box-shadow: 0px 5px 0px mix($button-color, black, 80%)
   text-decoration: none
   text-align: center
   cursor: pointer
@@ -42,9 +45,9 @@
   &:focus,
   &:active
     +transition-delay(0)
+    top: 3px
     color: white
     background-color:  mix($button-color, black, 75%)
-    top: 3px
     box-shadow: 0px 2px 0px mix($button-color, black, 65%)
 
   &.stronger

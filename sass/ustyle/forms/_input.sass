@@ -1,4 +1,5 @@
-// Standard form input
+// The standard form input styled with our brand colours. Deliberately
+// classed .us-form-input to allow individual app styling for other inputs
 //
 // .large - Larger input style
 //
@@ -8,15 +9,15 @@
   -webkit-appearance: none
   +box-sizing(border-box)
   +transition(border-color 200ms, box-shadow 200ms)
-  font-size: 1em
-  border-radius: em(3px)
-  padding: 0.35em 0.5em
-  border: 1px solid $grey-10
-  box-shadow: none
-  outline: 0
-  color: $grey-1
   display: inline-block
+  padding: 0.35em 0.5em
   height: 2.2em
+  border-radius: em(3px)
+  box-shadow: none
+  border: 1px solid $grey-10
+  outline: 0
+  font-size: 1em
+  color: $grey-1
 
   &::-webkit-input-placeholder,
   &:-moz-placeholder,
@@ -42,5 +43,6 @@
     background-color: white
 
   &.large
-    font-size: 1.2em
     padding: 1.235em 0.5em
+    font-size: 1.2em
+    
