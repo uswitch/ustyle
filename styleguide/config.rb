@@ -3,15 +3,15 @@ require "kss"
 KSS_DIR = File.expand_path("../../sass/ustyle", __FILE__)
 
 helpers do
-  def styleblock(section, &block)
+  def styleblock(section, floated = true, &block)
     unless request.has_key?(:styleguide)
       request[:styleguide] = ::Kss::Parser.new(KSS_DIR)
     end
-
+    style_partial = floated ? "styleblock_floated" : "styleblock"
     @styleguide = request[:styleguide]
     @section = @styleguide.section(section)
     @example_html = capture(&block)
-    partial("styleblock")
+    partial("partials/" + style_partial)
   end
   # Sets the html class to 'active' when the link url is equal to the current page being viewed.
   # Use just like the link_to helper.

@@ -9,6 +9,9 @@
   .grid-insight-nowrap,.grid-insight-wrap
     border: 1px solid $c-navy
 
+  p
+    margin: 0
+
 
 .grid-example
   +pie-clearfix
@@ -19,32 +22,3 @@
     padding: em(15px)
     background-color: $c-typecyan
     color: white
-
-.us-logobar
-  +pie-clearfix                       /* clears the floats necessary for the grid */
-  +trailer(1)                         /* for example  */
-  +us-row()                           /* sets the grid container that deals with unwanted extra column padding (-15px margin l/r) */
-  a
-    padding-top: 15px                 /* for example: stops the rows of logos touching each other */
-    +us-col(4)                        /* up to small tablet, each column is 4/12 cols (ie 3 across) inc 15px padding l/r */
-    +respond-to(small-tablet)
-      +us-col(3)                      /* from small tablet up, each column is 3/12 cols (ie 4 across) inc 15px padding l/r */
-    +respond-to(tablet,true)
-      +us-col(2)                      /* from big tablet up (plus IE8), each column is 2/12 cols (ie 6 across) inc 15px padding l/r */
-  img 
-    display: block
-    max-width: 100%                   /* for example: make logos scale with the container */
-    width: auto                       /* for example: make logos scale with the container */
-    height: auto                      /* for example: make logos scale with the container  */
-    padding: 5px                      /*  */
-    border: 1px solid #fff            /* for example: border for link hover effect */
-    +transition(border-color 300ms)
-    +respond-to(desktop,true)
-      padding: 15px                   /* give logos more padding at larger screen sizes */
-  .no-touch &                         /* for example: link hover effects, only for non-touch devices */
-    &:hover
-      img
-        border-color: #eee
-      a:hover
-        img
-          border-color: #ccc

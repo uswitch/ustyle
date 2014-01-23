@@ -1,10 +1,11 @@
 %h1 #{@section.section} #{@section.filename}
+
 %p.styleguide-description= @section.description
 - if @section.modifiers.any?
   %ul
     - @section.modifiers.each do |modifier|
       %li #{modifier.name} - #{modifier.description}
-
+      
 .modifier_block= @example_html
 
 %pre
