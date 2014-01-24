@@ -1,14 +1,17 @@
 require "kss"
+require "redcarpet"
 
 KSS_DIR = File.expand_path("../../sass/ustyle", __FILE__)
 
 helpers do
-  def styleblock(section, floated = true, &block)
+  def styleblock(section, title, floated = true, &block)
     unless request.has_key?(:styleguide)
       request[:styleguide] = ::Kss::Parser.new(KSS_DIR)
     end
     style_partial = floated ? "styleblock_floated" : "styleblock"
     @styleguide = request[:styleguide]
+    @title = title
+    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true)
     @section = @styleguide.section(section)
     @example_html = capture(&block)
     partial("partials/" + style_partial)

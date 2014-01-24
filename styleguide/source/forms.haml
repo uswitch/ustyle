@@ -1,6 +1,6 @@
 .us-container
   %h1 Forms
-  = styleblock "2.1" do
+  = styleblock "2.1", "Form fields" do
     .us-field.modifier-class
       %label{for: "name"} Name
       %input#name.us-form-input{name: "Name", placeholder: "Please enter a name"}
@@ -12,16 +12,16 @@
           %option Male
           %option Female
 
-  = styleblock "2.2" do
+  = styleblock "2.2", "Form inputs" do
     %input.us-form-input.modifier-class
 
-  = styleblock "2.2.1" do
+  = styleblock "2.2.1", "Inputs with backgrounds" do
     %input.us-form-input.modifier-class{type: :text}
 
-  = styleblock "2.3" do
+  = styleblock "2.3", "Radios and checkboxes" do
     .us-field
       %label Do you have a different billing address?
-      .us-field-toggle.us-col-2
+      .us-field-toggle.us-col-4
         %label
           %input.us-form-input{:type=>'radio',:name=>'null',:checked => :checked} Yes
         %label
@@ -29,7 +29,7 @@
 
     .us-field
       %label How would you like to be contacted?
-      .us-field-toggle.us-col-2
+      .us-field-toggle.us-col-4
         %label
           %input.us-form-input{:type=>'checkbox',:name=>'null',:checked => :checked} Mobile
         %label
@@ -37,7 +37,7 @@
         %label
           %input.us-form-input{:type=>'checkbox',:name=>'null'} Email
 
-  = styleblock "2.4" do
+  = styleblock "2.4", "Selects" do
     %span.us-form-select-wrap
       %select.us-form-select.modifier-class
         %option A select menu

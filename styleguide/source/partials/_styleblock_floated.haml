@@ -1,8 +1,8 @@
-%h1 #{@section.section} #{@section.filename}
-
-.us-grid-row
+.styleguide-block.us-grid-row{id: @title.downcase.gsub(" ", "-")}
   .us-col-6
-    %p.styleguide-description= @section.description
+    .styleguide-description= @markdown.render(@section.description)
+    %h4 #{@section.section} #{@section.filename}
+    
     - if @section.modifiers.any?
       %ul
         - @section.modifiers.each do |modifier|

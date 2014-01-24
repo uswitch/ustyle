@@ -1,10 +1,11 @@
 pre code {
   font-family: "Inconsolata", sans-serif;
-  font-size: 0.9em;
+  font-size: 0.8em;
   display: block; 
-  padding: 0.5em;
-  background: mix($c-cyan, white, 10%); 
+  padding: 1em;
+  background: mix($c-cyan, white, 5%); 
   color: $c-navy;
+  border: 1px solid $c-cyan
 }
 
 .hljs-comment,
@@ -44,6 +45,7 @@ pre code {
 }
 
 /* Solarized Blue */
+.hljs-tag,
 .hljs-title,
 .hljs-localvars,
 .hljs-chunk,

@@ -1,19 +1,19 @@
-%h1 #{@section.section} #{@section.filename}
-
-%p.styleguide-description= @section.description
-- if @section.modifiers.any?
-  %ul
-    - @section.modifiers.each do |modifier|
-      %li #{modifier.name} - #{modifier.description}
-      
-.modifier_block= @example_html
-
-%pre
-  %code{class: :xml}= h @example_html.gsub("modifier-class", "")
-
-- @section.modifiers.each do |modifier|
-  .modifier_block
-    = @example_html.gsub("modifier-class", modifier.class_name)
+.styleguide-block{id: @title.downcase.gsub(" ", "-")}
+  .styleguide-description= @markdown.render(@section.description)
+  %h4 #{@section.section} #{@section.filename}
+  - if @section.modifiers.any?
+    %ul
+      - @section.modifiers.each do |modifier|
+        %li #{modifier.name} - #{modifier.description}
+        
+  .modifier_block= @example_html
 
   %pre
-    %code{class: :xml}= h @example_html.gsub("modifier-class", modifier.class_name)
+    %code{class: :xml}= h @example_html.gsub("modifier-class", "")
+
+  - @section.modifiers.each do |modifier|
+    .modifier_block
+      = @example_html.gsub("modifier-class", modifier.class_name)
+
+    %pre
+      %code{class: :xml}= h @example_html.gsub("modifier-class", modifier.class_name)
