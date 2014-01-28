@@ -7,8 +7,14 @@
   width: 100%
   z-index: 1000
 
+.nav-wrapper
+  @extend %container
+
 .logo
   @extend %heading-font-regular
   +link-colors(white, $c-typecyan, white, white)
   float: left
   padding: 0.5em
+
+#nav
+  float: right
