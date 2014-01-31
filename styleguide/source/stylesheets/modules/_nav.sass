@@ -1,8 +1,43 @@
-#nav
-  float: right
+html,
+body
+  height: 100%
 
+.wrapper
+  +transition(transform 0.2s cubic-bezier(0.2, 0.3, 0.25, 0.9) 0s)
+  z-index: 800
+  background-color: white
+  width: 100%
+  height: 100%
+  position: relative
+
+.open-menu
+  overflow: hidden
+  .wrapper
+    +transform(translate3d(280px,0,0))
+    position: fixed
+    left: 0
+
+.faux-scroll
+  position: relative
+  overflow: auto
+  height: 100%
+
+.absolute-wrapper
+  position: absolute
+  width: 100%
+  height: 100%
+
+#nav
+  position: absolute
+  left: 0
+  top: 0
+  bottom: 0
+  width: 280px
+  background-color: $c-navy
+
+  
 .nav-link
-  display: inline-block
+  display: block
   a
     @extend %heading-font-regular
     +link-colors($c-cyan, white)

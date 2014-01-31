@@ -6,6 +6,7 @@
   position: fixed
   width: 100%
   z-index: 1000
+  top: 0
 
 .nav-wrapper
   @extend %container
@@ -15,6 +16,15 @@
   +link-colors(white, $c-typecyan, white, white)
   float: left
   padding: 0.5em
+
+  &:before
+    content: "\2630"
+    @extend %icon-font
+    speak: none
+    display: inline-block
+    font-size: 0.8em
+    -webkit-font-smoothing: antialiased
+    margin-right: 0.5em
 
 #nav
   float: right
