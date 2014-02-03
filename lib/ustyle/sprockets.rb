@@ -2,8 +2,14 @@ require "sprockets"
 require 'sprockets-helpers'
 require "compass"
 
-Sprockets.append_path File.expand_path("../../../sass", __FILE__)
-Sprockets.append_path File.expand_path("../../../js", __FILE__)
+if Sprockets.methods.include?(:append_path)
+  Sprockets.append_path File.expand_path("../../../sass", __FILE__)
+  Sprockets.append_path File.expand_path("../../../js", __FILE__)
+else
+  environment = Sprockets::Environment.new
+  environment.append_path File.expand_path("../../../sass", __FILE__)
+  environment.append_path File.expand_path("../../../js", __FILE__)
+end    
 
 if defined?(Sinatra)
   module Sinatra
