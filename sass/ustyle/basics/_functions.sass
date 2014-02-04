@@ -2,7 +2,6 @@
   @return ($pixels / $base-font-size) * 1em
 
 @function col-width($columns)
-  // $width: $columns * $col-width + ($columns - 1) * $gutter-width
   @return percentage( $columns / $grid-columns )
 
 @function gutter-width($gutter-width: $gutter-width)
