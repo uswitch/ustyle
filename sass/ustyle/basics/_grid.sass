@@ -15,12 +15,18 @@
   padding: 0 em($gutter-width / 2)
 
   +respond-to(tablet)
+    $grid-background-total-columns: $grid-columns-tablet
+    +grid-background
     max-width: em($tablet-container-width)
 
   +respond-to(desktop, true)
+    $grid-background-total-columns: $grid-columns-desktop
+    +grid-background
     max-width: em($desktop-container-width)
 
   +respond-to(large-desktop)
+    $grid-background-total-columns: $grid-columns
+    +grid-background
     max-width: em($large-container-width)
 
 @mixin us-row
