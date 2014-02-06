@@ -21,8 +21,6 @@
   @extend %heading-font-regular
   +reset-box-model
   +transition(all 180ms)
-  // +transform(scale3d(1,1,1))
-  position: relative
   padding: em(10px) em(20px)
   display: inline-block
   border-radius: 5px
@@ -35,6 +33,7 @@
   text-decoration: none
   text-align: center
   cursor: pointer
+  outline: 0
 
   &:visited
     color: white
@@ -46,8 +45,6 @@
 
   &:focus,
   &:active
-    +transition-delay(0)
-    top: 3px
     color: white
     background-color:  mix($button-color, black, 75%)
     box-shadow: 0px 2px 0px mix($button-color, black, 65%)
@@ -58,18 +55,10 @@
   &.large
     font-size: 1.2em
 
-  &.inline
-    top: -3px
-
-    &:focus,
-    &:active
-      top: 0px
-
   &.blocked
     +trailer(1)
     display: block
     width: 100%
-
 
   &.arrowed
   
