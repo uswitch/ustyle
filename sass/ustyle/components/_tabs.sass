@@ -1,0 +1,179 @@
+$tab-width: col-width(2) !default
+
++keyframes(tab-show)
+  0%
+    +opacity(0)
+  100%
+    +opacity(1)
+
+// Tab nav
+.us-tabs-nav
+  display: none
+  background-color: $c-navy
+
+  +respond-to(tablet)
+    .js &
+      display: block
+
+  .js.ie8 & 
+    display: block
+
+.us-tabs-nav-wrapper
+  @extend %container
+  +padding-leader(0.5)
+
+.us-tabs-nav-menu
+  overflow: hidden
+  width: 100%
+  display: -webkit-flex
+  display: flex
+  flex-flow: row
+
+.us-tabs-nav-link
+  @extend %heading-font-regular
+  +border-top-radius(5px)
+  +link-colors(white, $c-typecyan, $c-typecyan, white)
+  padding: rhythm(0.45) 0.15em
+  width: $tab-width
+  vertical-align: middle
+  text-align: center
+  align-items: center
+  justify-content: center
+  display: flex
+  display: -webkit-flex
+  -webkit-justify-content: center
+  -webkit-align-items: center
+  flex-flow: column
+  position: relative
+  z-index: 10
+
+  .no-flexboxlegacy &
+    height: 60px
+    display: block
+    float: left
+
+  +respond-to(tablet)
+    +adjust-font-size-to(14px, 0.75)
+
+  +respond-to(desktop)
+    +adjust-font-size-to(16px, 0.8)
+
+  +respond-to(large-desktop)
+    +heading(4)
+
+  &:hover
+    &:before
+      +translate3d(0,0,0)
+
+      .no-csstransforms &
+        top: 0
+
+  &:before
+    +border-top-radius(5px)
+    +transition(transform 300ms)
+    +translate3d(0,200px,0)
+    content: ""
+    position: absolute
+    width: 100%
+    display: block
+    background-color: white
+    top: 0
+    bottom: 0
+    left: 0
+    z-index: -1
+
+    .no-csstransforms &
+      top: 200px
+
+  &:after
+    content: ""
+    position: absolute
+    bottom: 0
+    left: -4px
+    right: -4px
+    height: 0
+    border-style: solid
+    border-width: 0 4px 4px 4px
+    border-color: transparent
+
+  &.active
+    +box-shadow(0px 0 10px rgba(0,0,0,0.5))
+    background-color: white
+    color: $c-navy
+    z-index: 15
+
+    &:after
+      border-color: white transparent
+
+// Tabs    
+.us-tabs-container
+  @extend %container
+
+  +respond-to(to-tablet)
+    padding: 0 !important
+  
+.us-tab-title
+  @extend %heading-font-regular
+  @extend %heading-4
+  margin: 0
+  position: relative
+
+  +respond-to(tablet)
+    .js &
+      display: none
+
+  .js.ie8 &
+    display: none
+
+  a
+    +transition(color 300ms, background-color 300ms)
+    +link-colors($c-navy, white, $c-navy)
+    padding: 0.5em 0.75em
+    border-bottom: 1px solid white
+    display: block
+    background-color: $c-cyan
+
+    &.active
+      background-color: $c-navy
+      color: white
+
+      &:before
+        +rotate(90deg)
+
+    &:hover
+      &:before
+        +rotate(90deg)
+        color: white
+
+    &:before
+      +transition(all 300ms)
+      @extend %icon-font
+      content: "\25b6"
+      display: inline-block
+      margin-right: 0.75em
+      font-size: 0.75em
+
+.us-tab-content
+  @extend %container
+  +transition(all 300ms)
+  +opacity(1)
+  overflow: hidden
+  display: block
+
+  .js &
+    max-height: 0
+
+    +respond-to(tablet)
+      display: none
+      max-height: none
+
+  .ie8.js &
+    display: none
+    max-height: none
+    
+  .us-tab.active &
+    max-height: 999px
+
+    +respond-to(tablet)
+      display: block
+      +keyframeanimate(tab-show, 1s, ease-out)

@@ -10,3 +10,15 @@
     @content
   @keyframes #{$name}
     @content
+
+
+= keyframeanimate($name, $time, $ease, $delay:0s)
+  -webkit-animation: $name $time $ease
+  -moz-animation:    $name $time $ease
+  -o-animation:      $name $time $ease
+  animation:         $name $time $ease
+
+  -webkit-animation-delay: $delay
+  -moz-animation-delay: $delay
+  -o-animation-delay: $delay
+  animation-delay: 0
