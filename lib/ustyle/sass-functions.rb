@@ -1,4 +1,5 @@
-require 'base64'
+require "sass"
+require "base64"
 
 module Sass::Script::Functions
     def base64Encode(string)

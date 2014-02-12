@@ -1,28 +1,29 @@
-project_root = File.join(File.dirname(__FILE__), "..")
-
-require "ustyle/version"
-
-unless defined?(Sass)
-  require 'sass'
+def gem_path
+  @gem_path ||= File.expand_path "..", File.dirname(__FILE__)
 end
 
-require 'ustyle/sass'
+def assets_path
+  @assets_path ||= File.join gem_path, "vendor", "assets"
+end
+
+require "ustyle/sass-functions"
 
 module Ustyle
-  if defined?(Rails::Engine)
-    require 'compass-rails'
-    require 'ustyle/engine'
-  elsif defined?(Sprockets)
-    require 'ustyle/sprockets'
+  if defined?(::Rails)
+    require "compass-rails"
+    require "ustyle/engine"
+  elsif defined?(::Sprockets)
+    require "ustyle/sprockets"
+    require "ustyle/sinatra"
   else
-    Sass.load_paths << File.expand_path("../../sass", __FILE__)
+    ::Sass.load_paths << File.join(assets_path, "stylesheets")
   end
 end
 
 # TO-DO - Add a template so the framework works
-if defined?(Compass)
+if defined?(::Compass)
   Compass::Frameworks.register("ustyle",
-    :stylesheets_directory => File.join(project_root,"sass"),
-    :javascripts_directory => File.join(project_root, "js")
+    :path => gem_path,
+    :stylesheets_directory => File.join(assets_path, "stylesheets")
   )
 end
