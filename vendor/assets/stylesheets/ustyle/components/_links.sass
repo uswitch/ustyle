@@ -7,15 +7,17 @@
 a,
 .us-link
   +transition(color 333ms, border-color 333ms)
-  +link-colors($c-blue, $c-typecyan, darken($c-blue, 15%), darken($c-blue, 15%))
+  +link-colors($c-blue, $c-typecyan, $c-blue, $c-blue, darken($c-blue, 15%))
   text-decoration: none
 
 .us-link
   border-bottom: 1px solid $c-blue
 
+  &:visited
+    border-color: $c-blue
+
   &:hover
     border-color: $c-typecyan
 
-  &:focus,
-  &:visited
+  &:focus
     border-color: darken($c-blue, 15%)
