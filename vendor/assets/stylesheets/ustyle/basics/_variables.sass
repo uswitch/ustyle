@@ -80,7 +80,6 @@ $heading-line-heights: 1.92, 1.6,  1.25, 0.9,  0.95, 0.95 !default
 
 // Device sizes
 // -----
-
 $large-desktop-width: em(1200px) !default
 $desktop-width:       em(992px) !default
 $tablet-width:        em(768px) !default
@@ -88,11 +87,10 @@ $small-tablet-width:  em(600px) !default
 $mobile-width:        em(480px) !default
 
 $mobile-end: $mobile-width
-$tablet-start: $mobile-end + em(1px)
-$tablet-end: $tablet-width + em(1px)
+$tablet-end: $tablet-width + 1
 $desktop-start: $tablet-width
 
-$devices: (mobile, max, ($small-tablet-width - em(1px))), (small-tablet, min, $small-tablet-width), (tablet, min, $tablet-width), (to-tablet, max, $tablet-width), (from-tablet, min, $tablet-end), (to-desktop, max, $desktop-width), (desktop, min, $desktop-width), (large-desktop, min, $large-desktop-width) !default
+$devices: (mobile, max, ($small-tablet-width)), (small-tablet, min, $small-tablet-width), (tablet, min, $tablet-width), (to-tablet, max, $tablet-width), (from-tablet, min, $tablet-end), (to-desktop, max, $desktop-width), (desktop, min, $desktop-width), (large-desktop, min, $large-desktop-width) !default
 
 // Grid settings
 // -----
