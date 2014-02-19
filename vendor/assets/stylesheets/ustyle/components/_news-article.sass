@@ -21,6 +21,14 @@ $item-padding: em(9px)
   &:after
     @extend %link-triangle
 
+%base-item-link
+  @extend %bordered-box
+  +transition(border-color 333ms, background-color 333ms)
+  display: block
+  background-color: white
+  text-decoration: none
+  position: relative
+
 .us-news-item
   @extend %us-col-md-6
   @extend %us-col-lg-3
@@ -37,12 +45,7 @@ $item-padding: em(9px)
         margin-right: -0.3em
 
 .us-news-item-link
-  @extend %bordered-box
-  +transition(border-color 333ms, background-color 333ms)
-  display: block
-  background-color: white
-  text-decoration: none
-  position: relative
+  @extend %base-item-link
   padding-bottom: em(35px)
 
 .us-news-item-title
