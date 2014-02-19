@@ -88,11 +88,11 @@ $small-tablet-width:  em(600px) !default
 $mobile-width:        em(480px) !default
 
 $mobile-end: $mobile-width
-$tablet-start: $mobile-end + 1
-$tablet-end: $tablet-width + 1
+$tablet-start: $mobile-end + em(1px)
+$tablet-end: $tablet-width + em(1px)
 $desktop-start: $tablet-width
 
-$devices: (mobile, max, ($small-tablet-width - 1)), (small-tablet, min, $small-tablet-width), (tablet, min, $tablet-width), (to-tablet, max, $tablet-width), (from-tablet, min, $tablet-end), (to-desktop, max, $desktop-width), (desktop, min, $desktop-width), (large-desktop, min, $large-desktop-width) !default
+$devices: (mobile, max, ($small-tablet-width - em(1px))), (small-tablet, min, $small-tablet-width), (tablet, min, $tablet-width), (to-tablet, max, $tablet-width), (from-tablet, min, $tablet-end), (to-desktop, max, $desktop-width), (desktop, min, $desktop-width), (large-desktop, min, $large-desktop-width) !default
 
 // Grid settings
 // -----
