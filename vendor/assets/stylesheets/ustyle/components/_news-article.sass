@@ -12,10 +12,10 @@ $item-padding: em(9px)
 %readmore-link
   @extend %heading-font-regular
   @extend %heading-4
+  +link-colors($c-typecyan, $c-typecyan, $c-typecyan, $c-typecyan)
   border-bottom: 1px solid $c-typecyan
 
 %readmore
-  position: relative
   white-space: nowrap
   color: $c-typecyan
   &:after
@@ -42,6 +42,8 @@ $item-padding: em(9px)
   display: block
   background-color: white
   text-decoration: none
+  position: relative
+  padding-bottom: em(35px)
 
 .us-news-item-title
   @extend %heading-4
@@ -103,6 +105,10 @@ $item-padding: em(9px)
 
 .us-news-item-readmore
   @extend %readmore
+  position: absolute
+  bottom: 0
+  left: 0
+  right: 0
   padding: $item-padding
   border-top: 1px solid $grey-10
 

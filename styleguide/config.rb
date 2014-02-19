@@ -1,7 +1,7 @@
 require "kss"
 require "redcarpet"
 
-KSS_DIR = File.expand_path("../../sass/ustyle", __FILE__)
+KSS_DIR = File.expand_path("../../vendor/assets/stylesheets/ustyle", __FILE__)
 
 helpers do
   def styleblock(section, title, floated = true, &block)
