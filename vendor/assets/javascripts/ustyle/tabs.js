@@ -10,7 +10,7 @@ uSwitch.tabs = (function($){
 
   var init = function(){
     var $first = settings.tab.first();
-    var $initialHash = settings.tab.filter("["+ settings.filter +"='"+ settings.hash.replace(/\//, "") +"']");
+    var $initialHash = settings.tab.filter("["+ settings.filter +"='"+ settings.hash.replace("!", "") +"']");
 
     if($initialHash.length){
       navigateTo($initialHash, settings);
@@ -20,7 +20,7 @@ uSwitch.tabs = (function($){
   };
 
   var hashChange = function(selector){
-    location.replace("#/" + getSelector(selector).replace(/#/, ""));
+    location.replace("#!" + getSelector(selector).replace(/#/, ""));
   };
 
   var navigateTo = function(active, settings){    
@@ -50,7 +50,9 @@ uSwitch.tabs = (function($){
       'transition'       : 'transitionend'       // IE10, Opera, Chrome, FF 15+, Saf 7+
     };
 
-    var transEndEventName = transEndEventNames[ Modernizr.prefixed('transition') ];
+    var prefixedSelected = Modernizr.prefixed('transition') || 'WebkitTransition';
+
+    var transEndEventName = transEndEventNames[ prefixedSelected ];
 
     activeTab.find(".us-tab-content").one(transEndEventName, function(){
       $("html, body").stop().animate({

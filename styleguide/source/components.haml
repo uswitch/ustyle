@@ -31,6 +31,52 @@
       .us-sidebar-body
         %p Standard variable
 
+  = styleblock "5.3", "Tabs", false do
+    .us-tabs
+      %nav.us-tabs-nav
+        .us-tabs-nav-wrapper
+          .us-tabs-nav-menu
+            = link_to "Test 1", "#test", class: "us-tabs-nav-link"
+            = link_to "Test 2", "#blorgh", class: "us-tabs-nav-link"
+            = link_to "Test 3", "#blah", class: "us-tabs-nav-link"
+            = link_to "Gas &amp; Electricity suppliers", "#test1", class: "us-tabs-nav-link"
+            = link_to "Test 2", "#blorgh1", class: "us-tabs-nav-link"
+            = link_to "Test 3", "#blah1", class: "us-tabs-nav-link"
+
+      .us-tabs-container
+        
+        #test.us-tab
+          %h2.us-tab-title= link_to "Test 1", "#test"
+          .us-tab-content 
+            - for i in 0..20
+              One
+              %br
+
+        #blorgh.us-tab
+          %h2.us-tab-title= link_to "Test 2", "#blorgh"
+          .us-tab-content 
+            Two
+
+        #blah.us-tab
+          %h2.us-tab-title= link_to "Test 3", "#blah"
+          .us-tab-content 
+            Three
+
+        #test1.us-tab
+          %h2.us-tab-title= link_to "Test 1", "#test1"
+          .us-tab-content 
+            One
+
+        #blorgh1.us-tab
+          %h2.us-tab-title= link_to "Test 2", "#blorgh1"
+          .us-tab-content 
+            Two
+
+        #blah1.us-tab
+          %h2.us-tab-title= link_to "Test 3", "#blah1"
+          .us-tab-content 
+            Three
+
   = styleblock "4.1", "News item", false do
     .us-news-item
       %a.us-news-item-link{href: "#"}
