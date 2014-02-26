@@ -77,21 +77,21 @@ $tab-width: col-width(2) !default
         top: 0
 
   &:before
-    +border-top-radius(5px)
     +transition(transform 300ms)
     +translate3d(0,200px,0)
+    +border-top-radius(5px)
     content: ""
     position: absolute
     width: 100%
-    display: block
+    display: none
     background-color: white
     top: 0
     bottom: 0
     left: 0
     z-index: -1
-
-    .no-csstransforms &
-      top: 200px
+  .csstransitions &,&:hover
+    &:before
+      display: block
 
   &:after
     content: ""
