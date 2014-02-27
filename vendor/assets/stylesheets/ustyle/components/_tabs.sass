@@ -41,7 +41,7 @@ $tab-width: col-width(2) !default
   @extend %heading-font-regular
   +border-top-radius(5px)
   +link-colors(white, $c-typecyan, $c-typecyan, white)
-  padding: rhythm(0.45) 0.15em
+  padding: 0.475em 0.15em 1.2em
   width: $tab-width
   vertical-align: middle
   text-align: center
@@ -56,7 +56,7 @@ $tab-width: col-width(2) !default
   z-index: 10
 
   .no-flexboxlegacy &
-    height: 60px
+    height: 70px
     display: block
     float: left
 
@@ -77,21 +77,21 @@ $tab-width: col-width(2) !default
         top: 0
 
   &:before
-    +border-top-radius(5px)
     +transition(transform 300ms)
     +translate3d(0,200px,0)
+    +border-top-radius(5px)
     content: ""
     position: absolute
     width: 100%
-    display: block
+    display: none
     background-color: white
     top: 0
     bottom: 0
     left: 0
     z-index: -1
-
-    .no-csstransforms &
-      top: 200px
+  .csstransitions &,&:hover
+    &:before
+      display: block
 
   &:after
     content: ""
@@ -141,9 +141,10 @@ $tab-width: col-width(2) !default
     display: block
     background-color: $c-cyan
 
-    &.active
+    .active &
       background-color: $c-navy
       color: white
+      cursor: default
 
       &:before
         +rotate(90deg)
@@ -180,8 +181,8 @@ $tab-width: col-width(2) !default
     max-height: none
     
   .us-tab.active &
-    max-height: 999px
+    max-height: 9999px
 
-    +respond-to(tablet)
+    +respond-to(tablet,true)
       display: block
       +keyframeanimate(tab-show, 1s, ease-out)
