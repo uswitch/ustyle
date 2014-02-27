@@ -23,20 +23,20 @@ uSwitch.tabs = (function($){
     location.replace("#!" + getSelector(selector).replace(/#/, ""));
   };
 
-  var navigateTo = function(active, settings){    
+  var navigateTo = function(active, settings){
       var selector = getSelector(active),
           $selected = $(getSelector(active));
+
+      settings.tab.removeClass("active").end();
+      settings.tab.filter("["+ settings.filter +"='"+ selector +"']").addClass("active");
+
+      $selected
+        .siblings(".active").removeClass("active").end()
+        .addClass("active");
 
       if(active.parent().hasClass("us-tab-title")){
         accordionScroll($selected);
       };
-
-      settings.tab.removeClass("active").end();
-      settings.tab.filter("["+ settings.filter +"='"+ selector +"']").addClass("active");
-      
-      $selected
-        .siblings(".active").removeClass("active").end()
-        .addClass("active");
   };
 
   var getSelector = function(clicked){
@@ -54,7 +54,7 @@ uSwitch.tabs = (function($){
 
     var transEndEventName = transEndEventNames[ prefixedSelected ];
 
-    activeTab.find(".us-tab-content").one(transEndEventName, function(){
+    activeTab.find(".us-tab-content").on(transEndEventName, function(){
       $("html, body").stop().animate({
         scrollTop: activeTab.offset().top
       }, 300, function(){
