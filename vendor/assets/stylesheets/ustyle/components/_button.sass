@@ -1,6 +1,6 @@
 // Buttons
 // ---
-// There are several styles of the uSwitch button. 
+// There are several styles of the uSwitch button.
 // There is a larger version of the button as well.
 // Each of these styles adheres to the uSwitch branding colours.
 // Currently we support anchor tags and button tags as the main ussage
@@ -13,6 +13,7 @@
 // .dark - dark button used for dark backgrounds
 // .large - Larger button for heros
 // .blocked - Full width button
+// .disabled - Disabled styling (can also be styled with :disabled)
 //
 // Styleguide 3.1
 
@@ -37,7 +38,7 @@
 
   &:visited
     color: white
-    
+
   &:hover
     color: white
     background-color: mix($button-color, black, 80%)
@@ -61,7 +62,7 @@
     width: 100%
 
   &.arrowed
-  
+
     &:after
       @extend %link-triangle
 
@@ -135,3 +136,8 @@
     &:active
       background-color:  mix($c-navy, black, 75%)
       box-shadow: 0px 2px 0px mix($c-navy, black, 65%)
+
+  &:disabled,
+  &.disabled
+    +opacity(0.5)
+    pointer-events: none
