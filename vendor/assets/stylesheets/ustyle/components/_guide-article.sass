@@ -8,6 +8,8 @@
 //
 // Styleguide 4.2
 
+$guide-item-image-size: 128px !default
+
 .us-guide-item
   @extend %base-item
 
@@ -46,17 +48,18 @@
   background-color: white
 
   +respond-to(desktop, true)
-    +transform(translate3d(0, 128px, 0))
+    +transform(translate3d(0, $guide-item-image-size, 0))
     position: absolute
+    min-height: 300px
     left: 0
     right: 0
     top: 0
 
   .no-csstransforms3d &
-    +transform(translateY(128px))
+    +transform(translateY($guide-item-image-size))
 
   .no-csstransitions.no-csstransforms &
-    top: 128px
+    top: $guide-item-image-size
 
 
 .us-guide-item-title,
@@ -84,7 +87,10 @@
     display: none
 
 .us-guide-item-image
-  @extend .us-news-item-image
+  @extend %base-item-image
+
+  &.background
+    height: $guide-item-image-size
 
 .us-guide-item-readmore
   @extend %readmore

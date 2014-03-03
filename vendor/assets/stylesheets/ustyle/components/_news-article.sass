@@ -8,6 +8,7 @@
 // Styleguide 4.1
 
 $item-padding: em(9px)
+$news-item-image-size: 128px !default
 
 %readmore-link
   @extend %heading-font-regular
@@ -38,6 +39,18 @@ $item-padding: em(9px)
   background-color: white
   text-decoration: none
   position: relative
+
+%base-item-image
+  @extend %backface-visibility
+  +transition(opacity 333ms)
+  +border-top-radius(em(5px))
+  width: 100%
+  height: auto
+
+  &.background
+    background-repeat: no-repeat
+    background-position: center center
+    +background-size(cover)
 
 .us-news-item
   @extend %base-item
@@ -100,18 +113,10 @@ $item-padding: em(9px)
     display: block
 
 .us-news-item-image
-  @extend %backface-visibility
-  +transition(opacity 333ms)
-  +border-top-radius(em(5px))
-  width: 100%
-  height: auto
+  @extend %base-item-image
 
   &.background
-    height: 128px
-    background-repeat: no-repeat
-    background-position: center center
-    +background-size(cover)
-
+    height: $news-item-image-size
 
 .us-news-item-readmore
   @extend %readmore
