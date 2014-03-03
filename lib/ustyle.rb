@@ -9,8 +9,6 @@ module Ustyle
       elsif defined?(::Sprockets)
         require "ustyle/sprockets"
         require "ustyle/sinatra"
-      else
-        ::Sass.load_paths << File.join(assets_path, "stylesheets")
       end
 
       if defined?(::Compass)
@@ -19,6 +17,8 @@ module Ustyle
           :stylesheets_directory => File.join(assets_path, "stylesheets")
         )
       end
+
+      ::Sass.load_paths << File.join(assets_path, "stylesheets")
     end
 
     def gem_path

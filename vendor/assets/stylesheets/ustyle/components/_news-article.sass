@@ -21,6 +21,12 @@ $item-padding: em(9px)
   &:after
     @extend %link-triangle
 
+%base-item
+  @extend %us-col-md-6
+  @extend %us-col-lg-3
+  +trailer(1)
+  overflow: hidden
+
 %base-item-link
   @extend %bordered-box
   +transition(border-color 333ms, background-color 333ms)
@@ -30,10 +36,7 @@ $item-padding: em(9px)
   position: relative
 
 .us-news-item
-  @extend %us-col-md-6
-  @extend %us-col-lg-3
-  +trailer(1)
-  overflow: hidden
+  @extend %base-item
 
   &:hover
     .us-news-item-image
