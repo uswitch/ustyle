@@ -16,6 +16,10 @@ $item-padding: em(9px)
   border-bottom: 1px solid $c-typecyan
 
 %readmore
+  position: absolute
+  bottom: 0
+  left: 0
+  right: 0
   white-space: nowrap
   color: $c-typecyan
   &:after
@@ -111,10 +115,6 @@ $item-padding: em(9px)
 
 .us-news-item-readmore
   @extend %readmore
-  position: absolute
-  bottom: 0
-  left: 0
-  right: 0
   padding: $item-padding
   border-top: 1px solid $grey-10
 

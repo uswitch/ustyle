@@ -17,6 +17,7 @@
 .us-guide-item-link
   @extend %base-item-link
   overflow: hidden
+  padding-bottom: 44px
 
   &:hover
     .us-guide-item-description
@@ -25,14 +26,14 @@
 
     +respond-to(desktop)
       .us-guide-item-content
-        +transform(translate3d(0, -210%, 0))
+        +transform(translate3d(0,0,0))
 
         .no-csstransforms3d &
-          +transform(translateY(-210%))
+          +transform(translateY(0))
 
     .us-guide-item-content
       .no-csstransitions.no-csstransforms &
-        top: -100px
+        top: 0
 
 .us-guide-item-title
   @extend %heading-4
@@ -40,14 +41,22 @@
   padding: em(12px) em(20px, nth($heading-font-sizes,4))
 
 .us-guide-item-content
-  +transition(transform 200ms)
-  +transform(translate3d(0, 0, 0))
-  position: relative
+  +transition(all 200ms)
   border-top: 1px solid $c-lightgrey
   background-color: white
 
+  +respond-to(desktop, true)
+    +transform(translate3d(0, 128px, 0))
+    position: absolute
+    left: 0
+    right: 0
+    top: 0
+
   .no-csstransforms3d &
-    +transform(translateY(0))
+    +transform(translateY(128px))
+
+  .no-csstransitions.no-csstransforms &
+    top: 128px
 
 
 .us-guide-item-title,
@@ -67,6 +76,10 @@
     padding: 0 em(20px, 14px) em(35px)
 
 .us-guide-item-image-container
+
+  +respond-to(desktop, true)
+    padding-bottom: 91px
+
   +respond-to(mobile)
     display: none
 
@@ -76,7 +89,6 @@
 .us-guide-item-readmore
   @extend %readmore
   +border-bottom-radius(em(5px))
-  position: relative
   background-color: white
   padding: 0 em(20px) em(20px)
 
