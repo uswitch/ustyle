@@ -9,13 +9,33 @@
 // .secondary - Secondary use button, can be used multiple times
 // .tertiary - Tertiary use button, can be used multiple times
 // .arrowed - Arrowed button used for CTAs
-// .light - Light button used for dark backgrounds
-// .dark - dark button used for dark backgrounds
 // .large - Larger button for heros
 // .blocked - Full width button
 // .disabled - Disabled styling (can also be styled with :disabled)
 //
 // Styleguide 3.1
+
+$button-color: $c-red !default
+$p-button-color: $c-green !default
+$s-button-color: $c-typecyan !default
+$t-button-color: $c-blue !default
+
+$button-styles: ("primary", $p-button-color), ("secondary", $s-button-color), ("tertiary", $t-button-color)
+
+= button-style($name)
+  background-color: nth($name, 2)
+  border-color: shade(nth($name, 2), 20%)
+
+  &:hover
+    background-color: shade(nth($name, 2), 20%)
+
+  &:focus,
+  &:active
+    +box-shadow(inset 0 2px 4px shade(nth($name, 2), 80%))
+    color: white
+    background-color:  shade(nth($name, 2), 25%)
+    border-color: shade(nth($name, 2), 50%)
+
 
 %btn,
 .us-btn
@@ -49,6 +69,7 @@
     +box-shadow(inset 0 2px 4px shade($button-color, 80%))
     color: white
     background-color:  mix($button-color, black, 75%)
+    border-color: shade($button-color, 50%)
 
   &.stronger
     @extend %heading-font-bold
@@ -57,7 +78,6 @@
     font-size: 1.2em
 
   &.blocked
-    +trailer(1)
     display: block
     width: 100%
 
@@ -71,72 +91,11 @@
         margin-left: 0.8em
         margin-right: -0.3em
 
-  &.primary
-    background-color: $c-green
-    border-color: shade($c-green, 15%)
-    &:hover
-      background-color: mix($c-green, black, 90%)
-
-
-    &:focus,
-    &:active
-      +box-shadow(inset 0 2px 4px shade($c-green, 80%))
-      background-color: mix($c-green, black, 90%)
-
-
-  &.secondary
-    background-color: $c-typecyan
-    border-color: shade($c-typecyan, 15%)
-    &:hover
-      background-color: mix($c-typecyan, black, 80%)
-
-
-    &:focus,
-    &:active
-      +box-shadow(inset 0 2px 4px shade($c-typecyan, 80%))
-      background-color: $c-typecyan
-
-
-  &.tertiary
-    background-color: $c-blue
-    border-color: shade($c-blue, 15%)
-    &:hover
-      background-color: mix($c-blue, black, 80%)
-
-
-    &:focus,
-    &:active  
-      +box-shadow(inset 0 2px 4px shade($c-blue, 80%))
-      background-color: $c-blue
-
-
-  &.light
-    color: $c-navy
-    background-color: white
-    border-color: shade($c-navy, 15%)
-    &:hover
-      background-color: mix(white, black, 80%)
-
-
-    &:focus,
-    &:active
-      +box-shadow(inset 0 2px 4px shade($c-navy, 80%))
-      background-color:  mix(white, black, 75%)
-
-
-  &.dark
-    background-color: $c-navy
-    border-color: shade($c-navy, 15%)
-    &:hover
-      background-color: mix($c-navy, black, 80%)
-
-
-    &:focus,
-    &:active
-      background-color:  mix($c-navy, black, 75%)
-
-
   &:disabled,
   &.disabled
     +opacity(0.5)
     pointer-events: none
+
+  @each $button-style in $button-styles
+    &.#{nth($button-style, 1)}
+      +button-style($button-style)
