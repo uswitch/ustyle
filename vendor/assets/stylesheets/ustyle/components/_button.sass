@@ -26,10 +26,10 @@ $button-styles: ("primary", $p-button-color), ("secondary", $s-button-color), ("
   background-color: nth($name, 2)
   border-color: shade(nth($name, 2), 20%)
 
-  &:hover
+  &:hover,
+  &:focus
     background-color: shade(nth($name, 2), 20%)
 
-  &:focus,
   &:active
     +box-shadow(inset 0 2px 4px shade(nth($name, 2), 80%))
     color: white
@@ -60,11 +60,11 @@ $button-styles: ("primary", $p-button-color), ("secondary", $s-button-color), ("
   &:visited
     color: white
 
-  &:hover
+  &:hover,
+  &:focus
     color: white
     background-color: mix($button-color, black, 80%)
 
-  &:focus,
   &:active
     +box-shadow(inset 0 2px 4px shade($button-color, 80%))
     color: white
