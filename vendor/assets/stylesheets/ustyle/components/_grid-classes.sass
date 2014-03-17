@@ -1,20 +1,31 @@
 @if $grid-classes
   .us-grid-row
     +us-row
-    
-  +respond-to(small-tablet)
-    @for $column from 1 through $grid-columns
-      %us-col-sm-#{$column}
-        +us-col($column)
 
   +respond-to(tablet, false, true)
     @for $column from 1 through $grid-columns
-      .us-col-#{$column},
-      %us-col-md-#{$column}
+      .us-col-#{$column}
         +us-col($column)
         min-height: 1px
 
-  +respond-to(desktop, false, true)
-    @for $column from 1 through $grid-columns
-      %us-col-lg-#{$column}
-        +us-col($column)
+  
+// Placeholders
+
+%us-grid-row
+  +us-row
+
++respond-to(small-tablet)
+  @for $column from 1 through $grid-columns
+    %us-col-sm-#{$column}
+      +us-col($column)
+
++respond-to(tablet, false, true)
+  @for $column from 1 through $grid-columns
+    %us-col-md-#{$column}
+      +us-col($column)
+      min-height: 1px
+
++respond-to(desktop, false, true)
+  @for $column from 1 through $grid-columns
+    %us-col-lg-#{$column}
+      +us-col($column)

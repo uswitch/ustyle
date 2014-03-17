@@ -1,0 +1,13 @@
+.if-signed-in
+  display: none !important
+.if-signed-out
+  display: block !important
+.us-header-account
+  &:hover>.us-header-nav-dropdown
+    left: auto !important
+    right: 0
+.signed-in
+  .if-signed-in
+    display: block !important
+  .if-signed-out
+    display: none !important
