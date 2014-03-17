@@ -1,0 +1,56 @@
+// Styleguide 6.2
+
+// %with-sort-arrow
+
+//   +respond-to(small-tablet, true)
+//     position: relative
+//     margin-right: .4em
+
+//     &:after
+//       display: none
+//       content: "\025bc"
+//       line-height: 1
+//       position: absolute
+//       top: 50%
+//       right: -1.2em
+//       margin-top: -.4em
+//       color: $table-c-inactive
+
+// .us-table-cell-sorted
+
+//   +respond-to(small-tablet, true)
+//     background: $table-c-sorted-bg
+
+// %us-table-head-text,
+// .us-table-head-text
+//   @extend %with-sort-arrow
+//   +inline-block
+//   line-height: normal
+//   vertical-align: baseline
+
+// .us-table-sort-button,
+// .us-table-sort-button:visited
+//   @extend %us-table-head-text
+
+//   +respond-to(small-tablet, true)
+//     color: $table-c-head-text
+//     cursor: default
+
+//     .js .js-sortable &
+//       cursor: pointer
+
+//       &:after
+//         display: block
+      
+//       &:hover
+//         color: $table-c-head-text
+
+//         &:after
+//           color: $table-c-head-text
+
+// .us-table-head-sorted
+//   .us-table-sort-button,
+//   .us-table-head-text
+//     &:after
+//       display: block
+//       color: $table-c-head-text

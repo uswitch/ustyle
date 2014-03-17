@@ -6,6 +6,7 @@ uSwitch.styleguide = (function(){
 
   var init = function(){
     setupNav();
+    $('.js-sortable').tableSort();
   };
 
   var setupNav = function(){
