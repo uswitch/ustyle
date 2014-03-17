@@ -1,0 +1,55 @@
+// Basic table
+// ---
+// The most basic comparison table structure. It defines the style of the the
+// table only, the look of the content is totally up to you. On small screens
+// the table components become block elements, with only minimal styles applied,
+// so you don't need to overwrite too many default style rules when customising
+// the mobile appearance.
+//
+// Styleguide 6.1
+
+
+.us-table
+  // +adjust-font-size-to($table-font-size)
+  width: 100%
+  border-collapse: separate
+  border-spacing: 0
+  color: $table-c-text
+
+  +respond-to(mobile)
+    thead
+      display: none !important
+
+    // !! This affects tables inside the table
+    tbody,
+    tr,
+    td
+      display: block
+
+
+// Normal table headers
+
+.us-table-head
+  padding: 0 1em .5em 0
+  border-bottom: 1px solid $table-c-border
+  color: $table-c-head-text
+  text-align: left
+  vertical-align: middle
+
+// Main rows
+
+.us-table-body-row
+
+  +respond-to(mobile)
+    +pie-clearfix
+    position: relative
+
+.us-table-cell
+  padding: 1em 0
+  border-bottom: 1px solid $table-c-border
+  text-align: left
+  vertical-align: top
+  
+  +respond-to(mobile)
+    padding: 0
+    border: none
