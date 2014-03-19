@@ -29,3 +29,8 @@
   @for $column from 1 through $grid-columns
     %us-col-lg-#{$column}
       +us-col($column)
+
++respond-to(large-desktop, false, false)
+  @for $column from 1 through $grid-columns
+    %us-col-xlg-#{$column}
+      +us-col($column)

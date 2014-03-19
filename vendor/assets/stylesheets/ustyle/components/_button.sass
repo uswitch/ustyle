@@ -8,6 +8,9 @@
 // .primary - Usually used a save/update button
 // .secondary - Secondary use button, can be used multiple times
 // .tertiary - Tertiary use button, can be used multiple times
+// .primary--outlined - Usually used a save/update button
+// .secondary--outlined - Secondary use button, can be used multiple times
+// .tertiary--outlined - Tertiary use button, can be used multiple times
 // .arrowed - Arrowed button used for CTAs
 // .large - Larger button for heros
 // .blocked - Full width button
@@ -22,20 +25,34 @@ $t-button-color: $c-blue !default
 
 $button-styles: ("primary", $p-button-color), ("secondary", $s-button-color), ("tertiary", $t-button-color)
 
-= button-style($name)
-  background-color: nth($name, 2)
-  border-color: shade(nth($name, 2), 20%)
+= button-style($name, $outlined: false)
+  @if $outlined
+    background-color: transparent
+    background-color: transparentize(white, 0.2)
+    border-color: nth($name, 2)
+    color: nth($name, 2)
+  @else
+    background-color: nth($name, 2)
+    border-color: shade(nth($name, 2), 20%)
 
   &:hover,
   &:focus
-    background-color: shade(nth($name, 2), 20%)
+    @if $outlined
+      background-color: tint(nth($name, 2), 90%)
+    @else
+      background-color: shade(nth($name, 2), 20%)
 
   &:active
-    +box-shadow(inset 0 2px 4px shade(nth($name, 2), 80%))
-    color: white
-    background-color:  shade(nth($name, 2), 25%)
-    border-color: shade(nth($name, 2), 50%)
-
+    @if $outlined
+      background-color: nth($name, 2)
+      border-color: nth($name, 2)
+      color: white
+      box-shadow: none
+    @else
+      +box-shadow(inset 0 2px 4px shade(nth($name, 2), 80%))
+      color: white
+      background-color:  shade(nth($name, 2), 25%)
+      border-color: shade(nth($name, 2), 50%)
 
 %btn,
 .us-btn
@@ -82,6 +99,7 @@ $button-styles: ("primary", $p-button-color), ("secondary", $s-button-color), ("
     width: 100%
 
   &.arrowed
+    padding: 0.63em 1.25em 0.63em 0.95em
     &:after
       @extend %link-triangle
 
@@ -97,3 +115,7 @@ $button-styles: ("primary", $p-button-color), ("secondary", $s-button-color), ("
   @each $button-style in $button-styles
     &.#{nth($button-style, 1)}
       +button-style($button-style)
+
+  @each $button-style in $button-styles
+    &.#{nth($button-style, 1)}--outlined
+      +button-style($button-style, true)
