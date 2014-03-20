@@ -122,14 +122,13 @@
   display: block
   text-decoration: none
   outline: none
-  border-radius: 3px
   -webkit-tap-highlight-color: transparent
 
 .us-header-nav-mainlink
   +link-colors(#039, white, #039, #039)
+  border-radius: 3px
   .touch &
     +link-colors(#039, #039, #039, #039)
-  font-size: 16px
 
   +respond-to(small-tablet, true)
     padding: 8px 6px 11px 6px
@@ -271,7 +270,7 @@
         +sub-menu-open
 
 /* MOBILE */
-@media only screen and (max-width : 599px)
+@media only screen and (max-width : $mobile-end-width)
 
   .nav-fixed
     overflow: hidden
@@ -518,6 +517,6 @@
         -moz-transform: translateX(0)
         transform: translateX(0)
 
-@media screen and (max-width : 599px) and (min-height: 460px)
+@media screen and (max-width: $mobile-end-width) and (min-height: 460px)
   .us-header-nav-mainlink, .us-header-nav-link
     padding: 16px 8px
