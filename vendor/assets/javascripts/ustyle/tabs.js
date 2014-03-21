@@ -44,23 +44,11 @@ uSwitch.tabs = (function($){
   };
 
   var accordionScroll = function(activeTab){
-    var transEndEventNames = {
-      'WebkitTransition' : 'webkitTransitionEnd',// Saf 6, Android Browser
-      'MozTransition'    : 'transitionend',      // only for FF < 15
-      'transition'       : 'transitionend'       // IE10, Opera, Chrome, FF 15+, Saf 7+
-    };
-
-    var prefixedSelected = Modernizr.prefixed('transition') || 'WebkitTransition';
-
-    var transEndEventName = transEndEventNames[ prefixedSelected ];
-
-    activeTab.find(".us-tab-content").on(transEndEventName, function(){
+    setTimeout(function(){
       $("html, body").stop().animate({
         scrollTop: activeTab.offset().top
-      }, 300, function(){
-        $(this).unbind(transEndEventName);
-      })
-    });
+      }, 300)
+    },10)
 
   };
 
