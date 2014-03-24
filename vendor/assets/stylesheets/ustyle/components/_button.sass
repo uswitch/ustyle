@@ -28,7 +28,6 @@ $button-styles: ("primary", $p-button-color), ("secondary", $s-button-color), ("
 = button-style($name, $outlined: false)
   @if $outlined
     background-color: transparent
-    background-color: transparentize(white, 0.2)
     border-color: nth($name, 2)
     color: nth($name, 2)
   @else

@@ -14,23 +14,23 @@
 %us-grid-row
   +us-row
 
-+respond-to(small-tablet)
-  @for $column from 1 through $grid-columns
+@for $column from 1 through $grid-columns
+  %us-col-xsm-#{$column}
+    +us-col($column)
+    
+  +respond-to(small-tablet)
     %us-col-sm-#{$column}
       +us-col($column)
 
-+respond-to(tablet, false, true)
-  @for $column from 1 through $grid-columns
+  +respond-to(tablet, false, true)
     %us-col-md-#{$column}
       +us-col($column)
       min-height: 1px
 
-+respond-to(desktop, false, true)
-  @for $column from 1 through $grid-columns
+  +respond-to(desktop, false, true)
     %us-col-lg-#{$column}
       +us-col($column)
 
-+respond-to(large-desktop, false, false)
-  @for $column from 1 through $grid-columns
+  +respond-to(large-desktop, false, false)
     %us-col-xlg-#{$column}
       +us-col($column)
