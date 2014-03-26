@@ -11,14 +11,16 @@
   @keyframes #{$name}
     @content
 
-
-= keyframeanimate($name, $time, $ease, $delay:0s)
-  -webkit-animation: $name $time $ease
-  -moz-animation:    $name $time $ease
-  -o-animation:      $name $time $ease
-  animation:         $name $time $ease
-
-  -webkit-animation-delay: $delay
-  -moz-animation-delay: $delay
-  -o-animation-delay: $delay
-  animation-delay: 0
+= animation($name, $duration: 500ms, $fill_mode: forwards, $iteration_count: 1, $delay: 0,  $direction: normal, $timing_function: ease)
+  +experimental(animation-name, $name)
+  +experimental(animation-duration, $duration)
+  @if $fill_mode != none
+    +experimental(animation-fill-mode, $fill_mode)
+  @if $iteration_count != 1
+    +experimental(animation-iteration-count, $iteration_count)
+  @if $delay != 0
+    +experimental(animation-delay, $delay)
+  @if $direction != normal
+    +experimental(animation-direction, $direction)
+  @if $timing_function != ease
+    +experimental(animation-timing-function, $timing_function)
