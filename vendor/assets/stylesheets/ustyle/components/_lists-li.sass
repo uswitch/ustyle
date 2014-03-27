@@ -1,0 +1,51 @@
+// Custom tick/numbered lists
+// ---
+// A simple way of quickly styling up UL/OL with ticks or custom numbers, with options for a white or hero-blue background
+//
+// Styleguide 3.4
+
+%base-custom-list
+  margin: 1em 0
+  padding: 0
+  list-style: none
+  li
+    position: relative
+    margin: 0.5em 0
+    padding-left: 2em
+    &:before
+      position: absolute
+      left: 0
+      top: 0
+
+.us-ticked-list
+  @extend %base-custom-list
+  li
+    margin-top: 0
+    color: #1b1f4d
+    &:before
+      content: "\2714"
+      font-family: "uswitch-icon"
+      font-size: 1.2em
+      .us-hero &,.us-custom-list-alt &
+        color: #fff
+
+.us-numbered-list
+  @extend %base-custom-list
+  counter-reset: number-counter
+  li
+    counter-increment: number-counter
+    &:before
+      +box-sizing(border-box)
+      content: counter(number-counter)
+      top: -0.2em
+      width: 1.5em
+      height: 1.5em
+      padding-top: 0.25em
+      color: $c-typecyan
+      border-radius: 2em
+      line-height: 1
+      text-align: center
+      .us-hero &,.us-custom-list-alt &
+        color: $c-navy
+        background: #fff
+        background: rgba(255,255,255,0.7)
