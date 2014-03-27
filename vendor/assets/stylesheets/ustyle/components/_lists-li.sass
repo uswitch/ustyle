@@ -5,13 +5,15 @@
 // Styleguide 3.4
 
 %base-custom-list
-  margin: 1em 0
+  margin: rhythm(1) 0
   padding: 0
   list-style: none
+
   li
     position: relative
     margin: 0.5em 0
     padding-left: 2em
+
     &:before
       position: absolute
       left: 0
@@ -20,24 +22,26 @@
 .us-ticked-list
   @extend %base-custom-list
   li
-    margin-top: 0
-    color: #1b1f4d
-    &:before
+    color: $c-navy
+    &:before  
+      @extend %icon-font
       content: "\2714"
-      font-family: "uswitch-icon"
       font-size: 1.2em
-      .us-hero &,.us-custom-list-alt &
-        color: #fff
+
+      .us-hero &,
+      .us-custom-list-alt &
+        color: white
 
 .us-numbered-list
   @extend %base-custom-list
   counter-reset: number-counter
+
   li
     counter-increment: number-counter
+
     &:before
       +box-sizing(border-box)
       content: counter(number-counter)
-      top: 0
       width: 1.5em
       height: 1.5em
       padding-top: 0.25em
@@ -45,7 +49,9 @@
       border-radius: 2em
       line-height: 1
       text-align: center
-      .us-hero &,.us-custom-list-alt &
+
+      .us-hero &,
+      .us-custom-list-alt &
         color: $c-navy
-        background: #fff
+        background: white
         background: rgba(255,255,255,0.7)
