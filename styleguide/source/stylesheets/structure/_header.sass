@@ -1,20 +1,24 @@
 #header
-  background-color: $c-navy
-  color: white
+  text-align: center
+  color: $c-navy
   padding: 0 3em
   overflow: hidden
   position: fixed
   width: 100%
   z-index: 1000
   top: 0
+  background-color: white
+
+  .open-menu &
+    background-color: $c-navy
 
 .nav-wrapper
   @extend %container
 
 .logo
   @extend %heading-font-regular
-  +link-colors(white, $c-typecyan, white, white)
-  float: left
+  +link-colors($c-navy, $c-typecyan, $c-navy, $c-navy)
+  display: inline-block
   padding: 0.5em
 
   &:before
@@ -23,8 +27,13 @@
     speak: none
     display: inline-block
     font-size: 0.8em
-    -webkit-font-smoothing: antialiased
     margin-right: 0.5em
+
+  .open-menu &
+    +link-colors($c-cyan, $c-typecyan, white, white)
+
+    &:before
+      content: "\2718"
 
 #nav
   float: right

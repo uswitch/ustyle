@@ -1,48 +1,54 @@
-html,
-body
-  height: 100%
+%overlay-effect
+  +transition(all 400ms cubic-bezier(0.175, 0.885, 0.335, 1.05))
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  position: absolute
+  width: auto
+  height: auto
 
 .wrapper
-  +transition(transform 0.2s cubic-bezier(0.2, 0.3, 0.25, 0.9) 0s)
-  z-index: 800
+  @extend %backface-visibility
+  @extend %overlay-effect
+  z-index: 500
   background-color: white
-  width: 100%
-  height: 100%
-  position: relative
+  overflow-y: auto
+
+.content__overlay
+  @extend %overlay-effect
+  z-index: -1
+  cursor: pointer
 
 .open-menu
   overflow: hidden
-  .wrapper
-    +transform(translate3d(280px,0,0))
-    position: fixed
+
+  .wrapper,
+  .content__overlay
+    +transform(translate3d(0,30%,0) scale(0.85))
     left: 0
 
-.faux-scroll
-  position: relative
-  overflow: auto
-  height: 100%
+  .content__overlay
+    z-index: 600
 
-.absolute-wrapper
-  position: absolute
-  width: 100%
-  height: 100%
-
-#nav
+.nav__wrapper
   position: absolute
   left: 0
   top: 0
   bottom: 0
-  width: 280px
+  right: 0
   background-color: $c-navy
-
   
-.nav-link
-  display: block
-  a
-    @extend %heading-font-regular
-    +link-colors($c-cyan, white)
-    display: block
-    padding: 0.5em 1em
+.nav__container
+  +padding-leader(2)
+  text-align: center
 
-    &.active
-      color: white
+.nav__link
+  @extend %heading-font-regular
+  +heading(3)
+  +link-colors(white, $c-cyan, white, white)
+  display: inline-block
+  padding: 0.5em 1em
+
+.nav__link--active
+  color: $c-cyan !important

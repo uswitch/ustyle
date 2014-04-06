@@ -22,11 +22,10 @@
   %body
     = partial "partials/nav"
     = partial "partials/header"
-    .wrapper
-      .absolute-wrapper
-        .faux-scroll
-          #main{role: :main}
-            = yield
+    .content__overlay
+    .wrapper  
+      #main{role: :main}
+        = yield
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     = javascript_include_tag "all"

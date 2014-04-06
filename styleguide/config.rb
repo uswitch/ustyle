@@ -22,7 +22,7 @@ helpers do
   def nav_link(link, url, opts={})
       current_url = current_resource.url
       if current_url == url_for(url) || current_url == url_for(url) + "/"
-          opts[:class] = "active"
+          opts[:class] = "#{opts[:class]} nav__link--active"
       end
       link_to(link, url, opts)
   end
