@@ -2,29 +2,7 @@
 // Uses a padding based, border-boxed grid layout that allows for unlimited
 // nesting and no need to margin off the last-child. 
 
-// Grid settings
-$col-width: 70px !default
-$gutter-width: 30px !default
-$grid-columns: 12 !default
-$grid-columns-desktop: 10 !default
-$grid-columns-tablet: 8 !default
-
-$grid-background-column-width: $col-width !default
-$grid-background-gutter-width: $gutter-width !default
-$grid-background-total-columns: $grid-columns !default
-$grid-background-force-fluid: true !default
-$grid-background-offset: $gutter-width/2 !default
-$show-grid-backgrounds: false !default
-
-$grid-classes: true !default
-
-$large-container-width: ($grid-columns * $col-width) + ( ($grid-columns - 1) * $gutter-width)
-$desktop-container-width: ($grid-columns-desktop * $col-width) + ( ($grid-columns-desktop - 1) * $gutter-width)
-$tablet-container-width: ($grid-columns-tablet * $col-width) + ( ($grid-columns-tablet - 1) * $gutter-width)
-
-
-
-@if $grid-classes
+@if $html-grid-classes
   *
     +box-sizing(border-box)
 

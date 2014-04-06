@@ -14,6 +14,7 @@
 = animation($name, $duration: 500ms, $fill_mode: forwards, $iteration_count: 1, $delay: 0,  $direction: normal, $timing_function: ease)
   +experimental(animation-name, $name)
   +experimental(animation-duration, $duration)
+  
   @if $fill_mode != none
     +experimental(animation-fill-mode, $fill_mode)
   @if $iteration_count != 1

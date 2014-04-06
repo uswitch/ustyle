@@ -39,20 +39,11 @@ $grey-2:  #555    !default
 $grey-1:  #2f3335 !default
 $grey-0:  #222    !default
 
+// -----
 // Text
-
+// -----
 $text-color: $c-darkgrey !default
 $heading-color: $c-navy !default
-
-// Select / Input hovers
-$form-element-base-height: 2.4em !default
-
-$input-hover-color: $c-typecyan !default
-
-$select-base-color: $grey-4 !default
-$select-hover-color: $c-typecyan !default
-$select-active-color: $c-green !default
-$select-bg-color: white !default
 
 // -----
 // Fonts
@@ -63,15 +54,9 @@ $heading-font-regular : "FS Elliot Web Regular", Helvetica, Arial, sans-serif !d
 $normal-font          : "Helvetica Neue", Helvetica, Arial, sans-serif !default
 $icon-font            : "uswitch-icon", sans-serif !default
 
-
-// PIE
-$pie : "//www.uswitch.com/home-1/PIE.htc" !default
-$pie-development: false !default
-$has-pie: true !default
-
+// -----
 // Typography
 // -----
-
 $establish-type-rules: true !default
 
 $base-font-size: 16px !default
@@ -80,39 +65,21 @@ $base-line-height: 24px !default
 $heading-font-sizes:   36px, 30px, 24px, 18px, 16px, 16px !default
 $heading-line-heights: 1.92, 1.6,  1.25, 0.9,  0.95, 0.95 !default
 
-// Device sizes
 // -----
-$large-desktop-width: em(1200px) !default
-$desktop-width:       em(992px) !default
-$tablet-width:        em(768px) !default
-$small-tablet-width:  em(600px) !default
-$mobile-width:        em(480px) !default
+// Grid
+// -----
 
-$mobile-end-width: ""
-
-@if unit($small-tablet-width) == "px"
-  $mobile-end-width: $small-tablet-width - 1
-@else
-  $mobile-end-width: $small-tablet-width - em(1px)
-
-$mobile-end: $mobile-width
-$tablet-end: $tablet-width + 1
-$desktop-start: $tablet-width
-
-$devices: (mobile, max, ($small-tablet-width)), (small-tablet, min, $small-tablet-width), (tablet, min, $tablet-width), (to-tablet, max, $tablet-width), (from-tablet, min, $tablet-end), (to-desktop, max, $desktop-width), (desktop, min, $desktop-width), (large-desktop, min, $large-desktop-width) !default
-
-// Nav settings
-// ----
-
+// Grid classes
+$html-grid-classes: true !default
 
 // Grid settings
-// -----
 $col-width: 70px !default
 $gutter-width: 30px !default
 $grid-columns: 12 !default
 $grid-columns-desktop: 10 !default
 $grid-columns-tablet: 8 !default
 
+// Grid background settings
 $grid-background-column-width: $col-width !default
 $grid-background-gutter-width: $gutter-width !default
 $grid-background-total-columns: $grid-columns !default
@@ -120,10 +87,7 @@ $grid-background-force-fluid: true !default
 $grid-background-offset: $gutter-width/2 !default
 $show-grid-backgrounds: false !default
 
-$grid-classes: true !default
-
+// Containers
 $large-container-width: ($grid-columns * $col-width) + ( ($grid-columns - 1) * $gutter-width)
-
 $desktop-container-width: ($grid-columns-desktop * $col-width) + ( ($grid-columns-desktop - 1) * $gutter-width)
-
 $tablet-container-width: ($grid-columns-tablet * $col-width) + ( ($grid-columns-tablet - 1) * $gutter-width)

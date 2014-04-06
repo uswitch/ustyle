@@ -1,5 +1,26 @@
+// --------------------------
 // ! Respond to device mixins
 // --------------------------
+
+
+// Device sizes
+// -----
+$large-desktop-width: em(1200px) !default
+$desktop-width:       em(992px) !default
+$tablet-width:        em(768px) !default
+$small-tablet-width:  em(600px) !default
+$mobile-width:        em(480px) !default
+
+$mobile-end-width: ""
+
+@if unit($small-tablet-width) == "px"
+  $mobile-end-width: $small-tablet-width - 1
+@else
+  $mobile-end-width: $small-tablet-width - em(1px)
+
+$tablet-end: $tablet-width + 1
+
+$devices: (mobile, max, ($small-tablet-width)), (small-tablet, min, $small-tablet-width), (tablet, min, $tablet-width), (to-tablet, max, $tablet-width), (from-tablet, min, $tablet-end), (to-desktop, max, $desktop-width), (desktop, min, $desktop-width), (large-desktop, min, $large-desktop-width) !default
 
 = respond-to($device, $ie-fallback: false, $ie-fallback-noherit: false)
 
