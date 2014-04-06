@@ -1,3 +1,3 @@
 module Ustyle
-  VERSION = "0.6.16"
+  VERSION = "0.7.0"
 end
