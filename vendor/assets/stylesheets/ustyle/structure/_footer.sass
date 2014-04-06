@@ -70,7 +70,7 @@
 /* SOCIAL LINKS */
 .us-footer-social
   margin: 0 auto 2em
-  +pie-clearfix
+  @extend %clearfix
 
   +respond-to(desktop)
     width: col-width(4)
@@ -108,7 +108,7 @@
 
 /* NAV LINKS */
 .us-footer-nav
-  +pie-clearfix
+  @extend %clearfix
   display: none
 
   +respond-to(small-tablet, true)

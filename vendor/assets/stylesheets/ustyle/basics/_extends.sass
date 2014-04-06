@@ -13,6 +13,15 @@
   -ms-backface-visibility: hidden
   -webkit-backface-visibility: hidden
 
+%reset-box-model
+  padding: 0
+  margin: 0
+
+// Clearfix
+
+%clearfix
+  +pie-clearfix
+
 // A bordered box used for all news/guide/seemore/block items
 
 %bordered-box
@@ -21,10 +30,6 @@
 
   &:hover
     border-color: $c-typecyan
-  
-%reset-box-model
-  padding: 0
-  margin: 0
 
 // Triangle used across all buttons/link lists
 

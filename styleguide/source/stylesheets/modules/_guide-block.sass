@@ -1,13 +1,13 @@
 .styleguide-block
-  +pie-clearfix
+  @extend %clearfix
   +trailer(1)
   +trailing-border(1px, 1)
 
 .styleguide-title
   text-transform: capitalize
 
-.modifier_block
+.modifier_block 
+  @extend %clearfix
   +trailing-border(1px, 1)
   +trailer(1)
-  +pie-clearfix
   border-color: $grey-10
