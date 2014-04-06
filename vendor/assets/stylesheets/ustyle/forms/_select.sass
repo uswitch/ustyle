@@ -8,46 +8,51 @@
 //
 // Styleguide 2.4
 
-.us-form-select
-  +box-sizing(border-box)
-  +transition(border-color 200ms)
-  -webkit-appearance: none
-  position: relative
-  display: inline-block
-  height: 2.4em
-  width: 100%
-  padding: 0.3em 0.6em
-  vertical-align: middle
-  border: 1px solid $select-base-color
-  border-radius: 3px
-  background-color: white
+$select-base-padding: 0.3em 0.6em
+$select-base-height: $form-element-base-height
 
+= select-style( $height: $select-base-height, $padding: $select-base-padding, $base-color: $select-base-color, $hover-color: $select-hover-color, $active-color: $select-active-color, $text-color: $text-color, $background-color: $select-bg-color)
+  height: $height
+  padding: $padding
+  border: 1px solid $base-color
+  background-color: $background-color
+  
   &:hover,
   &:focus
-    border-color: $select-hover-color
+    border-color: $hover-color
 
   &.active
-    border-color: $select-active-color
+    border-color: $active-color
 
   &:disabled
-    border-color: lighten($select-base-color, 10%)
-    color: $select-base-color
+    border-color: lighten($base-color, 10%)
+    color: $base-color
 
   @media all and (-webkit-min-device-pixel-ratio: 0)
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='31' height='10' viewBox='-10 0 31 10'><polygon fill='%23fff' points='11,0 0,0 5.5,10'/></svg>"), url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='31px' height='41px' ><rect x='0' y='0' fill='#{$select-base-color}' width='31' height='40'/></svg>")
-    background-repeat: no-repeat
-    background-position: 100% 50%, 100% 0
-    padding-right: 40px
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='31' height='10' viewBox='-10 0 31 10'><polygon fill='%23fff' points='11,0 0,0 5.5,10'/></svg>"), url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='31px' height='41px' ><rect x='0' y='0' fill='#{$base-color}' width='31' height='40'/></svg>")
 
     &:hover,
     &:focus
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='31' height='10' viewBox='-10 0 31 10'><polygon fill='%23fff' points='11,0 0,0 5.5,10'/></svg>"), url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='31px' height='41px' ><rect x='0' y='0' fill='#{$select-hover-color}' width='31' height='40'/></svg>")
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='31' height='10' viewBox='-10 0 31 10'><polygon fill='%23fff' points='11,0 0,0 5.5,10'/></svg>"), url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='31px' height='41px' ><rect x='0' y='0' fill='#{$hover-color}' width='31' height='40'/></svg>")
 
     &.active
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='31' height='10' viewBox='-10 0 31 10'><polygon fill='%23fff' points='11,0 0,0 5.5,10'/></svg>"), url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='31px' height='41px' ><rect x='0' y='0' fill='#{$select-active-color}' width='31' height='40'/></svg>")
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='31' height='10' viewBox='-10 0 31 10'><polygon fill='%23fff' points='11,0 0,0 5.5,10'/></svg>"), url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='31px' height='41px' ><rect x='0' y='0' fill='#{$active-color}' width='31' height='40'/></svg>")
 
     &:disabled
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='31' height='10' viewBox='-10 0 31 10'><polygon fill='%23fff' points='11,0 0,0 5.5,10'/></svg>"), url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='31px' height='41px' ><rect x='0' y='0' fill='#{lighten($select-base-color, 10%)}' width='31' height='40'/></svg>")
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='31' height='10' viewBox='-10 0 31 10'><polygon fill='%23fff' points='11,0 0,0 5.5,10'/></svg>"), url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='31px' height='41px' ><rect x='0' y='0' fill='#{lighten($base-color, 10%)}' width='31' height='40'/></svg>")
+
+
+.us-form-select
+  @extend %base-form-element
+  +select-style
+  +transition(border-color 200ms)
+  position: relative
+  width: 100%
+
+  @media all and (-webkit-min-device-pixel-ratio: 0)
+    background-repeat: no-repeat
+    background-position: 100% 50%, 100% 0
+    padding-right: 40px
 
   .ie8 &
     height: auto
