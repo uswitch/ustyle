@@ -1,19 +1,23 @@
-.styleguide-block{id: @title.downcase.gsub(" ", "-")}
-  .styleguide-description= @markdown.render(@section.description)
-  %h4 #{@section.section} #{@section.filename}
-  - if @section.modifiers.any?
-    %ul
-      - @section.modifiers.each do |modifier|
-        %li #{modifier.name} - #{modifier.description}
+.us-content-group.mobile-bordered{id: @title.downcase.gsub(" ", "-")}
+  .us-container
+    .styleguide-description= @markdown.render(@section.description)
+    %h4 #{@section.section} #{@section.filename}
+
+    - if @section.modifiers.any?
+      %ul
+        - @section.modifiers.each do |modifier|
+          %li #{modifier.name} - #{modifier.description}
         
-  .modifier_block= @example_html
+    .modifier_block= @example_html
 
-  %pre
-    %code{class: :xml}= h @example_html.gsub("modifier-class", "")
+    .code-block__container
+      %pre.code-block__code
+        %code{class: :xml}= h @example_html.gsub("modifier-class", "")
 
-  - @section.modifiers.each do |modifier|
-    .modifier_block
-      = @example_html.gsub("modifier-class", modifier.class_name)
+    - @section.modifiers.each do |modifier|
+      .modifier_block
+        = @example_html.gsub("modifier-class", modifier.class_name)
 
-    %pre
-      %code{class: :xml}= h @example_html.gsub("modifier-class", modifier.class_name)
+      .code-block__container
+        %pre.code-block__code
+          %code{class: :xml}= h @example_html.gsub("modifier-class", modifier.class_name)

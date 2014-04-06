@@ -1,0 +1,21 @@
+.code-block__container
+  +trailer(1)
+
+.code-block__code
+  .js &
+    display: none
+
+.code-block__code--visible
+  .js &
+    .code-block__code
+      display: block
+
+.code-block__reveal
+  display: block
+  text-align: center
+
+  &:before
+    @extend %icon-font
+    content: "\e040"
+    display: inline-block
+    margin-right: 0.5em

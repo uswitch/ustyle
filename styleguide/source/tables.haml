@@ -1,92 +1,86 @@
-.us-container
-  %h1 Tables
+= styleblock "6.1", "A basic table", false do
+  %table.us-table
+    %thead
+      %tr
+        %th.us-table-head
+          Company
+        %th.us-table-head
+          Product features
+        %th.us-table-head
+          Free trial period
+        %th.us-table-head
+          Monthly subscription
+        %th.us-table-head
 
-.us-container
-  = styleblock "6.1", "A basic table", false do
-    %table.us-table
-      %thead
-        %tr
-          %th.us-table-head
-            Company
-          %th.us-table-head
-            Product features
-          %th.us-table-head
-            Free trial period
-          %th.us-table-head
-            Monthly subscription
-          %th.us-table-head
-
-      %tbody
-        - data.credit_agents.each do |id, agent|
-          %tr.us-table-body-row
-            %td.us-table-cell= agent.company_name
-            %td.us-table-cell
-              %ul.list-in-table
-                - agent.features.each do |feature|
-                  %li= feature
-            %td.us-table-cell
-              - if agent.trial_period
-                = agent.trial_period
-                days
-              - else
-                = "—"
-            %td.us-table-cell
-              £#{agent.monthly_fee}
-              - if agent.fee_desc
-                = agent.fee_desc
-            %td.us-table-cell
-              %a.us-btn.arrowed{href: agent.url, target: "_blank"} Proceed
+    %tbody
+      - data.credit_agents.each do |id, agent|
+        %tr.us-table-body-row
+          %td.us-table-cell= agent.company_name
+          %td.us-table-cell
+            %ul.list-in-table
+              - agent.features.each do |feature|
+                %li= feature
+          %td.us-table-cell
+            - if agent.trial_period
+              = agent.trial_period
+              days
+            - else
+              = "—"
+          %td.us-table-cell
+            £#{agent.monthly_fee}
+            - if agent.fee_desc
+              = agent.fee_desc
+          %td.us-table-cell
+            %a.us-btn.arrowed{href: agent.url, target: "_blank"} Proceed
 
 -# -------
 
-.us-container
-  %h2 Example of a more complex table
-  = styleblock "6.2", "Example of a more complex table", false do
-    %table.us-table.js-sortable.table-complex-example
-      %thead
-        %tr
-          %th.us-table-head
-            Company
-          %th.us-table-head
-            Product features
-          %th.us-table-head.us-table-head-key.us-table-head-trial-period.us-table-head-sorted
-            %a.us-table-sort-button{data: {sort: "trial-period:desc, fee"}}
-              Free trial period
-          %th.us-table-head.us-table-head-key.us-table-head-fee
-            %a.us-table-sort-button{data: {sort: "fee, trial-period:desc"}}
-              Monthly subscription
-          %th.us-table-head
+= styleblock "6.2", "Example of a more complex table", false do
+  %table.us-table.js-sortable.table-complex-example
+    %thead
+      %tr
+        %th.us-table-head
+          Company
+        %th.us-table-head
+          Product features
+        %th.us-table-head.us-table-head-key.us-table-head-trial-period.us-table-head-sorted
+          %a.us-table-sort-button{data: {sort: "trial-period:desc, fee"}}
+            Free trial period
+        %th.us-table-head.us-table-head-key.us-table-head-fee
+          %a.us-table-sort-button{data: {sort: "fee, trial-period:desc"}}
+            Monthly subscription
+        %th.us-table-head
 
-      %tbody
-        - data.credit_agents.each do |id, agent|
-          %tr.us-table-body-row{data: {trial_period: agent.trial_period || 0, fee: agent.monthly_fee || 9999}}
-            %td.us-table-cell.us-table-cell-title
-              %strong= agent.company_name
-            %td.us-table-cell.us-table-cell-features
-              %ul.list-in-table
-                - agent.features.each do |feature|
-                  %li= feature
-            %td.us-table-cell.us-table-cell-key.us-table-cell-trial-period.us-table-cell-sorted
-              .key-container
-                .key
-                  - if agent.trial_period
-                    .key-value= agent.trial_period
-                    .key-unit days
-                    .key-desc
-                      .key-desc-more
-                        free trial period
-                  - else
-                    = "—"
-            %td.us-table-cell.us-table-cell-key.us-table-cell-fee
-              .key-container
-                .key
-                  .key-value £#{agent.monthly_fee}
+    %tbody
+      - data.credit_agents.each do |id, agent|
+        %tr.us-table-body-row{data: {trial_period: agent.trial_period || 0, fee: agent.monthly_fee || 9999}}
+          %td.us-table-cell.us-table-cell-title
+            %strong= agent.company_name
+          %td.us-table-cell.us-table-cell-features
+            %ul.list-in-table
+              - agent.features.each do |feature|
+                %li= feature
+          %td.us-table-cell.us-table-cell-key.us-table-cell-trial-period.us-table-cell-sorted
+            .key-container
+              .key
+                - if agent.trial_period
+                  .key-value= agent.trial_period
+                  .key-unit days
                   .key-desc
-                    - if agent.fee_desc
-                      = agent.fee_desc
-                    - else
-                      .key-desc-more
-                        monthly fee
+                    .key-desc-more
+                      free trial period
+                - else
+                  = "—"
+          %td.us-table-cell.us-table-cell-key.us-table-cell-fee
+            .key-container
+              .key
+                .key-value £#{agent.monthly_fee}
+                .key-desc
+                  - if agent.fee_desc
+                    = agent.fee_desc
+                  - else
+                    .key-desc-more
+                      monthly fee
 
-            %td.us-table-cell.us-table-cell-action
-              %a.us-btn.arrowed{href: agent.url, target: "_blank"} Proceed
+          %td.us-table-cell.us-table-cell-action
+            %a.us-btn.arrowed{href: agent.url, target: "_blank"} Proceed

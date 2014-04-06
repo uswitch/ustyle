@@ -1,108 +1,108 @@
 .us-container
   %h1 Components
 
-.us-container
-  = styleblock "5.1", "Hero", false do
-    .us-hero
-      .us-hero-container
-        %h1.us-hero-title Hero title
-        %p.us-hero-description.us-standfirst Swat at dog intrigued by the shower missing until dinner time and run in circles use lap as chair. Swat at dog stretch and stand in front of the computer screen.
 
-  = styleblock "3.2", "Anchors" do
-    %a.us-link.modifier-class{href: "http://balbas"} Test link
+= styleblock "5.1", "Hero", false do
+  .us-hero
+    .us-hero-container
+      %h1.us-hero-title Hero title
+      %p.us-hero-description.us-standfirst Swat at dog intrigued by the shower missing until dinner time and run in circles use lap as chair. Swat at dog stretch and stand in front of the computer screen.
 
-  = styleblock "3.3", "Lists with anchors" do
-    %ul.us-list
-      %li
-        %a.modifier-class{href: "http://balbas"} Test link
-      %li
-        %a.modifier-class{href: "http://balbas"} Test link
-      %li
-        %a.modifier-class{href: "http://balbas"} Test link
+= styleblock "3.2", "Anchors" do
+  %a.us-link.modifier-class{href: "http://balbas"} Test link
 
-  = styleblock "3.4", "Lists with anchors" do
+= styleblock "3.3", "Lists with anchors" do
+  %ul.us-list
+    %li
+      %a.modifier-class{href: "http://balbas"} Test link
+    %li
+      %a.modifier-class{href: "http://balbas"} Test link
+    %li
+      %a.modifier-class{href: "http://balbas"} Test link
 
+= styleblock "3.4", "Lists with anchors" do
+
+  %ul.us-ticked-list
+    %li Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin iaculis bibendum. Curabitur sit amet nulla nisi. Vestibulum tristique auctor imperdiet. Cras congue varius venenatis.
+
+  %ul.us-numbered-list
+    %li Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin iaculis bibendum. Curabitur sit amet nulla nisi. Vestibulum tristique auctor imperdiet. Cras congue varius venenatis.
+
+  .us-hero{:style => 'padding: 0.5em'}
     %ul.us-ticked-list
       %li Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin iaculis bibendum. Curabitur sit amet nulla nisi. Vestibulum tristique auctor imperdiet. Cras congue varius venenatis.
 
     %ul.us-numbered-list
       %li Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin iaculis bibendum. Curabitur sit amet nulla nisi. Vestibulum tristique auctor imperdiet. Cras congue varius venenatis.
 
-    .us-hero{:style => 'padding: 0.5em'}
-      %ul.us-ticked-list
-        %li Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin iaculis bibendum. Curabitur sit amet nulla nisi. Vestibulum tristique auctor imperdiet. Cras congue varius venenatis.
+= styleblock "5.2", "Sidebar" do
+  %aside.us-sidebar
+    .us-sidebar-header
+      %strong Your current supplier
+    .us-sidebar-body
+      %p Gas unit rates: 450kWh
+    .us-sidebar-header
+      %strong Your current electricity
+    .us-sidebar-body
+      %p Standard variable
 
-      %ul.us-numbered-list
-        %li Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin iaculis bibendum. Curabitur sit amet nulla nisi. Vestibulum tristique auctor imperdiet. Cras congue varius venenatis.
+= styleblock "5.3", "Tabs", false do
+  .us-tabs
+    %nav.us-tabs-nav
+      .us-tabs-nav-wrapper
+        .us-tabs-nav-menu
+          = link_to "Tab 1", "#test", class: "us-tabs-nav-link"
+          = link_to "Tab 2", "#blorgh", class: "us-tabs-nav-link"
+          = link_to "Tab 3", "#blah", class: "us-tabs-nav-link"
+          = link_to "Gas &amp; Electricity suppliers", "#test1", class: "us-tabs-nav-link"
 
-  = styleblock "5.2", "Sidebar" do
-    %aside.us-sidebar
-      .us-sidebar-header
-        %strong Your current supplier
-      .us-sidebar-body
-        %p Gas unit rates: 450kWh
-      .us-sidebar-header
-        %strong Your current electricity
-      .us-sidebar-body
-        %p Standard variable
+    .us-tabs-container
+      
+      #test.us-tab
+        %h2.us-tab-title= link_to "Test 1", "#test"
+        .us-tab-content 
+          %p Fatback capicola leberkas pork loin pork jowl. Meatloaf shoulder pancetta, salami prosciutto ribeye andouille chuck landjaeger short loin filet mignon sirloin. Pork chop tri-tip ham pork hamburger frankfurter leberkas short ribs biltong. Prosciutto ham hock rump, andouille tongue flank sirloin tri-tip ball tip frankfurter ham drumstick meatloaf pork loin.
 
-  = styleblock "5.3", "Tabs", false do
-    .us-tabs
-      %nav.us-tabs-nav
-        .us-tabs-nav-wrapper
-          .us-tabs-nav-menu
-            = link_to "Tab 1", "#test", class: "us-tabs-nav-link"
-            = link_to "Tab 2", "#blorgh", class: "us-tabs-nav-link"
-            = link_to "Tab 3", "#blah", class: "us-tabs-nav-link"
-            = link_to "Gas &amp; Electricity suppliers", "#test1", class: "us-tabs-nav-link"
+      #blorgh.us-tab
+        %h2.us-tab-title= link_to "Test 2", "#blorgh"
+        .us-tab-content 
+          %p Kielbasa tenderloin spare ribs, andouille doner brisket chuck drumstick bresaola short loin pork t-bone ground round jowl. Ball tip pork loin doner tongue filet mignon biltong hamburger leberkas. Filet mignon kielbasa kevin short ribs, drumstick chuck shankle spare ribs tri-tip.
 
-      .us-tabs-container
-        
-        #test.us-tab
-          %h2.us-tab-title= link_to "Test 1", "#test"
-          .us-tab-content 
-            %p Fatback capicola leberkas pork loin pork jowl. Meatloaf shoulder pancetta, salami prosciutto ribeye andouille chuck landjaeger short loin filet mignon sirloin. Pork chop tri-tip ham pork hamburger frankfurter leberkas short ribs biltong. Prosciutto ham hock rump, andouille tongue flank sirloin tri-tip ball tip frankfurter ham drumstick meatloaf pork loin.
+      #blah.us-tab
+        %h2.us-tab-title= link_to "Test 3", "#blah"
+        .us-tab-content 
+          %p Pig pastrami pork loin kielbasa, filet mignon meatloaf short ribs tenderloin. Pork loin leberkas kevin fatback porchetta bresaola. Cow rump shoulder pastrami. Andouille pork belly t-bone short ribs brisket. Bresaola pork belly tail salami capicola meatball. Pork belly beef ham landjaeger.
 
-        #blorgh.us-tab
-          %h2.us-tab-title= link_to "Test 2", "#blorgh"
-          .us-tab-content 
-            %p Kielbasa tenderloin spare ribs, andouille doner brisket chuck drumstick bresaola short loin pork t-bone ground round jowl. Ball tip pork loin doner tongue filet mignon biltong hamburger leberkas. Filet mignon kielbasa kevin short ribs, drumstick chuck shankle spare ribs tri-tip.
+      #test1.us-tab
+        %h2.us-tab-title= link_to "Test 1", "#test1"
+        .us-tab-content 
+          One
 
-        #blah.us-tab
-          %h2.us-tab-title= link_to "Test 3", "#blah"
-          .us-tab-content 
-            %p Pig pastrami pork loin kielbasa, filet mignon meatloaf short ribs tenderloin. Pork loin leberkas kevin fatback porchetta bresaola. Cow rump shoulder pastrami. Andouille pork belly t-bone short ribs brisket. Bresaola pork belly tail salami capicola meatball. Pork belly beef ham landjaeger.
+= styleblock "4.1", "News item", false do
+  .us-news-item
+    %a.us-news-item-link{href: "#"}
+      .us-news-item-image-container
+        .us-news-item-image.background{:style => "background-image: url(http://uswitch-wp-blog-assets.s3-website-eu-west-1.amazonaws.com/wp-content/uploads/2013/09/Untitled-1.jpg)"}
+      .us-news-meta
+        %span.category Consumer rights
+        %span.date= Date.today.strftime("%d %b %Y")    
+      %h3.us-news-item-title Customer uses promoted tweet to complain about BA
+      %p.us-news-item-snippet Sign of things to come? Social media helps to empower disgruntled consumer amid lost luggage row
+      .us-news-item-readmore
+        %span.us-news-item-readmorelink More consumer rights
 
-        #test1.us-tab
-          %h2.us-tab-title= link_to "Test 1", "#test1"
-          .us-tab-content 
-            One
+= styleblock "4.2", "Guide item", false do
+  .us-guide-item.modifier-class
+    %a.us-guide-item-link{:href => "http://www.uswitch.com/car-insurance/guides/"}
+      .us-guide-item-image-container
+        .us-guide-item-image.background{:style => "background-image: url(http://www.uswitch.com/insurance/assets/guide-home-16141c84afd29e2063ee76803037716c.jpg)"}
+      .us-guide-item-content
+        %h4.us-guide-item-title Car insurance guides
+        %p.us-guide-item-description Read our car insurance advice guides for the facts on why you need car insurance, the types of cover available, and tips on how to make a claim.
+      .us-guide-item-readmore 
+        %span.us-news-item-readmorelink Read more
 
-  = styleblock "4.1", "News item", false do
-    .us-news-item
-      %a.us-news-item-link{href: "#"}
-        .us-news-item-image-container
-          .us-news-item-image.background{:style => "background-image: url(http://uswitch-wp-blog-assets.s3-website-eu-west-1.amazonaws.com/wp-content/uploads/2013/09/Untitled-1.jpg)"}
-        .us-news-meta
-          %span.category Consumer rights
-          %span.date= Date.today.strftime("%d %b %Y")    
-        %h3.us-news-item-title Customer uses promoted tweet to complain about BA
-        %p.us-news-item-snippet Sign of things to come? Social media helps to empower disgruntled consumer amid lost luggage row
-        .us-news-item-readmore
-          %span.us-news-item-readmorelink More consumer rights
-
-  = styleblock "4.2", "Guide item", false do
-    .us-guide-item.modifier-class
-      %a.us-guide-item-link{:href => "http://www.uswitch.com/car-insurance/guides/"}
-        .us-guide-item-image-container
-          .us-guide-item-image.background{:style => "background-image: url(http://www.uswitch.com/insurance/assets/guide-home-16141c84afd29e2063ee76803037716c.jpg)"}
-        .us-guide-item-content
-          %h4.us-guide-item-title Car insurance guides
-          %p.us-guide-item-description Read our car insurance advice guides for the facts on why you need car insurance, the types of cover available, and tips on how to make a claim.
-        .us-guide-item-readmore 
-          %span.us-news-item-readmorelink Read more
-
-  = styleblock "4.3", "See more item", false do
-    .us-more-item
-      %a.us-more-item-link{:href => "test"}
-        %span.us-more-item-title See more mobile news stories
+= styleblock "4.3", "See more item", false do
+  .us-more-item
+    %a.us-more-item-link{:href => "test"}
+      %span.us-more-item-title See more mobile news stories

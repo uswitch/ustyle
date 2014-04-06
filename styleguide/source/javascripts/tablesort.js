@@ -131,7 +131,6 @@
       // --------
       } else if (settings.autosort) {
         var primary_button = $self.find('thead .' + settings.sorted_th_class + ' .' + settings.sort_button_class);
-        console.log(primary_button);
         setSort( primary_button.data('sort') );
         reorder();
       }
