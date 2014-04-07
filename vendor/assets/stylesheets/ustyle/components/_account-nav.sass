@@ -1,0 +1,103 @@
+// Account navigation
+// ---
+//
+//
+$account-navigation-background: $c-navy !default
+$account-navigation-active-color: $c-typecyan !default
+$account-navigation-links: account, energy, car-insurance, settings !default
+$account-navigation-icons: "\e04d", "\e04a", "\e001", "\2731" !default
+$account-navigation-number: length($account-navigation-links)
+$account-settings-width: 54px !default
+$account-settings-padding: $gutter-width/2 !default
+
+.us-account-nav
+  background-color: $account-navigation-background
+
+.us-account-nav__container
+  @extend %container
+
+  +respond-to(mobile)
+    padding: 0
+
+// We push the container the width of the settings link so everything fits
+.us-account-nav__container-push
+  @extend %clearfix
+
+  +respond-to(tablet, true)
+    padding-right: $account-settings-width
+
+.us-account-nav__link
+  @extend %heading-font-regular
+  +link-colors(white, $c-cyan, white, white)
+  +heading(4)
+  +padding-leader(1)
+  +padding-trailer(1)
+  display: block
+  float: left
+  text-align: center
+  width: col-width(($grid-columns / ($account-navigation-number)))
+  border-right: 1px solid lighten($account-navigation-background, 10%)
+  position: relative
+
+  &:before
+    @extend %icon-font
+    display: inline-block
+    font-size: 1.25em
+    vertical-align: middle
+
+    +respond-to(tablet, true)
+      display: none
+
+.us-account-nav__link-text
+  display: none
+
+  +respond-to(tablet, true)
+    display: inherit
+
+.us-account-nav__link--active
+  color: $account-navigation-active-color
+
+  &:after
+    content: ""
+    display: block
+    +arrow(22px, 12px, up, $c-cyan)
+    position: absolute
+    bottom: 0
+    left: 50%
+    margin-left: -12px
+
+@each $link in $account-navigation-links
+  .us-account-nav--#{$link}
+    &:before
+      content: nth($account-navigation-icons, index($account-navigation-links, $link))
+
+// Account link
+
+.us-account-nav--account
+  &:after
+    +arrow(22px, 12px, up, white)
+
+// Settings link
+
+.us-account-nav--settings
+  border-left: 1px solid lighten($account-navigation-background, 10%)
+  border-right: none
+  padding-left: $account-settings-padding
+  padding-right: $account-settings-padding
+
+  +respond-to(tablet, true)
+    width: $account-settings-width
+    position: absolute
+    right: $account-settings-padding
+
+  &:before
+    display: inline-block !important
+    +respond-to(tablet, true)
+      line-height: 0.5em
+
+  .us-account-nav__link-text
+    display: none
+
+  &.us-account-nav__link--active
+    &:before
+      color: $account-navigation-active-color
