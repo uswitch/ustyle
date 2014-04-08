@@ -13,7 +13,7 @@ $account-settings-padding: $gutter-width/2 !default
 
 .us-account-nav
   background-color: $account-navigation-background
-
+  border-bottom: 5px solid white
 .us-account-nav__container
   @extend %container
 
@@ -61,7 +61,7 @@ $account-settings-padding: $gutter-width/2 !default
   &:after
     content: ""
     display: block
-    +arrow(22px, 12px, up, $c-cyan)
+    +arrow(22px, 12px, up, white)
     position: absolute
     bottom: 0
     left: 50%
@@ -71,10 +71,6 @@ $account-settings-padding: $gutter-width/2 !default
   .us-account-nav--#{$link}
     &:before
       content: nth($account-navigation-icons, index($account-navigation-links, $link))
-
-    &.us-account-nav__link--active
-      &:after
-        border-bottom-color: nth($account-navigation-arrows, index($account-navigation-links, $link))
 
 // Settings link
 
