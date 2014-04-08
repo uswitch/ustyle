@@ -6,6 +6,7 @@ $account-navigation-background: $c-navy !default
 $account-navigation-active-color: $c-typecyan !default
 $account-navigation-links: account, energy, car-insurance, settings !default
 $account-navigation-icons: "\e04d", "\e04a", "\e001", "\2731" !default
+$account-navigation-arrows: white, $c-cyan, $grey-9, $c-cyan !default
 $account-navigation-number: length($account-navigation-links)
 $account-settings-width: 54px !default
 $account-settings-padding: $gutter-width/2 !default
@@ -71,10 +72,9 @@ $account-settings-padding: $gutter-width/2 !default
     &:before
       content: nth($account-navigation-icons, index($account-navigation-links, $link))
 
-// Account link
-.us-account-nav--account
-  &:after
-    +arrow(22px, 12px, up, white)
+    &.us-account-nav__link--active
+      &:after
+        border-bottom-color: nth($account-navigation-arrows, index($account-navigation-links, $link))
 
 // Settings link
 
