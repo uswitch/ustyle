@@ -13,7 +13,13 @@
 $default-label-color: $text-color !default
 $default-label-size: 18px !default
 $default-label-width: em(120px, $default-label-size) !default
+$default-label-margin: 0.25em !default
 $required-label-color: $c-red !default
+$label-inline-breakpoint: tablet !default
+
+%base-block-label
+  display: block
+  margin-bottom: $default-label-margin
 
 .us-field
   @extend %clearfix
@@ -28,8 +34,7 @@ $required-label-color: $c-red !default
 .us-field-blocked
   label,
   .us-faux-label
-    display: block
-    margin-bottom: 0.25em
+    @extend %base-block-label
 
 .us-field-required
   label
@@ -51,7 +56,7 @@ $required-label-color: $c-red !default
     border-radius: em(3px)
     border: 1px solid transparent
     line-height: 1.5em
-    color: $text-color
+    color: $default-label-color
     cursor: pointer
 
     &:hover
@@ -62,6 +67,9 @@ $required-label-color: $c-red !default
 .us-field-inline
   label,
   .us-faux-label
-    display: inline-block
-    min-width: $default-label-width
-    vertical-align: middle
+    @extend %base-block-label
+
+    +respond-to($label-inline-breakpoint, true)
+      display: inline-block
+      min-width: $default-label-width
+      vertical-align: middle
