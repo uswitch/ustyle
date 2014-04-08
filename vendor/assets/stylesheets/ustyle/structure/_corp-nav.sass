@@ -1,0 +1,48 @@
+.us-header-additional-nav
+  @extend %reset-box-model
+  position: absolute
+  list-style: none
+  right: 0
+  top: - $gutter-width/2
+
+.us-header-additional-link
+  +link-colors($c-navy, white, $c-navy, $c-navy)
+  text-decoration: none
+
+  &:before
+    @extend %icon-font
+    content: "\e013"
+    display: inline-block
+    margin-right: 0.25em
+
+
+.us-header-nav-corplink
+  position: relative
+  overflow: hidden
+
+  &:after
+    +transition(transform 333ms)
+    content: ""
+    display: none
+    +arrow(22px, 12px, up, white)
+    position: absolute
+    left: 50%
+    margin-left: -12px
+    bottom: -2px
+
+    .csstransforms &
+      display: block
+      +transform(translateY(22px))
+
+  &:hover
+    &:after
+      display: block
+
+      .csstransforms &
+        +transform(translateY(0))
+
+.tablet-show
+  display: none
+
+  +respond-to(tablet, true)
+    display: inline

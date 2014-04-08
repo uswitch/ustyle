@@ -45,7 +45,8 @@
 
 .us-header-nav-list,
 .us-header-nav-item,
-.us-header-nav-mainitem
+.us-header-nav-mainitem,
+.us-header-nav-corpitem
   @extend %reset-box-model
   display: inline-block
   list-style-type: none
@@ -166,6 +167,9 @@
   .us-header-nav-mainlink
     +respond-to(small-tablet, true)
       padding-bottom: 22px
+
+      &.us-header-nav-corplink
+        padding-bottom: 24px
 
 .us-header-nav-item
   float: none
@@ -458,7 +462,8 @@
 
   .us-header-nav-item,
   .us-header-nav-mainitem,
-  .us-header-account
+  .us-header-account,
+  .us-header-nav-corpitem
     display: block
     margin: 0 5px
     border-bottom: 1px solid lighten( $c-blue, 40% )
