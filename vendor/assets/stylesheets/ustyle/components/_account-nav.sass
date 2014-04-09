@@ -31,8 +31,8 @@ $account-settings-padding: $gutter-width/2 !default
   @extend %heading-font-regular
   +link-colors(white, $c-cyan, white, white)
   +heading(4)
-  +padding-leader(1)
-  +padding-trailer(1)
+  +padding-leader(0.55)
+  +padding-trailer(0.55)
   display: block
   float: left
   text-align: center
@@ -46,7 +46,10 @@ $account-settings-padding: $gutter-width/2 !default
     font-size: 1.25em
     vertical-align: middle
 
-    +respond-to(tablet, true)
+  +respond-to(tablet, true)
+    +padding-leader(1)
+    +padding-trailer(1)
+    &:before
       display: none
 
 .us-account-nav__link-text
@@ -61,11 +64,15 @@ $account-settings-padding: $gutter-width/2 !default
   &:after
     content: ""
     display: block
-    +arrow(22px, 12px, up, white)
+    +arrow(16px, 8px, up, white)
     position: absolute
     bottom: 0
     left: 50%
-    margin-left: -12px
+    margin-left: -8px
+
+    +respond-to(tablet, true)
+      +arrow(22px, 12px, up, white)
+      margin-left: -12px
 
 @each $link in $account-navigation-links
   .us-account-nav--#{$link}
