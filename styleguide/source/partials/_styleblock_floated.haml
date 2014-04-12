@@ -21,6 +21,10 @@
             %pre.code-block__code
               %code{class: :xml}= h @example_html.gsub(" modifier-class", "")
 
+            - if @sass_output
+              %pre.code-block__code
+                %code{class: :scss}= @sass_output
+
         - @section.modifiers.each do |modifier|
 
           .modifier-block

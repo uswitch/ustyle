@@ -2,7 +2,6 @@
   .us-container
     .styleguide-description{data: {section: @section.section}}= @markdown.render(@section.description)
     %h4 #{@section.filename}
-
     - if @section.modifiers.any?
       %ul
         - @section.modifiers.each do |modifier|
@@ -12,8 +11,12 @@
       .modifier-block__html= @example_html
 
       .code-block
-        %pre.code-block__code
+        %pre.code-block__code{class: ("us-col-6" if @sass_output)}
           %code{class: :xml}= h @example_html.gsub("class='modifier-class'", "")
+
+        - if @sass_output
+          %pre.code-block__code
+            %code{class: :scss}= @sass_output
 
     - @section.modifiers.each do |modifier|
       .modifier-block

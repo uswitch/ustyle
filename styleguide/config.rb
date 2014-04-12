@@ -1,18 +1,19 @@
 require "kss"
 require "redcarpet"
 
-KSS_DIR = File.expand_path("../../vendor/assets/stylesheets/ustyle", __FILE__)
+USTYLE_DIR = File.expand_path("../../vendor/assets/stylesheets/ustyle", __FILE__)
 
 helpers do
-  def styleblock(section, title, floated = true, &block)
+  def styleblock(section, title, options={}, &block)
     unless request.has_key?(:styleguide)
-      request[:styleguide] = ::Kss::Parser.new(KSS_DIR)
+      request[:styleguide] = ::Kss::Parser.new(USTYLE_DIR)
     end
-    style_partial = floated ? "styleblock_floated" : "styleblock"
+    style_partial = options[:floated] ? "styleblock_floated" : "styleblock"
     @styleguide = request[:styleguide]
     @title = title
     @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true)
     @section = @styleguide.section(section)
+    @sass_output = options[:sass] ? sass_block(@section.filename, options[:sass]) : nil
     @example_html = capture(&block)
     partial("partials/" + style_partial)
   end
@@ -26,6 +27,20 @@ helpers do
       end
       link_to(link, url, opts)
   end
+
+  def sass_block(filename, path)
+    file_path = File.join(USTYLE_DIR, path, filename)
+    blocks = []
+    File.open file_path do |file|
+      file.each do |input|
+        if !(input =~ /^\s*\/\//) && !(input =~ /^\s*\/\*/)
+          blocks << input
+        end
+      end
+    end
+    blocks.join
+  end
+
 end
 
 activate :livereload

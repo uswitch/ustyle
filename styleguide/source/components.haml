@@ -2,16 +2,16 @@
   %h1 Components
 
 
-= styleblock "5.1", "Hero", false do
+= styleblock "5.1", "Hero", {floated: false, sass: "components"} do
   .us-hero
     .us-hero-container
       %h1.us-hero-title Hero title
       %p.us-hero-description.us-standfirst Swat at dog intrigued by the shower missing until dinner time and run in circles use lap as chair. Swat at dog stretch and stand in front of the computer screen.
 
-= styleblock "3.2", "Anchors" do
+= styleblock "3.2", "Anchors", {floated: true, sass: "components"} do
   %a.us-link.modifier-class{href: "http://balbas"} Test link
 
-= styleblock "3.3", "Lists with anchors" do
+= styleblock "3.3", "Lists with anchors", {floated: true, sass: "components"} do
   %ul.us-list
     %li
       %a.modifier-class{href: "http://balbas"} Test link
@@ -20,7 +20,7 @@
     %li
       %a.modifier-class{href: "http://balbas"} Test link
 
-= styleblock "3.4", "Lists with anchors" do
+= styleblock "3.4", "Lists with anchors", {floated: true, sass: "components"} do
 
   %ul.us-ticked-list
     %li Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin iaculis bibendum. Curabitur sit amet nulla nisi. Vestibulum tristique auctor imperdiet. Cras congue varius venenatis.
@@ -35,7 +35,7 @@
     %ul.us-numbered-list
       %li Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin iaculis bibendum. Curabitur sit amet nulla nisi. Vestibulum tristique auctor imperdiet. Cras congue varius venenatis.
 
-= styleblock "5.2", "Sidebar" do
+= styleblock "5.2", "Sidebar", {floated: true, sass: "components"} do
   %aside.us-sidebar
     .us-sidebar-header
       %strong Your current supplier
@@ -46,7 +46,7 @@
     .us-sidebar-body
       %p Standard variable
 
-= styleblock "5.3", "Tabs", false do
+= styleblock "5.3", "Tabs", {floated: false, sass: "components"} do
   .us-tabs
     %nav.us-tabs-nav
       .us-tabs-nav-wrapper
@@ -78,7 +78,7 @@
         .us-tab-content 
           One
 
-= styleblock "4.1", "News item", false do
+= styleblock "4.1", "News item", floated: false do
   .us-news-item
     %a.us-news-item-link{href: "#"}
       .us-news-item-image-container
@@ -91,7 +91,7 @@
       .us-news-item-readmore
         %span.us-news-item-readmorelink More consumer rights
 
-= styleblock "4.2", "Guide item", false do
+= styleblock "4.2", "Guide item", floated: false do
   .us-guide-item.modifier-class
     %a.us-guide-item-link{:href => "http://www.uswitch.com/car-insurance/guides/"}
       .us-guide-item-image-container
@@ -102,7 +102,7 @@
       .us-guide-item-readmore 
         %span.us-news-item-readmorelink Read more
 
-= styleblock "4.3", "See more item", false do
+= styleblock "4.3", "See more item", floated: false do
   .us-more-item
     %a.us-more-item-link{:href => "test"}
       %span.us-more-item-title See more mobile news stories
