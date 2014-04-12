@@ -13,15 +13,19 @@
     @extend %default-font
     color: $text-color
 
+  $headings: ()
+
   @for $i from 1 through 6
     h#{$i},
     %heading-#{$i}
       @extend %heading-font-bold
       +heading($i)
 
-    h#{$i}
-      margin: 0
-      +trailer(0.25)
+    $headings: append($headings, unquote('h#{$i}'), comma)
+
+  #{$headings}
+    margin: 0
+    +trailer(0.25)
 
   // Paragraphs
   // ===

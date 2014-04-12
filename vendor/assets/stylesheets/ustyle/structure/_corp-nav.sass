@@ -46,3 +46,11 @@
 
   +respond-to(tablet, true)
     display: inline
+
+.us-header-nav-corpitem
+  &.active
+    .us-header-nav-corplink
+      &:after
+        display: block
+        .csstransforms &
+          +transform(translateY(0))

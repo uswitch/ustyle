@@ -1,0 +1,7 @@
+$headings: ()
+
+@for $heading from 1 through 6
+  $headings: append($headings, unquote('h#{$heading}'), comma)
+
+#{$headings}
+  color: $c-navy
