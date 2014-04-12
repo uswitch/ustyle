@@ -1,13 +1,54 @@
 .styleguide-block
-  @extend %clearfix
-  +trailer(1)
-  +trailing-border(1px, 1)
+  position: relative
 
 .styleguide-title
   text-transform: capitalize
 
-.modifier_block 
+.modifier-block 
   @extend %clearfix
+  +padding-leader(2)
   +trailing-border(1px, 1)
-  +trailer(1)
   border-color: $grey-10
+  position: relative
+
+code
+  font-family: "Inconsolata", sans-serif
+  font-size: 0.95em
+  background-color: $grey-9
+  border: 1px solid $grey-10
+  padding: 1px 5px
+  display: inline-block
+  line-height: 1em
+  margin: 0 2px
+
+.modifier-block__class
+  position: absolute
+  top: -1px
+  left: -1px
+
+.modifier-block__html
+  @extend %clearfix
+
+.styleguide-description
+  
+  +respond-to(desktop, true)
+    position: relative
+
+  &:before
+
+    content: attr(data-section)
+    position: absolute
+    background-color: lighten($c-cyan, 15%)
+    color: $c-navy
+    display: block
+    padding: 0 0.5em 0 1em
+    top: - rhythm(1)
+    left: - $gutter-width/4
+
+    +respond-to(desktop, true)
+      +adjust-font-size-to(24px, 1.5)
+      left: calc(-100% - 3em)
+      padding-left: 100%
+      padding-right: 0.5em
+      text-align: right
+      top: auto

@@ -14,8 +14,8 @@
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
     %title uGuide
     %link{href: "http://www.uswitch.com/webfont/fonts/v19/stylesheet.css", media: :all, rel: :stylesheet, type: "text/css"}
-    %script{src: "//dnpc2x3bdjjqt.cloudfront.net/s3/uswitch-styleguide/v4.3.2/javascripts/modernizr.js"}
-    <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+    
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
     = stylesheet_link_tag "all"
 
 
@@ -27,5 +27,6 @@
       #main{role: :main}
         = yield
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    %script{src: "//dnpc2x3bdjjqt.cloudfront.net/s3/uswitch-styleguide/v4.3.2/javascripts/modernizr.js"}
     = javascript_include_tag "all"

@@ -45,10 +45,11 @@
 
 .nav__link
   @extend %heading-font-regular
-  +heading(3)
   +link-colors(white, $c-cyan, white, white)
   display: inline-block
   padding: 0.5em 1em
+  font-size: ($base-font-size) * 1.25
+  font-size: 1.25rem
 
 .nav__link--active
   color: $c-cyan !important

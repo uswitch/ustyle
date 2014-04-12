@@ -1,5 +1,5 @@
 class CodeToggle
-  codeBlocks = document.getElementsByClassName "code-block__container"
+  codeBlocks = document.getElementsByClassName "code-block"
   activeClass = "code-block__code--visible"
   showText = "Show code"
   hideText = "Hide code"

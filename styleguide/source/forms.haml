@@ -17,17 +17,17 @@
   %input.us-form-input.modifier-class{type: :text}
 
 = styleblock "2.3", "Radios and checkboxes" do
-  .us-field
+  .us-field.us-field-blocked
     %label Do you have a different billing address?
-    .us-field-toggle.us-col-4
+    .us-field-toggle
       %label
         %input.us-form-input{:type=>'radio',:name=>'null',:checked => :checked} Yes
       %label
         %input.us-form-input{:type=>'radio',:name=>'null'} No
 
-  .us-field
+  .us-field.us-field-blocked
     %label How would you like to be contacted?
-    .us-field-toggle.us-col-4
+    .us-field-toggle
       %label
         %input.us-form-input{:type=>'checkbox',:name=>'null',:checked => :checked} Mobile
       %label

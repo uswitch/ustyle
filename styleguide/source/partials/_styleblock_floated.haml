@@ -1,27 +1,35 @@
-.us-content-group.mobile-bordered{id: @title.downcase.gsub(" ", "-")}
+.styleguide-block.us-content-group.mobile-bordered{id: @title.downcase.gsub(" ", "-")}
   .us-container
     .us-grid-row
-      .us-col-6  
-        .styleguide-description= @markdown.render(@section.description)
-        %h4 #{@section.section} #{@section.filename}
-
-        .modifier_block= @example_html
-
-        .code-block__container
-          %pre.code-block__code
-            %code{class: :xml}= h @example_html.gsub("modifier-class", "")
-
-        - @section.modifiers.each do |modifier|
-          .modifier_block
-            = @example_html.gsub("modifier-class", modifier.class_name)
-
-          .code-block__container
-            %pre.code-block__code
-              %code{class: :xml}= h @example_html.gsub("modifier-class", modifier.class_name)    
+      .styleguide-column.styleguide-column--information.us-col-6  
+        .styleguide-description{data: {section: @section.section}}= @markdown.render(@section.description)
+        %h4 #{@section.filename}
                 
-      .us-col-6
         - if @section.modifiers.any?
           %ul
             - @section.modifiers.each do |modifier|
-              %li #{modifier.name} - #{modifier.description}
+              %li 
+                %strong #{modifier.name} 
+                \- #{modifier.description}
 
+
+      .styleguide-column.styleguide-column--elements.us-col-6
+        .modifier-block
+          = @example_html
+
+          .code-block
+            %pre.code-block__code
+              %code{class: :xml}= h @example_html.gsub(" modifier-class", "")
+
+        - @section.modifiers.each do |modifier|
+
+          .modifier-block
+            .modifier-block__description
+              %code.modifier-block__class #{modifier.name}
+
+            .modifier-block__html
+              = @example_html.gsub("modifier-class", modifier.class_name)
+
+            .code-block.code-block--modifier
+              %pre.code-block__code
+                %code{class: :xml}= h @example_html.gsub("modifier-class", modifier.class_name)    
