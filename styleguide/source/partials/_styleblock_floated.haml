@@ -33,7 +33,3 @@
 
             .modifier-block__html
               = @example_html.gsub("modifier-class", modifier.class_name)
-
-            .code-block.code-block--modifier
-              %pre.code-block__code
-                %code{class: :xml}= h @example_html.gsub("modifier-class", modifier.class_name)    

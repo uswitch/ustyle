@@ -12,7 +12,7 @@
 
       .code-block
         %pre.code-block__code{class: ("us-col-6" if @sass_output)}
-          %code{class: :xml}= h @example_html.gsub("class='modifier-class'", "")
+          %code{class: :xml}= h @example_html.gsub("modifier-class", "")
 
         - if @sass_output
           %pre.code-block__code
@@ -25,7 +25,3 @@
 
         .modifier-block__html
           = @example_html.gsub("modifier-class", modifier.class_name)
-
-        .code-block.code-block--modifier
-          %pre.code-block__code
-            %code{class: :xml}= h @example_html.gsub("modifier-class", modifier.class_name)
