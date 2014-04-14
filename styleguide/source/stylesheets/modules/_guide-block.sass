@@ -1,4 +1,7 @@
 .styleguide-block
+  +padding-leader(2)
+  +trailing-border(1px, 2)
+  border-color: $grey-10
   position: relative
 
 .styleguide-title
@@ -29,26 +32,20 @@ code
 .modifier-block__html
   @extend %clearfix
 
-.styleguide-description
-  
-  +respond-to(desktop, true)
-    position: relative
+.styleguide-description  
+  position: relative
 
   &:before
-
     content: attr(data-section)
     position: absolute
     background-color: lighten($c-cyan, 15%)
     color: $c-navy
     display: block
-    padding: 0 0.5em 0 1em
-    top: - rhythm(1)
-    left: - $gutter-width/4
+    padding: 0 0.5em 0 100%
+    left: -100%
+    text-align: right
+    top: -3em
 
     +respond-to(desktop, true)
       +adjust-font-size-to(24px, 1.5)
-      left: calc(-100% - 3em)
-      padding-left: 100%
-      padding-right: 0.5em
-      text-align: right
-      top: auto
+      top: - 2em

@@ -1,4 +1,4 @@
-.styleguide-block.us-content-group.mobile-bordered{id: @title.downcase.gsub(" ", "-")}
+.styleguide-block{id: @title.downcase.gsub(" ", "-")}
   .us-container
     .styleguide-description{data: {section: @section.section}}= @markdown.render(@section.description)
     %h4 #{@section.filename}
