@@ -10,10 +10,10 @@
     .modifier-block
       .modifier-block__html= @example_html
 
-      .code-block
-        %pre.code-block__code{class: ("us-col-6" if @sass_output)}
-          %code{class: :xml}= h @example_html.gsub("modifier-class", "")
+      %pre.code-block__code{class: ("us-col-6" if @sass_output)}
+        %code{class: :xml}= h @example_html.gsub("modifier-class", "")
 
+      .code-block
         - if @sass_output
           %pre.code-block__code
             %code{class: :scss}= @sass_output
