@@ -17,25 +17,43 @@
 
 
 .us-header-nav-corplink
+  +respond-to(tablet, true)
+    +link-colors($c-blue, $c-blue, $c-blue, $c-blue)
+    position: relative
+    overflow: hidden
+
+
+.us-header-nav-corpitem
   position: relative
   overflow: hidden
+  top: 1px
 
+  &:before,
   &:after
     +transition(transform 333ms)
     content: ""
     display: none
-    +arrow(22px, 12px, up, white)
     position: absolute
     left: 50%
-    margin-left: -12px
-    bottom: -2px
+    z-index: 2000
 
     .csstransforms &
       display: block
       +transform(translateY(22px))
 
+  &:before
+    +arrow(24px, 13px, up, $c-blue)
+    bottom: -1px
+    margin-left: -13px
+
+  &:after
+    +arrow(22px, 12px, up, white)
+    bottom: -2px
+    margin-left: -12px
+    
   &:hover
-    &:after
+    &:after,
+    &:before
       display: block
 
       .csstransforms &
@@ -49,8 +67,8 @@
 
 .us-header-nav-corpitem
   &.active
-    .us-header-nav-corplink
-      &:after
-        display: block
-        .csstransforms &
-          +transform(translateY(0))
+    &:after,
+    &:before
+      display: block
+      .csstransforms &
+        +transform(translateY(0))
