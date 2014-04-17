@@ -1,0 +1,17 @@
+.styleblock__nav
+  @extend %clearfix
+  +trailer(1)
+
+  +respond-to(tablet, true) 
+    text-align: center
+
+.styleblock__nav-link
+  display: block
+  float: left
+  width: 50%
+
+  +respond-to(tablet, true)
+    display: inline-block
+    margin: 0 0.75em
+    width: auto
+    float: none

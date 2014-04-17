@@ -1,13 +1,11 @@
 #header
-  text-align: center
   color: $c-navy
-  padding: 0 3em
   overflow: hidden
   position: fixed
+  text-align: right
   width: 100%
   z-index: 1000
-  top: 0
-  background-color: white
+  top: 5px
 
   .open-menu &
     background-color: $c-navy
@@ -17,9 +15,15 @@
 
 .logo
   @extend %heading-font-regular
-  +link-colors($c-navy, $c-typecyan, $c-navy, $c-navy)
+  +adjust-font-size-to(18px)
+  +link-colors(white, $c-typecyan, white, white)
+  border-radius: 3px
   display: inline-block
   padding: 0.5em
+  background-color: $c-navy
+
+  +respond-to(tablet, true)
+    margin-right: $gutter-width/2
 
   &:before
     content: "\2630"
