@@ -1,63 +1,76 @@
-var uSwitch = uSwitch || {};
+;(function(root){
+  "use strict";
 
-uSwitch.tabs = (function($){
+  root.Tabs = Tabs;
 
-  var settings = {};
+  function Tabs(opts){
+    var opts = opts || {};
+    var _this = this;
 
-  settings.tab = $(".us-tabs").find(".us-tabs-nav a, .us-tab-title a");
-  settings.filter = settings.tab.data("target") ? "data-target" : "href";
-  settings.hash = window.location.hash;
+    this.tabContainer = opts.tabContainer || ".us-tabs";
+    this.tabLinks = opts.tabLinks || ".us-tabs-nav-mainlink";
+    this.changeUrls = opts.changeUrls === false ? false : true;
 
-  var init = function(){
-    var $first = settings.tab.first();
-    var $initialHash = settings.tab.filter("["+ settings.filter +"='"+ settings.hash.replace("!", "") +"']");
+    this.tabs = $(this.tabContainer);
+    this.tab = this.tabs.find(this.tabLinks);
+
+    this.filter = this.tab.data("target") ? "data-target" : "href";
+    this.activeClass = opts.activeClass || "active";
+    this.hash = window.location.hash;
+
+    _this.init();
+
+    $(document).on("click.ustyle.tab", this.tabLinks, function(e){
+      e.preventDefault();
+      _this.navigateTo($(this));
+      _this.hashChange($(this));
+    });
+  };
+
+  Tabs.prototype.init = function(){
+    var $first = this.tab.first();
+    var $initialHash = this.tab.filter("["+ this.filter +"='"+ this.hash.replace("!", "") +"']");
 
     if($initialHash.length){
-      navigateTo($initialHash, settings);
+      this.navigateTo($initialHash);
     } else {
-      navigateTo($first, settings);
+      this.navigateTo($first);
     }
   };
 
-  var hashChange = function(selector){
-    location.replace("#!" + getSelector(selector).replace(/#/, ""));
+  Tabs.prototype.hashChange = function(selector){
+    if(!this.changeUrls){ return; };
+    location.replace("#!" + this.getSelector(selector).replace(/#/, ""));
   };
 
-  var navigateTo = function(active, settings){
-      var selector = getSelector(active),
-          $selected = $(getSelector(active));
+  Tabs.prototype.navigateTo = function(activeSelector){
+    var selector = this.getSelector(activeSelector),
+        $selected = $(this.getSelector(activeSelector));
 
-      settings.tab.removeClass("active").end();
-      settings.tab.filter("["+ settings.filter +"='"+ selector +"']").addClass("active");
+    this.tab.removeClass(this.activeClass).end();
+    this.tab.filter("["+ this.filter +"='"+ selector +"']").addClass(this.activeClass);
 
-      $selected
-        .siblings(".active").removeClass("active").end()
-        .addClass("active");
+    $selected
+      .siblings("." + this.activeClass).removeClass(this.activeClass).end()
+      .addClass(this.activeClass);
 
-      if(active.parent().hasClass("us-tab-title")){
-        accordionScroll($selected);
-      };
+    if(activeSelector.parent().hasClass("us-tab-title")){
+      this.accordionScroll($selected);
+    };
   };
 
-  var getSelector = function(clicked){
+  Tabs.prototype.getSelector = function(clicked){
     return clicked.data("target") || clicked.attr("href");
   };
-
-  var accordionScroll = function(activeTab){
+ 
+  Tabs.prototype.accordionScroll = function(activeTab){
     setTimeout(function(){
       $("html, body").stop().animate({
         scrollTop: activeTab.offset().top
       }, 300)
-    },10)
-
+    },10);
   };
 
-  init();
+  return Tabs;
 
-  $(document).on("click.ustyle.tab", ".us-tabs .us-tabs-nav a, .us-tabs .us-tab-title a", function(e){
-    e.preventDefault();
-    navigateTo($(this), settings);
-    hashChange($(this));
-  });
-
-})($);
+})(this);

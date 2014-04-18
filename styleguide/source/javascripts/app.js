@@ -36,3 +36,5 @@ uSwitch.styleguide = (function(root){
   root.init = init();
 
 })(this);
+
+var tabs = new Tabs();
