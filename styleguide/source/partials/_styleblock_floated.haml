@@ -2,8 +2,9 @@
   .us-container
     .us-grid-row
       .styleguide-column.styleguide-column--information.us-col-6  
+        .styleguide-file= @section.filename
         .styleguide-description{data: {section: @section.section}}= @markdown.render(@section.description)
-        %h4 #{@section.filename}
+        
                 
         - if @section.modifiers.any?
           %ul

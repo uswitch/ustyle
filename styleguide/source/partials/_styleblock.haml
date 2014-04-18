@@ -1,7 +1,7 @@
 .styleguide-block{id: @title.downcase.gsub(" ", "-")}
   .us-container
+    .styleguide-file= @section.filename
     .styleguide-description{data: {section: @section.section}}= @markdown.render(@section.description)
-    %h4 #{@section.filename}
     - if @section.modifiers.any?
       %ul
         - @section.modifiers.each do |modifier|

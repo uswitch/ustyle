@@ -1,3 +1,4 @@
+require "ustyle/installer"
 require "ustyle/sass-functions"
 
 module Ustyle

@@ -6,9 +6,13 @@
     text-align: center
 
 .styleblock__nav-link
+  +padding-leader(0.25)
+  +trailing-border(1px, 0.25)
+  border-color: $grey-10
   display: block
   float: left
   width: 50%
+
 
   +respond-to(tablet, true)
     display: inline-block
