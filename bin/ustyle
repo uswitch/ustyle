@@ -2,4 +2,4 @@
 
 require File.dirname(__FILE__) + '/../lib/ustyle.rb'
 
-Ustyle::Installer.run
+Ustyle::Installer.start
