@@ -4,13 +4,18 @@ require 'thor'
 
 module Ustyle
   class Installer < Thor
+    map ['-v', '--version'] => :version
 
     desc 'install', 'Install uStyle into your project'
     method_options :path => :string, :force => :boolean
-
     def install
       install_files
       puts "uStyle files installed to #{installation_path}/"
+    end
+
+    desc 'version', 'Show uStyle version'
+    def version
+      say "uStyle #{Ustyle::VERSION}"
     end
 
     private
