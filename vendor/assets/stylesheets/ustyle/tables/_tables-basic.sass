@@ -8,12 +8,12 @@
 //
 // Styleguide 6.1
 
-%us-table--base
+%table--base
   width: 100%
   color: $table-c-text
 
 .us-table
-  @extend %us-table--base
+  @extend %table--base
   +adjust-font-size-to($table-font-size)
 
   +respond-to(mobile)
@@ -28,11 +28,11 @@
 
 
 // Normal table headers
-%us-table-head--base
+%table-head--base
   padding: 0 1em .5em 0
 
 .us-table-head
-  @extend %us-table-head--base
+  @extend %table-head--base
   border-bottom: 1px solid $table-c-border
   color: $table-c-head-text
   text-align: left
@@ -40,21 +40,21 @@
 
 
 // Main rows
-%us-table-body-row--base
+%table-body-row--base
   +respond-to(mobile)
   +pie-clearfix
   position: relative
 
 .us-table-body-row
-  @extend %us-table-body-row--base
+  @extend %table-body-row--base
 
 
-%us-table-cell--base
+%table-cell--base
   padding-top: $gutter-width / 2
   padding-bottom: $gutter-width / 2
 
 .us-table-cell
-  @extend %us-table-cell--base  
+  @extend %table-cell--base  
   padding: 1em 0
   border-bottom: 1px solid $table-c-border
   text-align: left
