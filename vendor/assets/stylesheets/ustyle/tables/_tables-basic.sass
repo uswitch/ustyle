@@ -8,14 +8,16 @@
 //
 // Styleguide 6.1
 
+
 %table--base
   width: 100%
   color: $table-c-text
 
 .us-table
   @extend %table--base
-  +adjust-font-size-to($table-font-size)
-
+  border-collapse: separate
+  border-spacing: 0
+  
   +respond-to(mobile)
     thead
       display: none !important
@@ -42,8 +44,8 @@
 // Main rows
 %table-body-row--base
   +respond-to(mobile)
-  +pie-clearfix
-  position: relative
+    +pie-clearfix
+    position: relative
 
 .us-table-body-row
   @extend %table-body-row--base
@@ -55,7 +57,6 @@
 
 .us-table-cell
   @extend %table-cell--base  
-  padding: 1em 0
   border-bottom: 1px solid $table-c-border
   text-align: left
   vertical-align: top
