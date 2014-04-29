@@ -4,21 +4,25 @@
 // be used mid-page to highlight other sections. We define it with .us-hero
 //
 // Styleguide 5.1
+$hero-background-color: $c-cyan !default
+$hero-text-color: $c-navy !default
+$hero-padding-top: 2.5em !default
+$hero-padding-bottom: $hero-padding-top !default
 
 .us-hero
-  background-color: $c-cyan
+  background-color: $hero-background-color
 
 .us-hero-container
   @extend %container
-  +padding-leader(1.75)
-  +padding-trailer(1.75)
+  padding-top: $hero-padding-top
+  padding-bottom: $hero-padding-bottom
 
 .us-hero-title
   +trailer(0.15)
 
 .us-hero-title,
 .us-hero-description
-  color: $c-navy
+  color: $hero-text-color
 
 .us-hero-description
   @extend %reset-box-model
