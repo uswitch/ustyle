@@ -17,6 +17,7 @@
 
 .content__overlay
   @extend %overlay-effect
+  +box-shadow(0)
   z-index: -1
   cursor: pointer
 
@@ -25,11 +26,14 @@
 
   .wrapper,
   .content__overlay
-    +transform(translate3d(0,200px,0) scale(0.85))
+    +transform(translate3d(0,300px,0) scale(0.85))
     left: 0
 
   .content__overlay
     z-index: 600
+
+    &:hover
+      +box-shadow(0 0 18px 0 $grey-5)
 
 .nav__wrapper
   position: absolute
@@ -37,19 +41,33 @@
   top: 0
   bottom: 0
   right: 0
-  background-color: $c-navy
+  background-color: $c-cyan
   
 .nav__container
-  +padding-leader(2)
+  @extend %container
+  +padding-leader(1)
   text-align: center
 
 .nav__link
-  @extend %heading-font-regular
-  +link-colors(white, $c-cyan, white, white)
+  +link-colors($c-navy, $c-typecyan, $c-navy, $c-navy)
   display: inline-block
-  padding: 0.5em 1em
-  font-size: ($base-font-size) * 1.25
-  font-size: 1.25rem
+  font-size: $base-font-size
+  font-size: 1rem
+
+.nav__set-container
+  +us-row
+
+.nav__set
+  +leader(0.5)
+  @extend %us-col-md-3
+  @extend %reset-box-model
+  list-style: none
+  text-align: left
+
+.nav__set-title
+  color: $grey-2
+  border-bottom: 1px solid $grey-2
+  margin-bottom: $gutter-width/2
 
 .nav__link--active
-  color: $c-cyan !important
+  font-weight: bold !important

@@ -1,29 +1,15 @@
-#header
-  color: $c-navy
-  overflow: hidden
-  position: fixed
-  text-align: right
-  width: 100%
-  z-index: 1000
-  top: 5px
-
-  .open-menu &
-    background-color: $c-navy
-
-.nav-wrapper
-  @extend %container
-
 .logo
   @extend %heading-font-regular
   +adjust-font-size-to(18px)
   +link-colors(white, $c-typecyan, white, white)
+  position: fixed
+  z-index: 1000
+  top: 5px
+  right: $gutter-width/2
   border-radius: 3px
   display: inline-block
   padding: 0.5em
   background-color: $c-navy
-
-  +respond-to(tablet, true)
-    margin-right: $gutter-width/2
 
   &:before
     content: "\2630"

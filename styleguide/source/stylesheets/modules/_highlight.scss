@@ -1,15 +1,25 @@
 pre {
   white-space: pre-wrap;
-}
-pre code {
   font-family: "Inconsolata", sans-serif;
-  font-size: 0.8em;
+  font-size: 0.9em;
   line-height: 1.5em;
   display: block; 
   padding: 1em;
   background: white;
   color: $grey-1;
   border: 1px solid $c-cyan;
+}
+
+pre code {
+  display: inline;
+  background: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  word-wrap: normal;
+  max-width: initial;
+  overflow: initial;
+  line-height: inherit;
 }
 
 

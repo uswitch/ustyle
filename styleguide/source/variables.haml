@@ -1,0 +1,5 @@
+.us-container
+  %h1.styleguide-title Variables
+  %p.us-standfirst Here is a list of the variables you can set globally within uStyle
+  %pre<
+    %code{class: :scss}<= File.read(File.expand_path("../vendor/assets/stylesheets/ustyle/basics/_variables.sass"))
