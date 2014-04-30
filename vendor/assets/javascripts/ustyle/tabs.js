@@ -28,7 +28,7 @@
   };
 
   Tabs.prototype.init = function(){
-    var $first = this.tab.first();
+    var $first = this.tab.hasClass(this.activeClass) ? this.tab.filter("." + this.activeClass) : this.tab.first();
     var $initialHash = this.tab.filter("["+ this.filter +"='"+ this.hash.replace("!", "") +"']");
 
     if($initialHash.length){
