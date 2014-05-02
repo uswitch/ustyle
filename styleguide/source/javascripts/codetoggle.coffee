@@ -1,8 +1,8 @@
 class CodeToggle
   codeBlocks = document.getElementsByClassName "code-block"
   activeClass = "code-block__code--visible"
-  showText = "Show code"
-  hideText = "Hide code"
+  showText = "Show Sass"
+  hideText = "Hide Sass"
 
   constructor: ->
     for codeBlock in codeBlocks

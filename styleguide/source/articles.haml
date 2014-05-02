@@ -1,0 +1,31 @@
+.us-container
+  %h1.styleguide-title Articles
+  
+= styleblock "4.1", "News item", floated: false do
+  .us-news-item
+    %a.us-news-item-link{href: "#"}
+      .us-news-item-image-container
+        .us-news-item-image.background{:style => "background-image: url(http://uswitch-wp-blog-assets.s3-website-eu-west-1.amazonaws.com/wp-content/uploads/2013/09/Untitled-1.jpg)"}
+      .us-news-meta
+        %span.category Consumer rights
+        %span.date= Date.today.strftime("%d %b %Y")    
+      %h3.us-news-item-title Customer uses promoted tweet to complain about BA
+      %p.us-news-item-snippet Sign of things to come? Social media helps to empower disgruntled consumer amid lost luggage row
+      .us-news-item-readmore
+        %span.us-news-item-readmorelink More consumer rights
+
+= styleblock "4.2", "Guide item", floated: false do
+  .us-guide-item.modifier-class
+    %a.us-guide-item-link{:href => "http://www.uswitch.com/car-insurance/guides/"}
+      .us-guide-item-image-container
+        .us-guide-item-image.background{:style => "background-image: url(http://www.uswitch.com/insurance/assets/guide-home-16141c84afd29e2063ee76803037716c.jpg)"}
+      .us-guide-item-content
+        %h4.us-guide-item-title Car insurance guides
+        %p.us-guide-item-description Read our car insurance advice guides for the facts on why you need car insurance, the types of cover available, and tips on how to make a claim.
+      .us-guide-item-readmore 
+        %span.us-news-item-readmorelink Read more
+
+= styleblock "4.3", "See more item", floated: false do
+  .us-more-item
+    %a.us-more-item-link{:href => "test"}
+      %span.us-more-item-title See more mobile news stories

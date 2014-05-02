@@ -41,7 +41,7 @@
   top: 0
   bottom: 0
   right: 0
-  background-color: $c-cyan
+  background-color: $c-navy
   
 .nav__container
   @extend %container
@@ -49,7 +49,7 @@
   text-align: center
 
 .nav__link
-  +link-colors($c-navy, $c-typecyan, $c-navy, $c-navy)
+  +link-colors(white, $c-typecyan, white, white)
   display: inline-block
   font-size: $base-font-size
   font-size: 1rem
@@ -59,14 +59,16 @@
 
 .nav__set
   +leader(0.5)
-  @extend %us-col-md-3
+  @extend %us-col-lg-3
+  @extend %us-col-md-4
+  @extend %us-col-xsm-6
   @extend %reset-box-model
   list-style: none
   text-align: left
 
 .nav__set-title
-  color: $grey-2
-  border-bottom: 1px solid $grey-2
+  color: $grey-10
+  border-bottom: 1px solid $grey-10
   margin-bottom: $gutter-width/2
 
 .nav__link--active
