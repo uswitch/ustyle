@@ -1,0 +1,50 @@
+// Social buttons - shared across login containers
+.us-social__container
+  +pie-clearfix
+  position: relative
+
+.us-social__cta
+  @extend %reset-box-model
+  +padding-leader(0.35)
+  +padding-trailer(0.35)
+  float: left
+
+.us-social__buttons
+  position: absolute
+  right: 0
+
+.us-social__btn
+  +link-colors($c-blue, $c-typecyan, $c-blue, $c-blue, darken($c-blue, 15%))
+  text-decoration: none
+  float: left
+  display: block
+  margin-left: 0.5em
+
+  &:hover
+    .us-social__btn-text
+      max-width: 400px  
+
+.us-social__btn-text,
+.us-social__btn-icon
+  vertical-align: middle
+  position: relative
+
+.us-social__btn-text
+  +transition(max-width 300ms)
+  +adjust-font-size-to(14px, 1.5)
+  display: inline-block
+  max-width: 0
+  overflow: hidden
+  z-index: 1
+
+.us-social__btn-icon
+  font-size: 2em
+  z-index: 5
+  line-height: 1.15em
+
+$social-buttons: ("facebook", #3b5998), ("google", #e74c3c), ("twitter", #55acee)
+
+@each $button in $social-buttons
+  .us-social__btn--#{nth($button, 1)}
+    .us-social__btn-icon
+      color: nth($button, 2)
