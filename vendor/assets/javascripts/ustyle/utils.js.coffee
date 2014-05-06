@@ -16,4 +16,13 @@ merge = (target, extensions...) ->
       target[property] = extension[property]
   target
 
-@Utils = {addClass, removeClass, hasClass, merge}
+setOptions = (options, defaults) ->
+  merge {}, defaults, options
+
+transformKey = do ->
+  el = document.createElement 'div'
+  for key in ['transform', 'webkitTransform', 'OTransform', 'MozTransform', 'msTransform']
+    if el.style[key] isnt undefined
+      return key
+
+@Utils = {addClass, removeClass, hasClass, merge, setOptions, transformKey}

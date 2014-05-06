@@ -26,8 +26,11 @@
 
   .wrapper,
   .content__overlay
-    +transform(translate3d(0,300px,0) scale(0.85))
-    left: 0
+    +transform(translate3d(-80%,0,0) scale(0.85))
+
+    +respond-to(tablet, true)
+      +transform(translate3d(0,300px,0) scale(0.85))
+      left: 0
 
   .content__overlay
     z-index: 600
@@ -46,25 +49,38 @@
 .nav__container
   @extend %container
   +padding-leader(1)
+  +padding-trailer(2)
   text-align: center
+  height: 100%
+  overflow: hidden
+
+  +respond-to(tablet, true)
+    padding-bottom: 0
 
 .nav__link
   +link-colors(white, $c-typecyan, white, white)
-  display: inline-block
+  display: block
   font-size: $base-font-size
   font-size: 1rem
 
 .nav__set-container
   +us-row
+  max-height: 100%
+  overflow: auto
 
 .nav__set
   +leader(0.5)
-  @extend %us-col-lg-3
-  @extend %us-col-md-4
-  @extend %us-col-xsm-6
   @extend %reset-box-model
   list-style: none
   text-align: left
+  float: right
+  width: 80%
+
+  +respond-to(tablet)
+    +us-col(4)
+
+  +respond-to(desktop, true)
+    +us-col(3)
 
 .nav__set-title
   color: $grey-10

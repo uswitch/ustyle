@@ -8,13 +8,11 @@
 
 .us-login
   position: relative
-    
+  width: em(340px)
+  
 .us-login__container
   overflow: hidden
   position: relative
-
-  +respond-to(small-tablet, true)
-    width: em(320px)
 
   @if $html-grid-classes == false
     *
@@ -51,6 +49,10 @@
       top: 0
       +translateX(0)
     
+.us-login__title
+  @extend %heading-3
+  color: $c-darkgrey
+
 .us-login__input
   display: block
   width: 100%

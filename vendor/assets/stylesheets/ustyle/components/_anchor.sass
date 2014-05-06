@@ -1,5 +1,11 @@
++keyframes(anchor-show)
+  0%
+    +transform(scale(0) translateZ(0))
+
+  100%
+    +transform(scale(1) translateZ(0))
+
 .us-anchor,
-.us-anchor--closed,
 .us-anchor__target
   display: none
 
@@ -9,27 +15,34 @@
 
 .us-anchor--open
   display: block
+  
+  .us-anchor__content
+    +animation(anchor-show, 300ms)
 
 .us-anchor__content
   @extend %default-font
   +border-radius(em(8px))
+  +transition(transform 300ms 100ms)
+  +transform-origin(50%, -12px)
   border: 1px solid $c-darkgrey
   background-color: white
   position: relative
   padding: $gutter-width/2 $gutter-width/2 $gutter-width
+  right: $gutter-width/4
 
   +respond-to(tablet, true)
+    right: 0
     padding: $gutter-width/1.25 $gutter-width/1.5 $gutter-width
 
 .us-anchor__arrow
   position: absolute
   z-index: 5
-  +arrow(25px, 15px, up, $c-darkgrey)
+  +arrow(35px, 15px, up, $c-darkgrey)
   top: -15px
-  margin-left: -12.5px
+  margin-left: -17.5px
 
 .us-anchor__arrow-inner
-  +arrow(25px, 15px, up, white)
+  +arrow(35px, 15px, up, white)
   position: absolute
-  left: -12px
+  left: -17px
   top: 2px

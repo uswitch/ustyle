@@ -1,14 +1,8 @@
 # This is a naive implementation of Tether by Hubspot.
 
-{addClass, removeClass, hasClass, merge} = @Utils
+{addClass, removeClass, hasClass, merge, setOptions, transformKey} = @Utils
 
 class Anchor
-
-  transformKey = do ->
-    el = document.createElement 'div'
-    for key in ['transform', 'webkitTransform', 'OTransform', 'MozTransform', 'msTransform']
-      if el.style[key] isnt undefined
-        return key
 
   defaults:
     anchor: document.querySelector('[data-utarget]')
@@ -20,16 +14,12 @@ class Anchor
     readyClass: "us-anchor--ready"
 
   constructor: (options) ->
-    @setOptions options
+    @options = setOptions options, @defaults
     return if @options.anchor is null or not window.uSwitch.modernBrowser
     @isOpen = false
     @create()
     @setEvents()
     @watchWindow()
-
-  setOptions: (options) ->
-    @options = merge {}, @defaults, options
-    this
 
   setEvents: ->
     showHandler = (event) =>
@@ -62,6 +52,7 @@ class Anchor
     return if @isOpen
     unless @anchorElem.parentNode
       document.body.appendChild @anchorElem
+    removeClass(@anchorElem, @options.hiddenClass)
     addClass(@anchorElem, @options.activeClass)
     @stick()
     @options.onOpen?.call()
@@ -71,6 +62,7 @@ class Anchor
   hide: ->
     return unless @isOpen
     @isOpen = false
+    @options.onClose?.call()
     removeClass(@anchorElem, @options.activeClass)
     addClass(@anchorElem, @options.hiddenClass)
 
@@ -87,7 +79,7 @@ class Anchor
     @arrow.appendChild arrowInner
     addClass arrowInner, "us-anchor__arrow-inner"
     addClass @arrow, "us-anchor__arrow"
-    @anchorElem.appendChild @arrow
+    @content.appendChild @arrow
     addClass document.documentElement, @options.readyClass
 
   stick: -> 
@@ -113,14 +105,19 @@ class Anchor
         css[transformKey] += " translateZ(0)"
 
     @centreArrow()
+    @setTransformOrigin()
 
   centreArrow: ->
-    leftPos = (@targetPosition.left - @anchorElem.getBoundingClientRect().left) + (@options.anchor.offsetWidth/2)
+    @leftPos = (@targetPosition.left - @anchorElem.getBoundingClientRect().left) + (@options.anchor.offsetWidth/2)
     css = @arrow.style
-    css.left = "#{leftPos}px"
+    css.left = "#{@leftPos}px"
+
+  setTransformOrigin: ->
+    css = @content.style
+    css["#{transformKey}Origin"] = "#{@leftPos}px -12px"
 
   watchWindow: ->
-    for event in ['resize', 'scroll']
+    for event in ['resize', 'scroll', 'touchmove']
       window.addEventListener event, (e) => 
         return unless @isOpen
         @stick()
