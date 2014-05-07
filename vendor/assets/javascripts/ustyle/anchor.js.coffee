@@ -5,17 +5,18 @@
 class Anchor
 
   defaults:
-    anchor: document.querySelector('[data-utarget]')
+    target: document.querySelector('[data-utarget]')
     anchorClass: "us-anchor"
     openEvent: "click"
     anchorContentClass: "us-anchor__content"
     activeClass: "us-anchor--open"
     hiddenClass: "us-anchor--closed"
     readyClass: "us-anchor--ready"
+    afterOpenClass: "us-anchor--after-open"
 
   constructor: (options) ->
     @options = setOptions options, @defaults
-    return if @options.anchor is null or not window.uSwitch.modernBrowser
+    return if @options.target is null or not window.uSwitch.modernBrowser
     @isOpen = false
     @create()
     @setEvents()
@@ -29,14 +30,14 @@ class Anchor
     hideHandler = (event) =>
       return unless @isOpen
 
-      if event.target is @anchorElem or @anchorElem.contains(event.target)
+      if event.target is @anchor or @anchor.contains(event.target)
         return
-      if event.target is @options.anchor or @options.anchor.contains(event.target)
+      if event.target is @options.target or @options.target.contains(event.target)
         return
 
       @hide()
 
-    @options.anchor.addEventListener @options.openEvent, showHandler, false
+    @options.target.addEventListener @options.openEvent, showHandler, false
     document.addEventListener @options.openEvent, hideHandler, false
 
   toggle: ->
@@ -50,10 +51,11 @@ class Anchor
 
   show: ->
     return if @isOpen
-    unless @anchorElem.parentNode
-      document.body.appendChild @anchorElem
-    removeClass(@anchorElem, @options.hiddenClass)
-    addClass(@anchorElem, @options.activeClass)
+    unless @anchor.parentNode
+      document.body.appendChild @anchor
+    addClass(@anchor, @options.activeClass)
+    setTimeout =>
+      addClass @anchor, @options.afterOpenClass
     @stick()
     @options.onOpen?.call()
     @cssWrite = false
@@ -63,13 +65,13 @@ class Anchor
     return unless @isOpen
     @isOpen = false
     @options.onClose?.call()
-    removeClass(@anchorElem, @options.activeClass)
-    addClass(@anchorElem, @options.hiddenClass)
+    removeClass(@anchor, @options.activeClass)
+    removeClass(@anchor, @options.afterOpenClass)
 
   create: ->
     # Container
-    @anchorElem = document.createElement "div"
-    addClass @anchorElem, @options.anchorClass
+    @anchor = document.createElement "div"
+    addClass @anchor, @options.anchorClass
     # Content
     @content = document.createElement "div"
     addClass @content, @options.anchorContentClass
@@ -82,11 +84,15 @@ class Anchor
     @content.appendChild @arrow
     addClass document.documentElement, @options.readyClass
 
-  stick: -> 
+  stick: ->
+    # We attach the content on the stick so that we allow for several anchor to contain
+    # the same content
     @content.appendChild @options.content
-    @anchorElem.appendChild @content
-    @targetPosition = @options.anchor.getBoundingClientRect()
-    css = @anchorElem.style
+    @anchor.appendChild @content
+
+    @targetPosition = @options.target.getBoundingClientRect()
+    css = @anchor.style
+
     unless @cssWrite  
       css.position = 'absolute'
       css.zIndex = '9999'
@@ -94,12 +100,16 @@ class Anchor
       css.left = '0px'
       cssWrite = true
 
-    if document.body.offsetWidth < (@targetPosition.left + (@anchorElem.offsetWidth / 2) + (@options.anchor.offsetWidth/2))
-      leftPosition = document.body.offsetWidth - @anchorElem.offsetWidth
+    if document.body.offsetWidth < (@targetPosition.left + (@anchor.offsetWidth / 2) + (@options.target.offsetWidth/2))
+      leftOffset = document.body.offsetWidth - @anchor.offsetWidth
+    else if @anchor.offsetWidth/2 > @targetPosition.left
+      leftOffset = 0
     else
-      leftPosition = @targetPosition.left - (@anchorElem.offsetWidth / 2) + (@options.anchor.offsetWidth/2)
+      leftOffset = @targetPosition.left - (@anchor.offsetWidth / 2) + (@options.target.offsetWidth/2)
 
-    css[transformKey] = "translateX(#{leftPosition}px) translateY(#{@targetPosition.bottom + @arrow.offsetHeight}px)"
+    bottomOffset = @targetPosition.bottom + @arrow.offsetHeight
+    
+    css[transformKey] = "translateX(#{Math.round leftOffset}px) translateY(#{Math.round bottomOffset}px)"
 
     if transformKey isnt 'msTransform'
         css[transformKey] += " translateZ(0)"
@@ -108,7 +118,7 @@ class Anchor
     @setTransformOrigin()
 
   centreArrow: ->
-    @leftPos = (@targetPosition.left - @anchorElem.getBoundingClientRect().left) + (@options.anchor.offsetWidth/2)
+    @leftPos = (@targetPosition.left - @anchor.getBoundingClientRect().left) + (@options.target.offsetWidth/2)
     css = @arrow.style
     css.left = "#{@leftPos}px"
 

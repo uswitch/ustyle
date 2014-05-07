@@ -10,6 +10,11 @@
   display: none
 
 .us-anchor
+  +transform(translateZ(0))
+  +transition(opacity 300ms)
+  opacity: 0.999
+
+.us-anchor
   .us-anchor__target
     display: block
 
@@ -18,6 +23,10 @@
   
   .us-anchor__content
     +animation(anchor-show, 300ms)
+
+.us-anchor--after-open
+  +transition(none)
+  opacity: 1
 
 .us-anchor__content
   @extend %default-font
@@ -28,10 +37,11 @@
   background-color: white
   position: relative
   padding: $gutter-width/2 $gutter-width/2 $gutter-width
-  right: $gutter-width/4
+  max-width: 98%
+  left: 1%
 
   +respond-to(tablet, true)
-    right: 0
+    left: auto
     padding: $gutter-width/1.25 $gutter-width/1.5 $gutter-width
 
 .us-anchor__arrow

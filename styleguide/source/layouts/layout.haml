@@ -14,7 +14,12 @@
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
     %title uGuide
     %link{href: "http://www.uswitch.com/webfont/fonts/v19/stylesheet.css", media: :all, rel: :stylesheet, type: "text/css"}
-    
+    :javascript
+      window.uSwitch = {};
+
+      if('querySelector' in document && 'localStorage' in window && 'addEventListener' in window){
+        window.uSwitch.modernBrowser = true;
+      }
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
     = stylesheet_link_tag "all"
 

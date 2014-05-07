@@ -6,6 +6,7 @@ uSwitch.styleguide = (function(root){
 
   function init(){
     setupNav();
+    setupAnchors();
     $('.js-sortable').tableSort();
   }
 
@@ -31,6 +32,13 @@ uSwitch.styleguide = (function(root){
       document.body.className += " " + activeClass; 
     }
     elem.preventDefault();
+  };
+
+  var setupAnchors = function(){
+    var exampleAnchor = new Anchor({
+      target: document.querySelector(".example-anchor"),
+      content: document.querySelector(".example-anchor__target")
+    });
   };
 
   root.init = init();
