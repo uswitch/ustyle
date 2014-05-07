@@ -83,14 +83,13 @@ class Anchor
     addClass @arrow, "us-anchor__arrow"
     @content.appendChild @arrow
     addClass document.documentElement, @options.readyClass
-
+    
   stick: ->
     # We attach the content on the stick so that we allow for several anchor to contain
     # the same content
     @content.appendChild @options.content
     @anchor.appendChild @content
 
-    @targetPosition = @options.target.getBoundingClientRect()
     css = @anchor.style
 
     unless @cssWrite  
@@ -100,25 +99,29 @@ class Anchor
       css.left = '0px'
       cssWrite = true
 
-    if document.body.offsetWidth < (@targetPosition.left + (@anchor.offsetWidth / 2) + (@options.target.offsetWidth/2))
-      leftOffset = document.body.offsetWidth - @anchor.offsetWidth
-    else if @anchor.offsetWidth/2 > @targetPosition.left
-      leftOffset = 0
-    else
-      leftOffset = @targetPosition.left - (@anchor.offsetWidth / 2) + (@options.target.offsetWidth/2)
+    @initialBottomOffset = getYBounds(@options.target, @anchor, @arrow)
 
-    bottomOffset = @targetPosition.bottom + @arrow.offsetHeight
-    
+    @position()
+
+  position: (event = null) -> 
+    css = @anchor.style
+    @targetBounds = @options.target.getBoundingClientRect()
+    leftOffset = getXBounds(@options.target, @anchor, @arrow)
+    if event is null or event.type isnt "scroll"
+      bottomOffset = getYBounds(@options.target, @anchor, @arrow)
+    else
+      bottomOffset = @initialBottomOffset
+
     css[transformKey] = "translateX(#{Math.round leftOffset}px) translateY(#{Math.round bottomOffset}px)"
 
     if transformKey isnt 'msTransform'
-        css[transformKey] += " translateZ(0)"
+      css[transformKey] += " translateZ(0)"
 
     @centreArrow()
     @setTransformOrigin()
 
   centreArrow: ->
-    @leftPos = (@targetPosition.left - @anchor.getBoundingClientRect().left) + (@options.target.offsetWidth/2)
+    @leftPos = (@targetBounds.left - @anchor.getBoundingClientRect().left) + (@options.target.offsetWidth/2)
     css = @arrow.style
     css.left = "#{@leftPos}px"
 
@@ -126,10 +129,36 @@ class Anchor
     css = @content.style
     css["#{transformKey}Origin"] = "#{@leftPos}px -12px"
 
+  getXBounds = (target, anchor, arrow) ->
+    targetPosition = target.getBoundingClientRect()
+
+    if document.body.offsetWidth < (targetPosition.left + (anchor.offsetWidth / 2) + (target.offsetWidth/2))
+      leftOffset = document.body.offsetWidth - anchor.offsetWidth
+    else if (anchor.offsetWidth/2 - arrow.offsetWidth) > targetPosition.left
+      leftOffset = 0
+    else
+      leftOffset = targetPosition.left - (anchor.offsetWidth / 2) + (target.offsetWidth/2)
+
+  getYBounds = (target, anchor, arrow) ->
+    targetPosition = target.getBoundingClientRect()
+    return targetPosition.top + arrow.offsetHeight + target.offsetHeight
+
   watchWindow: ->
     for event in ['resize', 'scroll', 'touchmove']
-      window.addEventListener event, (e) => 
+      window.addEventListener event, (event) =>
         return unless @isOpen
-        @stick()
+        now = +new Date
+        throttle = 16
+
+        if not timer
+          if now - lastFired > (3 * throttle)
+            @position(event)
+            lastFired = now
+
+          timer = setTimeout =>
+            timer = null
+            lastFired = +new Date
+            @position(event)
+          , throttle
 
   window.Anchor = Anchor
