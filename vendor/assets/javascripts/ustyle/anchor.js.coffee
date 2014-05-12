@@ -15,150 +15,126 @@ class Anchor
     afterOpenClass: "us-anchor--after-open"
 
   constructor: (options) ->
-    @options = setOptions options, @defaults
-    return if @options.target is null or not window.uSwitch.modernBrowser
-    @isOpen = false
-    @create()
-    @setEvents()
-    @watchWindow()
+    return unless window.uSwitch.modernBrowser
+    {@target} = @options = setOptions options, @defaults
+    return if @target is null
+    {@content, @arrow, @anchor} = @create()
+    @setEvents(@anchor)
+    @watchWindow(@arrow)
 
-  setEvents: ->
-    showHandler = (event) =>
-      @toggle()
+  setEvents: (anchor) ->
+    toggle = (event) =>
+      if not @isOpen()
+        @show(anchor)
+      else
+        @hide(anchor)
       event.preventDefault()
 
-    hideHandler = (event) =>
-      return unless @isOpen
-
-      if event.target is @anchor or @anchor.contains(event.target)
+    hide = (event) =>
+      return if not @isOpen()
+      if event.target is anchor or anchor.contains(event.target) 
         return
-      if event.target is @options.target or @options.target.contains(event.target)
+      if event.target is @target or @target.contains(event.target)
         return
 
-      @hide()
+      @hide(anchor)
 
-    @options.target.addEventListener @options.openEvent, showHandler, false
-    document.addEventListener @options.openEvent, hideHandler, false
+    @target.addEventListener @options.openEvent, toggle, false
+    document.addEventListener @options.openEvent, hide, false
 
-  toggle: ->
-    if not @isOpen
-      @show()
-    else
-      @hide()
-
-  isEnabled: ->
-    hasClass document.documentElement, @options.readyClass
-
-  show: ->
-    return if @isOpen
-    unless @anchor.parentNode
-      document.body.appendChild @anchor
-    addClass(@anchor, @options.activeClass)
-    setTimeout =>
-      addClass @anchor, @options.afterOpenClass
-    @stick()
+  show: (anchor) ->
     @options.onOpen?.call()
-    @cssWrite = false
-    @isOpen = true
+    addClass(anchor, @options.activeClass)
+    setTimeout =>
+      addClass anchor, @options.afterOpenClass
+    @setPosition(getYBounds(@target, @arrow))
 
-  hide: ->
-    return unless @isOpen
-    @isOpen = false
+  hide: (anchor) ->
     @options.onClose?.call()
-    removeClass(@anchor, @options.activeClass)
-    removeClass(@anchor, @options.afterOpenClass)
+    removeClass(anchor, @options.activeClass)
+    removeClass(anchor, @options.afterOpenClass)
 
-  create: ->
-    # Container
-    @anchor = document.createElement "div"
-    addClass @anchor, @options.anchorClass
-    # Content
-    @content = document.createElement "div"
-    addClass @content, @options.anchorContentClass
+  isOpen: ->
+    hasClass @anchor, @options.activeClass
+
+  create: (options) ->
     # Arrow
-    @arrow = document.createElement "div"
+    arrow = document.createElement "div"
     arrowInner = document.createElement "div"
-    @arrow.appendChild arrowInner
+    arrow.appendChild arrowInner
     addClass arrowInner, "us-anchor__arrow-inner"
-    addClass @arrow, "us-anchor__arrow"
-    @content.appendChild @arrow
+    addClass arrow, "us-anchor__arrow"
+
+    # Content
+    content = document.createElement "div"
+    addClass content, @options.anchorContentClass
+    content.appendChild @options.content
+    content.appendChild arrow
+
+    # Container
+    anchor = document.createElement "div"
+    addClass anchor, @options.anchorClass
+
+    anchorCcss = anchor.style
+    anchorCcss.position = 'absolute'
+    anchorCcss.zIndex = '9999'
+    anchorCcss.top = '0px'
+    anchorCcss.left = '0px'
+    anchor.appendChild content
+
     addClass document.documentElement, @options.readyClass
+    document.body.appendChild anchor unless anchor.parentNode
+
+    {content, arrow, anchor}
     
-  stick: ->
-    # We attach the content on the stick so that we allow for several anchor to contain
-    # the same content
-    @content.appendChild @options.content
-    @anchor.appendChild @content
+  setPosition: (bottomOffset) -> 
+    leftOffset = getXBounds(@target, @anchor, @arrow)
+   
+    style = "translateX(#{Math.round leftOffset}px) translateY(#{Math.round bottomOffset}px)"
+    style += " translateZ(0)" unless  transformKey is 'msTransform'
 
-    css = @anchor.style
+    @anchor.style[transformKey]= style
 
-    unless @cssWrite  
-      css.position = 'absolute'
-      css.zIndex = '9999'
-      css.top = '0px'
-      css.left = '0px'
-      cssWrite = true
+    targetBounds = @target.getBoundingClientRect()
+    leftPos = (targetBounds.left - @anchor.getBoundingClientRect().left) + (@target.offsetWidth/2)
 
-    @initialBottomOffset = getYBounds(@options.target, @anchor, @arrow)
-
-    @position()
-
-  position: (event = null) -> 
-    css = @anchor.style
-    @targetBounds = @options.target.getBoundingClientRect()
-    leftOffset = getXBounds(@options.target, @anchor, @arrow)
-    if event is null or event.type isnt "scroll"
-      bottomOffset = getYBounds(@options.target, @anchor, @arrow)
-    else
-      bottomOffset = @initialBottomOffset
-
-    css[transformKey] = "translateX(#{Math.round leftOffset}px) translateY(#{Math.round bottomOffset}px)"
-
-    if transformKey isnt 'msTransform'
-      css[transformKey] += " translateZ(0)"
-
-    @centreArrow()
-    @setTransformOrigin()
-
-  centreArrow: ->
-    @leftPos = (@targetBounds.left - @anchor.getBoundingClientRect().left) + (@options.target.offsetWidth/2)
-    css = @arrow.style
-    css.left = "#{@leftPos}px"
-
-  setTransformOrigin: ->
-    css = @content.style
-    css["#{transformKey}Origin"] = "#{@leftPos}px -12px"
+    @arrow.style.left = "#{leftPos}px"
+    @content.style["#{transformKey}Origin"] = "#{leftPos}px -12px"
 
   getXBounds = (target, anchor, arrow) ->
     targetPosition = target.getBoundingClientRect()
 
     if document.body.offsetWidth < (targetPosition.left + (anchor.offsetWidth / 2) + (target.offsetWidth/2))
-      leftOffset = document.body.offsetWidth - anchor.offsetWidth
+      document.body.offsetWidth - anchor.offsetWidth
     else if (anchor.offsetWidth/2 - arrow.offsetWidth) > targetPosition.left
-      leftOffset = 0
+      0
     else
-      leftOffset = targetPosition.left - (anchor.offsetWidth / 2) + (target.offsetWidth/2)
+      targetPosition.left - (anchor.offsetWidth / 2) + (target.offsetWidth/2)
 
-  getYBounds = (target, anchor, arrow) ->
+  getYBounds = (target, arrow) ->
     targetPosition = target.getBoundingClientRect()
-    return targetPosition.top + arrow.offsetHeight + target.offsetHeight
+    targetPosition.top + arrow.offsetHeight + target.offsetHeight
 
-  watchWindow: ->
+  watchWindow: (arrow) ->
     for event in ['resize', 'scroll', 'touchmove']
       window.addEventListener event, (event) =>
-        return unless @isOpen
         now = +new Date
         throttle = 16
+        maxWait = throttle * 3
 
         if not timer
-          if now - lastFired > (3 * throttle)
-            @position(event)
+          if event.type isnt "scroll"
+            bottomOffset = getYBounds(@target, arrow)
+          else
+            bottomOffset = @initialBottomOffset
+          if now - lastFired > maxWait
+            @setPosition(bottomOffset)
             lastFired = now
 
-          timer = setTimeout =>
+          timer = setTimeout (o) =>
             timer = null
             lastFired = +new Date
-            @position(event)
+            @setPosition(bottomOffset)
           , throttle
 
   window.Anchor = Anchor
