@@ -2,10 +2,10 @@
 
 addClass = (element, name) ->
     removeClass element, name
-    element.className += " #{name}"
+    element.className += " #{name} "
 
 removeClass = (element, name) ->
-  element.className = element.className.replace(name, "")
+  element.className = element.className.replace new RegExp("(\\s|^)#{name}(\\s|$)" , "gi"), ""
 
 hasClass = (element, name) ->
   new RegExp("(^| )#{ name }( |$)", 'gi').test(element.className)
