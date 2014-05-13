@@ -13,11 +13,13 @@ class Anchor
     hiddenClass: "us-anchor--closed"
     readyClass: "us-anchor--ready"
     afterOpenClass: "us-anchor--after-open"
+    showClose: true
 
   constructor: (options) ->
     return unless window.uSwitch.modernBrowser
     {@target} = @options = setOptions options, @defaults
     return if @target is null
+    @closeTargets = [document]
     {@content, @arrow, @anchor} = @create()
     @setEvents(@anchor)
     @watchWindow(@arrow)
@@ -32,15 +34,20 @@ class Anchor
 
     hide = (event) =>
       return if not @isOpen()
-      if event.target is anchor or anchor.contains(event.target) 
-        return
-      if event.target is @target or @target.contains(event.target)
-        return
+
+      if event.target in @closeTargets
+        @hide(anchor)
+        event.preventDefault()
+
+      return if event.target is anchor or anchor.contains(event.target)
+      return if event.target is @target or @target.contains(event.target)
 
       @hide(anchor)
 
     @target.addEventListener @options.openEvent, toggle, false
-    document.addEventListener @options.openEvent, hide, false
+
+    for closeTarget in @closeTargets
+      closeTarget.addEventListener @options.openEvent, hide, false
 
   show: (anchor) ->
     @options.onOpen?.call()
@@ -58,18 +65,27 @@ class Anchor
     hasClass @anchor, @options.activeClass
 
   create: (options) ->
+    # Content
+    content = document.createElement "div"
+    addClass content, @options.anchorContentClass
+    content.appendChild @options.content
+
     # Arrow
     arrow = document.createElement "div"
     arrowInner = document.createElement "div"
     arrow.appendChild arrowInner
     addClass arrowInner, "us-anchor__arrow-inner"
     addClass arrow, "us-anchor__arrow"
-
-    # Content
-    content = document.createElement "div"
-    addClass content, @options.anchorContentClass
-    content.appendChild @options.content
     content.appendChild arrow
+
+    # Close element
+    if @options.showClose
+      closeButton = document.createElement "a"
+      closeButton.href = "#"
+      closeButton.innerText = "\u00D7"
+      addClass closeButton, "us-anchor__close-button"
+      content.appendChild closeButton
+      @closeTargets.push closeButton
 
     # Container
     anchor = document.createElement "div"
