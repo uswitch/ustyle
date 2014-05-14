@@ -50,16 +50,16 @@ class Anchor
       closeTarget.addEventListener @options.openEvent, hide, false
 
   show: (anchor) ->
-    @options.onOpen?.call()
     addClass(anchor, @options.activeClass)
     setTimeout =>
       addClass anchor, @options.afterOpenClass
     @setPosition(getYBounds(@target, @arrow))
+    @options.onOpen?.call()
 
   hide: (anchor) ->
-    @options.onClose?.call()
     removeClass(anchor, @options.activeClass)
     removeClass(anchor, @options.afterOpenClass)
+    @options.onClose?.call()
 
   isOpen: ->
     hasClass @anchor, @options.activeClass

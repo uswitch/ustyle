@@ -34,6 +34,5 @@ module Ustyle
     end
   end
 end
-# TO-DO - Add a template so the framework works
 
 Ustyle.load!
