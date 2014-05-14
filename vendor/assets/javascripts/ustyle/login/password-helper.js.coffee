@@ -16,6 +16,7 @@
     constructor: (el, options) ->
       {@tests} = @options = $.extend {}, @defaults, options
       @$el = $(el)
+      return if @$el.hasClass "#{@options.classPrefix}__input"
       @$el.addClass "#{@options.classPrefix}__input"
       @wrapper = createWrapper(@$el, @options.classPrefix)
       @hiddenPassword = createHiddenPassword(@$el, @options.classPrefix)
