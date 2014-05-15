@@ -10,8 +10,10 @@ if defined?(::Sinatra)
         app.set :assets_helper_path, "/assets"
         app.set :static, true
         app.set :assets_digest, true
+
         # Setup Sprockets
         %w(stylesheets javascripts images fonts).each do |asset_directory|
+          app.sprockets.append_path File.join(::Ustyle.gem_path, "vendor", "assets", asset_directory)
           app.sprockets.append_path File.join(app.assets_path, asset_directory)
         end
 

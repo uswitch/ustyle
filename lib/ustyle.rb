@@ -13,16 +13,14 @@ module Ustyle
       elsif defined?(::Sprockets)
         require "ustyle/sprockets"
         require "ustyle/sinatra"
-      end
-
-      if defined?(::Compass)
+      elsif defined?(::Compass)
         Compass::Frameworks.register("ustyle",
           :path => gem_path,
           :stylesheets_directory => File.join(assets_path, "stylesheets")
         )
-      end
-
-      ::Sass.load_paths << File.join(assets_path, "stylesheets")
+      else
+        ::Sass.load_paths << File.join(assets_path, "stylesheets")
+      end      
     end
 
     def gem_path
