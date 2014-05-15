@@ -1,4 +1,4 @@
-{addClass, merge, setOptions} = @Utils
+{addClass, merge, setOptions, deleteUndefined} = @Utils
 
 createContext = (options) ->
   class Login
@@ -20,9 +20,7 @@ createContext = (options) ->
         email: @target.data('email')
         opt_in: @target.data('opt-in') 
 
-      for obj in @formData
-        if @formData[obj] is null or @formData[obj] is undefined
-          delete @formData[obj]
+      deleteUndefined(@formData)
 
       @title = @target.data('title') or @options.title
       @description = @target.data('description')

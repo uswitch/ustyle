@@ -19,10 +19,15 @@ merge = (target, extensions...) ->
 setOptions = (options, defaults) ->
   merge {}, defaults, options
 
+deleteUndefined = (obj) ->
+  for key, value of obj
+    if value is null or value is undefined
+      delete obj[key]
+
 transformKey = do ->
   el = document.createElement 'div'
   for key in ['transform', 'webkitTransform', 'OTransform', 'MozTransform', 'msTransform']
     if el.style[key] isnt undefined
       return key
 
-@Utils = {addClass, removeClass, hasClass, merge, setOptions, transformKey}
+@Utils = {addClass, removeClass, hasClass, merge, setOptions, transformKey, deleteUndefined}
