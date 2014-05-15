@@ -1,4 +1,4 @@
-{addClass, removeClass, merge, now, setOptions} = @Utils
+{addClass, merge, setOptions} = @Utils
 
 createContext = (options) ->
   class Login
@@ -17,10 +17,15 @@ createContext = (options) ->
       @formData = 
         source: @target.data('source')
         origin: @target.data('origin') or @options.origin
+        email: @target.data('email')
+        opt_in: @target.data('opt-in') 
+
+      for obj in @formData
+        if @formData[obj] is null or @formData[obj] is undefined
+          delete @formData[obj]
 
       @title = @target.data('title') or @options.title
       @description = @target.data('description')
-      @email = @target.data('email')
 
       @content = @fetch()      
 
@@ -29,12 +34,8 @@ createContext = (options) ->
         target: @options.target
         content: @content
         onOpen: =>
-          @setData()
           @setContent()
-          @setEmail()
-          @loginForm.find(".password-strength").passwordHelper
-            showText: 'Show',
-            hideText: 'Hide'
+          passwordHelp(@loginForm)
           @options.onOpen?.call()
 
         onClose: =>
@@ -47,7 +48,7 @@ createContext = (options) ->
       addClass container, "us-login__target"
 
       jqxhr = $.ajax
-        url: "#{window.uSwitch.Accounts.baseUrl}/signin-popup"
+        url: "#{window.uSwitch.Accounts.baseUrl}/signin-popup?#{$.param(@formData)}"
         dataType: 'jsonp'
 
       .done (html) =>
@@ -58,9 +59,6 @@ createContext = (options) ->
         @setupAnchor()
 
       container
-
-    isEnabled: ->
-      @anchor.isEnabled()
 
     setState: ->
       activeState = @loginForm.filter ".us-login__form--#{@options.state}"
@@ -76,13 +74,6 @@ createContext = (options) ->
 
         e.preventDefault()
 
-    setData: ->
-      $.map @formData, (val, key) =>
-        hiddenInput = createHiddenInput(key, val, @options.removeableClass, @loginForm)
-
-      @loginForm.find(".us-social__btn").each (i, e) =>
-        e.href += "?#{$.param(@formData)}"
-
     setContent: ->
       return unless @title
       loginTitle = $("<h2 class='us-login__title #{@options.removeableClass}'>#{@title}</h2>")
@@ -90,19 +81,13 @@ createContext = (options) ->
       return unless @description
       loginTitle.after "<p class='us-login__description #{@options.removeableClass}'>#{@description}</p>"
 
-    setEmail: ->
-      @loginForm.find("input[type='email']").val(@email)
-
     resetForm: ->
       $(".#{@options.removeableClass}").remove()
-      # Clean our origin and source url links
-      @loginForm.find(".us-social__btn").each (i, e) =>
-        e.href = e.href.replace(/\?(.*)/, "")
 
-    createHiddenInput = (name, value, className, formParent) ->
-      input = $("<input type='hidden' name='#{name}' class='#{className}' />")
-      input.val(value)
-      formParent.append input
+    passwordHelp = (form) ->
+      form.find(".password-strength").passwordHelper
+        showText: 'Show',
+        hideText: 'Hide'
         
     Login
 
