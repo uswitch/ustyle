@@ -44,18 +44,33 @@
     left: auto
     padding: $gutter-width/1.25 $gutter-width/1.5 $gutter-width
 
+  .us-anchor--bottom &
+    +transform-origin(50%, calc(100% + -12px))
+
 .us-anchor__arrow
   position: absolute
   z-index: 5
-  +arrow(35px, 15px, up, $c-darkgrey)
-  top: -15px
   margin-left: -17.5px
 
+  .us-anchor--top &
+    +arrow(35px, 15px, up, $c-darkgrey)
+    top: -15px
+  
+  .us-anchor--bottom &
+    +arrow(35px, 15px, down, $c-darkgrey)
+    bottom: -15px
+
 .us-anchor__arrow-inner
-  +arrow(35px, 15px, up, white)
   position: absolute
   left: -17px
-  top: 2px
+
+  .us-anchor--top &
+    +arrow(35px, 15px, up, white)
+    top: 2px
+
+  .us-anchor--bottom &
+    +arrow(35px, 15px, down, white)
+    bottom: 2px
 
 .us-anchor__close-button
   +link-colors(white, white, white, white)

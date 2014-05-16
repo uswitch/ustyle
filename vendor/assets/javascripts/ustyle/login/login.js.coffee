@@ -12,6 +12,7 @@ createContext = (options) ->
     constructor: (options) ->
       @options = setOptions options, @defaults
       return if @options.target is null
+
       @target = $(@options.target)
 
       @formData = 
@@ -27,10 +28,17 @@ createContext = (options) ->
 
       @content = @fetch()      
 
-    setupAnchor: ->
+    setupAnchors: ->
+      if @options.target.length > 1
+        @anchorInstance(target) for target in @options.target
+      else
+        @anchorInstance(@options.target)
+      
+    anchorInstance: (target) ->
       @anchor = new Anchor
-        target: @options.target
+        target: target
         content: @content
+        
         onOpen: =>
           @setContent()
           passwordHelp(@loginForm)
@@ -54,7 +62,7 @@ createContext = (options) ->
         @loginForm = $(container).find(".us-login__form")
         @loginContainer = $(container).find(".us-login")
         @setState()
-        @setupAnchor()
+        @setupAnchors()
 
       container
 
