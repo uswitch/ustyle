@@ -100,11 +100,11 @@ createContext = (options) ->
       anchorCss.left = '0px'
       anchor.appendChild content
 
-      addClass document.documentElement, "#{@classPrefx}--ready"
+      addClass document.documentElement, "#{@classPrefix}--ready"
 
       {anchor, arrow, content}
       
-    setPosition: () ->
+    setPosition: ->
       leftOffset = getXBounds(@target, @anchor, @arrow)
       targetBounds = @target.getBoundingClientRect()
 
@@ -141,7 +141,7 @@ createContext = (options) ->
 
     getYBounds = (target, anchor, arrow) ->
       targetBounds = target.getBoundingClientRect()
-      
+
       if documentYBoundary(targetBounds, anchor)
         targetBounds.top - (anchor.offsetHeight - window.scrollY) + arrow.offsetHeight - target.offsetHeight
       else
