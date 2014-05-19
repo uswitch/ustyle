@@ -2,25 +2,31 @@ dir = File.dirname(__FILE__)
 $LOAD_PATH.unshift dir unless $LOAD_PATH.include?(dir)
 
 require "ustyle/installer"
-require "ustyle/sass-functions"
+
 
 module Ustyle
   class << self
     def load!
+      require "ustyle/sass_functions"
+
       if defined?(::Rails)
+
         require "compass-rails"
         require "ustyle/engine"
+
       elsif defined?(::Sprockets)
+
         require "ustyle/sprockets"
         require "ustyle/sinatra"
+
       elsif defined?(::Compass)
         Compass::Frameworks.register("ustyle",
           :path => gem_path,
           :stylesheets_directory => File.join(assets_path, "stylesheets")
         )
-      else
-        ::Sass.load_paths << File.join(assets_path, "stylesheets")
-      end      
+      end
+
+      ::Sass.load_paths << File.join(assets_path, "stylesheets")
     end
 
     def gem_path
@@ -29,6 +35,14 @@ module Ustyle
 
     def assets_path
       @assets_path ||= File.join gem_path, "vendor", "assets"
+    end
+
+    def asset_directories
+      %w(stylesheets javascripts images fonts)
+    end
+
+    def sprockets_env
+      @sprockets_env ||= ::Sprockets::Environment.new
     end
   end
 end

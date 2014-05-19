@@ -1,8 +1,9 @@
 module Ustyle
   class Engine < ::Rails::Engine
     add_paths_block = lambda { |app|
-      app.config.assets.paths << File.join(Ustyle.assets_path, "stylesheets")
-      app.config.assets.paths << File.join(Ustyle.assets_path, "javascripts")
+      Ustyle.asset_directories.each do |asset_directory|
+        app.config.assets.paths << File.join(Ustyle.assets_path, asset_directory)
+      end
     }
 
     initializer "ustyle.update_asset_paths", &add_paths_block

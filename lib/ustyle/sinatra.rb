@@ -3,7 +3,7 @@ if defined?(::Sinatra)
     module Ustyle
       def self.registered app
         app.set :root, Dir.pwd
-        app.set :sprockets, Sprockets::Environment.new(app.root)
+        app.set :sprockets, ::Ustyle.sprockets_env
         app.set :assets_prefix, %w(assets)
         app.set :assets_path, File.join(app.root, "app", app.assets_prefix.join)
         app.set :public_folder, File.join(app.root, "public")
@@ -12,8 +12,7 @@ if defined?(::Sinatra)
         app.set :assets_digest, true
 
         # Setup Sprockets
-        %w(stylesheets javascripts images fonts).each do |asset_directory|
-          app.sprockets.append_path File.join(::Ustyle.gem_path, "vendor", "assets", asset_directory)
+        ::Ustyle.asset_directories.each do |asset_directory|
           app.sprockets.append_path File.join(app.assets_path, asset_directory)
         end
 
@@ -30,7 +29,6 @@ if defined?(::Sinatra)
         end
 
         app.helpers Sprockets::Helpers
-
       end
     end
     register Ustyle

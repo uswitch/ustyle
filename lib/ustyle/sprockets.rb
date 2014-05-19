@@ -2,11 +2,6 @@ require "sprockets"
 require "sprockets-helpers"
 require "compass"
 
-if ::Sprockets.methods.include?(:append_path)
-  ::Sprockets.append_path File.join(Ustyle.assets_path, "stylesheets")
-  ::Sprockets.append_path File.join(Ustyle.assets_path, "javascripts")
-else
-  environment = ::Sprockets::Environment.new
-  environment.append_path File.join(Ustyle.assets_path, "stylesheets")
-  environment.append_path File.join(Ustyle.assets_path, "javascripts")
+::Ustyle.asset_directories.each do |asset_directory|
+  ::Ustyle.sprockets_env.append_path File.join(::Ustyle.assets_path, asset_directory)
 end

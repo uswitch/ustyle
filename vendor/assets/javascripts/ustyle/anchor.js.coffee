@@ -84,7 +84,6 @@ createContext = (options) ->
       if @options.showClose
         closeButton = document.createElement "a"
         closeButton.href = "#"
-        closeButton.innerText = "\u00D7"
         addClass closeButton, "#{@classPrefix}__close-button"
         content.appendChild closeButton
         @closeTargets.push closeButton
@@ -148,7 +147,8 @@ createContext = (options) ->
         targetBounds.top + arrow.offsetHeight + target.offsetHeight + window.scrollY
 
     documentYBoundary = (target, anchor) ->
-      target.top > anchor.offsetHeight
+      return if target.top < anchor.offsetHeight
+      (window.innerHeight - target.top) < anchor.offsetHeight
 
     watchWindow: ->
       for event in ['resize', 'scroll', 'touchmove']
