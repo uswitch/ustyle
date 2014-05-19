@@ -12,7 +12,7 @@ createContext = (options) ->
     constructor: (options) ->
       @options = setOptions options, @defaults
       return if @options.target is null
-
+      return unless @options.target.length is undefined or @options.target.length
       @target = $(@options.target)
 
       @formData = 
@@ -42,10 +42,10 @@ createContext = (options) ->
         onOpen: =>
           @setContent()
           passwordHelp(@loginForm)
-          @options.onOpen?.call()
+          @options.onOpen(target)?.call(target)
 
         onClose: =>
-          @options.onClose?.call()
+          @options.onClose?.call(target)
           @resetForm()
 
     fetch: ->

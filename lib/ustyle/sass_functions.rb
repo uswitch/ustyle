@@ -13,6 +13,12 @@ module Sass::Script::Functions
   end
   declare :inline_asset, :args => [:source]
 
+  def base64encode(string)
+    assert_type string, :String
+    Sass::Script::String.new(Base64.strict_encode64(string.value))
+  end
+  declare :base64encode, :args => [:string]
+
   def ustyle_asset_path(source, type)
     if defined?(::Sprockets)
       sprockets_context.send(:"#{type}_path", source.value)
