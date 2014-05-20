@@ -12,15 +12,30 @@ $small-tablet-width:  em(600px) !default
 $mobile-width:        em(480px) !default
 
 $mobile-end-width: ""
-
 @if unit($small-tablet-width) == "px"
   $mobile-end-width: $small-tablet-width - 1
 @else
   $mobile-end-width: $small-tablet-width - em(1px)
 
-$tablet-end: $tablet-width + 1
+$small-tablet-end-width: ""
+@if unit($tablet-width) == "px"
+  $small-tablet-end-width: $tablet-width - 1
+@else
+  $small-tablet-end-width: $tablet-width - em(1px)
 
-$devices: (mobile, max, ($small-tablet-width)), (small-tablet, min, $small-tablet-width), (tablet, min, $tablet-width), (to-tablet, max, $tablet-width), (from-tablet, min, $tablet-end), (to-desktop, max, $desktop-width), (desktop, min, $desktop-width), (large-desktop, min, $large-desktop-width) !default
+$tablet-end-width: ""
+@if unit($desktop-width) == "px"
+  $tablet-end-width: $desktop-width - 1
+@else
+  $tablet-end-width: $desktop-width - em(1px)
+
+$desktop-end-width: ""
+@if unit($large-desktop-width) == "px"
+  $desktop-end-width: $large-desktop-width - 1
+@else
+  $desktop-end-width: $large-desktop-width - em(1px)
+
+$devices: (mobile, max, $mobile-end-width), (small-tablet, min, $small-tablet-width), (to-small-tablet, max, $small-tablet-end-width), (tablet, min, $tablet-width), (to-tablet, max, $tablet-end-width), (from-tablet, min, $tablet-end-width), (desktop, min, $desktop-width), (to-desktop, max, $desktop-end-width), (large-desktop, min, $large-desktop-width) !default
 
 = respond-to($device, $ie-fallback: false, $ie-fallback-noherit: false)
 
