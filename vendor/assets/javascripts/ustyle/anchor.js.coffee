@@ -119,8 +119,8 @@ createContext = (options) ->
         bottomOffset = getYBounds(@target, @anchor, @arrow)
 
       style = "translateX(#{Math.round leftOffset}px) translateY(#{Math.round bottomOffset}px)"
-      style += " translateZ(0)" unless  transformKey is 'msTransform'
-
+      style += " translateZ(0)" unless transformKey is 'msTransform'
+      
       @anchor.style[transformKey] = style
 
       transformXOrigin = (targetBounds.left - @anchor.getBoundingClientRect().left) + (@target.offsetWidth/2)
@@ -142,9 +142,9 @@ createContext = (options) ->
       targetBounds = target.getBoundingClientRect()
 
       if documentYBoundary(targetBounds, anchor)
-        targetBounds.top - (anchor.offsetHeight - window.scrollY) + arrow.offsetHeight - target.offsetHeight
+        targetBounds.top - (anchor.offsetHeight - window.pageYOffset) + arrow.offsetHeight - target.offsetHeight
       else
-        targetBounds.top + arrow.offsetHeight + target.offsetHeight + window.scrollY
+        targetBounds.top + arrow.offsetHeight + target.offsetHeight + window.pageYOffset
 
     documentYBoundary = (target, anchor) ->
       return if target.top < anchor.offsetHeight
