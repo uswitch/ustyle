@@ -29,7 +29,7 @@ createContext = (options) ->
       @content = @fetch()      
 
     setupAnchors: ->
-      if @options.target.length > 1
+      if @options.target.length >= 1
         @anchorInstance(target) for target in @options.target
       else
         @anchorInstance(@options.target)
