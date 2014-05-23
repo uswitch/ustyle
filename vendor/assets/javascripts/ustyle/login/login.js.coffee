@@ -26,48 +26,48 @@ createContext = (options) ->
       @title = @target.data('title') or @options.title
       @description = @target.data('description')
 
-      @content = @fetch()      
+      container = document.createElement 'div'
+      addClass container, "us-anchor__target"
+      addClass container, "us-login__target"
 
-    setupAnchors: ->
+      @setupAnchors(container)
+
+    setupAnchors: (container) ->
       if @options.target.length >= 1
-        @anchorInstance(target) for target in @options.target
+        @anchorInstance(target, container) for target in @options.target
       else
-        @anchorInstance(@options.target)
+        @anchorInstance(@options.target, container)
       
-    anchorInstance: (target) ->
+    anchorInstance: (target, container) ->
       @anchor = new Anchor
         target: target
-        content: @content
-        
+        content: container
+        isAjax: true
+
         onOpen: =>
-          @setContent()
-          passwordHelp(@loginForm)
-          @options.onOpen(target)?.call(target)
+          @fetch()
+            .done (html) =>
+              unless $(container).find(".us-login__form").length
+                $(container).append( html )
+              @loginForm = $(container).find(".us-login__form")
+              @loginContainer = $(container).find(".us-login")
+              @setState()
+              @setContent()
+              passwordHelp(@loginForm)
+              @options.onOpen(target)?.call(target)
 
         onClose: =>
           @options.onClose?.call(target)
           @resetForm()
 
     fetch: ->
-      container = document.createElement 'div'
-      addClass container, "us-anchor__target"
-      addClass container, "us-login__target"
-
       jqxhr = $.ajax
         url: "#{window.uSwitch.Accounts.baseUrl}/signin-popup?#{$.param(@formData)}"
         dataType: 'jsonp'
-
-      .done (html) =>
-        $(container).append( html )
-        @loginForm = $(container).find(".us-login__form")
-        @loginContainer = $(container).find(".us-login")
-        @setState()
-        @setupAnchors()
-
-      container
-
+        
     setState: ->
       activeState = @loginForm.filter ".us-login__form--#{@options.state}"
+      @loginForm.removeClass "login-state--active"
       activeState.addClass "login-state--active"
       @toggle()
 
@@ -91,9 +91,9 @@ createContext = (options) ->
       $(".#{@options.removeableClass}").remove()
 
     passwordHelp = (form) ->
-      form.find(".password-strength").passwordHelper
-        showText: 'Show',
-        hideText: 'Hide'
+      window.setTimeout ->
+        form.find(".password-strength").passwordHelper()
+      , 1
         
     Login
 

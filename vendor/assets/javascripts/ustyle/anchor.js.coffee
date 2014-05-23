@@ -10,6 +10,7 @@ createContext = (options) ->
       classPrefix: "us-anchor"
       openEvent: "click"
       showClose: true
+      isAjax: false
 
     constructor: (options) ->
       return unless window.uSwitch.modernBrowser
@@ -47,16 +48,22 @@ createContext = (options) ->
         closeTarget.addEventListener @options.openEvent, hide, false
 
     show: (anchor) ->
-      @content.appendChild @options.content
-      document.body.appendChild anchor unless anchor.parentNode
+      fire = =>
+        @content.appendChild @options.content
+        document.body.appendChild anchor unless anchor.parentNode
 
-      addClass anchor, "#{@classPrefix}--open"
-      setTimeout =>
-        addClass anchor, "#{@classPrefix}--after-open"
+        addClass anchor, "#{@classPrefix}--open"
+        setTimeout =>
+          addClass anchor, "#{@classPrefix}--after-open"
 
-      @setPosition()
-      # Callback
-      @options.onOpen?.call()
+        @setPosition()
+
+      if @options.isAjax
+        @options.onOpen?.call().done =>
+          fire()
+      else
+        fire()
+        @options.onOpen?.call()
 
     hide: (anchor) ->
       removeClass anchor, "#{@classPrefix}--open"
@@ -120,7 +127,7 @@ createContext = (options) ->
 
       style = "translateX(#{Math.round leftOffset}px) translateY(#{Math.round bottomOffset}px)"
       style += " translateZ(0)" unless transformKey is 'msTransform'
-      
+
       @anchor.style[transformKey] = style
 
       transformXOrigin = (targetBounds.left - @anchor.getBoundingClientRect().left) + (@target.offsetWidth/2)

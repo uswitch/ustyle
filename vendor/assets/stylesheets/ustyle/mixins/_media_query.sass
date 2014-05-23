@@ -11,19 +11,22 @@ $tablet-width:        em(768px) !default
 $small-tablet-width:  em(600px) !default
 $mobile-width:        em(480px) !default
 
-$mobile-end-width: ""
+$mobile-end-width: $small-tablet-width - em(1px)
+$small-tablet-end-width: $tablet-width - em(1px)
+$tablet-end-width: $desktop-width - em(1px)
 
-@if unit($small-tablet-width) == "px"
-  $mobile-end-width: $small-tablet-width - 1
-@else
-  $mobile-end-width: $small-tablet-width - em(1px)
+$min-breakpoints: (small-tablet, $small-tablet-width), (tablet, $tablet-width), (desktop, $desktop-width), (large-desktop, $large-desktop-width) !default
+$max-breakpoints: (mobile, $mobile-end-width), (to-small-tablet, $small-tablet-end-width), (to-tablet, $tablet-end-width) !default
 
-$tablet-end: $tablet-width + 1
+$devices: ()
 
-$devices: (mobile, max, ($small-tablet-width)), (small-tablet, min, $small-tablet-width), (tablet, min, $tablet-width), (to-tablet, max, $tablet-width), (from-tablet, min, $tablet-end), (to-desktop, max, $desktop-width), (desktop, min, $desktop-width), (large-desktop, min, $large-desktop-width) !default
+@each $breakpoint in $min-breakpoints
+  $devices: append($devices, (nth($breakpoint, 1), min, nth($breakpoint, 2)), comma)
+
+@each $breakpoint in $max-breakpoints
+  $devices: append($devices, (nth($breakpoint, 1), max, nth($breakpoint, 2)), comma)
 
 = respond-to($device, $ie-fallback: false, $ie-fallback-noherit: false)
-
   @each $listed-device in $devices
     @if nth($listed-device, 1) == $device
       @media screen and (unquote("#{nth($listed-device, 2)}-width:") nth($listed-device, 3))

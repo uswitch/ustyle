@@ -10,8 +10,8 @@
         medium: new RegExp('^(?=.*\\d)(?=.*[a-z])(?!.*\\s).{8,}$|^(?=.*[a-z])(?=.*[A-Z])(?!.*\\s).{8,}$')
         strong: new RegExp('^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\\s).{8,}$')
       showHide: true
-      showText: "Show password"
-      hideText: "Hide password"
+      showText: "Show"
+      hideText: "Hide"
 
     constructor: (el, options) ->
       {@tests} = @options = $.extend {}, @defaults, options
@@ -60,7 +60,7 @@
           $(e.target).text(@options.showText)
 
     createHiddenPassword = (el, classPrefix) ->
-      input = $("<input style='display: none' class='#{el.attr('class')} #{classPrefix}__input-hidden' type='text' name='#{el.attr('name')}' placeholder='#{el.attr('placeholder')}' size='#{el.attr('size')}' value='' disabled='disabled' />")
+      input = $("<input style='display: none' class='#{el.attr('class')} #{classPrefix}__input-hidden' type='text' name='#{el.attr('name')}' placeholder='#{el.attr('placeholder') or ""}' size='#{el.attr('size')}' value='' disabled='disabled' />")
       el.after input
       input
 
@@ -68,6 +68,7 @@
       wrapperCss =
         position: 'relative'
         height: el.css('height')
+        display: el.css('display')
 
       wrapper = el.wrap($("<div />").addClass("#{classPrefix}__wrapper").css(wrapperCss))
 
