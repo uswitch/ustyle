@@ -8,7 +8,10 @@
 
 .us-login
   position: relative
-  max-width: em(340px)
+  width: 100%
+
+  +respond-to(small-tablet, true)
+    width: em(340px)
   
 .us-login__container
   overflow: hidden
