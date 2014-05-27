@@ -1,11 +1,9 @@
 {addClass, merge, setOptions, deleteUndefined} = @Utils
 
-createContext = (options) ->
+createContext = (options) ->  
   class Login
-
     defaults:
       origin: window.location.href
-      target: document.querySelector('[data-utarget]')
       removeableClass: "us-login--removeable"
       state: "signin"
 
@@ -19,7 +17,7 @@ createContext = (options) ->
         source: @target.data('source')
         origin: @target.data('origin') or @options.origin
         email: @target.data('email')
-        opt_in: @target.data('opt-in') 
+        opt_in: @target.data('opt-in')
 
       deleteUndefined(@formData)
 

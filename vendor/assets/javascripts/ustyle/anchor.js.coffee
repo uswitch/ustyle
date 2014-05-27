@@ -2,18 +2,15 @@
 
 {addClass, removeClass, hasClass, merge, setOptions, transformKey} = @Utils
 
-createContext = (options) ->
+createContext = (options) ->  
   class Anchor
-
     defaults:
-      target: document.querySelector('[data-utarget]')
       classPrefix: "us-anchor"
       openEvent: "click"
       showClose: true
       isAjax: false
 
     constructor: (options) ->
-      return unless window.uSwitch.modernBrowser
       {@target, @classPrefix} = @options = setOptions options, @defaults
       return if @target is null
       @closeTargets = [document]
