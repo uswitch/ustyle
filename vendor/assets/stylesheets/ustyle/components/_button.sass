@@ -38,6 +38,7 @@ $button-styles: ("primary", $p-button-color), ("secondary", $s-button-color), ("
   &:focus
     @if $outlined
       background-color: tint(nth($name, 2), 90%)
+      color: nth($name, 2)
     @else
       background-color: shade(nth($name, 2), 20%)
 
@@ -56,7 +57,7 @@ $button-styles: ("primary", $p-button-color), ("secondary", $s-button-color), ("
 %btn,
 .us-btn
   @extend %heading-font-regular
-  +reset-box-model
+  @extend %reset-box-model
   +transition(all 180ms)
   padding: 0.63em 1.25em
   display: inline-block
