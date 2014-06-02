@@ -1,4 +1,5 @@
 require "sass"
+require "rack"
 require "base64"
 
 module Sass::Script::Functions
