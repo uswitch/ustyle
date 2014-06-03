@@ -38,10 +38,10 @@
     left: 0
     display: block
     width: 100%
-    +translateX(400px)
+    +translateX(101%)
 
     &:first-child
-      +translateX(-400px)
+      +translateX(-101%)
 
   &.login-state--active
     display: block
@@ -63,7 +63,7 @@
 .us-login__additional-link
   +adjust-font-size-to(14px)
   +link-colors($grey-4, $c-typecyan, $grey-4, $grey-4)
-  display: inline-block
+  display: block
 
 .us-login__extra
   @extend %heading-font-regular

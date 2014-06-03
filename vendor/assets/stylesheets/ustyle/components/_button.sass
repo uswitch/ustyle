@@ -13,6 +13,7 @@
 // .tertiary--outlined - Tertiary use button, can be used multiple times
 // .arrowed - Arrowed button used for CTAs
 // .large - Larger button for heros
+// .small - Smaller button for mobile tables
 // .blocked - Full width button
 // .disabled - Disabled styling (can also be styled with :disabled)
 //
@@ -27,6 +28,7 @@ $button-styles: ("primary", $p-button-color), ("secondary", $s-button-color), ("
 
 = button-style($name, $outlined: false)
   @if $outlined
+    +transition(none 0)
     background-color: transparent
     border-color: nth($name, 2)
     color: nth($name, 2)

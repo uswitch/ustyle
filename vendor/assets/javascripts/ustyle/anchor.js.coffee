@@ -1,5 +1,4 @@
 # This is a naive implementation of Tether by Hubspot.
-
 {addClass, removeClass, hasClass, merge, setOptions, transformKey} = @Utils
 
 createContext = (options) ->  
