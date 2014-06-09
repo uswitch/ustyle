@@ -2,6 +2,7 @@
 {addClass, removeClass, hasClass, merge, setOptions, transformKey} = @Utils
 
 createContext = (options) ->  
+
   class Anchor
     defaults:
       classPrefix: "us-anchor"
@@ -171,7 +172,7 @@ createContext = (options) ->
               lastFired = +new Date
               @setPosition()
             , throttle
-
+        , false
     Anchor
 
 window.Anchor = createContext()
