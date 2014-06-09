@@ -6,11 +6,12 @@ module Sass::Script::Functions
 
   def inline_asset(source)
     assert_type source, :String
-    path = File.join(::Ustyle.assets_path, "images", source.value)
-    svg = File.open(path, "rb") {|io| io.read}
-    base64svg = Base64.strict_encode64(svg.to_s)
-    url = "data:#{ustyle_compute_mime_type(path)};base64,#{Rack::Utils.escape(base64svg)}"
-    ::Sass::Script::String.new "url(#{url})"
+    if Ustyle.sprockets?
+      ::Sass::Script::String.new "url(#{sprockets_context.asset_data_uri(source.value)})"
+    elsif Ustyle.compass?
+      path = File.join(::Ustyle.assets_path, "images", source.value)
+      asset_data_uri(path)
+    end
   end
   declare :inline_asset, :args => [:source]
 
@@ -35,22 +36,27 @@ module Sass::Script::Functions
 
   protected
 
+  def asset_data_uri(path)
+    asset = File.open(path, "rb") {|io| io.read}
+    data_uri_asset = Base64.strict_encode64(asset.to_s)
+    url = "data:#{ustyle_compute_mime_type(path)};base64,#{Rack::Utils.escape(data_uri_asset)}"
+    ::Sass::Script::String.new "url(#{url})"
+  end
+
   def sprockets_context
     # Modern Rails way to get context:
     if options.key?(:sprockets)
       options[:sprockets][:context]
     # Sprockets-sass context:
-    elsif options.key?(:custom)
-      if options[:custom].key?(:resolver)
-        options[:custom][:resolver]
-      else
-        options[:custom][:sprockets_context]
-      end
+    elsif options.key?(:custom) && options[:custom].key?(:sprockets_context)
+      options[:custom][:sprockets_context]
     # Compatibility with sprockets pre 2.10.0:
     elsif (importer = options[:importer]) && importer.respond_to?(:context)
       importer.context
     end
   end
+
+  private
 
   def ustyle_compute_mime_type(path)
     case path

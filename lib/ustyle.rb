@@ -3,30 +3,29 @@ $LOAD_PATH.unshift dir unless $LOAD_PATH.include?(dir)
 
 require "ustyle/installer"
 
-
 module Ustyle
   class << self
     def load!
       require "ustyle/sass_functions"
+      register_compass_extension if compass?
 
       if defined?(::Rails)
-
         require "compass-rails"
         require "ustyle/engine"
-
-      elsif defined?(::Sprockets)
-
+      elsif sprockets?
         require "ustyle/sprockets"
         require "ustyle/sinatra"
-
-      elsif defined?(::Compass)
-        Compass::Frameworks.register("ustyle",
-          :path => gem_path,
-          :stylesheets_directory => File.join(assets_path, "stylesheets")
-        )
       end
 
       ::Sass.load_paths << File.join(assets_path, "stylesheets")
+    end
+
+    def compass?
+      defined?(::Compass)
+    end
+
+    def sprockets?
+      defined?(::Sprockets)
     end
 
     def gem_path
@@ -43,6 +42,15 @@ module Ustyle
 
     def sprockets_env
       @sprockets_env ||= ::Sprockets::Environment.new
+    end
+
+    def register_compass_extension
+      ::Compass::Frameworks.register(
+          "ustyle",
+          :path => gem_path,
+          :stylesheets_directory => File.join(assets_path, "stylesheets"),
+          :template_directory => File.join(gem_path, "templates")
+        )
     end
   end
 end
