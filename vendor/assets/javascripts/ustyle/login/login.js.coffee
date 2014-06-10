@@ -60,7 +60,7 @@ createContext = (options) ->
 
     fetch: ->
       jqxhr = $.ajax
-        url: "#{window.uSwitch.Accounts.baseUrl}/signin-popup?#{$.param(@formData)}"
+        url: "#{window.uSwitch.Accounts.popupUrl()}?#{$.param(@formData)}"
         dataType: 'jsonp'
         
     setState: ->
