@@ -1,0 +1,44 @@
+.us-container
+  %h1.styleguide-title
+    svg Spinners
+
+  %button.us-btn{:onclick => "simulateLoading()"}
+    Simulate loading
+
+  .fake_table_container
+    .loader
+      .loader__spinner
+      .loader__text
+        Loading
+        %br
+        awesome boxes
+      .loader__overlay
+
+    .fake_table
+      .fake_table__row
+      .fake_table__row
+      .fake_table__row
+      .fake_table__row
+
+:javascript
+  function simulateLoading(){
+    $('.fake_table__row').removeClass('animated-entry');
+    $('.fake_table__row').removeClass('ready-to-animate');
+    $('.loader').addClass('loading');
+
+    setTimeout(function(){
+      $('.loader').removeClass('loading');
+      $('.fake_table__row').addClass('ready-to-animate');
+      $('.loader').addClass('unload');
+
+      setTimeout(function(){
+        $('.loader').removeClass('unload');
+      },500);
+
+      $.each($('.fake_table__row'),function(i,item){
+        setTimeout(function(){
+          $(item).addClass('animated-entry')
+        },$(item).index() * 100)
+      })
+    },2000);
+  }
