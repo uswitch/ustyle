@@ -2,17 +2,45 @@
   %h1.styleguide-title
     svg Spinners
 
-  %button.us-btn{:onclick => "simulateLoading()"}
-    Simulate loading
+  %span.us-form-select-wrap
+    %select.us-form-select#loader-template
+      %option{:value => "mobiles"}
+        mobiles
+      %option{:value => "broadband"}
+        broadband
+      %option{:value => "energy"}
+        energy
+      %option{:value => "creditcards"}
+        credit cards
+      %option{:value => "kewl"}
+        KEWL
+
+    %button.us-btn{:onclick => "simulateLoading()"}
+      Simulate loading
 
   .fake_table_container
     .loader
-      .loader__spinner
-      .loader__text
-        Loading
-        %br
-        awesome boxes
-      .loader__overlay
+      .loader__template.kewl
+        .loader__spinner
+        .loader__text
+          Loading
+          %br
+          awesome boxes
+        .loader__overlay
+      .loader__template.mobiles
+        %span.loader__text
+          .loader__spinner
+          Loading deals
+        .loader__overlay
+      .loader__template.broadband
+        .loader__spinner
+        .loader__overlay
+      .loader__template.energy
+        .loader__spinner
+        .loader__overlay
+      .loader__template.creditcards
+        .loader__spinner
+        .loader__overlay
 
     .fake_table
       .fake_table__row
@@ -22,6 +50,9 @@
 
 :javascript
   function simulateLoading(){
+    $('.loader__template').removeClass('selected');
+    $('.loader__template.'+$('#loader-template').val()).addClass('selected');
+
     $('.fake_table__row').removeClass('animated-entry');
     $('.fake_table__row').removeClass('ready-to-animate');
     $('.loader').addClass('loading');
