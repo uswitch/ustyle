@@ -38,7 +38,7 @@ $tab-width: col-width(2) !default
   flex-flow: row
 
 .us-tabs-nav-link
-  @extend %heading-font-regular
+  +normal-font
   +border-top-radius(5px)
   +link-colors(white, $c-typecyan, $c-typecyan, white)
   padding: 0.475em 0.15em 1.2em
@@ -121,8 +121,8 @@ $tab-width: col-width(2) !default
     padding: 0 !important
   
 .us-tab-title
-  @extend %heading-font-regular
   @extend %heading-4
+  font-weight: normal
   margin: 0
   position: relative
 

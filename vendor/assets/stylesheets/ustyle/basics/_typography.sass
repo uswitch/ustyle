@@ -10,19 +10,24 @@
   +establish-baseline
 
   body
-    @extend %default-font
+    @extend %normal-font
     color: $text-color
     text-rendering: optimizeLegibility
 
   $headings: ()
 
-  @for $i from 1 through 6
-    h#{$i},
-    %heading-#{$i}
-      @extend %heading-font-bold
-      +heading($i)
+  @for $level from 1 through 6
+    @if $level < 4
+      h#{$level},
+      %heading-#{$level}
+        +heading($level)
 
-    $headings: append($headings, unquote('h#{$i}'), comma)
+    @else
+      h#{$level},
+      %heading-#{$level}
+        +heading($level, $heading-font: false)
+
+    $headings: append($headings, unquote('h#{$level}'), comma)
 
   #{$headings}
     margin: 0
@@ -43,7 +48,6 @@
     
   .us-standfirst
     +adjust-font-size-to(18px, 1.15)
-    @extend %heading-font-regular
 
   // Lists
   // ===

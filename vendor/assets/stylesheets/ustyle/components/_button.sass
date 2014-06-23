@@ -58,8 +58,8 @@ $button-styles: ("primary", $p-button-color), ("secondary", $s-button-color), ("
 
 %btn,
 .us-btn
-  @extend %heading-font-regular
   @extend %reset-box-model
+  +normal-font
   +transition(all 180ms)
   padding: 0.63em 1.25em
   display: inline-block
@@ -91,7 +91,7 @@ $button-styles: ("primary", $p-button-color), ("secondary", $s-button-color), ("
     border-color: shade($button-color, 50%)
 
   &.stronger
-    @extend %heading-font-bold
+    +heading-font-secondary
 
   &.large
     font-size: 1.2em

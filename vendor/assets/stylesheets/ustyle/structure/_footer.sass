@@ -22,7 +22,6 @@
   padding-bottom: 0.2em
 
 .us-footer-nav-title
-  @extend %heading-font-regular
   margin: 0.5em 0
   color: white
   text-decoration: none
@@ -43,7 +42,7 @@
 
 /* horizontal ruled title */
 .us-footer-title
-  @extend %heading-font-regular
+  +normal-font
   position: relative
   color: white
   font-size: inherit
@@ -202,7 +201,6 @@
     font-size: 11px
 
 .us-footer-smallprint
-  @extend %heading-font-regular
   background: mix($c-navy, black, 70%)
   color: white
   padding: em(15px) 0
@@ -217,7 +215,6 @@
 
 /* COOKIE MESSAGE */
 #us-cookies
-  @extend %default-font
   +transition(all 200ms)
   background-color: mix($c-navy, black, 70%)
   text-align: center
@@ -276,7 +273,7 @@
       display: block
 
 .tswts
-  @extend %heading-font-bold
+  +heading-font-primary
   margin: 0 0 1em
   color: #fff
   text-align: center

@@ -27,7 +27,7 @@ $label-inline-breakpoint: tablet !default
 
   label,
   .us-faux-label
-    @extend %heading-font-bold
+    +heading-font-secondary
     +adjust-font-size-to($default-label-size)
     color: $default-label-color
 
@@ -50,7 +50,7 @@ $label-inline-breakpoint: tablet !default
 
 .us-field-toggle
   label
-    @extend %heading-font-regular
+    +normal-font
     +transition(border 333ms)
     padding: 0.35em 0.5em
     border-radius: em(3px)
@@ -58,6 +58,7 @@ $label-inline-breakpoint: tablet !default
     line-height: 1.5em
     color: $default-label-color
     cursor: pointer
+    font-weight: normal
 
     &:hover
       border-color: $grey-10

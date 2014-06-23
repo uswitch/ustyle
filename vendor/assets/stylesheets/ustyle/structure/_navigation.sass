@@ -4,7 +4,7 @@
   display: none
 
 #us-header-nav
-  @extend %heading-font-regular
+  +normal-font
   position: absolute
   right: 1em
   bottom: -29px
@@ -223,9 +223,6 @@
 .us-header-nav-dropdown
   display: none
 
-  li
-    @extend %heading-font-regular
-
   +respond-to(small-tablet, true)
     display: block
     position: absolute
@@ -292,7 +289,6 @@
     width: 100px
     color: $c-blue
     font-size: 18px
-    font-family: $heading-font-regular
     text-indent: -9999em
     cursor: pointer
     &:before
@@ -401,8 +397,7 @@
     &:before
       display: inline-block
       margin-right: 5px
-      content: 'close'
-      font-family: $heading-font-regular
+      content: 'close'      
     &:after
       content: '\2715'
       display: inline-block
@@ -467,7 +462,6 @@
     display: block
     margin: 0 5px
     border-bottom: 1px solid lighten( $c-blue, 40% )
-    font-family: $heading-font-regular
 
   .us-header-nav-item,
   .us-header-nav-mainitem
@@ -481,7 +475,6 @@
     z-index: 3
     color: #fff
     border: none
-    font-family: $heading-font-regular
 
   .us-header-nav-dropdown
     padding: 0

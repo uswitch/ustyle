@@ -11,8 +11,7 @@ $item-padding: em(9px)
 $news-item-image-size: 128px !default
 
 %readmore-link
-  @extend %heading-font-regular
-  @extend %heading-4
+  +normal-font
   +link-colors($c-typecyan, $c-typecyan, $c-typecyan, $c-typecyan)
   border-bottom: 1px solid $c-typecyan
 
@@ -77,7 +76,6 @@ $news-item-image-size: 128px !default
 
   .category,
   .date
-    @extend %heading-font-regular
     +adjust-font-size-to(13px)
     padding-top: em(4px)
     padding-bottom: em(4px)

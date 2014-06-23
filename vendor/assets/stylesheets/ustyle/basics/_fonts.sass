@@ -2,17 +2,20 @@
 // declared font families across the site. It is not recommended that you
 // redeclare font families on other components. Instead extend these.
 
-%heading-font-bold
+%heading-font-bold,
+%heading-font-primary
   font:
-    family: $heading-font-bold
+    family: $heading-font-primary
     weight: normal
 
-%heading-font-regular
+%heading-font-regular,
+%heading-font-secondary
   font:
-    family: $heading-font-regular
-    weight: normal
+    family: $heading-font-secondary
+    weight: 700
 
-%default-font
+%default-font,
+%normal-font
   font-family: $normal-font
 
 %icon-font
@@ -20,4 +23,3 @@
     family: $icon-font
     weight: normal
   -webkit-font-smoothing: antialiased
-  

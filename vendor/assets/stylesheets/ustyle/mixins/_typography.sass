@@ -1,4 +1,32 @@
-= heading($level)
+= normal-font($extend: true)
+  @if $extend
+    @extend %normal-font
+  @else
+    font-family: $normal-font
+
+= heading-font-primary($extend: true)
+  @if $extend
+    @extend %heading-font-primary
+  @else
+    font:
+      family: $heading-font-primary
+      weight: normal
+
+= heading-font-secondary($extend: true)
+  @if $extend
+    @extend %heading-font-secondary
+  @else
+    font:
+      family: $heading-font-secondary
+      weight: 700
+
+= heading($level, $heading-font: true, $extend: true)
   $font-size: nth($heading-font-sizes, $level)
   $line-height: nth($heading-line-heights, $level)
+
+  @if $heading-font
+    +heading-font-primary($extend)
+  @else
+    +heading-font-secondary($extend)
+
   +adjust-font-size-to($font-size, $line-height)
