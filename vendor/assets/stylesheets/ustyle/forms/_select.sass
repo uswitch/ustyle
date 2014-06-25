@@ -65,6 +65,22 @@ $select-base-height: $form-element-base-height !default
   +respond-to(tablet, true)
     width: auto
 
+  &[size]
+    height: auto
+    background-image: none
+    overflow: auto
+    vertical-align: middle
+    padding-right: 9px
+
+    &::-webkit-scrollbar 
+      -webkit-appearance: none
+      z-index: 2
+      width: 9px
+      border-left: 1px solid $grey-9
+      
+    &::-webkit-scrollbar-thumb 
+      background-color: rgba(0, 0, 0, .5)
+
 @-moz-document url-prefix()
   .us-form-select-wrap
     position: relative

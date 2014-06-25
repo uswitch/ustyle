@@ -46,7 +46,7 @@
       showButton = 
       showClass = "#{@options.classPrefix}__input--pass-shown"
 
-      $(document).on 'click', ".#{@options.classPrefix}__show-hide" ,(e) =>
+      $(".#{@options.classPrefix}__show-hide").on "click", (e) =>
         e.preventDefault()
         if(!@$el.hasClass(showClass))
           @$el.addClass showClass
