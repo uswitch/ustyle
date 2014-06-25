@@ -46,3 +46,32 @@
       %strong Your current electricity
     .us-sidebar-body
       %p Standard variable
+
+= styleblock "5.4", "Loader", {floated: true, sass: "components"} do
+  .fake_table_container
+
+    .us-loader.us-loader--loading
+      .us-loader__inner
+        .us-loader__spinner
+        .us-loader__text
+          Loading deals
+      .us-loader__overlay
+
+    .fake_table
+      .fake_table__row
+      .fake_table__row
+      .fake_table__row
+
+  .fake_table_container
+
+    .us-loader.us-loader--loading.us-loader--centered
+      .us-loader__inner
+        .us-loader__spinner
+        .us-loader__text
+          Loading deals
+      .us-loader__overlay
+
+    .fake_table
+      .fake_table__row
+      .fake_table__row
+      .fake_table__row
