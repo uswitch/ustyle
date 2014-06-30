@@ -2,12 +2,23 @@
 // Uses a padding based, border-boxed grid layout that allows for unlimited
 // nesting and no need to margin off the last-child. 
 
-@if $html-grid-classes
-  *
-    +box-sizing(border-box)
+@mixin us-row
+  @extend %clearfix
 
-%container,
-.us-container
+  +respond-to($default-grid-breakpoint, true)
+    margin-left: - $gutter-width / 2
+    margin-right: - $gutter-width / 2
+
+@mixin us-col($cols)
+  float: left
+  padding-left: $gutter-width / 2
+  padding-right: $gutter-width / 2
+  width: col-width($cols)
+
+%us-grid-row
+  +us-row
+
+%container
   @extend %clearfix
   +grid-background
   margin-left: auto
@@ -23,17 +34,5 @@
 
   +respond-to(large-desktop)
     max-width: em($large-container-width)
-
-@mixin us-row
-  @extend %clearfix
-  +respond-to(tablet, true)
-    margin-left: - $gutter-width / 2
-    margin-right: - $gutter-width / 2
-
-@mixin us-col($cols)
-  float: left
-  padding-left: $gutter-width / 2
-  padding-right: $gutter-width / 2
-  width: col-width($cols)
 
 @import "ustyle/components/grid-classes"

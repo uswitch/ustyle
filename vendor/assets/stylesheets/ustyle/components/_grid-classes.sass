@@ -1,17 +1,20 @@
 @if $html-grid-classes
+  *
+    +box-sizing(border-box)
+    
+  .us-container
+    @extend %container
+
   .us-grid-row
     +us-row
 
-  +respond-to(tablet, false, true)
+  +respond-to($default-grid-breakpoint, false, true)
     @for $column from 1 through $grid-columns
       .us-col-#{$column}
         +us-col($column)
         min-height: 1px
 
 // Placeholders
-
-%us-grid-row
-  +us-row
 
 @for $column from 1 through $grid-columns
   %us-col-xsm-#{$column}

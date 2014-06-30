@@ -1,11 +1,22 @@
+// Content group
+// ---
+// The `.us-content-group` is a separator element for content groupings. Ideal to split up landing pages with reasonable padding
+//
+// .mobile-bordered - Adds a smaller border and padding to mobile devices. By default there is none
+//
+// Styleguide 3.5
+
+$content-group-border-color: $grey-10 !default
+
 .us-content-group,
 %us-content-group
-  border-color: $grey-10
-  +respond-to(tablet, true)
+  border-color: $content-group-border-color
+
+  +respond-to($default-grid-breakpoint, true)
     +padding-leader(1.5)
     +trailing-border(1px, 2)
     
   &.mobile-bordered
-    +respond-to(to-tablet)
+    +respond-to(to-#{$default-grid-breakpoint})
       +padding-leader(1)
       +trailing-border(1px, 1)
