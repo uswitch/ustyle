@@ -100,7 +100,8 @@ $button-styles: ("primary", $p-button-color), ("secondary", $s-button-color), ("
     padding-left: 0
     padding-right: 0
 
-  &.arrowed
+  &.arrowed,
+  &.arrowed.arrow-right
     padding: 0.63em 1.25em 0.63em 0.95em
     &:after
       @extend %link-triangle
@@ -108,6 +109,19 @@ $button-styles: ("primary", $p-button-color), ("secondary", $s-button-color), ("
     &:hover
       &:after
         left: 0.5em
+
+  &.arrowed.arrow-left
+    padding-left: 1.25em
+    padding-right: 0.95em
+    &:before
+      @extend %link-triangle-left
+    &:after
+      content: ''
+      display: none
+
+    &:hover
+      &:before
+        left: -0.5em
 
   &.small
     padding: 0.4em 0.65em
