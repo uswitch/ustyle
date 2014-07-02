@@ -11,7 +11,8 @@
 // .primary--outlined - Usually used a save/update button
 // .secondary--outlined - Secondary use button, can be used multiple times
 // .tertiary--outlined - Tertiary use button, can be used multiple times
-// .arrowed - Arrowed button used for CTAs
+// .arrowed, .arrowed.arrow-right - Arrowed button used for CTAs (right pointing)
+// .arrowed.arrow-left - Left pointing variation of arrowed buttons
 // .large - Larger button for heros
 // .small - Smaller button for mobile tables
 // .blocked - Full width button
@@ -100,7 +101,8 @@ $button-styles: ("primary", $p-button-color), ("secondary", $s-button-color), ("
     padding-left: 0
     padding-right: 0
 
-  &.arrowed
+  &.arrowed,
+  &.arrowed.arrow-right
     padding: 0.63em 1.25em 0.63em 0.95em
     &:after
       @extend %link-triangle
@@ -108,6 +110,19 @@ $button-styles: ("primary", $p-button-color), ("secondary", $s-button-color), ("
     &:hover
       &:after
         left: 0.5em
+
+  &.arrowed.arrow-left
+    padding-left: 1.25em
+    padding-right: 0.95em
+    &:before
+      @extend %link-triangle-left
+    &:after
+      content: ''
+      display: none
+
+    &:hover
+      &:before
+        left: -0.5em
 
   &.small
     padding: 0.4em 0.65em
