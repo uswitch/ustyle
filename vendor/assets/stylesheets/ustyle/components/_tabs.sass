@@ -64,10 +64,10 @@ $tab-width: col-width(2) !default
     +adjust-font-size-to(14px, 0.75)
 
   +respond-to(desktop)
-    +adjust-font-size-to(16px, 0.8)
+    +adjust-font-size-to($base-font-size, 0.8)
 
   +respond-to(large-desktop)
-    +heading(4, $extend: false)
+    +adjust-font-size-to(18px, 0.9)
 
   &:hover
     &:before
