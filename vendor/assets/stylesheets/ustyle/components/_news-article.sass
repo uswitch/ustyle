@@ -29,7 +29,6 @@ $news-item-image-size: 128px !default
   @extend %us-col-md-6
   @extend %us-col-lg-3
   +trailer(1)
-  overflow: hidden
 
 %base-item-link
   @extend %bordered-box
@@ -54,7 +53,8 @@ $news-item-image-size: 128px !default
 
 .us-news-item
   @extend %base-item
-
+  overflow: hidden
+  
   &:hover
     .us-news-item-image
       +opacity(0.8)
