@@ -5,12 +5,13 @@ require 'fileutils'
 desc "Publish uStyle to github and build styleguide"
 task :publish do
   puts Ustyle::VERSION
-  Rake::Task["git:commit"]
-  Rake::Task["git:tag"]
-  Rake::Task["git:push"]
+  Rake::Task["git:commit"].invoke
+  Rake::Task["git:tag"].invoke
+  Rake::Task["git:push"].invoke
 end
 
 namespace :git do
+  desc "Adding and commiting version #{Ustyle::VERSION}"
   task :commit do
     `git commit -am 'Version #{Ustyle::VERSION}'`
   end
