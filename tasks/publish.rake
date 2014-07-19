@@ -1,3 +1,8 @@
+lib_path = File.join(File.dirname(__FILE__), 'lib')
+$:.unshift(lib_path) unless $:.include?(lib_path)
+
+require 'ustyle'
+require "ustyle/deploy"
 require 'aws/s3'
 require 'mime/types'
 require 'fileutils'
@@ -8,6 +13,14 @@ task :publish do
   Rake::Task["git:commit"].invoke
   Rake::Task["git:tag"].invoke
   Rake::Task["git:push"].invoke
+
+  Rake::Take["build:stylesheets"].invoke
+  Rake::Take["build:images"].invoke
+
+  Rake::Take["deploy:stylesheets"].invoke
+  Rake::Take["deploy:images"].invoke
+
+  Rake::Task["styleguide:deploy"].invoke
 end
 
 namespace :git do
@@ -26,14 +39,9 @@ namespace :git do
 end
 
 namespace :styleguide do
+  desc "Deploying uStyle styleguide"
   task :deploy do
-    AWS::S3::DEFAULT_HOST = "s3-eu-west-1.amazonaws.com"
-
-    connection = AWS::S3::Base.establish_connection!(
-      :access_key_id     => ENV["AWS_ACCESS_KEY_ID"],
-      :secret_access_key => ENV["AWS_SECRET_ACCESS_KEY"],
-      :server            => 's3-eu-west-1.amazonaws.com'
-    )
+    Ustyle.s3_connect!
 
     `cd ./styleguide && BUNDLE_GEMFILE=Gemfile bundle exec middleman build`
 
@@ -41,13 +49,61 @@ namespace :styleguide do
       next if File.directory?(file)    
       puts "Uploading #{file} to s3 ..."
     
-      stripped_name = "#{file.gsub(/^build\//, "")}"
+      stripped_name = file.gsub(/^build\//, "")
       puts stripped_name
       
-      content_type = MIME::Types.type_for(stripped_name).first.content_type
+      content_type = Ustyle.mime_type_for(stripped_name)
       
-      puts AWS::S3::S3Object.store(stripped_name, open(file), 'ustyle.uswitchinternal.com', :content_type => content_type, :access => :public_read).inspect
+      Ustyle.s3_upload( stripped_name, file, content_type )
     end
     puts "uploading to s3 done"
+  end
+end
+
+namespace :build do
+  desc "Building ustyle-latest.css styles"
+  task :stylesheets do
+    FileUtils.mkdir_p File.join Ustyle.gem_path, "build"
+    `sass \
+      -t compressed \
+      -r "#{Ustyle.gem_path}/lib/ustyle" \
+      --load-path vendor/assets/stylesheets \
+      --compass vendor/assets/stylesheets/ustyle.sass \
+      build/ustyle-latest.css`
+  end
+
+  desc "Building images and hashing them"
+  task :images do
+    images_dir = File.join Ustyle.assets_path, "images"
+    FileUtils.rm_r "build/images"
+    FileUtils.cp_r images_dir, "build"
+    
+    Dir["build/images/**/*"].each do |file|
+      next if File.directory?(file)
+      FileUtils.mv file, Ustyle.asset_digest(file), force: true
+    end
+  end
+end
+
+namespace :deploy do
+  desc "deploying stylesheet to S3"
+  task :stylesheets do
+    Ustyle.s3_connect!
+    stylesheet = "ustyle-latest.css"
+
+    Ustyle.s3_upload( Ustyle.versioned_path(stylesheet), "build/#{stylesheet}", "text/css" )
+    Ustyle.s3_upload( "ustyle/#{stylesheet}", "build/#{stylesheet}", "text/css" )
+    Ustyle.invalidate( ["ustyle/#{stylesheet}"] )
+  end
+
+  task :images do
+    Ustyle.s3_connect!
+    Dir["build/images/**/*"].each do |file|
+      next if File.directory?(file)
+      stripped_name = file.gsub(/^build\//, "")
+      content_type = Ustyle.mime_type_for(stripped_name)
+      
+      Ustyle.s3_upload( Ustyle.versioned_path(stripped_name), file, content_type)
+    end
   end
 end
