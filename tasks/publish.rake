@@ -14,11 +14,11 @@ task :publish do
   Rake::Task["git:tag"].invoke
   Rake::Task["git:push"].invoke
 
-  Rake::Take["build:stylesheets"].invoke
-  Rake::Take["build:images"].invoke
+  Rake::Task["build:stylesheets"].invoke
+  Rake::Task["build:images"].invoke
 
-  Rake::Take["deploy:stylesheets"].invoke
-  Rake::Take["deploy:images"].invoke
+  Rake::Task["deploy:stylesheets"].invoke
+  Rake::Task["deploy:images"].invoke
 
   Rake::Task["styleguide:deploy"].invoke
 end
