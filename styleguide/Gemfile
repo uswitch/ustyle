@@ -16,8 +16,6 @@ gem "kss"
 # uStyle
 gem 'ustyle', :git => "git@github.com:uswitch/ustyle.git", :branch => "master"
 
-gem "aws-s3"
-gem "capistrano", "2.15.5"
 gem "redcarpet"
 
 # Cross-templating language block fix for Ruby 1.8
