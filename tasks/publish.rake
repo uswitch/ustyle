@@ -10,6 +10,9 @@ require 'fileutils'
 desc "Publish uStyle to github and build styleguide"
 task :publish do
   puts Ustyle::VERSION
+
+  Rake::Task["styleguide:update"].invoke
+
   Rake::Task["git:commit"].invoke
   Rake::Task["git:tag"].invoke
   Rake::Task["git:push"].invoke
@@ -57,6 +60,11 @@ namespace :styleguide do
       Ustyle.s3_upload( stripped_name, file, content_type )
     end
     puts "uploading to s3 done"
+  end
+
+  desc "Update Gemfile of styleguide"
+  task :update do
+    `cd ./styleguide && BUNDLE_GEMFILE=Gemfile bundle update ustyle`
   end
 end
 
