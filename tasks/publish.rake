@@ -7,35 +7,31 @@ require 'aws/s3'
 require 'mime/types'
 require 'fileutils'
 
-desc "Publish uStyle to github and build styleguide"
-task :publish do
-  puts Ustyle::VERSION
-
-  Rake::Task["styleguide:update"].invoke
-
-  Rake::Task["git:commit"].invoke
-  Rake::Task["git:tag"].invoke
-  Rake::Task["git:push"].invoke
-
-  Rake::Task["build:stylesheets"].invoke
-  Rake::Task["build:images"].invoke
-
-  Rake::Task["deploy:stylesheets"].invoke
-  Rake::Task["deploy:images"].invoke
-
-  Rake::Task["styleguide:deploy"].invoke
+namespace :ustyle do
+  desc "Publishes uStyle v#{Ustyle::VERSION}"
+  task :publish => [ "styleguide:update",
+                     "git:commit","git:tag","git:push",
+                     "build:stylesheets","build:images",
+                     "deploy:stylesheets","deploy:images",
+                     "styleguide:deploy"
+                    ] do
+    puts "Publishing uStyle v#{Ustyle::VERSION}"
+  end
 end
 
 namespace :git do
+
   desc "Adding and commiting version #{Ustyle::VERSION}"
   task :commit do
     `git commit -am 'Version #{Ustyle::VERSION}'`
   end
 
+  desc "Tagging version #{Ustyle::VERSION}"
   task :tag do
     `git tag -a #{Ustyle::VERSION} -m 'Version #{Ustyle::VERSION}'`
   end
 
+  desc "Pushing version #{Ustyle::VERSION} to github"
   task :push do
     `git push && git push --tags`
   end
@@ -49,17 +45,11 @@ namespace :styleguide do
     `cd ./styleguide && BUNDLE_GEMFILE=Gemfile bundle exec middleman build`
 
     Dir["styleguide/build/**/*"].each do |file|
-      next if File.directory?(file)    
-      puts "Uploading #{file} to s3 ..."
-    
+      next if File.directory?(file)
       stripped_name = file.gsub(/^build\//, "")
-      puts stripped_name
-      
       content_type = Ustyle.mime_type_for(stripped_name)
-      
       Ustyle.s3_upload( stripped_name, file, content_type )
     end
-    puts "uploading to s3 done"
   end
 
   desc "Update Gemfile of styleguide"
@@ -94,7 +84,7 @@ namespace :build do
 end
 
 namespace :deploy do
-  desc "deploying stylesheet to S3"
+  desc "Deploying stylesheet to S3"
   task :stylesheets do
     Ustyle.s3_connect!
     stylesheet = "ustyle-latest.css"
@@ -104,13 +94,13 @@ namespace :deploy do
     Ustyle.invalidate( ["ustyle/#{stylesheet}"] )
   end
 
+  desc "Deploying images to S3"
   task :images do
     Ustyle.s3_connect!
     Dir["build/images/**/*"].each do |file|
       next if File.directory?(file)
       stripped_name = file.gsub(/^build\//, "")
       content_type = Ustyle.mime_type_for(stripped_name)
-      
       Ustyle.s3_upload( Ustyle.versioned_path(stripped_name), file, content_type)
     end
   end
