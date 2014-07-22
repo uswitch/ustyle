@@ -20,7 +20,7 @@ You have several options with regards to modifying, each of which come with thei
 
 ### Method 2
 
-** Warning: If you are unsure about using the publisher function, please use method 1. If you think you're super awesome and won't screw up uStyle versions, please read on. **
+**Warning: If you are unsure about using the publisher function, please use method 1. If you think you're super awesome and won't screw up uStyle versions, please read on.**
 
 1. Clone existing repo
 1. Run a `bundle config --local ustyle /PATH-TO-USTYLE` -- this will allow you to test and work off master on your local copy.
