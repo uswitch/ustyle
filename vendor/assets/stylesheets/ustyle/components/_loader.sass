@@ -122,3 +122,9 @@ $spinner-load-fallback: false
   +spinner(24px)
 .us-loader__spinner--l
   +spinner(36px)
+
+.us-loader__spinner--go
+  +animation(spin, $spinner-animation-time, $iteration_count: infinite, $timing_function: linear)
+  @extend %spinner-dark
+  &.us-loader__spinner--white
+    %spinner-white
