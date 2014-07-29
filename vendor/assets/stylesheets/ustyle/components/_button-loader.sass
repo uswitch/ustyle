@@ -40,11 +40,11 @@
       opacity: 0
       +transition(opacity 200ms)
       +spinner(18px)
-      background-image: inline-asset($spinner-white-file)
+      @extend %spinner-white
   .primary--outlined &,.secondary--outlined &,.tertiary--outlined &
     .csstransitions &
       &:before
-        background-image: inline-asset($spinner-file)
+        @extend %spinner-dark
 
   .csstransitions .us-btn__loader--go &
     +transform(translateX(11px))
