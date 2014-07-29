@@ -38,6 +38,11 @@ $spinner-load-fallback: false
   top: 0
   left: 0
 
+%spinner-dark
+  background-image: inline-asset($spinner-file)
+%spinner-white
+  background-image: inline-asset($spinner-white-file)
+
 %spinner
   z-index: 2
   position: relative
@@ -48,7 +53,7 @@ $spinner-load-fallback: false
 
   .us-loader--loading &
     +animation(spin, $spinner-animation-time, $iteration_count: infinite, $timing_function: linear)
-    background-image: inline-asset($spinner-file)
+    @extend %spinner-dark
 
 
 = spinner($size: $spinner-size, $fallback: $spinner-load-fallback, $fallbackfile: $spinner-file-fallback)
