@@ -1,0 +1,72 @@
+// Button loaders
+// ---
+// Adds a progress spinner to any button on click. This requires the button-loader.js to be initiated from uStyle.
+// Then just add the `.js-us-btn__loader` class to any buttons that need it.
+// <p>This is only supported in browsers with support for CSS transitions and above (as determined by Modernizr), other browsers see no effect.
+// <p>On "page-ready" (and "on-click" if an element has not been pre-initialised, eg ajaxed in), the button content is wrapped in `.us-btn__loader--inner` (so this can <b>not</b> be used with an `<input type="submit">` element), which is used to anchor the spinner (in a CSS pseudo-element), and allow the button content to slide with CSS transforms to give good performance on iOS. On activation, arrows are collapsed to give enough room for the spinner.
+// <p>iOS tends to cache the last page state heavily, leading to buttons still being in the loading state if you use the back-button, so the JS includes a hack to prevent this from happening.
+// <p>If you have any client-side validation, remember to clear the button loading state if the validation fails. This is done by calling `uSwitch.buttons.clearAllButtonSpinners();`
+// <p>This demo allows you to click a second time to remove the "loading" state, this is not standard behaviour.
+// <p>The `.js-us-btn__loader` class can be combined with the below:
+//
+// .large - Large button
+// .arrowed - Standard right arrowed button
+// .arrowed.arrow-left - Standard left arrowed button
+// .arrowed.blocked - Blocked arrowed button (also reduces the left/right padding)
+// .arrowed.us-btn__loader--blocked - Alt blocked arrowed button (reduces left/right padding as above, so useful in centered buttons of a fixed, but not blocked, width)
+// .primary - Primary button
+// .secondary - Secondary button
+// .tertiary - Tertiary button
+// .tertiary--outlined - Tertiary outlined button
+//
+// Styleguide 3.1.1
+
+.js-us-btn__loader
+  .csstransitions &
+    +transition(background-color 180ms)
+
+.us-btn__loader--inner
+  .csstransitions &
+    +transition(all 200ms)
+    display: inline-block
+    position: relative
+    &:before
+      content: ''
+      display: block
+      position: absolute
+      left: -22px
+      top: 50%
+      margin: -9px 0 0
+      opacity: 0
+      +transition(opacity 200ms)
+      +spinner(18px)
+      background-image: inline-asset($spinner-white-file)
+  .primary--outlined &,.secondary--outlined &,.tertiary--outlined &
+    .csstransitions &
+      &:before
+        background-image: inline-asset($spinner-file)
+
+  .csstransitions .us-btn__loader--go &
+    +transform(translateX(11px))
+    &:before
+      opacity: 1
+      +animation(spin, $spinner-animation-time, $iteration_count: infinite, $timing_function: linear)
+
+.us-btn__loader--go
+  .csstransitions &
+    &:before,&:after
+      display: inline-block
+      width: 0 !important
+      margin: 0 !important
+      padding: 0
+      overflow: hidden
+      opacity: 0
+    &.arrowed,&.arrowed.arrow-right
+      padding-right: (1.25em + 0.45em)
+      padding-left: (0.95em + 0.45em)
+    &.arrowed.arrow-left
+      padding-right: 1.65em
+      padding-left: 0.85em
+    &.blocked,&.us-btn__loader--blocked
+      padding-left: 0.5em
+      padding-right: 0.5em
