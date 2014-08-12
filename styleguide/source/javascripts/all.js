@@ -1,6 +1,8 @@
 //= require highlight
 //= require codetoggle
 //= require tablesort
+//= require buttons
+//= require ustyle/button-loader
 //= require ustyle/utils
 //= require ustyle/anchor
 //= require ustyle/tabs

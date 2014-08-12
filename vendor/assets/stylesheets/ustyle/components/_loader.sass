@@ -10,6 +10,7 @@ $loader-overlay-colour: white
 $spinner-vertical-margin: 1em
 $spinner-animation-time: 500ms
 $spinner-file: "icons/spinner.svg"
+$spinner-white-file: "icons/spinner_white.svg"
 $spinner-size: 60px
 $spinner-file-fallback: "../images/icons/spinner_fallback.gif"
 $spinner-load-fallback: false
@@ -37,6 +38,11 @@ $spinner-load-fallback: false
   top: 0
   left: 0
 
+%spinner-dark
+  background-image: inline-asset($spinner-file)
+%spinner-white
+  background-image: inline-asset($spinner-white-file)
+
 %spinner
   z-index: 2
   position: relative
@@ -47,7 +53,7 @@ $spinner-load-fallback: false
 
   .us-loader--loading &
     +animation(spin, $spinner-animation-time, $iteration_count: infinite, $timing_function: linear)
-    background-image: inline-asset($spinner-file)
+    @extend %spinner-dark
 
 
 = spinner($size: $spinner-size, $fallback: $spinner-load-fallback, $fallbackfile: $spinner-file-fallback)
@@ -109,3 +115,16 @@ $spinner-load-fallback: false
   background-color: $loader-overlay-colour
   +opacity($loader-overlay-opacity)
   z-index: 1
+
+.us-loader__spinner--s
+  +spinner(18px)
+.us-loader__spinner--m
+  +spinner(24px)
+.us-loader__spinner--l
+  +spinner(36px)
+
+.us-loader__spinner--go
+  +animation(spin, $spinner-animation-time, $iteration_count: infinite, $timing_function: linear)
+  @extend %spinner-dark
+  &.us-loader__spinner--white
+    %spinner-white

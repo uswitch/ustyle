@@ -1,6 +1,13 @@
-.us-container
-  %h1.styleguide-title Buttons
-  
-= styleblock "3.1", "Buttons", {floated: true, sass: "components"} do
-  %button.us-btn.modifier-class{type: :submit} Button
-  %a.us-btn.modifier-class{href: "http://google.com"} Button
+.buttons-insight
+  .us-container
+    %h1.styleguide-title Buttons
+
+    = styleblock_nav(["Buttons", "Button loaders"])
+    
+  = styleblock "3.1", "Buttons", {floated: true, sass: "components"} do
+    %button.us-btn.modifier-class{type: :submit} Button
+    %a.us-btn.modifier-class{href: "http://google.com"} Button
+    
+  = styleblock "3.1.1", "Button loaders", {floated: true, sass: "components"} do
+    %button.us-btn.js-us-btn__loader.modifier-class{type: :submit} Button
+    %a.us-btn.js-us-btn__loader.modifier-class{href: "javascript:void(0);"} Button
