@@ -2,14 +2,16 @@ lib_path = File.join(File.dirname(__FILE__), 'lib')
 $:.unshift(lib_path) unless $:.include?(lib_path)
 
 require 'ustyle'
-require "ustyle/deploy"
+require 'ustyle/deploy'
+require 'autoprefixer-rails'
 require 'aws/s3'
 require 'mime/types'
 require 'fileutils'
 
 namespace :ustyle do
   desc "Publishes uStyle v#{Ustyle::VERSION}"
-  task :publish => [ "styleguide:update",
+  task :publish => [ "git:add",
+                     "styleguide:update",
                      "git:commit","git:tag","git:push",
                      "build:stylesheets","build:images",
                      "deploy:stylesheets","deploy:images",
@@ -21,24 +23,29 @@ end
 
 namespace :git do
 
-  desc "Adding and commiting version #{Ustyle::VERSION}"
+  desc "Add version #{Ustyle::VERSION}"
+  task :add do
+    `git add .`
+  end
+
+  desc "Add and commit version #{Ustyle::VERSION}"
   task :commit do
     `git commit -am 'Version #{Ustyle::VERSION}'`
   end
 
-  desc "Tagging version #{Ustyle::VERSION}"
+  desc "Tag version #{Ustyle::VERSION}"
   task :tag do
     `git tag -a #{Ustyle::VERSION} -m 'Version #{Ustyle::VERSION}'`
   end
 
-  desc "Pushing version #{Ustyle::VERSION} to github"
+  desc "Push version #{Ustyle::VERSION} to github"
   task :push do
     `git push && git push --tags`
   end
 end
 
 namespace :styleguide do
-  desc "Deploying uStyle styleguide"
+  desc "Deploy uStyle styleguide"
   task :deploy do
     Ustyle.s3_connect!
 
@@ -59,7 +66,7 @@ namespace :styleguide do
 end
 
 namespace :build do
-  desc "Building ustyle-latest.css styles"
+  desc "Build ustyle-latest.css styles"
   task :stylesheets do
     FileUtils.mkdir_p File.join Ustyle.gem_path, "build"
     `sass \
@@ -68,6 +75,8 @@ namespace :build do
       --load-path vendor/assets/stylesheets \
       --compass vendor/assets/stylesheets/ustyle.sass \
       build/ustyle-latest.css`
+    autoprefix = AutoprefixerRails.process(File.read("build/ustyle-latest.css")).css
+    File.write( "build/ustyle-latest.css", autoprefix )
   end
 
   desc "Building images and hashing them"
@@ -84,7 +93,7 @@ namespace :build do
 end
 
 namespace :deploy do
-  desc "Deploying stylesheet to S3"
+  desc "Deploy stylesheet to S3"
   task :stylesheets do
     Ustyle.s3_connect!
     stylesheet = "ustyle-latest.css"
@@ -94,7 +103,7 @@ namespace :deploy do
     Ustyle.invalidate( ["ustyle/#{stylesheet}"] )
   end
 
-  desc "Deploying images to S3"
+  desc "Deploy images to S3"
   task :images do
     Ustyle.s3_connect!
     Dir["build/images/**/*"].each do |file|

@@ -119,7 +119,7 @@
 
 .us-header-nav-link,
 .us-header-nav-mainlink
-  +transition-duration(0ms)
+  transition-duration: 0ms
   display: block
   text-decoration: none
   outline: none
@@ -239,8 +239,8 @@
     text-align: left
     border-bottom-left-radius: 3px
     border-bottom-right-radius: 3px
-    +transition(opacity 100ms)
-    -webkit-transform: scale3d(1,1,1)
+    transition: opacity 100ms
+    transform: scale3d(1,1,1)
 
     a
       display: block
@@ -248,7 +248,7 @@
       padding: 11px 11px
       color: white
       background-color: transparent
-      +transition(background-color 200ms)
+      transition: background-color 200ms
       &:hover
         background-color: $c-blue
 
@@ -325,19 +325,12 @@
       overflow-y: visible
 
       .us-header-nav-base
-        +transition(left 200ms)
+        transition: left 200ms
         left: 0
         
         .csstransforms3d &
-          -webkit-transition: -webkit-transform 200ms
-          -moz-transition: -moz-transform 200ms
           transition: transform 200ms
-
-          -webkit-transform: translateX(0)
-          -moz-transform: translateX(0)
           transform: translateX(0)
-          -webkit-transition-delay: 0
-          -moz-transition-delay: 0
           transition-delay: 0
 
         &:before
@@ -350,16 +343,11 @@
           height: 37px
           background-repeat: no-repeat
           background-size: cover
-          -webkit-transform: scale3d(1,1,1)
+          transform: scale3d(1,1,1)
 
     .csstransforms3d &
-      -webkit-transition: height 0ms
-      -moz-transition: height 0ms
       transition: height 0ms
-      
-      -webkit-transition-delay: 200ms
-      -moz-transition-delay: 200ms
-      transition-delay: 200ms
+      transition-delay: 200ms      
     
   .us-header-nav-mainlink,
   .us-header-nav-link
@@ -392,9 +380,9 @@
     background: #fff
     border: none
     cursor: pointer
-    -webkit-transform: scale3d(1,1,1)
-    -webkit-backface-visibility: hidden
-    -webkit-transform-style: preserve-3d
+    transform: scale3d(1,1,1)
+    backface-visibility: hidden
+    transform-style: preserve-3d
     &:before
       display: inline-block
       margin-right: 5px
@@ -451,10 +439,8 @@
 
     .csstransforms3d &
       left: 0
-      -webkit-transform: translateX(100%)
-      -moz-transform: translateX(100%)
       transform: translateX(100%)
-      -webkit-backface-visiblity: hidden
+      backface-visibility: hidden
 
   .us-header-nav-item,
   .us-header-nav-mainitem,
@@ -478,6 +464,7 @@
     border: none
 
   .us-header-nav-dropdown
+    transition: left 200ms
     padding: 0
     position: fixed
     display: block
@@ -490,7 +477,6 @@
     margin: 0
     background: $c-blue
     border-top: 61px solid $c-navy
-    +transition(left 200ms)
         
     /* open level 2 menus */
     &.on
@@ -503,17 +489,10 @@
 
     .csstransforms3d &
       left: 0
-      -webkit-transform: translateX(100%)
-      -moz-transform: translateX(100%)
       transform: translateX(100%)
-      
-      -webkit-transition: -webkit-transform 200ms
-      -moz-transition: -moz-transform 200ms
-      transition: transform 200ms
+      transition: transform 200ms      
         
       &.on
-        -webkit-transform: translateX(0)
-        -moz-transform: translateX(0)
         transform: translateX(0)
 
 @media screen and (max-width: $mobile-end-width) and (min-height: 460px)

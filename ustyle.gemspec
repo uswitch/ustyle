@@ -24,6 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency("coffee-script")
   spec.add_dependency("compass", ">= 0.12.6")
   spec.add_dependency("compass-rails", ">= 1.1.0")
+  spec.add_dependency("autoprefixer-rails")
   spec.add_dependency("mime-types")
   spec.add_dependency("thor")
 

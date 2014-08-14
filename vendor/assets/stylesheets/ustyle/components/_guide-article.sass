@@ -28,10 +28,10 @@ $guide-item-image-size: 128px !default
 
     +respond-to(desktop)
       .us-guide-item-content
-        +transform(translate3d(0,0,0))
+        transform: translate3d(0,0,0)
 
         .no-csstransforms3d &
-          +transform(translateY(0))
+          transform: translateY(0)
 
     .us-guide-item-content
       .no-csstransitions.no-csstransforms &
@@ -43,13 +43,13 @@ $guide-item-image-size: 128px !default
   padding: em(12px) em(20px, nth($heading-font-sizes,4))
 
 .us-guide-item-content
-  +transition(all 200ms)
+  transition: all 200ms
   border-top: 1px solid $c-lightgrey
   background-color: white
 
   +respond-to(desktop, true)
-    +transform(translate3d(0, $guide-item-image-size, 0))
-    +border-top-radius(em(5px))
+    transform: translate3d(0, $guide-item-image-size, 0)
+    border-radius: em(5px) em(5px) 0 0
     position: absolute
     min-height: $guide-item-image-size
     left: 0
@@ -57,19 +57,18 @@ $guide-item-image-size: 128px !default
     top: 0
 
   .no-csstransforms3d &
-    +transform(translateY($guide-item-image-size))
+    transform: translateY($guide-item-image-size)
 
   .no-csstransitions.no-csstransforms &
     top: $guide-item-image-size
-
 
 .us-guide-item-title,
 .us-guide-item-description
   color: $c-navy
 
 .us-guide-item-description
-  +transition(all 200ms)
   +adjust-font-size-to(14px, 0.75)
+  transition: all 200ms
   padding: 0 em(20px, 14px)
 
   +respond-to(desktop, true)

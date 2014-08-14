@@ -33,7 +33,7 @@
 
 .us-footer-link
   +link-colors($c-typecyan, white, white, $c-typecyan, $c-typecyan)
-  +transition(color 333ms)
+  transition: color 333ms
   text-decoration: none
   font-size: 0.75em
 
@@ -75,8 +75,8 @@
     width: col-width(4)
 
 .us-footer-social-icon
-  +transition (all 0.3s)
   +link-colors($c-typecyan, white, white, $c-typecyan, $c-typecyan)
+  transition: all 300ms
   display: block
   color: $c-typecyan
   font-size: em(70px)
@@ -137,7 +137,7 @@
   max-height: 0
   padding: 0
   opacity: 0
-  +transition(max-height 300ms,opacity 800ms)
+  transition: max-height 300ms, opacity 800ms
 
   .us-footer-showing-more &
     max-height: 3em
@@ -163,14 +163,14 @@
 
 .us-footer-logo
   +respond-to(small-tablet, true)
-    +transform(translate3d(0,0,0))
+    transform: translate3d(0,0,0)
+    transition: opacity 300ms
     background-repeat: no-repeat
     background-position: 50% 50%
     display: inline-block
     width: 210px
     height: 84px
     opacity: 0.5
-    +transition(opacity 300ms)
     &:hover
       opacity: 1
 
@@ -215,7 +215,7 @@
 
 /* COOKIE MESSAGE */
 #us-cookies
-  +transition(all 200ms)
+  transition: all 200ms
   background-color: mix($c-navy, black, 70%)
   text-align: center
   padding: em(15px)
@@ -236,7 +236,7 @@
 .us-cookies-link-more
   color: $c-typecyan
   &.fade
-    +transform(scale(1.5))
+    transform: scale(1.5)
     opacity: 0
   &.close
     @extend %reset-box-model
@@ -252,7 +252,7 @@
   &:before
     content: "\2715"
     @extend %icon-font
-    +transition(color 200ms)
+    transition: color 200ms
     display: inline-block
     margin: 0.5em 0 0
     color: inherit

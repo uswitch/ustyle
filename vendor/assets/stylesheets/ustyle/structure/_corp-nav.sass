@@ -30,7 +30,7 @@
 
   &:before,
   &:after
-    +transition(transform 333ms)
+    transition: transform 333ms
     content: ""
     display: none
     position: absolute
@@ -39,7 +39,7 @@
 
     .csstransforms &
       display: block
-      +transform(translateY(22px))
+      transform: translateY(22px)
 
   &:before
     +arrow(24px, 13px, up, $c-blue)
@@ -57,7 +57,7 @@
       display: block
 
       .csstransforms &
-        +transform(translateY(0))
+        transform: translateY(0)
 
 .tablet-show
   display: none
@@ -71,4 +71,4 @@
     &:before
       display: block
       .csstransforms &
-        +transform(translateY(0))
+        transform: translateY(0)

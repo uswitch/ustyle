@@ -50,7 +50,7 @@ $select-base-height: $form-element-base-height !default
 .us-form-select
   @extend %base-form-element
   +select-style
-  +transition(border-color 200ms)
+  transition: border-color 200ms
   position: relative
   width: 100%
 
@@ -91,7 +91,7 @@ $select-base-height: $form-element-base-height !default
       padding-right: 15px
 
     &:after
-      +border-right-radius(3px)
+      border-radius: 0 3px 3px 0
       content: '\25bc'
       position: absolute
       font-family: "uswitch-icon", helvetica, arial, sans-serif

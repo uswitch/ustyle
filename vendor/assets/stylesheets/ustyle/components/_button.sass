@@ -29,7 +29,7 @@ $button-styles: ("primary", $p-button-color), ("secondary", $s-button-color), ("
 
 = button-style($name, $outlined: false)
   @if $outlined
-    +transition(none 0)
+    transition: none 0
     background-color: transparent
     border-color: nth($name, 2)
     color: nth($name, 2)
@@ -60,7 +60,7 @@ $button-styles: ("primary", $p-button-color), ("secondary", $s-button-color), ("
 .us-btn
   @extend %reset-box-model
   +normal-font
-  +transition(all 180ms)
+  transition: all 180ms
   padding: 0.63em 1.25em
   display: inline-block
   border-radius: 3px
@@ -129,7 +129,7 @@ $button-styles: ("primary", $p-button-color), ("secondary", $s-button-color), ("
 
   &:disabled,
   &.disabled
-    +opacity(0.5)
+    opacity: 0
     pointer-events: none
 
   @each $button-style in $button-styles

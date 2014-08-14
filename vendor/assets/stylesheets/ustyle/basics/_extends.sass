@@ -7,12 +7,6 @@
 %float-right
   float: right
 
-%backface-visibility
-  backface-visibility: hidden
-  -moz-backface-visibility: hidden
-  -ms-backface-visibility: hidden
-  -webkit-backface-visibility: hidden
-
 %reset-box-model
   padding: 0
   margin: 0
@@ -25,7 +19,7 @@
 // A bordered box used for all news/guide/seemore/block items
 
 %bordered-box
-  +border-radius(em(5px))
+  border-radius: em(5px)
   border: 1px solid $grey-10
 
   &:hover
@@ -35,7 +29,7 @@
 
 %link-triangle
   content: "\25b6"
-  +transition(left 200ms)
+  transition: left 200ms
   font-family: "uswitch-icon"
   display: inline
   margin: 0 0 0 0.5em
@@ -53,20 +47,17 @@
 // Close icon
 %close-icon
   +link-colors(white, white, white, white)
-  +background-size(contain)
   background-image: inline-asset("anchor/close.svg")
+  background-size: contain
   position: absolute
   right: -7.5px
   top: -7.5px
   width: 30px
   height: 30px
 
-
 %vertical-align-parent
-  +transform(preserve-3d)
+  transform-style: preserve-3d
 
 %vertical-align-child
   top: 50%
-  -webkit-transform: translateY(-50%)
-  -ms-transform: translateY(-50%)
   transform: translateY(-50%)

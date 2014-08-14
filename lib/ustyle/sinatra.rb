@@ -25,8 +25,11 @@ if defined?(::Sinatra)
           config.environment = app.sprockets
           config.prefix      = app.assets_helper_path
           config.digest      = app.assets_digest
-          config.public_path   = app.public_folder
+          config.public_path = app.public_folder
         end
+
+        require 'autoprefixer-rails'
+        AutoprefixerRails.install(app.sprockets)
 
         app.helpers Sprockets::Helpers
       end

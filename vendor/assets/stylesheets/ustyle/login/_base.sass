@@ -19,17 +19,17 @@
 
   @if $html-grid-classes == false
     *
-      +box-sizing(border-box)
+      box-sizing: border-box
 
     a
-      +transition(color 333ms, border-color 333ms)
+      transition: color 333ms, border-color 333ms
       text-decoration: none
 
   .trailered
     margin-bottom: $gutter-width/2
 
 .us-login__form
-  +transition(transform 300ms)
+  transition: transform 300ms
   display: none
 
   .csstransforms &
@@ -38,10 +38,10 @@
     left: 0
     display: block
     width: 100%
-    +translateX(101%)
+    transform: translateX(101%)
 
     &:first-child
-      +translateX(-101%)
+      transform: translateX(-101%)
 
   &.login-state--active
     display: block
@@ -50,7 +50,7 @@
       position: relative
       left: 0
       top: 0
-      +translateX(0)
+      transform: translateX(0)
 
   .us-login__input
     display: block

@@ -1,6 +1,6 @@
 // Social buttons - shared across login containers
 .us-social__container
-  +pie-clearfix
+  @extend %clearfix
   position: relative
 
 .us-social__cta
@@ -31,8 +31,8 @@
   position: relative
 
 .us-social__btn-text
-  +transition(max-width 300ms)
   +adjust-font-size-to(14px, 1.5)
+  transition: max-width 300ms
   display: inline-block
   max-width: 0
   overflow: hidden

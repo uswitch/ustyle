@@ -10,3 +10,5 @@ module Ustyle
     initializer "ustyle.update_asset_paths", group: :assets, &add_paths_block
   end
 end
+
+require 'autoprefixer-rails'

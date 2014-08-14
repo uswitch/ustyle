@@ -4,6 +4,11 @@ require "base64"
 
 module Sass::Script::Functions
 
+  def ustyle_version
+    ::Sass::Script::String.new ::Ustyle::VERSION
+  end
+  declare :ustyle_version, []
+
   def inline_asset(source)
     assert_type source, :String
     if Ustyle.sprockets?

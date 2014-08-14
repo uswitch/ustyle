@@ -32,24 +32,24 @@ $news-item-image-size: 128px !default
 
 %base-item-link
   @extend %bordered-box
-  @extend %backface-visibility
-  +transition(border-color 333ms, background-color 333ms)
+  transition: border-color 333ms, background-color 333ms
   display: block
+  backface-visibility: hidden
   background-color: white
   text-decoration: none
   position: relative
 
 %base-item-image
-  @extend %backface-visibility
-  +transition(opacity 333ms)
-  +border-top-radius(em(5px))
+  transition: opacity 333ms
+  border-radius: em(5px) em(5px) 0 0
+  backface-visibility: hidden
   width: 100%
   height: auto
 
   &.background
     background-repeat: no-repeat
     background-position: center center
-    +background-size(cover)
+    background-size: cover
 
 .us-news-item
   @extend %base-item
@@ -57,7 +57,7 @@ $news-item-image-size: 128px !default
   
   &:hover
     .us-news-item-image
-      +opacity(0.8)
+      opacity: 0.8
 
     %readmore
       &:after
@@ -69,7 +69,7 @@ $news-item-image-size: 128px !default
 
 .us-news-item-title
   @extend %heading-4
-  +transition(color 333ms)
+  transition: color 333ms
   color: $c-navy
 
 .us-news-meta
