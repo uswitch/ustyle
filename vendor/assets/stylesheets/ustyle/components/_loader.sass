@@ -5,15 +5,14 @@
 //
 // Styleguide 5.4
 
-$loader-overlay-opacity: 0.8
-$loader-overlay-colour: white
-$spinner-vertical-margin: 1em
-$spinner-animation-time: 500ms
-$spinner-file: "icons/spinner.svg"
-$spinner-size: 60px
-$spinner-file-fallback: "../images/icons/spinner_fallback.gif"
-$spinner-load-fallback: false
-
+$loader-overlay-opacity: 0.8 !default
+$loader-overlay-colour: white !default
+$spinner-vertical-margin: 1em !default
+$spinner-animation-time: 500ms !default
+$spinner-file: "icons/spinner.svg" !default
+$spinner-size: 60px !default
+$spinner-file-fallback: ustyle-image-path("icons/spinner_fallback.gif") !default
+$spinner-load-fallback: true !default
 
 +keyframes(loader-intro)
   from
@@ -29,7 +28,6 @@ $spinner-load-fallback: false
   to
     +rotate(360deg)
 
-
 %snap-to-parent
   width: 100%
   height: 100%
@@ -37,7 +35,7 @@ $spinner-load-fallback: false
   top: 0
   left: 0
 
-%spinner
+%spinner-base
   z-index: 2
   position: relative
   display: inline-block
@@ -45,34 +43,20 @@ $spinner-load-fallback: false
   margin-bottom: $spinner-vertical-margin
   background-repeat: no-repeat
 
-  .us-loader--loading &
-    +animation(spin, $spinner-animation-time, $iteration_count: infinite, $timing_function: linear)
-    background-image: inline-asset($spinner-file)
+%spinner-icon
+  +animation(spin, $spinner-animation-time, $iteration_count: infinite, $timing_function: linear)
+  background: transparent url($spinner-file-fallback) no-repeat center center
+  background-image: -webkit-linear-gradient(transparent, transparent), inline-asset($spinner-file)
+  background-image: linear-gradient(transparent, transparent), inline-asset($spinner-file)
 
-
-= spinner($size: $spinner-size, $fallback: $spinner-load-fallback, $fallbackfile: $spinner-file-fallback)
-  @extend %spinner
+= spinner($size: $spinner-size)
+  @extend %spinner-base
+  @extend %spinner-icon
 
   @if $size
     background-size: $size
     width: $size
     height: $size
-
-  @if $fallback
-    .no-svg &
-      +animation(none)
-      background-image: url($spinner-file-fallback)
-
-    .no-csstransitions &
-      +animation(none)
-      background-image: url($spinner-file-fallback)
-  @else
-    .no-svg &
-      .us-loader__spinner
-        display: none
-    .no-csstransitions &
-      .us-loader__spinner
-        display: none
 
 .us-loader
   @extend %snap-to-parent
@@ -95,8 +79,8 @@ $spinner-load-fallback: false
     @extend %vertical-align-child
 
 .us-loader__spinner
-  +spinner(60px, true)
-
+  .us-loader--loading &
+    +spinner
   .us-loader--centered &
     margin-top: 0
 
