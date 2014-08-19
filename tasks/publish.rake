@@ -61,7 +61,9 @@ namespace :styleguide do
 
   desc "Update Gemfile of styleguide"
   task :update do
-    `cd ./styleguide && BUNDLE_GEMFILE=Gemfile bundle update ustyle`
+    Bundler.with_clean_env do
+      `BUNDLE_GEMFILE=styleguide/Gemfile cd ./styleguide && bundle update ustyle`
+    end
   end
 end
 
