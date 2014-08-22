@@ -22,7 +22,7 @@
     %pre.code-block__code
       %code{class: :javascript}
         :plain
-          new Anchor({
+          var anchor = new Anchor({
             anchor: document.querySelector(".example-anchor"),
             content: document.querySelector(".example-anchor__target")
-          })
+          });
