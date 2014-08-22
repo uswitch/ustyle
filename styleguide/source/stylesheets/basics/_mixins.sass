@@ -1,0 +1,5 @@
+@mixin svg-background($image-path, $fallback-format: ".png", $background-position: "center center", $background-size: image-width( "#{$image-path}#{$fallback-format}") )
+  background: transparent image-url("#{$image-path}#{$fallback-format}") no-repeat #{$background-position}
+  background-image: -webkit-linear-gradient(transparent, transparent), image-url("#{$image-path}.svg")
+  background-image: linear-gradient(transparent, transparent), image-url("#{$image-path}.svg")
+  background-size: $background-size
