@@ -6,6 +6,11 @@
   left: 0
   background-color: $c-navy
   z-index: 1000
+  overflow: auto
+  transform: translateX(-100%)
+
+  +respond-to(desktop, true)
+    transform: translateX(0)
 
 .nav__link
   +link-colors(white, $c-typecyan, white, white)

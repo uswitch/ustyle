@@ -1,6 +1,7 @@
 .styleguide-block
-  +padding-leader(2)
-  +trailing-border(2px, 2)
+  padding-top: 2em
+  padding-bottom: 2em
+  border-bottom: 2px solid $grey-10
   border-color: $grey-10
   position: relative
 
@@ -14,7 +15,7 @@
   padding: 2px 7px
   
   +respond-to(desktop, true)
-    top: -2.5em
+    top: -2em
 
 .styleguide-title
   text-transform: capitalize
@@ -23,8 +24,12 @@
   @extend %clearfix
   padding-top: 2em
   padding-bottom: 2em
-  border-bottom: 1px solid $grey-10
+  border-top: 1px solid $grey-10
   position: relative
+  clear: both
+
+  &:first-child
+    margin-top: 2em
 
 code
   font-family: "Inconsolata", sans-serif

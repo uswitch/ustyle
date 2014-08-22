@@ -2,12 +2,10 @@ html,
 body
   height: 100%
 
-.us-list
-  max-width: 45%
-
 #main
   padding-top: 1em
   position: relative
 
 .wrapper__push
-  padding-left: $nav-width
+  +respond-to(desktop, true)
+    padding-left: $nav-width
