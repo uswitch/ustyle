@@ -13,7 +13,6 @@
 
       .styleguide-column.styleguide-column--elements.us-col-6
         .styleguide-file
-          %span github:
           = link_to @section.filename, ustyle_github_path(@section.filepath)
         .styleguide-description= @markdown.render(@section.description)
         
