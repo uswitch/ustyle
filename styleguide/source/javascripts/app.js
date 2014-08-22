@@ -19,10 +19,6 @@ uSwitch.styleguide = (function(root){
       menuOpen(e, activeClass);
     }, false);
 
-    contentOverlay[0].addEventListener("click", function(e){
-      menuOpen(e, activeClass);
-    }, false);
-
   };
 
   var menuOpen = function(elem, activeClass){
