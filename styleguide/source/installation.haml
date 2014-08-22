@@ -1,11 +1,3 @@
-.us-container
-  %h1.styleguide-title Installation
-  %p This installation guide assumes you have Ruby installed on your machine and are capable of installing gems
-  %p In your application Gemfile, add this line:
-  %pre
-    %code gem 'ustyle', :git => "git@github.com:uswitch/ustyle.git"
-
-  And then bundle!
-
-  %pre
-    %code $ bundle
+- markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true)
+.us-container<
+  = markdown.render(File.read(File.expand_path("../README.md")))
