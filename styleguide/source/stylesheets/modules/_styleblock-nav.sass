@@ -1,13 +1,11 @@
 .styleblock__nav
   @extend %clearfix
-  +trailer(1)
-
-  +respond-to(tablet, true) 
-    text-align: center
+  margin-bottom: 1em
 
 .styleblock__nav-link
-  +padding-leader(0.25)
-  +trailing-border(1px, 0.25)
+  padding-top: 0.25em
+  padding-bottom: 0.25em
+  border-bottom: 1px solid $grey-10
   border-color: $grey-10
   display: block
   float: left
@@ -15,6 +13,6 @@
 
   +respond-to(tablet, true)
     display: inline-block
-    margin: 0 0.75em
+    margin: 0 1em 0 0
     width: auto
     float: none
