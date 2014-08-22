@@ -6,9 +6,12 @@
 
 .styleguide-file
   position: absolute
-  font-weight: bold
-  margin-left: 50px
+  right: 0
   top: - 3em
+  background-color: $c-lightgrey
+  border-radius: 2px
+  border: 1px solid darken($c-lightgrey, 10%)
+  padding: 2px 7px
   
   +respond-to(desktop, true)
     top: -2.5em
@@ -18,9 +21,9 @@
 
 .modifier-block 
   @extend %clearfix
-  +padding-leader(2)
-  +trailing-border(1px, 1)
-  border-color: $grey-10
+  padding-top: 2em
+  padding-bottom: 2em
+  border-bottom: 1px solid $grey-10
   position: relative
 
 code
@@ -43,18 +46,3 @@ code
 
 .styleguide-description  
   position: relative
-
-  &:before
-    content: attr(data-section)
-    position: absolute
-    background-color: lighten($c-cyan, 15%)
-    color: $c-navy
-    display: block
-    padding: 0 0.5em 0 100%
-    left: -100%
-    text-align: right
-    top: -3em
-
-    +respond-to(desktop, true)
-      +adjust-font-size-to(24px, 1.5)
-      top: - 2em
