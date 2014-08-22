@@ -14,10 +14,10 @@ module UstyleHelper
     @title = title
     @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true)
     @section = @styleguide.section(section)
-    @sass_output = options[:sass] ? sass_block(@section.filename, options[:sass]) : nil
     @example_html = capture(&block)
     partial("partials/" + style_partial)
   end
+
   # Sets the html class to 'active' when the link url is equal to the current page being viewed.
   # Use just like the link_to helper.
   # <%= magic_link_to 'Home', '/index.html' %>
@@ -35,6 +35,11 @@ module UstyleHelper
       links << link_to(section, "##{section.downcase.gsub(" ", "-")}", class: "styleblock__nav-link")
     end
     content_tag(:nav, links.join, class: "styleblock__nav")
+  end
+
+  def ustyle_github_path(filepath)
+    github_path = filepath.split("ustyle", 2)[1]
+    "https://github.com/uswitch/ustyle/tree/master/#{github_path}"
   end
 
   def sass_block(filename, path)
