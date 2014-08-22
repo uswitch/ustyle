@@ -4,7 +4,7 @@
 /[if IE 8 ] <html lang="en" class="no-js ie8">
 /[if IE 9 ] <html lang="en" class="no-js ie9">
 / [if (gt IE 9)|!(IE)]><!
-%html{:lang => "en"}
+%html.no-js{:lang => "en"}
   / <![endif]
   %head
     %meta{charset: "utf-8"}
@@ -13,25 +13,35 @@
     %meta(name="MobileOptimized" content="320")
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
     %title uGuide
-    %link{href: "http://www.uswitch.com/webfont/fonts/v19/stylesheet.css", media: :all, rel: :stylesheet, type: "text/css"}
     :javascript
-      window.uSwitch = {};
+      var uSwitch = {
+        modernBrowser: ('querySelector' in document && 'localStorage' in window && 'addEventListener' in window),
+        touch: (('ontouchstart' in window) || (window.DocumentTouch && document instanceof DocumentTouch)),
+        localStorage: function(){
+          try {
+            window.localStorage.setItem('uswitch', '1');//Safari
+            window.localStorage.removeItem('uswitch'); //IE
+            return true;
+          } catch(e) {
+            return false;
+          }
+        }
+      };
+      (function(html){
+        html.className=html.className.replace(/\bno-js\b/,'js')
+      })(document.documentElement);
 
-      if('querySelector' in document && 'localStorage' in window && 'addEventListener' in window){
-        window.uSwitch.modernBrowser = true;
-      }
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
     = stylesheet_link_tag "all"
 
 
   %body
-    = partial "partials/nav"
-    = partial "partials/header"
-    .content__overlay
-    .wrapper  
+    .nav
+      = partial "partials/header"
+      = partial "partials/nav"
+
+    .wrapper__push
       #main{role: :main}
         = yield
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    %script{src: "//dnpc2x3bdjjqt.cloudfront.net/s3/uswitch-styleguide/v4.3.2/javascripts/modernizr.js"}
     = javascript_include_tag "all"
