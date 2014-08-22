@@ -1,3 +1,5 @@
+//= require vendor/modernizr.min
+//= require vendor/jquery
 //= require highlight
 //= require codetoggle
 //= require tablesort
