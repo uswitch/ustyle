@@ -13,36 +13,43 @@ createContext = (options) ->
     constructor: (options) ->
       {@target, @classPrefix} = @options = setOptions options, @defaults
       return if @target is null
-      @closeTargets = [document]
+      @_boundEvents = []
+      @_closeTargets = []
+
       {@anchor, @arrow, @content} = @create()
       @setEvents(@anchor)
       @watchWindow()
 
     setEvents: (anchor) ->
       toggle = (event) =>
+        event.preventDefault()
+        event.stopPropagation()
+
         if not @isOpen()
           @show(anchor)
         else
           @hide(anchor)
-
-        event.preventDefault()
-
+        
       hide = (event) =>
         return if not @isOpen()
 
-        if event.target in @closeTargets
-          @hide(anchor)
+        if event.target in @_closeTargets
           event.preventDefault()
-
+          event.stopPropagation()
+          @hide(anchor)
+          
         return if event.target is anchor or anchor.contains(event.target)
         return if event.target is @target or @target.contains(event.target)
 
         @hide(anchor)
 
-      @target.addEventListener @options.openEvent, toggle, false
+      @_on @target, @options.openEvent, toggle
+      @_on document, @options.openEvent, hide
 
-      for closeTarget in @closeTargets
-        closeTarget.addEventListener @options.openEvent, hide, false
+    _on: (element, event, handler) ->
+      @_boundEvents.push {element, event, handler}
+
+      element.addEventListener event, handler, false
 
     show: (anchor) ->
       fire = =>
@@ -71,7 +78,7 @@ createContext = (options) ->
     isOpen: ->
       hasClass @anchor, "#{@classPrefix}--open"
 
-    create: (options) ->
+    create: ->
       # Content
       content = document.createElement "div"
       addClass content, "#{@classPrefix}__content"
@@ -90,7 +97,7 @@ createContext = (options) ->
         closeButton.href = "#"
         addClass closeButton, "#{@classPrefix}__close-button"
         content.appendChild closeButton
-        @closeTargets.push closeButton
+        @_closeTargets.push closeButton
 
       # Container
       anchor = document.createElement "div"

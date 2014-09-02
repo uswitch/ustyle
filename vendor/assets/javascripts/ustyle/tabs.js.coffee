@@ -17,7 +17,7 @@ createContext = (options) ->
 
       @init()
 
-      $(document).on "click.ustyle.tab", @tabLinks, (e) =>
+      $(@tabLinks).on "click.ustyle.tab", (e) =>
         target = $(e.currentTarget)
         @navigateTo(target)
         @hashChange(target)
@@ -54,7 +54,7 @@ createContext = (options) ->
       return clicked.data("target") or clicked.attr("href")
 
     accordionScroll = (activeTab) ->
-      window.setTimeout ->
+      setTimeout ->
         $("html, body").stop().animate
           scrollTop: activeTab.offset().top
         , 300
