@@ -2,18 +2,36 @@
 // Uses a padding based, border-boxed grid layout that allows for unlimited
 // nesting and no need to margin off the last-child. 
 
-@mixin us-row
+// [doc] Grid row mixin to normalise margins from padded columns
+@mixin us-row($breakpoint: $default-grid-breakpoint)
   @extend %clearfix
 
-  +respond-to($default-grid-breakpoint, true)
+  @if $breakpoint == "mobile"
     margin-left: - $gutter-width / 2
     margin-right: - $gutter-width / 2
 
+  @else
+    +respond-to($breakpoint, true)
+      margin-left: - $gutter-width / 2
+      margin-right: - $gutter-width / 2
+
+// [doc] Column mixin for grid columns calculation
 @mixin us-col($cols)
   float: left
   padding-left: $gutter-width / 2
   padding-right: $gutter-width / 2
   width: col-width($cols)
+
+// [doc] Grid class and extend generator for ease of class/no-class use
+@mixin grid-class($selector, $cols, $html-classes: false)
+  @if $html-classes
+    .#{$selector}-#{$cols},
+    %#{$selector}-#{$cols}
+      +us-col($cols)
+
+  @else
+    %#{$selector}-#{$cols}
+      +us-col($cols)
 
 %us-grid-row
   +us-row
