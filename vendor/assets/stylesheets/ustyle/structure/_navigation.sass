@@ -368,6 +368,7 @@
 
   /* nav close button */
   .us-header-nav-close
+    @extend %backface-visibility--hidden
     display: none
     position: absolute
     top: 0
@@ -381,7 +382,6 @@
     border: none
     cursor: pointer
     transform: scale3d(1,1,1)
-    backface-visibility: hidden
     transform-style: preserve-3d
     &:before
       display: inline-block
@@ -438,9 +438,9 @@
       background-color: $c-navy
 
     .csstransforms3d &
+      @extend %backface-visibility--hidden
       left: 0
       transform: translateX(100%)
-      backface-visibility: hidden
 
   .us-header-nav-item,
   .us-header-nav-mainitem,
