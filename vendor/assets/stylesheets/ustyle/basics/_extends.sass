@@ -1,5 +1,7 @@
+// -------------------------
 // These are default, handy extends that can be used anywhere to minimise
 // repetition and keep everything compartmentalised in CSS
+// -------------------------
 
 %float-left
   float: left
@@ -11,10 +13,10 @@
   padding: 0
   margin: 0
 
-// Clearfix
+// Clearfix - micro clearfix 
 
 %clearfix
-  +pie-clearfix
+  +clearfix
 
 // A bordered box used for all news/guide/seemore/block items
 
@@ -44,16 +46,7 @@
   margin: 0 0.5em 0 0
   content: "\25c0"
 
-// Close icon
-%close-icon
-  +link-colors(white, white, white, white)
-  background-image: inline-asset("anchor/close.svg")
-  background-size: contain
-  position: absolute
-  right: -7.5px
-  top: -7.5px
-  width: 30px
-  height: 30px
+// Vertical alignment helpers
 
 %vertical-align-parent
   transform-style: preserve-3d

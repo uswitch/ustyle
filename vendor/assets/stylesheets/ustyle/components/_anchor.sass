@@ -77,4 +77,11 @@
     bottom: 2px
 
 .us-anchor__close-button
-  @extend %close-icon
+  +link-colors(white, white, white, white)
+  background-image: inline-asset("anchor/close.svg")
+  background-size: contain
+  position: absolute
+  right: -7.5px
+  top: -7.5px
+  width: 30px
+  height: 30px
