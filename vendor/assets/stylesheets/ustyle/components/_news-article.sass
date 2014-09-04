@@ -26,23 +26,21 @@ $news-item-image-size: 128px !default
     @extend %link-triangle
 
 %base-item
-  @extend %us-col-md-6
-  @extend %us-col-lg-3
-  +trailer(1)
+  margin-bottom: 1em
 
 %base-item-link
   @extend %bordered-box
+  @extend %backface-visibility--hidden
   transition: border-color 333ms, background-color 333ms
   display: block
-  backface-visibility: hidden
   background-color: white
   text-decoration: none
   position: relative
 
 %base-item-image
+  @extend %backface-visibility--hidden
   transition: opacity 333ms
   border-radius: em(5px) em(5px) 0 0
-  backface-visibility: hidden
   width: 100%
   height: auto
 
