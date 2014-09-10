@@ -3,7 +3,7 @@
 // nesting and no need to margin off the last-child. 
 
 // [doc] Grid row mixin to normalise margins from padded columns
-@mixin us-row($breakpoint: $default-grid-breakpoint)
+= us-row($breakpoint: $default-grid-breakpoint)
   @extend %clearfix
 
   @if $breakpoint == "mobile"
@@ -16,14 +16,14 @@
       margin-right: - $gutter-width / 2
 
 // [doc] Column mixin for grid columns calculation
-@mixin us-col($cols)
+= us-col($cols)
   float: left
   padding-left: $gutter-width / 2
   padding-right: $gutter-width / 2
   width: col-width($cols)
 
 // [doc] Grid class and extend generator for ease of class/no-class use
-@mixin grid-class($selector, $cols, $html-classes: false)
+= grid-class($selector, $cols, $html-classes: $html-grid-classes)
   @if $html-classes
     .#{$selector}-#{$cols},
     %#{$selector}-#{$cols}
