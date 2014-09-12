@@ -3,6 +3,14 @@
 .us-header-nav-title
   display: none
 
+.us-header-nav-close
+  @extend %backface-visibility--hidden
+
+.us-header-nav-base
+  &:after
+    .csstransforms3d &
+      @extend %backface-visibility--hidden
+
 #us-header-nav
   +normal-font
   position: absolute
@@ -368,7 +376,6 @@
 
   /* nav close button */
   .us-header-nav-close
-    @extend %backface-visibility--hidden
     display: none
     position: absolute
     top: 0
@@ -439,7 +446,6 @@
       background-color: $c-navy
 
     .csstransforms3d &
-      @extend %backface-visibility--hidden
       left: 0
       transform: translateX(100%)
 
