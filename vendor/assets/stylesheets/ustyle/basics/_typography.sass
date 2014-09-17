@@ -19,19 +19,20 @@
   @for $level from 1 through 6
     @if $level < 4
       h#{$level},
-      %heading-#{$level}
+      %heading-#{$level},
+      .us-heading--#{$level}
         +heading($level)
 
     @else
       h#{$level},
-      %heading-#{$level}
+      %heading-#{$level},
+      .us-heading--#{$level}
         +heading($level, $heading-font: false)
 
     $headings: append($headings, unquote('h#{$level}'), comma)
 
   #{$headings}
-    margin: 0
-    +trailer(0.25)
+    margin: 0 0 0.375em 0
 
   // Paragraphs
   // ===

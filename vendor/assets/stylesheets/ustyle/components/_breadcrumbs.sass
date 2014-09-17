@@ -1,0 +1,25 @@
+// Breadcrumbs
+
+.us-crumbs
+  @extend %reset-box-model
+  @extend %clearfix
+  @extend %small-font
+  margin-top: 1em
+  margin-bottom: 1em
+  list-style: none
+
+.us-crumbs__item
+  @extend %float-left
+
+  &:after
+    @extend %icon-font
+    content: "\232a"
+    display: inline-block
+    margin: 0 0.25em
+
+  &:last-child:after
+    display: none
+
+.us-crumbs__link,
+.us-crumbs__item
+  color: $grey-4
