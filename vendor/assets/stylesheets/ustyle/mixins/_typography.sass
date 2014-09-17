@@ -4,6 +4,15 @@
   @else
     font-family: $normal-font
 
+= icon-font($extend: true)
+  @if $extend
+    @extend %icon-font
+  @else
+    font:
+      family: $icon-font
+      weight: normal
+    -webkit-font-smoothing: antialiased
+
 = heading-font-primary($extend: true)
   @if $extend
     @extend %heading-font-primary
@@ -29,4 +38,5 @@
   @else
     +heading-font-secondary($extend)
 
-  +adjust-font-size-to($font-size, $line-height)
+  font-size: em($font-size)
+  line-height: $line-height + em

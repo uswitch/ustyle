@@ -1,27 +1,14 @@
-// keyframes mixin
-= keyframes($name)
-  @-webkit-keyframes #{$name}
-    @content
-  @-moz-keyframes #{$name}
-    @content
-  @-ms-keyframes #{$name}
-    @content
-  @-o-keyframes #{$name}
-    @content
-  @keyframes #{$name}
-    @content
-
 = animation($name, $duration: 500ms, $fill_mode: forwards, $iteration_count: 1, $delay: 0,  $direction: normal, $timing_function: ease)
-  +experimental(animation-name, $name)
-  +experimental(animation-duration, $duration)
-  
+  animation-name: $name
+  animation-duration: $duration
+
   @if $fill_mode != none
-    +experimental(animation-fill-mode, $fill_mode)
+    animation-fill-mode: $fill_mode
   @if $iteration_count != 1
-    +experimental(animation-iteration-count, $iteration_count)
+    animation-iteration-count: $iteration_count
   @if $delay != 0
-    +experimental(animation-delay, $delay)
+    animation-delay: $delay
   @if $direction != normal
-    +experimental(animation-direction, $direction)
+    animation-direction: $direction
   @if $timing_function != ease
-    +experimental(animation-timing-function, $timing_function)
+    animation-timing-function: $timing_function

@@ -1,0 +1,22 @@
+= baseline($font-size: $base-font-size, $line-height: $base-line-ratio, $scale: $base-scale, $cap-height: $base-cap-height)
+  
+  // rhythm unit
+  $rhythm: $line-height * $font-size / $scale
+ 
+  // number of rhythm units that can fit the font-size
+  $lines: ceil(($font-size + 0.001px) / $rhythm)
+ 
+  // calculate the new line-height
+  $line-height: $rhythm * $lines / $font-size
+ 
+  // use the results
+  font-size: em($font-size)
+  line-height: $line-height + em
+ 
+  $baseline-distance: ($line-height - $cap-height) / 2
+  
+  // if you use this mixin only on elements that have one direction margins
+  // http://csswizardry.com/2012/06/single-direction-margin-declarations/
+  // you can use this method with no worries. 
+  padding-top: $baseline-distance + em
+  margin-bottom: $line-height - $baseline-distance + em
