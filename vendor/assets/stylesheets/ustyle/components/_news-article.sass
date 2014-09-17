@@ -7,7 +7,7 @@
 //
 // Styleguide 4.1
 
-$item-padding: em(9px)
+$item-padding: 9px
 $news-item-image-size: 128px !default
 
 %readmore-link
@@ -67,6 +67,7 @@ $news-item-image-size: 128px !default
 
 .us-news-item-title
   @extend %heading-4
+  margin: 0
   transition: color 333ms
   color: $c-navy
 
@@ -75,17 +76,17 @@ $news-item-image-size: 128px !default
 
   .category,
   .date
-    +adjust-font-size-to(13px)
+    font-size: em(13px)
     padding-top: em(4px)
     padding-bottom: em(4px)
 
     +respond-to(large-desktop)
-      +adjust-font-size-to(14px)
+      font-size: em(14px)
 
   .category
     padding-left: $item-padding
     padding-right: $item-padding
-    border-radius: em(3px)
+    border-radius: 3px
     background-color: $c-typecyan
     color: white
 
@@ -98,7 +99,7 @@ $news-item-image-size: 128px !default
   padding: $item-padding
 
 .us-news-item-snippet
-  +adjust-font-size-to(14px, 0.75)
+  +baseline(14px)
   padding: 0 $item-padding
   color: $c-navy
 

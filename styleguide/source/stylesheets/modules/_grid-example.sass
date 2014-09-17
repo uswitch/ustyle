@@ -1,7 +1,7 @@
 .us-logobar
   @extend %clearfix            
-  +trailer(1)                  
   +us-row                      
+  margin-bottom: 1.5em
 
   &:hover
     .us-logobar__image
@@ -23,6 +23,6 @@
   height: auto               
   padding: 5px               
   border: 1px solid white     
-  +transition(border-color 300ms)
+  transition: border-color 300ms
   +respond-to(desktop,true)
     padding: 15px            

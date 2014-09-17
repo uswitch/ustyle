@@ -5,8 +5,8 @@
 
 .us-social__cta
   @extend %reset-box-model
-  +padding-leader(0.35)
-  +padding-trailer(0.35)
+  padding-top: $gutter-width / 4
+  padding-bottom: $gutter-width / 4
 
 .us-social__buttons
   position: absolute
@@ -31,7 +31,7 @@
   position: relative
 
 .us-social__btn-text
-  +adjust-font-size-to(14px, 1.5)
+  @extend %small-font
   transition: max-width 300ms
   display: inline-block
   max-width: 0

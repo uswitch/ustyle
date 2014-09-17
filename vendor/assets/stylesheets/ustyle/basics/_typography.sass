@@ -7,12 +7,18 @@
   //
   // Styleguide 1.0
 
-  +establish-baseline
+  html
+    +normal-font
+    font-size: $base-font-size
+    line-height: $base-line-ratio + em
 
   body
-    @extend %normal-font
     color: $text-color
     text-rendering: optimizeLegibility
+
+  h1, h2, h3, h4, h5, h6
+    margin-top: 0
+    margin-bottom: 0.375em
 
   $headings: ()
 
@@ -31,9 +37,6 @@
 
     $headings: append($headings, unquote('h#{$level}'), comma)
 
-  #{$headings}
-    margin: 0 0 0.375em 0
-
   // Paragraphs
   // ===
   // Default paragraph styling with a margin bottom.
@@ -45,10 +48,10 @@
       
   p,
   .trailered
-    margin: 0 0 rhythm(1) 0
+    margin: 0 0 1.5em 0
     
   .us-standfirst
-    +adjust-font-size-to(18px, 1.15)
+    +baseline(18px)
 
   // Lists
   // ===
@@ -59,14 +62,11 @@
 
   ul
     li
-      +trailer(0.25)
+      margin-bottom: 0.5em
 
   small
     line-height: 1.15em
 
-  %baseline-font
-    font-size: 1em
-
   %small-font
-    font-size: 0.875em
+    font-size: em(14px)
     line-height: 1.15em

@@ -1,6 +1,7 @@
 .styleguide-block
-  +padding-leader(2)
-  +trailing-border(2px, 2)
+  padding-top: 3em
+  padding-bottom: 3em
+  border-bottom: 1px solid $grey-10
   border-color: $grey-10
   position: relative
 
@@ -18,8 +19,9 @@
 
 .modifier-block 
   @extend %clearfix
-  +padding-leader(2)
-  +trailing-border(1px, 1)
+  padding-top: 3em
+  padding-bottom: 1.5em
+  border-bottom: 1px solid $grey-10
   border-color: $grey-10
   position: relative
 
@@ -56,5 +58,5 @@ code
     top: -3em
 
     +respond-to(desktop, true)
-      +adjust-font-size-to(24px, 1.5)
+      font-size: em(24px)
       top: - 2em

@@ -64,7 +64,7 @@ $guide-item-image-size: 128px !default
   color: $c-navy
 
 .us-guide-item-description
-  +adjust-font-size-to(14px, 0.75)
+  @extend %small-font
   transition: all 200ms
   padding: 0 em(20px, 14px)
 
@@ -90,7 +90,7 @@ $guide-item-image-size: 128px !default
 
 .us-guide-item-readmore
   @extend %readmore
-  +border-bottom-radius(em(5px))
+  border-radius: 0 0 em(5px) em(5px)
   background-color: white
   padding: 0 em(20px) em(20px)
 

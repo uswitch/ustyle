@@ -4,7 +4,7 @@
     margin-bottom: 0
 
 .us-login__hero-title
-  +trailer(0.5)
+  margin-bottom: 1em
 
 .us-login
   position: relative
@@ -61,17 +61,17 @@
   color: $c-darkgrey
 
 .us-login__additional-link
-  +adjust-font-size-to(14px)
+  @extend %small-font
   +link-colors($grey-4, $c-typecyan, $grey-4, $grey-4)
   display: block
 
 .us-login__extra
-  padding: rhythm(1) $gutter-width/2 
+  padding: 1.5em $gutter-width/2 
   color: $grey-2
 
 .us-login__small-text
-  +adjust-font-size-to(14px, 0.85)
-  +leader(0.25)
+  @extend %small-font
+  margin-top: 0.5em
   color: $grey-2
 
 .us-login__newsletter
