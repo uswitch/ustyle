@@ -4,10 +4,8 @@
 @function col-width($columns)
   @return percentage( $columns / $grid-columns )
 
-@function gutter-width($gutter-width: $gutter-width)
-  @return percentage( $gutter-width / $large-container-width)
+@function shade($color, $percentage)
+  @return mix(#000, $color, $percentage)
 
-@function cloudfront-url($asset)
-  $image-path: url("https://d184zpyoja0pfb.cloudfront.net/ustyle-assets/#{$asset}")
-
-  @return $image-path
+@function tint($color, $percentage)
+  @return mix(#fff, $color, $percentage)
