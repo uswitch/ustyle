@@ -1,11 +1,9 @@
 .us-content
-  h2
-    margin-top: 1.5em
-
+  h1, h2, h3
+    +heading-font-secondary
+    
   p
-    font-size: 1.25em
-    line-height: 1.6em
-    margin-bottom: 1em
+    +baseline(20px)
 
   img
     @extend %img--full
