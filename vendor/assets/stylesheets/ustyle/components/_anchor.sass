@@ -1,9 +1,9 @@
-+keyframes(anchor-show)
+@keyframes anchor-show
   0%
-    +transform(scale(0) translateZ(0))
+    transform: scale(0) translateZ(0)
 
   100%
-    +transform(scale(1) translateZ(0))
+    transform: scale(1) translateZ(0)
 
 .us-anchor,
 .us-anchor__target
@@ -33,8 +33,8 @@
   opacity: 1
 
 .us-anchor__content
-  @extend %default-font
-  border-radius: em(8px)
+  +normal-font
+  border-radius: 8px
   transition: transform 300ms 100ms
   transform-origin: 50%, -12px
   border: 1px solid $c-darkgrey

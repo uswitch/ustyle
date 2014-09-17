@@ -14,19 +14,19 @@ $spinner-size: 60px !default
 $spinner-file-fallback: ustyle-image-path("icons/spinner_fallback.gif") !default
 $spinner-load-fallback: true !default
 
-+keyframes(loader-intro)
+@keyframes loader-intro
   from
-    +opacity(0)
+    opacity: 0
 
   to
-    +opacity(1)
+    opacity: 1
 
-+keyframes(spin)
+@keyframes spin
   from
-    +rotate(0deg)
+    transform: rotate(0deg)
 
   to
-    +rotate(360deg)
+    transform: rotate(360deg)
 
 %snap-to-parent
   width: 100%
@@ -69,7 +69,7 @@ $spinner-load-fallback: true !default
 
 .us-loader--centered
   @extend %vertical-align-parent
-  +transform(preserve-3d)
+  transform-style: preserve-3d
 
 .us-loader__inner
   position: relative
@@ -91,5 +91,5 @@ $spinner-load-fallback: true !default
 .us-loader__overlay
   @extend %snap-to-parent
   background-color: $loader-overlay-colour
-  +opacity($loader-overlay-opacity)
+  opacity: $loader-overlay-opacity
   z-index: 1

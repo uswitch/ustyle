@@ -3,7 +3,7 @@
 //
 //
 $account-navigation-background: $c-navy !default
-$account-navigation-active-color: $c-typecyan !default
+$account-navigation-active-color: $c-cyan !default
 $account-navigation-links: account, energy, car-insurance, settings !default
 $account-navigation-icons: "\e04d", "\e04a", "\e001", "\2731" !default
 $account-navigation-arrows: white, $c-cyan, $grey-9, $c-cyan !default
@@ -32,8 +32,8 @@ $account-settings-padding: $gutter-width/2 !default
   +normal-font
   +link-colors(white, $c-cyan, white, white)
   +heading(4)
-  +padding-leader(0.55)
-  +padding-trailer(0.55)
+  padding-top: 0.75em
+  padding-bottom: 0.75em
   display: block
   float: left
   text-align: center
@@ -48,8 +48,8 @@ $account-settings-padding: $gutter-width/2 !default
     vertical-align: middle
 
   +respond-to(tablet, true)
-    +padding-leader(1)
-    +padding-trailer(1)
+    padding-top: 1.5em
+    padding-bottom: 1.5em
     &:before
       display: none
 

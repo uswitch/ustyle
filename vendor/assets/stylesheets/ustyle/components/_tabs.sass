@@ -8,11 +8,12 @@
 
 $tab-width: col-width(2) !default
 
-+keyframes(tab-show)
+@keyframes tab-show
   0%
-    +opacity(0)
+    opacity: 0
+
   100%
-    +opacity(1)
+    opacity: 1
 
 // Tab nav
 .us-tabs-nav
@@ -28,7 +29,7 @@ $tab-width: col-width(2) !default
 
 .us-tabs-nav-wrapper
   @extend %container
-  +padding-leader(0.5)
+  padding-top: $gutter-width/2
 
 .us-tabs-nav-menu
   overflow: hidden
@@ -60,13 +61,14 @@ $tab-width: col-width(2) !default
     float: left
 
   +respond-to(tablet)
-    +adjust-font-size-to(14px, 0.75)
+    font-size: em(14px)
+    line-height: 1.25em
 
   +respond-to(desktop)
-    +adjust-font-size-to($base-font-size, 0.8)
+    font-size: em($base-font-size)
 
   +respond-to(large-desktop)
-    +adjust-font-size-to(18px, 0.9)
+    font-size: em(18px)
 
   &:hover
     &:before
@@ -88,6 +90,7 @@ $tab-width: col-width(2) !default
     bottom: 0
     left: 0
     z-index: -1
+
   .csstransitions &,&:hover
     &:before
       display: block
@@ -146,11 +149,11 @@ $tab-width: col-width(2) !default
       cursor: default
 
       &:before
-        +rotate(90deg)
+        transform: rotate(90deg)
 
     &:hover
       &:before
-        +rotate(90deg)
+        transform: rotate(90deg)
         color: white
 
     &:before
@@ -163,7 +166,6 @@ $tab-width: col-width(2) !default
 
 .us-tab-content
   @extend %container
-  +padding-leader(1)
   opacity: 1
   overflow: hidden
   display: block
@@ -181,7 +183,8 @@ $tab-width: col-width(2) !default
 
   .us-tab.active &
     max-height: 9999px
-
+    padding-top: 1em
+    
     +respond-to(tablet,true)
       display: block
       +animation(tab-show, 1s)
