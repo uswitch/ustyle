@@ -28,7 +28,7 @@ $label-inline-breakpoint: tablet !default
   label,
   .us-faux-label
     +heading-font-secondary
-    +adjust-font-size-to($default-label-size)
+    font-size: em($default-label-size)
     color: $default-label-color
 
 .us-field-blocked
@@ -53,10 +53,9 @@ $label-inline-breakpoint: tablet !default
     +normal-font
     transition: border 333ms
     padding: 0.35em 0.5em
-    border-radius: em(3px)
+    border-radius: 3px
     border: 1px solid transparent
     line-height: 1.5em
-    color: $default-label-color
     cursor: pointer
     font-weight: normal
 
