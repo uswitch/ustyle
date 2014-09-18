@@ -20,10 +20,8 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency("sass", ">= 3.2.10")
+  spec.add_dependency("sass", "3.2.19")
   spec.add_dependency("coffee-script")
-  spec.add_dependency("compass", "0.12.7")
-  spec.add_dependency("compass-rails", ">= 1.1.0")
   spec.add_dependency("autoprefixer-rails")
   spec.add_dependency("mime-types")
   spec.add_dependency("thor")
