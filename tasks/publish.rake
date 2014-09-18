@@ -75,7 +75,7 @@ namespace :build do
       -t compressed \
       -r "#{Ustyle.gem_path}/lib/ustyle" \
       --load-path vendor/assets/stylesheets \
-      --compass vendor/assets/stylesheets/ustyle.sass \
+      vendor/assets/stylesheets/ustyle.sass \
       build/ustyle-latest.css`
     autoprefix = AutoprefixerRails.process(File.read("build/ustyle-latest.css")).css
     File.write( "build/ustyle-latest.css", autoprefix )
