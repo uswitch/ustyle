@@ -20,8 +20,6 @@
     margin-top: 0
     margin-bottom: 0.375em
 
-  $headings: ()
-
   @for $level from 1 through 6
     @if $level < 4
       h#{$level},
@@ -34,8 +32,6 @@
       %heading-#{$level},
       .us-heading--#{$level}
         +heading($level, $heading-font: false)
-
-    $headings: append($headings, unquote('h#{$level}'), comma)
 
   // Paragraphs
   // ===
