@@ -51,8 +51,28 @@
     .us-validation
       .us-validation-icon
       .us-validation-message
-        Please enter a valid email address
+        We use your email address to contact you if there is a problem with your account.
+
+    %label.validation Your email address
+
+    %input.us-form-input{value: ''}
+
+  .us-field.us-field-blocked
+    .us-validation.error
+      .us-validation-icon
+      .us-validation-message
+        Please enter a valid email address.
 
     %label.validation Your email address
 
     %input.us-form-input{value: 'name@domain'}
+
+  .us-field.us-field-blocked
+    .us-validation.success
+      .us-validation-icon
+      .us-validation-message
+        That looks great!
+
+    %label.validation Your email address
+
+    %input.us-form-input{value: 'name@domain.com'}

@@ -5,20 +5,25 @@
 // Styleguide 2.5
 
 $message-padding-vertical: 0.35em
-$message-padding-horizontal: 0.5em
+$message-padding-horizontal: 1em
 $message-min-height: 2.4em
 $message-triangle-size: em(10px)
-$icon-size: em(28px)
+$icon-size: 1.75em
 
 $message-info-color: $c-typecyan
 $message-info-background-color: #fff
-$message-info-icon: '\e037'
+$message-info-icon: '\69'
 $message-info-icon-color: #fff
 
 $message-error-color: $c-red
 $message-error-background-color: #fef9f9
-$message-error-icon: '\e01a'
+$message-error-icon: '\2718'
 $message-error-icon-color: #fff
+
+$message-success-color: $c-green
+$message-success-background-color: #fff
+$message-success-icon: '\2714'
+$message-success-icon-color: #fff
 
 =validation-style($color: $message-info-color, $background-color: $message-info-background-color, $icon: $message-info-icon, $icon-color: $message-info-icon-color, $text-color: $c-darkgrey)
   .us-validation-message
@@ -47,6 +52,7 @@ $message-error-icon-color: #fff
 .us-validation-message
   padding: $message-padding-vertical $message-padding-horizontal
   min-height: $message-min-height
+  line-height: 1.5
   border-width: 1px
   border-style: solid
   border-radius: 3px
@@ -69,10 +75,10 @@ $message-error-icon-color: #fff
 
 .us-validation-icon
   @extend %icon-font
-  width: 1em
-  height: 1em
-  font-size: $icon-size
-  line-height: 1
+  width: $icon-size
+  height: $icon-size
+  text-align: center
+  line-height: $icon-size
   border-radius: 50%
   position: absolute
   top: 10px
@@ -84,3 +90,6 @@ $message-error-icon-color: #fff
 
 .us-validation.error
   +validation-style($message-error-color, $message-error-background-color, $message-error-icon, $message-error-icon-color, $message-error-color)
+
+.us-validation.success
+  +validation-style($message-success-color, $message-success-background-color, $message-success-icon, $message-success-icon-color, $message-success-color)
