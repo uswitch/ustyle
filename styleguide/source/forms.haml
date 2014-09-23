@@ -53,7 +53,7 @@
       .us-validation-message
         We use your email address to contact you if there is a problem with your account.
 
-    %label.validation Your email address
+    %label Your email address
 
     %input.us-form-input{value: ''}
 
@@ -63,7 +63,7 @@
       .us-validation-message
         Please enter a valid email address.
 
-    %label.validation Your email address
+    %label Your email address
 
     %input.us-form-input{value: 'name@domain'}
 
@@ -73,6 +73,18 @@
       .us-validation-message
         That looks great!
 
-    %label.validation Your email address
+    %label Your email address
 
     %input.us-form-input{value: 'name@domain.com'}
+
+  .us-field.us-field-blocked
+    %label Your email address
+
+    .us-validation-input.error
+      %input.us-form-input{value: 'name@domain'}
+
+  .us-field.us-field-blocked
+    %label Your email address
+
+    .us-validation-input.success
+      %input.us-form-input{value: 'name@domain.com'}
