@@ -7,8 +7,8 @@
 $message-padding-vertical: 0.35em
 $message-padding-horizontal: 1em
 $message-min-height: 2.4em
-$message-triangle-size: em(10px)
-$icon-size: 1.75em
+$message-triangle-size: 10px
+$icon-size: 26px
 
 $message-info-color: $c-typecyan
 $message-info-background-color: #fff
@@ -46,10 +46,11 @@ $message-success-icon-color: #fff
       content: $icon
 
 .us-validation
-  padding: 0.25em 0 0.25em ($icon-size + $message-triangle-size + em(5px))
+  padding: 0.25em 0 0.25em ($icon-size + 5)
   position: relative
 
 .us-validation-message
+  margin: 0 0 0 $message-triangle-size
   padding: $message-padding-vertical $message-padding-horizontal
   min-height: $message-min-height
   line-height: 1.5
@@ -71,13 +72,14 @@ $message-success-icon-color: #fff
     left: -$message-triangle-size
 
   &:after
-    left: -$message-triangle-size + em(1px)
+    left: -$message-triangle-size + 1
 
 .us-validation-icon
   @extend %icon-font
   width: $icon-size
   height: $icon-size
   text-align: center
+  font-size: $base-font-size
   line-height: $icon-size
   border-radius: 50%
   position: absolute
