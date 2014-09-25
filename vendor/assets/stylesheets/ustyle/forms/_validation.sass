@@ -11,24 +11,21 @@ $message-triangle-size: 10px
 $icon-size: 26px
 
 $info-color: $c-typecyan
-$info-background-color: #fff
 $info-icon: '\69'
 $info-icon-color: #fff
 
 $error-color: $c-red
-$error-background-color: #fef9f9
 $error-icon: '\2718'
 $error-icon-color: #fff
 
 $success-color: $c-green
-$success-background-color: #fff
 $success-icon: '\2714'
 $success-icon-color: #fff
 
-=validation-style($color: $info-color, $background-color: $info-background-color, $icon: $info-icon, $icon-color: $info-icon-color, $text-color: $c-darkgrey)
+=validation-style($color: $info-color, $icon: $info-icon, $icon-color: $info-icon-color, $text-color: $c-darkgrey)
   .us-validation-message
     color: $text-color
-    background-color: $background-color
+    background-color: #fff
     border-color: $color
 
     &:before,
@@ -36,7 +33,7 @@ $success-icon-color: #fff
       border-color: $color
 
     &:after
-      border-right-color: $background-color
+      border-right-color: #fff
 
   .us-validation-icon
     color: $icon-color
@@ -45,15 +42,15 @@ $success-icon-color: #fff
     &:before
       content: $icon
 
-=validation-input-style($border-color, $background-color, $icon, $icon-color)
+=validation-input-style($color, $icon, $icon-color)
   .us-form-input,
   .us-form-input:hover
-    border-color: $border-color
+    border-color: $color
 
   &:after
     content: $icon
     color: $icon-color
-    background-color: $background-color
+    background-color: $color
 
 .us-validation
   padding: 0.25em 0 0.25em ($icon-size + 5)
@@ -101,10 +98,10 @@ $success-icon-color: #fff
   +validation-style()
 
 .us-validation.error
-  +validation-style($error-color, $error-background-color, $error-icon, $error-icon-color, $error-color)
+  +validation-style($error-color, $error-icon, $error-icon-color, $error-color)
 
 .us-validation.success
-  +validation-style($success-color, $success-background-color, $success-icon, $success-icon-color, $success-color)
+  +validation-style($success-color, $success-icon, $success-icon-color, $success-color)
 
 .us-validation-input
   position: relative
@@ -123,7 +120,7 @@ $success-icon-color: #fff
     right: -($icon-size / 2) / 2
 
 .us-validation-input.error
-  +validation-input-style($error-color, $error-color, $error-icon, $error-icon-color)
+  +validation-input-style($error-color, $error-icon, $error-icon-color)
 
 .us-validation-input.success
-  +validation-input-style($success-color, $success-color, $success-icon, $success-icon-color)
+  +validation-input-style($success-color, $success-icon, $success-icon-color)
