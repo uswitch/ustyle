@@ -8,7 +8,9 @@ $message-padding-vertical: 0.35em
 $message-padding-horizontal: 1em
 $message-min-height: 2.4em
 $message-triangle-size: 10px
-$icon-size: 26px
+$icon-bg-size: 26px
+$icon-input-bg-size: $icon-bg-size / 2
+$icon-ratio: $base-font-size / $icon-bg-size
 
 $error-color: $c-red
 $error-icon: '\2718'
@@ -49,7 +51,7 @@ $success-icon-color: #fff
     background-color: $color
 
 .us-validation
-  padding: 0.25em 0 0.25em ($icon-size + 5)
+  padding: 0.25em 0 0.25em ($icon-bg-size + 5)
   position: relative
 
 .us-validation-message
@@ -79,11 +81,11 @@ $success-icon-color: #fff
 
 .us-validation-icon
   @extend %icon-font
-  width: $icon-size
-  height: $icon-size
+  width: $icon-bg-size
+  height: $icon-bg-size
   text-align: center
-  font-size: $base-font-size
-  line-height: $icon-size
+  font-size: $icon-bg-size * $icon-ratio
+  line-height: $icon-bg-size
   border-radius: 50%
   position: absolute
   top: 10px
@@ -102,16 +104,16 @@ $success-icon-color: #fff
 
   &:after
     @extend %icon-font
-    width: $icon-size / 2
-    height: $icon-size / 2
-    line-height: $icon-size / 2
-    font-size: 9px
+    width: $icon-input-bg-size
+    height: $icon-input-bg-size
+    line-height: $icon-input-bg-size
+    font-size: $icon-input-bg-size * $icon-ratio
     text-align: center
     border-radius: 50%
     content: ' '
     position: absolute
-    top: -($icon-size / 4)
-    right: -($icon-size / 4)
+    top: -($icon-input-bg-size * $icon-ratio) / 2
+    right: -($icon-input-bg-size * $icon-ratio) / 2
 
 .us-validation-input.error
   +validation-input-style($error-color, $error-icon, $error-icon-color)
