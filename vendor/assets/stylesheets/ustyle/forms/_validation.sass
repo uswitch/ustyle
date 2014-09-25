@@ -10,10 +10,6 @@ $message-min-height: 2.4em
 $message-triangle-size: 10px
 $icon-size: 26px
 
-$info-color: $c-typecyan
-$info-icon: '\69'
-$info-icon-color: #fff
-
 $error-color: $c-red
 $error-icon: '\2718'
 $error-icon-color: #fff
@@ -22,7 +18,7 @@ $success-color: $c-green
 $success-icon: '\2714'
 $success-icon-color: #fff
 
-=validation-style($color: $info-color, $icon: $info-icon, $icon-color: $info-icon-color, $text-color: $c-darkgrey)
+=validation-style($color: $error-color, $icon: $error-icon, $icon-color: $error-icon-color, $text-color: $error-color)
   .us-validation-message
     color: $text-color
     background-color: #fff
@@ -94,11 +90,8 @@ $success-icon-color: #fff
   left: 0
 
 .us-validation,
-.us-validation.info
-  +validation-style()
-
 .us-validation.error
-  +validation-style($error-color, $error-icon, $error-icon-color, $error-color)
+  +validation-style()
 
 .us-validation.success
   +validation-style($success-color, $success-icon, $success-icon-color, $success-color)
