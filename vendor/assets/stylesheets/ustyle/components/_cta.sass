@@ -1,5 +1,13 @@
 .us-cta
-  background-color: $c-navy
-  padding: 1em
-  color: white
+  background-color: tint($c-darkgrey, 90%)
   margin-bottom: 1.5em
+  border-left: 10px solid $c-navy
+  padding: $gutter-width/2
+
+  +respond-to(tablet, true)
+    padding: $gutter-width
+
+.us-cta--side
+  border-left: none
+  border-bottom: 10px solid $c-navy
+  padding: $gutter-width/1.5

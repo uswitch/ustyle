@@ -1,13 +1,49 @@
+.us-content__header
+  img
+    display: none
+
+    +respond-to(tablet, true)
+      display: block
+
+.us-content__title
+  +heading-font-secondary
+  +heading(3)
+  background-color: white
+  padding: 0.5em 0 1em 0
+  color: $c-navy
+  position: relative
+
+  +respond-to(tablet, true)
+    +heading(2, $extend: false, $heading-font: false)
+    
+  +respond-to(desktop, true)
+    +heading(1, $extend: false)
+    margin: -100px 0 0 0
+
+.us-social
+  margin-bottom: 2em
+  padding-top: 1em
+
+.us-social-btn
+  display: inline-block
+  vertical-align: top
+  margin-right: .5em
+
 .us-content
+  h2, h4, h5, h6
+    margin-top: 50px
+
   h1, h2, h3
     +heading-font-secondary
     
-  p
-    +baseline(20px)
+  > p, > ul
+    +baseline($base-font-size)
+
+    +respond-to(tablet, true)
+      +baseline(20px)
+
+    a
+      @extend .us-link
 
   img
-    @extend %img--full
     margin-bottom: 1em
-
-  a
-    @extend .us-link
