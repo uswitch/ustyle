@@ -17,7 +17,7 @@
     +heading(2, $extend: false, $heading-font: false)
     
   +respond-to(desktop, true)
-    +heading(1, $extend: false)
+    +heading(1, $extend: false, $heading-font: false)
     margin: -100px 0 0 0
 
 .us-social
@@ -30,20 +30,25 @@
   margin-right: .5em
 
 .us-content
-  h2, h4, h5, h6
+  h2, h3, h4, h5, h6
     margin-top: 50px
 
   h1, h2, h3
     +heading-font-secondary
     
-  > p, > ul
+  p, ul
     +baseline($base-font-size)
 
-    +respond-to(tablet, true)
+    +respond-to(tablet)
+      +baseline(18px)
+
+    +respond-to(desktop, true)
       +baseline(20px)
 
     a
       @extend .us-link
 
   img
+    max-width: 100%
     margin-bottom: 1em
+    padding-top: 1em

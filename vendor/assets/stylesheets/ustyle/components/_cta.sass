@@ -7,6 +7,16 @@
   +respond-to(tablet, true)
     padding: $gutter-width
 
+.us-cta__title.us-cta__title
+  font-size: rem($base-font-size)
+  margin-top: 0
+
+  +respond-to(tablet)
+    +heading(4, $extend: false, $heading-font: false)
+
+  +respond-to(desktop, true)
+    +heading(3, $extend: false, $heading-font: false)
+
 .us-cta--side
   border-left: none
   border-bottom: 10px solid $c-navy
