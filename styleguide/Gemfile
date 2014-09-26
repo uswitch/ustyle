@@ -17,7 +17,7 @@ gem "wdm", "~> 0.1.0", :platforms => [:mswin, :mingw]
 gem "kss"
 
 # uStyle
-gem 'ustyle', :git => "git@github.com:uswitch/ustyle.git", :branch => "master"
+gem 'ustyle', :git => "git@github.com:uswitch/ustyle.git", :branch => "colour-pallette-extension"
 
 gem "redcarpet"
 
