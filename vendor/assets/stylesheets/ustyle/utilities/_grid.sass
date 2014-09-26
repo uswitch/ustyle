@@ -2,3 +2,7 @@
   .us-grid-md--push-#{$i}
     +respond-to($default-grid-breakpoint, true)
       padding-left: col-width($i)
+
+  .us-grid-lg--push-#{$i}
+    +respond-to(desktop, true)
+      padding-left: col-width($i)
