@@ -9,36 +9,111 @@ title: uSwitch uGuide
   %section.colors
     %h1 uSwitch colors, and Sass variables
 
-    %h3 Primary
+    %h3 Primary (brand blues)
 
     .us-grid-row
-      .c-cyan.color-block.us-col-4
+      .c-cyan.color-block.us-col-3
         .color-block-inner $c-cyan: #99e2ff
-      .c-blue.color-block.us-col-4
+      .c-typecyan.color-block.us-col-3
+        .color-block-inner $c-typecyan: #008fe9
+      .c-blue.color-block.us-col-3
         .color-block-inner $c-blue: #174695
-      .c-navy.color-block.us-col-4
+      .c-navy.color-block.us-col-3
         .color-block-inner $c-navy: #1c1f4e
 
-    %h3 Secondary
+
+    %h3 Typography greys
 
     .us-grid-row
-      .c-red.color-block.us-col-3
+      .c-typegrey-2.color-block.us-col-6
+        .color-block-inner $c-typegrey-2: #767676
+      .c-typegrey.color-block.us-col-6
+        .color-block-inner $c-typegrey: #333333
+ 
+
+    %h3 Background greys
+
+    .us-grid-row
+      .c-bggrey.color-block.us-col-3
+        .color-block-inner $c-bggrey: #f4f4f4
+      .c-keylinegrey.color-block.us-col-3
+        .color-block-inner $c-keylinegrey: #eaeaea
+      .c-bordergrey.color-block.us-col-3
+        .color-block-inner $c-bordergrey: #bbbbbb
+      .c-inputgrey.color-block.us-col-3
+        .color-block-inner $c-inputgrey: #97999a
+
+    %h3 Secondary (call out colours)
+
+    .us-grid-row
+      .c-red.color-block.us-col-6
         .color-block-inner $c-red: #D64226
-      .c-green.color-block.us-col-3
+      .c-green.color-block.us-col-6
         .color-block-inner $c-green: #2AAA5B
-      .c-lightgrey.color-block.us-col-3
-        .color-block-inner $c-lightgrey: #f4f4f4
-      .c-darkgrey.color-block.us-col-3
-        .color-block-inner $c-darkgrey: #2f3335
-
-    %h3 Tertiary
 
     .us-grid-row
-      .c-yellow.color-block.us-col-3
-        .color-block-inner $c-yellow: #f1c40f
-      .c-orange.color-block.us-col-3
-        .color-block-inner $c-orange: #E67F0F
-      .c-purple.color-block.us-col-3
-        .color-block-inner $c-purple: #9b59b6
-      .c-typecyan.color-block.us-col-3
-        .color-block-inner $c-typecyan: #009DE9
+      .c-purple.color-block.us-col-4
+        .color-block-inner $c-purple: #9c55b8
+      .c-orange.color-block.us-col-4
+        .color-block-inner $c-orange: #f27930
+      .c-yellow.color-block.us-col-4
+        .color-block-inner $c-yellow: #ffd32f
+
+
+    %h3 Tertiary (brand blue accents)
+
+    .us-grid-row
+      .c-cyan-light.color-block.us-col-3
+        .color-block-inner $c-cyan-light: #e4f8ff
+      .c-typecyan-light.color-block.us-col-3
+        .color-block-inner $c-typecyan-light: #4cc0f4
+      .c-blue-light.color-block.us-col-3
+        .color-block-inner $c-blue-light: #0c72bf
+      .c-navy-light.color-block.us-col-3
+        .color-block-inner $c-navy-light: #1a316e
+
+
+    %h3 Back-up palette (Use sparingly)
+
+    .us-grid-row
+      .c-red-lightest.color-block.us-col-4
+        .color-block-inner $c-red-lightest: tint($c-red, 60%)
+      .c-red-light.color-block.us-col-4
+        .color-block-inner $c-red-light: tint($c-red, 30%)
+      .c-red-dark.color-block.us-col-4
+        .color-block-inner $c-red-dark: shade($c-red, 15%) 
+
+        .us-grid-row
+      .c-green-lightest.color-block.us-col-4
+        .color-block-inner $c-green-lightest: tint($c-green, 60%)
+      .c-green-light.color-block.us-col-4
+        .color-block-inner $c-green-light: tint($c-green, 30%)
+      .c-green-dark.color-block.us-col-4
+        .color-block-inner $c-green-dark: shade($c-green, 15%) 
+
+      .us-grid-row
+      .c-purple-lightest.color-block.us-col-4
+        .color-block-inner $c-purple-lightest: tint($c-purple, 60%)
+      .c-purple-light.color-block.us-col-4
+        .color-block-inner $c-purple-light: tint($c-purple, 30%)
+      .c-purple-dark.color-block.us-col-4
+        .color-block-inner $c-purple-dark: shade($c-purple, 15%) 
+
+      .us-grid-row
+      .c-orange-lightest.color-block.us-col-4
+        .color-block-inner $c-orange-lightest: tint($c-orange, 60%)
+      .c-orange-light.color-block.us-col-4
+        .color-block-inner $c-orange-light: tint($c-orange, 30%)
+      .c-orange-dark.color-block.us-col-4
+        .color-block-inner $c-orange-dark: shade($c-orange, 15%) 
+
+      .us-grid-row
+      .c-yellow-lightest.color-block.us-col-4
+        .color-block-inner $c-yellow-lightest: tint($c-yellow, 60%)
+      .c-yellow-light.color-block.us-col-4
+        .color-block-inner $c-yellow-light: tint($c-yellow, 30%)
+      .c-yellow-dark.color-block.us-col-4
+        .color-block-inner $c-yellow-dark: shade($c-yellow, 15%) 
+
+
+
