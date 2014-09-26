@@ -10,13 +10,16 @@
   $line-height: $rhythm * $lines / $font-size
  
   // use the results
-  font-size: em($font-size)
-  line-height: $line-height + em
+  font-size: $font-size
+  font-size: rem($font-size)
+  line-height: $line-height
  
   $baseline-distance: ($line-height - $cap-height) / 2
   
   // if you use this mixin only on elements that have one direction margins
   // http://csswizardry.com/2012/06/single-direction-margin-declarations/
   // you can use this method with no worries. 
-  padding-top: $baseline-distance + em
-  margin-bottom: $line-height - $baseline-distance + em
+  padding-top: $baseline-distance + px
+  padding-top: $baseline-distance + rem
+  margin-bottom: $line-height - $baseline-distance + px
+  margin-bottom: $line-height - $baseline-distance + rem
