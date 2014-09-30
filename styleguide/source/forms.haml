@@ -48,9 +48,9 @@
 
 = styleblock "2.5", "Form validation", {floated: true, sass: "forms"} do
   .us-field.us-field-blocked
-    .us-validation.error
-      .us-validation-icon
-      .us-validation-message
+    .us-validation.us-validation_error
+      .us-validation__icon
+      .us-validation__message
         Please enter a valid email address.
 
     %label Your email address
@@ -58,9 +58,9 @@
     %input.us-form-input{value: 'name@domain'}
 
   .us-field.us-field-blocked
-    .us-validation.success
-      .us-validation-icon
-      .us-validation-message
+    .us-validation.us-validation_success
+      .us-validation__icon
+      .us-validation__message
         That looks great!
 
     %label Your email address
@@ -70,11 +70,11 @@
   .us-field.us-field-blocked
     %label Your email address
 
-    .us-validation-input.error
+    .us-validation__input.us-validation__input_error
       %input.us-form-input{value: 'name@domain'}
 
   .us-field.us-field-blocked
     %label Your email address
 
-    .us-validation-input.success
+    .us-validation__input.us-validation__input_success
       %input.us-form-input{value: 'name@domain.com'}

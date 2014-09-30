@@ -21,7 +21,7 @@ $success-icon: '\2714'
 $success-icon-color: #fff
 
 =validation-style($color: $error-color, $icon: $error-icon, $icon-color: $error-icon-color, $text-color: $error-color)
-  .us-validation-message
+  .us-validation__message
     color: $text-color
     background-color: #fff
     border-color: $color
@@ -33,7 +33,7 @@ $success-icon-color: #fff
     &:after
       border-right-color: #fff
 
-  .us-validation-icon
+  .us-validation__icon
     color: $icon-color
     background-color: $color
 
@@ -54,7 +54,7 @@ $success-icon-color: #fff
   padding: 0.25em 0 0.25em ($icon-bg-size + 5)
   position: relative
 
-.us-validation-message
+.us-validation__message
   margin: 0 0 0 $message-triangle-size
   padding: $message-padding-vertical $message-padding-horizontal
   min-height: $message-min-height
@@ -79,7 +79,7 @@ $success-icon-color: #fff
   &:after
     left: -$message-triangle-size + 1
 
-.us-validation-icon
+.us-validation__icon
   @extend %icon-font
   width: $icon-bg-size
   height: $icon-bg-size
@@ -91,14 +91,13 @@ $success-icon-color: #fff
   top: 10px
   left: 0
 
-.us-validation,
-.us-validation.error
+.us-validation_error
   +validation-style()
 
-.us-validation.success
+.us-validation_success
   +validation-style($success-color, $success-icon, $success-icon-color, $success-color)
 
-.us-validation-input
+.us-validation__input
   position: relative
   display: inline-block
 
@@ -115,8 +114,8 @@ $success-icon-color: #fff
     top: -($icon-input-bg-size * $icon-ratio) / 2
     right: -($icon-input-bg-size * $icon-ratio) / 2
 
-.us-validation-input.error
+.us-validation__input_error
   +validation-input-style($error-color, $error-icon, $error-icon-color)
 
-.us-validation-input.success
+.us-validation__input_success
   +validation-input-style($success-color, $success-icon, $success-icon-color)
