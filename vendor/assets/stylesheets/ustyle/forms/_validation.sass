@@ -91,11 +91,12 @@ $success-icon-color: #fff
   top: 10px
   left: 0
 
-.us-validation_error
-  +validation-style()
+.us-validation
+  &.us-validation--error
+    +validation-style()
 
-.us-validation_success
-  +validation-style($success-color, $success-icon, $success-icon-color, $success-color)
+  &.us-validation--success
+    +validation-style($success-color, $success-icon, $success-icon-color, $success-color)
 
 .us-validation__input
   position: relative
@@ -114,8 +115,8 @@ $success-icon-color: #fff
     top: -($icon-input-bg-size * $icon-ratio) / 2
     right: -($icon-input-bg-size * $icon-ratio) / 2
 
-.us-validation__input_error
-  +validation-input-style($error-color, $error-icon, $error-icon-color)
+  &.us-validation__input--error
+    +validation-input-style($error-color, $error-icon, $error-icon-color)
 
-.us-validation__input_success
-  +validation-input-style($success-color, $success-icon, $success-icon-color)
+  &.us-validation__input--success
+    +validation-input-style($success-color, $success-icon, $success-icon-color)
