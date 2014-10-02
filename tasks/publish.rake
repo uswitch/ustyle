@@ -53,9 +53,9 @@ namespace :styleguide do
 
     Dir["styleguide/build/**/*"].each do |file|
       next if File.directory?(file)
-      stripped_name = file.gsub(/^build\//, "")
+      stripped_name = file.gsub(/^styleguide\/build\//, "")
       content_type = Ustyle.mime_type_for(stripped_name)
-      Ustyle.s3_upload( stripped_name, file, content_type )
+      Ustyle.s3_upload( stripped_name, file, content_type, "ustyle.uswitchinternal.com" )
     end
   end
 
