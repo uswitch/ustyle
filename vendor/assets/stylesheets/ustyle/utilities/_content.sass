@@ -1,13 +1,106 @@
+.us-content__header
+  img
+    display: none
+
+    +respond-to(tablet, true)
+      display: block
+
+.us-content__title
+  +heading-font-secondary
+  +heading(3)
+  background-color: white
+  padding: 0.5em 0 1em 0
+  color: $c-navy
+  position: relative
+
+  +respond-to(tablet, true)
+    +heading(2, $extend: false, $heading-font: false)
+    
+  +respond-to(desktop, true)
+    +heading(1, $extend: false, $heading-font: false)
+    margin: -100px 0 0 0
+
+.us-social
+  margin-bottom: 2em
+  padding-top: 1em
+
+.us-social-btn
+  display: inline-block
+  vertical-align: top
+  margin-right: .5em
+
 .us-content
+  margin-bottom: $gutter-width
+
+  h2, h3, h4, h5, h6
+    margin-top: 50px
+
   h1, h2, h3
     +heading-font-secondary
     
-  p
-    +baseline(20px)
+  p, ul
+    +baseline($base-font-size)
+
+    +respond-to(tablet)
+      +baseline(18px)
+
+    +respond-to(desktop, true)
+      +baseline(20px)
+
+    a
+      @extend .us-link
 
   img
-    @extend %img--full
+    max-width: 100%
     margin-bottom: 1em
+    padding-top: 1em
 
-  a
-    @extend .us-link
+  table
+    border-collapse: separate
+    width: 100%
+
+    img,
+    p
+      @extend %reset-box-model
+
+    a
+      border: none
+
+    td, th
+      border-bottom: 1px solid $c-bordergrey
+      padding: $gutter-width/4
+      vertical-align: middle
+
+    thead
+      background-color: $c-keylinegrey
+
+
+  .internal-menu
+    @extend .us-list
+    
+  .fuel-breakdown
+    @extend %clearfix
+    @extend .us-list--reset
+    width: 100%
+    overflow: hidden
+
+    li
+      float: left
+      vertical-align: middle
+      text-align: center
+      color: white
+      font-size: 16px
+      font-size: rem(16px)
+      padding: $gutter-width/2 0
+
+      b
+        display: block
+
+    $fuel-colors: (coal, $c-bordergrey), (gas, $c-typecyan), (nuclear, $c-orange), (renewable, $c-green), (other, $c-typegrey)
+
+    @each $color in $fuel-colors
+      .#{nth($color, 1)}
+        background-color: nth($color, 2)
+
+        @if nth($color, 1) == other
+          text-indent: -999em

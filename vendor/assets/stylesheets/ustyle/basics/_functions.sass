@@ -1,3 +1,6 @@
+@function rem($pixels, $base-font-size: $base-font-size)
+  @return ($pixels / $base-font-size) * 1rem
+
 @function em($pixels, $base-font-size: $base-font-size)
   @return ($pixels / $base-font-size) * 1em
 

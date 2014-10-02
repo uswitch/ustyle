@@ -1,0 +1,31 @@
+// Related news items
+
+.us-related
+  margin-bottom: $gutter-width
+
+.us-related__item-link
+  @extend %clearfix
+  +link-colors($grey-4, $c-navy, $grey-4, $grey-4)
+  display: block
+  padding-top: .5em
+  padding-bottom: .5em
+  border-bottom: 1px solid $grey-10
+  transition: color .3s, border-color .3s
+
+.us-related__item-title
+  @extend %small-font
+  +normal-font
+  display: inline-block
+  vertical-align: middle
+  
+  +respond-to(desktop)
+    width: calc(100% - 90px)
+    margin-left: $gutter-width/4
+
+.us-related__item-image
+  +respond-to(desktop)
+    display: inline-block
+    width: 70px
+    height: 70px
+    background-size: cover
+    vertical-align: middle
