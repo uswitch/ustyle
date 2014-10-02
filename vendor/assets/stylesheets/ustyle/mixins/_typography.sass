@@ -30,6 +30,17 @@
       family: $heading-font-secondary
       weight: 700
 
+= bold-font($extend: true)
+  +heading-font-secondary($extend)
+
+= italic-font($extend: true)
+  @if $extend
+    @extend %italic-font
+  @else
+    font:
+      family: $normal-font
+      style: italic
+
 = heading($level, $heading-font: true, $extend: true)
   $font-size: nth($heading-font-sizes, $level)
   $line-height: nth($heading-line-heights, $level)
