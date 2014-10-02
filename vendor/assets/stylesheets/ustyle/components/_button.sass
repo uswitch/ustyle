@@ -16,6 +16,7 @@
 // .large - Larger button for heros
 // .small - Smaller button for mobile tables
 // .blocked - Full width button
+// .us-btn--link - link style button
 // .disabled - Disabled styling (can also be styled with :disabled)
 //
 // Styleguide 3.1
@@ -101,6 +102,15 @@ $button-styles: ("primary", $p-button-color), ("secondary", $s-button-color), ("
     width: 100%
     padding-left: 0
     padding-right: 0
+
+  &.us-btn--link
+    border: none
+    background-color: transparent
+    color: $c-blue
+
+    &:hover
+      color: $c-navy
+      text-decoration: underline
 
   &.arrowed,
   &.arrowed.arrow-right
