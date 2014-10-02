@@ -48,33 +48,17 @@
 
 = styleblock "2.5", "Form validation", {floated: true, sass: "forms"} do
   .us-field.us-field-blocked
-    .us-validation.us-validation--error
+    .us-validation.modifier-class
       .us-validation__icon
       .us-validation__message
-        Please enter a valid email address.
+        Validation message here.
 
     %label Your email address
 
     %input.us-form-input{value: 'name@domain'}
 
   .us-field.us-field-blocked
-    .us-validation.us-validation--success
-      .us-validation__icon
-      .us-validation__message
-        That looks great!
-
     %label Your email address
 
-    %input.us-form-input{value: 'name@domain.com'}
-
-  .us-field.us-field-blocked
-    %label Your email address
-
-    .us-validation__input.us-validation__input--error
+    .us-validation__input.modifier-class
       %input.us-form-input{value: 'name@domain'}
-
-  .us-field.us-field-blocked
-    %label Your email address
-
-    .us-validation__input.us-validation__input--success
-      %input.us-form-input{value: 'name@domain.com'}
