@@ -77,8 +77,16 @@ namespace :build do
       --load-path vendor/assets/stylesheets \
       vendor/assets/stylesheets/ustyle.sass \
       build/ustyle-latest.css`
-    autoprefix = AutoprefixerRails.process(File.read("build/ustyle-latest.css")).css
-    File.write( "build/ustyle-latest.css", autoprefix )
+    `sass \
+      -t compressed \
+      -r "#{Ustyle.gem_path}/lib/ustyle" \
+      --load-path vendor/assets/stylesheets \
+      vendor/assets/stylesheets/ustyle-content.sass \
+      build/ustyle-content.css`
+
+    %w(latest content).each do |build|
+      File.write( "build/ustyle-#{build}.css", AutoprefixerRails.process(File.read("build/ustyle-#{build}.css")).css )  
+    end
   end
 
   desc "Building images and hashing them"
@@ -98,11 +106,14 @@ namespace :deploy do
   desc "Deploy stylesheet to S3"
   task :stylesheets do
     Ustyle.s3_connect!
-    stylesheet = "ustyle-latest.css"
+    stylesheets = ["ustyle-latest.css", "ustyle-content.css"]
 
-    Ustyle.s3_upload( Ustyle.versioned_path(stylesheet), "build/#{stylesheet}", "text/css" )
-    Ustyle.s3_upload( "ustyle/#{stylesheet}", "build/#{stylesheet}", "text/css" )
-    Ustyle.invalidate( ["ustyle/#{stylesheet}"] )
+    stylesheets.each do |stylesheet|
+      Ustyle.s3_upload( Ustyle.versioned_path(stylesheet), "build/#{stylesheet}", "text/css" )
+      Ustyle.s3_upload( "ustyle/#{stylesheet}", "build/#{stylesheet}", "text/css" )
+    end
+
+    Ustyle.invalidate( ["ustyle/ustyle-latest.css", "ustyle/ustyle-content.css"] )
   end
 
   desc "Deploy images to S3"
