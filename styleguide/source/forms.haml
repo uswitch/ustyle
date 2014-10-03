@@ -1,6 +1,6 @@
 .us-container
   %h1.styleguide-title Forms
-  = styleblock_nav(["Form fields", "Form inputs", "Inputs with backgrounds", "Radios and checkboxes", "Selects"])
+  = styleblock_nav(["Form fields", "Form inputs", "Inputs with backgrounds", "Radios and checkboxes", "Selects", "Form validation"])
 
 = styleblock "2.1", "Form fields", {floated: true, sass: "forms"} do
   .us-field.modifier-class
@@ -45,3 +45,20 @@
       %option A select menu
       %option With lots of options
       %option And a few more
+
+= styleblock "2.5", "Form validation", {floated: true, sass: "forms"} do
+  .us-field.us-field-blocked
+    .us-validation.modifier-class
+      .us-validation__icon
+      .us-validation__message
+        Validation message here.
+
+    %label Your email address
+
+    %input.us-form-input{value: 'name@domain'}
+
+  .us-field.us-field-blocked
+    %label Your email address
+
+    .us-validation__input.modifier-class
+      %input.us-form-input{value: 'name@domain'}
