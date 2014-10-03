@@ -1,0 +1,25 @@
+// Table with key cells
+// --------------------
+@if $table-experimental
+  .us-table-cell-key
+    color: $table-c-key
+
+    +respond-to(small-tablet, true)
+      width: em($table-key-width)
+      max-width: em($table-key-width)
+      padding-left: em($table-key-sidepadding)
+      padding-right: em($table-key-sidepadding)
+
+    .key-value,
+    .key-sideunit
+      color: $table-c-key
+
+    .key-value
+      font-size: 32px
+
+    .key-value small,
+    .key-sideunit
+      font-size: 20px
+
+    .key-desc
+      color: $table-c-desc
