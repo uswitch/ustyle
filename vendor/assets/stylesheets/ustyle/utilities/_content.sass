@@ -77,7 +77,51 @@
 
   .internal-menu
     @extend .us-list
-    
+
+  .plans-ending
+    @extend %clearfix
+    @extend .us-list--reset
+    border-top: 1px solid $c-blue
+
+    li
+      margin: 0
+      padding-bottom: 0.5em
+      padding-top: 0.5em
+      border-bottom: 1px solid $c-blue
+
+    .row
+      position: relative
+      cursor: pointer
+      font-weight: 700
+      color: $c-blue
+      transition: color .3s
+
+      &:after
+        @extend %icon-font
+        content: "\232a"
+        position: absolute
+        right: 1em
+        top: 50%
+        margin-top: -.75em
+
+      &:hover
+        color: $c-typecyan
+
+    img
+      @extend %reset-box-model
+      margin: 0 1em 0 1em
+      vertical-align: middle
+
+    .table-container
+      margin-top: .5em
+
+    .btn
+      @extend %btn
+
+    .js &
+      .table-container
+        display: none
+
   .fuel-breakdown
     @extend %clearfix
     @extend .us-list--reset
