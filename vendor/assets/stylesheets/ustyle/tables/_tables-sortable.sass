@@ -6,10 +6,9 @@
 
 @if $table-experimental
   %with-sort-arrow
-
     +respond-to(small-tablet, true)
       position: relative
-      margin-right: .4em
+      margin-right: 0.5em
 
       &:after
         display: none
@@ -17,12 +16,11 @@
         line-height: 1
         position: absolute
         top: 50%
-        right: -1.2em
-        margin-top: -.4em
+        right: -1.5em
+        margin-top: -0.5em
         color: $table-c-inactive
 
   .us-table-cell-sorted
-
     +respond-to(small-tablet, true)
       background: $table-c-sorted-bg
 
@@ -54,6 +52,7 @@
             color: $table-c-head-text
 
   .us-table-head-sorted
+    padding-right: 2em
     color: $table-c-sorted-text
 
     .us-table-sort-button,
