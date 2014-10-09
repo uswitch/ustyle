@@ -5,6 +5,7 @@ createContext = (options) ->
     defaults:
       tabContainer: ".us-tabs"
       tabLinks: ".us-tabs-nav-mainlink"
+      tabTitle: "us-tab-title"
       changeUrls: true
       activeClass: "active"
 
@@ -47,7 +48,7 @@ createContext = (options) ->
         .siblings(".#{@options.activeClass}").removeClass(@options.activeClass).end()
         .addClass(@options.activeClass)
 
-      if activeSelector.parent().hasClass("us-tab-title")
+      if activeSelector.parent().hasClass(@options.tabTitle)
         accordionScroll($selected)
 
     getSelector = (clicked) ->
