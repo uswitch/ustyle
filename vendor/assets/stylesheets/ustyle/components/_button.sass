@@ -28,7 +28,7 @@ $t-button-color: $c-blue !default
 
 $button-styles: ("primary", $p-button-color), ("secondary", $s-button-color), ("tertiary", $t-button-color) !default
 
-= button-style($name, $outlined: false)
+@mixin button-style($name, $outlined: false)
   @if $outlined
     transition: none 0
     background-color: transparent
