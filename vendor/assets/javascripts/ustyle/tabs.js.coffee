@@ -51,6 +51,8 @@ createContext = (options) ->
       if activeSelector.parent().hasClass(@options.tabTitle)
         accordionScroll($selected)
 
+      $selected.trigger("ustyle.tab.active")
+
     getSelector = (clicked) ->
       return clicked.data("target") or clicked.attr("href")
 
