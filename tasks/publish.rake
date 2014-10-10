@@ -50,6 +50,7 @@ namespace :styleguide do
     Ustyle.s3_connect!
 
     `cd ./styleguide && BUNDLE_GEMFILE=Gemfile bundle exec middleman build`
+    `sassdoc --sass-convert vendor/assets/stylesheets/ustyle styleguide/build/sassdoc`
 
     Dir["styleguide/build/**/*"].each do |file|
       next if File.directory?(file)
