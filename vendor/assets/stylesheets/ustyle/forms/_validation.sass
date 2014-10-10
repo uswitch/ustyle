@@ -25,7 +25,7 @@ $success-color: $c-green
 $success-icon: '\e01d'
 $success-icon-color: #fff
 
-=validation-style($color: $error-color, $icon: $error-icon, $icon-color: $error-icon-color, $text-color: $error-color)
+@mixin validation-style($color: $error-color, $icon: $error-icon, $icon-color: $error-icon-color, $text-color: $error-color)
   .us-validation__message
     color: $text-color
     background-color: #fff
@@ -44,7 +44,7 @@ $success-icon-color: #fff
     &:before
       content: $icon
 
-=validation-input-style($color, $icon, $icon-color)
+@mixin validation-input-style($color, $icon, $icon-color)
   .us-form-input,
   .us-form-input:hover
     border-color: $color

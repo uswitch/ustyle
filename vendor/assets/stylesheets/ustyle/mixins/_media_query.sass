@@ -25,7 +25,7 @@ $devices: ()
 @each $breakpoint in $max-breakpoints
   $devices: append($devices, (nth($breakpoint, 1), max, nth($breakpoint, 2)), comma)
 
-= respond-to($device, $ie-fallback: false, $ie-fallback-noherit: false)
+@mixin respond-to($device, $ie-fallback: false, $ie-fallback-noherit: false)
   @each $listed-device in $devices
     @if nth($listed-device, 1) == $device
       @media screen and (unquote("#{nth($listed-device, 2)}-width:") nth($listed-device, 3))

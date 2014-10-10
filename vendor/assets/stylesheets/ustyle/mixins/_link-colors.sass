@@ -1,7 +1,7 @@
 // Link colors mixin, inspired by Compass
 // https://github.com/Compass/compass/blob/stable/core/stylesheets/compass/typography/links/_link-colors.scss
 
-= link-colors($base-color, $hover: false, $active: false, $visited: false, $focus: false)
+@mixin link-colors($base-color, $hover: false, $active: false, $visited: false, $focus: false)
   color: $base-color
 
   @if $visited

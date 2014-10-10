@@ -44,7 +44,7 @@ $spinner-load-fallback: true !default
   background-repeat: no-repeat
 
 %spinner-icon
-  +animation(spin, $spinner-animation-time, $iteration_count: infinite, $timing_function: linear)
+  animation: spin $spinner-animation-time infinite
   background: transparent url($spinner-file-fallback) no-repeat center center
   background-image: -webkit-linear-gradient(transparent, transparent), inline-asset($spinner-file)
   background-image: linear-gradient(transparent, transparent), inline-asset($spinner-file)
@@ -65,7 +65,7 @@ $spinner-load-fallback: true !default
 
 .us-loader--loading
   display: block
-  +animation(loader-intro, $spinner-animation-time)
+  animation: loader-intro $spinner-animation-time forwards
 
 .us-loader--centered
   @extend %vertical-align-parent

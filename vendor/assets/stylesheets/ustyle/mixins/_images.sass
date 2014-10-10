@@ -1,4 +1,4 @@
-= hidpi-image($image-path, $format: ".png", $size: "#{image-width('#{$image-path}#{$format}')} #{image-height('#{$image-path}#{$format}')}" )
+@mixin hidpi-image($image-path, $format: ".png", $size: "#{image-width('#{$image-path}#{$format}')} #{image-height('#{$image-path}#{$format}')}" )
   background-size: unquote($size)
   background-image: image-url("#{$image-path}#{$format}")
   

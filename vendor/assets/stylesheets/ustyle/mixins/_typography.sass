@@ -1,10 +1,10 @@
-= normal-font($extend: true)
+@mixin normal-font($extend: true)
   @if $extend
     @extend %normal-font
   @else
     font-family: $normal-font
 
-= icon-font($extend: true)
+@mixin icon-font($extend: true)
   @if $extend
     @extend %icon-font
   @else
@@ -13,7 +13,7 @@
       weight: normal
     -webkit-font-smoothing: antialiased
 
-= heading-font-primary($extend: true)
+@mixin heading-font-primary($extend: true)
   @if $extend
     @extend %heading-font-primary
   @else
@@ -22,7 +22,7 @@
       weight: normal
   @extend %heading-font-print
 
-= heading-font-secondary($extend: true)
+@mixin heading-font-secondary($extend: true)
   @if $extend
     @extend %heading-font-secondary
   @else
@@ -30,10 +30,10 @@
       family: $heading-font-secondary
       weight: 700
 
-= bold-font($extend: true)
+@mixin bold-font($extend: true)
   +heading-font-secondary($extend)
 
-= italic-font($extend: true)
+@mixin italic-font($extend: true)
   @if $extend
     @extend %italic-font
   @else
@@ -41,7 +41,7 @@
       family: $normal-font
       style: italic
 
-= heading($level, $heading-font: true, $extend: true)
+@mixin heading($level, $heading-font: true, $extend: true)
   $font-size: nth($heading-font-sizes, $level)
   $line-height: nth($heading-line-heights, $level)
 
