@@ -1,0 +1,19 @@
+{
+  "name": "ustyle",
+  "version": "0.9.18",
+  "description": "Styleguide gem for uSwitch",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/uswitch/ustyle.git"
+  },
+  "author": "David Annez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/uswitch/ustyle/issues"
+  },
+  "homepage": "https://github.com/uswitch/ustyle"
+}

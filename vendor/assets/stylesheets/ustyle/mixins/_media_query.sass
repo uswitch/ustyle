@@ -39,21 +39,21 @@ $mobile-width:        em(480px) !default
 
 /// Max-breakpoint for mobiles
 ///
-/// @requires {Variable} small-tablet-width
+/// @require {Variable} small-tablet-width
 /// @type Number (unit)
 
 $mobile-end-width: $small-tablet-width - em(1px)
 
 /// Max-breakpoint for small tablets
 ///
-/// @requires {Variable} tablet-width
+/// @require {Variable} tablet-width
 /// @type Number (unit)
 
 $small-tablet-end-width: $tablet-width - em(1px)
 
 /// Max-breakpoint for tablets
 ///
-/// @requires {Variable} desktop-width
+/// @require {Variable} desktop-width
 /// @type Number (unit)
 
 $tablet-end-width: $desktop-width - em(1px)
@@ -80,7 +80,7 @@ $devices: ()
 
 /// Output a media query block for the targeted device and a potential internet explorer fallback
 /// 
-/// @requires {Variable} devices
+/// @require {Variable} devices
 /// 
 /// @param {String} $device
 ///   The device to match up the media query with. Can be one from the list of `$min-breakpoints`
