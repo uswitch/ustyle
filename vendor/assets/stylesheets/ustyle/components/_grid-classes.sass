@@ -17,20 +17,20 @@
 // Placeholders
 
 @for $column from 1 through $grid-columns
-  +grid-class("us-col-xsm", $column)
+  +_grid-class("us-col-xsm", $column)
 
 +respond-to(small-tablet)
   @for $column from 1 through $grid-columns
-    +grid-class("us-col-sm", $column)
+    +_grid-class("us-col-sm", $column)
 
 +respond-to(tablet, false, true)
   @for $column from 1 through $grid-columns
-    +grid-class("us-col-md", $column)
+    +_grid-class("us-col-md", $column)
 
 +respond-to(desktop, false, true)
   @for $column from 1 through $grid-columns
-    +grid-class("us-col-lg", $column)
+    +_grid-class("us-col-lg", $column)
 
 +respond-to(large-desktop, false, false)
   @for $column from 1 through $grid-columns
-    +grid-class("us-col-xlg", $column)
+    +_grid-class("us-col-xlg", $column)

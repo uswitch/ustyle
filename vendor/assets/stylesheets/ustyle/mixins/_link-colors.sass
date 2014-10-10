@@ -1,5 +1,23 @@
-// Link colors mixin, inspired by Compass
-// https://github.com/Compass/compass/blob/stable/core/stylesheets/compass/typography/links/_link-colors.scss
+/// Link colors mixin, inspired by Compass
+/// https://github.com/Compass/compass/blob/stable/core/stylesheets/compass/typography/links/_link-colors.scss
+/// 
+/// @author Chris Eppstein
+///
+/// @param {String} $base-color
+///   The starting color for the link element
+///
+/// @param {String} $hover (false)
+///   The color for the :hover state of the element
+///
+/// @param {String} $active (false)
+///   The color for the :active state of the element
+///
+/// @param {String} $visited (false)
+///   The color for the :visited state of the element
+///
+/// @param {String} $focus (false)
+///   The color for the :focus state of the element
+///
 
 @mixin link-colors($base-color, $hover: false, $active: false, $visited: false, $focus: false)
   color: $base-color

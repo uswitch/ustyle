@@ -1,14 +1,57 @@
-@function rem($pixels, $base-font-size: $base-font-size)
-  @return ($pixels / $base-font-size) * 1rem
+/// Returns a `rem` value from pixels
+///
+/// @param {Number (unit)} $pixels
+///   The pixel number you want converted to `rem`
+///
+/// @param {Number (unit)} $font-size ($base-font-size)
+///   The font-size relative to `rems`
+///
+/// @return {Unit}
 
-@function em($pixels, $base-font-size: $base-font-size)
-  @return ($pixels / $base-font-size) * 1em
+@function rem($pixels, $font-size: $base-font-size)
+  @return ($pixels / $font-size) * 1rem
+
+/// Returns a `em` value from pixels
+///
+/// @param {Number (unit)} $pixels
+///   The pixel number you want converted to `em`
+///
+/// @param {Number (unit)} $font-size ($base-font-size)
+///   The font-size relative to `ems`
+///
+/// @return {Unit}
+
+@function em($pixels, $font-size: $base-font-size)
+  @return ($pixels / $font-size) * 1em
+
+/// Returns a column % from `$grid-columns`
+///
+/// @param {Number (unitless)} $columns
+///   The column number to convert to a % of the grid
+///
+/// @return {Unit (percentage)}
 
 @function col-width($columns)
   @return percentage( $columns / $grid-columns )
 
+/// Returns a colour based on a black + `$color` percentage mix
+///
+/// @param {String} $color
+///   The colour you want to darken
+///
+/// @param {Number (unit)} $percentage
+///   The percentage amount to mix of black with the colour
+
 @function shade($color, $percentage)
   @return mix(#000, $color, $percentage)
+
+/// Returns a colour based on a white + `$color` percentage mix
+///
+/// @param {String} $color
+///   The colour you want to darken
+///
+/// @param {Number (unit)} $percentage
+///   The percentage amount to mix of white with the colour
 
 @function tint($color, $percentage)
   @return mix(#fff, $color, $percentage)

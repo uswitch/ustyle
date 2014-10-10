@@ -25,6 +25,21 @@ $devices: ()
 @each $breakpoint in $max-breakpoints
   $devices: append($devices, (nth($breakpoint, 1), max, nth($breakpoint, 2)), comma)
 
+/// Output a media query block for the targeted device and a potential internet explorer fallback
+/// 
+/// @author David Annez
+/// 
+/// @param {String} $device
+///   The device to match up the media query with. Can be one from the list of `$min-breakpoints`
+///   or `$max-breakpoints`
+/// 
+/// @param {Bool} $ie-fallback (false)
+///   If set to `true` will return a `.ie8` {content} fallback to ensure IE8 gets the supporting styling
+///
+/// @param {Bool} $ie-fallback-noherit (false)
+///   If attaching the mixin onto the root, then set this to `true` to ensure Sass builds the correct styles
+///
+
 @mixin respond-to($device, $ie-fallback: false, $ie-fallback-noherit: false)
   @each $listed-device in $devices
     @if nth($listed-device, 1) == $device

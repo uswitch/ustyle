@@ -2,57 +2,59 @@
 // Namespacing
 // -----
 
-$namespace: "us-" !default
-$no-html-classes: false !default
+$namespace              : "us-" !default
+$no-html-classes        : false !default
 
 @import "ustyle/basics/variables/colors"
 
 // -----
 // Fonts
 // -----
+$needs-font             : false !default
+$base-font-url          : "https://fonts.uswitch.com/" !default
 
-$heading-font-primary     : "FS Elliot Web Bold", Helvetica, Arial, sans-serif !default
-$heading-font-secondary   : "Open Sans", Helvetica, Arial, sans-serif !default
+$heading-font-primary   : "FS Elliot Web Bold", Helvetica, Arial, sans-serif !default
+$heading-font-secondary : "Open Sans", Helvetica, Arial, sans-serif !default
 
 // LEGACY
-$heading-font-bold: $heading-font-primary
-$heading-font-regular: "Open Sans", "FS Elliot Web Regular", Helvetica, Arial, sans-serif !default
+$heading-font-bold      : $heading-font-primary
+$heading-font-regular   : "Open Sans", "FS Elliot Web Regular", Helvetica, Arial, sans-serif !default
 
-$normal-font              : "Open Sans", Helvetica, Arial, sans-serif !default
-$icon-font                : "uswitch-icon", sans-serif !default
+$normal-font            : "Open Sans", Helvetica, Arial, sans-serif !default
+$icon-font              : "uswitch-icon", sans-serif !default
 
 // -----
 // Typography
 // -----
-$establish-type-rules: true !default
+$establish-type-rules   : true !default
 
-$base-font-size: 16px !default
-$base-line-height: 24px !default
+$base-font-size         : 16px !default
+$base-line-height       : 24px !default
 
-$base-cap-height: 0.60 !default
-$base-line-ratio: 1.618 !default
-$base-scale: 2 !default
-$base-unit: $base-font-size * $base-line-ratio / $base-scale !default
+$base-cap-height        : 0.60 !default
+$base-line-ratio        : 1.618 !default
+$base-scale             : 2 !default
+$base-unit              : $base-font-size * $base-line-ratio / $base-scale !default
 
-$heading-font-sizes:   36px, 30px, 24px, 18px, 16px, 16px !default
-$heading-line-heights: 1.3, 1.3, 1.25, 1.25,  0.95, 0.95 !default
+$heading-font-sizes     :   36px, 30px, 24px, 18px, 16px, 16px !default
+$heading-line-heights   : 1.3, 1.3, 1.25, 1.25,  0.95, 0.95 !default
 
 // -----
 // Grid
 // -----
 
 // Grid classes
-$html-grid-classes: true !default
+$html-grid-classes      : true !default
 
 // Grid settings
-$col-width: 70px !default
-$gutter-width: 30px !default
-$grid-columns: 12 !default
-$grid-columns-desktop: 10 !default
-$grid-columns-tablet: 8 !default
+$col-width              : 70px !default
+$gutter-width           : 30px !default
+$grid-columns           : 12 !default
+$grid-columns-desktop   : 10 !default
+$grid-columns-tablet    : 8 !default
 $default-grid-breakpoint: tablet !default
 
 // Containers
-$large-container-width: ($grid-columns * $col-width) + ( $grid-columns * $gutter-width)
+$large-container-width  : ($grid-columns * $col-width) + ( $grid-columns * $gutter-width)
 $desktop-container-width: ($grid-columns-desktop * $col-width) + ( $grid-columns-desktop * $gutter-width)
-$tablet-container-width: ($grid-columns-tablet * $col-width) + ( $grid-columns-tablet * $gutter-width)
+$tablet-container-width : ($grid-columns-tablet * $col-width) + ( $grid-columns-tablet * $gutter-width)
