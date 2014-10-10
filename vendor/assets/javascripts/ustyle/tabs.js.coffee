@@ -49,19 +49,15 @@ createContext = (options) ->
         .addClass(@options.activeClass)
 
       if activeSelector.parent().hasClass(@options.tabTitle)
-        accordionScroll($selected)
+        scrollToTab($selected)
 
       $selected.trigger("ustyle.tab.active")
 
     getSelector = (clicked) ->
       return clicked.data("target") or clicked.attr("href")
 
-    accordionScroll = (activeTab) ->
-      setTimeout ->
-        $("html, body").stop().animate
-          scrollTop: activeTab.offset().top
-        , 300
-      , 10
+    scrollToTab = (activeTab) ->
+      $("html,body").scrollTop(activeTab.offset().top)
 
     Tabs
 
