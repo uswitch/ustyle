@@ -1,0 +1,39 @@
+.us-cta
+  background-color: tint($c-darkgrey, 90%)
+  margin-bottom: 1.5em
+  padding: $gutter-width/2
+  border-bottom: 10px solid $c-navy
+
+  label
+    display: block
+
+    +respond-to(desktop, true)
+      display: inline-block
+
+  +respond-to(tablet, true)
+    border-left: 10px solid $c-navy
+    border-bottom: 0px
+    padding: $gutter-width
+
+.us-cta__title.us-cta__title
+  +heading-font-secondary
+  font-size: 16px
+  font-size: rem($base-font-size)
+  margin-top: 0
+
+  +respond-to(tablet)
+    +heading(4, $extend: false, $heading-font: false)
+
+  +respond-to(desktop, true)
+    +heading(3, $extend: false, $heading-font: false)
+
+.us-cta--side
+  border-left: none
+  border-bottom: 10px solid $c-navy
+  padding: $gutter-width/2
+
+  +respond-to(desktop, true)
+    padding: $gutter-width/1.5
+
+  .us-form-input
+    width: 100%

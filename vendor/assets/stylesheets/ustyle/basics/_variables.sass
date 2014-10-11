@@ -1,104 +1,168 @@
-// -----
-// Namespacing
-// -----
+// ----------
+// Colors
+// ----------
+@import "ustyle/basics/variables/colors"
 
-$namespace: "us-" !default
-$no-html-classes: false !default
-
-// -----
-// Colours
-// -----
-
-// Primary
-
-$c-cyan:      #99e2ff !default
-$c-blue:      #174695 !default
-$c-navy:      #1c1f4e !default
-
-// Secondary
-
-$c-red:       #D64226 !default
-$c-green:     #2AAA5B !default
-$c-lightgrey: #f4f4f4 !default
-$c-darkgrey:  #2f3335 !default
-
-// Tertiary
-
-$c-yellow:    #f1c40f !default
-$c-orange:    #E67F0F !default
-$c-purple:    #9b59b6 !default
-$c-typecyan:  #009DE9 !default
-
-// Greys
-
-$grey-10: #cbcccc !default
-$grey-9:  #eee    !default
-$grey-8:  #ddd    !default
-$grey-7:  #ccc    !default
-$grey-6:  #bbb    !default
-$grey-5:  #aaa    !default
-$grey-4:  #97999a !default
-$grey-3:  #666    !default
-$grey-2:  #555    !default
-$grey-1:  #2f3335 !default
-$grey-0:  #222    !default
-
-// -----
-// Text
-// -----
-
-$text-color: $c-darkgrey !default
-$heading-color: $c-navy !default
-
-// -----
+// ----------
 // Fonts
-// -----
+// ----------
 
-$heading-font-primary     : "FS Elliot Web Bold", Helvetica, Arial, sans-serif !default
-$heading-font-secondary   : "Open Sans", Helvetica, Arial, sans-serif !default
+/// If using a uStyle project outside of www.uswitch.com domain or one that lacks the power the includes, then
+/// set this to `true` to import the correct `@font-face` declarations.
+///
+/// @group fonts
+/// @type Bool
 
-// LEGACY
-$heading-font-bold: $heading-font-primary
-$heading-font-regular: "Open Sans", "FS Elliot Web Regular", Helvetica, Arial, sans-serif !default
+$needs-font             : false !default
 
-$normal-font              : "Open Sans", Helvetica, Arial, sans-serif !default
-$icon-font                : "uswitch-icon", sans-serif !default
+/// Set this to wherever you are serving the uSwitch fonts from.
+///
+/// @group fonts
+/// @type String
 
-// -----
+$base-font-url          : "https://fonts.uswitch.com/" !default
+
+/// The primary heading font stack
+///
+/// @group fonts
+/// @type String
+
+$heading-font-primary   : "FS Elliot Web Bold", Helvetica, Arial, sans-serif !default
+
+/// The secondary heading font stack
+///
+/// @group fonts
+/// @type String
+
+$heading-font-secondary : "Open Sans", Helvetica, Arial, sans-serif !default
+
+/// The default sans-serif font stack
+///
+/// @group fonts
+/// @type String
+
+$normal-font            : "Open Sans", Helvetica, Arial, sans-serif !default
+
+/// The icon font name used for uicon
+///
+/// @group fonts
+/// @type String
+
+$icon-font              : "uswitch-icon", sans-serif !default
+
+// ----------
 // Typography
-// -----
-$establish-type-rules: true !default
+// ----------
 
-$base-font-size: 16px !default
-$base-line-height: 24px !default
+/// By default we establish normalised type rules for `body`. Certain projects won't need this or would rather
+/// override, so set this to false if you don't want the default typography rules to kick in
+///
+/// @group typography
+/// @type Bool
 
-$heading-font-sizes:   36px, 30px, 24px, 18px, 16px, 16px !default
-$heading-line-heights: 1.92, 1.6,  1.25, 0.9,  0.95, 0.95 !default
+$establish-type-rules   : true !default
 
-// -----
+/// The base font size where every other type setting inherits from
+///
+/// @group typography
+/// @type Number (pixels)
+
+$base-font-size         : 16px !default
+
+/// The base line height for mapped for the `$base-font-size`
+///
+/// @group typography
+/// @type Number (pixels)
+
+$base-line-height       : 24px !default
+
+/// The cap height for the uSwitch fonts (average)
+///
+/// @group typography
+/// @type Number (unitless)
+
+$base-cap-height        : 0.60 !default
+
+/// The line ratio for establishing a baseline - set as the golden ratio
+///
+/// @group typography
+/// @type Number (unitless)
+
+$base-line-ratio        : 1.618 !default
+
+$base-scale             : 2 !default
+$base-unit              : $base-font-size * $base-line-ratio / $base-scale !default
+
+/// A list containing the 6 heading font sizes used across uStyle
+///
+/// @group typography
+/// @type List
+
+$heading-font-sizes     :   36px, 30px, 24px, 18px, 16px, 16px !default
+
+/// A list with the 6 corresponding line heights for headings
+///
+/// @group typography
+/// @type List
+
+$heading-line-heights   : 1.3, 1.3, 1.25, 1.25,  0.95, 0.95 !default
+
+// ----------
 // Grid
-// -----
+// ----------
 
-// Grid classes
-$html-grid-classes: true !default
+/// If set to false will not give you CSS classes for your grid like `.us-col-6` but rather the placeholder class
+/// instead
+///
+/// @group grid
+/// @type Bool
 
-// Grid settings
-$col-width: 70px !default
-$gutter-width: 30px !default
-$grid-columns: 12 !default
-$grid-columns-desktop: 10 !default
-$grid-columns-tablet: 8 !default
+$html-grid-classes      : true !default
+
+/// Column width for calculating the uSwitch grid
+///
+/// @group grid
+/// @type Number (unit)
+
+$col-width              : 70px !default
+
+/// Gutter width for calculating the uSwitch grid
+///
+/// @group grid
+/// @type Number (unit)
+
+$gutter-width           : 30px !default
+
+/// Number of columns for large screens
+///
+/// @group grid
+/// @type Number (unitless)
+
+$grid-columns           : 12 !default
+
+/// Number of columns for desktop screens
+///
+/// @group grid
+/// @type Number (unitless)
+
+$grid-columns-desktop   : 10 !default
+
+/// Number of columns for tablet screens and below
+///
+/// @group grid
+/// @type Number (unitless)
+
+$grid-columns-tablet    : 8 !default
+
+/// The device breakpoint that all ustyle elements respond to
+///
+/// @group grid
+/// @type String
+
 $default-grid-breakpoint: tablet !default
 
-// Grid background settings
-$grid-background-column-width: $col-width !default
-$grid-background-gutter-width: $gutter-width !default
-$grid-background-total-columns: $grid-columns !default
-$grid-background-force-fluid: true !default
-$grid-background-offset: $gutter-width/2 !default
-$show-grid-backgrounds: false !default
-
 // Containers
-$large-container-width: ($grid-columns * $col-width) + ( $grid-columns * $gutter-width)
+
+$large-container-width  : ($grid-columns * $col-width) + ( $grid-columns * $gutter-width)
 $desktop-container-width: ($grid-columns-desktop * $col-width) + ( $grid-columns-desktop * $gutter-width)
-$tablet-container-width: ($grid-columns-tablet * $col-width) + ( $grid-columns-tablet * $gutter-width)
+$tablet-container-width : ($grid-columns-tablet * $col-width) + ( $grid-columns-tablet * $gutter-width)

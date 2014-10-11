@@ -13,11 +13,11 @@ module Ustyle
     )
   end
 
-  def self.s3_upload to, from, content_type
+  def self.s3_upload to, from, content_type, bucket = BUCKET
     AWS::S3::S3Object.store(
       to, 
       open(from), 
-      BUCKET, 
+      bucket, 
       :content_type => content_type, 
       :access => :public_read
     )

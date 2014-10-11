@@ -5,7 +5,6 @@ uStyle, aptly named, is the styleguide gem for uSwitch. Include it in your Rails
 ## Requirements
 
 - SASS
-- Compass (for now)
 - Coffee script (for javascript)
 - Autoprefixer 
 
@@ -22,9 +21,9 @@ gem 'sprockets-sass', '~> 1.2.0'
 gem 'sprockets-helpers'
 ```
 
-Then in your app file (usually named server.rb/app.rb etc), after declaring your `class App < Sintra::Base`:
+Then in your app file (usually named server.rb/app.rb etc), after declaring your `class App < Sinatra::Base`:
 ``` ruby
-register Sintra::Ustyle
+register Sinatra::Ustyle
 ```
 
 **You must use `sprockets-sass` version 1.1.0 or above, as there was a bug where the postprocessor was getting added to the preprocessor which caused autoprefixer to break**

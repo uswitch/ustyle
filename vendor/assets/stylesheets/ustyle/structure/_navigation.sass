@@ -3,6 +3,14 @@
 .us-header-nav-title
   display: none
 
+.us-header-nav-close
+  @extend %backface-visibility--hidden
+
+.us-header-nav-base
+  &:after
+    .csstransforms3d &
+      @extend %backface-visibility--hidden
+
 #us-header-nav
   +normal-font
   position: absolute
@@ -76,7 +84,7 @@
 
       .us-header-keyline &
         &:after
-          border-color: transparent transparent $grey-10 transparent
+          border-color: transparent transparent $c-keylinegrey transparent
 
         &:before
           content: ""
@@ -284,12 +292,12 @@
     display: block
     left: auto
     right: 0
-    top: -0.5em
+    top: -12px
     bottom: 0
     z-index: 2
     width: 100px
     color: $c-blue
-    font-size: 18px
+    font-size: 16px
     text-indent: -9999em
     cursor: pointer
     &:before
@@ -337,10 +345,10 @@
           content: ''
           position: absolute
           left: 10px
-          top: 12px
+          top: 7px
           z-index: 2
-          width: 37px
-          height: 37px
+          width: 32px
+          height: 32px
           background-repeat: no-repeat
           background-size: cover
           transform: scale3d(1,1,1)
@@ -373,15 +381,14 @@
     top: 0
     right: 0
     z-index: 10
-    height: 61px
+    height: 43px
     margin: 0
-    padding: 21px 17px
+    padding: 13px 14px
     color: $c-blue
     background: #fff
     border: none
     cursor: pointer
     transform: scale3d(1,1,1)
-    backface-visibility: hidden
     transform-style: preserve-3d
     &:before
       display: inline-block
@@ -408,7 +415,7 @@
         top: 0
         border-color: transparent #fff
         border-style: solid
-        border-width: 30px 10px 30px 0
+        border-width: 21px 10px 21px 0
 
   .us-header-nav-base
     position: absolute
@@ -418,7 +425,7 @@
     z-index: 1
     width: 100%
     margin: 0
-    padding-top: 61px
+    padding-top: 43px
     background: $c-blue
     border: none
     list-style: none
@@ -426,21 +433,21 @@
     overflow: hidden
 
     &:after
+      font-size: 16px
       content: 'uSwitch'
       position: absolute
       top: 0
       left: 0
       right: 0
-      height: 61px
-      padding-left: 55px
-      line-height: 61px
+      height: 43px
+      padding-left: 50px
+      line-height: 43px
       color: #fff
       background-color: $c-navy
 
     .csstransforms3d &
       left: 0
       transform: translateX(100%)
-      backface-visibility: hidden
 
   .us-header-nav-item,
   .us-header-nav-mainitem,
@@ -457,8 +464,8 @@
   .us-header-nav-title
     display: block
     position: absolute
-    left: 55px
-    top: -38px
+    left: 45px
+    top: -29px
     z-index: 3
     color: #fff
     border: none
@@ -476,7 +483,7 @@
     min-height: 100%
     margin: 0
     background: $c-blue
-    border-top: 61px solid $c-navy
+    border-top: 43px solid $c-navy
         
     /* open level 2 menus */
     &.on

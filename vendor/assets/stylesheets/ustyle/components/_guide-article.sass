@@ -4,7 +4,7 @@
 // news item heavily. The description is initially hidden and shown on hover or any desktop
 // devices
 //
-// .larger - A larger, 3 col version of the guide
+// .larger - A larger, 4 col version of the guide
 //
 // Styleguide 4.2
 
@@ -12,9 +12,6 @@ $guide-item-image-size: 128px !default
 
 .us-guide-item
   @extend %base-item
-
-  &.larger
-    @extend %us-col-md-4
 
 .us-guide-item-link
   @extend %base-item-link
@@ -49,7 +46,7 @@ $guide-item-image-size: 128px !default
 
   +respond-to(desktop, true)
     transform: translate3d(0, $guide-item-image-size, 0)
-    border-radius: em(5px) em(5px) 0 0
+    border-radius: 0 0 em(5px) em(5px)
     position: absolute
     min-height: $guide-item-image-size
     left: 0
@@ -67,7 +64,7 @@ $guide-item-image-size: 128px !default
   color: $c-navy
 
 .us-guide-item-description
-  +adjust-font-size-to(14px, 0.75)
+  @extend %small-font
   transition: all 200ms
   padding: 0 em(20px, 14px)
 
@@ -93,7 +90,7 @@ $guide-item-image-size: 128px !default
 
 .us-guide-item-readmore
   @extend %readmore
-  +border-bottom-radius(em(5px))
+  border-radius: 0 0 em(5px) em(5px)
   background-color: white
   padding: 0 em(20px) em(20px)
 

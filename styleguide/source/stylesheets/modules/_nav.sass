@@ -6,11 +6,6 @@
   left: 0
   background-color: $c-navy
   z-index: 1000
-  overflow: auto
-  transform: translateX(-100%)
-
-  +respond-to(desktop, true)
-    transform: translateX(0)
 
 .nav__link
   +link-colors(white, $c-typecyan, white, white)
@@ -23,8 +18,8 @@
   overflow: auto
 
 .nav__set
-  +leader(0.5)
   @extend %reset-box-model
+  margin-top: .75em
   list-style: none
   text-align: left
 

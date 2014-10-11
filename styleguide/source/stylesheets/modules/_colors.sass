@@ -1,4 +1,4 @@
-$colors: (c-cyan, $c-cyan), (c-blue, $c-blue), (c-navy, $c-navy), (c-green, $c-green), (c-red, $c-red), (c-lightgrey, $c-lightgrey), (c-darkgrey, $c-darkgrey), (c-yellow, $c-yellow), (c-orange, $c-orange), (c-purple, $c-purple), (c-typecyan, $c-typecyan)
+$colors: (c-cyan, $c-cyan), (c-blue, $c-blue), (c-navy, $c-navy), (c-green, $c-green), (c-red, $c-red), (c-lightgrey, $c-lightgrey), (c-darkgrey, $c-darkgrey), (c-yellow, $c-yellow), (c-orange, $c-orange), (c-purple, $c-purple), (c-typecyan, $c-typecyan), (c-typegrey, $c-typegrey), (c-typegrey-2, $c-typegrey-2), (c-bggrey, $c-bggrey), (c-bordergrey, $c-bordergrey), (c-keylinegrey, $c-keylinegrey), (c-inputgrey, $c-inputgrey), (c-navy-light, $c-navy-light), (c-blue-light, $c-blue-light), (c-typecyan-light, $c-typecyan-light), (c-cyan-light, $c-cyan-light), (c-red-light, $c-red-light), (c-red-lightest, $c-red-lightest), (c-red-dark, $c-red-dark), (c-green-light, $c-green-light), (c-green-lightest, $c-green-lightest), (c-green-dark, $c-green-dark), (c-purple-light, $c-purple-light), (c-purple-lightest, $c-purple-lightest), (c-purple-dark, $c-purple-dark),  (c-orange-light, $c-orange-light), (c-orange-lightest, $c-orange-lightest), (c-orange-dark, $c-orange-dark), (c-yellow-light, $c-yellow-light), (c-yellow-lightest, $c-yellow-lightest), (c-yellow-dark, $c-yellow-dark) 
 
 @each $color in $colors
   .#{nth($color, 1)}
@@ -13,7 +13,10 @@ $colors: (c-cyan, $c-cyan), (c-blue, $c-blue), (c-navy, $c-navy), (c-green, $c-g
   line-height: 50px
   color: white
 
-  .c-lightgrey &
+  .c-lightgrey &,
+  .c-bggrey &,
+  .c-bordergrey &,
+  .c-keylinegrey &
     color: $c-darkgrey
 
 .color-block

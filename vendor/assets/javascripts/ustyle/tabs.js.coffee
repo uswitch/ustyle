@@ -5,6 +5,7 @@ createContext = (options) ->
     defaults:
       tabContainer: ".us-tabs"
       tabLinks: ".us-tabs-nav-mainlink"
+      tabTitle: "us-tab-title"
       changeUrls: true
       activeClass: "active"
 
@@ -17,7 +18,7 @@ createContext = (options) ->
 
       @init()
 
-      $(document).on "click.ustyle.tab", @tabLinks, (e) =>
+      $(@tabLinks).on "click.ustyle.tab", (e) =>
         target = $(e.currentTarget)
         @navigateTo(target)
         @hashChange(target)
@@ -47,18 +48,16 @@ createContext = (options) ->
         .siblings(".#{@options.activeClass}").removeClass(@options.activeClass).end()
         .addClass(@options.activeClass)
 
-      if activeSelector.parent().hasClass("us-tab-title")
-        accordionScroll($selected)
+      if activeSelector.parent().hasClass(@options.tabTitle)
+        scrollToTab($selected)
+
+      $selected.trigger("ustyle.tab.active")
 
     getSelector = (clicked) ->
       return clicked.data("target") or clicked.attr("href")
 
-    accordionScroll = (activeTab) ->
-      window.setTimeout ->
-        $("html, body").stop().animate
-          scrollTop: activeTab.offset().top
-        , 300
-      , 10
+    scrollToTab = (activeTab) ->
+      $("html,body").scrollTop(activeTab.offset().top)
 
     Tabs
 

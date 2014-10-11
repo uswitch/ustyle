@@ -15,7 +15,6 @@
     display: block
     padding-top: 0.5em
     padding-bottom: 0.5em
-    white-space: nowrap
 
     &:after
       @extend %link-triangle
@@ -26,8 +25,8 @@
         left: 0.5em
 
   .us-hero &
-    +leader(1)
+    margin-top: 1em
 
     a
-      +adjust-font-size-to(18px, 1)
+      font-size: em(18px)
       color: $c-navy

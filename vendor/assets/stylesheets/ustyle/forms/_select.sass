@@ -8,7 +8,7 @@
 //
 // Styleguide 2.4
 
-$select-base-color: $grey-4 !default
+$select-base-color: $c-inputgrey !default
 $select-hover-color: $c-typecyan !default
 $select-active-color: $c-green !default
 $select-bg-color: white !default
@@ -16,11 +16,13 @@ $select-bg-color: white !default
 $select-base-padding: 0.3em 0.6em !default
 $select-base-height: $form-element-base-height !default
 
-= select-style( $height: $select-base-height, $padding: $select-base-padding, $base-color: $select-base-color, $hover-color: $select-hover-color, $active-color: $select-active-color, $text-color: $text-color, $background-color: $select-bg-color)
+@mixin select-style( $height: $select-base-height, $padding: $select-base-padding, $base-color: $select-base-color, $hover-color: $select-hover-color, $active-color: $select-active-color, $color: $c-typegrey, $background-color: $select-bg-color)
   height: $height
   padding: $padding
   border: 1px solid $base-color
   background-color: $background-color
+  @if $color != $c-typegrey
+    color: $color
   
   &:hover,
   &:focus
@@ -76,7 +78,7 @@ $select-base-height: $form-element-base-height !default
       -webkit-appearance: none
       z-index: 2
       width: 9px
-      border-left: 1px solid $grey-9
+      border-left: 1px solid $c-bordergrey
       
     &::-webkit-scrollbar-thumb 
       background-color: rgba(0, 0, 0, .5)
@@ -88,13 +90,14 @@ $select-base-height: $form-element-base-height !default
     vertical-align: baseline
 
     select
+      background-image: none
       padding-right: 15px
 
     &:after
+      +icon-font($extend: false)
       border-radius: 0 3px 3px 0
-      content: '\25bc'
+      content: "\25bc"
       position: absolute
-      font-family: "uswitch-icon", helvetica, arial, sans-serif
       font-size: 0.8em
       color: white
       text-align: center

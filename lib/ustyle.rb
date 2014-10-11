@@ -11,7 +11,6 @@ module Ustyle
       register_compass_extension if compass?
 
       if defined?(::Rails)
-        require "compass-rails"
         require "ustyle/engine"
       elsif sprockets?
         require "ustyle/sprockets"

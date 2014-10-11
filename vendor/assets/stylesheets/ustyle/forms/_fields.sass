@@ -10,7 +10,7 @@
 //
 // Styleguide 2.1
 
-$default-label-color: $text-color !default
+$default-label-color: $c-typegrey !default
 $default-label-size: 18px !default
 $default-label-width: em(120px, $default-label-size) !default
 $default-label-margin: 0.25em !default
@@ -28,7 +28,7 @@ $label-inline-breakpoint: tablet !default
   label,
   .us-faux-label
     +heading-font-secondary
-    +adjust-font-size-to($default-label-size)
+    font-size: em($default-label-size)
     color: $default-label-color
 
 .us-field-blocked
@@ -53,15 +53,14 @@ $label-inline-breakpoint: tablet !default
     +normal-font
     transition: border 333ms
     padding: 0.35em 0.5em
-    border-radius: em(3px)
+    border-radius: 3px
     border: 1px solid transparent
     line-height: 1.5em
-    color: $default-label-color
     cursor: pointer
     font-weight: normal
 
     &:hover
-      border-color: $grey-10
+      border-color: $c-bordergrey
 
 // This is an inline field, for quick, easy to read forms
 

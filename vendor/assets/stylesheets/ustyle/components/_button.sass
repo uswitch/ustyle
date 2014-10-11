@@ -16,6 +16,7 @@
 // .large - Larger button for heros
 // .small - Smaller button for mobile tables
 // .blocked - Full width button
+// .us-btn--link - link style button
 // .disabled - Disabled styling (can also be styled with :disabled)
 //
 // Styleguide 3.1
@@ -27,7 +28,7 @@ $t-button-color: $c-blue !default
 
 $button-styles: ("primary", $p-button-color), ("secondary", $s-button-color), ("tertiary", $t-button-color) !default
 
-= button-style($name, $outlined: false)
+@mixin button-style($name, $outlined: false)
   @if $outlined
     transition: none 0
     background-color: transparent
@@ -59,6 +60,7 @@ $button-styles: ("primary", $p-button-color), ("secondary", $s-button-color), ("
 %btn,
 .us-btn
   @extend %reset-box-model
+  @extend %input-background--normalise
   +normal-font
   transition: all 180ms
   padding: 0.63em 1.25em
@@ -101,6 +103,15 @@ $button-styles: ("primary", $p-button-color), ("secondary", $s-button-color), ("
     padding-left: 0
     padding-right: 0
 
+  &.us-btn--link
+    border: none
+    background-color: transparent
+    color: $c-blue
+
+    &:hover
+      color: $c-navy
+      text-decoration: underline
+
   &.arrowed,
   &.arrowed.arrow-right
     padding: 0.63em 1.25em 0.63em 0.95em
@@ -129,7 +140,7 @@ $button-styles: ("primary", $p-button-color), ("secondary", $s-button-color), ("
 
   &:disabled,
   &.disabled
-    opacity: 0
+    opacity: 0.5
     pointer-events: none
 
   @each $button-style in $button-styles

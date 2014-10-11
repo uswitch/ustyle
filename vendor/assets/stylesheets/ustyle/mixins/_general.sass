@@ -1,0 +1,12 @@
+/// Clearfix mixin - http://nicolasgallagher.com/micro-clearfix-hack/
+/// 
+/// @author Nicolas Gallagher
+
+@mixin clearfix()
+  &:before,
+  &:after
+    content: " "
+    display: table
+
+  &:after
+    clear: both

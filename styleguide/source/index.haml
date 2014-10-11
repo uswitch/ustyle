@@ -5,47 +5,138 @@ title: uSwitch uGuide
   %section.colors
     %h1 Color palette
 
-    %h4 Primary
+    %h3 Primary (brand blues)
 
     .us-grid-row
-      .c-cyan.color-block.us-col-4
+      .c-cyan.color-block.us-col-3
         .color-block__hex #99e2ff
         .color-block__var $c-cyan
-      .c-blue.color-block.us-col-4
+      .c-typecyan.color-block.us-col-3
+        .color-block__hex #008fe9
+        .color-block__var $c-typecyan
+      .c-blue.color-block.us-col-3
         .color-block__hex #174695
         .color-block__var $c-blue
-      .c-navy.color-block.us-col-4
+      .c-navy.color-block.us-col-3
         .color-block__hex #1c1f4e
         .color-block__var $c-navy
 
-    %h4 Secondary
+
+    %h3 Typography greys
 
     .us-grid-row
-      .c-red.color-block.us-col-3
+      .c-typegrey-2.color-block.us-col-6
+        .color-block__hex #767676
+        .color-block__var $c-typegrey-2
+      .c-typegrey.color-block.us-col-6
+        .color-block__hex #333333
+        .color-block__var $c-typegrey
+ 
+
+    %h3 Background greys
+
+    .us-grid-row
+      .c-bggrey.color-block.us-col-3
+        .color-block__hex #f4f4f4
+        .color-block__var $c-bggrey
+      .c-keylinegrey.color-block.us-col-3
+        .color-block__hex #eaeaea
+        .color-block__var $c-keylinegrey
+      .c-bordergrey.color-block.us-col-3
+        .color-block__hex #bbbbbb
+        .color-block__var $c-bordergrey
+      .c-inputgrey.color-block.us-col-3
+        .color-block__hex #97999a
+        .color-block__var $c-inputgrey
+
+    %h3 Secondary (call out colours)
+
+    .us-grid-row
+      .c-red.color-block.us-col-6
         .color-block__hex #D64226
         .color-block__var $c-red
-      .c-green.color-block.us-col-3
+      .c-green.color-block.us-col-6
         .color-block__hex #2AAA5B
         .color-block__var $c-green
-      .c-lightgrey.color-block.us-col-3
-        .color-block__hex #f4f4f4
-        .color-block__var $c-lightgrey
-      .c-darkgrey.color-block.us-col-3
-        .color-block__hex #2f3335
-        .color-block__var $c-darkgrey
-
-    %h4 Tertiary
 
     .us-grid-row
-      .c-yellow.color-block.us-col-3
-        .color-block__hex #f1c40f
-        .color-block__var $c-yellow
-      .c-orange.color-block.us-col-3
-        .color-block__hex #E67F0F
-        .color-block__var $c-orange
-      .c-purple.color-block.us-col-3
-        .color-block__hex #9b59b6
+      .c-purple.color-block.us-col-4
+        .color-block__hex #9c55b8
         .color-block__var $c-purple
-      .c-typecyan.color-block.us-col-3
-        .color-block__hex #009DE9
-        .color-block__var $c-typecyan
+      .c-orange.color-block.us-col-4
+        .color-block__hex #f27930
+        .color-block__var $c-orange
+      .c-yellow.color-block.us-col-4
+        .color-block__hex #ffd32f
+        .color-block__var $c-yellow
+
+
+    %h3 Tertiary (brand blue accents)
+
+    .us-grid-row
+      .c-cyan-light.color-block.us-col-3
+        .color-block__hex #e4f8ff
+        .color-block__var $c-cyan-light
+      .c-typecyan-light.color-block.us-col-3
+        .color-block__hex #4cc0f4
+        .color-block__var $c-typecyan-light
+      .c-blue-light.color-block.us-col-3
+        .color-block__hex #0c72bf
+        .color-block__var $c-blue-light
+      .c-navy-light.color-block.us-col-3
+        .color-block__hex #1a316e
+        .color-block__var $c-navy-light
+
+
+    %h3 Back-up palette (Use sparingly)
+
+    .us-grid-row
+      .c-red-lightest.color-block.us-col-4
+        .color-block__hex tint($c-red, 60%)
+        .color-block__var $c-red-lightest
+      .c-red-light.color-block.us-col-4
+        .color-block__hex tint($c-red, 30%)
+        .color-block__var $c-red-light
+      .c-red-dark.color-block.us-col-4
+        .color-block__hex shade($c-red, 15%) 
+        .color-block__var $c-red-dark
+
+      .c-green-lightest.color-block.us-col-4
+        .color-block__hex tint($c-green, 60%)
+        .color-block__var $c-green-lightest
+      .c-green-light.color-block.us-col-4
+        .color-block__hex tint($c-green, 30%)
+        .color-block__var $c-green-light
+      .c-green-dark.color-block.us-col-4
+        .color-block__hex shade($c-green, 15%) 
+        .color-block__var $c-green-dark
+
+      .c-purple-lightest.color-block.us-col-4
+        .color-block__hex tint($c-purple, 60%)
+        .color-block__var $c-purple-lightest
+      .c-purple-light.color-block.us-col-4
+        .color-block__hex tint($c-purple, 30%)
+        .color-block__var $c-purple-light
+      .c-purple-dark.color-block.us-col-4
+        .color-block__hex shade($c-purple, 15%) 
+        .color-block__var $c-purple-dark
+
+      .c-orange-lightest.color-block.us-col-4
+        .color-block__hex tint($c-orange, 60%)
+        .color-block__var $c-orange-lightest
+      .c-orange-light.color-block.us-col-4
+        .color-block__hex tint($c-orange, 30%)
+        .color-block__var $c-orange-light
+      .c-orange-dark.color-block.us-col-4
+        .color-block__hex shade($c-orange, 15%) 
+        .color-block__var $c-orange-dark
+
+      .c-yellow-lightest.color-block.us-col-4
+        .color-block__hex tint($c-yellow, 60%)
+        .color-block__var $c-yellow-lightest
+      .c-yellow-light.color-block.us-col-4
+        .color-block__hex tint($c-yellow, 30%)
+        .color-block__var $c-yellow-light
+      .c-yellow-dark.color-block.us-col-4
+        .color-block__hex shade($c-yellow, 15%) 
+        .color-block__var $c-yellow-dark

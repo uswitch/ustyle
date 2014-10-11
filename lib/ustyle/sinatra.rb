@@ -16,11 +16,6 @@ if defined?(::Sinatra)
           app.sprockets.append_path File.join(app.assets_path, asset_directory)
         end
 
-        Compass.configuration do |config|
-          config.project_path = app.assets_path
-          config.images_dir   = "images"
-        end
-
         Sprockets::Helpers.configure do |config|
           config.environment = app.sprockets
           config.prefix      = app.assets_helper_path

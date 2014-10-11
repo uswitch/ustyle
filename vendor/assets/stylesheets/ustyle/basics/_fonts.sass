@@ -14,9 +14,19 @@
     family: $heading-font-secondary
     weight: 700
 
+%heading-font-print
+  @media print
+    font:
+      family: $heading-font-secondary !important
+      weight: 700 !important
+
 %default-font,
 %normal-font
   font-family: $normal-font
+
+%italic-font
+  @extend %normal-font
+  font-style: italic
 
 %icon-font
   font:
