@@ -1,12 +1,10 @@
 .nav__wrapper
   %nav.nav__container
-    = nav_link "Home", "/", class: "nav__link"
-
     .nav__set-container
       %ul.nav__set
         %li.nav__set-title Getting started
         %li= nav_link "Installation", "/installation.html", class: "nav__link"
-        %li= nav_link "Variables", "/variables.html", class: "nav__link"
+        %li= nav_link "Sassdoc", "/sassdoc/index.html", class: "nav__link"
         %li= nav_link "Grid", "/grid.html", class: "nav__link"
         %li= nav_link "Typography", "/typography.html", class: "nav__link"
 
@@ -20,5 +18,9 @@
 
       %ul.nav__set
         %li.nav__set-title Javascript
-        = nav_link "Tabs", "/tabs.html", class: "nav__link"
-        = nav_link "Anchor", "/anchor.html", class: "nav__link"
+        %li= nav_link "Tabs", "/tabs.html", class: "nav__link"
+        %li= nav_link "Anchor", "/anchor.html", class: "nav__link"
+
+      %ul.nav__set
+        %li.nav__set-title Utilities
+        %li= nav_link "CSS classes", "/css-classes.html", class: "nav__link"

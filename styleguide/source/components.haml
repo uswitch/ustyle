@@ -1,12 +1,12 @@
 .us-container
   %h1.styleguide-title Components
 
-  = styleblock_nav(["Hero", "Anchors", "Lists with anchors", "Sidebar", "Tabs", "News item", "Guide item", "See more item"])
+  = styleblock_nav(["Anchors", "Lists with anchors", "Custom lists", "Hero", "Loader"])
 
-= styleblock "3.2", "Anchors", {floated: true, sass: "components"} do
+= styleblock "3.2", "Anchors", {floated: true} do
   %a.us-link.modifier-class{href: "http://balbas"} Test link
 
-= styleblock "3.3", "Lists with anchors", {floated: true, sass: "components"} do
+= styleblock "3.3", "Lists with anchors", {floated: true} do
   %ul.us-list
     %li
       %a.modifier-class{href: "http://balbas"} Test link
@@ -15,7 +15,7 @@
     %li
       %a.modifier-class{href: "http://balbas"} Test link
 
-= styleblock "3.4", "Lists with anchors", {floated: true, sass: "components"} do
+= styleblock "3.4", "Lists with anchors", {floated: true} do
 
   %ul.us-ticked-list
     %li Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin iaculis bibendum. Curabitur sit amet nulla nisi. Vestibulum tristique auctor imperdiet. Cras congue varius venenatis.
@@ -30,13 +30,13 @@
     %ul.us-numbered-list
       %li Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin iaculis bibendum. Curabitur sit amet nulla nisi. Vestibulum tristique auctor imperdiet. Cras congue varius venenatis.
 
-= styleblock "5.1", "Hero", {floated: false, sass: "components"} do
+= styleblock "5.1", "Hero", {floated: false} do
   .us-hero
     .us-hero-container
       %h1.us-hero-title Hero title
       %p.us-hero-description.us-standfirst Swat at dog intrigued by the shower missing until dinner time and run in circles use lap as chair. Swat at dog stretch and stand in front of the computer screen.
 
-= styleblock "5.4", "Loader", {floated: true, sass: "components"} do
+= styleblock "5.4", "Loader", {floated: true} do
   .fake_table_container
 
     .us-loader.us-loader--loading

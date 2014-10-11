@@ -1,28 +1,9 @@
 .logo
-  @extend %heading-font-regular
-  +link-colors(white, $c-typecyan, white, white)
-  position: fixed
+  +svg-background("uswitch", $background-position: "left center", $background-size: 45px)
+  +link-colors($c-navy, $c-navy, $c-navy, $c-navy)
   z-index: 1000
-  top: 5px
-  right: $gutter-width/2
-  border-radius: 3px
   display: inline-block
-  padding: 0.5em
-  background-color: $c-navy
-
-  &:before
-    content: "\2630"
-    @extend %icon-font
-    speak: none
-    display: inline-block
-    font-size: 0.8em
-    margin-right: 0.5em
-
-  .open-menu &
-    +link-colors($c-cyan, $c-typecyan, white, white)
-
-    &:before
-      content: "\2718"
-
-#nav
-  float: right
+  padding: 1em 0.5em
+  padding-left: 55px
+  font-weight: 700
+  margin: 0 $gutter-width/2

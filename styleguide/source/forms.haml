@@ -2,7 +2,7 @@
   %h1.styleguide-title Forms
   = styleblock_nav(["Form fields", "Form inputs", "Inputs with backgrounds", "Radios and checkboxes", "Selects", "Form validation"])
 
-= styleblock "2.1", "Form fields", {floated: true, sass: "forms"} do
+= styleblock "2.1", "Form fields", {floated: true} do
   .us-field.modifier-class
     %label{for: "name"} Name
     %input#name.us-form-input{name: "Name", placeholder: "Please enter a name"}
@@ -14,13 +14,13 @@
         %option Male
         %option Female
 
-= styleblock "2.2", "Form inputs", {floated: true, sass: "forms"} do
+= styleblock "2.2", "Form inputs", {floated: true} do
   %input.us-form-input.modifier-class
 
-= styleblock "2.2.1", "Inputs with backgrounds", {floated: true, sass: "forms"} do
+= styleblock "2.2.1", "Inputs with backgrounds", {floated: true} do
   %input.us-form-input.modifier-class{type: :text}
 
-= styleblock "2.3", "Radios and checkboxes", {floated: true, sass: "forms"} do
+= styleblock "2.3", "Radios and checkboxes", {floated: true} do
   .us-field.us-field-blocked
     %label Do you have a different billing address?
     .us-field-toggle
@@ -39,7 +39,7 @@
       %label
         %input.us-form-input{:type=>'checkbox',:name=>'null'} Email
 
-= styleblock "2.4", "Selects", {floated: true, sass: "forms"} do
+= styleblock "2.4", "Selects", {floated: true} do
   %span.us-form-select-wrap
     %select.us-form-select.modifier-class
       %option A select menu

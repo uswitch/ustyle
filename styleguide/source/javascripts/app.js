@@ -1,25 +1,19 @@
 hljs.initHighlightingOnLoad();
 
-var uSwitch = uSwitch || {};
+;(function(document, $) {
 
-uSwitch.styleguide = (function(root){
-
-  function init(){
+  function Styleguide(){
     setupNav();
     setupAnchors();
-    $('.js-sortable').tableSort();
-  }
+    setupTables();
+    setupTabs();
+  };
 
   var setupNav = function(){
     var logo = document.getElementById("logo");
-    var contentOverlay = document.getElementsByClassName("content__overlay");
-    var activeClass = "open-menu";
+    var activeClass = "nav--opened";
 
     logo.addEventListener("click", function(e){
-      menuOpen(e, activeClass);
-    }, false);
-
-    contentOverlay[0].addEventListener("click", function(e){
       menuOpen(e, activeClass);
     }, false);
 
@@ -41,8 +35,14 @@ uSwitch.styleguide = (function(root){
     });
   };
 
-  root.init = init();
+  var setupTables = function(){
+    $('.js-sortable').tableSort();
+  };
 
-})(this);
+  var setupTabs = function(){
+    var tabs = new Tabs();
+  };
 
-var tabs = new Tabs();
+  return new Styleguide();
+
+})(document, $);

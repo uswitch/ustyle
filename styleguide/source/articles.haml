@@ -1,7 +1,7 @@
 .us-container
   %h1.styleguide-title Articles
   
-= styleblock "4.1", "News item", floated: false do
+= styleblock "4.1", "News item", floated: true do
   .us-news-item
     %a.us-news-item-link{href: "#"}
       .us-news-item-image-container
@@ -14,9 +14,9 @@
       .us-news-item-readmore
         %span.us-news-item-readmorelink More consumer rights
 
-= styleblock "4.2", "Guide item", floated: false do
+= styleblock "4.2", "Guide item", floated: true do
   .us-guide-item.modifier-class
-    %a.us-guide-item-link{:href => "http://www.uswitch.com/car-insurance/guides/"}
+    %a.us-guide-item-link{href: "#"}
       .us-guide-item-image-container
         .us-guide-item-image.background{:style => "background-image: url(http://www.uswitch.com/insurance/assets/guide-home-16141c84afd29e2063ee76803037716c.jpg)"}
       .us-guide-item-content
@@ -25,7 +25,7 @@
       .us-guide-item-readmore 
         %span.us-news-item-readmorelink Read more
 
-= styleblock "4.3", "See more item", floated: false do
+= styleblock "4.3", "See more item", floated: true do
   .us-more-item
-    %a.us-more-item-link{:href => "test"}
+    %a.us-more-item-link{href: "#"}
       %span.us-more-item-title See more mobile news stories

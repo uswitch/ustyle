@@ -14,7 +14,7 @@ gem "middleman-autoprefixer"
 gem "wdm", "~> 0.1.0", :platforms => [:mswin, :mingw]
 
 # Styleguide shebang
-gem "kss"
+gem "kss", github: "annez/kss", branch: "master"
 
 # uStyle
 gem 'ustyle', :git => "git@github.com:uswitch/ustyle.git", :branch => "master"

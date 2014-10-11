@@ -1,15 +1,18 @@
 @charset "utf-8"
 
+$needs-font: true
 $table-experimental: true
 $col-width: 60px
 $gutter-width: 25px
+$nav-width: 300px
 
 @import "ustyle"
 
+@import "basics/typography"
+@import "basics/mixins"
+
 @import "structure/layout"
 @import "structure/header"
-
-@import "basics/typography"
 
 @import "modules/nav"
 @import "modules/guide-block"
@@ -22,6 +25,4 @@ $gutter-width: 25px
 @import "modules/styleblock-nav"
 @import "modules/key"
 @import "modules/loader"
-
-.example-anchor__target
-  width: 300px
+@import "modules/articles"

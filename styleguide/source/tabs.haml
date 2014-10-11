@@ -1,7 +1,7 @@
 .us-container
   %h1.styleguide-title Tabs
 
-= styleblock "5.3", "Tabs", {floated: false, sass: false} do
+= styleblock "5.3", "Tabs", {floated: false} do
   .us-tabs
     %nav.us-tabs-nav
       .us-tabs-nav-wrapper
@@ -32,3 +32,15 @@
         %h2.us-tab-title= link_to "Gas &amp; Electricity suppliers", "#test1", class: "us-tabs-nav-mainlink"
         .us-tab-content 
           Pig pastrami pork loin kielbasa, filet mignon meatloaf short ribs tenderloin. Pork loin leberkas kevin fatback porchetta bresaola. Cow rump shoulder pastrami. Andouille pork belly t-bone short ribs brisket. Bresaola pork belly tail salami capicola meatball. Pork belly beef ham landjaeger.
+
+.us-container
+  %h2 Setup
+  %pre.code-block__code.us-col-6{class: :javascript}
+    %code<
+      :plain
+        var tabs = new Tabs({
+          tabContainer: "us-tabs",
+          tabLinks: ".us-tabs-nav-mainlink",
+          changeUrls: true,
+          activeClass: "active"
+        });

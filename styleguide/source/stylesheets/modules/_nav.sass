@@ -1,91 +1,39 @@
-%overlay-effect
-  transition: all 400ms cubic-bezier(0.175, 0.885, 0.335, 1.05)
-  top: 0
-  left: 0
-  right: 0
-  bottom: 0
-  position: absolute
-  width: auto
-  height: auto
-
-.wrapper
-  @extend %backface-visibility--hidden
-  @extend %overlay-effect
-  z-index: 500
-  background-color: white
-  overflow-y: auto
-
-.content__overlay
-  @extend %overlay-effect
-  box-shadow: 0
-  z-index: -1
-  cursor: pointer
-
-.open-menu
-  overflow: hidden
-
-  .wrapper,
-  .content__overlay
-    transform: translate3d(-80%,0,0) scale(0.85)
-
-    +respond-to(tablet, true)
-      transform: translate3d(0,300px,0) scale(0.85)
-      left: 0
-
-  .content__overlay
-    z-index: 600
-
-    &:hover
-      box-shadow: 0 0 18px 0 $grey-5
-
-.nav__wrapper
-  position: absolute
-  left: 0
+.nav
+  position: fixed
+  width: $nav-width
   top: 0
   bottom: 0
-  right: 0
-  background-color: $c-navy
-  
-.nav__container
-  @extend %container
-  padding-top: 1.5em
-  padding-bottom: 3em
-  text-align: center
-  height: 100%
-  overflow: hidden
-
-  +respond-to(tablet, true)
-    padding-bottom: 0
+  left: 0
+  background-color: $c-lightgrey
+  z-index: 1000
+  overflow: scroll
 
 .nav__link
-  +link-colors(white, $c-typecyan, white, white)
+  +link-colors($c-typegrey-2, $c-typecyan, $c-typegrey-2, $c-typegrey-2)
   display: block
-  font-size: $base-font-size
   font-size: 1rem
+  padding: 0 $gutter-width/2
 
 .nav__set-container
-  +us-row
   max-height: 100%
   overflow: auto
 
 .nav__set
   @extend %reset-box-model
-  margin-top: 1em
+  margin-top: .75em
   list-style: none
   text-align: left
-  float: right
-  width: 80%
 
-  +respond-to(tablet)
-    +us-col(4)
-
-  +respond-to(desktop, true)
-    +us-col(3)
+  &:first-child
+    .nav__set-title
+      margin-top: 0
 
 .nav__set-title
-  color: $grey-10
-  border-bottom: 1px solid $grey-10
-  margin-bottom: $gutter-width/2
+  font-weight: bold
+  border-bottom: 1px solid $c-typegrey
+  margin: $gutter-width $gutter-width/2 $gutter-width/2
+  color: $c-typegrey
 
 .nav__link--active
-  font-weight: bold !important
+  background-color: white
+  color: $c-typecyan

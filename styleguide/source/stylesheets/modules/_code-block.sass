@@ -1,7 +1,10 @@
 .code-block
-  margin-top: 1.5em
+  padding-top: 1em
 
 .code-block__code
+  max-height: 300px
+  overflow: auto
+
   .code-block &
     .js &
       display: none
@@ -10,13 +13,3 @@
   .js &
     .code-block__code
       display: block
-
-.code-block__reveal
-  display: block
-  text-align: center
-
-  &:before
-    @extend %icon-font
-    content: "\e040"
-    display: inline-block
-    margin-right: 0.5em
