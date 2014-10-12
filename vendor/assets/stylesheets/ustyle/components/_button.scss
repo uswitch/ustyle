@@ -5,6 +5,10 @@
 // Each of these styles adheres to the uSwitch branding colours.
 // Currently we support anchor tags and button tags as the main ussage
 //
+// Markup:
+//  <a href="#" class="us-btn {$modifiers}">Link Button</a>
+//  <button class="us-btn {$modifiers}">Button Element</button>
+// 
 // .us-btn--primary - Used a save/update button
 // .us-btn--action - Navigational button
 // .us-btn--secondary - Secondary

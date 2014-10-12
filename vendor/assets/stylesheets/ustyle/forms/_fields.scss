@@ -1,14 +1,20 @@
-// Form field
-// ---
-// This is the basic form field, `.us-field` wrapper for any single input or select.
+// Form fields
+// 
+// This is the basic form field, `.us-field` wrapper for any single input or select. 
 // It sets a few layout options by default (margin) and styles any labels within.
-// You can create a fake label style with .us-faux-label
+// You can create a fake label style with `.us-faux-label`
+//
+// Markup:
+// <div class="us-field {$modifiers}">
+//   <label for='name'>Name</label>
+//   <input class='us-form-input' id='name' name='name' placeholder='Please enter your name'>
+// </div>
 //
 // .us-field-required - Any required form field has this class to show an asterisk beside the label
 // .us-field-blocked - Blocked label styling
 // .us-field-inline - Inline label styling
 //
-// Styleguide 2.1
+// Styleguide 3.1
 
 $default-label-color: $c-typegrey !default;
 $default-label-size: 18px !default;

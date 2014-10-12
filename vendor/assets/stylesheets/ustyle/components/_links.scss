@@ -1,8 +1,13 @@
 // Anchor links
-// ---
-// Any anchor tags or items with the class .us-link will get this styling
+// 
+// Anchor tag styling, with and without a border
 //
-// Styleguide 3.2
+// Markup:
+// <a href="#" class="{$modifiers}">Link</a>
+// 
+// .us-link - Adds a border bottom to the link
+//
+// Styleguide 4.1
 
 a,
 .us-link {

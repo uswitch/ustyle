@@ -1,12 +1,21 @@
 // Selects
-// ---
+// 
 // The `.us-form-select` is built with inline background-image SVGs for Webkit/Blink browsers
 // that allow for Sass variable changes on the hover/normal colours. Firefox allows for
 // .us-form-select wrap to be added on top of the select to replicate styling, whilst
 // other browser fallback to native implementation. `$select-base-color`, `$select-hover-color` and
 // `$select-active-color` allow for different colouring of the border/dropdown.
 //
-// Styleguide 2.4
+// Markup:
+// <span class='us-form-select-wrap'>
+//   <select class='us-form-select'>
+//     <option>A select menu</option>
+//     <option>With lots of options</option>
+//     <option>And a few more</option>
+//   </select>
+// </span>
+//
+// Styleguide 3.4
 
 $select-base-color: $c-inputgrey !default;
 $select-hover-color: $c-typecyan !default;
