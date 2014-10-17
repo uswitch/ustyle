@@ -44,7 +44,7 @@ $spinner-load-fallback: true !default
   background-repeat: no-repeat
 
 %spinner-icon
-  animation: spin $spinner-animation-time infinite
+  animation: spin $spinner-animation-time infinite linear
   background: transparent url($spinner-file-fallback) no-repeat center center
   background-image: -webkit-linear-gradient(transparent, transparent), inline-asset($spinner-file)
   background-image: linear-gradient(transparent, transparent), inline-asset($spinner-file)
