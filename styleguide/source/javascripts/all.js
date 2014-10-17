@@ -3,6 +3,7 @@
 //= require highlight
 //= require codetoggle
 //= require tablesort
+//= require pageslider
 //= require ustyle/utils
 //= require ustyle/anchor
 //= require ustyle/tabs
