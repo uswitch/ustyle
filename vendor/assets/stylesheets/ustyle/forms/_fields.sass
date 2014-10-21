@@ -25,19 +25,19 @@ $label-inline-breakpoint: tablet !default
   @extend %clearfix
   margin-bottom: 1em
 
-  label,
-  .us-faux-label
+  > label,
+  > .us-faux-label
     +heading-font-secondary
     font-size: em($default-label-size)
     color: $default-label-color
 
 .us-field-blocked
-  label,
-  .us-faux-label
+  > label,
+  > .us-faux-label
     @extend %base-block-label
 
 .us-field-required
-  label
+  > label
     &:after
       content: "*"
       display: inline-block
@@ -65,8 +65,8 @@ $label-inline-breakpoint: tablet !default
 // This is an inline field, for quick, easy to read forms
 
 .us-field-inline
-  label,
-  .us-faux-label
+  > label,
+  > .us-faux-label
     @extend %base-block-label
 
     +respond-to($label-inline-breakpoint, true)
