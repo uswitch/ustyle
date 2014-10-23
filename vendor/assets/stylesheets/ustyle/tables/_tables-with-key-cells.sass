@@ -1,29 +1,29 @@
 // Table with key cells
 // --------------------
-@if $table-experimental
-  .us-table-cell-key
+
+.us-table-cell-key
+  color: $table-c-key
+
+  +respond-to(small-tablet, true)
+    width: em($table-key-width)
+    max-width: em($table-key-width)
+    padding-left: em($table-key-sidepadding)
+    padding-right: em($table-key-sidepadding)
+
+  .key-value,
+  .key-sideunit
     color: $table-c-key
 
-    +respond-to(small-tablet, true)
-      width: em($table-key-width)
-      max-width: em($table-key-width)
-      padding-left: em($table-key-sidepadding)
-      padding-right: em($table-key-sidepadding)
+  .key-value
+    font-size: 32px
 
-    .key-value,
-    .key-sideunit
-      color: $table-c-key
+  .key-value small,
+  .key-sideunit
+    font-size: 20px
 
-    .key-value
-      font-size: 32px
+  .key-unit,
+  .key-desc
+    font-size: 14px
 
-    .key-value small,
-    .key-sideunit
-      font-size: 20px
-
-    .key-unit,
-    .key-desc
-      font-size: 14px
-
-    .key-desc
-      color: $table-c-label
+  .key-desc
+    color: $table-c-label

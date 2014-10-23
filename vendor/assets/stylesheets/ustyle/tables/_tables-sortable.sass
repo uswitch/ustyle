@@ -1,74 +1,36 @@
-// Example of a more complex table
+// Tables with sortable columns
 // ---
-//
 //
 // Styleguide 6.2
 
-@if $table-experimental
-  %with-sort-arrow
-    +respond-to(small-tablet, true)
-      position: relative
-      margin-right: 0.5em
+.us-table-cell-sorted
+  +respond-to(small-tablet, true)
+    background-color: $table-c-sorted-bg
 
-      &:after
-        display: none
-        content: "\025bc"
-        line-height: 1
-        position: absolute
-        top: 50%
-        right: -1.5em
-        margin-top: -0.5em
-        color: $table-c-inactive
+.us-table-sort-button
+  color: $table-c-head-text
+  white-space: nowrap
+  cursor: default
 
-  .us-table-cell-sorted
-    +respond-to(small-tablet, true)
-      background: $table-c-sorted-bg
+  &:after
+    content: "\025bc"
+    color: $table-c-inactive
 
-  %us-table-head-text,
-  .us-table-head-text
-    @extend %with-sort-arrow
-    display: inline-block
-    line-height: normal
-    vertical-align: baseline
+  &:hover
+    color: $table-c-head-text
 
-  .us-table-sort-button,
-  .us-table-sort-button:visited
-    @extend %us-table-head-text
-
-    +respond-to(small-tablet, true)
+    &:after
       color: $table-c-head-text
-      cursor: default
 
-      .js .js-sortable &
-        cursor: pointer
-
-        &:after
-          display: block
-
-        &:hover
-          color: $table-c-head-text
-
-          &:after
-            color: $table-c-head-text
-
-  .us-table-head-sorted
-    padding-right: 2em
+.us-table-head-sorted
+  .us-table-sort-button
     color: $table-c-sorted-text
 
-    .us-table-sort-button,
-    .us-table-head-text
+    &:hover
       color: $table-c-sorted-text
 
       &:after
         color: $table-c-sorted-text
 
-      +respond-to(small-tablet, true)
-        .js .js-sortable &
-          &:hover,
-            color: $table-c-sorted-text
-
-            &:after
-              color: $table-c-sorted-text
-
-    .us-table-head-text:after
-      display: block
+    &:after
+      color: $table-c-sorted-text
