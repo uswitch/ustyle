@@ -9,8 +9,8 @@
       autosort: true,
       th_class_prefix:   'us-table-head',
       td_class_prefix:   'us-table-cell',
-      sorted_th_class:   'us-table-head-sorted',
-      sorted_td_class:   'us-table-cell-sorted',
+      sorted_th_class:   'us-table-head--sorted',
+      sorted_td_class:   'us-table-cell--sorted',
       sort_button_class: 'us-table-sort-button'
     }, options);
 

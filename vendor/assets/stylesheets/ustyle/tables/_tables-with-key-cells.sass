@@ -1,29 +1,27 @@
 // Table with key cells
-// --------------------
+// ---
+//
+// Styleguide 6.2
 
-.us-table-cell-key
+.us-table-key
+  color: $table-c-key
+  text-align: center
+
+.us-table-key__value,
+.us-table-key__sideunit
+  font-weight: bold
   color: $table-c-key
 
-  +respond-to(small-tablet, true)
-    width: em($table-key-width)
-    max-width: em($table-key-width)
-    padding-left: em($table-key-sidepadding)
-    padding-right: em($table-key-sidepadding)
+.us-table-key__value
+  font-size: em(32px)
 
-  .key-value,
-  .key-sideunit
-    color: $table-c-key
+.us-table-key__value small,
+.us-table-key__sideunit
+  font-size: em(20px)
 
-  .key-value
-    font-size: 32px
+.us-table-key__unit,
+.us-table-key__desc
+  font-size: em(14px)
 
-  .key-value small,
-  .key-sideunit
-    font-size: 20px
-
-  .key-unit,
-  .key-desc
-    font-size: 14px
-
-  .key-desc
-    color: $table-c-label
+.us-table-key__desc
+  color: $table-c-label

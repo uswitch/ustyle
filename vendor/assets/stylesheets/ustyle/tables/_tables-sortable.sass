@@ -1,16 +1,16 @@
 // Tables with sortable columns
 // ---
 //
-// Styleguide 6.2
+// Styleguide 6.3
 
-.us-table-cell-sorted
+.us-table-cell--sorted
   +respond-to(small-tablet, true)
     background-color: $table-c-sorted-bg
 
 .us-table-sort-button
   color: $table-c-head-text
   white-space: nowrap
-  cursor: default
+  cursor: pointer
 
   &:after
     content: "\025bc"
@@ -22,7 +22,7 @@
     &:after
       color: $table-c-head-text
 
-.us-table-head-sorted
+.us-table-head--sorted
   .us-table-sort-button
     color: $table-c-sorted-text
 
