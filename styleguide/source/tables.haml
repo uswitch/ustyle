@@ -72,7 +72,43 @@
           %td
             %a.us-btn.arrowed{href: agent.url, target: "_blank"} Proceed
 -# -------
-= styleblock "6.3", "Tables with sortable columns", {floated: false} do
+= styleblock "6.3", "USP labels for table cells", {floated: false} do
+  %table.us-table
+    %thead
+      %tr
+        %th
+          Company
+        %th
+          Product features
+        %th
+          Free trial period
+        %th
+          Monthly subscription
+        %th
+
+    %tbody
+      %tr
+        %td
+          Experian
+          .us-table-usp Most popular!
+
+        %td
+          %ul
+            %li Unlimited online access
+            %li Credit score improvement tips
+            %li Identity Fraud Insurance
+            %li Email & SMS alerts
+
+        %td 30 days
+
+        %td
+          £14.99
+          .us-table-usp.us-table-usp--navy Cheapest plan
+
+        %td
+          %a.us-btn.arrowed{href: "#"} Proceed
+-# -------
+= styleblock "6.4", "Tables with sortable columns", {floated: false} do
   %table.us-table.js-sortable.table-complex-example
     %thead
       %tr
