@@ -1,0 +1,18 @@
+// USP labels for table cells
+// ---
+//
+// Styleguide 6.3
+
+$variants: (cyan, $c-cyan), (typecyan, $c-typecyan), (blue, $c-blue), (navy, $c-navy), (red, $c-red), (green, $c-green), (purple, $c-purple), (orange, $c-orange), (yellow, $c-yellow)
+
+.us-usp
+  padding: 0 0.625em
+  font-size: 0.8em
+  line-height: $base-line-ratio
+  color: #fff
+  background-color: $c-typecyan
+  text-align: center
+
+@each $colour in $variants
+  .us-usp--#{nth($colour, 1)}
+    background-color: #{nth($colour, 2)}
