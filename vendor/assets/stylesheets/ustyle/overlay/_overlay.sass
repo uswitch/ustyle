@@ -1,3 +1,11 @@
+@keyframes scaleUp
+  from
+    transform: translateX(0) scale(0.9) 
+    -webkit-transform: translate3D(0,0,0) scale(0.9) 
+  to
+    transform: translateX(0) scale(1) 
+    -webkit-transform: translate3D(0,0,0) scale(1) 
+
 %overlay
   backface-visibility: hidden
   perspective: 1000
@@ -13,11 +21,12 @@
   transition-timing-function: cubic-bezier(0.175, 0.885, 0.335, 1.05)
   +respond-to(small-tablet, true)
     width: 340px
-  .us-overlay-parent--modal &
-    +respond-to(desktop)
+  .us-overlay-modal-parent &
+    +respond-to(desktop,true)
       transition: all 0.3s
       position: relative
       width: 60%
+      max-width: 700px
       margin: 5% auto
       transform: translateX(0) scale(0.9) 
       -webkit-transform: translate3D(0,0,0) scale(0.9) 
@@ -27,11 +36,7 @@
   -webkit-transform: translate3D(0,0,0)
   .no-cssanimations &
     left: 0
-  .us-overlay-parent--modal &
-    +respond-to(desktop)
-      transform: translateX(0) scale(1) !important
-      -webkit-transform: translate3D(0,0,0) scale(1) !important
-
+  
 %overlay__back-layer
   width: 100%
   height: 150%
@@ -50,9 +55,7 @@
   @extend %container
   padding: 1em
 
-.us-overlay-parent
-
-.us-overlay-parent--modal
+.us-overlay-modal-parent
   +respond-to(desktop)
     display: none
     position: fixed
@@ -60,26 +63,42 @@
     left: 0
     width: 100%
     z-index: 1004
-    &.overlay--opened
+    &.us-overlay--open
       display: block
 
 .us-overlay
   @extend %overlay
   transform: translateX(-100%)
   -webkit-transform: translate3D(-100%,0,0)
-  
   left: 0
   .no-cssanimations &
     left: -100%
-  .overlay--opened &
+  .us-overlay--open &
     @extend %overlay--open
+  .us-overlay--open.us-overlay-modal-parent &
+    +respond-to(desktop,true)
+      transform: translateX(0) scale(1)
+      -webkit-transform: translate3D(0,0,0) scale(1)
+      animation: scaleUp 0.5s
 
 .us-overlay__header
   background: $c-navy
   color: white
   padding: 1em
 
-.us-overlay__title
+.us-overlay__close
+  cursor: pointer
+  background-image: url(ustyle-image-path("anchor/close_white_fallback.png"))
+  background: inline-asset("anchor/close_white.svg")
+  width: 50px
+  height: 50px
+  border: 0
+  position: absolute
+  right: 0
+  z-index: 10
+  background-size: 40px
+  top: 0.5em
+  background-repeat: no-repeat
 
 .us-overlay--right
   transform: translateX(100%)
@@ -88,11 +107,8 @@
   left: auto
   .no-cssanimations &
     right: -100%
-  .overlay--opened &
+  .us-overlay--open &
     @extend %overlay--open
-
-.us-overlay--open
-  @extend %overlay--open
 
 .us-overlay__container
   @extend %overlay__container
@@ -100,7 +116,7 @@
 .us-overlay__back-layer
   @extend %overlay__back-layer
 
-  .overlay--opened &
+  .us-overlay--open &
     @extend %overlay__back-layer--open
 
 .us-overlay__back-layer--open
