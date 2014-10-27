@@ -64,9 +64,10 @@
       display: block
 
 .us-overlay
+  @extend %overlay
   transform: translateX(-100%)
   -webkit-transform: translate3D(-100%,0,0)
-  @extend %overlay
+  
   left: 0
   .no-cssanimations &
     left: -100%
@@ -81,10 +82,10 @@
 .us-overlay__title
 
 .us-overlay--right
-  @extend %overlay
   transform: translateX(100%)
   -webkit-transform: translate3D(100%,0,0)
   right: 0
+  left: auto
   .no-cssanimations &
     right: -100%
   .overlay--opened &
