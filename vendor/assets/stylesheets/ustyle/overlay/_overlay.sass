@@ -11,22 +11,22 @@
   perspective: 1000
   height: 100%
   position: fixed
-  z-index: 1003
+  z-index: $overlay_forced_z_index
   background: white
   overflow: auto
   -webkit-overflow-scrolling: auto
   top: 0
   width: calc(100% - 25px)
-  transition: transform 0.5s
+  transition: transform $overlay_transition_speed
   transition-timing-function: cubic-bezier(0.175, 0.885, 0.335, 1.05)
   +respond-to(small-tablet, true)
     width: 340px
   .us-overlay-modal-parent &
-    +respond-to(desktop,true)
-      transition: all 0.3s
+    +respond-to($overlay_modal_breakpoint,true)
+      transition: all $overlay_transition_speed
       position: relative
       width: 60%
-      max-width: 700px
+      max-width: $overlay_max_modal_width
       margin: 5% auto
       transform: translateX(0) scale(0.9) 
       -webkit-transform: translate3D(0,0,0) scale(0.9) 
@@ -44,7 +44,7 @@
   background: $c-blue
   top: 0
   left: 0
-  z-index: 1002
+  z-index: $overlay_forced_z_index - 1
   display: none
   opacity: 0.5
 
@@ -56,13 +56,13 @@
   padding: 1em
 
 .us-overlay-modal-parent
-  +respond-to(desktop)
+  +respond-to($overlay_modal_breakpoint, true)
     display: none
     position: fixed
     top: 0
     left: 0
     width: 100%
-    z-index: 1004
+    z-index: $overlay_forced_z_index + 1
     &.us-overlay--open
       display: block
 
@@ -76,10 +76,10 @@
   .us-overlay--open &
     @extend %overlay--open
   .us-overlay--open.us-overlay-modal-parent &
-    +respond-to(desktop,true)
+    +respond-to($overlay_modal_breakpoint,true)
       transform: translateX(0) scale(1)
       -webkit-transform: translate3D(0,0,0) scale(1)
-      animation: scaleUp 0.5s
+      animation: scaleUp $overlay_transition_speed
 
 .us-overlay__header
   background: $c-navy
