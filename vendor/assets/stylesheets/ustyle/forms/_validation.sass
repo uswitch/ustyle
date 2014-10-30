@@ -29,7 +29,6 @@ $success-icon-color: #fff
 @mixin validation-style($color: $error-color, $icon: $error-icon, $icon-color: $error-icon-color, $text-color: $error-color)
   .us-validation__message
     color: $text-color
-    background-color: #fff
     border-color: $color
 
     &:before,
@@ -71,6 +70,7 @@ $success-icon-color: #fff
     border-width: 1px
     border-style: solid
     border-radius: 3px
+    background-color: #fff
 
     &:before,
     &:after
@@ -113,14 +113,14 @@ $success-icon-color: #fff
     position: absolute
     top: -($icon-input-bg-size)
     right: -($icon-input-bg-size) / 2
-  
+
   &:before
     background-color: white
     width: 13px
     height: 16px
     content: " "
 
-  &:after    
+  &:after
     @extend %icon-font
     font-size: $icon-input-bg-size
 
