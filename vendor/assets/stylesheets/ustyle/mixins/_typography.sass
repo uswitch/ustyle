@@ -35,11 +35,11 @@
 @mixin heading-font-primary($extend: true)
   @if $extend
     @extend %heading-font-primary
+    @extend %heading-font-print
   @else
     font:
       family: $heading-font-primary
       weight: normal
-  @extend %heading-font-print
 
 /// Returns the `$heading-font-secondary` declaration either as an extend or re-declares
 /// 
