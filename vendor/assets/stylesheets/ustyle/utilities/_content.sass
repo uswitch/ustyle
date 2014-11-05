@@ -6,6 +6,10 @@
     +respond-to(tablet, true)
       display: block
 
+    ~ .us-content__title
+      +respond-to(desktop, true)
+        margin: -100px 0 0 0
+
 .us-content__title
   +heading-font-secondary
   +heading(3)
@@ -20,7 +24,7 @@
     
   +respond-to(desktop, true)
     +heading(1, $extend: false, $heading-font: false)
-    margin: -100px 0 0 0
+    
 
 .us-social
   margin-bottom: 2em

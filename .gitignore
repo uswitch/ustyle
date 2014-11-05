@@ -19,3 +19,4 @@ tmp
 *.sublime-*
 build/
 .sass-cache/
+node_modules/
