@@ -1,84 +1,64 @@
-// Overlay sliding from left
+// Overlay
 // ---
-// Shows when adding the class .us-overlay--open to the parent
+// `.us-overlay` slides from any side and can turn into a modal if `.us-overlay-modal-parent` is added into the parent.
 //
+// .us-overlay--right - Add it to ".us-overlay" to slide from right
+// 
 // Styleguide 6.3
 
 
-// Overlay sliding from right
-// ---
-// Shows when adding the class .us-overlay--open to the parent.
-// To make it snap on the right side the class .us-overlay--right needs to be added on .us-overlay
-//
-// Styleguide 6.4
-
-// Overlay modal
-// ---
-// Shows when adding the class .us-overlay--open to the parent
-// Works on both right and left, if the class .us-overlay-modal-parent is added on a parent, it will turn into a modal on a desktop
-//
-// Styleguide 6.5
-
-$overlay_max_modal_width: 700px !default
-$overlay_forced_z_index: 1003 !default
-$overlay_transition_speed: 0.4s !default
-$overlay_modal_breakpoint: desktop !default
-
-
-@keyframes scaleUp
-  from
-    transform: translateX(0) scale(0.9) 
-    .csstransforms3d &
-      transform: translate3D(0,0,0) scale(0.9) 
-  to
-    transform: translateX(0) scale(1) 
-    .csstransforms3d &
-      transform: translate3D(0,0,0) scale(1) 
+$overlay-modal-breakpoint: desktop !default 
+$overlay-modal-width: 60% !default 
+$overlay-max-modal-width: 700px !default 
+$overlay-forced-z-index: 1003 !default 
+$overlay-transition-speed: 0.4s !default
+$overlay-mobile-width: calc(100% - 25px) !default 
+$overlay-tablet-width: 340px !default 
+$overlay-z-index: $overlay-forced-z-index 
 
 
 %overlay
-  backface-visibility: hidden
-  perspective: 1000
-  height: 100%
+  -webkit-overflow-scrolling: auto
   position: fixed
-  z-index: $overlay_forced_z_index
+  z-index: $overlay-forced-z-index
   background: white
   overflow: auto
-  -webkit-overflow-scrolling: auto
   top: 0
-  width: calc(100% - 25px)
-  transition: transform $overlay_transition_speed
+  left: 0
+  width: $overlay-mobile-width
+  height: 100%
+  transition: transform $overlay-transition-speed
   transition-timing-function: cubic-bezier(0.175, 0.885, 0.335, 1.05)
+  transform: translateX(-100%)
+  transform: translate3D(-100%,0,0)
+  .no-cssanimations &
+    display: none
+  .us-overlay--open &
+    @extend %overlay--open
   +respond-to(small-tablet, true)
-    width: 340px
+    width: $overlay-tablet-width
   .us-overlay-modal-parent &
-    +respond-to($overlay_modal_breakpoint,true)
-      transition: all $overlay_transition_speed
+    +respond-to($overlay-modal-breakpoint,true)
       position: relative
-      width: 60%
-      max-width: $overlay_max_modal_width
-      margin: 5% auto
-      transform: translateX(0) scale(0.9) 
-      .csstransforms3d &
-        transform: translate3D(0,0,0) scale(0.9) 
-
+      width: $overlay-modal-width
+      max-width: $overlay-max-modal-width
+      margin: 5% auto 
+ 
 %overlay--open
   transform: translateX(0)
-  .csstransforms3d &
-    transform: translate3D(0,0,0)
+  transform: translate3D(0,0,0)
   .no-cssanimations &
-    left: 0
+    display: block
   
 %overlay__back-layer
   width: 100%
   height: 150%
   position: fixed
-  background: $c-blue
+  background: rgba($c-blue,0.5)
   top: 0
   left: 0
-  z-index: $overlay_forced_z_index - 1
+  z-index: $overlay-forced-z-index - 1
   display: none
-  opacity: 0.5
 
 %overlay__back-layer--open
   display: block
@@ -88,33 +68,34 @@ $overlay_modal_breakpoint: desktop !default
   padding: 1em
   
 
+@mixin overlay($place-above:false)
+  @extend %overlay
+  @if $place-above
+    $overlay-z-index: $overlay-z-index + 1
+  z-index: $overlay-z-index
+
+
 .us-overlay-modal-parent
-  +respond-to($overlay_modal_breakpoint, true)
+  +respond-to($overlay-modal-breakpoint, true)
     display: none
     position: fixed
     top: 0
     left: 0
     width: 100%
-    z-index: $overlay_forced_z_index + 1
+    z-index: $overlay-forced-z-index + 1
     &.us-overlay--open
       display: block
 
 .us-overlay
-  @extend %overlay
-  transform: translateX(-100%)
-  left: 0
-  .csstransforms3d &
-    transform: translate3D(-100%,0,0)
-  .no-cssanimations &
-    left: -100%
+  +overlay
+
+.us-overlay--right
+  transform: translateX(100%)
+  transform: translate3D(100%,0,0)
+  right: 0
+  left: auto
   .us-overlay--open &
     @extend %overlay--open
-  .us-overlay--open.us-overlay-modal-parent &
-    +respond-to($overlay_modal_breakpoint,true)
-      animation: scaleUp $overlay_transition_speed
-      transform: translateX(0) scale(1)
-      .csstransforms3d &
-        transform: translate3D(0,0,0) scale(1)
       
 .us-overlay__header
   background: $c-navy
@@ -134,17 +115,6 @@ $overlay_modal_breakpoint: desktop !default
   background-size: 40px
   top: 0.5em
   background-repeat: no-repeat
-
-.us-overlay--right
-  transform: translateX(100%)
-  right: 0
-  left: auto
-  .csstransforms3d &
-    transform: translate3D(100%,0,0)
-  .no-cssanimations &
-    right: -100%
-  .us-overlay--open &
-    @extend %overlay--open
 
 .us-overlay__container
   @extend %overlay__container
