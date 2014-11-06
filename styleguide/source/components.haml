@@ -67,45 +67,17 @@
 
 
 
-= styleblock "6.3", "Overlay sliding from left", {floated: false} do
-  %button#open-left-overlay.us-btn
+= styleblock "6.3", "Overlay", {floated: false} do
+  %button.us-btn.js-open-overlay
     Open overlay
-  #overlay
-    .us-overlay
+  %button.us-btn.js-turn-into-modal
+    toggle modal
+  %div.us-overlay-parent
+    .us-overlay.modifier-class
       .us-overlay__header
         .us-overlay__title
-          sliding from the left
-        %button.us-overlay__close
+          Overlay
+        %button.us-overlay__close.js-close-overlay
       .us-overlay__container
         Content goes here
-    #overlay__back-layer.us-overlay__back-layer
-
--# -------
-
-= styleblock "6.4", "Overlay sliding from right", {floated: false} do
-  %button#open-right-overlay.us-btn
-    Open overlay
-  #overlay--right
-    .us-overlay.us-overlay--right
-      .us-overlay__header
-        .us-overlay__title
-          sliding from the right
-        %button.us-overlay__close
-      .us-overlay__container
-        Content goes here
-    #overlay--right__back-layer.us-overlay__back-layer
-
--# -------
-
-= styleblock "6.5", "Overlay modal", {floated: false} do
-  %button#open-modal-overlay.us-btn
-    Open overlay
-  #overlay--modal.us-overlay-modal-parent
-    .us-overlay.us-overlay--right
-      .us-overlay__header
-        .us-overlay__title
-          I turn into a modal
-        %button.us-overlay__close
-      .us-overlay__container
-        Content goes here
-    #overlay--modal__back-layer.us-overlay__back-layer
+    .us-overlay__back-layer.js-close-overlay
