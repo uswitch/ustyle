@@ -8,12 +8,21 @@
   
 .us-related__item-link
   @extend %clearfix
-  +link-colors($grey-4, $c-navy, $grey-4, $grey-4)
+  +link-colors($c-typegrey-2, $c-typecyan, $c-typegrey-2, $c-typegrey-2)
   display: block
   padding-top: .5em
   padding-bottom: .5em
   border-bottom: 1px solid $grey-10
   transition: color .3s, border-color .3s
+
+.us-related__item-link--more
+  +link-colors($c-typegrey, $c-typecyan, $c-typegrey, $c-typegrey)
+  background-color: $c-cyan-light
+  padding-right: .5em
+  text-align: right
+
+  &:after
+    @extend %link-triangle
 
 .us-related__item-title
   @extend %small-font

@@ -45,3 +45,14 @@ $colors: "blue" $c-blue, "navy" $c-navy, "typecyan" $c-typecyan, "cyan" $c-cyan,
 @each $color in $colors
   .us-color--#{nth($color, 1)}
     color: nth($color, 2)
+
+// Fonts
+
+.us-font--normal
+  +normal-font
+
+.us-font--heading-p
+  +heading-font-primary
+
+.us-font--heading-s
+  +heading-font-secondary
