@@ -7,7 +7,7 @@ module.exports = function(grunt) {
     dss: {
       docs: {
         files: {
-          'docs/': 'vendor/assets/stylesheets/ustyle/basics/_typography.{sass,css,scss}'
+          'docs/': 'vendor/assets/stylesheets/ustyle/components/_button.{sass,css,scss}'
         },
         options: {
           parsers: {
@@ -32,6 +32,10 @@ module.exports = function(grunt) {
     var addStateToExample = function(markup, state){
       return markup.replace("{$modifiers}", state);
     };
+
+    var removeModifiersFromMarkup = function(escaped){
+      return escaped.replace(/(\sclass='{\$modifiers}'|\s{\$modifiers})/g, "");
+    }
     // Output options if --verbose cl option is passed
     grunt.verbose.writeflags(options, 'Options');
 
@@ -79,12 +83,15 @@ module.exports = function(grunt) {
             // Add comment block to styleguide
             parsed.blocks.map(function(block){
               block['file'] = filename;
-               // Normalize @state and @variable to array
-                ['state', 'variable'].forEach(function(prop) {
-                    if (block.hasOwnProperty(prop) && typeof block[prop].slice !== 'function') {
-                        block[prop] = [block[prop]];
-                    }
-                });
+              // Normalize @state and @variable to array
+              ['state', 'variable'].forEach(function(prop) {
+                if (block.hasOwnProperty(prop) && typeof block[prop].slice !== 'function') {
+                  block[prop] = [block[prop]];
+                }
+              });
+
+              block.markup.escaped = removeModifiersFromMarkup(block.markup.escaped);
+
               if(block.hasOwnProperty('state')){
                 block.state.map(function(state){
                   state.markup = {
