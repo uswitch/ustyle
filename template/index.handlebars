@@ -23,42 +23,7 @@
       <div class="file">
         
         {{#blocks}}
-          
-          <div class="block">
-            
-            <h3 id="{{file}}">{{file}}</h3>
-
-            <div class="info">
-              <h4>{{name}}</h4>
-              {{#if description}}
-                <p class="description">{{description}}</p>
-              {{/if}}
-              
-              {{#state}}
-                <p class="state"><span>{{name}}</span> - {{description}}</p>
-              {{/state}}
-            </div>
-            
-            {{#if markup}}
-              
-              <div class="example">
-                {{{markup.example}}}
-              </div>
-            
-              {{#state}}
-                <div class="example state {{escaped}}">
-                  <div class="name">{{name}}</div>
-                    {{{markup.example}}}
-                </div>
-              {{/state}}
-
-<pre class="prettyprint lang-html markup">
-{{{markup.escaped}}}
-</pre>
-            
-            {{/if}}
-        
-        </div>
+          {{> style_block}}
         {{/blocks}}
 
       </div>

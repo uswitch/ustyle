@@ -24,13 +24,17 @@ module.exports = function(grunt) {
     // Merge task-specific and/or target-specific options with defaults
     var options = this.options({
       template: __dirname + '/template/',
-      template_index: 'index.handlebars',
-      output_index: 'index.html',
+      templateOutput: __dirname + '/docs/',
+      templateIndex: 'index.handlebars',
+      defaultPartials: {
+        style_block: grunt.file.read(__dirname + '/template/partials/style_block.handlebars'),
+        sidebar: grunt.file.read(__dirname + '/template/partials/sidebar.handlebars')
+      },
       include_empty_files: true
     });
 
     var addStateToExample = function(markup, state){
-      return markup.replace("{$modifiers}", state);
+      return markup.replace(/{\$modifiers}/g, state);
     };
 
     var removeModifiersFromMarkup = function(escaped){
@@ -111,7 +115,6 @@ module.exports = function(grunt) {
           else {
             // Set output template and file
             var template_filepath = template_dir + options.template_index,
-                output_filepath = output_dir + options.output_index;
 
             // if (!grunt.file.exists(template_filepath)) {
             //   grunt.fail.fatal('Cannot read the template file');
@@ -165,39 +168,43 @@ module.exports = function(grunt) {
     });
 
     
-    var sections =      _.chain(styleguide)
-                        .flatten()
-                        .groupBy('section')
-                        .map(function(value, key) {
-                            return {
-                                name: key,
-                                blocks: value
-                            }
-                        })
-                        .compact()
-                        .value();
+    var sections = _.chain(styleguide)
+                    .flatten()
+                    .groupBy('section')
+                    .map(function(value, key) {
+                      return {
+                          name: key,
+                          blocks: value
+                      }
+                    })
+                    .compact()
+                    .value();
 
     sections.map(function(section){
-      grunt.log.writeln(JSON.stringify(section))
       // Return promise
-      var template_filepath = options.template + options.template_index,
-          output_filepath = 'docs/' + section.name.toLowerCase() + '.html';
+      var templateFilePath = options.template + options.templateIndex,
+          outputFilePath = options.templateOutput + section.name.toLowerCase() + '.html';
 
-      var html = handlebars.compile(grunt.file.read(template_filepath))({
+      var partials = handlebars.registerPartial(options.defaultPartials);
+
+      var html = handlebars.compile(grunt.file.read(templateFilePath))({
         project: grunt.file.readJSON('package.json'),
         section: section
       });
 
-      var output_type = 'created', output = null;
+      var outputType = 'created', output = null;
 
-      if (grunt.file.exists(output_filepath)) {
-        output_type = 'overwrited';
-        output = grunt.file.read(output_filepath);
+      if (grunt.file.exists(outputFilePath)) {
+        outputType = 'overwrited';
+        output = grunt.file.read(outputFilePath);
       }
       // avoid write if there is no change
       if (output !== html) {
         // Render file
-        grunt.file.write(output_filepath, html);
+        grunt.file.write(outputFilePath, html);
+        grunt.log.writeln('✓ Styleguide ' + outputType + ' at: ' + grunt.log.wordlist([output_dir], {color: 'cyan'}));
+      } else {
+        grunt.log.writeln('‣ Styleguide unchanged');
       }
       promise();
     });
