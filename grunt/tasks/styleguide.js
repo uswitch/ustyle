@@ -7,7 +7,9 @@ module.exports = function(grunt){
     var handlebars = require('handlebars'),
         dss        = require('dss'),
         _          = require('lodash'),
+        async      = require('async'),
         promise    = this.async(),
+        files      = this.files,
         styleguide = [];
 
     // Merge task-specific and/or target-specific options with defaults
@@ -31,51 +33,70 @@ module.exports = function(grunt){
     function removeModifiersFromMarkup(escaped){
       return escaped.replace(/(\sclass='{\$modifiers}'|\s{\$modifiers})/g, "");
     }
+
+    function addParsers(parsers){
+      for(var key in parsers){
+        dss.parser(key, options.parsers[key]);
+      }
+    }
     // Output options if --verbose cl option is passed
     grunt.verbose.writeflags(options, 'Options');
 
     addParsers(options.parsers);
 
-    // Build Documentation
-    this.files.forEach(function(f){
+    async.waterfall([
+      parseDSS,
+      groupDSS,
+      generateStyleguide
+    ], completeTask);
 
-      var filename = f.src;
-      grunt.verbose.writeln('• ' + grunt.log.wordlist([filename], {color: 'cyan'}));
+    function completeTask(){
+      promise();
+    };
 
-      dss.parse(grunt.file.read(filename), { file: filename }, function(parsed) {
+    function parseDSS(callback){
+      var styleguide = [];
 
-        // Continue only if file contains DSS annotation
-        if (parsed.blocks.length) {
-          // Add filename
-          parsed['file'] = filename;
-          // Add comment block to styleguide
-          parsed.blocks.map(function(block){
-            block['file'] = filename;
-            // Normalize @state and @variable to array
-            ['state', 'variable'].forEach(function(prop) {
-              if (block.hasOwnProperty(prop) && typeof block[prop].slice !== 'function') {
-                block[prop] = [block[prop]];
+      files.forEach(function(f){
+        var filename = f.src;
+
+        grunt.verbose.writeln('• ' + grunt.log.wordlist([filename], {color: 'cyan'}));
+
+        dss.parse(grunt.file.read(filename), { file: filename }, function(parsed) {
+
+          // Continue only if file contains DSS annotation
+          if (parsed.blocks.length) {
+            // Add filename
+            parsed['file'] = filename;
+            // Add comment block to styleguide
+            parsed.blocks.map(function(block){
+              block['file'] = filename;
+              // Normalize @state and @variable to array
+              ['state', 'variable'].forEach(function(prop) {
+                if (block.hasOwnProperty(prop) && typeof block[prop].slice !== 'function') {
+                  block[prop] = [block[prop]];
+                }
+              });
+
+              block.markup.escaped = removeModifiersFromMarkup(block.markup.escaped);
+
+              if(block.hasOwnProperty('state')){
+                block.state.map(function(state){
+                  state.markup = {
+                    example: addStateToExample(block.markup.example, state.escaped)
+                  }
+                })
               }
             });
-
-            block.markup.escaped = removeModifiersFromMarkup(block.markup.escaped);
-
-            if(block.hasOwnProperty('state')){
-              block.state.map(function(state){
-                state.markup = {
-                  example: addStateToExample(block.markup.example, state.escaped)
-                }
-              })
-            }
-          });
-          styleguide.push(parsed.blocks);
-        }
+            styleguide.push(parsed.blocks);
+          }
+        });
       });
-    });
+      callback(null, styleguide);
+    }
 
-    var sections = _.chain(styleguide)
-                    .flatten()
-                    .groupBy('section')
+    function groupDSS(styleguide, callback){
+      var sections = _.chain(styleguide).flatten().groupBy('section')
                     .map(function(value, key) {
                       return {
                           name: key,
@@ -85,37 +106,40 @@ module.exports = function(grunt){
                     .compact()
                     .value();
 
-    grunt.log.writeln(JSON.stringify(sections))
-    sections.map(function(section){
-      // Return promise
-      var templateFilePath = options.template + options.templateIndex,
-          outputFilePath = options.templateOutput + section.name.toLowerCase() + '.html';
+      callback(null, sections);
+    }
 
-      var partials = handlebars.registerPartial(options.defaultPartials);
+    function generateStyleguide(sections, callback){
+      grunt.log.writeln(JSON.stringify(sections))
+      sections.map(function(section){
+        // Return promise
+        var templateFilePath = options.template + options.templateIndex,
+            outputFilePath = options.templateOutput + section.name.toLowerCase() + '.html';
 
-      var html = handlebars.compile(grunt.file.read(templateFilePath))({
-        project: grunt.file.readJSON('package.json'),
-        section: section
+        var partials = handlebars.registerPartial(options.defaultPartials);
+
+        var html = handlebars.compile(grunt.file.read(templateFilePath))({
+          project: grunt.file.readJSON('package.json'),
+          section: section
+        });
+
+        var outputType = 'created', output = null;
+
+        if (grunt.file.exists(outputFilePath)) {
+          outputType = 'overwrited';
+          output = grunt.file.read(outputFilePath);
+        }
+        // avoid write if there is no change
+        if (output !== html) {
+          // Render file
+          grunt.file.write(outputFilePath, html);
+          grunt.log.writeln('✓ Styleguide ' + outputType + ' at: ' + grunt.log.wordlist([f.dest], {color: 'cyan'}));
+        } else {
+          grunt.log.writeln('‣ Styleguide unchanged');
+        }
       });
-
-      var outputType = 'created', output = null;
-
-      if (grunt.file.exists(outputFilePath)) {
-        outputType = 'overwrited';
-        output = grunt.file.read(outputFilePath);
-      }
-      // avoid write if there is no change
-      if (output !== html) {
-        // Render file
-        grunt.file.write(outputFilePath, html);
-        grunt.log.writeln('✓ Styleguide ' + outputType + ' at: ' + grunt.log.wordlist([f.dest], {color: 'cyan'}));
-      } else {
-        grunt.log.writeln('‣ Styleguide unchanged');
-      }
-      promise();
-    });
-
+      callback(null, 'done');
+    }
   });
-  
 
 };
