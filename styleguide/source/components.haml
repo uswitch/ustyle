@@ -1,7 +1,7 @@
 .us-container
   %h1.styleguide-title Components
 
-  = styleblock_nav(["Anchors", "Lists with anchors", "Custom lists", "Hero", "Loader"])
+  = styleblock_nav(["Anchors", "Lists with anchors", "Custom lists", "Hero", "Loader" , "Overlay"])
 
 = styleblock "3.2", "Anchors", {floated: true} do
   %a.us-link.modifier-class{href: "http://balbas"} Test link
@@ -64,3 +64,20 @@
       .fake_table__row
       .fake_table__row
       .fake_table__row
+
+
+
+= styleblock "6.3", "Overlay", {floated: false} do
+  %button.us-btn.js-open-overlay
+    Open overlay
+  %button.us-btn.js-turn-into-modal
+    toggle modal
+  %div.us-overlay-parent
+    .us-overlay.modifier-class
+      .us-overlay__header
+        .us-overlay__title
+          Overlay
+        %button.us-overlay__close.js-close-overlay
+      .us-overlay__container
+        Content goes here
+    .us-overlay__back-layer.js-close-overlay

@@ -1,0 +1,122 @@
+// Overlay
+// ---
+// `.us-overlay` slides from any side and can turn into a modal if `.us-overlay-modal-parent` is added into the parent.
+//
+// .us-overlay--right - Add it to ".us-overlay" to slide from right
+// 
+// Styleguide 6.3
+
+
+$overlay-modal-breakpoint: desktop !default 
+$overlay-modal-width: 60% !default 
+$overlay-max-modal-width: 700px !default 
+$overlay-forced-z-index: 1003 !default 
+$overlay-transition-speed: 0.4s !default
+$overlay-mobile-width: calc(100% - 25px) !default 
+$overlay-tablet-width: 340px !default 
+$overlay-z-index: $overlay-forced-z-index 
+  
+@mixin overlay($place-above: false)
+  -webkit-overflow-scrolling: auto
+  position: fixed
+  z-index: $overlay-forced-z-index
+  background: white
+  overflow: auto
+  top: 0
+  left: 0
+  width: $overlay-mobile-width
+  height: 100%
+  transition: transform $overlay-transition-speed
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.335, 1.05)
+  transform: translateX(-100%)
+  transform: translate3D(-100%,0,0)
+
+  .no-cssanimations &
+    display: none
+
+  .us-overlay--open &
+    transform: translateX(0)
+    transform: translate3D(0,0,0)
+    .no-cssanimations &
+      display: block
+
+  +respond-to(small-tablet, true)
+    width: $overlay-tablet-width
+
+  .us-overlay-modal-parent &
+    +respond-to($overlay-modal-breakpoint, true)
+      position: relative
+      width: $overlay-modal-width
+      max-width: $overlay-max-modal-width
+      margin: 5% auto
+
+  @if $place-above
+    $overlay-z-index: $overlay-z-index + 1
+  z-index: $overlay-z-index
+
+.us-overlay__container
+  @extend %container
+  padding: 1em
+
+.us-overlay
+  +overlay()
+
+.us-overlay-modal-parent
+  +respond-to($overlay-modal-breakpoint, true)
+    display: none
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    z-index: $overlay-forced-z-index + 1
+
+    &.us-overlay--open
+      display: block
+
+.us-overlay--right
+  transform: translateX(100%)
+  transform: translate3D(100%,0,0)
+  right: 0
+  left: auto
+
+  .us-overlay--open &
+    transform: translateX(0)
+    transform: translate3D(0,0,0)
+
+    .no-cssanimations &
+      display: block
+      
+.us-overlay__header
+  background: $c-navy
+  color: white
+  padding: 1em
+
+.us-overlay__close
+  cursor: pointer
+  background-image: url(ustyle-image-path("anchor/close_white_fallback.png"))
+  background: inline-asset("anchor/close_white.svg")
+  width: 50px
+  height: 50px
+  border: 0
+  position: absolute
+  right: 0
+  z-index: 10
+  background-size: 40px
+  top: 0.5em
+  background-repeat: no-repeat
+
+.us-overlay__back-layer
+  width: 100%
+  height: 150%
+  position: fixed
+  background: rgba($c-blue,0.5)
+  top: 0
+  left: 0
+  z-index: $overlay-forced-z-index - 1
+  display: none
+
+  .us-overlay--open &
+    display: block
+
+.us-overlay__back-layer--open
+  display: block
