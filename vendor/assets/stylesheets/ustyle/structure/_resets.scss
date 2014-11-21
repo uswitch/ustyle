@@ -1,0 +1,10 @@
+%structure-reset {
+  @include normal-font;
+  box-sizing: border-box;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  position: relative;
+  * {
+    box-sizing: border-box;
+  }
+}

@@ -1,0 +1,114 @@
+// Loader
+// ---
+// It shows when added the class .us-loader--loading and it can center itself
+// on the parent container if you add .us-loader--centered
+//
+// Styleguide 5.4
+
+$loader-overlay-opacity: 0.8 !default;
+$loader-overlay-colour: white !default;
+$spinner-vertical-margin: 1em !default;
+$spinner-animation-time: 500ms !default;
+$spinner-file: "icons/spinner.svg" !default;
+$spinner-size: 60px !default;
+$spinner-file-fallback: ustyle-image-path("icons/spinner_fallback.gif") !default;
+$spinner-load-fallback: true !default;
+
+@keyframes loader-intro {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+%snap-to-parent {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+%spinner-base {
+  z-index: 2;
+  position: relative;
+  display: inline-block;
+  margin-top: $spinner-vertical-margin;
+  margin-bottom: $spinner-vertical-margin;
+  background-repeat: no-repeat;
+}
+
+%spinner-icon {
+  animation: spin $spinner-animation-time infinite linear;
+  background: transparent url($spinner-file-fallback) no-repeat center center;
+  background-image: -webkit-linear-gradient(transparent, transparent), inline-asset($spinner-file);
+  background-image: linear-gradient(transparent, transparent), inline-asset($spinner-file);
+}
+
+@mixin spinner($size: $spinner-size) {
+  @extend %spinner-base;
+  @extend %spinner-icon;
+  @if $size {
+    background-size: $size;
+    width: $size;
+    height: $size;
+  }
+}
+
+.us-loader {
+  @extend %snap-to-parent;
+  text-align: center;
+  display: none;
+}
+
+.us-loader--loading {
+  display: block;
+  animation: loader-intro $spinner-animation-time forwards;
+}
+
+.us-loader--centered {
+  @extend %vertical-align-parent;
+  transform-style: preserve-3d;
+}
+
+.us-loader__inner {
+  position: relative;
+  z-index: 2;
+  .us-loader--centered & {
+    @extend %vertical-align-child;
+  }
+}
+
+.us-loader__spinner {
+  .us-loader--loading & {
+    @include spinner;
+  }
+  .us-loader--centered & {
+    margin-top: 0;
+  }
+}
+
+.us-loader__text {
+  @extend %heading-3;
+  color: $c-navy;
+}
+
+.us-loader__overlay {
+  @extend %snap-to-parent;
+  background-color: $loader-overlay-colour;
+  opacity: $loader-overlay-opacity;
+  z-index: 1;
+}

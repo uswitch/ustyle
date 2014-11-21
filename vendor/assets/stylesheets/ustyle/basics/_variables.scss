@@ -1,0 +1,175 @@
+// ----------
+// Colors
+// ----------
+@import "ustyle/basics/variables/colors";
+
+// ----------
+// Fonts
+// ----------
+
+/// If using a uStyle project outside of www.uswitch.com domain or one that lacks the power the includes, then
+/// set this to `true` to import the correct `@font-face` declarations.
+///
+/// @group fonts
+/// @type Bool
+
+$needs-font: false !default;
+
+/// Same as `$needs-font` but also imports the EOT's so that fonts work in < IE8
+///
+/// @group fonts
+/// @type Bool
+
+$needs-font-ie: false !default;
+
+/// Set this to wherever you are serving the uSwitch fonts from.
+///
+/// @group fonts
+/// @type String
+
+$base-font-url: "//fonts.uswitch.com/" !default;
+
+/// The primary heading font stack
+///
+/// @group fonts
+/// @type String
+
+$heading-font-primary: "FS Elliot Web Bold", Helvetica, Arial, sans-serif !default;
+
+/// The secondary heading font stack
+///
+/// @group fonts
+/// @type String
+
+$heading-font-secondary: "Open Sans", Helvetica, Arial, sans-serif !default;
+
+/// The default sans-serif font stack
+///
+/// @group fonts
+/// @type String
+
+$normal-font: "Open Sans", Helvetica, Arial, sans-serif !default;
+
+/// The icon font name used for uicon
+///
+/// @group fonts
+/// @type String
+
+$icon-font: "uswitch-icon", sans-serif !default;
+
+// ----------
+// Typography
+// ----------
+
+/// By default we establish normalised type rules for `body`. Certain projects won't need this or would rather
+/// override, so set this to false if you don't want the default typography rules to kick in
+///
+/// @group typography
+/// @type Bool
+
+$establish-type-rules: true !default;
+
+/// The base font size where every other type setting inherits from
+///
+/// @group typography
+/// @type Number (pixels)
+
+$base-font-size: 16px !default;
+
+/// The base line height for mapped for the `$base-font-size`
+///
+/// @group typography
+/// @type Number (pixels)
+
+$base-line-height: 24px !default;
+
+/// The cap height for the uSwitch fonts (average)
+///
+/// @group typography
+/// @type Number (unitless)
+
+$base-cap-height: 0.6 !default;
+
+/// The line ratio for establishing a baseline - set as the golden ratio
+///
+/// @group typography
+/// @type Number (unitless)
+
+$base-line-ratio: 1.618 !default;
+
+$base-scale: 2 !default;
+$base-unit: $base-font-size * $base-line-ratio / $base-scale !default;
+
+/// A list containing the 6 heading font sizes used across uStyle
+///
+/// @group typography
+/// @type List
+
+$heading-font-sizes: 36px, 30px, 24px, 18px, 16px, 16px !default;
+
+/// A list with the 6 corresponding line heights for headings
+///
+/// @group typography
+/// @type List
+
+$heading-line-heights: 1.3, 1.3, 1.25, 1.25, 0.95, 0.95 !default;
+
+// ----------
+// Grid
+// ----------
+
+/// If set to false will not give you CSS classes for your grid like `.us-col-6` but rather the placeholder class
+/// instead
+///
+/// @group grid
+/// @type Bool
+
+$html-grid-classes: true !default;
+
+/// Column width for calculating the uSwitch grid
+///
+/// @group grid
+/// @type Number (unit)
+
+$col-width: 70px !default;
+
+/// Gutter width for calculating the uSwitch grid
+///
+/// @group grid
+/// @type Number (unit)
+
+$gutter-width: 30px !default;
+
+/// Number of columns for large screens
+///
+/// @group grid
+/// @type Number (unitless)
+
+$grid-columns: 12 !default;
+
+/// Number of columns for desktop screens
+///
+/// @group grid
+/// @type Number (unitless)
+
+$grid-columns-desktop: 10 !default;
+
+/// Number of columns for tablet screens and below
+///
+/// @group grid
+/// @type Number (unitless)
+
+$grid-columns-tablet: 8 !default;
+
+/// The device breakpoint that all ustyle elements respond to
+///
+/// @group grid
+/// @type String
+
+$default-grid-breakpoint: tablet !default;
+
+// Containers
+
+$large-container-width: $grid-columns * $col-width + $grid-columns * $gutter-width;
+$desktop-container-width: $grid-columns-desktop * $col-width + $grid-columns-desktop * $gutter-width;
+$tablet-container-width: $grid-columns-tablet * $col-width + $grid-columns-tablet * $gutter-width;

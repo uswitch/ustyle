@@ -1,0 +1,33 @@
+.us-content__header {
+  img {
+    @extend %img--full;
+    display: none;
+    @include respond-to(tablet, true) {
+      display: block;
+    }
+
+    ~ .us-content__title {
+      @include respond-to(desktop, true) {
+        margin: -100px 0 0 0;
+      }
+    }
+  }
+}
+
+.us-content__title {
+  @include heading-font-secondary;
+  @include heading(3);
+  clear: both;
+  background-color: white;
+  padding: 0.5em 0 1em 0;
+  color: $c-navy;
+  position: relative;
+  margin: 0;
+  @include respond-to(tablet, true) {
+    @include heading(2, $extend: false, $heading_font: false);
+  }
+
+  @include respond-to(desktop, true) {
+    @include heading(1, $extend: false, $heading_font: false);
+  }
+}
