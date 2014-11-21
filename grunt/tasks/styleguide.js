@@ -26,21 +26,11 @@ module.exports = function(grunt){
         }
     });
 
-    function addStateToExample(markup, state){
-      return markup.replace(/{\$modifiers}/g, state);
-    };
-
-    function removeModifiersFromMarkup(escaped){
-      return escaped.replace(/(\sclass='{\$modifiers}'|\s{\$modifiers})/g, "");
-    }
-
     function addParsers(parsers){
       for(var key in parsers){
         dss.parser(key, options.parsers[key]);
       }
     }
-    // Output options if --verbose cl option is passed
-    grunt.verbose.writeflags(options, 'Options');
 
     addParsers(options.parsers);
 
@@ -52,15 +42,15 @@ module.exports = function(grunt){
 
     function completeTask(){
       promise();
-    };
+    }
 
     function parseDSS(callback){
       var styleguide = [];
 
-      files.forEach(function(f){
-        var filename = f.src;
+      async.forEach(files[0].src, function(f){
+        var filename = f;
 
-        grunt.verbose.writeln('• ' + grunt.log.wordlist([filename], {color: 'cyan'}));
+        grunt.log.writeln('• ' + grunt.log.wordlist([filename], {color: 'cyan'}));
 
         dss.parse(grunt.file.read(filename), { file: filename }, function(parsed) {
 
@@ -78,7 +68,9 @@ module.exports = function(grunt){
                 }
               });
 
-              block.markup.escaped = removeModifiersFromMarkup(block.markup.escaped);
+              if(block.markup){
+                block.markup.escaped = removeModifiersFromMarkup(block.markup.escaped);  
+              }
 
               if(block.hasOwnProperty('state')){
                 block.state.map(function(state){
@@ -112,7 +104,7 @@ module.exports = function(grunt){
     function generateStyleguide(sections, callback){
       grunt.log.writeln(JSON.stringify(sections))
       sections.map(function(section){
-        // Return promise
+
         var templateFilePath = options.template + options.templateIndex,
             outputFilePath = options.templateOutput + section.name.toLowerCase() + '.html';
 
@@ -140,6 +132,15 @@ module.exports = function(grunt){
       });
       callback(null, 'done');
     }
+
+    function addStateToExample(markup, state){
+      return markup.replace(/{\$modifiers}/g, state);
+    }
+
+    function removeModifiersFromMarkup(escaped){
+      return escaped.replace(/(\sclass='{\$modifiers}'|\s{\$modifiers})/g, "");
+    }
+
   });
 
 };

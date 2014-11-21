@@ -7,7 +7,7 @@ module.exports = function(grunt) {
     dss: {
       docs: {
         files: {
-          'docs/': 'vendor/assets/stylesheets/ustyle/components/_button.{sass,css,scss}'
+          'docs/': 'vendor/assets/stylesheets/ustyle/**/*.sass'
         }
       }
     }

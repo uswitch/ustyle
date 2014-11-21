@@ -4,11 +4,8 @@ var dss        = require('dss');
 var es         = require('event-stream');
 var gutil      = require('gulp-util');
 var path       = require('path');
-var handlebars = require('handlebars');
 var markdown   = require('marked');
 var crypto     = require('crypto');
-var _          = require('lodash');
-var config     = require('../config').styleguide;
 
 module.exports = styleguide;
 
@@ -17,18 +14,17 @@ module.exports = styleguide;
  *
  * @return {stream}
  */
-function styleguide() {
+function extract(options) {
 
-    var styleguide = [],
-        template, firstBlock;
+    var template, firstBlock;
 
-    for(key in config.parsers){
-        dss.parser(key, options[parsers[key]]);
+    for(var key in options.parsers){
+        dss.parser(key, options.parsers[key]);
     }
 
     dss.parser('template', function(i, line, block) { return line; });
     dss.parser('partial', partialDssParser);
-    dss.parser('variable', variableDssParser());
+    dss.parser('variable', variableDssParser);
 
     return es.map(function(file, cb) {
 
