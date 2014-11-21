@@ -11,7 +11,7 @@ module.exports = function(grunt) {
     dss: {
       docs: {
         files: {
-          'docs/': 'vendor/assets/stylesheets/ustyle/**/*.sass'
+          'docs/': 'vendor/assets/stylesheets/ustyle/components/_button.sass'
         }
       }
     },
@@ -22,11 +22,13 @@ module.exports = function(grunt) {
         options: {
             server: {
                 baseDir: "./build/"
-            }
+            },
+            watchTask: true // < VERY important
         }
     }
   });
   grunt.loadNpmTasks('grunt-browser-sync');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadTasks('grunt/tasks');
-  grunt.registerTask('default', ['dss']);
+  grunt.registerTask('default', ['browserSync', 'watch']);
 };

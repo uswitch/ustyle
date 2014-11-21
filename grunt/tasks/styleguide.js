@@ -8,21 +8,28 @@ module.exports = function(grunt){
         dss        = require('dss'),
         _          = require('lodash'),
         async      = require('async'),
+        marked     = require('marked'),
         promise    = this.async(),
         files      = this.files,
         styleguide = [];
 
     // Merge task-specific and/or target-specific options with defaults
     var options = this.options({
-        template: './template/',
-        templateOutput: './docs/',
+        template: './styleguide/',
+        templateOutput: './build/docs/',
         templateIndex: 'index.handlebars',
         defaultPartials: {
-          style_block: grunt.file.read('./template/partials/style_block.handlebars'),
-          sidebar: grunt.file.read('./template/partials/sidebar.handlebars')
+          style_block: grunt.file.read('./styleguide/partials/style_block.handlebars'),
+          sidebar: grunt.file.read('./styleguide/partials/sidebar.handlebars')
         },
         parsers: {
-          section: function(i, line, block){ return line; }
+          section: function(i, line, block){ return line; },
+          description: function(i, line, block, file){
+            var nextParserIndex = block.indexOf(/(@state|@markup)/, i+1),
+                markupLength = nextParserIndex > -1 ? nextParserIndex - i : block.length,
+                markup = block.split('').splice(i, markupLength).join('').replace(/@description/, '');
+            return marked(markup);
+          }
         }
     });
 
@@ -46,9 +53,9 @@ module.exports = function(grunt){
 
     function parseDSS(callback){
       var styleguide = [];
+      var srcFiles = files[0].src;
 
-      async.forEach(files[0].src, function(f){
-        var filename = f;
+      async.forEach(srcFiles, function(filename){
 
         grunt.log.writeln('• ' + grunt.log.wordlist([filename], {color: 'cyan'}));
 
@@ -103,6 +110,7 @@ module.exports = function(grunt){
 
     function generateStyleguide(sections, callback){
       grunt.log.writeln(JSON.stringify(sections))
+
       sections.map(function(section){
 
         var templateFilePath = options.template + options.templateIndex,
@@ -125,7 +133,7 @@ module.exports = function(grunt){
         if (output !== html) {
           // Render file
           grunt.file.write(outputFilePath, html);
-          grunt.log.writeln('✓ Styleguide ' + outputType + ' at: ' + grunt.log.wordlist([f.dest], {color: 'cyan'}));
+          grunt.log.writeln('✓ Styleguide ' + outputType + ' at: ' + grunt.log.wordlist([files.dest], {color: 'cyan'}));
         } else {
           grunt.log.writeln('‣ Styleguide unchanged');
         }
