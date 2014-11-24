@@ -11,7 +11,7 @@ module.exports = function(grunt) {
     dss: {
       docs: {
         files: {
-          'docs/': 'vendor/assets/stylesheets/ustyle/components/_button.sass'
+          'docs/': 'vendor/assets/stylesheets/ustyle/**/*.sass'
         }
       }
     },

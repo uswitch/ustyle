@@ -25,9 +25,10 @@ module.exports = function(grunt){
         parsers: {
           section: function(i, line, block){ return line; },
           description: function(i, line, block, file){
-            var nextParserIndex = block.indexOf(/(@state|@markup)/, i+1),
+            var nextParserIndex = block.indexOf("@", i+1),
                 markupLength = nextParserIndex > -1 ? nextParserIndex - i : block.length,
                 markup = block.split('').splice(i, markupLength).join('').replace(/@description/, '');
+
             return marked(markup);
           }
         }
@@ -126,14 +127,14 @@ module.exports = function(grunt){
         var outputType = 'created', output = null;
 
         if (grunt.file.exists(outputFilePath)) {
-          outputType = 'overwrited';
+          outputType = 'overwritten';
           output = grunt.file.read(outputFilePath);
         }
         // avoid write if there is no change
         if (output !== html) {
           // Render file
           grunt.file.write(outputFilePath, html);
-          grunt.log.writeln('✓ Styleguide ' + outputType + ' at: ' + grunt.log.wordlist([files.dest], {color: 'cyan'}));
+          grunt.log.writeln('✓ Styleguide ' + outputType + ' at: ' + grunt.log.wordlist([outputFilePath], {color: 'cyan'}));
         } else {
           grunt.log.writeln('‣ Styleguide unchanged');
         }
