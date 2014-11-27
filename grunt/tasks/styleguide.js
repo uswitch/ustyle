@@ -17,10 +17,10 @@ module.exports = function(grunt){
     var options = this.options({
         template: './styleguide/',
         templateOutput: './build/docs/',
-        templateIndex: 'index.handlebars',
+        templateIndex: 'index.hbs',
         defaultPartials: {
-          style_block: grunt.file.read('./styleguide/partials/style_block.handlebars'),
-          sidebar: grunt.file.read('./styleguide/partials/sidebar.handlebars')
+          style_block: grunt.file.read('./styleguide/partials/style_block.hbs'),
+          sidebar: grunt.file.read('./styleguide/partials/sidebar.hbs')
         },
         parsers: {
           section: function(i, line, block){ return line; },
@@ -121,7 +121,8 @@ module.exports = function(grunt){
 
         var html = handlebars.compile(grunt.file.read(templateFilePath))({
           project: grunt.file.readJSON('package.json'),
-          section: section
+          section: section,
+          sections: sections
         });
 
         var outputType = 'created', output = null;

@@ -1,14 +1,14 @@
-// Form inputs
+// @section Forms
+// @name Inputs
 // 
-// The standard form input, `.us-form-input`, styled with our brand colours. Explicitly
-// classed to allow individual app styling for other inputs
+// @description
+//   The standard form input, `.us-form-input`, styled with our brand colours. Explicitly
+//   classed to allow individual app styling for other inputs
 //
-// Markup:
-// <input class='us-form-input {$modifiers}' type='text'>
+// @state .large - Larger input style
 //
-// .large - Larger input style
-//
-// Styleguide 3.2
+// @markup
+//   <input class='us-form-input {$modifiers}' type='text'>
 
 $input-hover-color: $c-typecyan !default;
 $input-text-color: $c-typegrey !default;
