@@ -1,0 +1,18 @@
+/// Pixel size for generated base64 PNG
+/// @type Number (unitless)
+
+$rgba_pixel_size: 5 !default;
+
+/// Returns a base64 fallback PNG of an `rgba` background for older browsers
+///
+/// @author David Annez - base off Aaron Russell's Compass implementation
+///
+/// @param {Color} $color
+///   The rgba color to be converted
+/// @param {Number (unitless)} $pixels ($rgba_pixel_size)
+///   Size of base64 PNG
+
+@mixin rgba-inline($color, $pixels: $rgba_pixel_size) {
+  background: rgba-inline($color, $pixels);
+  background: $color;
+}

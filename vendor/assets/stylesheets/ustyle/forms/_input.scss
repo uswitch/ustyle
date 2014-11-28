@@ -1,0 +1,65 @@
+// Form inputs
+// ---
+// The standard form input, `.us-form-input`, styled with our brand colours. Explicitly
+// classed to allow individual app styling for other inputs
+//
+// .large - Larger input style
+//
+// Styleguide 2.2
+$input-hover-color: $c-typecyan !default;
+$input-text-color: $c-typegrey !default;
+$input-border-color: $c-inputgrey !default;
+
+.us-form-input {
+  @extend %base-form-element;
+  @extend %input-background--normalise;
+  transition: border-color 200ms, box-shadow 200ms;
+  padding: 0.35em 0.5em;
+  height: $form-element-base-height;
+  box-shadow: none;
+  border: 1px solid $input-border-color;
+  outline: 0;
+  font-size: 1em;
+  color: $input-text-color;
+  &:hover {
+    border-color: $input-hover-color;
+  }
+  &:focus {
+    border-color: $input-hover-color;
+    box-shadow: 0px 0px 3px $input-hover-color;
+    &::-webkit-input-placeholder,
+    &:-moz-placeholder,
+    &::-moz-placeholder,
+    &:-ms-input-placeholder {
+      color: $input-border-color;
+    }
+  }
+  &:disabled {
+    border-color: lighten($input-border-color, 15%);
+    background-color: white;
+  }
+  &.large {
+    padding: 0.55em 0.5em;
+    height: auto;
+    font-size: 1.2em;
+  }
+  .ie8 & {
+    height: auto;
+  }
+}
+
+.us-form-input::-webkit-input-placeholder {
+  color: $c-typegrey-2;
+}
+
+.us-form-input:-moz-placeholder {
+  color: $c-typegrey-2;
+}
+
+.us-form-input::-moz-placeholder {
+  color: $c-typegrey-2;
+}
+
+.us-form-input:-ms-input-placeholder {
+  color: $c-typegrey-2;
+}

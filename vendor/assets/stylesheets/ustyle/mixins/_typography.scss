@@ -1,0 +1,120 @@
+////
+//// @group typography
+////
+
+/// Returns the `$normal-font` declaration either as an extend or re-declares
+///
+/// @param {Bool} $extend (true)
+///   If set to `false` will redeclare the `$normal-font` family
+
+@mixin normal-font($extend: true) {
+  @if $extend {
+    @extend %normal-font;
+  }
+  @else {
+    font-family: $normal-font;
+  }
+}
+
+/// Returns the `$icon-font` declaration either as an extend or re-declares
+///
+/// @param {Bool} $extend (true)
+///   If set to `false` will redeclare the `$icon-font` family
+
+@mixin icon-font($extend: true) {
+  @if $extend {
+    @extend %icon-font;
+  }
+  @else {
+    font: {
+      family: $icon-font;
+      weight: normal;
+    };
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/// Returns the `$heading-font-primary` declaration either as an extend or re-declares
+///
+/// @param {Bool} $extend (true)
+///   If set to `false` will redeclare the `$heading-font-primary` family
+
+@mixin heading-font-primary($extend: true) {
+  @if $extend {
+    @extend %heading-font-primary;
+    @extend %heading-font-print;
+  }
+  @else {
+    font: {
+      family: $heading-font-primary;
+      weight: normal;
+    };
+  }
+}
+
+/// Returns the `$heading-font-secondary` declaration either as an extend or re-declares
+///
+/// @param {Bool} $extend (true)
+///   If set to `false` will redeclare the `$heading-font-secondary` family
+
+@mixin heading-font-secondary($extend: true) {
+  @if $extend {
+    @extend %heading-font-secondary;
+  }
+  @else {
+    font: {
+      family: $heading-font-secondary;
+      weight: 700;
+    };
+  }
+}
+
+/// Returns the `$heading-font-secondary` declaration either as an extend or re-declares
+///
+/// @alias heading-font-secondary
+
+@mixin bold-font($extend: true) {
+  @include heading-font-secondary($extend);
+}
+
+/// Returns the `$normal-font` declaration in italic either as an extend or re-declares
+///
+/// @param {Bool} $extend (true)
+///   If set to `false` will redeclare the `$normal-font` family and set the font to italic
+
+@mixin italic-font($extend: true) {
+  @if $extend {
+    @extend %italic-font;
+  }
+  @else {
+    font: {
+      family: $normal-font;
+      style: italic;
+    };
+  }
+}
+
+/// Builds the heading font size with pre-defined sizes and line-heights from `$heading-font-sizes`
+/// and `$heading-line-heights` respecively
+///
+/// @param {Number (unitless)} $level
+///   Set a heading level between 1-6
+///
+/// @param {Bool} $heading-font (true)
+///   Choose whether to declare the font-family as heading font or not
+///
+/// @param {Bool} $extend (true)
+///   If set to `false` will redeclare the font-family settings
+
+@mixin heading($level, $heading-font: true, $extend: true) {
+  $font-size: nth($heading-font-sizes, $level);
+  $line-height: nth($heading-line-heights, $level);
+  @if $heading-font {
+    @include heading-font-primary($extend);
+  }
+  @else {
+    @include heading-font-secondary($extend);
+  }
+  font-size: em($font-size);
+  line-height: $line-height + em;
+}

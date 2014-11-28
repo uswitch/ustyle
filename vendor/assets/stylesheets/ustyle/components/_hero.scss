@@ -1,0 +1,33 @@
+// Hero banner
+// ---
+// The `.us-hero` is used for the upper part of most pages. The hero can also
+// be used mid-page to highlight other sections. We define it with .us-hero
+//
+// Styleguide 5.1
+$hero-background-color: $c-cyan !default;
+$hero-text-color: $c-navy !default;
+$hero-padding-top: 2.5em !default;
+$hero-padding-bottom: $hero-padding-top !default;
+
+.us-hero {
+  background-color: $hero-background-color;
+}
+
+.us-hero-container {
+  @extend %container;
+  padding-top: $hero-padding-top;
+  padding-bottom: $hero-padding-bottom;
+}
+
+.us-hero-title {
+  margin-top: 0;
+}
+
+.us-hero-title,
+.us-hero-description {
+  color: $hero-text-color;
+}
+
+.us-hero-description {
+  @extend %reset-box-model;
+}

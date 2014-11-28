@@ -1,0 +1,18 @@
+// Force image to be full width of container
+.us-img--full {
+  @extend %img--full;
+}
+
+// Float image left
+.us-img--left {
+  @extend %float-left;
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+
+// Float image right
+.us-img--right {
+  @extend %float-right;
+  margin-left: 1em;
+  margin-bottom: 1em;
+}
