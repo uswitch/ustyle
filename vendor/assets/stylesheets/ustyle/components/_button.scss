@@ -5,8 +5,8 @@
 // Each of these styles adheres to the uSwitch branding colours.
 // Currently we support anchor tags and button tags as the main ussage
 //
-// .primary - Used a save/update button
-// .secondary - Navigational button
+// .us-btn--primary - Used a save/update button
+// .us-btn--action - Navigational button
 // .neutral - Neutral button for use on white backgrounds
 // .secondary--outlined - Outlined version of the secondary button
 // .navy--outlined - Navy outline used for buttons on `$c-cyan` hero's
@@ -21,12 +21,13 @@
 //
 // Styleguide 3.1
 
-$button-color: $c-red !default;
-$p-button-color: $c-green !default;
-$s-button-color: $c-typecyan !default;
+$base-button-color: $c-keylinegrey !default;
+
+$p-button-color: $c-red !default;
+$s-button-color: $c-green !default;
 $neutral-button-color: $c-keylinegrey !default;
 
-$button-styles: ("primary", $p-button-color), ("secondary", $s-button-color) !default;
+$button-styles: ("primary", $p-button-color), ("action", $s-button-color) !default;
 $outline-button-styles: ("secondary", $s-button-color), ("navy", $c-navy), ("white", white) !default;
 
 @mixin button-style($name, $outlined: false) {
@@ -37,8 +38,12 @@ $outline-button-styles: ("secondary", $s-button-color), ("navy", $c-navy), ("whi
     color: nth($name, 2);
   }
   @else {
+    transition: all .3s;
     background-color: nth($name, 2);
     border-color: shade(nth($name, 2), 20%);
+    @if nth($name, 2) != white {
+      color: white;  
+    }
   }
   &:hover,
   &:focus {
@@ -48,6 +53,10 @@ $outline-button-styles: ("secondary", $s-button-color), ("navy", $c-navy), ("whi
     }
     @else {
       background-color: shade(nth($name, 2), 20%);
+      border-color: shade(nth($name, 2), 20%);
+      @if nth($name, 2) != white {
+        color: white;  
+      }
     }
   }
   &:active {
@@ -70,121 +79,112 @@ $outline-button-styles: ("secondary", $s-button-color), ("navy", $c-navy), ("whi
   @extend %reset-box-model;
   @extend %input-background--normalise;
   @include normal-font;
-  transition: all 180ms;
   padding: 0.63em 1.25em;
   display: inline-block;
   border-radius: 3px;
   font-size: 1em;
   line-height: 1em;
-  color: white;
-  background-color: $button-color;
-  border: 1px solid shade($button-color, 20%);
+  color: $c-typegrey;
+  background-color: $base-button-color;
+  border: 1px solid shade($base-button-color, 20%);
   vertical-align: middle;
   white-space: nowrap;
   text-decoration: none;
   text-align: center;
   cursor: pointer;
   outline: 0;
+
   &:visited {
-    color: white;
+    color: $c-typegrey;
   }
+
   &:hover,
   &:focus {
-    color: white;
-    background-color: shade($button-color, 20%);
+    background-color: tint($c-typecyan, 90%);
+    border-color: $c-typecyan;
+    color: $c-typecyan;
   }
+
   &:active {
+    background-color: $c-typecyan;
     color: white;
-    background-color: shade($button-color, 50%);
-    border-color: shade($button-color, 50%);
   }
-  &.stronger {
-    @include heading-font-secondary;
-  }
-  &.large {
-    font-size: 1.2em;
-  }
-  &.blocked {
-    display: block;
-    width: 100%;
-    padding-left: 0;
-    padding-right: 0;
-  }
-  &.us-btn--link {
-    padding: 0;
-    border: none;
-    background-color: transparent;
-    color: $c-blue;
-    line-height: $base-line-ratio;
-    &:hover {
-      color: $c-navy;
-      text-decoration: underline;
-    }
-  }
-  &.arrowed,
-  &.arrowed.arrow-right {
-    padding: 0.63em 1.25em 0.63em 0.95em;
-    &:after {
-      @extend %link-triangle;
-    }
-    &:hover {
-      &:after {
-        left: 0.5em;
-      }
-    }
-  }
-  &.arrowed.arrow-left {
-    padding-left: 1.25em;
-    padding-right: 0.95em;
-    &:before {
-      @extend %link-triangle-left;
-    }
-    &:after {
-      content: "";
-      display: none;
-    }
-    &:hover {
-      &:before {
-        left: -0.5em;
-      }
-    }
-  }
-  &.small {
-    padding: 0.4em 0.65em;
-  }
+
   &:disabled,
   &.disabled {
-    opacity: 0.5;
-    pointer-events: none;
-  }
+    opacity: .5;
+    pointer-events: none
+  } 
+}
 
-  &.neutral {
-      transition: none 0;
-      background-color: $neutral-button-color;
-      border-color: shade($neutral-button-color, 20%);
-      color: $c-typegrey;
-  
-      &:hover,
-      &:focus {
-        background-color: tint($c-typecyan, 90%);
-        border-color: $c-typecyan;
-        color: $c-typecyan;
-      }
-  
-      &:active {
-        background-color: $c-typecyan;
-        color: white;
-      }
-  }
+.us-btn--stronger {
+  @include heading-font-secondary;
+}
 
-  @each $button-style in $button-styles {
-    &.#{nth($button-style, 1)} {
-      @include button-style($button-style);
+.us-btn--large {
+  font-size: 1.2em;
+}
+
+.us-btn--small {
+  padding: .4em .65em;
+}
+
+.us-btn--blocked {
+  display: block;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.us-btn--link {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  color: $c-blue;
+  line-height: $base-line-ratio;
+  &:hover {
+    color: $c-navy;
+    text-decoration: underline;
+  }
+}
+
+.us-btn--arrowed,
+.us-btn--arrowed-right {
+  padding: 0.63em 1.25em 0.63em 0.95em;
+  &:after {
+    @extend %link-triangle;
+  }
+  &:hover {
+    &:after {
+      left: 0.5em;
     }
   }
-  @each $button-style in $outline-button-styles {
-    &.#{nth($button-style, 1)}--outlined {
-      @include button-style($button-style, true);
+}
+
+.us-btn--arrowed-left {
+  padding-left: 1.25em;
+  padding-right: 0.95em;
+  &:before {
+    @extend %link-triangle-left;
+  }
+  &:after {
+    content: "";
+    display: none;
+  }
+  &:hover {
+    &:before {
+      left: -0.5em;
     }
+  }
+}
+
+@each $button-style in $button-styles {
+  .us-btn--#{nth($button-style, 1)} {
+    @include button-style($button-style);
+  }
+}
+@each $button-style in $outline-button-styles {
+  .us-btn--#{nth($button-style, 1)}-outlined {
+    @include button-style($button-style, true);
   }
 }
