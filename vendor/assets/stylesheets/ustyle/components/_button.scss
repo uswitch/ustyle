@@ -7,15 +7,14 @@
 //
 // .us-btn--primary - Used a save/update button
 // .us-btn--action - Navigational button
-// .neutral - Neutral button for use on white backgrounds
-// .secondary--outlined - Outlined version of the secondary button
-// .navy--outlined - Navy outline used for buttons on `$c-cyan` hero's
-// .white--outlined - White outline for dark backgrounds
-// .arrowed, .arrowed.arrow-right - Arrowed button used for CTAs (right pointing)
-// .arrowed.arrow-left - Left pointing variation of arrowed buttons
-// .large - Larger button for heros
-// .small - Smaller button for mobile tables
-// .blocked - Full width button
+// .us-btn--secondary - Secondary
+// .us-btn--hero - Navy outline used for buttons on `$c-cyan` hero's
+// .us-btn--reversed - White outline for dark backgrounds
+// .us-btn--arrowed, .us-btn--arrowed-right - Arrowed button used for CTAs (right pointing)
+// .us-btn--arrowed-left - Left pointing variation of arrowed buttons
+// .us-btn--large - Larger button for heros
+// .us-btn--small - Smaller button for mobile tables
+// .us-btn--blocked - Full width button
 // .us-btn--link - link style button
 // .disabled - Disabled styling (can also be styled with :disabled)
 //
@@ -23,26 +22,43 @@
 
 $base-button-color: $c-keylinegrey !default;
 
-$p-button-color: $c-red !default;
-$s-button-color: $c-green !default;
-$neutral-button-color: $c-keylinegrey !default;
+$p-button-color       : $c-red !default;
+$s-button-color       : $c-typecyan !default;
+$action-button-color  : $c-green !default;
+$neutral-button-color : $c-keylinegrey !default;
+$hero-button-color    : $c-navy !default;
+$reversed-button-color: white !default;
 
-$button-styles: ("primary", $p-button-color), ("action", $s-button-color) !default;
-$outline-button-styles: ("secondary", $s-button-color), ("navy", $c-navy), ("white", white) !default;
+$button-styles: (
+  ("primary", $p-button-color),
+  ("secondary", $s-button-color),
+  ("action", $action-button-color)
+) !default;
+
+$outline-button-styles: (
+  ("hero", $c-navy),
+  ("reversed", white)
+) !default;
 
 @mixin button-style($name, $outlined: false) {
   @if $outlined {
-    transition: none 0;
-    background-color: transparent;
-    border-color: nth($name, 2);
-    color: nth($name, 2);
+    &,
+    &:visited {
+      transition: none 0;
+      background-color: transparent;
+      border-color: nth($name, 2);
+      color: nth($name, 2);
+    }
   }
   @else {
-    transition: all .3s;
-    background-color: nth($name, 2);
-    border-color: shade(nth($name, 2), 20%);
-    @if nth($name, 2) != white {
-      color: white;  
+    &,
+    &:visited {
+      transition: all .3s;
+      background-color: nth($name, 2);
+      border-color: shade(nth($name, 2), 20%);
+      @if nth($name, 2) != white {
+        color: white;
+      }
     }
   }
   &:hover,
@@ -50,12 +66,13 @@ $outline-button-styles: ("secondary", $s-button-color), ("navy", $c-navy), ("whi
     @if $outlined {
       background-color: tint(nth($name, 2), 90%);
       color: nth($name, 2);
+      border-color: nth($name, 2);
     }
     @else {
       background-color: shade(nth($name, 2), 20%);
       border-color: shade(nth($name, 2), 20%);
       @if nth($name, 2) != white {
-        color: white;  
+        color: white;
       }
     }
   }
@@ -145,6 +162,7 @@ $outline-button-styles: ("secondary", $s-button-color), ("navy", $c-navy), ("whi
   &:hover {
     color: $c-navy;
     text-decoration: underline;
+    background-color: transparent;
   }
 }
 
@@ -184,7 +202,7 @@ $outline-button-styles: ("secondary", $s-button-color), ("navy", $c-navy), ("whi
   }
 }
 @each $button-style in $outline-button-styles {
-  .us-btn--#{nth($button-style, 1)}-outlined {
+  .us-btn--#{nth($button-style, 1)} {
     @include button-style($button-style, true);
   }
 }
