@@ -1,0 +1,10 @@
+@mixin hidpi-image($image-path, $format: ".png") {
+  $width: #{image-width(#{$image-path}#{$format})};
+  $height: #{image-height(#{$image-path}#{$format})};
+
+  background-size: unquote("#{$width} #{$height}");
+  background-image: image-url("#{$image-path}#{$format}");
+  @media screen and (-webkit-min-device-pixel-ratio: 1.5), screen and (min--moz-device-pixel-ratio: 1.5), screen and (-o-device-pixel-ratio: 3 / 2), screen and (min-device-pixel-ratio: 1.5) {
+    background-image: image-url("#{$image-path}-2x#{$format}");
+  }
+}

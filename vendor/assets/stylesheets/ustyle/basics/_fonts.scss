@@ -1,0 +1,46 @@
+// Extends here are used to minimise repetition and reuse already
+// declared font families across the site. It is not recommended that you
+// redeclare font families on other components. Instead extend these.
+
+%heading-font-bold,
+%heading-font-primary {
+  font: {
+    family: $heading-font-primary;
+    weight: normal;
+  };
+}
+
+%heading-font-regular,
+%heading-font-secondary {
+  font: {
+    family: $heading-font-secondary;
+    weight: 700;
+  };
+}
+
+%heading-font-print {
+  @media print {
+    font: {
+      family: $heading-font-secondary !important;
+      weight: 700 !important;
+    };
+  }
+}
+
+%default-font,
+%normal-font {
+  font-family: $normal-font;
+}
+
+%italic-font {
+  @extend %normal-font;
+  font-style: italic;
+}
+
+%icon-font {
+  font: {
+    family: $icon-font;
+    weight: normal;
+  };
+  -webkit-font-smoothing: antialiased;
+}

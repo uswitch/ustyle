@@ -1,0 +1,92 @@
+// These are the stylings for sign up/sign in
+.us-login__hero--signup {
+  @include respond-to(tablet, true) {
+    margin-bottom: 0;
+  }
+}
+
+.us-login__hero-title {
+  margin-bottom: 1em;
+}
+
+.us-login {
+  position: relative;
+  width: 100%;
+  @include respond-to(small-tablet, true) {
+    width: em(340px);
+  }
+}
+
+.us-login__container {
+  overflow: hidden;
+  position: relative;
+  @if $html-grid-classes == false {
+    * {
+      box-sizing: border-box;
+    }
+    a {
+      transition: color 333ms, border-color 333ms;
+      text-decoration: none;
+    }
+  }
+  .trailered {
+    margin-bottom: $gutter-width / 2;
+  }
+}
+
+.us-login__form {
+  transition: transform 300ms;
+  display: none;
+  .csstransforms & {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    transform: translateX(101%);
+    &:first-child {
+      transform: translateX(-101%);
+    }
+  }
+  &.login-state--active {
+    display: block;
+    .csstransforms & {
+      position: relative;
+      left: 0;
+      top: 0;
+      transform: translateX(0);
+    }
+  }
+  .us-login__input {
+    display: block;
+    width: 100%;
+  }
+}
+
+.us-login__title {
+  @extend %heading-3;
+  color: $c-darkgrey;
+}
+
+.us-login__additional-link {
+  @extend %small-font;
+  @include link-colors($c-typegrey-2, $c-typecyan, $c-typegrey-2, $c-typegrey-2);
+  display: block;
+}
+
+.us-login__extra {
+  padding: 1.5em $gutter-width / 2;
+  color: $c-typegrey-2;
+}
+
+.us-login__small-text {
+  @extend %small-font;
+  margin-top: 0.5em;
+  color: $c-typegrey-2;
+}
+
+.us-login__newsletter {
+  input {
+    margin-right: 0.5em;
+  }
+}

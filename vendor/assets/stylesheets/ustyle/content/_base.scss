@@ -1,0 +1,162 @@
+@import "ustyle/content/c-header";
+@import "ustyle/content/c-social";
+
+.us-content {
+  margin-bottom: $gutter-width;
+  h2, h3, h4, h5, h6 {
+    margin-top: 50px;
+  }
+  //
+  // Default heading styles for content
+  //
+  h1, h2, h3 {
+    @include heading-font-secondary;
+  }
+  //
+  // Default typography styling
+  //
+  p, ul, blockquote {
+    @include baseline($base-font-size);
+    @include respond-to(tablet) {
+      @include baseline(18px);
+    }
+
+    @include respond-to(desktop, true) {
+      @include baseline(20px);
+    }
+
+    a {
+      @extend .us-link;
+    }
+  }
+  //
+  // Default image styling
+  //
+  img {
+    max-width: 100%;
+    margin-bottom: 1em;
+    padding-top: 1em;
+  }
+  //
+  // Default table styling
+  //
+  table {
+    border-collapse: separate;
+    width: 100%;
+    img,
+    p {
+      @extend %reset-box-model;
+    }
+    a {
+      border: none;
+    }
+    td, th {
+      border-bottom: 1px solid $c-bordergrey;
+      padding: $gutter-width / 4;
+      vertical-align: middle;
+    }
+    thead {
+      background-color: $c-keylinegrey;
+    }
+  }
+  //
+  // Figure / image captions
+  //
+  figure {
+    margin: 0;
+    background-color: $c-lightgrey;
+    border: 1px solid $c-keylinegrey;
+    padding: $gutter-width / 2;
+    img {
+      margin-bottom: 0;
+      padding-top: 0;
+    }
+    figcaption {
+      display: inline-block;
+      vertical-align: top;
+      @include respond-to(tablet, true) {
+        width: 50%;
+        margin-left: $gutter-width;
+      }
+    }
+  }
+  .strap {
+    color: $c-navy;
+    font-weight: 700;
+  }
+  .internal-menu {
+    @extend .us-list;
+  }
+  .plans-ending {
+    @extend %clearfix;
+    @extend .us-list--reset;
+    border-top: 1px solid $c-blue;
+    li {
+      margin: 0;
+      padding-bottom: 0.5em;
+      padding-top: 0.5em;
+      border-bottom: 1px solid $c-blue;
+    }
+    .row {
+      position: relative;
+      cursor: pointer;
+      font-weight: 700;
+      color: $c-blue;
+      transition: color 0.3s;
+      &:after {
+        @extend %icon-font;
+        content: "\232a";
+        position: absolute;
+        right: 1em;
+        top: 50%;
+        margin-top: -0.75em;
+      }
+      &:hover {
+        color: $c-typecyan;
+      }
+    }
+    img {
+      @extend %reset-box-model;
+      margin: 0 1em 0 1em;
+      vertical-align: middle;
+    }
+    .table-container {
+      margin-top: 0.5em;
+    }
+    .us-btn {
+      @extend %btn;
+    }
+    .js & {
+      .table-container {
+        display: none;
+      }
+    }
+  }
+  .fuel-breakdown {
+    @extend %clearfix;
+    @extend .us-list--reset;
+    width: 100%;
+    overflow: hidden;
+    li {
+      float: left;
+      vertical-align: middle;
+      text-align: center;
+      color: white;
+      font-size: 16px;
+      font-size: rem(16px);
+      padding: $gutter-width / 2 0;
+      b {
+        display: block;
+      }
+    }
+    $fuel-colors: (coal, $c-bordergrey), (gas, $c-typecyan), (nuclear, $c-orange), (renewable, $c-green), (other, $c-typegrey);
+    @each $color in $fuel-colors {
+      .#{nth($color, 1)} {
+        background-color: nth($color, 2);
+        @if nth($color, 1) == other {
+          text-indent: -999em;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+// Anchor links
+// ---
+// Any anchor tags or items with the class .us-link will get this styling
+//
+// Styleguide 3.2
+
+a,
+.us-link {
+  @include link-colors($c-blue, $c-typecyan, $c-blue, $c-blue, darken($c-blue, 15%));
+  transition: color 333ms, border-color 333ms;
+  text-decoration: none;
+}
+
+.us-link {
+  border-bottom: 1px solid $c-blue;
+  &:visited {
+    border-color: $c-blue;
+  }
+  &:hover {
+    border-color: $c-typecyan;
+  }
+  &:focus,
+  &:active {
+    border-color: darken($c-blue, 15%);
+  }
+}

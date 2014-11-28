@@ -1,0 +1,57 @@
+// Inputs with backgrounds
+// ---
+// In addition to our basic inputs we've got some useful input backgrounds
+// that are used across the site. Each input background is a base64 encoded (for IE9 purposes)
+// SVG to allow scalability on retina devices. Any browser not supporting SVG has a PNG fallback.
+//
+// .postcode - Used for form fields asking for a postcode (typically in hero's)
+// .email - Used for email inputs
+// .phone - Used when asking for a phone number
+// .pound - Used when asking for cost of something
+// .password - For password only fields
+// .kwh - Energy specific
+//
+// Styleguide 2.2.1
+
+.us-form-input {
+  $backgrounds: postcode email phone pound password;
+  $selector: ();
+  @each $background in $backgrounds {
+    $selector: append($selector, unquote("&.#{$background}"), comma);
+  }
+  #{$selector} {
+    padding-left: 35px !important;
+    background-repeat: no-repeat !important;
+    background-position: 5px center !important;
+  }
+  .svg & {
+    &.postcode {
+      background-image: inline-asset("icons/postcode.svg") !important;
+    }
+    &.email {
+      background-image: inline-asset("icons/email.svg") !important;
+    }
+    &.phone {
+      background-image: inline-asset("icons/phone.svg") !important;
+    }
+    &.pound {
+      background-image: inline-asset("icons/pound.svg") !important;
+    }
+    &.password {
+      background-image: inline-asset("icons/password.svg") !important;
+    }
+    &.kwh {
+      padding-right: 30px !important;
+      background-repeat: no-repeat !important;
+      background-position: 97% center;
+      background-image: inline-asset("icons/kwh.svg") !important;
+    }
+  }
+  .no-svg & {
+    @each $background in $backgrounds {
+      &.#{$background} {
+        background-image: url(ustyle-image-path("icons/fallbacks/#{$background}.png"));
+      }
+    }
+  }
+}
