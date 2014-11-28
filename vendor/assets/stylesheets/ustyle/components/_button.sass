@@ -5,12 +5,12 @@
 // Each of these styles adheres to the uSwitch branding colours.
 // Currently we support anchor tags and button tags as the main ussage
 //
-// .primary - Usually used a save/update button
-// .secondary - Secondary use button, can be used multiple times
-// .tertiary - Tertiary use button, can be used multiple times
-// .primary--outlined - Usually used a save/update button
-// .secondary--outlined - Secondary use button, can be used multiple times
-// .tertiary--outlined - Tertiary use button, can be used multiple times
+// .primary -Used a save/update button
+// .secondary - Navigational button
+// .neutral - Neutral button for use on white backgrounds
+// .secondary--outlined - Outlined version of the secondary button
+// .navy--outlined - Navy outline used for buttons on `$c-cyan` hero's
+// .white--outlined - White outline for dark backgrounds
 // .arrowed, .arrowed.arrow-right - Arrowed button used for CTAs (right pointing)
 // .arrowed.arrow-left - Left pointing variation of arrowed buttons
 // .large - Larger button for heros
@@ -21,12 +21,13 @@
 //
 // Styleguide 3.1
 
-$button-color: $c-red !default
-$p-button-color: $c-green !default
-$s-button-color: $c-typecyan !default
-$t-button-color: $c-blue !default
+$button-color        : $c-red !default
+$p-button-color      : $c-green !default
+$s-button-color      : $c-typecyan !default
+$neutral-button-color: $c-keylinegrey !default
 
-$button-styles: ("primary", $p-button-color), ("secondary", $s-button-color), ("tertiary", $t-button-color) !default
+$button-styles: ("primary", $p-button-color), ("secondary", $s-button-color) !default
+$outline-button-styles: ("secondary", $s-button-color), ("navy", $c-navy), ("white", white) !default
 
 @mixin button-style($name, $outlined: false)
   @if $outlined
@@ -145,10 +146,26 @@ $button-styles: ("primary", $p-button-color), ("secondary", $s-button-color), ("
     opacity: 0.5
     pointer-events: none
 
+  &.neutral
+    transition: none 0
+    background-color: $neutral-button-color
+    border-color: shade($neutral-button-color, 20%)
+    color: $c-typegrey
+
+    &:hover,
+    &:focus
+      background-color: tint($c-typecyan, 90%)
+      border-color: $c-typecyan
+      color: $c-typecyan
+
+    &:active
+      background-color: $c-typecyan
+      color: white
+
   @each $button-style in $button-styles
     &.#{nth($button-style, 1)}
       +button-style($button-style)
 
-  @each $button-style in $button-styles
+  @each $button-style in $outline-button-styles
     &.#{nth($button-style, 1)}--outlined
       +button-style($button-style, true)
