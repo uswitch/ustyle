@@ -1,0 +1,6 @@
+browsers:
+  - "last 5 versions"
+  - "Firefox 22"
+  - "Opera 12.1"
+  - "> 1%"
+  - "Explorer 8"
