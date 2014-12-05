@@ -13,13 +13,11 @@
   color: $table-c-head-text;
   white-space: nowrap;
   cursor: pointer;
-}
 
   &:after {
     content: "\025bc";
     color: $table-c-inactive;
   }
-}
 
   &:hover {
     color: $table-c-head-text;
@@ -28,6 +26,7 @@
       color: $table-c-head-text;
     }
   }
+}
 
 .us-table-head--sorted {
   .us-table-sort-button {
