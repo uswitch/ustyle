@@ -8,65 +8,78 @@
 //
 // Styleguide 6.1
 
-%table--base {
-  width: 100%;
-  color: $table-c-text;
+th {
+  text-align: left;
 }
 
 .us-table {
-  @extend %table--base;
-  border-collapse: separate;
-  border-spacing: 0;
+  width: 100%;
+  max-width: 100%;
+  color: $table-c-text;
+
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        padding: $table-cell-padding;
+        vertical-align: top;
+        border-bottom: 1px solid $table-c-border;
+      }
+
+      > th {
+        vertical-align: middle;
+      }
+    }
+  }
+
+  td {
+    ul,
+    ol,
+    dl {
+      margin: 0;
+      padding-left: 0;
+      list-style-position: inside;
+    }
+
+    ul,
+    ol {
+      li:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
   @include respond-to(mobile) {
-    thead {
+    > thead {
       display: none !important;
     }
-    // !! This affects tables inside the table
-    tbody,
-    tr,
-    td {
+
+    > tbody > tr {
+      border-bottom: 1px solid $table-c-border;
+
+      > td {
+        border: 0;
+
+        + td {
+          padding-top: 0;
+        }
+      }
+    }
+
+    > tbody,
+    > tfoot {
       display: block;
+
+      > tr,
+      > td {
+        display: block;
+      }
     }
   }
-}
 
-// Normal table headers
-%table-head--base {
-  padding: 0 1em 0.5em 0;
-}
-
-.us-table-head {
-  @extend %table-head--base;
-  border-bottom: 1px solid $table-c-border;
-  color: $table-c-head-text;
-  text-align: left;
-  vertical-align: middle;
-}
-
-// Main rows
-%table-body-row--base {
-  @include respond-to(mobile) {
-    @include clearfix;
-    position: relative;
-  }
-}
-
-.us-table-body-row {
-  @extend %table-body-row--base;
-}
-
-%table-cell--base {
-  padding-top: $gutter-width / 2;
-  padding-bottom: $gutter-width / 2;
-}
-
-.us-table-cell {
-  @extend %table-cell--base;
-  border-bottom: 1px solid $table-c-border;
-  text-align: left;
-  vertical-align: top;
-  @include respond-to(mobile) {
-    padding: 0;
-    border: none;
-  }
+.us-table-cell-label {
+  font-size: 14px;
+  color: $table-c-label;
 }
