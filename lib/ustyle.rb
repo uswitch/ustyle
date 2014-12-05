@@ -44,6 +44,14 @@ module Ustyle
       @sprockets_env ||= ::Sprockets::Environment.new
     end
 
+    def autoprefixer_config app
+      file   = File.join Ustyle.gem_path, 'config/autoprefixer.yml'
+      params = YAML.load_file(file).symbolize_keys
+      opts   = { }
+      opts[:safe] = true if params.delete(:safe)
+      [params, opts]
+    end
+
     def register_compass_extension
       ::Compass::Frameworks.register(
           "ustyle",
