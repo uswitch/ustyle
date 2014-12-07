@@ -26,31 +26,31 @@
   }
   .svg & {
     &.postcode {
-      background-image: inline-asset("icons/postcode.svg") !important;
+      background-image: inline-asset("inputs/postcode.svg") !important;
     }
     &.email {
-      background-image: inline-asset("icons/email.svg") !important;
+      background-image: inline-asset("inputs/email.svg") !important;
     }
     &.phone {
-      background-image: inline-asset("icons/phone.svg") !important;
+      background-image: inline-asset("inputs/phone.svg") !important;
     }
     &.pound {
-      background-image: inline-asset("icons/pound.svg") !important;
+      background-image: inline-asset("inputs/pound.svg") !important;
     }
     &.password {
-      background-image: inline-asset("icons/password.svg") !important;
+      background-image: inline-asset("inputs/password.svg") !important;
     }
     &.kwh {
       padding-right: 30px !important;
       background-repeat: no-repeat !important;
       background-position: 97% center;
-      background-image: inline-asset("icons/kwh.svg") !important;
+      background-image: inline-asset("inputs/kwh.svg") !important;
     }
   }
   .no-svg & {
     @each $background in $backgrounds {
       &.#{$background} {
-        background-image: url(ustyle-image-path("icons/fallbacks/#{$background}.png"));
+        background-image: url(ustyle-image-path("inputs/fallbacks/#{$background}.png"));
       }
     }
   }
