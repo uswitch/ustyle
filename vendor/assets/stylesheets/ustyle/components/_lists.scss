@@ -1,16 +1,17 @@
-// Default anchored lists
+// @section Components
+// @name Default anchored lists
 // 
-// The default `.us-list` list styling for any components with anchors in them. 
-// Used primarily to direct users to additional pages.
+// @description
+//   The default `.us-list` list styling for any components with anchors in them.
+//   Used primarily to direct users to additional pages.
 //
-// Markup:
-// <ul class='us-list'>
-//   <li><a href="#">List item 1</a></li>
-//   <li><a href="#">List item 2</a></li>
-//   <li><a href="#">List item 3</a></li>
-// </ul>
+// @markup
+//   <ul class='us-list'>
+//     <li><a href="#">List item 1</a></li>
+//     <li><a href="#">List item 2</a></li>
+//     <li><a href="#">List item 3</a></li>
+//   </ul>
 //
-// Styleguide 4.2
 
 .us-list {
   @extend %reset-box-model;

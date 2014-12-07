@@ -1,20 +1,21 @@
-// Custom tick/numbered lists
+// @section Components
+// @name Custom tick/numbered lists
 // 
-// A simple way of quickly styling up `<ul>` or `<ol>` with ticks or custom numbers -
-//  `.us-ticked-list` or `.us-numbered-list`, 
-// with options for a white or hero-blue background (by wrapping in .us-hero or .us-custom-list-alt)
+// @description
+//   A simple way of quickly styling up `<ul>` or `<ol>` with ticks or custom numbers -
+//    `.us-ticked-list` or `.us-numbered-list`,
+//   with options for a white or hero-blue background (by wrapping in .us-hero or .us-custom-list-alt)
 //
-// Markup:
-// <ul class='us-ticked-list'>
-//   <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-//   <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-// </ul>
-// <ul class='us-numbered-list'>
-//   <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin iaculis bibendum.</li>
-//   <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin iaculis bibendum.</li>
-// </ul>
+// @markup
+//   <ul class='us-ticked-list'>
+//     <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+//     <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+//   </ul>
+//   <ul class='us-numbered-list'>
+//     <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin iaculis bibendum.</li>
+//     <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin iaculis bibendum.</li>
+//   </ul>
 //
-// Styleguide 4.2.1
 
 %base-custom-list {
   margin: 1.5em 0;

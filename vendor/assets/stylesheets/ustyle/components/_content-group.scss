@@ -1,9 +1,13 @@
-// Content group
+// @section Components
+// @name Content group
 // 
-// The `.us-content-group` is a separator element for content groupings. 
-// Ideal to split up landing pages with reasonable padding
+// @description
+//   The `.us-content-group` is a separator element for content groupings. 
+//   Ideal to split up landing pages with reasonable padding
 //
-// Markup:
+// @state .mobile-bordered - Adds a smaller border and padding to mobile devices. By default there is none
+//
+// @markup
 //  <div class='us-content-group {$modifiers}'>
 //    <p>
 //      Swat at dog intrigued by the shower missing until dinner time and run in circles use lap as chair.
@@ -12,10 +16,6 @@
 //      Swat at dog stretch and stand in front of the computer screen.
 //    </p>
 //  </div>
-//
-// .mobile-bordered - Adds a smaller border and padding to mobile devices. By default there is none
-//
-// Styleguide 4.5
 
 $content-group-border-color: $c-keylinegrey !default;
 

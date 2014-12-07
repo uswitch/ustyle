@@ -1,17 +1,17 @@
-// Hero banner
+// @section Components
+// @name Hero
 // 
-// The `.us-hero` is used for the upper part of most pages. The hero can also
-// be used mid-page to highlight other sections. We define it with .us-hero
+// @description
+//   The `.us-hero` is used for the upper part of most pages. The hero can also
+//   be used mid-page to highlight other sections. We define it with .us-hero
 //
-// Markup:
-// <div class='us-hero'>
-//   <div class='us-hero-container'>
-//     <h1 class='us-hero-title'>Hero title</h1>
-//     <p class='us-hero-description us-standfirst'>Swat at dog intrigued by the shower missing until dinner time.</p>
+// @markup
+//   <div class='us-hero'>
+//     <div class='us-hero-container'>
+//       <h1 class='us-hero-title'>Hero title</h1>
+//       <p class='us-hero-description us-standfirst'>Swat at dog intrigued by the shower missing until dinner time.</p>
+//     </div>
 //   </div>
-// </div>
-//
-// Styleguide 4.3
 
 $hero-background-color: $c-cyan !default;
 $hero-text-color: $c-navy !default;

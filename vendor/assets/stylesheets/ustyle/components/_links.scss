@@ -1,13 +1,13 @@
-// Anchor links
+// @section Components
+// @name Anchor links
 // 
-// Anchor tag styling, with and without a border
+// @description Anchor tag styling, with and without a border
 //
-// Markup:
-// <a href="#" class="{$modifiers}">Link</a>
-// 
-// .us-link - Adds a border bottom to the link
+// @state .us-link - Adds a border bottom to the link
 //
-// Styleguide 4.1
+// @markup
+//   <a href="#" class="{$modifiers}">Link</a>
+//
 
 a,
 .us-link {

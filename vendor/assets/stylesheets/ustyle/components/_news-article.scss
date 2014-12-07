@@ -1,11 +1,28 @@
-// News article item
-// ---
-// The news item article standard. Built with `.us-news-item`. Is initially a 3col item
-// that drops down to 6col and then full width at mobile - without the image.
-// The news item image is a background image as the problem of not displaying
-// `<img>` tags on mobile hasn't been resolved.
+// @section Components
+// @name News article item
 //
-// Styleguide 4.1
+// @description
+//   The news item article standard. Built with `.us-news-item`.
+//   The news item image is a background image as the problem of not displaying
+//   `<img>` tags on mobile hasn't been resolved.
+//
+//  @markup
+//   <div class='us-news-item'>
+//     <a class='us-news-item-link' href='#'>
+//       <div class='us-news-item-image-container'>
+//         <div class='us-news-item-image background' style='background-image: url(http://uswitch-wp-blog-assets.s3-website-eu-west-1.amazonaws.com/wp-content/uploads/2013/09/Untitled-1.jpg)'></div>
+//       </div>
+//       <div class='us-news-meta'>
+//         <span class='category'>Consumer rights</span>
+//         <span class='date'>14 Nov 2014</span>
+//       </div>
+//       <h3 class='us-news-item-title'>Customer uses promoted tweet to complain about BA</h3>
+//       <p class='us-news-item-snippet'>Sign of things to come? Social media helps to empower disgruntled consumer amid lost luggage row</p>
+//       <div class='us-news-item-readmore'>
+//         <span class='us-news-item-readmorelink'>More consumer rights</span>
+//       </div>
+//     </a>
+//   </div>
 
 $item-padding: 9px;
 $news-item-image-size: 128px !default;

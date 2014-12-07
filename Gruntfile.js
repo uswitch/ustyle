@@ -1,17 +1,23 @@
-var handlebars = require('handlebars');
-var dss        = require('dss');
-var _          = require('lodash');
+var autoprefixer = require('autoprefixer-core');
 
 module.exports = function(grunt) {
   grunt.initConfig({
+    postcss: {
+        options: {
+            processors: [
+              autoprefixer({ browsers: ['last 5 versions', 'Firefox 22', 'Explorer 8', '> 1%', 'Opera 12.1'] }).postcss
+            ]
+        },
+        dist: { src: 'build/**/*.css' }
+    },
     watch: {
-      files: ["vendor/assets/stylesheets/ustyle/**/*.sass", "styleguide/**/*"],
-      tasks: ['dss',  'sass']
+      files: ["vendor/assets/stylesheets/ustyle/**/*.scss", "styleguide/**/*"],
+      tasks: ['dss',  'sass', 'postcss']
     },
     dss: {
       docs: {
         files: {
-          'docs/': 'vendor/assets/stylesheets/ustyle/**/*.sass'
+          'docs/': 'vendor/assets/stylesheets/ustyle/**/*.scss'
         }
       }
     },
@@ -22,8 +28,8 @@ module.exports = function(grunt) {
           require: './lib/ustyle.rb'
         },
         files: {
-          'build/ustyle-latest.css': 'vendor/assets/stylesheets/ustyle.sass',
-          'build/ustyle-content.css': 'vendor/assets/stylesheets/ustyle-content.sass'
+          'build/ustyle-latest.css': 'vendor/assets/stylesheets/ustyle.scss',
+          'build/ustyle-content.css': 'vendor/assets/stylesheets/ustyle-content.scss'
         }
       }
     },
@@ -42,6 +48,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-browser-sync');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-postcss');
   grunt.loadTasks('grunt/tasks');
   grunt.registerTask('default', ['browserSync', 'watch']);
 };

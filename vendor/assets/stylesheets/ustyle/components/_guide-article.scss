@@ -1,12 +1,28 @@
-// Guide article
-// ---
-// This is the default guide item for uSwitch landing page. It extends the
-// news item heavily. The description is initially hidden and shown on hover or any desktop
-// devices
+// @section Components
+// @name Guide article
 //
-// .larger - A larger, 4 col version of the guide
+// @description
+//   This is the default guide item for uSwitch landing page. It extends the
+//   news item heavily. The description is initially hidden and shown on hover or any desktop
+//   devices
 //
-// Styleguide 4.2
+// @state .larger - A larger, 4 col version of the guide
+//
+// @markup
+//   <div class='us-guide-item larger'>
+//     <a class='us-guide-item-link' href='#'>
+//       <div class='us-guide-item-image-container'>
+//         <div class='us-guide-item-image background' style='background-image: url(http://www.uswitch.com/insurance/assets/guide-home-16141c84afd29e2063ee76803037716c.jpg)'></div>
+//       </div>
+//       <div class='us-guide-item-content'>
+//         <h4 class='us-guide-item-title'>Car insurance guides</h4>
+//         <p class='us-guide-item-description'>Read our car insurance advice guides for the facts on why you need car insurance, the types of cover available, and tips on how to make a claim.</p>
+//       </div>
+//       <div class='us-guide-item-readmore'>
+//         <span class='us-news-item-readmorelink'>Read more</span>
+//       </div>
+//     </a>
+//   </div>
 
 $guide-item-image-size: 128px !default;
 
