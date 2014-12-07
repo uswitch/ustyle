@@ -103,6 +103,10 @@ module.exports = function(grunt){
                           blocks: value
                       }
                     })
+                    // As it's iterating over files, we don't want files that aren't documented to come through
+                    .filter(function(object) {
+                      return object.name != "undefined"
+                    })
                     .compact()
                     .value();
 
@@ -148,7 +152,7 @@ module.exports = function(grunt){
     }
 
     function removeModifiersFromMarkup(escaped){
-      return escaped.replace(/(\sclass='{\$modifiers}'|\s{\$modifiers})/g, "");
+      return escaped.replace(/(\sclass=('|"){\$modifiers}('|")|\s{\$modifiers})/g, "");
     }
 
   });
