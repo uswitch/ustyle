@@ -11,7 +11,7 @@ module.exports = function(grunt) {
         dist: { src: 'build/**/*.css' }
     },
     watch: {
-      files: ["vendor/assets/stylesheets/ustyle/**/*.scss", "styleguide/**/*"],
+      files: ['vendor/assets/stylesheets/ustyle/**/*.scss', 'styleguide/**/*', 'build/**/*.css'],
       tasks: ['dss',  'sass', 'postcss']
     },
     dss: {
