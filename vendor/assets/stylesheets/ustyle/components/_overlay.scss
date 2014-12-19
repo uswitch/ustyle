@@ -1,6 +1,6 @@
 // Overlay
 // ---
-// `.us-overlay` slides from any side and can turn into a modal if `.us-overlay-modal-parent` is added into the parent.
+// `.us-overlay` slides from any side and can turn into a modal on desktop if `.us-overlay-modal-parent` is added into the parent.
 //
 // .us-overlay--right - Add it to ".us-overlay" to slide from right
 // .us-overlay--sticky-header - Add it to ".us-overlay" to make the header sticky, it works together with modal or --right as well
@@ -64,8 +64,10 @@ $overlay-z-index: $overlay-forced-z-index;
 .us-overlay {
   @include overlay;
 
-  @include respond-to($overlay-modal-breakpoint, true) {
-    overflow: hidden;
+  .us-overlay-modal-parent & {
+    @include respond-to($overlay-modal-breakpoint, true) {
+      overflow: hidden;
+    }
   }
 }
 
@@ -76,10 +78,12 @@ $overlay-z-index: $overlay-forced-z-index;
 .us-overlay__container {
   @extend %container;
   padding: 1em;
-  @include respond-to($overlay-modal-breakpoint, true) {
-    overflow: scroll;
-    height: 100%;
-    padding-bottom: $overlay-header-height + 16px;
+  .us-overlay-modal-parent & {
+    @include respond-to($overlay-modal-breakpoint, true) {
+      overflow: scroll;
+      height: 100%;
+      padding-bottom: $overlay-header-height + 16px;
+    }
   }
   .us-overlay--sticky-header & {
     overflow: scroll;
