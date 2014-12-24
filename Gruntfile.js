@@ -11,10 +11,19 @@ module.exports = function(grunt) {
         dist: { src: 'build/**/*.css' }
     },
     watch: {
-      files: ['vendor/assets/stylesheets/ustyle/**/*.scss', 'styleguide/**/*', 'build/**/*.css'],
-      tasks: ['dss',  'sass', 'postcss']
+      options: {
+        spawn: false // Very important, don't miss this
+      },
+      build: {
+        files: ['vendor/assets/stylesheets/ustyle/**/*.scss', 'styleguide/**/*'],
+        tasks: ['styleguide', 'sass', 'sassdoc', 'postcss', 'browserSync-inject']
+      },
+      scripts: {
+        files: 'styleguide/**/*.js',
+        tasks: ['concat']
+      }
     },
-    dss: {
+    styleguide: {
       docs: {
         files: {
           'docs/': 'vendor/assets/stylesheets/ustyle/**/*.scss'
@@ -24,31 +33,41 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         options: {
-          loadPath: 'vendor/assets/stylesheets/ustyle',
+          loadPath: ['vendor/assets/stylesheets/ustyle', 'styleguide/assets/sass'],
           require: './lib/ustyle.rb'
         },
         files: {
           'build/ustyle-latest.css': 'vendor/assets/stylesheets/ustyle.scss',
-          'build/ustyle-content.css': 'vendor/assets/stylesheets/ustyle-content.scss'
+          'build/ustyle-content.css': 'vendor/assets/stylesheets/ustyle-content.scss',
+          'build/docs/css/main.css': 'styleguide/assets/sass/main.scss'
         }
       }
     },
-    browserSync: {
-        bsFiles: {
-            src : 'assets/css/*.css'
-        },
+    concat: {
+      dist: {
+        src: ['styleguide/assets/javascripts/vendor/*.js', 'styleguide/assets/javascripts/*.js'],
+        dest: 'build/docs/js/app.js'
+      }
+    },
+    sassdoc: {
+      default: {
+        src: 'vendor/assets/stylesheets/ustyle',
+        dest: 'build/docs/sass',
         options: {
-            server: {
-                baseDir: "./build/"
-            },
-            watchTask: true
+          config: "grunt/sassdoc/view.json"  
         }
+      }
     }
   });
+
+  grunt.loadNpmTasks('grunt-sassdoc');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-browser-sync');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-postcss');
   grunt.loadTasks('grunt/tasks');
-  grunt.registerTask('default', ['browserSync', 'watch']);
+  
+  grunt.registerTask('build', ['sass', 'sassdoc', 'styleguide', 'concat', 'postcss']);
+  grunt.registerTask('default', ['build', 'browserSync-init', 'watch']);
 };

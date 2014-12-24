@@ -2,7 +2,7 @@
 
 // Expose
 module.exports = function(grunt){
-  grunt.registerMultiTask('dss', 'Parse DSS comment blocks', function(){
+  grunt.registerMultiTask('styleguide', 'Parse DSS comment blocks', function(){
 
     var handlebars = require('handlebars'),
         dss        = require('dss'),
@@ -17,7 +17,7 @@ module.exports = function(grunt){
     var options = this.options({
         template: './styleguide/',
         templateOutput: './build/docs/',
-        templateIndex: 'index.hbs',
+        templateIndex: 'template.hbs',
         defaultPartials: {
           style_block: grunt.file.read('./styleguide/partials/style_block.hbs'),
           sidebar: grunt.file.read('./styleguide/partials/sidebar.hbs')
@@ -100,6 +100,7 @@ module.exports = function(grunt){
                     .map(function(value, key) {
                       return {
                           name: key,
+                          page: key.toLowerCase() + '.html',
                           blocks: value
                       }
                     })
@@ -115,13 +116,11 @@ module.exports = function(grunt){
 
     function generateStyleguide(sections, callback){
       grunt.log.writeln(JSON.stringify(sections))
-
       sections.map(function(section){
 
         var templateFilePath = options.template + options.templateIndex,
-            outputFilePath = options.templateOutput + section.name.toLowerCase() + '.html';
-
-        var partials = handlebars.registerPartial(options.defaultPartials);
+            outputFilePath = options.templateOutput + section.page,
+            partials = handlebars.registerPartial(options.defaultPartials);
 
         var html = handlebars.compile(grunt.file.read(templateFilePath))({
           project: grunt.file.readJSON('package.json'),
@@ -154,7 +153,5 @@ module.exports = function(grunt){
     function removeModifiersFromMarkup(escaped){
       return escaped.replace(/(\sclass=('|"){\$modifiers}('|")|\s{\$modifiers})/g, "");
     }
-
   });
-
 };

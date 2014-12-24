@@ -1,0 +1,26 @@
+$styleguide-block-padding: $gutter-width;
+$styleguide-block-border-color: $c-bordergrey;
+
+.styleguide {
+  &__block {
+    @extend %clearfix;
+    position: relative;
+    padding-top: $styleguide-block-padding;
+    padding-bottom: $styleguide-block-padding;
+    border-bottom: 1px solid $styleguide-block-border-color;
+  }
+
+  &__block-title {
+    @include bold-font;
+    color: $c-navy;
+  }
+
+  &__block-examples {
+    border: 1px solid $styleguide-block-border-color;
+    border-radius: 3px;
+  }
+
+  &__block-example {
+    padding: $gutter-width/2;
+  }
+}

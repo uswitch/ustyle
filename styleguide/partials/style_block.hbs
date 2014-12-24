@@ -1,34 +1,33 @@
-<div class="block">
+<div class="styleguide__block">
   
-  <h3 id="{{file}}">{{file}}</h3>
+  <span class="filename">{{file}}</span>
 
-  <div class="info">
-    <h4>{{name}}</h4>
+  <div class="styleguide__block-info">
+    <h2 class="styleguide__block-title">{{name}}</h2>
     {{#if description}}
       {{{description}}}
     {{/if}}
-    
-    {{#state}}
-      <p class="state"><span>{{name}}</span> - {{description}}</p>
-    {{/state}}
   </div>
   
   {{#if markup}}
-    
-    <div class="example">
-      {{{markup.example}}}
-    </div>
-  
-    {{#state}}
-      <div class="example state">
-        <div class="name">{{name}}</div>
-          {{{markup.example}}}
+    <div class="styleguide__block-examples">
+      <div class="styleguide__block-example">
+        {{{markup.example}}}
       </div>
-    {{/state}}
+    
+      {{#state}}
+        <div class="styleguide__block-example state">
+          <div class="name">{{name}} - {{description}}</div>
+          {{{markup.example}}}
+        </div>
+      {{/state}}
 
-    <pre class="prettyprint lang-html markup">
-      {{{markup.escaped}}}
-    </pre>
+      <pre><code class="html">
+      {{#markup ~}}
+        {{~{escaped}}}
+      {{/markup}}
+      </code></pre>
+    </div>
   
   {{/if}}
 
