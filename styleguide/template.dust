@@ -13,6 +13,11 @@
       {{#section}}
         <h1 class="section__title">{{name}}</h1>
         {{#blocks}}
+
+          {{#if partial}}
+            {{> partial}}
+          {{/if}}
+          <!-- {{#partial}}{{/partial}} -->
           {{> style_block}}
         {{/blocks}}
       {{/section}}

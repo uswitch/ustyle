@@ -13,6 +13,6 @@ module.exports = function(grunt){
   });
 
   grunt.registerTask("browserSync-inject", function() {
-    browserSync.reload(["css/main.css", "../ustyle-content.css"]);
+    browserSync.reload(["docs/css/main.css", "../ustyle-content.css"]);
   });
 }
