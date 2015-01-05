@@ -21,6 +21,8 @@ $styleguide-block-border-color: $c-bordergrey;
   }
 
   &__block-example {
+    @extend %clearfix;
     padding: $gutter-width/2;
+    border-bottom: 1px dashed $c-lightgrey;
   }
 }
