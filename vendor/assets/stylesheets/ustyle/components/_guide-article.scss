@@ -6,8 +6,10 @@
 //   news item heavily. The description is initially hidden and shown on hover or any desktop
 //   devices
 //
+// @state .larger - A larger, 4 col version of the guide
+//
 // @markup
-//   <div class='us-guide-item us-col-md-3'>
+//   <div class='us-guide-item larger'>
 //     <a class='us-guide-item-link' href='#'>
 //       <div class='us-guide-item-image-container'>
 //         <div class='us-guide-item-image background' style='background-image: url(http://www.uswitch.com/insurance/assets/guide-home-16141c84afd29e2063ee76803037716c.jpg)'></div>

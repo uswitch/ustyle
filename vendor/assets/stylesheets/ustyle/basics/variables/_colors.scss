@@ -1,73 +1,71 @@
-// @section Colours
-// @name Primary colours
-// @partial colour
-// @description Our 4 base primary colours
-// @variable c-navy - asdas
-// 
+// -----
+// Colours
+// -----
 
+// Primary - brand
 
-$c-navy: #1c1f4e;
-$c-blue: #174695;
-$c-typecyan: #008fe9;
-$c-cyan: #99e2ff;
+$c-navy: #1c1f4e !default;
+$c-blue: #174695 !default;
+$c-typecyan: #008fe9 !default;
+$c-cyan: #99e2ff !default;
 
 // Greys - typography
-$c-darkgrey: #333333;
-$c-typegrey: $c-darkgrey;
-$c-typegrey-2: #767676;
+$c-darkgrey: #333333 !default;
+$c-typegrey: $c-darkgrey !default;
+$c-typegrey-2: #767676 !default;
 
 // Greys - backgrounds
-$c-lightgrey: #f4f4f4;
-$c-inputgrey: #97999a;
-$c-bordergrey: #bbbbbb;
-$c-keylinegrey: #eaeaea;
-$c-bggrey: $c-lightgrey;
+$c-lightgrey: #f4f4f4 !default;
+$c-inputgrey: #97999a !default;
+$c-bordergrey: #bbbbbb !default;
+$c-keylinegrey: #eaeaea !default;
+$c-bggrey: $c-lightgrey !default;
 
 // Secondary colours
 
-$c-yellow: #ffd32f;
-$c-orange: #f27930;
-$c-purple: #9c55b8;
-$c-red: #d64226;
-$c-green: #2aaa5b;
+$c-yellow: #ffd32f !default;
+$c-orange: #f27930 !default;
+$c-purple: #9c55b8 !default;
+$c-red: #d64226 !default;
+$c-green: #2aaa5b !default;
 
 // Tertiary blues
 
-$navy-light: #1a316e;
-$c-blue-light: #0c72bf;
-$c-typecyan-light: #4cc0f4;
-$c-cyan-light: #e4f8ff;
+$c-navy-light: #1a316e !default;
+$c-blue-light: #0c72bf !default;
+$c-typecyan-light: #4cc0f4 !default;
+$c-cyan-light: #e4f8ff !default;
 
 // Backup colours
 
-$c-yellow-dark: shade($c-yellow, 15%);
-$c-orange-dark: shade($c-orange, 15%);
-$c-purple-dark: shade($c-purple, 15%);
-$c-red-dark: shade($c-red, 15%);
-$c-green-dark: shade($c-green, 15%);
+$c-yellow-dark: shade($c-yellow, 15%) !default;
+$c-orange-dark: shade($c-orange, 15%) !default;
+$c-purple-dark: shade($c-purple, 15%) !default;
+$c-red-dark: shade($c-red, 15%) !default;
+$c-green-dark: shade($c-green, 15%) !default;
 
-$c-yellow-light: tint($c-yellow, 30%);
-$c-orange-light: tint($c-orange, 30%);
-$c-purple-light: tint($c-purple, 30%);
-$c-red-light: tint($c-red, 30%);
-$c-green-light: tint($c-green, 30%);
+$c-yellow-light: tint($c-yellow, 30%) !default;
+$c-orange-light: tint($c-orange, 30%) !default;
+$c-purple-light: tint($c-purple, 30%) !default;
+$c-red-light: tint($c-red, 30%) !default;
+$c-green-light: tint($c-green, 30%) !default;
 
-$c-yellow-lightest: tint($c-yellow, 60%);
-$c-orange-lightest: tint($c-orange, 60%);
-$c-purple-lightest: tint($c-purple, 60%);
-$c-red-lightest: tint($c-red, 60%);
-$c-green-lightest: tint($c-green, 60%);
+$c-yellow-lightest: tint($c-yellow, 60%) !default;
+$c-orange-lightest: tint($c-orange, 60%) !default;
+$c-purple-lightest: tint($c-purple, 60%) !default;
+$c-red-lightest: tint($c-red, 60%) !default;
+$c-green-lightest: tint($c-green, 60%) !default;
 
 // Greys
 
-$grey-10: #cbcccc;
-$grey-9: #eeeeee;
-$grey-8: #dddddd;
-$grey-7: #cccccc;
-$grey-6: #bbbbbb;
-$grey-5: #aaaaaa;
-$grey-4: #97999a;
-$grey-3: #666666;
-$grey-2: #555555;
-$grey-1: #2f3335;
-$grey-0: #222222;
+$grey-10: #cbcccc !default;
+$grey-9: #eeeeee !default;
+$grey-8: #dddddd !default;
+$grey-7: #cccccc !default;
+$grey-6: #bbbbbb !default;
+$grey-5: #aaaaaa !default;
+$grey-4: #97999a !default;
+$grey-3: #666666 !default;
+$grey-2: #555555 !default;
+$grey-1: #2f3335 !default;
+$grey-0: #222222 !default;

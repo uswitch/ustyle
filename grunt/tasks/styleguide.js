@@ -9,8 +9,6 @@ module.exports = function(grunt){
         _          = require('lodash'),
         async      = require('async'),
         marked     = require('marked'),
-        path       = require('path'),
-        crypto     = require('crypto'),
         promise    = this.async(),
         files      = this.files,
         styleguide = [];
@@ -25,15 +23,6 @@ module.exports = function(grunt){
           sidebar: grunt.file.read('./styleguide/partials/sidebar.hbs')
         },
         parsers: {
-          variable: variableDssParser(),
-          partial: function(i, line, block){
-            var partialTag = '{{>' + line + '}}',
-                partial = {};
-        
-            partial[line] = grunt.file.read('./styleguide/partials/'+ line +'.hbs');
-            handlebars.registerPartial(partial);
-            return line;
-          },
           section: function(i, line, block){ return line; },
           description: function(i, line, block, file){
             var nextParserIndex = block.indexOf("@", i+1),
@@ -67,18 +56,19 @@ module.exports = function(grunt){
       var styleguide = [];
       var srcFiles = files[0].src;
 
-      async.forEach(srcFiles, function(file){
+      async.forEach(srcFiles, function(filename){
 
-        grunt.log.writeln('• ' + grunt.log.wordlist([file], {color: 'cyan'}));
+        grunt.log.writeln('• ' + grunt.log.wordlist([filename], {color: 'cyan'}));
 
-        dss.parse(grunt.file.read(file), { file: file }, function(parsed) {
+        dss.parse(grunt.file.read(filename), { file: filename }, function(parsed) {
 
           // Continue only if file contains DSS annotation
           if (parsed.blocks.length) {
+            // Add filename
+            parsed['file'] = filename;
             // Add comment block to styleguide
             parsed.blocks.map(function(block){
-              block['path'] = file;
-              block['file'] = path.basename(file);
+              block['file'] = filename;
               // Normalize @state and @variable to array
               ['state', 'variable'].forEach(function(prop) {
                 if (block.hasOwnProperty(prop) && typeof block[prop].slice !== 'function') {
@@ -162,55 +152,6 @@ module.exports = function(grunt){
 
     function removeModifiersFromMarkup(escaped){
       return escaped.replace(/(\sclass=('|"){\$modifiers}('|")|\s{\$modifiers})/g, "");
-    }
-
-    /**
-     * Get parser for a file which will extract "@variable {name} - {description}"
-     *
-     * @param {object} file - The file to extract the variable values from
-     * @return {function} A DSS parser
-     */
-    function variableDssParser() {
-
-        var fileVariables = {},
-            fileVariablesRx = /^[\$|@]([a-zA-Z0-9_-]+):([^\;]+)\;/gim,
-            lineSplitRx = /(( - )+)/,
-            variables = {},
-            match, hash, tokens, name;
-
-        return function(i, line, block, css) {
-            hash = crypto.createHash('md5').update(css).digest('hex');
-            if (!fileVariables[hash]) {
-                while ((match = fileVariablesRx.exec(css)) !== null) {
-                    variables[match[1].trim()] = match[2].trim();
-                }
-                fileVariables[hash] = variables;
-            }
-
-            // Extract name and any delimiter with description
-            tokens = line.split(lineSplitRx, 2);
-            name = tokens[0].trim();
-            if (variables.hasOwnProperty(name)) {
-                return {
-                    name: name,
-                    // Description is line with name and any delimiter replaced
-                    description: line.replace(tokens.join(''), ''),
-                    value: variables[name]
-                };
-            }
-        };
-    }
-    /**
-     * Parser to extract "@partial" and add a lambda to the block so you can use that
-     * partial in the template for the block with {{#partial}}{{/partial}} (because
-     * there is no such thing as variable partial names in Mustache)
-     *
-     * @param {number} i - Block number
-     * @param {string} line - Text after "@partial"
-     * @param {string} block - Entire DSS block
-     */
-    function partialDssParser(i, line, block) {
-
     }
   });
 };

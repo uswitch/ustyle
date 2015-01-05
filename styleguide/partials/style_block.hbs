@@ -1,0 +1,34 @@
+<div class="styleguide__block">
+  
+  <span class="filename">{{file}}</span>
+
+  <div class="styleguide__block-info">
+    <h2 class="styleguide__block-title">{{name}}</h2>
+    {{#if description}}
+      {{{description}}}
+    {{/if}}
+  </div>
+  
+  {{#if markup}}
+    <div class="styleguide__block-examples">
+      <div class="styleguide__block-example">
+        {{{markup.example}}}
+      </div>
+    
+      {{#state}}
+        <div class="styleguide__block-example state">
+          <div class="name">{{name}} - {{description}}</div>
+          {{{markup.example}}}
+        </div>
+      {{/state}}
+
+      <pre><code class="html">
+      {{#markup ~}}
+        {{~{escaped}}}
+      {{/markup}}
+      </code></pre>
+    </div>
+  
+  {{/if}}
+
+</div>
