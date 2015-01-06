@@ -4,34 +4,36 @@
 module.exports = function(grunt){
   grunt.registerMultiTask('styleguide', 'Parse DSS comment blocks', function(){
 
-    var handlebars = require('handlebars'),
+    var hogan      = require('hogan.js'),
         dss        = require('dss'),
         _          = require('lodash'),
         async      = require('async'),
         marked     = require('marked'),
         path       = require('path'),
         crypto     = require('crypto'),
+        fs         = require('fs'),
         promise    = this.async(),
         files      = this.files,
         styleguide = [];
 
     // Merge task-specific and/or target-specific options with defaults
     var options = this.options({
-        template: './styleguide/',
+        baseDir: './styleguide/',
+        templates: './styleguide/**/*.tpl',
         templateOutput: './build/docs/',
-        templateIndex: 'template.hbs',
-        defaultPartials: {
-          style_block: grunt.file.read('./styleguide/partials/style_block.hbs'),
-          sidebar: grunt.file.read('./styleguide/partials/sidebar.hbs')
-        },
+        templateIndex: 'index.tpl',
+        // partials: {
+        //   style_block: hogan.compile(grunt.file.read('./styleguide/partials/style_block.tpl')),
+        //   sidebar: hogan.compile(grunt.file.read('./styleguide/partials/sidebar.tpl'))
+        // },
         parsers: {
           variable: variableDssParser(),
           partial: function(i, line, block){
             var partialTag = '{{>' + line + '}}',
                 partial = {};
         
-            partial[line] = grunt.file.read('./styleguide/partials/'+ line +'.hbs');
-            handlebars.registerPartial(partial);
+            partial[line] = grunt.file.read('./styleguide/partials/'+ line +'.tpl');
+            // handlebars.registerPartial(partial);
             return line;
           },
           section: function(i, line, block){ return line; },
@@ -125,35 +127,50 @@ module.exports = function(grunt){
     }
 
     function generateStyleguide(sections, callback){
+      var templateFilePath = options.baseDir + options.templateIndex;
+      var templates = generateTemplates(options.templates);
+
       grunt.log.writeln(JSON.stringify(sections))
       sections.map(function(section){
+        var outputFilePath = options.templateOutput + section.page;
 
-        var templateFilePath = options.template + options.templateIndex,
-            outputFilePath = options.templateOutput + section.page,
-            partials = handlebars.registerPartial(options.defaultPartials);
-
-        var html = handlebars.compile(grunt.file.read(templateFilePath))({
+        var data = {
           project: grunt.file.readJSON('package.json'),
           section: section,
           sections: sections
-        });
+        }
 
-        var outputType = 'created', output = null;
+        var template = hogan.compile(grunt.file.read(templateFilePath));
+        var output   = template.render(data, templates);
+        var outputType = 'created', old = null;
 
         if (grunt.file.exists(outputFilePath)) {
           outputType = 'overwritten';
-          output = grunt.file.read(outputFilePath);
+          old = grunt.file.read(outputFilePath);
         }
         // avoid write if there is no change
-        if (output !== html) {
+        if (old !== output) {
           // Render file
-          grunt.file.write(outputFilePath, html);
+          grunt.file.write(outputFilePath, output);
           grunt.log.writeln('✓ Styleguide ' + outputType + ' at: ' + grunt.log.wordlist([outputFilePath], {color: 'cyan'}));
         } else {
           grunt.log.writeln('‣ Styleguide unchanged');
         }
       });
       callback(null, 'done');
+    }
+
+    function generateTemplates(templatePath){
+      var templates = {};
+      console.log(templatePath);
+      grunt.file.expand(templatePath).forEach(function(file){
+        var templateName = path.basename(file, '.tpl');
+        console.log(templateName);
+        
+        templates[templateName] = hogan.compile(grunt.file.read(file))
+        
+      });
+      return templates;
     }
 
     function addStateToExample(markup, state){
