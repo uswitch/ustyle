@@ -13,5 +13,13 @@ module.exports = {
       // Compile and call the partial with this as context
       return new handlebars.SafeString(handlebars.compile(partial)(this));
     });
+
+    handlebars.registerHelper('isActive', function(name, context) {
+      var active = '';
+      if(name === context.data.root.section.name) {
+        active = 'active'
+      }
+      return new handlebars.SafeString(active);
+    });
   }
 };

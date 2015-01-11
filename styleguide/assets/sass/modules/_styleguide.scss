@@ -45,11 +45,14 @@ $styleguide-block-border-color: $c-bordergrey;
     font-size: .85em;
   }
 
+  &__block-example + &__block-example { 
+    border-top: 1px dashed darken($styleguide-separator-color, 10%);
+  }
+
   &__block-example {
     @extend %clearfix;
     position: relative;
     padding: $gutter-width $gutter-width/2;
-    border-bottom: 1px dashed darken($styleguide-separator-color, 10%);
   }
 
 }

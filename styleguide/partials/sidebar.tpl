@@ -7,7 +7,7 @@
         <ul class='nav__set'>
           {{#sections}}
             <li class="nav__item">
-              <a class="nav__link nav__main-link" href="/docs/{{page}}">{{name}}</a>
+              <a class="nav__link nav__main-link {{isActive this.name}}" href="/docs/{{page}}">{{name}}</a>
               <ul class="nav__set nav__sub-set">
                 {{#blocks}}
                   <li class="nav__item"><a class="nav__link" href="/docs/{{../page}}#{{link}}">{{name}}</a></li>

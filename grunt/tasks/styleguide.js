@@ -102,7 +102,6 @@ module.exports = function(grunt){
                     })
                     // As it's iterating over files, we don't want files that aren't documented to come through
                     .filter(function(object) { return object.name != "undefined" }).compact().value();
-
       callback(null, sections);
     }
 
