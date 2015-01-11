@@ -10,14 +10,17 @@ require 'fileutils'
 
 namespace :ustyle do
   desc "Publishes uStyle v#{Ustyle::VERSION}"
-  task :publish => [ "git:add",
-                     "styleguide:update",
+  task :publish => [ "ustyle:build",
+                     "git:add",
                      "git:commit","git:tag","git:push",
-                     "build:stylesheets","build:images",
-                     "deploy:stylesheets","deploy:images",
-                     "styleguide:deploy"
+                     "build:images", 
+                     "deploy:stylesheets", "deploy:images", "deploy:styleguide"
                     ] do
     puts "Publishing uStyle v#{Ustyle::VERSION}"
+  end
+
+  task :build do
+    `grunt build`
   end
 end
 
@@ -44,51 +47,7 @@ namespace :git do
   end
 end
 
-namespace :styleguide do
-  desc "Deploy uStyle styleguide"
-  task :deploy do
-    Ustyle.s3_connect!
-
-    `cd ./styleguide && BUNDLE_GEMFILE=Gemfile bundle exec middleman build`
-
-    Dir["styleguide/build/**/*"].each do |file|
-      next if File.directory?(file)
-      stripped_name = file.gsub(/^styleguide\/build\//, "")
-      content_type = Ustyle.mime_type_for(stripped_name)
-      Ustyle.s3_upload( stripped_name, file, content_type, "ustyle.uswitchinternal.com" )
-    end
-  end
-
-  desc "Update Gemfile of styleguide"
-  task :update do
-    Bundler.with_clean_env do
-      `BUNDLE_GEMFILE=styleguide/Gemfile cd ./styleguide && bundle update ustyle`
-    end
-  end
-end
-
 namespace :build do
-  desc "Build ustyle-latest.css styles"
-  task :stylesheets do
-    FileUtils.mkdir_p File.join Ustyle.gem_path, "build"
-    `sass \
-      -t compressed \
-      -r "#{Ustyle.gem_path}/lib/ustyle" \
-      --load-path vendor/assets/stylesheets \
-      vendor/assets/stylesheets/ustyle.sass \
-      build/ustyle-latest.css`
-    `sass \
-      -t compressed \
-      -r "#{Ustyle.gem_path}/lib/ustyle" \
-      --load-path vendor/assets/stylesheets \
-      vendor/assets/stylesheets/ustyle-content.sass \
-      build/ustyle-content.css`
-
-    %w(latest content).each do |build|
-      File.write( "build/ustyle-#{build}.css", AutoprefixerRails.process(File.read("build/ustyle-#{build}.css")).css )  
-    end
-  end
-
   desc "Building images and hashing them"
   task :images do
     images_dir = File.join Ustyle.assets_path, "images"
@@ -124,6 +83,16 @@ namespace :deploy do
       stripped_name = file.gsub(/^build\//, "")
       content_type = Ustyle.mime_type_for(stripped_name)
       Ustyle.s3_upload( Ustyle.versioned_path(stripped_name), file, content_type)
+    end
+  end
+
+  task :styleguide do
+    Ustyle.s3_connect!
+    Dir["build/docs/**/*"].each do |file|
+      next if File.directory?(file)
+      stripped_name = file.gsub(/^build\/docs\//, "")
+      content_type = Ustyle.mime_type_for(stripped_name)
+      Ustyle.s3_upload( stripped_name, file, content_type, "ustyle.uswitchinternal.com" )
     end
   end
 end
