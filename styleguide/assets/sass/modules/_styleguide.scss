@@ -1,18 +1,29 @@
-$styleguide-block-padding: $gutter-width;
+$styleguide-block-padding: $gutter-width*2;
+$styleguide-separator-color: $c-lightgrey;
 $styleguide-block-border-color: $c-bordergrey;
 
 .styleguide {
-  &__block {
-    @extend %clearfix;
-    position: relative;
+
+  &__block + &__block {
+    padding-top: $styleguide-block-padding;
+    padding-bottom: $styleguide-block-padding;    
+  }
+
+  &__title {
+    @include bold-font;
     padding-top: $styleguide-block-padding;
     padding-bottom: $styleguide-block-padding;
-    border-bottom: 1px solid $styleguide-block-border-color;
+    margin: 0;
+  }
+
+  &__block {
+    @extend %clearfix;
+    position: relative;  
+    border-bottom: 1px solid $styleguide-separator-color;
   }
 
   &__block-title {
     @include bold-font;
-    color: $c-navy;
   }
 
   &__block-examples {
@@ -21,8 +32,24 @@ $styleguide-block-border-color: $c-bordergrey;
   }
 
   &__block-example {
-    @extend %clearfix;
-    padding: $gutter-width/2;
-    border-bottom: 1px dashed $c-lightgrey;
+    position: relative;
   }
+
+  &__block-example-class {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: $c-lightgrey;
+    color: $c-typegrey-2;
+    padding: 3px 8px;
+    font-size: .85em;
+  }
+
+  &__block-example {
+    @extend %clearfix;
+    position: relative;
+    padding: $gutter-width $gutter-width/2;
+    border-bottom: 1px dashed darken($styleguide-separator-color, 10%);
+  }
+
 }

@@ -4,7 +4,7 @@ pre {
   line-height: 1.4;
   display: block;
   padding: 1.5em;
-  background: $c-lightgrey;
+  background: lighten($c-lightgrey, 2%);
   color: $c-typegrey;
   border-top: 1px solid $c-bordergrey;
   margin-bottom: 0;

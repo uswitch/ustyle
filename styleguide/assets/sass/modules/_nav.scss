@@ -1,0 +1,29 @@
+.nav {
+  &__set {
+    @extend %reset-box-model;
+    list-style: none;
+  }
+
+  &__item {
+    margin-bottom: 0;
+
+    .nav__sub-set & &:last-child {
+      margin-bottom: $gutter-width/2
+    }
+  }
+
+  &__link {
+    @include link-colors($c-typegrey, $c-typecyan);
+    display: block;
+    padding-top: 3px;
+    padding-bottom: 3px;
+
+    .nav__sub-set & {
+      padding-left: $gutter-width/2;
+    }
+  }
+
+  &__main-link {
+    @include bold-font
+  }
+}

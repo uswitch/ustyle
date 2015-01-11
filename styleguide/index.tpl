@@ -9,11 +9,19 @@
 <body>
   <div id="wrapper">
     {{> sidebar}}
+    <div class="us-hero trailered">
+      <div class="container sidebar--push">
+        <h1 class="styleguide__title">{{section.name}}</h1>
+      </div>
+    </div>
     <div class="styleguide container sidebar--push">
       {{#section}}
-        <h1 class="section__title">{{name}}</h1>
         {{#blocks}}
-          {{> style_block}}
+          {{#if partial}}
+            {{partial partial}}
+          {{else}}
+            {{> style_block}}
+          {{/if}}
         {{/blocks}}
       {{/section}}
     </div>
