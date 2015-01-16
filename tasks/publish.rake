@@ -10,17 +10,23 @@ require 'fileutils'
 
 namespace :ustyle do
   desc "Publishes uStyle v#{Ustyle::VERSION}"
-  task :publish => [ "ustyle:build",
-                     "git:add",
-                     "git:commit","git:tag","git:push",
+  task :publish => [ "version:check",
+                     "git:add", "git:commit","git:tag","git:push",
                      "build:images", 
                      "deploy:stylesheets", "deploy:images", "deploy:styleguide"
                     ] do
-    puts "Publishing uStyle v#{Ustyle::VERSION}"
+    puts green("Publishing uStyle v#{Ustyle::VERSION}")
   end
+end
 
-  task :build do
-    `grunt build`
+namespace :version do
+  desc "Check version before publishing"
+  task :check do
+    latest_version = `git describe --abbrev=0 --tags`.gsub("\n", "")
+
+    if Ustyle::VERSION == latest_version
+      raise red("You haven't updated the uStyle version from #{Ustyle::VERSION}, please do so before publishing")
+    end
   end
 end
 
@@ -96,3 +102,10 @@ namespace :deploy do
     end
   end
 end
+
+def colorize(text, color_code)
+  "\e[#{color_code}m#{text}\e[0m"
+end
+
+def red(text); colorize(text, 31); end
+def green(text); colorize(text, 32); end

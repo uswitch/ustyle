@@ -4,12 +4,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     shell: {
       publish : {
-        options: {
-            stderr: false
-        },
-        target: {
-            command: 'bundle exec rake ustyle:publish'
-        }
+        command: 'bundle exec rake ustyle:publish'
       }
     },
     postcss: {
@@ -71,6 +66,7 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-sassdoc');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-concat');
@@ -81,4 +77,6 @@ module.exports = function(grunt) {
   
   grunt.registerTask('build', ['sass', 'sassdoc', 'styleguide', 'concat', 'postcss']);
   grunt.registerTask('default', ['build', 'browserSync-init', 'watch']);
+  grunt.registerTask('publish', ['build', 'shell:publish']);
+  
 };
