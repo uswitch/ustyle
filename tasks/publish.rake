@@ -10,7 +10,9 @@ require 'fileutils'
 
 namespace :ustyle do
   desc "Publishes uStyle v#{Ustyle::VERSION}"
-  task :publish => [ "version:check", "version:update"
+  task :publish => [ "version:check",
+                     "git:add",
+                     "version:update"
                     ] do
     puts green("Publishing uStyle v#{Ustyle::VERSION}")
   end
@@ -26,9 +28,9 @@ namespace :version do
     end
   end
 
-  desc "Update package.json version"
+  desc "Update version"
   task :update do
-    
+    `npm version #{Ustyle::VERSION} -m "Version %s"`
   end
 end
 
@@ -37,16 +39,6 @@ namespace :git do
   desc "Add version #{Ustyle::VERSION}"
   task :add do
     `git add .`
-  end
-
-  desc "Add and commit version #{Ustyle::VERSION}"
-  task :commit do
-    `git commit -am 'Version #{Ustyle::VERSION}'`
-  end
-
-  desc "Tag version #{Ustyle::VERSION}"
-  task :tag do
-    `git tag -a #{Ustyle::VERSION} -m 'Version #{Ustyle::VERSION}'`
   end
 
   desc "Push version #{Ustyle::VERSION} to github"
