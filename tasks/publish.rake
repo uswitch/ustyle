@@ -12,7 +12,10 @@ namespace :ustyle do
   desc "Publishes uStyle v#{Ustyle::VERSION}"
   task :publish => [ "version:check",
                      "git:add",
-                     "version:update"
+                     "version:update",
+                     "git:push",
+                     "build:images",
+                     "deploy:images", "deploy:stylesheets", "deploy:styleguide"
                     ] do
     puts green("Publishing uStyle v#{Ustyle::VERSION}")
   end
