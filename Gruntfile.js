@@ -2,6 +2,16 @@ var autoprefixer = require('autoprefixer-core');
 
 module.exports = function(grunt) {
   grunt.initConfig({
+    shell: {
+      publish : {
+        options: {
+            stderr: false
+        },
+        target: {
+            command: 'bundle exec rake ustyle:publish'
+        }
+      }
+    },
     postcss: {
         options: {
             processors: [
