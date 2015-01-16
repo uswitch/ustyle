@@ -11,7 +11,6 @@ require 'fileutils'
 namespace :ustyle do
   desc "Publishes uStyle v#{Ustyle::VERSION}"
   task :publish => [ "version:check",
-                     "git:add",
                      "version:update",
                      "git:push",
                      "build:images",
@@ -24,7 +23,7 @@ end
 namespace :version do
   desc "Check version before publishing"
   task :check do
-    latest_version = `git describe --abbrev=0 --tags`.gsub("\n", "")
+    latest_version = `git describe --abbrev=0 --tags`.gsub(/(v|\n)/, "")
 
     if Ustyle::VERSION == latest_version
       raise red("You haven't updated the uStyle version from #{Ustyle::VERSION}, please do so before publishing")
@@ -38,12 +37,6 @@ namespace :version do
 end
 
 namespace :git do
-
-  desc "Add version #{Ustyle::VERSION}"
-  task :add do
-    `git add .`
-  end
-
   desc "Push version #{Ustyle::VERSION} to github"
   task :push do
     `git push && git push --tags`
