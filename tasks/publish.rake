@@ -10,10 +10,7 @@ require 'fileutils'
 
 namespace :ustyle do
   desc "Publishes uStyle v#{Ustyle::VERSION}"
-  task :publish => [ "version:check",
-                     "git:add", "git:commit","git:tag","git:push",
-                     "build:images", 
-                     "deploy:stylesheets", "deploy:images", "deploy:styleguide"
+  task :publish => [ "version:check", "version:update"
                     ] do
     puts green("Publishing uStyle v#{Ustyle::VERSION}")
   end
@@ -27,6 +24,11 @@ namespace :version do
     if Ustyle::VERSION == latest_version
       raise red("You haven't updated the uStyle version from #{Ustyle::VERSION}, please do so before publishing")
     end
+  end
+
+  desc "Update package.json version"
+  task :update do
+    
   end
 end
 

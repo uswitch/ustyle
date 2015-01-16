@@ -60,7 +60,7 @@ module.exports = function(grunt) {
         src: 'vendor/assets/stylesheets/ustyle',
         dest: 'build/docs/sass',
         options: {
-          config: "grunt/sassdoc/view.json"  
+          config: "grunt/sassdoc/view.json"
         }
       }
     }
