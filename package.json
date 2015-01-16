@@ -1,6 +1,6 @@
 {
   "name": "ustyle",
-  "version": "0.10.1",
+  "version": "0.10.0",
   "description": "Styleguide gem for uSwitch",
   "main": "index.js",
   "scripts": {
