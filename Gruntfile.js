@@ -63,6 +63,9 @@ module.exports = function(grunt) {
           config: "grunt/sassdoc/view.json"
         }
       }
+    },
+    stats: {
+      src: 'build/ustyle-latest.css'
     }
   });
 
