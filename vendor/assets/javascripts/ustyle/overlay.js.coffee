@@ -1,26 +1,43 @@
+{setOptions} =  @Utils
+
 class window.Overlay
-  constructor: (userSettings) ->
-    @settings = 
-      openedClass:   'us-overlay--open'
-      container:   $('.us-overlay-parent')
-      openButton:  $('.js-open-overlay')
-      closeButton: $('.js-close-overlay')
-      # FIND ALL THINGS
+  defaults = 
+    openedClass:    'us-overlay--open'
+    overlay:        $('.us-overlay-parent')
+    openButton:     $('.js-open-overlay')
+    closeButton:    $('.js-close-overlay')
+    historyStatus:  '#seedeal'
+    history:        true
+    resetScroll:    true
 
-    $.extend @settings, userSettings
-    addEventListeners @settings, this
+  constructor: (options) ->
+    {@overlay} = @options = setOptions options, defaults
+    @addEventListeners()
  
-  addEventListeners= (settings,klass)->
-    settings.openButton.on 'click', (e)=>
-      klass.openOverlay()
+  addEventListeners: ->
+    @options.openButton.on 'click', (e)=>
+      @show()
+    @options.closeButton.on 'click', (e)=>
+      @hide()
+    if @hasHistory()  
+      window.onpopstate = (event)=>
+        @hide()
     
-    settings.closeButton.on 'click', (e)=>
-      klass.closeOverlay()
+  show: ->
+    @overlay.addClass @options.openedClass
+    @options.onOpen?()
     
-  openOverlay: ->
-    @settings.container.addClass @settings.openedClass
-    @settings.onOpen?()
+    if @options.resetScroll
+      @overlay.find('.us-overlay__container').scrollTop(0)
+    if @hasHistory()
+      history.pushState('open', window.document.title, @options.historyStatus)
 
-  closeOverlay: ->
-    @settings.container.removeClass @settings.openedClass
-    @settings.onClose?()
+  hide: ->
+    @overlay.removeClass @options.openedClass
+    @options.onClose?()
+    if @hasHistory()
+      if history.state is 'open'
+        history.back()
+
+  hasHistory: ->
+    if @options.history && window.history && window.history.pushState then true else false

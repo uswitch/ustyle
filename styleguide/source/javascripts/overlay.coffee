@@ -3,11 +3,11 @@ $ ->
 
   $("#overlay .modifier-block").each ->
     window.overlayExamples.push new Overlay
-      container:   $(this).find(".us-overlay-parent")
+      overlay:     $(this).find(".us-overlay-parent")
       openButton:  $(this).find(".js-open-overlay")
       closeButton: $(this).find(".js-close-overlay")
       onOpen: ->
-        console.log 123
+        console.log "open"
   
   # button toggle just to show how it can look as a modal:
   $("#overlay .modifier-block").on 'click', (e)->
