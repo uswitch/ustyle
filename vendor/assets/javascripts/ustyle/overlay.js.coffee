@@ -40,4 +40,4 @@ class window.Overlay
         history.back()
 
   hasHistory: ->
-    if @options.history && window.history && window.history.pushState then true else false
+    if @options.history && uSwitch.hasHistory then true else false
