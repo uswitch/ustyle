@@ -19,8 +19,6 @@ $news-item-image-size: 128px !default;
 %readmore {
   position: absolute;
   bottom: 0;
-  left: 0;
-  right: 0;
   white-space: nowrap;
   color: $c-typecyan;
   &:after {
@@ -55,6 +53,31 @@ $news-item-image-size: 128px !default;
   }
 }
 
+.us-news-group {
+  @include respond-to(mobile) {
+    margin-bottom: 1em;
+    overflow: hidden;
+
+    .us-news-item {
+      &:first-child {
+        .us-news-item-link {
+          border-radius: em(5px) em(5px) 0 0;
+          border-bottom-width: 1px;
+          border-top-width: 1px;
+        }
+      }
+
+      &:last-child {
+        .us-news-item-link {
+          border-radius: 0 0 em(5px) em(5px);
+          border-bottom-width: 1px;
+          border-top-width: 1px;
+        }
+      }
+    }
+  }
+}
+
 .us-news-item {
   @extend %base-item;
   overflow: hidden;
@@ -68,11 +91,24 @@ $news-item-image-size: 128px !default;
       }
     }
   }
+  .us-news-group & {
+    @include respond-to(mobile) {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .us-news-item-link {
   @extend %base-item-link;
+  overflow: hidden;
   padding-bottom: em(35px);
+  .us-news-group & {
+    @include respond-to(mobile) {
+      border-radius: 0;
+      border-bottom-width: 0;
+      border-top-width: 0;
+    }
+  }
 }
 
 .us-news-item-title {
@@ -83,9 +119,13 @@ $news-item-image-size: 128px !default;
 }
 
 .us-news-meta {
-  padding: $item-padding;
+  padding-left: $item-padding;
+  padding-right: $item-padding;
+  overflow: hidden;
   .category,
   .date {
+    font-weight: bold;
+    color: $c-navy;
     font-size: em(13px);
     padding-top: em(4px);
     padding-bottom: em(4px);
@@ -93,17 +133,14 @@ $news-item-image-size: 128px !default;
       font-size: em(14px);
     }
   }
-  .category {
-    padding-left: $item-padding;
-    padding-right: $item-padding;
-    border-radius: 3px;
-    background-color: $c-typecyan;
-    color: white;
-  }
   .date {
     float: right;
     display: block;
-    color: $c-navy;
+  }
+
+  .category {
+    float: left;
+    display: block;
   }
 }
 
@@ -134,7 +171,6 @@ $news-item-image-size: 128px !default;
 .us-news-item-readmore {
   @extend %readmore;
   padding: $item-padding;
-  border-top: 1px solid $c-bordergrey;
 }
 
 .us-news-item-readmorelink {
