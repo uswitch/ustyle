@@ -17,7 +17,7 @@ gem "wdm", "~> 0.1.0", :platforms => [:mswin, :mingw]
 gem "kss", github: "annez/kss", branch: "master"
 
 # uStyle
-gem 'ustyle', :git => "git@github.com:uswitch/ustyle.git", :branch => "overlay"
+gem 'ustyle', :git => "git@github.com:uswitch/ustyle.git", :branch => "master"
 
 gem "redcarpet"
 
