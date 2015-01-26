@@ -59,6 +59,7 @@ $news-item-image-size: 128px !default;
     overflow: hidden;
 
     .us-news-item {
+      
       &:first-child {
         .us-news-item-link {
           border-radius: em(5px) em(5px) 0 0;
@@ -71,7 +72,6 @@ $news-item-image-size: 128px !default;
         .us-news-item-link {
           border-radius: 0 0 em(5px) em(5px);
           border-bottom-width: 1px;
-          border-top-width: 1px;
         }
       }
     }
@@ -94,6 +94,7 @@ $news-item-image-size: 128px !default;
   .us-news-group & {
     @include respond-to(mobile) {
       margin-bottom: 0;
+      padding: 0;
     }
   }
 }
@@ -105,7 +106,6 @@ $news-item-image-size: 128px !default;
   .us-news-group & {
     @include respond-to(mobile) {
       border-radius: 0;
-      border-bottom-width: 0;
       border-top-width: 0;
     }
   }

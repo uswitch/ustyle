@@ -39,6 +39,7 @@ $guide-item-image-size: 128px !default;
   .us-guide-group & {
     @include respond-to(mobile) {
       margin-bottom: 0;
+      padding: 0;
     }
   }
 }
@@ -48,7 +49,6 @@ $guide-item-image-size: 128px !default;
   .us-guide-group & {
     @include respond-to(mobile) {
       border-radius: 0;
-      border-bottom-width: 0;
       border-top-width: 0;
     }
   }
