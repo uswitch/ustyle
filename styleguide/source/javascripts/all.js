@@ -7,4 +7,5 @@
 //= require ustyle/utils
 //= require ustyle/anchor
 //= require ustyle/tabs
+//= require ustyle/overlay
 //= require app
