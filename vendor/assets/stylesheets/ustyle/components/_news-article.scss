@@ -21,8 +21,12 @@ $news-item-image-size: 128px !default;
   bottom: 0;
   white-space: nowrap;
   color: $c-typecyan;
+  display: none;
   &:after {
     @extend %link-triangle;
+  }
+  @include respond-to(small-tablet,true) {
+    display: block;
   }
 }
 
@@ -102,7 +106,9 @@ $news-item-image-size: 128px !default;
 .us-news-item-link {
   @extend %base-item-link;
   overflow: hidden;
-  padding-bottom: em(35px);
+  @include respond-to(small-tablet,true) {
+    padding-bottom: em(35px);
+  }
   .us-news-group & {
     @include respond-to(mobile) {
       border-radius: 0;
