@@ -1,87 +1,159 @@
 .us-container
   %h1.styleguide-title Tables
 
-= styleblock "6.1", "A basic table", {floated: false} do
+= styleblock "6.1", "Basic table", {floated: false} do
   %table.us-table
     %thead
       %tr
-        %th.us-table-head
+        %th
           Company
-        %th.us-table-head
+        %th
           Product features
-        %th.us-table-head
+        %th
           Free trial period
-        %th.us-table-head
+        %th
           Monthly subscription
-        %th.us-table-head
+        %th
 
     %tbody
       - data.credit_agents.each do |id, agent|
-        %tr.us-table-body-row
-          %td.us-table-cell= agent.company_name
-          %td.us-table-cell
-            %ul.list-in-table
+        %tr
+          %td= agent.company_name
+          %td
+            %ul
               - agent.features.each do |feature|
                 %li= feature
-          %td.us-table-cell
+          %td
             - if agent.trial_period
               = agent.trial_period
               days
             - else
               = "—"
-          %td.us-table-cell
+          %td
             £#{agent.monthly_fee}
             - if agent.fee_desc
               = agent.fee_desc
-          %td.us-table-cell
+          %td
             %a.us-btn.arrowed{href: agent.url, target: "_blank"} Proceed
 -# -------
-= styleblock "6.2", "Example of a more complex table", {floated: false} do
-  %table.us-table.js-sortable.table-complex-example
+= styleblock "6.2", "Table with key cells", {floated: false} do
+  %table.us-table
     %thead
       %tr
-        %th.us-table-head
+        %th
           Company
-        %th.us-table-head
+        %th
           Product features
-        %th.us-table-head.us-table-head-key.us-table-head-trial-period.us-table-head-sorted
-          %a.us-table-sort-button{data: {sort: "trial-period:desc, fee"}}
-            Free trial period
-        %th.us-table-head.us-table-head-key.us-table-head-fee
-          %a.us-table-sort-button{data: {sort: "fee, trial-period:desc"}}
-            Monthly subscription
-        %th.us-table-head
+        %th
+          Free trial period
+        %th
+          Monthly subscription
+        %th
 
     %tbody
       - data.credit_agents.each do |id, agent|
-        %tr.us-table-body-row{data: {trial_period: agent.trial_period || 0, fee: agent.monthly_fee || 9999}}
-          %td.us-table-cell.us-table-cell-title
-            %strong= agent.company_name
-          %td.us-table-cell.us-table-cell-features
-            %ul.list-in-table
+        %tr
+          %td= agent.company_name
+          %td
+            %ul
               - agent.features.each do |feature|
                 %li= feature
-          %td.us-table-cell.us-table-cell-key.us-table-cell-trial-period.us-table-cell-sorted
-            .key-container
-              .key
-                - if agent.trial_period
-                  .key-value= agent.trial_period
-                  .key-unit days
-                  .key-desc
-                    .key-desc-more
-                      free trial period
-                - else
-                  = "—"
-          %td.us-table-cell.us-table-cell-key.us-table-cell-fee
-            .key-container
-              .key
-                .key-value £#{agent.monthly_fee}
-                .key-desc
-                  - if agent.fee_desc
-                    = agent.fee_desc
-                  - else
-                    .key-desc-more
-                      monthly fee
+          %td.us-table-key
+            - if agent.trial_period
+              .us-table-key__value= agent.trial_period
+              .us-table-key__unit days
+              .us-table-key__desc free trial period
+            - else
+              = "—"
+          %td.us-table-key
+            - fee = agent.monthly_fee.to_s.split('.')
+            .us-table-key__value<
+              £#{fee[0]}
+              %span.us-table-key__sideunit> .#{fee[1]}
+            - if agent.fee_desc
+              .us-table-key__desc= agent.fee_desc
+          %td
+            %a.us-btn.arrowed{href: agent.url, target: "_blank"} Proceed
+-# -------
+= styleblock "6.3", "USP labels for table cells", {floated: false} do
+  %table.us-table
+    %thead
+      %tr
+        %th
+          Company
+        %th
+          Product features
+        %th
+          Free trial period
+        %th
+          Monthly subscription
+        %th
 
-          %td.us-table-cell.us-table-cell-action
+    %tbody
+      %tr
+        %td
+          Experian
+          .us-usp Most popular!
+
+        %td
+          %ul
+            %li Unlimited online access
+            %li Credit score improvement tips
+            %li Identity Fraud Insurance
+            %li Email & SMS alerts
+
+        %td 30 days
+
+        %td
+          £14.99
+          .us-table-usp.us-table-usp--navy Cheapest plan
+
+        %td
+          %a.us-btn.arrowed{href: "#"} Proceed
+-# -------
+= styleblock "6.4", "Tables with sortable columns", {floated: false} do
+  %table.us-table.js-sortable.table-complex-example
+    %thead
+      %tr
+        %th
+          Company
+        %th
+          Product features
+        %th.us-table-head-key.us-table-head-trial-period.us-table-head--sorted
+          %a.us-table-sort-button{data: {sort: "trial-period:desc, fee"}}
+            Free trial period
+        %th.us-table-head-key.us-table-head-fee
+          %a.us-table-sort-button{data: {sort: "fee, trial-period:desc"}}
+            Monthly subscription
+        %th
+
+    %tbody
+      - data.credit_agents.each do |id, agent|
+        %tr{data: {trial_period: agent.trial_period || 0, fee: agent.monthly_fee || 9999}}
+          %td
+            %strong= agent.company_name
+          %td
+            %ul
+              - agent.features.each do |feature|
+                %li= feature
+          %td.us-table-key.us-table-cell-trial-period.us-table-cell--sorted
+            - if agent.trial_period
+              .us-table-key__value= agent.trial_period
+              .us-table-key__unit days
+              .us-table-key__desc
+                free trial period
+            - else
+              = "—"
+          %td.us-table-key.us-table-cell-fee
+            - fee = agent.monthly_fee.to_s.split('.')
+            .us-table-key__value<
+              £#{fee[0]}
+              %span.us-table-key__sideunit> .#{fee[1]}
+            .us-table-key__desc
+              - if agent.fee_desc
+                = agent.fee_desc
+              - else
+                monthly fee
+
+          %td
             %a.us-btn.arrowed{href: agent.url, target: "_blank"} Proceed

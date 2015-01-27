@@ -1,65 +1,47 @@
-// Example of a more complex table
+// Tables with sortable columns
 // ---
 //
-//
-// Styleguide 6.2
+// Styleguide 6.4
 
-@if $table-experimental {
-  %with-sort-arrow {
-    @include respond-to(small-tablet, true) {
-      position: relative;
-      margin-right: 0.4em;
-      &:after {
-        display: none;
-        content: "\025bc";
-        line-height: 1;
-        position: absolute;
-        top: 50%;
-        right: -1.2em;
-        margin-top: -0.4em;
-        color: $table-c-inactive;
-      }
-    }
+.us-table-cell--sorted {
+  @include respond-to(small-tablet, true) {
+    background-color: $table-c-sorted-bg;
   }
-  .us-table-cell-sorted {
-    @include respond-to(small-tablet, true) {
-      background: $table-c-sorted-bg;
-    }
+}
+
+.us-table-sort-button {
+  color: $table-c-head-text;
+  white-space: nowrap;
+  cursor: pointer;
+
+  &:after {
+    content: "\025bc";
+    color: $table-c-inactive;
   }
-  %us-table-head-text,
-  .us-table-head-text {
-    @extend %with-sort-arrow;
-    display: inline-block;
-    line-height: normal;
-    vertical-align: baseline;
-  }
-  .us-table-sort-button,
-  .us-table-sort-button:visited {
-    @extend %us-table-head-text;
-    @include respond-to(small-tablet, true) {
+
+  &:hover {
+    color: $table-c-head-text;
+
+    &:after {
       color: $table-c-head-text;
-      cursor: default;
-      .js .js-sortable & {
-        cursor: pointer;
-        &:after {
-          display: block;
-        }
-        &:hover {
-          color: $table-c-head-text;
-          &:after {
-            color: $table-c-head-text;
-          }
-        }
-      }
     }
   }
-  .us-table-head-sorted {
-    .us-table-sort-button,
-    .us-table-head-text {
+}
+
+.us-table-head--sorted {
+  .us-table-sort-button {
+    color: $table-c-sorted-text;
+
+    &:hover {
+      color: $table-c-sorted-text;
+
       &:after {
-        display: block;
-        color: $table-c-head-text;
+        color: $table-c-sorted-text;
       }
+    }
+
+    &:after {
+      color: $table-c-sorted-text;
     }
   }
 }

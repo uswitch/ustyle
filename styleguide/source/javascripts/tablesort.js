@@ -2,24 +2,23 @@
 // ============
 
 (function ($) {
-  
+
   $.fn.tableSort = function(options) {
 
     var settings = $.extend({
       autosort: true,
       th_class_prefix:   'us-table-head',
       td_class_prefix:   'us-table-cell',
-      sorted_th_class:   'us-table-head-sorted',
-      sorted_td_class:   'us-table-cell-sorted',
-      sort_button_class: 'us-table-sort-button',
-      body_row_class:    'us-table-body-row',
+      sorted_th_class:   'us-table-head--sorted',
+      sorted_td_class:   'us-table-cell--sorted',
+      sort_button_class: 'us-table-sort-button'
     }, options);
 
     return this.each(function() {
       var $self  = $(this);
       // Structure for the sort keys
       var sort_keys = [];
-      // This will hold the pure data relevant to the 
+      // This will hold the pure data relevant to the
       // sort, together with the row indexes:
       var values  = [];
       // The index for reordering the rows
@@ -55,7 +54,7 @@
 
       // Collecting values for the sort into an array
       function collectValues() {
-        $self.find('tr.' + settings.body_row_class).each(function(index) {
+        $self.find('> tbody > tr').each(function(index) {
           values[index] = [index];
           for (fi = 0, l = sort_keys.length; fi < l; fi++) {
             // We are dealing with ascending / descending order at this point
@@ -100,7 +99,7 @@
           // Attaching in memory
           assembled_rows = assembled_rows.concat( rowToAttach );
         }
-        
+
         // Attaching from memory to the DOM
         $self.find('tbody').append(assembled_rows);
       }
