@@ -20,8 +20,8 @@ module.exports = function(grunt) {
         spawn: false // Very important, don't miss this
       },
       build: {
-        files: ['vendor/assets/stylesheets/ustyle/**/*.scss', 'styleguide/**/*'],
-        tasks: ['styleguide', 'sass', 'sassdoc', 'postcss', 'browserSync-inject']
+        files: ['vendor/assets/stylesheets/ustyle/**/*.scss', 'styleguide/**/*', 'styleguide/output/ustyle.json'],
+        tasks: ['styleguide', 'sass', 'sassdoc', 'postcss', 'browserSync-inject', 'cssstats', 'stylegenerator']
       },
       scripts: {
         files: 'styleguide/**/*.js',
@@ -29,9 +29,23 @@ module.exports = function(grunt) {
       }
     },
     styleguide: {
-      docs: {
+      dist: {
+        src: 'vendor/assets/stylesheets/ustyle/**/*.scss',
+        output: 'styleguide/output/ustyle.json',
+        static: 'styleguide/static/*.tpl'
+      }
+    },
+    cssstats: {
+      dist: {
+        src: 'build/ustyle-latest.css',
+        output: 'styleguide/output/stats.json'
+      }
+    },
+    stylegenerator: {
+      dist:{
         files: {
-          'docs/': 'vendor/assets/stylesheets/ustyle/**/*.scss'
+          'build/docs/': 'styleguide/output/ustyle.json',
+          'build/': 'styleguide/output/stats.json'
         }
       }
     },
@@ -63,9 +77,6 @@ module.exports = function(grunt) {
           config: "grunt/sassdoc/view.json"
         }
       }
-    },
-    stats: {
-      src: 'build/ustyle-latest.css'
     }
   });
 
@@ -77,9 +88,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-postcss');
   grunt.loadTasks('grunt/tasks');
-  
-  grunt.registerTask('build', ['sass', 'sassdoc', 'styleguide', 'concat', 'postcss']);
+
+  grunt.registerTask('build', ['sass', 'sassdoc', 'styleguide', 'concat', 'postcss','cssstats', 'stylegenerator']);
   grunt.registerTask('default', ['build', 'browserSync-init', 'watch']);
   grunt.registerTask('publish', ['build', 'shell:publish']);
-  
+
 };

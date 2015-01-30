@@ -33,9 +33,11 @@
     "grunt-postcss": "^0.2.0",
     "grunt-sassdoc": "^1.1.0",
     "grunt-shell": "^1.1.1",
+    "handlebars": "^2.0.0",
     "lodash": "^2.4.1",
     "marked": "^0.3.2",
     "path": "^0.4.9",
-    "stylestats": "^4.2.2"
+    "stylestats": "^4.2.2",
+    "underscore.string": "^3.0.2"
   }
 }

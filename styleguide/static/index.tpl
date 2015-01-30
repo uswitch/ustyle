@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>{{project.name}} styleguide</title>  
+  <title>{{project.name}} styleguide</title>
   <link rel="stylesheet" href="../ustyle-content.css" type="text/css" />
   <link rel="stylesheet" href="css/main.css" type="text/css" />
 </head>
@@ -15,15 +15,7 @@
       </div>
     </div>
     <div class="styleguide container sidebar--push">
-      {{#section}}
-        {{#blocks}}
-          {{#if partial}}
-            {{partial partial}}
-          {{else}}
-            {{> style_block}}
-          {{/if}}
-        {{/blocks}}
-      {{/section}}
+      THIS IS THE MOTHERFUCKING STYLEGUIDE
     </div>
   </div>
   <script src="js/app.js"></script>

@@ -4,24 +4,25 @@
 module.exports = function(grunt){
   grunt.registerMultiTask('styleguide', 'Parse DSS comment blocks', function(){
 
-    var handlebars  = require('handlebars'),
-        dss         = require('dss'),
-        _           = require('lodash'),
-        async       = require('async'),
-        path        = require('path'),
-        fs          = require('fs'),
-        underscored = require('../modules/underscored'),
-        dssHelper   = require('../modules/dss-helper'),
-        template    = require('../modules/templates'),
-        promise     = this.async(),
-        files       = this.files,
-        styleguide  = [];
+    var dss             = require('dss'),
+        _               = require('lodash'),
+        async           = require('async'),
+        path            = require('path'),
+        fs              = require('fs'),
+        underscored     = require('../modules/underscored'),
+        dssHelper       = require('../modules/dss-helper'),
+        humanize        = require("underscore.string/humanize"),
+        promise         = this.async(),
+        files           = this.files,
+        outputFilePath  = this.data.output,
+        staticPages     = this.data.static,
+        styleguide      = [];
 
     var options = this.options({
         baseDir: './styleguide/',
         templates: './styleguide/**/*.tpl',
         templateOutput: './build/docs/',
-        templateIndex: 'index.tpl',
+        templateIndex: 'base.tpl',
         parsers: {
           variable: dssHelper.variableDssParser(),
           partial: function(i, line, block){ return line; },
@@ -34,6 +35,7 @@ module.exports = function(grunt){
       init,
       parseDSS,
       groupDSS,
+      generateStaticContent,
       generateStyleguide
     ], completeTask);
 
@@ -42,10 +44,7 @@ module.exports = function(grunt){
     }
 
     function init(callback){
-      template.registerHelpers();
       dssHelper.addParsers(options.parsers);
-      generateTemplates(options.templates);
-
       callback(null);
     }
 
@@ -73,7 +72,7 @@ module.exports = function(grunt){
               });
 
               if(block.markup){
-                block.markup.escaped = dssHelper.removeModifiersFromMarkup(block.markup.escaped);  
+                block.markup.escaped = dssHelper.removeModifiersFromMarkup(block.markup.escaped);
               }
 
               if(block.hasOwnProperty('state')){
@@ -97,6 +96,7 @@ module.exports = function(grunt){
                       return {
                           name: key,
                           page: key.toLowerCase() + '.html',
+                          template: 'styleguide/templates/styleguide.tpl',
                           blocks: value
                       }
                     })
@@ -105,47 +105,42 @@ module.exports = function(grunt){
       callback(null, sections);
     }
 
-    function generateStyleguide(sections, callback){
-      var templateFilePath = options.baseDir + options.templateIndex;
+    function generateStaticContent(sections, callback) {
 
-      sections.map(function(section){
-        var outputFilePath = options.templateOutput + section.page,
-            data = {
-              project: grunt.file.readJSON('package.json'),
-              section: section,
-              sections: sections
-            };
-
-        var output     = handlebars.compile(grunt.file.read(templateFilePath))(data);
-
-        var outputType = 'created', old = null;
-
-        if (grunt.file.exists(outputFilePath)) {
-          outputType = 'overwritten';
-          old = grunt.file.read(outputFilePath);
-        }
-
-        if (old !== output) {
-          grunt.file.write(outputFilePath, output);
-          grunt.log.writeln('✓ Styleguide ' + outputType + ' at: ' + grunt.log.wordlist([outputFilePath], {color: 'cyan'}));
-        } else {
-          grunt.log.writeln('‣ Styleguide unchanged');
+      var pages = grunt.file.expand(staticPages).map(function(file){
+        return {
+          name: humanize(path.basename(file, '.tpl')),
+          page: path.basename(file, 'tpl') + 'html',
+          template: file
         }
       });
 
+      callback(null, _.assign(sections, pages));
+    }
+
+    function generateStyleguide(sections, callback){
+
+      var outputType = 'created', old = null;
+
+      var data = {
+        sections: sections,
+        project: grunt.file.readJSON('package.json')
+      }
+
+      var output = JSON.stringify(data);
+
+      if (grunt.file.exists(outputFilePath)) {
+        outputType = 'overwritten';
+        old = grunt.file.read(outputFilePath);
+      }
+
+      if (old !== output) {
+        grunt.file.write(outputFilePath, output);
+        grunt.log.writeln('✓ Styleguide ' + outputType + ' at: ' + grunt.log.wordlist([outputFilePath], {color: 'cyan'}));
+      } else {
+        grunt.log.writeln('‣ Styleguide unchanged');
+      }
       callback(null, 'done');
     }
-
-    function generateTemplates(templatePath){
-      var templates = {};
-
-      grunt.file.expand(templatePath).forEach(function(file){
-        var templateName = path.basename(file, '.tpl');
-        templates[templateName] = grunt.file.read(file);
-      });
-
-      handlebars.registerPartial(templates);
-    }
-    
   });
 };
