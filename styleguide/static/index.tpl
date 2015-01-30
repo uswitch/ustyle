@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>{{project.name}} styleguide</title>
-  <link rel="stylesheet" href="../ustyle-content.css" type="text/css" />
+  <link rel="stylesheet" href="../ustyle-latest.css" type="text/css" />
   <link rel="stylesheet" href="css/main.css" type="text/css" />
 </head>
 <body>
@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="styleguide container sidebar--push">
-      THIS IS THE MOTHERFUCKING STYLEGUIDE
+      THIS IS THE STYLEGUIDE
     </div>
   </div>
   <script src="js/app.js"></script>
