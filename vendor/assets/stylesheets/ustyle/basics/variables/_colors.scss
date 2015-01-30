@@ -3,27 +3,50 @@
 // @partial colour
 // @description Our 4 base primary colours
 // @variable c-navy - asdas
-// 
-
+// @variable c-blue - asdas
+// @variable c-typecyan - asdas
+// @variable c-cyan - asdas
 
 $c-navy: #1c1f4e;
 $c-blue: #174695;
 $c-typecyan: #008fe9;
 $c-cyan: #99e2ff;
 
-// Greys - typography
+// @section Colours
+// @name Typography colours
+// @partial colour
+// @description Typography
+// @variable c-darkgrey - asdas
+// @variable c-typegrey-2 - asdas
+
 $c-darkgrey: #333333;
 $c-typegrey: $c-darkgrey;
 $c-typegrey-2: #767676;
 
-// Greys - backgrounds
+// @section Colours
+// @name Greyscales colours
+// @partial colour
+// @description Typography
+// @variable c-lightgrey - asda
+// @variable c-inputgrey - asda
+// @variable c-bordergrey - asda
+// @variable c-keylinegrey - asda
+
 $c-lightgrey: #f4f4f4;
 $c-inputgrey: #97999a;
 $c-bordergrey: #bbbbbb;
 $c-keylinegrey: #eaeaea;
 $c-bggrey: $c-lightgrey;
 
-// Secondary colours
+// @section Colours
+// @name Secondary colours
+// @partial colour
+// @description Typography
+// @variable c-yellow - asda
+// @variable c-orange - asda
+// @variable c-purple - asda
+// @variable c-red - asda
+// @variable c-green - asda
 
 $c-yellow: #ffd32f;
 $c-orange: #f27930;
@@ -31,9 +54,16 @@ $c-purple: #9c55b8;
 $c-red: #d64226;
 $c-green: #2aaa5b;
 
-// Tertiary blues
+// @section Colours
+// @name Blue hues colours
+// @partial colour
+// @description Typography
+// @variable c-navy-light - asda
+// @variable c-blue-light - asda
+// @variable c-typecyan-light - asda
+// @variable c-cyan-light - asda
 
-$navy-light: #1a316e;
+$c-navy-light: #1a316e;
 $c-blue-light: #0c72bf;
 $c-typecyan-light: #4cc0f4;
 $c-cyan-light: #e4f8ff;
