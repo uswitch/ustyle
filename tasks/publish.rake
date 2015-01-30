@@ -10,85 +10,40 @@ require 'fileutils'
 
 namespace :ustyle do
   desc "Publishes uStyle v#{Ustyle::VERSION}"
-  task :publish => [ "git:add",
-                     "styleguide:update",
-                     "git:commit","git:tag","git:push",
-                     "build:stylesheets","build:images",
-                     "deploy:stylesheets","deploy:images",
-                     "styleguide:deploy"
+  task :publish => [ "version:check",
+                     "version:update",
+                     "git:push",
+                     "build:images",
+                     "deploy:images", "deploy:stylesheets", "deploy:styleguide"
                     ] do
-    puts "Publishing uStyle v#{Ustyle::VERSION}"
+    puts green("Publishing uStyle v#{Ustyle::VERSION}")
+  end
+end
+
+namespace :version do
+  desc "Check version before publishing"
+  task :check do
+    latest_version = `git describe --abbrev=0 --tags`.gsub(/(v|\n)/, "")
+
+    if Ustyle::VERSION == latest_version
+      raise red("You haven't updated the uStyle version from #{Ustyle::VERSION}, please do so before publishing")
+    end
+  end
+
+  desc "Update version"
+  task :update do
+    `npm version #{Ustyle::VERSION} -m "Version %s"`
   end
 end
 
 namespace :git do
-
-  desc "Add version #{Ustyle::VERSION}"
-  task :add do
-    `git add .`
-  end
-
-  desc "Add and commit version #{Ustyle::VERSION}"
-  task :commit do
-    `git commit -am 'Version #{Ustyle::VERSION}'`
-  end
-
-  desc "Tag version #{Ustyle::VERSION}"
-  task :tag do
-    `git tag -a #{Ustyle::VERSION} -m 'Version #{Ustyle::VERSION}'`
-  end
-
   desc "Push version #{Ustyle::VERSION} to github"
   task :push do
     `git push && git push --tags`
   end
 end
 
-namespace :styleguide do
-  desc "Deploy uStyle styleguide"
-  task :deploy do
-    Ustyle.s3_connect!
-
-    `cd ./styleguide && BUNDLE_GEMFILE=Gemfile bundle exec middleman build`
-
-    Dir["styleguide/build/**/*"].each do |file|
-      next if File.directory?(file)
-      stripped_name = file.gsub(/^styleguide\/build\//, "")
-      content_type = Ustyle.mime_type_for(stripped_name)
-      Ustyle.s3_upload( stripped_name, file, content_type, "ustyle.uswitchinternal.com" )
-    end
-  end
-
-  desc "Update Gemfile of styleguide"
-  task :update do
-    Bundler.with_clean_env do
-      `BUNDLE_GEMFILE=styleguide/Gemfile cd ./styleguide && bundle update ustyle`
-    end
-  end
-end
-
 namespace :build do
-  desc "Build ustyle-latest.css styles"
-  task :stylesheets do
-    FileUtils.mkdir_p File.join Ustyle.gem_path, "build"
-    `sass \
-      -t compressed \
-      -r "#{Ustyle.gem_path}/lib/ustyle" \
-      --load-path vendor/assets/stylesheets \
-      vendor/assets/stylesheets/ustyle.sass \
-      build/ustyle-latest.css`
-    `sass \
-      -t compressed \
-      -r "#{Ustyle.gem_path}/lib/ustyle" \
-      --load-path vendor/assets/stylesheets \
-      vendor/assets/stylesheets/ustyle-content.sass \
-      build/ustyle-content.css`
-
-    %w(latest content).each do |build|
-      File.write( "build/ustyle-#{build}.css", AutoprefixerRails.process(File.read("build/ustyle-#{build}.css")).css )  
-    end
-  end
-
   desc "Building images and hashing them"
   task :images do
     images_dir = File.join Ustyle.assets_path, "images"
@@ -126,4 +81,21 @@ namespace :deploy do
       Ustyle.s3_upload( Ustyle.versioned_path(stripped_name), file, content_type)
     end
   end
+
+  task :styleguide do
+    Ustyle.s3_connect!
+    Dir["build/docs/**/*"].each do |file|
+      next if File.directory?(file)
+      stripped_name = file.gsub(/^build\/docs\//, "")
+      content_type = Ustyle.mime_type_for(stripped_name)
+      Ustyle.s3_upload( stripped_name, file, content_type, "ustyle.uswitchinternal.com" )
+    end
+  end
 end
+
+def colorize(text, color_code)
+  "\e[#{color_code}m#{text}\e[0m"
+end
+
+def red(text); colorize(text, 31); end
+def green(text); colorize(text, 32); end

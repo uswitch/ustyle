@@ -1,4 +1,0 @@
-uguide
-======
-
-uSwitch style guidelines
