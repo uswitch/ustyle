@@ -14,11 +14,46 @@
       </div>
     </div>
     <div class="styleguide container sidebar--push">
-      {{#content}}
+      {{#section.content}}
         <div class="styleguide__block">
-          {{report.published}}
+          <dl>
+            <dt>Size</dt>
+            <dd>{{report.size}}</dd>
+            <dt>Rules</dt>
+            <dd>{{report.rules}}</dd>
+            <dt>Selectors</dt>
+            <dd>{{report.selectors}}</dd>
+            <dt>Lowest cohesion</dt>
+            <dd>{{report.lowestCohesion}}</dd>
+
+            <dt>Longest identifier</dt>
+            <dd>{{report.mostIdentifier}}</dd>
+
+            <dt>Longest identifier selector</dt>
+            <dd>{{report.mostIdentifierSelector}}</dd>
+
+
+            <dt>Lowest cohesion</dt>
+            <dd>{{report.lowestCohesion}}</dd>
+
+            <dt>Lowest cohesion selector</dt>
+            <dd>{{report.lowestCohesionSelector}}</dd>
+
+            <dt>Lowest cohesion selector</dt>
+            <dd>{{report.lowestCohesionSelector}}</dd>
+            <dt>Unique font sizes</dt>
+            <dd>{{report.uniqueFontSize}}</dd>
+            <dt>Unique colours</dt>
+            <dd>{{report.uniqueColor}}</dd>
+            <dt>Id selectors</dt>
+            <dd>{{report.idSelectors}}</dd>
+            <dt>Universal selectors</dt>
+            <dd>{{report.universalSelectors}}</dd>
+            <dt>Important keywords</dt>
+            <dd>{{report.importantKeywords}}</dd>
+          </dl>
         </div>
-      {{/content}}
+      {{/section.content}}
     </div>
   </div>
   <script src="js/app.js"></script>
