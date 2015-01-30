@@ -10,6 +10,9 @@
               <a class="nav__link nav__main-link {{isActive this.name}}" href="/docs/{{page}}">{{name}}</a>
             </li>
           {{/sections}}
+          <li class="nav__item">
+            <a class="nav__link nav__main-link" href="/docs/sass">Sass doc</a>
+          </li>
         </ul>
       </div>
     </nav>
