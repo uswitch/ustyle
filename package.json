@@ -38,6 +38,7 @@
     "marked": "^0.3.2",
     "path": "^0.4.9",
     "stylestats": "^4.2.2",
+    "svg-to-png": "^2.0.0",
     "underscore.string": "^3.0.2"
   }
 }

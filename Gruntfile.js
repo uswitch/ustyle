@@ -28,6 +28,11 @@ module.exports = function(grunt) {
         tasks: ['concat']
       }
     },
+    svg2png: {
+      dist: {
+        src: 'vendor/assets/images/icons/'
+      }
+    },
     styleguide: {
       dist: {
         src: 'vendor/assets/stylesheets/ustyle/**/*.scss',
