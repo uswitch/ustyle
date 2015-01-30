@@ -42,7 +42,6 @@
 @mixin heading-font-primary($extend: true) {
   @if $extend {
     @extend %heading-font-primary;
-    @extend %heading-font-print;
   }
   @else {
     font: {
