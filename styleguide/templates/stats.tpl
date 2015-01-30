@@ -10,11 +10,11 @@
   <div id="wrapper">
     <div class="us-hero trailered">
       <div class="container sidebar--push">
-        <h1 class="styleguide__title">{{section.name}}</h1>
+        <h1 class="styleguide__title">{{page.name}}</h1>
       </div>
     </div>
     <div class="styleguide container sidebar--push">
-      {{#section.content}}
+      {{#page.content}}
         <div class="styleguide__block">
           <dl>
             <dt>Size</dt>
@@ -53,7 +53,7 @@
             <dd>{{report.importantKeywords}}</dd>
           </dl>
         </div>
-      {{/section.content}}
+      {{/page.content}}
     </div>
   </div>
   <script src="js/app.js"></script>

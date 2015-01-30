@@ -16,7 +16,7 @@ module.exports = {
 
     handlebars.registerHelper('isActive', function(name, context) {
       var active = '';
-      if(name === context.data.root.section.name) {
+      if(name === context.data.root.page.name) {
         active = 'active'
       }
       return new handlebars.SafeString(active);

@@ -11,6 +11,7 @@ module.exports = function(grunt){
         cssstats        = require('cssstats'),
         StyleStats      = require('stylestats'),
         handlebars      = require('handlebars'),
+        fileHelper      = require('../modules/file'),
         done            = this.async(),
         cssFile         = this.data.src,
         outputFilePath  = this.data.output;
@@ -24,7 +25,7 @@ module.exports = function(grunt){
       var stats = new cssstats(data, {
         safe: true
       });
-      callback(null,stats);
+      callback(null, stats);
     }
 
     function extractStyleStats(stats, callback) {
@@ -43,7 +44,7 @@ module.exports = function(grunt){
       }).compact().value();
 
       var model = {
-        sections: [{
+        pages: [{
           name: 'Stats',
           page: 'index.html',
           template: 'styleguide/templates/stats.tpl',
@@ -51,14 +52,14 @@ module.exports = function(grunt){
             report: styleStatsData,
             complexity: data
           }
-          }],
+        }],
         project: grunt.file.readJSON('package.json')
       }
       callback(null, model);
     }
 
     function writeToFile(err, model) {
-      grunt.file.write(outputFilePath, JSON.stringify(model));
+      fileHelper.writeFile(JSON.stringify(model), outputFilePath, "css stats");
       done();
     }
 

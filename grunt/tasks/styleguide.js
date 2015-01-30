@@ -9,9 +9,10 @@ module.exports = function(grunt){
         async           = require('async'),
         path            = require('path'),
         fs              = require('fs'),
-        underscored     = require('../modules/underscored'),
         dssHelper       = require('../modules/dss-helper'),
+        fileHelper      = require('../modules/file'),
         humanize        = require("underscore.string/humanize"),
+        underscored     = require("underscore.string/underscored"),
         promise         = this.async(),
         files           = this.files,
         outputFilePath  = this.data.output,
@@ -19,10 +20,7 @@ module.exports = function(grunt){
         styleguide      = [];
 
     var options = this.options({
-        baseDir: './styleguide/',
-        templates: './styleguide/**/*.tpl',
-        templateOutput: './build/docs/',
-        templateIndex: 'base.tpl',
+        template: 'styleguide/templates/styleguide.tpl',
         parsers: {
           variable: dssHelper.variableDssParser(),
           partial: function(i, line, block){ return line; },
@@ -36,7 +34,8 @@ module.exports = function(grunt){
       parseDSS,
       groupDSS,
       generateStaticContent,
-      generateStyleguide
+      generateStyleguide,
+      writeFile
     ], completeTask);
 
     function completeTask(){
@@ -96,7 +95,7 @@ module.exports = function(grunt){
                       return {
                           name: key,
                           page: key.toLowerCase() + '.html',
-                          template: 'styleguide/templates/styleguide.tpl',
+                          template: options.template,
                           blocks: value
                       }
                     })
@@ -119,27 +118,15 @@ module.exports = function(grunt){
     }
 
     function generateStyleguide(sections, callback){
-
-      var outputType = 'created', old = null;
-
-      var data = {
-        sections: sections,
+      var model = {
+        pages: sections,
         project: grunt.file.readJSON('package.json')
       }
+      callback(null, model);
+    }
 
-      var output = JSON.stringify(data);
-
-      if (grunt.file.exists(outputFilePath)) {
-        outputType = 'overwritten';
-        old = grunt.file.read(outputFilePath);
-      }
-
-      if (old !== output) {
-        grunt.file.write(outputFilePath, output);
-        grunt.log.writeln('✓ Styleguide ' + outputType + ' at: ' + grunt.log.wordlist([outputFilePath], {color: 'cyan'}));
-      } else {
-        grunt.log.writeln('‣ Styleguide unchanged');
-      }
+    function writeFile(model, callback){
+      fileHelper.writeFile(JSON.stringify(model), outputFilePath, "Styleguide");
       callback(null, 'done');
     }
   });

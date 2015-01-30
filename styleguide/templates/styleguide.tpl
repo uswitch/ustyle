@@ -11,11 +11,11 @@
     {{> sidebar}}
     <div class="us-hero trailered">
       <div class="container sidebar--push">
-        <h1 class="styleguide__title">{{section.name}}</h1>
+        <h1 class="styleguide__title">{{page.name}}</h1>
       </div>
     </div>
     <div class="styleguide container sidebar--push">
-      {{#section}}
+      {{#page}}
         {{#blocks}}
           {{#if partial}}
             {{partial partial}}
@@ -23,7 +23,7 @@
             {{> style_block}}
           {{/if}}
         {{/blocks}}
-      {{/section}}
+      {{/page}}
     </div>
   </div>
   <script src="js/app.js"></script>

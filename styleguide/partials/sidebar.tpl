@@ -5,11 +5,11 @@
     <nav class='nav__container'>
       <div class='nav__set-container'>
         <ul class='nav__set'>
-          {{#sections}}
+          {{#pages}}
             <li class="nav__item">
               <a class="nav__link nav__main-link {{isActive this.name}}" href="/docs/{{page}}">{{name}}</a>
             </li>
-          {{/sections}}
+          {{/pages}}
           <li class="nav__item">
             <a class="nav__link nav__main-link" href="/docs/sass">Sass doc</a>
           </li>
