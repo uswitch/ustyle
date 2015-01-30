@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "sass", "3.2.19"
+  spec.add_dependency "sass"
   spec.add_dependency "coffee-script"
   spec.add_dependency "autoprefixer-rails", "~> 4.0"
   spec.add_dependency "mime-types"
