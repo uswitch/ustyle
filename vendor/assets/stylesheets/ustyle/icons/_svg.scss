@@ -1,0 +1,12 @@
+@if $load-icons {
+  @each $icon in $icons {
+    @if $svg-first {
+      @include svg-bg-icon($icon);  
+    }
+    @else {
+      #{$svg-support-class} {
+        @include svg-bg-icon($icon);
+      }
+    }
+  }  
+}

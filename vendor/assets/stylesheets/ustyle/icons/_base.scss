@@ -1,0 +1,106 @@
+[class^="us-icon--"],
+[class*=" us-icon--"] {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+[class^="us-icon--before"],
+[class*=" us-icon--before"],
+[class^="us-icon--after"],
+[class*=" us-icon--after"] {
+  &:before,
+  &:after {
+    content: " ";
+    background-size: cover;
+    pointer-events: none;
+    display: inline-block;
+    margin-right: $gutter-width/4;
+    vertical-align: middle;
+  }
+}
+
+.us-icon--centered {
+  margin: 0 auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%)
+}
+
+.us-icon--notext {
+  text-indent: -999em;
+  display: inline-block;
+}
+
+@mixin svg-bg-icon($icon-name) {
+  .us-icon--#{$icon-name},
+  .us-icon--#{$icon-name}--after:after,
+  .us-icon--#{$icon-name}--before:before {
+    background-image: inline-asset("#{$base-icon-path}#{$icon-name}.svg");
+  }
+}
+
+@mixin png-bg-icon($icon-name, $size-name, $size-px) {
+  .us-icon--#{$icon-name},
+  .us-icon--#{$icon-name}--after:after,
+  .us-icon--#{$icon-name}--before:before {
+    &.us-icon--#{$size-name},
+    &.us-icon--#{$size-name}--after:after,
+    &.us-icon--#{$size-name}--before:before {
+      background-image: url(ustyle-image-path("#{$base-icon-path}#{$size-px}/#{$icon-name}.png"));
+    }
+  }
+}
+
+//
+// ICON COLOURS
+//
+
+$icon-colors: (
+  ("white", "0 0"),
+  ("typegrey","0 25%"),
+  ("inputgrey","0 50%"),
+  ("navy", "0 75%"),
+  ("custom", "0 100%")
+);
+
+@each $color-map in $icon-colors {
+  $color-name: nth($color-map, 1);
+  $background-position: nth($color-map, 2);
+
+  .us-icon--#{$color-name},
+  .us-icon--#{$color-name}--after:after,
+  .us-icon--#{$color-name}--before:before {
+    background-position: unquote($background-position);
+  }
+
+  .us-icon--hover-#{$color-name}:hover,
+  .us-icon--hover-#{$color-name}--after:hover:after,
+  .us-icon--hover-#{$color-name}--before:hover:before {
+    background-position: unquote($background-position);
+  }
+}
+
+//
+// ICON SIZING
+//
+
+$icon-sizes: (
+  (small, 20px),
+  (medium, 30px),
+  (large, 60px)
+);
+
+@each $size in $icon-sizes {
+  $size-name: nth($size, 1);
+  $pixels: nth($size, 2);
+
+  .us-icon--#{$size-name},
+  .us-icon--#{$size-name}--after:after,
+  .us-icon--#{$size-name}--before:before {
+    width: $pixels;
+    height: $pixels;
+  }
+}
+
+@import "png";
+@import "svg";

@@ -1,0 +1,14 @@
+@each $icon in $icons {
+  @each $size in $icon-sizes {
+    $size-name: nth($size, 1);
+    $pixels: nth($size, 2);
+    @if $svg-first == false {
+      @include png-bg-icon($icon, $size-name, $pixels);
+    }
+    @else {
+      #{$png-support-class} {
+        @include png-bg-icon($icon, $size-name, $pixels);  
+      }
+    }
+  }
+}
