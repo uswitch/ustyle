@@ -54,6 +54,14 @@ module Sass::Script::Functions
   end
   declare :rgba_inline, :args => [:c, :px]
 
+  def list_files(path)
+    return Sass::Script::List.new(
+        Dir.glob(path.value).map! { |x| Sass::Script::String.new(x) },
+        :comma
+    )
+  end
+  declare :list_files, :args => [:path]
+
   protected
 
   def asset_data_uri(path)

@@ -1,3 +1,114 @@
+$icon-list: list_files("vendor/assets/images/icons/*.svg");
+// @section Icons
+// @name Icons
+// @partial icons
+// 
+// @description
+//   The icons for uSwitch
+// 
+// @state us-icon--alarm
+// @state us-icon--android
+// @state us-icon--angry
+// @state us-icon--apple
+// @state us-icon--arrow-circle
+// @state us-icon--arrow-up-left
+// @state us-icon--arrow-up
+// @state us-icon--barchart
+// @state us-icon--blackberry
+// @state us-icon--book
+// @state us-icon--bookmark
+// @state us-icon--breadcrumb
+// @state us-icon--calculator
+// @state us-icon--calendar
+// @state us-icon--car
+// @state us-icon--checkbox-tick
+// @state us-icon--clock
+// @state us-icon--close
+// @state us-icon--cog
+// @state us-icon--credit-card
+// @state us-icon--cross
+// @state us-icon--desktop
+// @state us-icon--doc
+// @state us-icon--down-arrow
+// @state us-icon--duel-fuel
+// @state us-icon--electric-light
+// @state us-icon--envelope
+// @state us-icon--exit-noexit
+// @state us-icon--facebook
+// @state us-icon--filter
+// @state us-icon--fixed-variable
+// @state us-icon--gas
+// @state us-icon--gauge
+// @state us-icon--google
+// @state us-icon--graph-up
+// @state us-icon--happy
+// @state us-icon--home
+// @state us-icon--hot
+// @state us-icon--info
+// @state us-icon--kettle
+// @state us-icon--key
+// @state us-icon--laptop
+// @state us-icon--lock
+// @state us-icon--magnify-in
+// @state us-icon--magnify-out
+// @state us-icon--magnify
+// @state us-icon--menu
+// @state us-icon--message
+// @state us-icon--mobile
+// @state us-icon--monthly-dd
+// @state us-icon--neutral
+// @state us-icon--no-exit
+// @state us-icon--pdf
+// @state us-icon--pencil
+// @state us-icon--person-add
+// @state us-icon--person
+// @state us-icon--phone
+// @state us-icon--piggy-bank
+// @state us-icon--pin
+// @state us-icon--pound-note
+// @state us-icon--power
+// @state us-icon--present
+// @state us-icon--print
+// @state us-icon--quarterly-dd
+// @state us-icon--question-circle
+// @state us-icon--question
+// @state us-icon--quote
+// @state us-icon--recycle
+// @state us-icon--remove
+// @state us-icon--renewable
+// @state us-icon--results
+// @state us-icon--sad
+// @state us-icon--save
+// @state us-icon--share
+// @state us-icon--sim
+// @state us-icon--smiley
+// @state us-icon--sort
+// @state us-icon--speech-circle
+// @state us-icon--speech
+// @state us-icon--spinner
+// @state us-icon--star-half
+// @state us-icon--star
+// @state us-icon--starline-half
+// @state us-icon--starline
+// @state us-icon--tablet
+// @state us-icon--talk
+// @state us-icon--tick-circle
+// @state us-icon--tick
+// @state us-icon--tv
+// @state us-icon--twitter
+// @state us-icon--variable
+// @state us-icon--warning-circle
+// @state us-icon--warning
+// @state us-icon--wifi
+// @state us-icon--wiki
+// @state us-icon--windows
+// @state us-icon--wondering
+// @state us-icon--world
+// @state us-icon--xml
+// 
+// @markup
+//  <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan {$modifiers}"></div>
+
 [class^="us-icon--"],
 [class*=" us-icon--"] {
   background-size: cover;
@@ -59,7 +170,7 @@ $icon-colors: (
   ("white", "0 0"),
   ("typegrey","0 25%"),
   ("inputgrey","0 50%"),
-  ("navy", "0 75%"),
+  ("typecyan", "0 75%"),
   ("custom", "0 100%")
 );
 

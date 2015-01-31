@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head class="svg-on">
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>{{project.name}} styleguide</title>
   <link rel="stylesheet" href="../ustyle-content.css" type="text/css" />
+  <link rel="stylesheet" href="../ustyle-icons.css" type="text/css" />
   <link rel="stylesheet" href="css/main.css" type="text/css" />
 </head>
 <body>
