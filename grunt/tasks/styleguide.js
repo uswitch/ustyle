@@ -105,7 +105,6 @@ module.exports = function(grunt){
     }
 
     function generateStaticContent(sections, callback) {
-
       var pages = grunt.file.expand(staticPages).map(function(file){
         return {
           name: humanize(path.basename(file, '.tpl')),
@@ -114,7 +113,7 @@ module.exports = function(grunt){
         }
       });
 
-      callback(null, _.assign(sections, pages));
+      callback(null, pages.concat(sections));
     }
 
     function generateStyleguide(sections, callback){
@@ -122,6 +121,7 @@ module.exports = function(grunt){
         pages: sections,
         project: grunt.file.readJSON('package.json')
       }
+
       callback(null, model);
     }
 
