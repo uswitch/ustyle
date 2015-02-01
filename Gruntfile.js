@@ -30,7 +30,8 @@ module.exports = function(grunt) {
     },
     svg2png: {
       dist: {
-        src: 'vendor/assets/images/icons/'
+        src: 'vendor/assets/images/icons/',
+        sizes: ["20 180", "32 288", "64 576"]
       }
     },
     svgmin: {
@@ -110,6 +111,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build', ['sass', 'sassdoc', 'styleguide', 'concat', 'postcss','cssstats', 'builder']);
   grunt.registerTask('default', ['build', 'browserSync-init', 'watch']);
-  grunt.registerTask('publish', ['build', 'shell:publish']);
+  grunt.registerTask('publish', ['svgmin', 'svg2png', 'build', 'shell:publish']);
 
 };

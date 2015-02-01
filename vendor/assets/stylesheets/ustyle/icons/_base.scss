@@ -197,8 +197,8 @@ $icon-colors: (
 
 $icon-sizes: (
   (small, 20px),
-  (medium, 30px),
-  (large, 60px)
+  (medium, 32px),
+  (large, 64px)
 );
 
 @each $size in $icon-sizes {
