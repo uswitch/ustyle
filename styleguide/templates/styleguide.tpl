@@ -11,7 +11,7 @@
     <a href="javascript:void(0)" class="nav-mobile us-desktop--hidden js-toggle__link" data-target="sidebar"><span class="nav-mobile__hamburger">Open menu</span></a>
     {{> sidebar}}
     <div class="us-hero trailered">
-      <div class="container sidebar--push">
+      <div class="container sidebar--push styleguide__header">
         <h1 class="styleguide__title">{{page.name}}</h1>
         <div class='us-grid-row'>
           <nav class="styleguide__nav us-col-md-8">

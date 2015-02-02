@@ -1,6 +1,6 @@
 <div class='sidebar'>
   <h1><a class='logo' href='/docs' id='logo'>{{project.name}} styleguide</a></h1>
-  <p class="version us-tablet--block">v.<strong>{{project.version}}</strong></p>
+  <p class="version us-tablet--block">v{{project.version}}</p>
   <div class='nav'>
     <nav class='nav__container'>
       <div class='nav__set-container'>

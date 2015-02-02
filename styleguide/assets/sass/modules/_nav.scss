@@ -23,17 +23,37 @@
   }
 
   &__link {
-    @include link-colors($c-typegrey, $c-typecyan);
+    @include link-colors($c-typegrey, $c-typecyan, $c-typegrey, $c-typegrey);
     display: block;
-    padding-top: 3px;
-    padding-bottom: 3px;
+    position: relative;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 20px;
+    transition: color 200ms, background-color 200ms;
 
     .nav__sub-set & {
       padding-left: $gutter-width/2;
     }
-  }
 
-  &__main-link {
-    @include bold-font
+    &:before {
+      content: '';
+      width: 0;
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      background-color: $c-typecyan;
+      transition: width 200ms;
+    }
+
+    &:hover,
+    &.active {
+      color: $c-typecyan;
+      background-color: white;
+
+      &:before {
+        width: 8px;
+      }
+    }
   }
 }
