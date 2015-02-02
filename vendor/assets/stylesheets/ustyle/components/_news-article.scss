@@ -1,5 +1,5 @@
 // @section Components
-// @name News article item
+// @name News article
 //
 // @description
 //   The news item article standard. Built with `.us-news-item`.
@@ -7,21 +7,23 @@
 //   `<img>` tags on mobile hasn't been resolved.
 //
 //  @markup
-//   <div class='us-news-item us-col-md-3'>
-//     <a class='us-news-item-link' href='#'>
-//       <div class='us-news-item-image-container'>
-//         <div class='us-news-item-image background' style='background-image: url(http://uswitch-wp-blog-assets.s3-website-eu-west-1.amazonaws.com/wp-content/uploads/2013/09/Untitled-1.jpg)'></div>
-//       </div>
-//       <div class='us-news-meta'>
-//         <span class='category'>Consumer rights</span>
-//         <span class='date'>14 Nov 2014</span>
-//       </div>
-//       <h3 class='us-news-item-title'>Customer uses promoted tweet to complain about BA</h3>
-//       <p class='us-news-item-snippet'>Sign of things to come? Social media helps to empower disgruntled consumer amid lost luggage row</p>
-//       <div class='us-news-item-readmore'>
-//         <span class='us-news-item-readmorelink'>More consumer rights</span>
-//       </div>
-//     </a>
+//   <div class='us-news-group'>
+//     <div class='us-news-item us-col-md-3'>
+//       <a class='us-news-item-link' href='#'>
+//         <div class='us-news-item-image-container'>
+//           <div class='us-news-item-image background' style='background-image: url(http://uswitch-wp-blog-assets.s3-website-eu-west-1.amazonaws.com/wp-content/uploads/2013/09/Untitled-1.jpg)'></div>
+//         </div>
+//         <div class='us-news-meta'>
+//           <span class='category'>Consumer rights</span>
+//           <span class='date'>14 Nov 2014</span>
+//         </div>
+//         <h3 class='us-news-item-title'>Customer uses promoted tweet to complain about BA</h3>
+//         <p class='us-news-item-snippet'>Sign of things to come? Social media helps to empower disgruntled consumer amid lost luggage row</p>
+//         <div class='us-news-item-readmore'>
+//           <span class='us-news-item-readmorelink'>More consumer rights</span>
+//         </div>
+//       </a>
+//     </div>
 //   </div>
 
 $item-padding: 9px;
@@ -36,12 +38,14 @@ $news-item-image-size: 128px !default;
 %readmore {
   position: absolute;
   bottom: 0;
-  left: 0;
-  right: 0;
   white-space: nowrap;
   color: $c-typecyan;
+  display: none;
   &:after {
     @extend %link-triangle;
+  }
+  @include respond-to(small-tablet,true) {
+    display: block;
   }
 }
 
@@ -72,6 +76,31 @@ $news-item-image-size: 128px !default;
   }
 }
 
+.us-news-group {
+  @include respond-to(mobile) {
+    margin-bottom: 1em;
+    overflow: hidden;
+
+    .us-news-item {
+      
+      &:first-child {
+        .us-news-item-link {
+          border-radius: em(5px) em(5px) 0 0;
+          border-bottom-width: 1px;
+          border-top-width: 1px;
+        }
+      }
+
+      &:last-child {
+        .us-news-item-link {
+          border-radius: 0 0 em(5px) em(5px);
+          border-bottom-width: 1px;
+        }
+      }
+    }
+  }
+}
+
 .us-news-item {
   @extend %base-item;
   overflow: hidden;
@@ -85,11 +114,26 @@ $news-item-image-size: 128px !default;
       }
     }
   }
+  .us-news-group & {
+    @include respond-to(mobile) {
+      margin-bottom: 0;
+      padding: 0;
+    }
+  }
 }
 
 .us-news-item-link {
   @extend %base-item-link;
-  padding-bottom: em(35px);
+  overflow: hidden;
+  @include respond-to(small-tablet,true) {
+    padding-bottom: em(35px);
+  }
+  .us-news-group & {
+    @include respond-to(mobile) {
+      border-radius: 0;
+      border-top-width: 0;
+    }
+  }
 }
 
 .us-news-item-title {
@@ -100,9 +144,13 @@ $news-item-image-size: 128px !default;
 }
 
 .us-news-meta {
-  padding: $item-padding;
+  padding-left: $item-padding;
+  padding-right: $item-padding;
+  overflow: hidden;
   .category,
   .date {
+    font-weight: bold;
+    color: $c-navy;
     font-size: em(13px);
     padding-top: em(4px);
     padding-bottom: em(4px);
@@ -110,17 +158,14 @@ $news-item-image-size: 128px !default;
       font-size: em(14px);
     }
   }
-  .category {
-    padding-left: $item-padding;
-    padding-right: $item-padding;
-    border-radius: 3px;
-    background-color: $c-typecyan;
-    color: white;
-  }
   .date {
     float: right;
     display: block;
-    color: $c-navy;
+  }
+
+  .category {
+    float: left;
+    display: block;
   }
 }
 
@@ -151,7 +196,6 @@ $news-item-image-size: 128px !default;
 .us-news-item-readmore {
   @extend %readmore;
   padding: $item-padding;
-  border-top: 1px solid $c-bordergrey;
 }
 
 .us-news-item-readmorelink {
