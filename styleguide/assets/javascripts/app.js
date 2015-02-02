@@ -1,47 +1,65 @@
-var codeBlocks = document.querySelectorAll('pre code');
+(function(document, window){
+  "use strict";
 
-for (var i = codeBlocks.length - 1; i >= 0; i--) {
-  var codeBlock = codeBlocks[i],
-      lines, offset;
+  function App(){
+    var toggleLinks = document.querySelectorAll(".js-toggle__link");
 
-  lines = codeBlock.textContent.split( '\n' );
+    for (var i = toggleLinks.length - 1; i >= 0; i--) {
+      var toggleLink = toggleLinks[i];
+      toggleLink.addEventListener("click", clickToggle, false);
+    };
 
-  if ( lines.length > 1 && lines[ lines.length - 1 ].trim() === '' ){
-    lines.pop();
+    codeBlockClean();
+
+    var tabs = new Tabs();
+    var anchor = new Anchor({
+      target: document.querySelector(".js-example-anchor"),
+      content: document.querySelector(".js-example-anchor__target")
+    });
   }
 
-  // how much white-space do we need to remove form each line?
-  offset = lines[ 1 ].match( /^\s*/ )[ 0 ].length;
+  function codeBlockClean(){
+    var codeBlocks = document.querySelectorAll('pre code');
 
-  // remove the excess white-space from the beginning of each line
-  lines = lines.map( function ( line ) {
-      return line.slice( offset );
-  });
+    for (var i = codeBlocks.length - 1; i >= 0; i--) {
+      var codeBlock = codeBlocks[i],
+          lines, offset;
 
-  lines.shift();
+      lines = codeBlock.textContent.split( '\n' );
 
-  codeBlock.textContent = lines.join( '\n' );
+      if ( lines.length > 1 && lines[ lines.length - 1 ].trim() === '' ){
+        lines.pop();
+      }
 
-  hljs.highlightBlock(codeBlock);
-};
+      // how much white-space do we need to remove form each line?
+      offset = lines[ 1 ].match( /^\s*/ )[ 0 ].length;
 
-toggleLinks = document.querySelectorAll(".js-toggle__link");
+      // remove the excess white-space from the beginning of each line
+      lines = lines.map( function ( line ) {
+          return line.slice( offset );
+      });
 
-for (var i = toggleLinks.length - 1; i >= 0; i--) {
-  var toggleLink = toggleLinks[i];
-  toggleLink.addEventListener("click", clickToggle, false);
-};
+      lines.shift();
 
-function clickToggle(event){
-  var toggleLink = this;
-  var target = document.querySelector("." + toggleLink.getAttribute("data-target"));
-  var targetActiveClass = getActiveClass(target);
-  var activeClass = getActiveClass(toggleLink);
-  toggleLink.classList.toggle(activeClass);
-  target.classList.toggle(targetActiveClass);
-}
+      codeBlock.textContent = lines.join( '\n' );
 
-function getActiveClass(selector){
-  console.log(selector);
-  return selector.classList[0] + "--active";
-};
+      hljs.highlightBlock(codeBlock);
+    };
+  }
+
+  function clickToggle(event){
+    var toggleLink = this;
+    var target = document.querySelector("." + toggleLink.getAttribute("data-target"));
+    var targetActiveClass = getActiveClass(target);
+    var activeClass = getActiveClass(toggleLink);
+    toggleLink.classList.toggle(activeClass);
+    target.classList.toggle(targetActiveClass);
+  }
+
+  function getActiveClass(selector){
+    return selector.classList[0] + "--active";
+  }
+
+  return new App();
+
+})(document, window);

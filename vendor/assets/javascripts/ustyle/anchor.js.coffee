@@ -13,6 +13,7 @@ createContext = (options) ->
     constructor: (options) ->
       {@target, @classPrefix} = @options = setOptions options, @defaults
       return if @target is null
+
       @_boundEvents = []
       @_closeTargets = []
 

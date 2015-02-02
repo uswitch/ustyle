@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html class="svg">
+<html class="no-js svg">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>{{project.name}} styleguide</title>
   <link rel="stylesheet" href="../ustyle-content.css" type="text/css" />
   <link rel="stylesheet" href="css/main.css" type="text/css" />
+  <script>
+    (function(html){
+      html.className=html.className.replace(/\bno-js\b/,'js')
+    })(document.documentElement);
+  </script>
 </head>
 <body>
   <div id="wrapper">
@@ -38,6 +43,7 @@
       {{/page}}
     </div>
   </div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
