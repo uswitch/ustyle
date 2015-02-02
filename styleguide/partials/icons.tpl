@@ -12,10 +12,6 @@
       {{~{escaped}}}
     {{/markup}}
     </code></pre>
-    <div class="styleguide__block-example">
-      {{{markup.example}}}
-    </div>
-    
     <div class="us-clearfix">
       {{#state}}
         <div class="styleguide__block-example us-col-md-3 state">
