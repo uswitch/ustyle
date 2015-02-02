@@ -24,3 +24,24 @@ for (var i = codeBlocks.length - 1; i >= 0; i--) {
 
   hljs.highlightBlock(codeBlock);
 };
+
+toggleLinks = document.querySelectorAll(".js-toggle__link");
+
+for (var i = toggleLinks.length - 1; i >= 0; i--) {
+  var toggleLink = toggleLinks[i];
+  toggleLink.addEventListener("click", clickToggle, false);
+};
+
+function clickToggle(event){
+  var toggleLink = this;
+  var target = document.querySelector("." + toggleLink.getAttribute("data-target"));
+  var targetActiveClass = getActiveClass(target);
+  var activeClass = getActiveClass(toggleLink);
+  toggleLink.classList.toggle(activeClass);
+  target.classList.toggle(targetActiveClass);
+}
+
+function getActiveClass(selector){
+  console.log(selector);
+  return selector.classList[0] + "--active";
+};

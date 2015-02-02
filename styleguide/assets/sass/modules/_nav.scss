@@ -1,4 +1,14 @@
 .nav {
+  display: none;
+
+  .sidebar--active & {
+    display: block;
+  }
+  
+  @include respond-to(tablet){
+    display: block;
+  }
+
   &__set {
     @extend %reset-box-model;
     list-style: none;

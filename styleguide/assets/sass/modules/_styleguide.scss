@@ -32,6 +32,19 @@ $styleguide-block-border-color: $c-bordergrey;
     }
   }
 
+  &__file-link {
+    @include link-colors($c-typegrey, $c-typecyan);
+    float: right;
+    padding: 5px 12px;
+    background-color: $c-lightgrey;
+    font-size: 14px;
+    line-height: 1.25;
+    margin-top: 5px;
+    span {
+      color: $c-typegrey-2;
+    }
+  }
+
   &__block {
     @extend %clearfix;
     position: relative;  
@@ -40,6 +53,7 @@ $styleguide-block-border-color: $c-bordergrey;
 
   &__block-title {
     @include bold-font;
+    position: relative;
   }
 
   &__block-examples {

@@ -9,14 +9,14 @@
 // @state .us-validation--error - Error styling (default) for incorrect data on forms
 //
 // @markup
+//   <div class="us-validation__input {$modifiers}">
+//     <input type="email" class="us-form-input" name="email" />
+//   </div>
+//   
 //   <div class="us-validation {$modifiers}">
 //     <div class="us-validation__icon"></div>
 //     <div class="us-validation__message">Validation message here</div>
 //   </div>
-//
-//   <div class="us-validation__input {$modifiers}">
-//     <input type="email" class="us-form-input" name="email" />
-//    </div>
 
 $message-padding-vertical: 0.35em;
 $message-padding-horizontal: 0.5em;

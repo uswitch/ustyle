@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="svg">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>{{project.name}} styleguide</title>
@@ -8,6 +8,7 @@
 </head>
 <body>
   <div id="wrapper">
+    <a href="javascript:void(0)" class="nav-mobile us-desktop--hidden js-toggle__link" data-target="sidebar"><span class="nav-mobile__hamburger">Open menu</span></a>
     {{> sidebar}}
     <div class="us-hero trailered">
       <div class="container sidebar--push">

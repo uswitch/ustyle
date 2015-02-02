@@ -10,7 +10,7 @@ $sidebar-padding        : $gutter-width/4;
   top: 0;
   width: 100%;
   background-color: $sidebar-bg-color;
-  z-index: 15;
+  z-index: 10;
   overflow: visible;
   padding: $sidebar-top-push $sidebar-padding $sidebar-padding;
 
@@ -21,7 +21,11 @@ $sidebar-padding        : $gutter-width/4;
     overflow: auto;
     transition: transform .2s;
     transform: translate3d(-$sidebar-width,0,0);
-  };
+  }
+
+  &--active {
+    transform: translate3d(0,0,0);
+  }
 
   @include respond-to($sidebar-side-visibility){
     transform: translate3d(0,0,0);

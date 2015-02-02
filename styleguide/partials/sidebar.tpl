@@ -1,7 +1,7 @@
 <div class='sidebar'>
   <h1><a class='logo' href='/docs' id='logo'>{{project.name}} styleguide</a></h1>
-  <p class="version">v.<strong>{{project.version}}</strong></p>
-  <div class='nav__wrapper'>
+  <p class="version us-tablet--block">v.<strong>{{project.version}}</strong></p>
+  <div class='nav'>
     <nav class='nav__container'>
       <div class='nav__set-container'>
         <ul class='nav__set'>
