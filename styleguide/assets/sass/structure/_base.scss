@@ -1,0 +1,13 @@
+$container-width: 90%;
+
+.container {
+  @extend %clearfix;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  padding: 0 $gutter-width / 2;
+  
+  @include respond-to(desktop){
+    width: 90%;
+  }
+}

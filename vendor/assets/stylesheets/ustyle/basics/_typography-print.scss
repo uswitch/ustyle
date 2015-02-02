@@ -1,0 +1,10 @@
+@if $establish-type-rules {
+  @media print {
+    h1, h2, h3 {
+      font: {
+        family: $heading-font-secondary;
+        weight: 700;
+      }
+    }
+  }
+}

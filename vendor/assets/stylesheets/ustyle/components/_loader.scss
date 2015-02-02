@@ -1,9 +1,21 @@
-// Loader
-// ---
-// It shows when added the class .us-loader--loading and it can center itself
-// on the parent container if you add .us-loader--centered
+// @section Components
+// @name Loader
 //
-// Styleguide 5.4
+// @description
+//   It shows when added the class `.us-loader--loading` and it can center itself
+//   on the parent container if you add `.us-loader--centered`
+//
+// @markup
+//   <div class='us-col-6'>
+//     <div class='us-loader us-loader--loading us-loader--centered'>
+//       <div class='us-loader__inner'>
+//         <div class='us-loader__spinner'></div>
+//         <div class='us-loader__text'>
+//           Loading deals
+//         </div>
+//       </div>
+//     <div class='us-loader__overlay'></div>
+//   </div>
 
 $loader-overlay-opacity: 0.8 !default;
 $loader-overlay-colour: white !default;

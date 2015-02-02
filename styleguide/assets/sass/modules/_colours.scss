@@ -1,0 +1,19 @@
+.colour {
+  margin-bottom: $gutter-width/4;
+
+  &__block {
+    border: 1px solid $c-bordergrey;
+    border-radius: 3px;
+    text-align: center;
+  }
+
+  &__hex {
+    height: 75px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+
+  &__description {
+    @include bold-font
+  }
+}

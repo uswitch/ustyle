@@ -7,6 +7,36 @@ Please see [uStyle](http://ustyle.uswitchinternal.com)
 
 You have several options with regards to modifying, each of which come with their advantages and disadvantages.
 
+### Documentation
+
+Documentation must be written for any component you are actively working on. All documentation that isn't full page examples remains within the source code `.scss` files. We use [DSS](https://github.com/darcyclarke/DSS) for documenting components. This is done like this:
+
+```scss
+// @section Forms
+// @name Inputs
+// 
+// @description
+//   The standard form input, `.us-form-input`, styled with our brand colours. Explicitly
+//   classed to allow individual app styling for other inputs
+//
+// @state .large - Larger input style
+//
+// @markup
+//   <input class='us-form-input {$modifiers}' type='text'>
+```
+
+`{$modifiers}` is a placeholder where the different states get rendered. If the component you are documenting requires an additional, more complex, component that doesn't quite fit the basic `style_block.tpl` layout, you can declare a partial, like so:
+
+```scss
+@section Colours
+@name Base colours
+@partial colours
+```
+
+Then you can have a partial named `colours.tpl` in `partials/` and run with that.
+
+All output of our documentation goes to `ustyle.json` in `build/`. This contains the JSON which is then parsed by our `builder.js` module and compiled to handlebars. All context within DSS is available on the templates.
+
 ### Method 1
 
 1. Clone the existing repo.
@@ -28,5 +58,5 @@ You have several options with regards to modifying, each of which come with thei
 1. Test some more, ensure you've run this in a few projects.
 1. Commit your feature, but do not edit `lib/ustyle/version.rb`
 1. Following [Semver](http://semver.org/), update the `version.rb` file as necessary.
-1. Run `bundle exec rake ustyle:publish`
+1. Run `grunt publish`
 1. Voilà! You now have successfully updated and pushed the gem version, updated the stylesheets and built the styleguide. You're now a pro.

@@ -1,0 +1,74 @@
+$styleguide-block-padding: $gutter-width*2;
+$styleguide-separator-color: $c-lightgrey;
+$styleguide-block-border-color: $c-bordergrey;
+
+.styleguide {
+
+  &__block + &__block {
+    padding-top: $styleguide-block-padding;
+    padding-bottom: $styleguide-block-padding;
+  }
+
+  &__title {
+    @include bold-font;
+    padding-top: $styleguide-block-padding/2;
+    padding-bottom: $styleguide-block-padding/4;
+    margin: 0;
+  }
+
+  &__nav {
+    padding-bottom: $styleguide-block-padding/2;
+    margin-left: - .75em;
+  }
+
+  &__nav-link {
+    @include link-colors($c-navy, $c-typecyan, $c-navy, $c-navy);
+    display: block;
+    margin-bottom: $gutter-width/4;
+    border-bottom: 1px solid $c-navy;
+
+    &:hover {
+      border-color: $c-typecyan;
+    }
+  }
+
+  &__block {
+    @extend %clearfix;
+    position: relative;  
+    border-bottom: 1px solid $styleguide-separator-color;
+  }
+
+  &__block-title {
+    @include bold-font;
+  }
+
+  &__block-examples {
+    border: 1px solid $styleguide-block-border-color;
+    border-radius: 3px;
+  }
+
+  &__block-example {
+    position: relative;
+  }
+
+  &__block-example-class {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: $c-lightgrey;
+    color: $c-typegrey-2;
+    padding: 3px 8px;
+    font-size: .85em;
+  }
+
+  &__block-example + &__block-example { 
+    border-top: 1px dashed darken($styleguide-separator-color, 10%);
+  }
+
+  &__block-example {
+    @extend %clearfix;
+    position: relative;
+    padding: $gutter-width $gutter-width/2;
+  }
+
+}
