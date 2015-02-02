@@ -12,6 +12,15 @@
     <div class="us-hero trailered">
       <div class="container sidebar--push">
         <h1 class="styleguide__title">{{page.name}}</h1>
+        <div class='us-grid-row'>
+          <nav class="styleguide__nav us-col-md-8">
+            {{#page}}
+              {{#blocks}}
+                <a class="styleguide__nav-link us-col-md-4" href="/docs/{{../page}}#{{link}}">{{name}}</a>
+              {{/blocks}}
+            {{/page}}
+          </nav>
+        </div>
       </div>
     </div>
     <div class="styleguide container sidebar--push">

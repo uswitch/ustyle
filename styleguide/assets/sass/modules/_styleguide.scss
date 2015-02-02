@@ -6,14 +6,23 @@ $styleguide-block-border-color: $c-bordergrey;
 
   &__block + &__block {
     padding-top: $styleguide-block-padding;
-    padding-bottom: $styleguide-block-padding;    
+    padding-bottom: $styleguide-block-padding;
   }
 
   &__title {
     @include bold-font;
-    padding-top: $styleguide-block-padding;
-    padding-bottom: $styleguide-block-padding;
+    padding-top: $styleguide-block-padding/2;
+    padding-bottom: $styleguide-block-padding/4;
     margin: 0;
+  }
+
+  &__nav {
+    padding-bottom: $styleguide-block-padding/2;
+    margin-left: - .75em;
+  }
+
+  &__nav-link {
+    @include link-colors($c-navy, white, $c-navy, $c-navy);
   }
 
   &__block {
