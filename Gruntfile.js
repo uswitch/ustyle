@@ -96,9 +96,18 @@ module.exports = function(grunt) {
           config: "grunt/sassdoc/view.json"
         }
       }
+    },
+    env : {
+      dev : {
+        NODE_ENV : 'development'
+      },
+      build : {
+        NODE_ENV : 'production'
+      }
     }
   });
 
+  grunt.loadNpmTasks('grunt-env');
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-svgmin');
   grunt.loadNpmTasks('grunt-sassdoc');
@@ -110,7 +119,7 @@ module.exports = function(grunt) {
   grunt.loadTasks('grunt/tasks');
 
   grunt.registerTask('build', ['sass', 'sassdoc', 'styleguide', 'concat', 'postcss','cssstats', 'builder']);
-  grunt.registerTask('default', ['build', 'browserSync-init', 'watch']);
-  grunt.registerTask('publish', ['svgmin', 'svg2png', 'build', 'shell:publish']);
+  grunt.registerTask('default', ['env:dev','build', 'browserSync-init', 'watch']);
+  grunt.registerTask('publish', ['env:build','svgmin', 'svg2png', 'build', 'shell:publish']);
 
 };
