@@ -22,7 +22,14 @@ $styleguide-block-border-color: $c-bordergrey;
   }
 
   &__nav-link {
-    @include link-colors($c-navy, white, $c-navy, $c-navy);
+    @include link-colors($c-navy, $c-typecyan, $c-navy, $c-navy);
+    display: block;
+    margin-bottom: $gutter-width/4;
+    border-bottom: 1px solid $c-navy;
+
+    &:hover {
+      border-color: $c-typecyan;
+    }
   }
 
   &__block {

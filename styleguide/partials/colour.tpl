@@ -3,10 +3,12 @@
   {{{description}}}
     <div class="us-grid-row">
       {{#variable}}
-        <div class="us-col-md-3">
-          <div class="colour__block" style='background: {{value}}; color: white;'>
+        <div class="colour us-col-md-3">
+          <div class="colour__block">
+            <div class="colour__hex" style='background: {{value}}; color: white;'>
+            </div>
+            <div class="colour__description">{{name}} - {{value}}</div>
           </div>
-          <div class="colour__description">{{name}} - {{value}}</div>
         </div>
       {{/variable}}
     </div>
