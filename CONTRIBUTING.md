@@ -58,5 +58,5 @@ All output of our documentation goes to `ustyle.json` in `build/`. This contains
 1. Test some more, ensure you've run this in a few projects.
 1. Commit your feature, but do not edit `lib/ustyle/version.rb`
 1. Following [Semver](http://semver.org/), update the `version.rb` file as necessary.
-1. Run `bundle exec rake ustyle:publish`
+1. Run `grunt publish`
 1. Voilà! You now have successfully updated and pushed the gem version, updated the stylesheets and built the styleguide. You're now a pro.
