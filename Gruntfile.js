@@ -118,8 +118,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-postcss');
   grunt.loadTasks('grunt/tasks');
 
+  grunt.registerTask('icons', ['svgmin', 'svg2png']);
   grunt.registerTask('build', ['sass', 'sassdoc', 'styleguide', 'concat', 'postcss','cssstats', 'builder']);
-  grunt.registerTask('default', ['env:dev','build', 'browserSync-init', 'watch']);
-  grunt.registerTask('publish', ['env:build','svgmin', 'svg2png', 'build', 'shell:publish']);
+  grunt.registerTask('default', ['env:dev', 'build', 'browserSync-init', 'watch']);
+  grunt.registerTask('publish', ['env:build', 'svgmin', 'svg2png', 'build', 'shell:publish']);
 
 };
