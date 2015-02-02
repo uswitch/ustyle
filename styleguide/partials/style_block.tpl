@@ -15,11 +15,6 @@
   
   <h3 class="styleguide__block-small-title">Example</h3>
   <div class="styleguide__block-examples">
-    <pre><code class="html">
-    {{#markup}}
-      {{~{escaped}}}
-    {{/markup}}
-    </code></pre>
     <div class="styleguide__block-example">
       {{{markup.example}}}
     </div>
@@ -30,6 +25,12 @@
         <div class="styleguide__block-example-class">{{name}}</div>
       </div>
     {{/state}}
+
+    <pre><code class="html">
+    {{#markup}}
+      {{~{escaped}}}
+    {{/markup}}
+    </code></pre>
   </div>
 
 </div>
