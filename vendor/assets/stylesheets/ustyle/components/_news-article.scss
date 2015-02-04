@@ -7,7 +7,7 @@
 //   `<img>` tags on mobile hasn't been resolved.
 //
 //  @markup
-//   <div class='us-news-group'>
+//   <div class='us-article-group'>
 //     <div class='us-news-item us-col-md-3'>
 //       <a class='us-news-item-link' href='#'>
 //         <div class='us-news-item-image-container'>
@@ -76,13 +76,12 @@ $news-item-image-size: 128px !default;
   }
 }
 
-.us-news-group {
+.us-article-group {
   @include respond-to(mobile) {
     margin-bottom: 1em;
     overflow: hidden;
 
     .us-news-item {
-      
       &:first-child {
         .us-news-item-link {
           border-radius: em(5px) em(5px) 0 0;
@@ -114,7 +113,7 @@ $news-item-image-size: 128px !default;
       }
     }
   }
-  .us-news-group & {
+  .us-article-group & {
     @include respond-to(mobile) {
       margin-bottom: 0;
       padding: 0;
@@ -128,7 +127,7 @@ $news-item-image-size: 128px !default;
   @include respond-to(small-tablet,true) {
     padding-bottom: em(35px);
   }
-  .us-news-group & {
+  .us-article-group & {
     @include respond-to(mobile) {
       border-radius: 0;
       border-top-width: 0;
