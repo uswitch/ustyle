@@ -2,6 +2,11 @@ require 'digest'
 require 'mime/types'
 
 module Ustyle
+
+  def self.production?
+    ENV['RACK_ENV'] == 'production' || ENV['RAILS_ENV'] == 'production' || ENV['NODE_ENV'] == 'production' || false
+  end
+
   def self.cloudfront_url path
     File.join "//d184zpyoja0pfb.cloudfront.net/ustyle/", Ustyle::VERSION, self.asset_digest(path)
   end

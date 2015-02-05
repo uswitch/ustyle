@@ -1,5 +1,5 @@
 <div class='sidebar'>
-  <h1><a class='logo' href='/docs' id='logo'>{{project.name}} styleguide</a></h1>
+  <a class='logo us-icon--large us-icon--uswitch us-icon--notext us-icon--custom us-icon--hover-typecyan' href='/docs' id='logo'>{{project.name}} styleguide</a>
   <p class="version us-tablet--block">v{{project.version}}</p>
   <div class='nav'>
     <nav class='nav__container'>
