@@ -24,62 +24,53 @@
 
 $guide-item-image-size: 128px !default;
 
-.us-guide-item {
-  @extend %base-item;
-}
+.us-guide-group {
+  @include respond-to(mobile) {
+    margin-bottom: 1em;
+    overflow: hidden;
 
-.us-guide-item-link {
-  @extend %base-item-link;
-  overflow: hidden;
-  padding-bottom: 44px;
-  &:hover {
-    .us-guide-item-description {
-      color: $c-navy;
-      max-height: 300px;
-    }
-    @include respond-to(desktop) {
-      .us-guide-item-content {
-        transform: translate3d(0, 0, 0);
-        .no-csstransforms3d & {
-          transform: translateY(0);
+    .us-guide-item {
+      &:first-child {
+        .us-guide-item-link {
+          border-radius: em(5px) em(5px) 0 0;
+          border-bottom-width: 1px;
+          border-top-width: 1px;
+        }
+      }
+
+      &:last-child {
+        .us-guide-item-link {
+          border-radius: 0 0 em(5px) em(5px);
+          border-bottom-width: 1px;
+          border-top-width: 1px;
         }
       }
     }
+  }
+}
 
-    .us-guide-item-content {
-      .no-csstransitions.no-csstransforms & {
-        top: 0;
-      }
+.us-guide-item {
+  @extend %base-item;
+  .us-guide-group & {
+    @include respond-to(mobile) {
+      margin-bottom: 0;
+      padding: 0;
+    }
+  }
+}
+
+.us-guide-item-link {
+  @extend .us-news-item-link;
+  .us-guide-group & {
+    @include respond-to(mobile) {
+      border-radius: 0;
+      border-top-width: 0;
     }
   }
 }
 
 .us-guide-item-title {
-  @extend %heading-4;
-  margin: 0;
-  padding: em(12px) em(20px, nth($heading-font-sizes, 4));
-}
-
-.us-guide-item-content {
-  transition: all 200ms;
-  border-top: 1px solid $c-lightgrey;
-  background-color: white;
-  @include respond-to(desktop, true) {
-    transform: translate3d(0, $guide-item-image-size, 0);
-    border-radius: 0 0 em(5px) em(5px);
-    position: absolute;
-    min-height: $guide-item-image-size;
-    left: 0;
-    right: 0;
-    top: 0;
-  }
-
-  .no-csstransforms3d & {
-    transform: translateY($guide-item-image-size);
-  }
-  .no-csstransitions.no-csstransforms & {
-    top: $guide-item-image-size;
-  }
+  @extend .us-news-item-title;
 }
 
 .us-guide-item-title,
@@ -88,23 +79,10 @@ $guide-item-image-size: 128px !default;
 }
 
 .us-guide-item-description {
-  @extend %small-font;
-  transition: all 200ms;
-  padding: 0 em(20px, 14px);
-  @include respond-to(desktop, true) {
-    position: absolute;
-    color: white;
-    background-color: white;
-    max-height: 0;
-    padding: 0 em(20px, 14px) em(35px);
-  }
+  @extend .us-news-item-snippet;
 }
 
 .us-guide-item-image-container {
-  @include respond-to(desktop, true) {
-    padding-bottom: 91px;
-  }
-
   @include respond-to(mobile) {
     display: none;
   }
@@ -118,10 +96,7 @@ $guide-item-image-size: 128px !default;
 }
 
 .us-guide-item-readmore {
-  @extend %readmore;
-  border-radius: 0 0 em(5px) em(5px);
-  background-color: white;
-  padding: 0 em(20px) em(20px);
+  @extend .us-news-item-readmore;
 }
 
 .us-guide-item-readmorelink {

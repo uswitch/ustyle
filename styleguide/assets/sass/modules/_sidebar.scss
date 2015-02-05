@@ -3,14 +3,14 @@ $sidebar-bg-color       : $c-bggrey;
 $sidebar-breakpoint     : tablet;
 $sidebar-side-visibility: desktop;
 $sidebar-top-push       : 34.5px;
-$sidebar-padding        : $gutter-width/4;
+$sidebar-padding        : 0;
 
 .sidebar {
   position: fixed;
   top: 0;
   width: 100%;
   background-color: $sidebar-bg-color;
-  z-index: 15;
+  z-index: 10;
   overflow: visible;
   padding: $sidebar-top-push $sidebar-padding $sidebar-padding;
 
@@ -21,7 +21,11 @@ $sidebar-padding        : $gutter-width/4;
     overflow: auto;
     transition: transform .2s;
     transform: translate3d(-$sidebar-width,0,0);
-  };
+  }
+
+  &--active {
+    transform: translate3d(0,0,0);
+  }
 
   @include respond-to($sidebar-side-visibility){
     transform: translate3d(0,0,0);

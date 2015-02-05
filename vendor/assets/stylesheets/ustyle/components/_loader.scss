@@ -6,7 +6,7 @@
 //   on the parent container if you add `.us-loader--centered`
 //
 // @markup
-//   <div class='us-col-6'>
+//   <div class='us-loader__container'>
 //     <div class='us-loader us-loader--loading us-loader--centered'>
 //       <div class='us-loader__inner'>
 //         <div class='us-loader__spinner'></div>
@@ -14,7 +14,16 @@
 //           Loading deals
 //         </div>
 //       </div>
-//     <div class='us-loader__overlay'></div>
+//       <div class='us-loader__overlay'></div>
+//     </div>
+//     <!-- EXAMPLE CONTENT -->
+//     <ul class='us-list'>
+//       <li><a href="#">List item 1</a></li>
+//       <li><a href="#">List item 2</a></li>
+//       <li><a href="#">List item 3</a></li>
+//       <li><a href="#">List item 4</a></li>
+//     </ul>
+//     <!-- END EXAMPLE -->
 //   </div>
 
 $loader-overlay-opacity: 0.8 !default;
@@ -84,6 +93,10 @@ $spinner-load-fallback: true !default;
   @extend %snap-to-parent;
   text-align: center;
   display: none;
+}
+
+.us-loader__container {
+  position: relative;
 }
 
 .us-loader--loading {

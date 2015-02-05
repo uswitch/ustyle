@@ -1,7 +1,10 @@
 <div class="styleguide__block" id="{{link}}">
   <div class="styleguide__block-info">
-    <h2 class="styleguide__block-title">{{name}}</h2>
-    <a href="https://github.com/uswitch/ustyle/tree/master/{{path}}" class="filename">{{file}}</a>
+    <h2 class="styleguide__block-title">
+      {{name}}
+      <a href="https://github.com/uswitch/ustyle/tree/master/{{path}}" class="styleguide__file-link"><span>Github:</span> {{file}}</a>
+    </h2>
+    
     {{{description}}}
     {{#if state}}
       <ul class="styleguide__block-states">

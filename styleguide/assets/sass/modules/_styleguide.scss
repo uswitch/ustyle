@@ -9,15 +9,18 @@ $styleguide-block-border-color: $c-bordergrey;
     padding-bottom: $styleguide-block-padding;
   }
 
+  &__header {
+    padding-top: $styleguide-block-padding/2;
+    padding-bottom: $styleguide-block-padding/2;
+  }
+
   &__title {
     @include bold-font;
-    padding-top: $styleguide-block-padding/2;
     padding-bottom: $styleguide-block-padding/4;
     margin: 0;
   }
 
   &__nav {
-    padding-bottom: $styleguide-block-padding/2;
     margin-left: - .75em;
   }
 
@@ -25,10 +28,23 @@ $styleguide-block-border-color: $c-bordergrey;
     @include link-colors($c-navy, $c-typecyan, $c-navy, $c-navy);
     display: block;
     margin-bottom: $gutter-width/4;
-    border-bottom: 1px solid $c-navy;
+    border-bottom: 1px dotted $c-navy;
 
     &:hover {
-      border-color: $c-typecyan;
+      border-bottom: 1px solid $c-typecyan;
+    }
+  }
+
+  &__file-link {
+    @include link-colors($c-typegrey, $c-typecyan);
+    float: right;
+    padding: 5px 12px;
+    background-color: $c-lightgrey;
+    font-size: 14px;
+    line-height: 1.25;
+    margin-top: 5px;
+    span {
+      color: $c-typegrey-2;
     }
   }
 
@@ -40,6 +56,8 @@ $styleguide-block-border-color: $c-bordergrey;
 
   &__block-title {
     @include bold-font;
+    position: relative;
+    color: $c-typecyan;
   }
 
   &__block-examples {

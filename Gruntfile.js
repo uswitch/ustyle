@@ -20,11 +20,11 @@ module.exports = function(grunt) {
         spawn: false // Very important, don't miss this
       },
       build: {
-        files: ['vendor/assets/stylesheets/ustyle/**/*.scss', 'styleguide/**/*', 'styleguide/build/ustyle.json'],
-        tasks: ['styleguide', 'sass', 'sassdoc', 'postcss', 'browserSync-inject', 'cssstats', 'builder']
+        files: ['vendor/assets/**/*', 'styleguide/**/*', 'styleguide/build/ustyle.json'],
+        tasks: ['styleguide', 'sass', 'coffee', 'sassdoc', 'postcss', 'browserSync-inject', 'cssstats', 'builder']
       },
       scripts: {
-        files: 'styleguide/**/*.js',
+        files: ['styleguide/**/*.js', 'vendor/**/*.coffee'],
         tasks: ['concat']
       }
     },
@@ -82,9 +82,21 @@ module.exports = function(grunt) {
         }
       }
     },
+    coffee: {
+      compile: {
+        files: {
+          'build/ustyle.js': [
+            'vendor/assets/javascripts/ustyle/utils.js.coffee',
+            'vendor/assets/javascripts/ustyle/anchor.js.coffee',
+            'vendor/assets/javascripts/ustyle/tabs.js.coffee',
+            'vendor/assets/javascripts/ustyle/overlay.js.coffee',
+          ]
+        }
+      },
+    },
     concat: {
       dist: {
-        src: ['styleguide/assets/javascripts/vendor/*.js', 'styleguide/assets/javascripts/*.js'],
+        src: ['styleguide/assets/javascripts/vendor/*.js', 'build/ustyle.js', 'styleguide/assets/javascripts/*.js'],
         dest: 'build/docs/js/app.js'
       }
     },
@@ -112,6 +124,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-svgmin');
   grunt.loadNpmTasks('grunt-sassdoc');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-browser-sync');
   grunt.loadNpmTasks('grunt-contrib-watch');

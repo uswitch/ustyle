@@ -1,10 +1,43 @@
-// Tabs
-// ---
-// These are the basic tabs used for landing pages. You can either reference a data-target for the urls or href
-// for the target tabs. They have a non-js fallback and fold over to accordion when in small tablet view. They are initialised
-// on page load if the tabs classes exist. To initialise call `var tabs = new Tabs()`
+// @section JS components
+// @name Tabs
 //
-// Styleguide 5.3
+// @description
+//   These are the basic tabs used for landing pages. You can either reference a data-target for the urls or href
+//   for the target tabs. They have a non-js fallback and fold over to accordion when in small tablet view. They are initialised
+//   on page load if the tabs classes exist. To initialise call `var tabs = new Tabs()`
+//
+// @markup
+//   <div class='us-tabs'>
+//     <nav class='us-tabs-nav'>
+//       <div class='us-tabs-nav-wrapper'>
+//         <div class='us-tabs-nav-menu'>
+//           <a class="us-tabs-nav-mainlink us-tabs-nav-link" href="#tab1">Tab 1</a>
+//           <a class="us-tabs-nav-mainlink us-tabs-nav-link" href="#tab2">Tab 2</a>
+//           <a class="us-tabs-nav-mainlink us-tabs-nav-link" href="#tab3">Tab 3</a>
+//         </div>
+//       </div>
+//     </nav>
+//     <div class='us-tabs-container'>
+//       <div class='us-tab' id='tab1'>
+//         <h2 class='us-tab-title'><a class="us-tabs-nav-mainlink" href="#tab1">Test 1</a></h2>
+//         <div class='us-tab-content'>
+//           <p>Fatback capicola leberkas pork loin pork jowl. Meatloaf shoulder pancetta, salami prosciutto ribeye andouille chuck landjaeger short loin filet mignon sirloin. Pork chop tri-tip ham pork hamburger frankfurter leberkas short ribs biltong. Prosciutto ham hock rump, andouille tongue flank sirloin tri-tip ball tip frankfurter ham drumstick meatloaf pork loin.</p>
+//         </div>
+//       </div>
+//       <div class='us-tab' id='tab2'>
+//         <h2 class='us-tab-title'><a class="us-tabs-nav-mainlink" href="#tab2">Test 2</a></h2>
+//         <div class='us-tab-content'>
+//           <p>Kielbasa tenderloin spare ribs, andouille doner brisket chuck drumstick bresaola short loin pork t-bone ground round jowl. Ball tip pork loin doner tongue filet mignon biltong hamburger leberkas. Filet mignon kielbasa kevin short ribs, drumstick chuck shankle spare ribs tri-tip.</p>
+//         </div>
+//       </div>
+//       <div class='us-tab' id='tab3'>
+//         <h2 class='us-tab-title'><a class="us-tabs-nav-mainlink" href="#tab3">Test 3</a></h2>
+//         <div class='us-tab-content'>
+//           <p>Pig pastrami pork loin kielbasa, filet mignon meatloaf short ribs tenderloin. Pork loin leberkas kevin fatback porchetta bresaola. Cow rump shoulder pastrami. Andouille pork belly t-bone short ribs brisket. Bresaola pork belly tail salami capicola meatball. Pork belly beef ham landjaeger.</p>
+//         </div>
+//       </div>
+//     </div>
+//   </div>
 
 $tab-width: col-width(2) !default;
 

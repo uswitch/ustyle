@@ -1,3 +1,17 @@
+// @section JS components
+// @name Anchor
+//
+// @description
+//  Anchor is a naive implementation of Tether by HubSpot.
+//  It creates an independent dropdown that is "anchored" to the bottom of the target element.
+//  We've decided to only support IE9+, as the uses of Anchor throughout uSwitch are for progressive enhancement.
+//
+// @markup
+//   <span class='us-btn js-example-anchor'>Click me!</span>
+//   <div class='us-anchor__target js-example-anchor__target'>
+//     <p>Kielbasa tenderloin spare ribs, andouille doner brisket chuck drumstick bresaola short loin pork t-bone ground round jowl. Ball tip pork loin doner tongue filet mignon biltong hamburger leberkas. Filet mignon kielbasa kevin short ribs, drumstick chuck shankle spare ribs tri-tip.</p>
+//   </div>
+
 @keyframes anchor-show {
   0% {
     transform: scale(0) translateZ(0);
