@@ -8,7 +8,7 @@ module Ustyle
   end
 
   def self.cloudfront_url path
-    File.join "//d184zpyoja0pfb.cloudfront.net/ustyle/", Ustyle::VERSION, self.asset_digest(path)
+    File.join "https://assets0.uswitch.com/s3/uswitch-assets-eu/ustyle/", Ustyle::VERSION, self.asset_digest(path)
   end
 
   def self.asset_digest path
