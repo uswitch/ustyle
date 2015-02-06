@@ -60,7 +60,7 @@
   border-radius: 8px;
   transition: transform 300ms 100ms;
   transform-origin: 50%, -12px;
-  border: 1px solid $c-darkgrey;
+  border: 1px solid $c-typegrey;
   background-color: white;
   position: relative;
   padding: $gutter-width / 2 $gutter-width / 2 $gutter-width;
@@ -82,11 +82,11 @@
   z-index: 5;
   margin-left: -17.5px;
   .us-anchor--top & {
-    @include arrow(35px, 15px, up, $c-darkgrey);
+    @include arrow(35px, 15px, up, $c-typegrey);
     top: -15px;
   }
   .us-anchor--bottom & {
-    @include arrow(35px, 15px, down, $c-darkgrey);
+    @include arrow(35px, 15px, down, $c-typegrey);
     bottom: -15px;
   }
 }
