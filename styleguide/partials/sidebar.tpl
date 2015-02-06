@@ -8,11 +8,11 @@
         <ul class='nav__set'>
           {{#pages}}
             <li class="nav__item">
-              <a class="nav__link nav__main-link {{isActive this.name}}" href="/docs/{{page}}">{{name}}</a>
+              <a class="nav__link nav__main-link {{isActive this.name}}" href="{{page}}">{{name}}</a>
             </li>
           {{/pages}}
           <li class="nav__item">
-            <a class="nav__link nav__main-link" href="/docs/sass">Sass doc</a>
+            <a class="nav__link nav__main-link" href="sass/">Sass doc</a>
           </li>
         </ul>
       </div>

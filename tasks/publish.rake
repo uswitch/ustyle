@@ -1,6 +1,9 @@
 lib_path = File.join(File.dirname(__FILE__), 'lib')
 $:.unshift(lib_path) unless $:.include?(lib_path)
 
+require 'botoenv'
+Botoenv.load
+
 require 'ustyle'
 require 'ustyle/deploy'
 require 'autoprefixer-rails'
@@ -61,14 +64,14 @@ namespace :deploy do
   desc "Deploy stylesheet to S3"
   task :stylesheets do
     Ustyle.s3_connect!
-    stylesheets = ["ustyle-latest.css", "ustyle-content.css"]
+    stylesheets = ["ustyle-latest.css", "ustyle-content.css", "ustyle-icons.css"]
 
     stylesheets.each do |stylesheet|
       Ustyle.s3_upload( Ustyle.versioned_path(stylesheet), "build/#{stylesheet}", "text/css" )
       Ustyle.s3_upload( "ustyle/#{stylesheet}", "build/#{stylesheet}", "text/css" )
     end
 
-    Ustyle.invalidate( ["ustyle/ustyle-latest.css", "ustyle/ustyle-content.css"] )
+    Ustyle.invalidate( ["ustyle/ustyle-latest.css", "ustyle/ustyle-content.css", "ustyle/ustyle-icons.css"] )
   end
 
   desc "Deploy images to S3"

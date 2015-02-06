@@ -82,7 +82,8 @@ module.exports = function(grunt) {
         options: {
           loadPath: ['vendor/assets/stylesheets/ustyle', 'styleguide/assets/sass'],
           require: './lib/ustyle.rb',
-          style: 'compressed'
+          style: 'compressed',
+          sourcemap: 'none'
         },
         files: {
           'build/ustyle-latest.css': 'vendor/assets/stylesheets/ustyle.scss',
