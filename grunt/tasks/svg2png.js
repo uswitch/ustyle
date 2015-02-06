@@ -37,7 +37,7 @@ module.exports = function(grunt){
         var sizeX = sizing[0];
         var sizeY = sizing[1];
         var tmpFiles = grunt.file.expand("tmp/" + "**/*.svg");
-        svg_to_png.convert(tmpFiles, path.join( dest + sizeX + "px"), {defaultWidth: sizeX, defaultHeight: sizeY})
+        svg_to_png.convert(tmpFiles, path.join( dest + sizeX + "px"), {defaultWidth: sizeX, defaultHeight: sizeY, compress: true})
         .then( function(){
           callback(null, 'done');
         });
