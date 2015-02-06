@@ -16,12 +16,12 @@ $styleguide-block-border-color: $c-bordergrey;
 
   &__title {
     @include bold-font;
-    padding-bottom: $styleguide-block-padding/4;
     margin: 0;
   }
 
   &__nav {
     margin-left: - .75em;
+    padding-top: $styleguide-block-padding/4;
   }
 
   &__nav-link {

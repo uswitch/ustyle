@@ -2,7 +2,19 @@
 
 $load-icons: true;
 
-// Global import
-@import "ustyle/global";
+// Basics
+@import "ustyle/basics/functions";
+@import "ustyle/basics/variables";
+
+// All mixins
+@import "ustyle/mixins/base";
+
+// Font face
+@import "ustyle/basics/font-face";
+@import "ustyle/basics/font-face-ie";
+
+// Basic extends
+@import "ustyle/basics/fonts";
+@import "ustyle/basics/extends";
 
 @import "ustyle/icons/base";
