@@ -46,6 +46,16 @@ module.exports = function(grunt) {
             }]
         }
     },
+    imagemin: {
+      dynamic: {
+        files: [{
+          expand: true,
+          cwd: 'vendor/assets/images/',
+          src: ['**/*.png'],
+          dest: 'vendor/assets/images/'
+        }]
+      }
+    },
     styleguide: {
       dist: {
         src: 'vendor/assets/stylesheets/ustyle/**/*.scss',
@@ -126,14 +136,16 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-browser-sync');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-postcss');
+  grunt.loadNpmTasks('grunt-newer');
   grunt.loadTasks('grunt/tasks');
 
-  grunt.registerTask('icons', ['svgmin', 'svg2png']);
+  grunt.registerTask('icons', ['newer:svgmin', 'svg2png', 'imagemin']);
   grunt.registerTask('build', ['sass', 'sassdoc', 'styleguide', 'concat', 'postcss','cssstats', 'builder']);
   grunt.registerTask('default', ['env:dev', 'build', 'browserSync-init', 'watch']);
-  grunt.registerTask('publish', ['env:build', 'svgmin', 'svg2png', 'build', 'shell:publish']);
+  grunt.registerTask('publish', ['env:build', 'icons', 'build', 'shell:publish']);
 
 };
