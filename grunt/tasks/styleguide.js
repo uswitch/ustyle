@@ -13,6 +13,7 @@ module.exports = function(grunt){
         fileHelper      = require('../modules/file'),
         humanize        = require("underscore.string/humanize"),
         underscored     = require("underscore.string/underscored"),
+        slugify         = require("underscore.string/slugify"),
         promise         = this.async(),
         files           = this.files,
         outputFilePath  = this.data.output,
@@ -94,7 +95,7 @@ module.exports = function(grunt){
                     .map(function(value, key) {
                       return {
                           name: key,
-                          page: key.toLowerCase() + '.html',
+                          page: slugify(key) + '.html',
                           template: options.template,
                           blocks: value
                       }
