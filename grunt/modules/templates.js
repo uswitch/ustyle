@@ -14,6 +14,14 @@ module.exports = {
       return new handlebars.SafeString(handlebars.compile(partial)(this));
     });
 
+    handlebars.registerHelper('assetUrl', function(development, production){
+      if(process.env.NODE_ENV == 'development'){
+        return new handlebars.SafeString(development);
+      } else {
+        return new handlebars.SafeString(production);
+      }
+    });
+
     handlebars.registerHelper('isActive', function(name, context) {
       var active = '';
       if(name === context.data.root.page.name) {
