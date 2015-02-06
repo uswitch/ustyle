@@ -2,7 +2,7 @@
   <div class="styleguide__block-info">
     <h2 class="styleguide__block-title">
       {{name}}
-      <a href="https://github.com/uswitch/ustyle/tree/master/{{path}}" class="styleguide__file-link"><span>Github:</span> {{file}}</a>
+      <a href="https://github.com/uswitch/ustyle/tree/master/{{path}}" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> {{file}}</a>
     </h2>
     
     {{{description}}}

@@ -14,6 +14,12 @@
   }
 
   &__description {
-    @include bold-font
+    padding-top: 8px;
+    padding-bottom: 8px;
+    min-height: 60px;
+  }
+
+  &__title {
+    font-size: 1em;
   }
 }

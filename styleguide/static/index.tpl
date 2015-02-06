@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  {{> _header}}
+  {{> _head}}
 </head>
 <body>
   <div id="wrapper">
@@ -12,9 +12,9 @@
       </div>
     </div>
     <div class="styleguide container sidebar--push">
-      Test
+      <h1> This is the styleguide</h1>
     </div>
   </div>
-  <script src="js/app.js"></script>
+  {{> _footer}}
 </body>
 </html>

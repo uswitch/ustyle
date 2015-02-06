@@ -26,9 +26,9 @@
     @include link-colors($c-typegrey, $c-typecyan, $c-typegrey, $c-typegrey);
     display: block;
     position: relative;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    padding-left: 20px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: $gutter-width;
     transition: color 200ms, background-color 200ms;
 
     .nav__sub-set & {

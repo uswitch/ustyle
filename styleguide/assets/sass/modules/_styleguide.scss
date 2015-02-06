@@ -1,5 +1,5 @@
 $styleguide-block-padding: $gutter-width*2;
-$styleguide-separator-color: $c-lightgrey;
+$styleguide-separator-color: $c-bggrey;
 $styleguide-block-border-color: $c-bordergrey;
 
 .styleguide {
@@ -39,7 +39,7 @@ $styleguide-block-border-color: $c-bordergrey;
     @include link-colors($c-typegrey, $c-typecyan);
     float: right;
     padding: 5px 12px;
-    background-color: $c-lightgrey;
+    background-color: $c-bggrey;
     font-size: 14px;
     line-height: 1.25;
     margin-top: 5px;
@@ -57,6 +57,7 @@ $styleguide-block-border-color: $c-bordergrey;
   &__block-title {
     @include bold-font;
     position: relative;
+    margin-bottom: $gutter-width/2;
     color: $c-typecyan;
   }
 
@@ -73,7 +74,7 @@ $styleguide-block-border-color: $c-bordergrey;
     position: absolute;
     top: 0;
     right: 0;
-    background-color: $c-lightgrey;
+    background-color: $c-bggrey;
     color: $c-typegrey-2;
     padding: 3px 8px;
     font-size: .85em;
