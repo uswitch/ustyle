@@ -1,0 +1,34 @@
+@import "ustyle/basics/grid";
+
+.stat {
+
+  &__entry {
+    @extend .us-col-md-4;
+    margin: 10px 0;
+  }
+
+  &--number {
+    .stat__value {
+      font-size: 4em;
+      line-height: 1em;
+    }
+    .stat__value span {
+      font-size: 0.4em;
+      float: right;
+    }
+  }
+
+  &--string {
+    display: none;
+  }
+
+  &--array {
+    display: none;
+  }
+
+  &__title, &__value {
+    float: left;
+    clear: both;
+  }
+
+}

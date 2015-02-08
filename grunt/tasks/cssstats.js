@@ -29,8 +29,16 @@ module.exports = function(grunt){
     }
 
     function extractStyleStats(stats, callback) {
+      var omitEntries = [
+        'dataUriSize', 'ratioOfDataUriSize','lowestCohesion',
+        'lowestCohesionSelector', 'uniqueFontSize', 'uniqueFontFamily',
+        'propertiesCount', 'published', 'paths'
+      ];
+
+
       (new StyleStats(cssFile, {})).parse(function(err, styleStatsData){
-        callback(null, stats, styleStatsData);
+        var result = _.omit(styleStatsData,omitEntries);
+        callback(null, stats, result);
       })
     }
 

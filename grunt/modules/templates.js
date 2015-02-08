@@ -2,6 +2,12 @@
 
 var handlebars = require('handlebars');
 
+function humanFileSize(size) {
+    if(size < 1024) return size;
+    var i = Math.floor( Math.log(size) / Math.log(1024) );
+    return new handlebars.SafeString( ( size / Math.pow(1024, i) ).toFixed(2) * 1 + '<span> ' + ['B', 'kB', 'MB', 'GB', 'TB'][i]+'</span>');
+};
+
 module.exports = {
   registerHelpers: function(){
     handlebars.registerHelper("partial", function (name, options) {
@@ -29,5 +35,32 @@ module.exports = {
       }
       return new handlebars.SafeString(active);
     });
+
+    handlebars.registerHelper('isString', function(obj, context) {
+      if (typeof obj === 'string') {
+          return context.fn(this);
+      } else {
+          return context.inverse(this);
+      }
+    });
+
+    handlebars.registerHelper('isNumber', function(obj, context) {
+      if (typeof obj === 'number') {
+          var isDecimal = this % 1 != 0;
+          return context.fn(isDecimal ? this.toPrecision(2) : humanFileSize(this));
+      } else {
+          return context.inverse(this);
+      }
+    });
+
+
+    handlebars.registerHelper('isArray', function(obj, context) {
+      if (obj instanceof Array) {
+          return context.fn(this);
+      } else {
+          return context.inverse(this);
+      }
+    });
+
   }
 };
