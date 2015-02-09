@@ -28,4 +28,5 @@ module Ustyle
   def self.digest
     Digest::SHA1.hexdigest Ustyle::VERSION
   end
+
 end
