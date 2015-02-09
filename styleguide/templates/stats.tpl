@@ -47,21 +47,21 @@
       {{#each page.content.report}}
 
         {{#isString this}}
-          <div class="stat__entry stat--string">
+          <div class="stat__entry us-col-md-4 stat--string">
             <div class="stat__value">{{this}}</div>
             <div class="stat__title">{{@key}}</div>
           </div>
         {{/isString}}
 
         {{#isNumber this}}
-        <div class="stat__entry stat--number">
+        <div class="stat__entry us-col-md-4 stat--number">
           <div class="stat__value">{{this}}</div>
           <div class="stat__title">{{@key}}</div>
         </div>
         {{/isNumber}}
 
         {{#isArray this}}
-        <div class="stat__list stat--array">
+        <div class="stat__list us-col-md-4 stat--array">
           <div class="stat__value">{{this}}</div>
           <div class="stat__title">{{@key}}</div>
         </div>
