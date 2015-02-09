@@ -2,10 +2,12 @@ require "aws/s3"
 require "cloudfront-invalidator"
 
 module Ustyle
+  HOST = 's3-eu-west-1.amazonaws.com'
   BUCKET = 'uswitch-assets-eu'
+  CLOUDFRONT_DISTRIBUTION = 'E3F1XI0HIG20E0'
 
   def self.s3_connect!
-    AWS::S3::DEFAULT_HOST.replace "s3-eu-west-1.amazonaws.com"
+    AWS::S3::DEFAULT_HOST.replace HOST
 
     @connection ||= AWS::S3::Base.establish_connection!(
       :access_key_id     => ENV["AWS_ACCESS_KEY_ID"],
@@ -27,7 +29,7 @@ module Ustyle
     invalidator = CloudfrontInvalidator.new(
                     ENV["AWS_ACCESS_KEY_ID"], 
                     ENV["AWS_SECRET_ACCESS_KEY"], 
-                    ENV["CLOUDFRONT_DISTRIBUTION_ID"]
+                    CLOUDFRONT_DISTRIBUTION
                   )
     invalidator.invalidate(files)
   end
