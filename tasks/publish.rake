@@ -61,14 +61,15 @@ namespace :build do
 end
 
 namespace :deploy do
-  desc "Deploy stylesheet to S3"
+  desc "Deploy stylesheets to S3"
   task :stylesheets do
     Ustyle.s3_connect!
-    stylesheets = ["ustyle-latest.css", "ustyle-content.css", "ustyle-icons.css"]
 
-    stylesheets.each do |stylesheet|
-      Ustyle.s3_upload( Ustyle.versioned_path(stylesheet), "build/#{stylesheet}", "text/css" )
-      Ustyle.s3_upload( "ustyle/#{stylesheet}", "build/#{stylesheet}", "text/css" )
+    Dir["build/*.{css,json,js}"].each do |file|
+      file_name = File.basename(file)
+      content_type = Ustyle.mime_type_for(file_name)
+      Ustyle.s3_upload( Ustyle.versioned_path(file_name), file, content_type )
+      Ustyle.s3_upload( "ustyle/#{file_name}", file, content_type )
     end
 
     Ustyle.invalidate( ["ustyle/ustyle-latest.css", "ustyle/ustyle-content.css", "ustyle/ustyle-icons.css"] )
@@ -79,9 +80,9 @@ namespace :deploy do
     Ustyle.s3_connect!
     Dir["build/images/**/*"].each do |file|
       next if File.directory?(file)
-      stripped_name = file.gsub(/^build\//, "")
-      content_type = Ustyle.mime_type_for(stripped_name)
-      Ustyle.s3_upload( Ustyle.versioned_path(stripped_name), file, content_type)
+      file_name = File.basename(file)
+      content_type = Ustyle.mime_type_for(file_name)
+      Ustyle.s3_upload( Ustyle.versioned_path(file_name), file, content_type)
     end
   end
 
@@ -89,9 +90,9 @@ namespace :deploy do
     Ustyle.s3_connect!
     Dir["build/docs/**/*"].each do |file|
       next if File.directory?(file)
-      stripped_name = file.gsub(/^build\/docs\//, "")
-      content_type = Ustyle.mime_type_for(stripped_name)
-      Ustyle.s3_upload( stripped_name, file, content_type, "ustyle.uswitchinternal.com" )
+      file_name = File.basename(file)
+      content_type = Ustyle.mime_type_for(file_name)
+      Ustyle.s3_upload( file_name, file, content_type, "ustyle.uswitchinternal.com" )
     end
   end
 end
