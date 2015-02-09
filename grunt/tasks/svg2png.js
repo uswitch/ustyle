@@ -7,41 +7,33 @@ module.exports = function(grunt){
         path       = require('path'),
         async      = require('async'),
         fileHelper = require('../modules/file'),
+        Promise    = require('bluebird'),
         files      = grunt.file.expand(this.data.src + "**/*.svg"),
         dest       = this.data.src,
         done       = this.async(),
-        sizes      = this.data.sizes;
+        sizes      = this.data.sizes,
+        promises   = [];
 
-    async.waterfall([
-      normaliseSVGs,
-      buildPNGs
-    ], completeTask);
+    files.forEach(function(file){
+      var svg = grunt.file.read(file);
+      var newSvg = svg.replace(/width=\"[0-9]+\" height=\"[0-9]+\"/, '');
+      fileHelper.writeFile(newSvg, "tmp/" + path.basename(file), "Icon");
+    });
 
-    function completeTask(callback){
+    sizes.forEach(function(size){
+      var sizing = size.split(" ");
+      var sizeX = sizing[0];
+      var sizeY = sizing[1];
+      var tmpFiles = grunt.file.expand("tmp/" + "**/*.svg");
+      promises.push(convert(tmpFiles, sizeX, sizeY))
+    });
+
+    Promise.all(promises).then(function(){
       done();
-    }
+    });
 
-    function normaliseSVGs(callback){
-      var svgs = [];
-      files.forEach(function(file){
-        var svg = grunt.file.read(file);
-        var newSvg = svg.replace(/width=\"[0-9]+\" height=\"[0-9]+\"/, '');
-        fileHelper.writeFile(newSvg, "tmp/" + path.basename(file), "Icon");
-      });
-      callback(null);
-    }
-
-    function buildPNGs(callback){
-      sizes.forEach(function(size){
-        var sizing = size.split(" ");
-        var sizeX = sizing[0];
-        var sizeY = sizing[1];
-        var tmpFiles = grunt.file.expand("tmp/" + "**/*.svg");
-        svg_to_png.convert(tmpFiles, path.join( dest + sizeX + "px"), {defaultWidth: sizeX, defaultHeight: sizeY, compress: true})
-        .then( function(){
-          callback(null, 'done');
-        });
-      });
+    function convert(files, sizeX, sizeY){
+      return svg_to_png.convert(files, path.join( dest + sizeX + "px"), {defaultWidth: sizeX, defaultHeight: sizeY, compress: true})
     }
   });
 }
