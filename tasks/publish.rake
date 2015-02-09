@@ -6,16 +6,12 @@ Botoenv.load
 
 require 'ustyle'
 require 'ustyle/deploy'
-require 'autoprefixer-rails'
-require 'aws/s3'
-require 'mime/types'
 require 'fileutils'
 
 namespace :ustyle do
   desc "Publishes uStyle v#{Ustyle::VERSION}"
-  task :publish => [ "version:check",
-                     "version:update",
-                     "git:push",
+  task :publish => [ "version:check", "version:update",
+                     "git:push"
                      "build:images",
                      "deploy:images", "deploy:stylesheets", "deploy:styleguide"
                     ] do
@@ -72,28 +68,31 @@ namespace :deploy do
       Ustyle.s3_upload( "ustyle/#{file_name}", file, content_type )
     end
 
-    Ustyle.invalidate( ["ustyle/ustyle-latest.css", "ustyle/ustyle-content.css", "ustyle/ustyle-icons.css"] )
+    Ustyle.invalidate([
+      "s3/#{Ustyle::BUCKET}/ustyle/ustyle-latest.css",
+      "s3/#{Ustyle::BUCKET}/ustyle/ustyle-content.css",
+      "s3/#{Ustyle::BUCKET}/ustyle/ustyle-icons.css"
+    ])
   end
 
   desc "Deploy images to S3"
   task :images do
     Ustyle.s3_connect!
-    
+
     Dir["build/images/**/*"].each do |file|
       next if File.directory?(file)
-      file_name = File.basename(file)
-      content_type = Ustyle.mime_type_for(file_name)
-      Ustyle.s3_upload( Ustyle.versioned_path(file_name), file, content_type)
+      file_path = file.gsub(/^build\//, "")
+      Ustyle.s3_upload( Ustyle.versioned_path(file_path), file, Ustyle.mime_type_for(file))
     end
   end
 
   task :styleguide do
     Ustyle.s3_connect!
+
     Dir["build/docs/**/*"].each do |file|
       next if File.directory?(file)
-      file_name = File.basename(file)
-      content_type = Ustyle.mime_type_for(file_name)
-      Ustyle.s3_upload( file_name, file, content_type, "ustyle.uswitchinternal.com" )
+      file_path = file.gsub(/^build\/docs\//, "")
+      Ustyle.s3_upload( file_path, file, Ustyle.mime_type_for(file), "ustyle.uswitchinternal.com" )
     end
   end
 end
