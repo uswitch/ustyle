@@ -78,6 +78,7 @@ namespace :deploy do
   desc "Deploy images to S3"
   task :images do
     Ustyle.s3_connect!
+    
     Dir["build/images/**/*"].each do |file|
       next if File.directory?(file)
       file_name = File.basename(file)
