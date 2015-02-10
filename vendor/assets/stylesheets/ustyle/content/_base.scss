@@ -123,9 +123,6 @@
     .table-container {
       margin-top: 0.5em;
     }
-    .us-btn {
-      @extend %btn;
-    }
     .js & {
       .table-container {
         display: none;
