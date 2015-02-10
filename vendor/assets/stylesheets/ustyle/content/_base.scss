@@ -123,6 +123,10 @@
     .table-container {
       margin-top: 0.5em;
     }
+    .us-btn {
+      @extend %btn;
+      @extend .us-btn--primary;
+    }
     .js & {
       .table-container {
         display: none;
