@@ -14,7 +14,7 @@
             {{#page}}
               {{#blocks}}
                 <div class="us-col-md-4">
-                  <a class="styleguide__nav-link" href="/docs/{{../page}}#{{link}}">{{name}}</a>
+                  <a class="styleguide__nav-link" href="#{{link}}">{{name}}</a>
                 </div>
               {{/blocks}}
             {{/page}}
