@@ -102,7 +102,6 @@ $news-item-image-size: 128px !default;
 
 .us-news-item {
   @extend %base-item;
-  overflow: hidden;
   &:hover {
     .us-news-item-image {
       opacity: 0.8;
