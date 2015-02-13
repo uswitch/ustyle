@@ -1,4 +1,3 @@
-$icon-list: list_files("vendor/assets/images/icons/*.svg");
 // @section Icons
 // @name Icons
 // @partial icons
@@ -111,6 +110,8 @@ $icon-list: list_files("vendor/assets/images/icons/*.svg");
 // @markup
 //  <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan {$modifiers}"></div>
 
+@import "ustyle/basics/variables/icons";
+
 [class^="us-icon--"],
 [class*=" us-icon--"] {
   background-size: cover;
@@ -144,37 +145,9 @@ $icon-list: list_files("vendor/assets/images/icons/*.svg");
   display: inline-block;
 }
 
-@mixin svg-bg-icon($icon-name) {
-  .us-icon--#{$icon-name},
-  .us-icon--#{$icon-name}--after:after,
-  .us-icon--#{$icon-name}--before:before {
-    background-image: inline-asset("#{$base-icon-path}#{$icon-name}.svg");
-  }
-}
-
-@mixin png-bg-icon($icon-name, $size-name, $size-px) {
-  .us-icon--#{$icon-name},
-  .us-icon--#{$icon-name}--after:after,
-  .us-icon--#{$icon-name}--before:before {
-    &.us-icon--#{$size-name},
-    &.us-icon--#{$size-name}--after:after,
-    &.us-icon--#{$size-name}--before:before {
-      background-image: url(ustyle-image-path("#{$base-icon-path}#{$size-px}/#{$icon-name}.png"));
-    }
-  }
-}
-
 //
 // ICON COLOURS
 //
-
-$icon-colors: (
-  ("white", "0 0"),
-  ("typegrey","0 25%"),
-  ("inputgrey","0 50%"),
-  ("typecyan", "0 75%"),
-  ("custom", "0 100%")
-);
 
 @each $color-map in $icon-colors {
   $color-name: nth($color-map, 1);
@@ -197,12 +170,6 @@ $icon-colors: (
 // ICON SIZING
 //
 
-$icon-sizes: (
-  (small, 20px),
-  (medium, 32px),
-  (large, 64px)
-);
-
 @each $size in $icon-sizes {
   $size-name: nth($size, 1);
   $pixels: nth($size, 2);
@@ -214,6 +181,3 @@ $icon-sizes: (
     height: $pixels;
   }
 }
-
-@import "png";
-@import "svg";

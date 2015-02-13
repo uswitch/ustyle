@@ -1,3 +1,11 @@
+@mixin svg-bg-icon($icon-name) {
+  .us-icon--#{$icon-name},
+  .us-icon--#{$icon-name}--after:after,
+  .us-icon--#{$icon-name}--before:before {
+    background-image: inline-svg("#{$base-icon-path}#{$icon-name}.svg");
+  }
+}
+
 @if $load-icons {
   @each $icon in $icons {
     @if $svg-first {

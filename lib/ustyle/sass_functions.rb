@@ -21,6 +21,18 @@ module Sass::Script::Functions
   end
   declare :inline_asset, :args => [:source]
 
+  def inline_svg(source)
+    assert_type source, :String
+    if Ustyle.sprockets?
+      svg = escaped_svg(sprockets_context.environment.find_asset(source.value).to_s)
+      ::Sass::Script::String.new "url(data:#{Ustyle.mime_type_for(source.value)};charset=utf-8,#{svg})"
+    else
+      path = File.join(::Ustyle.assets_path, "images", source.value)
+      asset_data_uri(path, svg = true)
+    end
+  end
+  declare :inline_svg, :args => [:source]
+
   def base64Encode(string)
     assert_type string, :String
     Sass::Script::String.new(Base64.strict_encode64(string.value))
@@ -69,11 +81,25 @@ module Sass::Script::Functions
 
   protected
 
-  def asset_data_uri(path)
-    asset = File.open(path, "rb") {|io| io.read}
-    data_uri_asset = Base64.strict_encode64(asset.to_s)
-    url = "data:#{Ustyle.mime_type_for(path)};base64,#{CGI::escape(data_uri_asset)}"
-    ::Sass::Script::String.new "url(#{url})"
+  def asset_data_uri(path, svg = false)
+    asset = data(path)
+    encoding = "base64"
+    if svg
+      asset = escaped_svg(asset)
+      encoding = "charset=utf-8"
+    else
+      asset = CGI::escape(Base64.strict_encode64(data(path).to_s))
+    end
+    url = "data:#{Ustyle.mime_type_for(path)};#{encoding},#{asset}"
+    ::Sass::Script::String.new "url('#{url}')"
+  end
+
+  def escaped_svg(data)
+    CGI::escape(data).gsub('+', '%20')
+  end
+
+  def data(path)
+    File.open(path, "rb") {|io| io.read}
   end
 
   def sprockets_context

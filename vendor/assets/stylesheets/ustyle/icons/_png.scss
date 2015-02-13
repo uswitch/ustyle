@@ -1,3 +1,15 @@
+@mixin png-bg-icon($icon-name, $size-name, $size-px) {
+  .us-icon--#{$icon-name},
+  .us-icon--#{$icon-name}--after:after,
+  .us-icon--#{$icon-name}--before:before {
+    &.us-icon--#{$size-name},
+    &.us-icon--#{$size-name}--after:after,
+    &.us-icon--#{$size-name}--before:before {
+      background-image: url(ustyle-image-path("#{$base-icon-path}#{$size-px}/#{$icon-name}.png"));
+    }
+  }
+}
+
 @each $icon in $icons {
   @each $size in $icon-sizes {
     $size-name: nth($size, 1);
