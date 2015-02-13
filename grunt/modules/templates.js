@@ -44,10 +44,11 @@ module.exports = {
       }
     });
 
-    handlebars.registerHelper('isNumber', function(obj, context) {
+    handlebars.registerHelper('isNumber', function(obj, type, context) {
+      var sizeString = 'size';
       if (typeof obj === 'number') {
           var isDecimal = this % 1 != 0;
-          return context.fn(isDecimal ? this.toPrecision(2) : humanFileSize(this));
+          return context.fn(isDecimal ? this.toPrecision(2) : type == sizeString ? humanFileSize(this) : this);
       } else {
           return context.inverse(this);
       }

@@ -53,7 +53,7 @@
           </div>
         {{/isString}}
 
-        {{#isNumber this}}
+        {{#isNumber this @key}}
         <div class="stat__entry us-col-md-4 stat--number">
           <div class="stat__value">{{this}}</div>
           <div class="stat__title">{{@key}}</div>
