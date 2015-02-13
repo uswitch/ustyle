@@ -120,6 +120,19 @@ module.exports = function(grunt) {
         }
       }
     },
+    scsslint: {
+      allFiles: [
+        './vendor/assets/stylesheets/**/*.scss',
+      ],
+      exclude: [
+        './vendor/assets/stylesheets/ustyle/vendor/**'
+      ],
+      options: {
+        bundleExec: false,
+        config: 'config/scss-lint.yml',
+        reporterOutput: null
+      }
+    },
     env : {
       dev : {
         NODE_ENV : 'development'
@@ -134,6 +147,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-svgmin');
   grunt.loadNpmTasks('grunt-sassdoc');
+  grunt.loadNpmTasks('grunt-scss-lint');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-concat');
@@ -144,7 +158,8 @@ module.exports = function(grunt) {
   grunt.loadTasks('grunt/tasks');
 
   grunt.registerTask('icons', ['newer:svgmin', 'svg2png']);
-  grunt.registerTask('build', ['sass', 'sassdoc', 'styleguide', 'concat', 'postcss','cssstats', 'builder']);
+  grunt.registerTask('build', ['sass', 'sassdoc', 'styleguide', 'concat', 'postcss', 'cssstats', 'builder']);
   grunt.registerTask('default', ['env:dev', 'build', 'browserSync-init', 'watch']);
+  grunt.registerTask('lint', ['scsslint']);
   grunt.registerTask('publish', ['env:build', 'icons', 'build', 'shell:publish']);
 };

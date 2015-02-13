@@ -1,0 +1,46 @@
+scss_files: './vendor/assets/stylesheets/**/*.scss'
+exclude: './vendor/assets/stylesheets/ustyle/vendor/**'
+
+linters:
+  DeclarationOrder:
+    enabled: true
+
+  DuplicateProperty:
+    enabled: false
+
+  DebugStatement:
+    enabled: false
+
+  EmptyRule:
+    enabled: false
+    severity: error
+
+  IdSelector:
+    enabled: true
+    severity: error
+
+  ImportantRule:
+    enabled: true
+
+  NestingDepth:
+    enabled: true
+    max_depth: 3
+    severity: error
+
+  SelectorDepth:
+    enabled: true
+    max_depth: 3
+
+  Shorthand:
+    enabled: false
+
+  SpaceAfterComma:
+    enabled: false
+
+  StringQuotes:
+    style: double_quotes
+
+  VendorPrefixes:
+    enabled: false
+    severity: error
+
