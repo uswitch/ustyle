@@ -29,10 +29,6 @@ $sidebar-padding        : 0;
 
   @include respond-to($sidebar-side-visibility){
     transform: translate3d(0,0,0);
-  };
-
-  &--active {
-    transform: translate3d(0,0,0);
   }
 
   &--push {

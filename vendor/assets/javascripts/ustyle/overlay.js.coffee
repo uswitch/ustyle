@@ -1,4 +1,4 @@
-{setOptions} =  @Utils
+{setOptions} = @Utils
 
 class window.Overlay
   defaults = 
