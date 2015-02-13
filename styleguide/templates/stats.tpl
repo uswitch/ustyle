@@ -30,7 +30,7 @@
                 <a class="nav__link nav__main-link" href="/docs">Style guide</a>
               </li>
               <li class="nav__item">
-                <a class="nav__link nav__main-link" href="sass/">Sass doc</a>
+                <a class="nav__link nav__main-link" href="/docs/sass">Sass doc</a>
               </li>
             </ul>
           </div>
