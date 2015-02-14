@@ -45,14 +45,13 @@ module Sass::Script::Functions
   declare :ustyle_image_path, :args => [:source]
 
   def ustyle_asset_path(source, type)
-    url = if Ustyle.sprockets? && (context = sprockets_context)
+    url = if Ustyle.sprockets?
       sprockets_context.send(:"#{type}_path", source.value)
     else
       if Ustyle.production?
         Ustyle.cloudfront_url(source.value)
       else
-        path = File.join("/images", Ustyle.asset_digest(source.value))
-        Sass::Script::String.new(path)
+        File.join("images/", Ustyle.asset_digest(source.value))
       end
     end
 
