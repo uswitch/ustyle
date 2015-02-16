@@ -42,6 +42,7 @@ $overlay-transition-speed: 0.4s !default;
 $overlay-mobile-width: calc(100% - 25px) !default;
 $overlay-tablet-width: 340px !default;
 $overlay-header-height: 55px !default;
+$overlay-close-icon-size: 50px !default;
 $overlay-z-index: $overlay-forced-z-index;
 
 @mixin overlay($place-above: false) {
@@ -152,15 +153,19 @@ $overlay-z-index: $overlay-forced-z-index;
   background: $c-navy;
   color: white;
   padding: 1em;
-  height: $overlay-header-height;
+  min-height: $overlay-header-height;
+}
+
+.us-overlay__title {
+  width: calc(100% - #{$overlay-close-icon-size})
 }
 
 .us-overlay__close {
   cursor: pointer;
   background-image: url(ustyle-image-path("anchor/close_white_fallback.png"));
   background: inline-asset("anchor/close_white.svg");
-  width: 50px;
-  height: 50px;
+  width: $overlay-close-icon-size;
+  height: $overlay-close-icon-size;
   border: 0;
   position: absolute;
   right: 0;
