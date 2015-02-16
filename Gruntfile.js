@@ -113,10 +113,9 @@ module.exports = function(grunt) {
     },
     sassdoc: {
       default: {
-        src: 'vendor/assets/stylesheets/ustyle',
-        dest: 'build/docs/sass',
+        src: 'vendor/assets/stylesheets/ustyle/**/*.scss',
         options: {
-          config: "grunt/sassdoc/view.json"
+          dest: './build/docs/sass'
         }
       }
     },
@@ -124,13 +123,13 @@ module.exports = function(grunt) {
       allFiles: [
         './vendor/assets/stylesheets/**/*.scss',
       ],
-      exclude: [
-        './vendor/assets/stylesheets/ustyle/vendor/**'
-      ],
       options: {
-        bundleExec: false,
+        bundleExec: true,
         config: 'config/scss-lint.yml',
-        reporterOutput: null
+        reporterOutput: null,
+        exclude: [
+          './vendor/assets/stylesheets/ustyle/vendor/*'
+        ]
       }
     },
     env : {

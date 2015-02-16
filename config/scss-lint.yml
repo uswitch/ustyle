@@ -1,5 +1,5 @@
 scss_files: './vendor/assets/stylesheets/**/*.scss'
-exclude: './vendor/assets/stylesheets/ustyle/vendor/**'
+exclude: './vendor/assets/stylesheets/ustyle/vendor/*.scss'
 
 linters:
   DeclarationOrder:

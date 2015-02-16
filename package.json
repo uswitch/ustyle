@@ -19,6 +19,7 @@
   "devDependencies": {
     "async": "^0.9.0",
     "autoprefixer-core": "^4.0.1",
+    "bluebird": "^2.9.7",
     "browser-sync": "^1.8.2",
     "crypto": "0.0.3",
     "cssstats": "^1.0.1",
@@ -34,7 +35,8 @@
     "grunt-env": "^0.4.2",
     "grunt-newer": "^1.1.0",
     "grunt-postcss": "^0.2.0",
-    "grunt-sassdoc": "^1.1.0",
+    "grunt-sassdoc": "^2.0.0",
+    "grunt-scss-lint": "~0.3.4",
     "grunt-shell": "^1.1.1",
     "grunt-svgmin": "^2.0.0",
     "handlebars": "^2.0.0",
@@ -44,11 +46,6 @@
     "stylestats": "^4.2.2",
     "svg-to-png": "^2.0.0",
     "svgo": "^0.5.0",
-    "underscore.string": "^3.0.2",
-    "bluebird": "^2.9.7",
-    "grunt-scss-lint": "~0.3.4"
-  },
-  "dependencies": {
-    "grunt-sassdoc": "~2.0.0"
+    "underscore.string": "^3.0.2"
   }
 }
