@@ -33,4 +33,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "cloudfront-invalidator"
   spec.add_development_dependency "rb-fsevent"
   spec.add_development_dependency "botoenv"
+  spec.add_development_dependency "scss-lint"
 end
