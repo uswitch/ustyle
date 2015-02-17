@@ -1,4 +1,18 @@
-// Breadcrumbs
+// @section Components
+// @name Breadcrumbs
+//
+// @description
+//  Breadcrumbs are used to provide signposting of a users location and to enable quick navigation around the site.
+//  They are only to be used as a secondary means of navigation however. Pages should also be navigable through other means.
+//  
+//
+// @markup
+//   <ul class="us-crumbs">
+//     <li class="us-crumbs__item"><a href="/" class="us-crumbs__link">uSwitch.com</a></li>
+//     <li class="us-crumbs__item"><a class="us-crumbs__link" href="http://www.uswitch.com/credit-reports/">Credit report</a></li>
+//     <li class="us-crumbs__item"><a class="us-crumbs__link" href="http://www.uswitch.com/credit-reports/guides/">Credit reports guides</a></li>
+//     <li class="us-crumbs__item">Statutory credit reports</li>
+//   </ul>
 .us-crumbs {
   @extend %reset-box-model;
   @extend %clearfix;

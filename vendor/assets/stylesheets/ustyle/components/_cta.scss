@@ -1,3 +1,20 @@
+// @section Components
+// @name CTAs
+//
+// @description
+//  Used within guide and news articles, these CTAs are intended to not interupt the content but to integrate in more subtle means. 
+//  
+//  
+//
+// @markup
+//   <section class="us-cta cta cta-column">
+//      <form>
+//        <h3 class="us-cta__title">It’s your report</h3>
+//        <p>Join the campaign to fight for free annual credit reports for everyone</p>
+//         <a href="/money/itsmyreport/" class="us-btn us-btn--arrowed us-btn--primary arrowed js-track-event" data-track-category="money-insurance-guides-cta" data-track-action="click - large quote box" data-track-label="/money/itsmyreport/" rel="nofollow">Sign the petition</a>
+//      </form>
+//  </section>
+
 .us-cta {
   padding: $gutter-width / 2;
   margin-bottom: 1.5em;
