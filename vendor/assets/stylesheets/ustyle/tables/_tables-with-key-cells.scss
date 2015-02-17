@@ -3,15 +3,16 @@
 
 @if $table-experimental {
   .us-table-cell-key {
-    .key-value,
-    .key-sideunit {
-      color: $table-c-key;
-    }
     @include respond-to(small-tablet, true) {
       width: em($table-key-width);
       max-width: em($table-key-width);
-      padding-left: em($table-key-sidepadding);
       padding-right: em($table-key-sidepadding);
+      padding-left: em($table-key-sidepadding);
+    }
+    
+    .key-value,
+    .key-sideunit {
+      color: $table-c-key;
     }
   }
 }

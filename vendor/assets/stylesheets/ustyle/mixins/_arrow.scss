@@ -14,7 +14,7 @@
 /// @param {String} $color (red)
 ///   Color of triangle
 
-@mixin arrow($width: 20px, $height: 20px, $direction: up, $color: red) {
+@mixin arrow($width: 20px, $height: 20px, $direction: up, $color: #fff) {
   width: 0;
   height: 0;
   // Right
@@ -26,19 +26,19 @@
   // Left
   @if $direction == left {
     border-top: $height / 2 solid transparent;
-    border-bottom: $height / 2 solid transparent;
     border-right: $width solid $color;
+    border-bottom: $height / 2 solid transparent;
   }
   // Up
   @if $direction == up {
-    border-left: $width / 2 solid transparent;
     border-right: $width / 2 solid transparent;
     border-bottom: $height solid $color;
+    border-left: $width / 2 solid transparent;
   }
   // Down
   @if $direction == down {
-    border-left: $width / 2 solid transparent;
-    border-right: $width / 2 solid transparent;
     border-top: $height solid $color;
+    border-right: $width / 2 solid transparent;
+    border-left: $width / 2 solid transparent;
   }
 }

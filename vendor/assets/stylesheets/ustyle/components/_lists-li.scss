@@ -18,33 +18,38 @@
 //
 
 %base-custom-list {
-  margin: 1.5em 0;
   padding: 0;
+  margin: 1.5em 0;
   list-style: none;
+
   li {
     position: relative;
-    margin: 0.5em 0;
     padding-left: 2em;
+    margin: .5em 0;
+
     &:before {
       position: absolute;
-      left: 0;
       top: 0;
+      left: 0;
     }
   }
 }
 
 .us-ticked-list {
   @extend %base-custom-list;
+
   li {
     color: $c-navy;
+
     &:before {
       @extend %icon-font;
-      content: "\2714";
       font-size: 1.2em;
-      .us-hero &,
-      .us-custom-list-alt & {
-        color: white;
-      }
+      content: "\2714";
+    }
+
+    .us-hero &:before,
+    .us-custom-list-alt &:before {
+      color: #fff;
     }
   }
 }
@@ -52,24 +57,27 @@
 .us-numbered-list {
   @extend %base-custom-list;
   counter-reset: number-counter;
+
   li {
     counter-increment: number-counter;
+
     &:before {
-      box-sizing: border-box;
-      content: counter(number-counter);
       width: 1.5em;
       height: 1.5em;
-      padding-top: 0.25em;
-      color: $c-typecyan;
-      border-radius: 2em;
+      padding-top: .25em;
       line-height: 1;
+      color: $c-typecyan;
       text-align: center;
-      .us-hero &,
-      .us-custom-list-alt & {
-        color: $c-navy;
-        background: white;
-        background: rgba(255, 255, 255, 0.7);
-      }
+      border-radius: 2em;
+      content: counter(number-counter);
+      box-sizing: border-box;
+    }
+
+    .us-hero &:before,
+    .us-custom-list-alt &:before {
+      color: $c-navy;
+      background: #fff;
+      background: rgba(255, 255, 255, .7);
     }
   }
 }

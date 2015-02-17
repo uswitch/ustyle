@@ -12,31 +12,36 @@
 .us-login {
   position: relative;
   width: 100%;
+
   @include respond-to(small-tablet, true) {
     width: em(340px);
   }
 }
 
 .us-login__container {
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
+
   @if $html-grid-classes == false {
     * {
       box-sizing: border-box;
     }
+
     a {
-      transition: color 333ms, border-color 333ms;
       text-decoration: none;
+      transition: color 333ms, border-color 333ms;
     }
   }
+
   .trailered {
     margin-bottom: $gutter-width / 2;
   }
 }
 
 .us-login__form {
-  transition: transform 300ms;
   display: none;
+  transition: transform 300ms;
+
   .csstransforms & {
     position: absolute;
     top: 0;
@@ -44,19 +49,23 @@
     display: block;
     width: 100%;
     transform: translateX(101%);
+
     &:first-child {
       transform: translateX(-101%);
     }
   }
+
   &.login-state--active {
     display: block;
+
     .csstransforms & {
       position: relative;
-      left: 0;
       top: 0;
+      left: 0;
       transform: translateX(0);
     }
   }
+  
   .us-login__input {
     display: block;
     width: 100%;
@@ -81,12 +90,12 @@
 
 .us-login__small-text {
   @extend %small-font;
-  margin-top: 0.5em;
+  margin-top: .5em;
   color: $c-typegrey-2;
 }
 
 .us-login__newsletter {
   input {
-    margin-right: 0.5em;
+    margin-right: .5em;
   }
 }

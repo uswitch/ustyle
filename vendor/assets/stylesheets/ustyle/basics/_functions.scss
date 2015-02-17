@@ -46,7 +46,7 @@
 ///   The percentage amount to mix of black with the colour
 
 @function shade($color, $percentage) {
-  @return mix(black, $color, $percentage);
+  @return mix(#000, $color, $percentage);
 }
 
 /// Returns a colour based on a white + `$color` percentage mix
@@ -58,5 +58,5 @@
 ///   The percentage amount to mix of white with the colour
 
 @function tint($color, $percentage) {
-  @return mix(white, $color, $percentage);
+  @return mix(#fff, $color, $percentage);
 }

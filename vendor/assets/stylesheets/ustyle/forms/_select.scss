@@ -20,9 +20,9 @@
 $select-base-color: $c-inputgrey !default;
 $select-hover-color: $c-typecyan !default;
 $select-active-color: $c-green !default;
-$select-bg-color: white !default;
+$select-bg-color: #fff !default;
 
-$select-base-padding: 0.3em 0.6em !default;
+$select-base-padding: .3em .6em !default;
 $select-base-height: $form-element-base-height !default;
 
 @mixin select-style($height: $select-base-height, $padding: $select-base-padding, $base-color: $select-base-color, $hover-color: $select-hover-color, $active-color: $select-active-color, $color: $c-typegrey, $background-color: $select-bg-color) {
@@ -30,29 +30,37 @@ $select-base-height: $form-element-base-height !default;
   padding: $padding;
   border: 1px solid $base-color;
   background-color: $background-color;
+
   @if $color != $c-typegrey {
     color: $color;
   }
+
   &:hover,
   &:focus {
     border-color: $hover-color;
   }
+
   &.active {
     border-color: $active-color;
   }
+
   &:disabled {
-    border-color: lighten($base-color, 10%);
     color: $base-color;
+    border-color: lighten($base-color, 10%);
   }
+
   @media all and (-webkit-min-device-pixel-ratio: 0) {
     background-image: url("data:image/svg+xml;charset=utf-8;base64," + base64Encode("<svg xmlns='http://www.w3.org/2000/svg' width='31' height='10' viewBox='-10 0 31 10'><polygon fill='#fff' points='11,0 0,0 5.5,10'/></svg>")), url("data:image/svg+xml;charset=utf-8;base64," + base64Encode("<svg version='1.1' xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='31px' height='41px' ><rect x='0' y='0' fill='#{$base-color}' width='31' height='40'/></svg>"));
+    
     &:hover,
     &:focus {
       background-image: url("data:image/svg+xml;charset=utf-8;base64," + base64Encode("<svg xmlns='http://www.w3.org/2000/svg' width='31' height='10' viewBox='-10 0 31 10'><polygon fill='#fff' points='11,0 0,0 5.5,10'/></svg>")), url("data:image/svg+xml;charset=utf-8;base64," + base64Encode("<svg version='1.1' xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='31px' height='41px' ><rect x='0' y='0' fill='#{$hover-color}' width='31' height='40'/></svg>"));
     }
+
     &.active {
       background-image: url("data:image/svg+xml;charset=utf-8;base64," + base64Encode("<svg xmlns='http://www.w3.org/2000/svg' width='31' height='10' viewBox='-10 0 31 10'><polygon fill='#fff' points='11,0 0,0 5.5,10'/></svg>")), url("data:image/svg+xml;charset=utf-8;base64," + base64Encode("<svg version='1.1' xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='31px' height='41px' ><rect x='0' y='0' fill='#{$active-color}' width='31' height='40'/></svg>"));
     }
+
     &:disabled {
       background-image: url("data:image/svg+xml;charset=utf-8;base64," + base64Encode("<svg xmlns='http://www.w3.org/2000/svg' width='31' height='10' viewBox='-10 0 31 10'><polygon fill='#fff' points='11,0 0,0 5.5,10'/></svg>")), url("data:image/svg+xml;charset=utf-8;base64," + base64Encode("<svg version='1.1' xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='31px' height='41px' ><rect x='0' y='0' fill='#{lighten($base-color, 10%)}' width='31' height='40'/></svg>"));
     }
@@ -62,35 +70,40 @@ $select-base-height: $form-element-base-height !default;
 .us-form-select {
   @extend %base-form-element;
   @include select-style;
-  transition: border-color 200ms;
   position: relative;
   width: 100%;
+  transition: border-color 200ms;
+  
   @media all and (-webkit-min-device-pixel-ratio: 0) {
-    background-repeat: no-repeat;
-    background-position: 100% 50%, 100% 0;
     padding-right: 40px;
+    background-position: 100% 50%, 100% 0;
+    background-repeat: no-repeat;
   }
-  .ie8 & {
-    height: auto;
-  }
+
   @include respond-to($default-grid-breakpoint, true) {
     width: auto;
   }
 
+  .ie8 & {
+    height: auto;
+  }
+
   &[size] {
     height: auto;
-    background-image: none;
+    padding-right: 9px;
     overflow: auto;
     vertical-align: middle;
-    padding-right: 9px;
+    background-image: none;
+
     &::-webkit-scrollbar {
-      -webkit-appearance: none;
       z-index: 2;
       width: 9px;
       border-left: 1px solid $c-bordergrey;
+      -webkit-appearance: none;
     }
+
     &::-webkit-scrollbar-thumb {
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, .5);
     }
   }
 }
@@ -100,29 +113,32 @@ $select-base-height: $form-element-base-height !default;
     position: relative;
     display: inline-block;
     vertical-align: baseline;
+
     select {
-      background-image: none;
       padding-right: 15px;
+      background-image: none;
     }
+
     &:after {
       @include icon-font($extend: false);
-      border-radius: 0 3px 3px 0;
-      content: "\25bc";
       position: absolute;
-      font-size: 0.8em;
-      color: white;
-      text-align: center;
-      z-index: 1;
-      right: 0;
       top: 0;
+      right: 0;
       bottom: 0;
+      z-index: 1;
       width: 30px;
+      font-size: .8em;
       line-height: 35px;
+      color: #fff;
+      text-align: center;
+      pointer-events: none;
       background-color: $select-base-color;
       border: 1px solid $select-base-color;
       border-left: 0;
-      pointer-events: none;
+      border-radius: 0 3px 3px 0;
+      content: "\25bc";
     }
+
     &:hover,
     &:focus {
       &:after {

@@ -8,7 +8,7 @@
 //
 //  @markup
 //   <div class='us-article-group'>
-//     <div class='us-news-item us-col-md-3'>
+//     <div class='us-news-item us-col-md-4'>
 //       <a class='us-news-item-link' href='#'>
 //         <div class='us-news-item-image-container'>
 //           <div class='us-news-item-image background' style='background-image: url(http://uswitch-wp-blog-assets.s3-website-eu-west-1.amazonaws.com/wp-content/uploads/2013/09/Untitled-1.jpg)'></div>
@@ -38,14 +38,16 @@ $news-item-image-size: 128px !default;
 %readmore {
   position: absolute;
   bottom: 0;
-  white-space: nowrap;
-  color: $c-typecyan;
   display: none;
-  &:after {
-    @extend %link-triangle;
-  }
+  color: $c-typecyan;
+  white-space: nowrap;
+  
   @include respond-to(small-tablet,true) {
     display: block;
+  }
+
+  &:after {
+    @extend %link-triangle;
   }
 }
 
@@ -56,22 +58,23 @@ $news-item-image-size: 128px !default;
 %base-item-link {
   @extend %bordered-box;
   @extend %backface-visibility--hidden;
-  transition: border-color 333ms, background-color 333ms;
-  display: block;
-  background-color: white;
-  text-decoration: none;
   position: relative;
+  display: block;
+  text-decoration: none;
+  background-color: #fff;
+  transition: border-color 333ms, background-color 333ms;
 }
 
 %base-item-image {
   @extend %backface-visibility--hidden;
-  transition: opacity 333ms;
-  border-radius: em(5px) em(5px) 0 0;
   width: 100%;
   height: auto;
+  border-radius: em(5px) em(5px) 0 0;
+  transition: opacity 333ms;
+
   &.background {
-    background-repeat: no-repeat;
     background-position: center center;
+    background-repeat: no-repeat;
     background-size: cover;
   }
 }
@@ -81,20 +84,18 @@ $news-item-image-size: 128px !default;
     margin-bottom: 1em;
     overflow: hidden;
 
-    .us-news-item {
-      &:first-child {
-        .us-news-item-link {
-          border-radius: em(5px) em(5px) 0 0;
-          border-bottom-width: 1px;
-          border-top-width: 1px;
-        }
+    .us-news-item:first-child {
+      .us-news-item-link {
+        border-top-width: 1px;
+        border-bottom-width: 1px;
+        border-radius: em(5px) em(5px) 0 0;
       }
+    }
 
-      &:last-child {
-        .us-news-item-link {
-          border-radius: 0 0 em(5px) em(5px);
-          border-bottom-width: 1px;
-        }
+    .us-news-item:last-child {
+      .us-news-item-link {
+        border-bottom-width: 1px;
+        border-radius: 0 0 em(5px) em(5px);
       }
     }
   }
@@ -102,20 +103,21 @@ $news-item-image-size: 128px !default;
 
 .us-news-item {
   @extend %base-item;
+
   &:hover {
     .us-news-item-image {
-      opacity: 0.8;
+      opacity: .8;
     }
-    %readmore {
-      &:after {
-        left: 0.5em;
-      }
+
+    %readmore:after {
+      left: .5em;
     }
   }
+
   .us-article-group & {
     @include respond-to(mobile) {
-      margin-bottom: 0;
       padding: 0;
+      margin-bottom: 0;
     }
   }
 }
@@ -123,52 +125,54 @@ $news-item-image-size: 128px !default;
 .us-news-item-link {
   @extend %base-item-link;
   overflow: hidden;
+
   @include respond-to(small-tablet,true) {
     padding-bottom: em(35px);
   }
+
   .us-article-group & {
     @include respond-to(mobile) {
-      border-radius: 0;
       border-top-width: 0;
+      border-radius: 0;
     }
   }
 }
 
 .us-news-item-title {
   @extend %heading-4;
+  padding: $item-padding;
   margin: 0;
-  transition: color 333ms;
   color: $c-navy;
+  transition: color 333ms;
 }
 
 .us-news-meta {
-  padding-left: $item-padding;
   padding-right: $item-padding;
+  padding-left: $item-padding;
   overflow: hidden;
+
   .category,
   .date {
-    font-weight: bold;
-    color: $c-navy;
-    font-size: em(13px);
     padding-top: em(4px);
     padding-bottom: em(4px);
+    font-size: em(13px);
+    font-weight: bold;
+    color: $c-navy;
+
     @include respond-to(large-desktop) {
       font-size: em(14px);
     }
   }
+
   .date {
-    float: right;
     display: block;
+    float: right;
   }
 
   .category {
-    float: left;
     display: block;
+    float: left;
   }
-}
-
-.us-news-item-title {
-  padding: $item-padding;
 }
 
 .us-news-item-snippet {
@@ -179,6 +183,7 @@ $news-item-image-size: 128px !default;
 
 .us-news-item-image-container {
   display: none;
+
   @include respond-to(small-tablet, true) {
     display: block;
   }
@@ -186,6 +191,7 @@ $news-item-image-size: 128px !default;
 
 .us-news-item-image {
   @extend %base-item-image;
+  
   &.background {
     height: $news-item-image-size;
   }

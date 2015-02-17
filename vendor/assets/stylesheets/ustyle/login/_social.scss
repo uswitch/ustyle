@@ -12,16 +12,17 @@
 
 .us-social__buttons {
   position: absolute;
-  right: 0;
   top: 0;
+  right: 0;
 }
 
 .us-social__btn {
   @include link-colors($c-blue, $c-typecyan, $c-blue, $c-blue, darken($c-blue, 15%));
-  text-decoration: none;
-  float: left;
   display: block;
-  margin-left: 0.5em;
+  float: left;
+  margin-left: .5em;
+  text-decoration: none;
+  
   &:hover {
     .us-social__btn-text {
       max-width: 400px;
@@ -32,22 +33,22 @@
 
 .us-social__btn-text,
 .us-social__btn-icon {
-  vertical-align: middle;
   position: relative;
+  vertical-align: middle;
 }
 
 .us-social__btn-text {
   @extend %small-font;
-  transition: max-width 300ms;
+  z-index: 1;
   display: inline-block;
   max-width: 0;
   overflow: hidden;
-  z-index: 1;
+  transition: max-width 300ms;
 }
 
 .us-social__btn-icon {
-  font-size: 2em;
   z-index: 5;
+  font-size: 2em;
   line-height: 1.15em;
 }
 

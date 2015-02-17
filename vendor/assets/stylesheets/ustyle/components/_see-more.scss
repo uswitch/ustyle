@@ -16,8 +16,9 @@
 .us-more-item-title {
   @extend %heading-1;
   display: block;
-  color: $c-typecyan;
   padding: $item-padding;
+  color: $c-typecyan;
+
   &.small {
     @extend %heading-3;
   }

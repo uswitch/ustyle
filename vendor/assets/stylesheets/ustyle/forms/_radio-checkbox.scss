@@ -34,53 +34,59 @@
   &[type="checkbox"],
   &[type="radio"] {
     position: relative;
-    padding: 0;
     width: 1.6em;
     height: 1.6em;
-    font-size: 0.8em;
+    padding: 0;
+    font-size: .8em;
     cursor: pointer;
-    background-color: white;
+    background-color: #fff;
+
     .us-field-toggle & {
+      margin-top: .1em;
+      margin-right: .5em;
       vertical-align: top;
-      margin-right: 0.5em;
-      margin-top: 0.1em;
     }
   }
+
   &[type="radio"] {
     border-radius: 50%;
   }
+
   &[type="checkbox"] {
-    border-radius: 0.3em;
+    border-radius: .3em;
   }
+
   @media all and (-webkit-min-device-pixel-ratio: 0) {
     &[type="checkbox"] {
       &:after {
         @include icon-font($extend: false);
-        content: "\2714";
-        display: block;
         position: absolute;
-        left: 2px;
         bottom: 0;
+        left: 2px;
+        display: block;
         width: 1em;
         height: 1em;
-        color: $c-typegrey;
         font-size: 1.5em;
         line-height: 1;
+        color: $c-typegrey;
         text-align: center;
+        pointer-events: none;
+        content: "\2714";
         opacity: 0;
         transform: scale3d(2, 2, 1);
         transition: transform 100ms ease-in, opacity 100ms ease-in;
-        pointer-events: none;
       }
+
       &:checked:after {
         opacity: 1;
         transform: scale3d(1, 1, 1);
       }
     }
+
     &[type="radio"] {
       &:checked {
         background: $c-typegrey;
-        box-shadow: inset 0 0 0 0.35em white;
+        box-shadow: inset 0 0 0 .35em #fff;
       }
     }
   }

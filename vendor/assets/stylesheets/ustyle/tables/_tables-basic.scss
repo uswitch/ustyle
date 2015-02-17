@@ -17,6 +17,7 @@
   @extend %table--base;
   border-collapse: separate;
   border-spacing: 0;
+
   @include respond-to(mobile) {
     thead {
       display: none !important;
@@ -32,15 +33,15 @@
 
 // Normal table headers
 %table-head--base {
-  padding: 0 1em 0.5em 0;
+  padding: 0 1em .5em 0;
 }
 
 .us-table-head {
   @extend %table-head--base;
-  border-bottom: 1px solid $table-c-border;
   color: $table-c-head-text;
   text-align: left;
   vertical-align: middle;
+  border-bottom: 1px solid $table-c-border;
 }
 
 // Main rows
@@ -62,11 +63,12 @@
 
 .us-table-cell {
   @extend %table-cell--base;
-  border-bottom: 1px solid $table-c-border;
   text-align: left;
   vertical-align: top;
+  border-bottom: 1px solid $table-c-border;
+
   @include respond-to(mobile) {
     padding: 0;
-    border: none;
+    border: 0;
   }
 }

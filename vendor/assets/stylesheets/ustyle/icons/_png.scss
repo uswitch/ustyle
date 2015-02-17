@@ -12,8 +12,7 @@
     $pixels: nth($size, 2);
     @if $svg-first == false {
       @include png-bg-icon($icon, $size-name, $pixels);
-    }
-    @else {
+    } @else {
       #{$png-support-class} {
         @include png-bg-icon($icon, $size-name, $pixels);  
       }

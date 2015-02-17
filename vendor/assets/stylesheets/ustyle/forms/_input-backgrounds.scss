@@ -19,37 +19,46 @@
 .us-form-input {
   $backgrounds: postcode email phone pound password;
   $selector: ();
+
   @each $background in $backgrounds {
     $selector: append($selector, unquote("&.#{$background}"), comma);
   }
+
   #{$selector} {
     padding-left: 35px !important;
-    background-repeat: no-repeat !important;
     background-position: 5px center !important;
+    background-repeat: no-repeat !important;
   }
+
   .svg & {
     &.postcode {
       background-image: inline-asset("inputs/postcode.svg") !important;
     }
+    
     &.email {
       background-image: inline-asset("inputs/email.svg") !important;
     }
+
     &.phone {
       background-image: inline-asset("inputs/phone.svg") !important;
     }
+
     &.pound {
       background-image: inline-asset("inputs/pound.svg") !important;
     }
+
     &.password {
       background-image: inline-asset("inputs/password.svg") !important;
     }
+
     &.kwh {
       padding-right: 30px !important;
-      background-repeat: no-repeat !important;
-      background-position: 97% center;
       background-image: inline-asset("inputs/kwh.svg") !important;
+      background-position: 97% center;
+      background-repeat: no-repeat !important;
     }
   }
+  
   .no-svg & {
     @each $background in $backgrounds {
       &.#{$background} {

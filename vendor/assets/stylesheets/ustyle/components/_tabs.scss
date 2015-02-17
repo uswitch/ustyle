@@ -45,16 +45,17 @@ $tab-width: col-width(2) !default;
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
 }
 
-
 // Tab nav
 .us-tabs-nav {
   display: none;
   background-color: $c-navy;
+
   @include respond-to(tablet) {
     .js & {
       display: block;
@@ -72,28 +73,24 @@ $tab-width: col-width(2) !default;
 }
 
 .us-tabs-nav-menu {
-  overflow: hidden;
-  width: 100%;
   display: -webkit-flex;
   display: flex;
+  width: 100%;
+  overflow: hidden;
   flex-flow: row;
 }
 
 .us-tabs-nav-link {
   @include normal-font;
-  @include link-colors(white, $c-typecyan, $c-typecyan, white);
-  border-radius: 5px 5px 0 0;
-  padding: 0.475em 0.15em 1.2em;
-  width: $tab-width;
-  vertical-align: middle;
-  text-align: center;
+  @include link-colors(#fff, $c-typecyan, $c-typecyan, #fff);
   position: relative;
   z-index: 10;
-  .no-flexboxlegacy & {
-    height: 70px;
-    display: block;
-    float: left;
-  }
+  width: $tab-width;
+  padding: .475em .15em 1.2em;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 5px 5px 0 0;
+  
   @include respond-to(tablet) {
     font-size: em(14px);
     line-height: 1.25em;
@@ -107,77 +104,91 @@ $tab-width: col-width(2) !default;
     font-size: em(18px);
   }
 
+  .no-flexboxlegacy & {
+    display: block;
+    float: left;
+    height: 70px;
+  }
+
   &:hover {
     &:before {
       transform: translate3d(0, 0, 0);
+
       .no-csstransforms & {
         top: 0;
       }
     }
   }
+
   &:before {
-    transition: transform 300ms;
-    transform: translate3d(0, 200px, 0);
-    border-radius: 5px 5px 0 0;
-    content: "";
     position: absolute;
-    width: 100%;
-    display: none;
-    background-color: white;
     top: 0;
     bottom: 0;
     left: 0;
     z-index: -1;
+    display: none;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 5px 5px 0 0;
+    content: "";
+    transform: translate3d(0, 200px, 0);
+    transition: transform 300ms;
   }
-  .csstransitions &,&:hover {
+
+  .csstransitions &,
+  &:hover {
     &:before {
       display: block;
     }
   }
+
   &:after {
-    content: "";
     position: absolute;
+    right: -4px;
     bottom: 0;
     left: -4px;
-    right: -4px;
     height: 0;
+    border-color: transparent;
     border-style: solid;
     border-width: 0 4px 4px 4px;
-    border-color: transparent;
+    content: "";
   }
+
   &.active {
-    box-shadow: 0px 0 10px rgba(0, 0, 0, 0.5);
-    background-color: white;
-    color: $c-navy;
     z-index: 15;
+    color: $c-navy;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+
     &:after {
-      border-color: white transparent;
+      border-color: #fff transparent;
     }
   }
 }
 
+// scss-lint:disable Comment, MergeableSelector
 .us-tabs-nav-link {
   /* autoprefixer: off */
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
   -webkit-justify-content: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  -ms-flex-pack: center;
   -webkit-align-items: center;
+  align-items: center;
   -webkit-flex-flow: column;
   -ms-flex-flow: column;
 }
+// scss-lint:enable Comment, MergeableSelector
 
 // Tabs
 .us-tabs-container {
   @extend %container;
+
   @include respond-to(to-tablet) {
     padding: 0 !important;
   }
@@ -185,9 +196,10 @@ $tab-width: col-width(2) !default;
 
 .us-tab-title {
   @extend %heading-4;
-  font-weight: normal;
-  margin: 0;
   position: relative;
+  margin: 0;
+  font-weight: normal;
+
   @include respond-to(tablet) {
     .js & {
       display: none;
@@ -197,61 +209,69 @@ $tab-width: col-width(2) !default;
   .js.ie8 & {
     display: none;
   }
+
   a {
-    @include link-colors($c-navy, white, $c-navy);
-    transition: color 300ms, background-color 300ms;
-    padding: 0.5em 0.75em;
-    border-bottom: 1px solid white;
+    @include link-colors($c-navy, #fff, $c-navy);
     display: block;
+    padding: .5em .75em;
     background-color: $c-cyan;
+    border-bottom: 1px solid #fff;
+    transition: color 300ms, background-color 300ms;
+
     .active & {
-      background-color: $c-navy;
-      color: white;
+      color: #fff;
       cursor: default;
-      &:before {
-        transform: rotate(90deg);
-      }
+      background-color: $c-navy;
     }
-    &:hover {
-      &:before {
-        transform: rotate(90deg);
-        color: white;
-      }
+
+    .active &:before {
+      transform: rotate(90deg);
     }
+
+    &:hover:before {
+      color: #fff;
+      transform: rotate(90deg);
+    }
+
     &:before {
       @extend %icon-font;
-      transition: all 300ms;
-      content: "\25b6";
       display: inline-block;
-      margin-right: 0.75em;
-      font-size: 0.75em;
+      margin-right: .75em;
+      font-size: .75em;
+      content: "\25b6";
+      transition: all 300ms;
     }
   }
 }
 
 .us-tab-content {
   @extend %container;
-  opacity: 1;
-  overflow: hidden;
   display: block;
+  overflow: hidden;
+  opacity: 1;
+
   .js & {
     max-height: 0;
+
     @include respond-to(tablet) {
       display: none;
       max-height: none;
     }
   }
+
   .ie8.js & {
     display: none;
     max-height: none;
   }
+
   .us-tab.active & {
     max-height: 9999px;
     padding-top: 1em;
+
     @include respond-to(tablet, true) {
       display: block;
-      animation-name: tab-show;
       animation-duration: 1s;
+      animation-name: tab-show;
       animation-fill-mode: forwards;
     }
   }

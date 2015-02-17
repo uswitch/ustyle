@@ -114,8 +114,8 @@
 
 [class^="us-icon--"],
 [class*=" us-icon--"] {
-  background-size: cover;
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 [class^="us-icon--before"],
@@ -124,25 +124,25 @@
 [class*=" us-icon--after"] {
   &:before,
   &:after {
-    content: " ";
-    background-size: cover;
-    pointer-events: none;
     display: inline-block;
     margin-right: $gutter-width/4;
     vertical-align: middle;
+    pointer-events: none;
+    background-size: cover;
+    content: " ";
   }
 }
 
 .us-icon--centered {
-  margin: 0 auto;
   position: relative;
   top: 50%;
-  transform: translateY(-50%)
+  margin: 0 auto;
+  transform: translateY(-50%);
 }
 
 .us-icon--notext {
-  text-indent: -999em;
   display: inline-block;
+  text-indent: -999em;
 }
 
 //

@@ -19,7 +19,7 @@
 $default-label-color: $c-typegrey !default;
 $default-label-size: 18px !default;
 $default-label-width: em(120px, $default-label-size) !default;
-$default-label-margin: 0.25em !default;
+$default-label-margin: .25em !default;
 $required-label-color: $c-red !default;
 $label-inline-breakpoint: tablet !default;
 
@@ -31,6 +31,7 @@ $label-inline-breakpoint: tablet !default;
 .us-field {
   @extend %clearfix;
   margin-bottom: 1em;
+
   > label,
   > .us-faux-label {
     @include heading-font-secondary;
@@ -49,11 +50,11 @@ $label-inline-breakpoint: tablet !default;
 .us-field-required {
   > label {
     &:after {
-      content: "*";
       display: inline-block;
+      margin-left: .25em;
       font-size: 1.1em;
       color: $required-label-color;
-      margin-left: 0.25em;
+      content: "*";
     }
   }
 }
@@ -64,13 +65,14 @@ $label-inline-breakpoint: tablet !default;
 .us-field-toggle {
   label {
     @include normal-font;
-    transition: border 333ms;
-    padding: 0.35em 0.5em;
-    border-radius: 3px;
-    border: 1px solid transparent;
+    padding: .35em .5em;
+    font-weight: normal;
     line-height: 1.5em;
     cursor: pointer;
-    font-weight: normal;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    transition: border 333ms;
+
     &:hover {
       border-color: $c-bordergrey;
     }
@@ -83,6 +85,7 @@ $label-inline-breakpoint: tablet !default;
   > label,
   > .us-faux-label {
     @extend %base-block-label;
+
     @include respond-to($label-inline-breakpoint, true) {
       display: inline-block;
       min-width: $default-label-width;

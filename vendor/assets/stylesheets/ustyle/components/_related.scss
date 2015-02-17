@@ -12,17 +12,18 @@
   @extend %clearfix;
   @include link-colors($c-typegrey-2, $c-typecyan, $c-typegrey-2, $c-typegrey-2);
   display: block;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+  padding-top: .5em;
+  padding-bottom: .5em;
   border-bottom: 1px solid $c-bordergrey;
-  transition: color 0.3s, border-color 0.3s;
+  transition: color .3s, border-color .3s;
 }
 
 .us-related__item-link--more {
   @include link-colors($c-typegrey, $c-typecyan, $c-typegrey, $c-typegrey);
-  background-color: $c-cyan-light;
-  padding-right: 0.5em;
+  padding-right: .5em;
   text-align: right;
+  background-color: $c-cyan-light;
+
   &:after {
     @extend %link-triangle;
   }
@@ -32,6 +33,7 @@
   @extend %small-font;
   @include normal-font;
   vertical-align: middle;
+
   @include respond-to(desktop) {
     display: inline-block;
     width: calc(100% - 90px);
@@ -44,9 +46,9 @@
     display: inline-block;
     width: 70px;
     height: 70px;
-    background-size: 100%;
     vertical-align: middle;
-    background-repeat: no-repeat;
     background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100%;
   }
 }

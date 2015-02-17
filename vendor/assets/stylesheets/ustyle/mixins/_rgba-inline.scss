@@ -1,7 +1,7 @@
 /// Pixel size for generated base64 PNG
 /// @type Number (unitless)
 
-$rgba_pixel_size: 5 !default;
+$rgba-pixel-size: 5 !default;
 
 /// Returns a base64 fallback PNG of an `rgba` background for older browsers
 ///
@@ -9,10 +9,10 @@ $rgba_pixel_size: 5 !default;
 ///
 /// @param {Color} $color
 ///   The rgba color to be converted
-/// @param {Number (unitless)} $pixels ($rgba_pixel_size)
+/// @param {Number (unitless)} $pixels ($rgba-pixel-size)
 ///   Size of base64 PNG
 
-@mixin rgba-inline($color, $pixels: $rgba_pixel_size) {
+@mixin rgba-inline($color, $pixels: $rgba-pixel-size) {
   background: rgba-inline($color, $pixels);
   background: $color;
 }

@@ -128,7 +128,8 @@ module.exports = function(grunt) {
         config: 'config/scss-lint.yml',
         reporterOutput: null,
         exclude: [
-          './vendor/assets/stylesheets/ustyle/vendor/*'
+          './vendor/assets/stylesheets/ustyle/vendor/*',
+          './vendor/assets/stylesheets/ustyle/structure/*'
         ]
       }
     },

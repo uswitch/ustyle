@@ -3,15 +3,19 @@
     left: auto !important;
     right: 0;
   }
+
   .us-header-search-inner {
     padding: 11px;
   }
-  input,.us-btn {
+
+  input,
+  .us-btn {
     display: block;
     float: none;
     width: 100%;
     margin: 0;
   }
+
   .us-btn {
     margin: 5px 0;
   }
@@ -19,6 +23,7 @@
 
 .us-header-search-text {
   display: none;
+
   @include respond-to(mobile) {
     @include heading-font-primary($extend: false);
     display: inline;

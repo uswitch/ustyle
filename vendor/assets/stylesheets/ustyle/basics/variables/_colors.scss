@@ -19,10 +19,10 @@ $c-navy: #1c1f4e;
 $c-blue: #174695;
 $c-typecyan: #008fe9;
 $c-cyan: #99e2ff;
-$c-typegrey: #333333;
+$c-typegrey: #333;
 $c-typegrey-2: #767676;
 $c-inputgrey: #97999a;
-$c-bordergrey: #bbbbbb;
+$c-bordergrey: #bbb;
 $c-keylinegrey: #eaeaea;
 $c-bggrey: #f4f4f4;
 
@@ -52,20 +52,20 @@ $c-cyan-light: #e4f8ff;
 
 // Backup colours
 
-$c-yellow-dark: shade($c-yellow, 15%);
-$c-orange-dark: shade($c-orange, 15%);
-$c-purple-dark: shade($c-purple, 15%);
-$c-red-dark: shade($c-red, 15%);
-$c-green-dark: shade($c-green, 15%);
+$c-yellow-dark    : shade($c-yellow, 15%);
+$c-orange-dark    : shade($c-orange, 15%);
+$c-purple-dark    : shade($c-purple, 15%);
+$c-red-dark       : shade($c-red, 15%);
+$c-green-dark     : shade($c-green, 15%);
 
-$c-yellow-light: tint($c-yellow, 30%);
-$c-orange-light: tint($c-orange, 30%);
-$c-purple-light: tint($c-purple, 30%);
-$c-red-light: tint($c-red, 30%);
-$c-green-light: tint($c-green, 30%);
+$c-yellow-light   : tint($c-yellow, 30%);
+$c-orange-light   : tint($c-orange, 30%);
+$c-purple-light   : tint($c-purple, 30%);
+$c-red-light      : tint($c-red, 30%);
+$c-green-light    : tint($c-green, 30%);
 
 $c-yellow-lightest: tint($c-yellow, 60%);
 $c-orange-lightest: tint($c-orange, 60%);
 $c-purple-lightest: tint($c-purple, 60%);
-$c-red-lightest: tint($c-red, 60%);
-$c-green-lightest: tint($c-green, 60%);
+$c-red-lightest   : tint($c-red, 60%);
+$c-green-lightest : tint($c-green, 60%);

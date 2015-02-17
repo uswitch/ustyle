@@ -23,7 +23,7 @@
   // rhythm unit
   $rhythm: $line-height * $font-size / $scale;
   // number of rhythm units that can fit the font-size
-  $lines: ceil(($font-size + 0.001px) / $rhythm);
+  $lines: ceil(($font-size + .001px) / $rhythm);
   // calculate the new line-height
   $line-height: $rhythm * $lines / $font-size;
   // use the results

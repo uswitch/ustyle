@@ -26,8 +26,8 @@
 //     <!-- END EXAMPLE -->
 //   </div>
 
-$loader-overlay-opacity: 0.8 !default;
-$loader-overlay-colour: white !default;
+$loader-overlay-opacity: .8 !default;
+$loader-overlay-colour: #fff !default;
 $spinner-vertical-margin: 1em !default;
 $spinner-animation-time: 500ms !default;
 $spinner-file: "icons/spinner.svg" !default;
@@ -39,33 +39,33 @@ $spinner-load-fallback: true !default;
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
 
-
 @keyframes spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
-
 %snap-to-parent {
-  width: 100%;
-  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 %spinner-base {
-  z-index: 2;
   position: relative;
+  z-index: 2;
   display: inline-block;
   margin-top: $spinner-vertical-margin;
   margin-bottom: $spinner-vertical-margin;
@@ -73,26 +73,27 @@ $spinner-load-fallback: true !default;
 }
 
 %spinner-icon {
-  animation: spin $spinner-animation-time infinite linear;
   background: transparent url($spinner-file-fallback) no-repeat center center;
   background-image: -webkit-linear-gradient(transparent, transparent), inline-asset($spinner-file);
   background-image: linear-gradient(transparent, transparent), inline-asset($spinner-file);
+  animation: spin $spinner-animation-time infinite linear;
 }
 
 @mixin spinner($size: $spinner-size) {
   @extend %spinner-base;
   @extend %spinner-icon;
+
   @if $size {
-    background-size: $size;
     width: $size;
     height: $size;
+    background-size: $size;
   }
 }
 
 .us-loader {
   @extend %snap-to-parent;
-  text-align: center;
   display: none;
+  text-align: center;
 }
 
 .us-loader__container {
@@ -112,6 +113,7 @@ $spinner-load-fallback: true !default;
 .us-loader__inner {
   position: relative;
   z-index: 2;
+
   .us-loader--centered & {
     @extend %vertical-align-child;
   }
@@ -121,6 +123,7 @@ $spinner-load-fallback: true !default;
   .us-loader--loading & {
     @include spinner;
   }
+
   .us-loader--centered & {
     margin-top: 0;
   }
@@ -133,7 +136,7 @@ $spinner-load-fallback: true !default;
 
 .us-loader__overlay {
   @extend %snap-to-parent;
+  z-index: 1;
   background-color: $loader-overlay-colour;
   opacity: $loader-overlay-opacity;
-  z-index: 1;
 }

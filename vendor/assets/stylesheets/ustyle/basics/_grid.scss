@@ -11,13 +11,12 @@
 @mixin us-row($breakpoint: $default-grid-breakpoint) {
   @extend %clearfix;
   @if $breakpoint == "mobile" {
-    margin-left: -$gutter-width / 2;
     margin-right: -$gutter-width / 2;
-  }
-  @else {
+    margin-left: -$gutter-width / 2;
+  } @else {
     @include respond-to($breakpoint, true) {
-      margin-left: -$gutter-width / 2;
       margin-right: -$gutter-width / 2;
+      margin-left: -$gutter-width / 2;
     }
   }
 }
@@ -53,8 +52,7 @@
     %#{$selector}-#{$cols} {
       @include us-col($cols);
     }
-  }
-  @else {
+  } @else {
     %#{$selector}-#{$cols} {
       @include us-col($cols);
     }
@@ -67,10 +65,11 @@
 
 %container {
   @extend %clearfix;
-  margin-left: auto;
-  margin-right: auto;
   position: relative;
   padding: 0 em($gutter-width / 2);
+  margin-right: auto;
+  margin-left: auto;
+
   @include respond-to(tablet) {
     max-width: em($tablet-container-width);
   }

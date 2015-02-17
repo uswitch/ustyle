@@ -15,6 +15,7 @@ $display-properties: block, inline-block, inline;
 @each $property in $display-properties {
   .us-lg-desktop--#{$property} {
     display: none;
+
     @include respond-to(large-desktop) {
       display: $property;
     }
@@ -32,6 +33,7 @@ $display-properties: block, inline-block, inline;
 @each $property in $display-properties {
   .us-desktop--#{$property} {
     display: none;
+
     @include respond-to(desktop, true) {
       display: $property;
     }
@@ -49,6 +51,7 @@ $display-properties: block, inline-block, inline;
 @each $property in $display-properties {
   .us-tablet--#{$property} {
     display: none;
+
     @include respond-to(tablet, true) {
       display: $property;
     }
@@ -66,6 +69,7 @@ $display-properties: block, inline-block, inline;
 @each $property in $display-properties {
   .us-sm-tablet--#{$property} {
     display: none;
+
     @include respond-to(small-tablet, true) {
       display: $property;
     }
@@ -83,6 +87,7 @@ $display-properties: block, inline-block, inline;
 @each $property in $display-properties {
   .us-mobile--#{$property} {
     display: none;
+
     @include respond-to(mobile) {
       display: $property;
     }

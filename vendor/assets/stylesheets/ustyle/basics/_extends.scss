@@ -25,8 +25,9 @@
 // A bordered box used for all news/guide/seemore/block items
 
 %bordered-box {
-  border-radius: em(5px);
   border: 1px solid $c-bordergrey;
+  border-radius: em(5px);
+
   &:hover {
     border-color: $c-typecyan;
   }
@@ -35,21 +36,21 @@
 // Triangle used across all buttons/link lists
 
 %link-triangle {
-  content: "\25b6";
-  transition: left 200ms;
-  font-family: "uswitch-icon";
-  display: inline;
-  margin: 0 0 0 0.5em;
-  font-size: 0.6em;
-  vertical-align: middle;
-  line-height: 0;
   position: relative;
   left: 0;
+  display: inline;
+  margin: 0 0 0 .5em;
+  font-family: "uswitch-icon";
+  font-size: .6em;
+  line-height: 0;
+  vertical-align: middle;
+  content: "\25b6";
+  transition: left 200ms;
 }
 
 %link-triangle-left {
   @extend %link-triangle;
-  margin: 0 0.5em 0 0;
+  margin: 0 .5em 0 0;
   content: "\25c0";
 }
 
@@ -77,7 +78,7 @@
 // Images
 %img--full {
   display: block;
-  min-width: 100%;
-  max-width: 100%;
   height: auto;
+  max-width: 100%;
+  min-width: 100%;
 }

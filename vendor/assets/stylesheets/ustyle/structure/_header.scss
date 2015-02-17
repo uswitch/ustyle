@@ -6,12 +6,14 @@
   @extend %structure-reset;
   z-index: 1001;
   margin: 0;
-  padding: 0.75em 0;
-  background-color: white;
+  padding: .75em 0;
+  background-color: #fff;
   font-weight: normal;
+
   .us-header-keyline & {
     border-bottom: 1px solid $c-keylinegrey;
   }
+
   &.us-header--corp {
     border-bottom: 1px solid $c-blue;
   }
@@ -22,6 +24,7 @@
   vertical-align: bottom;
   position: relative;
   z-index: 20;
+
   img {
     display: block;
   }
@@ -30,11 +33,13 @@
 @include respond-to(mobile) {
   #us-header {
     z-index: 1001;
-    padding: 0.35em 0;
+    padding: .35em 0;
   }
+
   .us-header-container {
     width: auto;
     padding: 0 10px;
+
     &:before {
       display: block;
       content: "uSwitch";
@@ -44,7 +49,9 @@
       color: $c-blue;
       font-size: 16px;
     }
-    .us-header-logo, .us-header-logo img {
+
+    .us-header-logo, 
+    .us-header-logo img {
       display: block;
       width: 32px;
       height: 32px;

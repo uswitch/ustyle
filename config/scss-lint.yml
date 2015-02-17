@@ -27,9 +27,15 @@ linters:
     max_depth: 3
     severity: error
 
+  PropertySortOrder:
+    order: recess
+
   SelectorDepth:
     enabled: true
     max_depth: 3
+
+  SelectorFormat:
+    convention: hyphenated_BEM
 
   Shorthand:
     enabled: false

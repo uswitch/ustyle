@@ -17,20 +17,23 @@ $input-border-color: $c-inputgrey !default;
 .us-form-input {
   @extend %base-form-element;
   @extend %input-background--normalise;
-  transition: border-color 200ms, box-shadow 200ms;
-  padding: 0.35em 0.5em;
   height: $form-element-base-height;
-  box-shadow: none;
-  border: 1px solid $input-border-color;
-  outline: 0;
+  padding: .35em .5em;
   font-size: 1em;
   color: $input-text-color;
+  border: 1px solid $input-border-color;
+  outline: 0;
+  box-shadow: none;
+  transition: border-color 200ms, box-shadow 200ms;
+
   &:hover {
     border-color: $input-hover-color;
   }
+
   &:focus {
     border-color: $input-hover-color;
-    box-shadow: 0px 0px 3px $input-hover-color;
+    box-shadow: 0 0 3px $input-hover-color;
+
     &::-webkit-input-placeholder,
     &:-moz-placeholder,
     &::-moz-placeholder,
@@ -38,15 +41,18 @@ $input-border-color: $c-inputgrey !default;
       color: $input-border-color;
     }
   }
+
   &:disabled {
+    background-color: #fff;
     border-color: lighten($input-border-color, 15%);
-    background-color: white;
   }
+
   &.large {
-    padding: 0.55em 0.5em;
     height: auto;
+    padding: .55em .5em;
     font-size: 1.2em;
   }
+
   .ie8 & {
     height: auto;
   }

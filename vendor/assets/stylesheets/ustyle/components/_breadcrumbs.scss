@@ -11,12 +11,14 @@
 .us-crumbs__item {
   @extend %float-left;
   margin-bottom: 0;
+
   &:before {
     @extend %icon-font;
-    content: "\232a";
     display: inline-block;
-    margin: 0 0.25em;
+    margin: 0 .25em;
+    content: "\232a";
   }
+
   &:first-child:before {
     display: none;
   }

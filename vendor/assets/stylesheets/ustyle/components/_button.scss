@@ -31,7 +31,7 @@ $s-button-color       : $c-typecyan !default;
 $action-button-color  : $c-green !default;
 $neutral-button-color : $c-keylinegrey !default;
 $hero-button-color    : $c-navy !default;
-$reversed-button-color: white !default;
+$reversed-button-color: #fff !default;
 
 $button-styles: (
   ("primary", $p-button-color),
@@ -41,54 +41,53 @@ $button-styles: (
 
 $outline-button-styles: (
   ("hero", $c-navy),
-  ("reversed", white)
+  ("reversed", #fff)
 ) !default;
 
 @mixin button-style($name, $outlined: false) {
   @if $outlined {
     &,
     &:visited {
-      transition: none 0;
+      color: nth($name, 2);
       background-color: transparent;
       border-color: nth($name, 2);
-      color: nth($name, 2);
+      transition: none 0;
     }
-  }
-  @else {
+  } @else {
     &,
     &:visited {
-      transition: all .3s;
       background-color: nth($name, 2);
       border-color: shade(nth($name, 2), 20%);
-      @if nth($name, 2) != white {
-        color: white;
+      transition: all .3s;
+      @if nth($name, 2) != #fff {
+        color: #fff;
       }
     }
   }
+
   &:hover,
   &:focus {
     @if $outlined {
-      background-color: tint(nth($name, 2), 90%);
       color: nth($name, 2);
+      background-color: tint(nth($name, 2), 90%);
       border-color: nth($name, 2);
-    }
-    @else {
+    } @else {
       background-color: shade(nth($name, 2), 20%);
       border-color: shade(nth($name, 2), 20%);
-      @if nth($name, 2) != white {
-        color: white;
+      @if nth($name, 2) != #fff {
+        color: #fff;
       }
     }
   }
+
   &:active {
     @if $outlined {
+      color: #fff;
       background-color: nth($name, 2);
       border-color: nth($name, 2);
-      color: white;
       box-shadow: none;
-    }
-    @else {
-      color: white;
+    } @else {
+      color: #fff;
       background-color: shade(nth($name, 2), 50%);
       border-color: shade(nth($name, 2), 50%);
     }
@@ -100,19 +99,19 @@ $outline-button-styles: (
   @extend %reset-box-model;
   @extend %input-background--normalise;
   @include normal-font;
-  padding: 0.63em 1.25em;
   display: inline-block;
-  border-radius: 3px;
+  padding: .63em 1.25em;
   font-size: 1em;
   line-height: 1em;
   color: $c-typegrey;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
   background-color: $base-button-color;
   border: 1px solid shade($base-button-color, 20%);
-  vertical-align: middle;
-  white-space: nowrap;
-  text-decoration: none;
-  text-align: center;
-  cursor: pointer;
+  border-radius: 3px;
   outline: 0;
 
   &:visited {
@@ -121,20 +120,20 @@ $outline-button-styles: (
 
   &:hover,
   &:focus {
+    color: $c-typecyan;
     background-color: tint($c-typecyan, 90%);
     border-color: $c-typecyan;
-    color: $c-typecyan;
   }
 
   &:active {
+    color: #fff;
     background-color: $c-typecyan;
-    color: white;
   }
 
   &:disabled,
   &.disabled {
+    pointer-events: none;
     opacity: .5;
-    pointer-events: none
   } 
 }
 
@@ -153,16 +152,17 @@ $outline-button-styles: (
 .us-btn--blocked {
   display: block;
   width: 100%;
-  padding-left: 0;
   padding-right: 0;
+  padding-left: 0;
 }
 
 .us-btn--link {
   padding: 0;
-  border: none;
-  background-color: transparent;
-  color: $c-blue;
   line-height: $base-line-ratio;
+  color: $c-blue;
+  background-color: transparent;
+  border: 0;
+
   &:hover {
     color: $c-navy;
     text-decoration: underline;
@@ -172,30 +172,35 @@ $outline-button-styles: (
 
 .us-btn--arrowed,
 .us-btn--arrowed-right {
-  padding: 0.63em 1.25em 0.63em 0.95em;
+  padding: .63em 1.25em .63em .95em;
+
   &:after {
     @extend %link-triangle;
   }
+
   &:hover {
     &:after {
-      left: 0.5em;
+      left: .5em;
     }
   }
 }
 
 .us-btn--arrowed-left {
+  padding-right: .95em;
   padding-left: 1.25em;
-  padding-right: 0.95em;
+
   &:before {
     @extend %link-triangle-left;
   }
+
   &:after {
-    content: "";
     display: none;
+    content: "";
   }
+
   &:hover {
     &:before {
-      left: -0.5em;
+      left: -.5em;
     }
   }
 }

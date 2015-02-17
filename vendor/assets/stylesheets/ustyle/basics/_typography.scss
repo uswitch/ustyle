@@ -20,14 +20,22 @@
     font-size: $base-font-size;
     line-height: $base-line-ratio + em;
   }
+
   body {
     color: $c-typegrey;
     text-rendering: optimizeLegibility;
   }
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     margin-top: 0;
-    margin-bottom: 0.375em;
+    margin-bottom: .375em;
   }
+
   @for $level from 1 through 6 {
     @if $level < 4 {
       h#{$level},
@@ -35,12 +43,11 @@
       .us-heading--#{$level} {
         @include heading($level);
       }
-    }
-    @else {
+    } @else {
       h#{$level},
       %heading-#{$level},
       .us-heading--#{$level} {
-        @include heading($level, $heading_font: false);
+        @include heading($level, $heading-font: false);
       }
     }
   }
@@ -64,6 +71,7 @@
   .trailered {
     margin: 0 0 1.5em 0;
   }
+
   .us-standfirst {
     @include baseline(18px);
   }
@@ -83,12 +91,14 @@
 
   ul {
     li {
-      margin-bottom: 0.5em;
+      margin-bottom: .5em;
     }
   }
+
   small {
     line-height: 1.15em;
   }
+
   %small-font {
     font-size: em(14px);
     line-height: 1.15em;
@@ -111,13 +121,15 @@
 
   blockquote {
     @include italic-font;
-    border-left: 5px solid $c-bordergrey;
     padding: $gutter-width / 2;
     color: $c-navy;
+    border-left: 5px solid $c-bordergrey;
+
     > p {
-      margin: 0 !important;
       padding: 0 !important;
+      margin: 0 !important;
     }
   }
 }
+
 @import "ustyle/basics/typography-print";

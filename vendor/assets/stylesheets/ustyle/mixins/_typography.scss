@@ -10,8 +10,7 @@
 @mixin normal-font($extend: true) {
   @if $extend {
     @extend %normal-font;
-  }
-  @else {
+  } @else {
     font-family: $normal-font;
   }
 }
@@ -24,8 +23,7 @@
 @mixin icon-font($extend: true) {
   @if $extend {
     @extend %icon-font;
-  }
-  @else {
+  } @else {
     font: {
       family: $icon-font;
       weight: normal;
@@ -42,8 +40,7 @@
 @mixin heading-font-primary($extend: true) {
   @if $extend {
     @extend %heading-font-primary;
-  }
-  @else {
+  } @else {
     font: {
       family: $heading-font-primary;
       weight: normal;
@@ -59,8 +56,7 @@
 @mixin heading-font-secondary($extend: true) {
   @if $extend {
     @extend %heading-font-secondary;
-  }
-  @else {
+  } @else {
     font: {
       family: $heading-font-secondary;
       weight: 700;
@@ -84,8 +80,7 @@
 @mixin italic-font($extend: true) {
   @if $extend {
     @extend %italic-font;
-  }
-  @else {
+  } @else {
     font: {
       family: $normal-font;
       style: italic;
@@ -110,8 +105,7 @@
   $line-height: nth($heading-line-heights, $level);
   @if $heading-font {
     @include heading-font-primary($extend);
-  }
-  @else {
+  } @else {
     @include heading-font-secondary($extend);
   }
   font-size: em($font-size);

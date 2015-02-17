@@ -23,25 +23,27 @@
 
 .us-footer-nav-item {
   line-height: 1em;
-  padding-bottom: 0.2em;
+  padding-bottom: .2em;
 }
 
 .us-footer-nav-title {
-  margin: 0.5em 0;
-  color: white;
+  margin: .5em 0;
+  color: #fff;
   text-decoration: none;
+
   &:visited,
   &:focus,
   &:hover {
-    color: white;
+    color: #fff;
   }
 }
 
 .us-footer-link {
-  @include link-colors($c-typecyan, white, white, $c-typecyan, $c-typecyan);
+  @include link-colors($c-typecyan, #fff, #fff, $c-typecyan, $c-typecyan);
   transition: color 333ms;
   text-decoration: none;
-  font-size: 0.75em;
+  font-size: .75em;
+
   &:hover {
     text-decoration: underline;
   }
@@ -51,17 +53,21 @@
 .us-footer-title {
   @include normal-font;
   position: relative;
-  color: white;
+  color: #fff;
   font-size: inherit;
   text-align: center;
-  a,a:visited {
-    color: white;
+
+  a,
+  a:visited {
+    color: #fff;
   }
+
   span {
     background-color: $c-navy;
     padding: 0 em(20px);
     position: relative;
   }
+
   &:before {
     content: "";
     position: absolute;
@@ -70,7 +76,7 @@
     height: em(3px);
     top: 50%;
     margin-top: -1.5px;
-    background-color: mix($c-blue, white, 70%);
+    background-color: mix($c-blue, #fff, 70%);
   }
 }
 
@@ -78,13 +84,14 @@
 .us-footer-social {
   margin: 0 auto 2em;
   @extend %clearfix;
+
   @include respond-to(desktop) {
     width: col-width(4);
   }
 }
 
 .us-footer-social-icon {
-  @include link-colors($c-typecyan, white, white, $c-typecyan, $c-typecyan);
+  @include link-colors($c-typecyan, #fff, #fff, $c-typecyan, $c-typecyan);
   transition: all 300ms;
   display: block;
   color: $c-typecyan;
@@ -94,6 +101,7 @@
   margin: 0;
   width: 33.3%;
   float: left;
+
   &:hover {
     transform: scale(1.1);
   }
@@ -103,13 +111,16 @@
 .us-footer-top-links {
   margin: 1.25em 0 1em;
   text-align: center;
+
   a {
     display: inline-block;
     padding: 0 20px;
+
     @include respond-to(small-tablet, true) {
-      border-left: 1px solid mix(white, $c-blue, 20%);
+      border-left: 1px solid mix(#fff, $c-blue, 20%);
+
       &:first-child {
-        border-left: none;
+        border-left: 0;
       }
     }
   }
@@ -123,6 +134,7 @@
 .us-footer-nav {
   @extend %clearfix;
   display: none;
+
   @include respond-to(small-tablet, true) {
     display: block;
     margin-bottom: em(45px);
@@ -132,12 +144,14 @@
 /* toggle links */
 .us-footer-show-more,
 .us-footer-hide-links {
-  font-size: 0.75em;
-  color: white;
+  font-size: .75em;
+  color: #fff;
   cursor: pointer;
+
   &:hover {
     text-decoration: underline;
   }
+
   .uicon {
     display: inline-block;
     vertical-align: middle;
@@ -155,6 +169,7 @@
   padding: 0;
   opacity: 0;
   transition: max-height 300ms, opacity 800ms;
+
   .us-footer-showing-more & {
     max-height: 3em;
     padding-bottom: em(3px);
@@ -166,6 +181,7 @@
   .us-footer-show-more {
     display: none;
   }
+
   .us-footer-hide-links {
     display: block;
   }
@@ -176,6 +192,7 @@
   margin-bottom: em(20px);
   display: none;
   text-align: center;
+
   @include respond-to(tablet, true) {
     display: block;
   }
@@ -190,7 +207,8 @@
     display: inline-block;
     width: 210px;
     height: 84px;
-    opacity: 0.5;
+    opacity: .5;
+
     &:hover {
       opacity: 1;
     }
@@ -201,65 +219,74 @@
 .us-footer-copyright {
   text-align: center;
   margin-bottom: 20px;
+
   a {
-    color: white;
+    color: #fff;
     text-decoration: none;
   }
+
   p {
-    font-size: 0.75em;
-    color: white;
+    font-size: .75em;
+    color: #fff;
     margin-top: em(25px);
   }
 }
 
 .us-footer-fca {
   visibility: hidden;
+
   &.us-footer-smallprint {
     display: none;
   }
+
   &.on {
     visibility: visible;
+
     &.us-footer-smallprint {
       display: block;
     }
   }
+
   @include respond-to(mobile) {
     font-size: 11px;
   }
 }
 
 .us-footer-smallprint {
-  background: mix($c-navy, black, 70%);
-  color: white;
+  background: mix($c-navy, #000, 70%);
+  color: #fff;
   padding: em(15px) 0;
+
   a {
     @include link-colors($c-typecyan, $c-cyan, $c-typecyan, $c-typecyan);
   }
+
   p {
     font-size: em(12px);
     margin-bottom: 5px;
-    color: white;
+    color: #fff;
   }
 }
 
 /* COOKIE MESSAGE */
 #us-cookies {
   transition: all 200ms;
-  background-color: mix($c-navy, black, 70%);
+  background-color: mix($c-navy, #000, 70%);
   text-align: center;
   padding: em(15px);
   margin: 0 0 em(20px);
   position: relative;
   overflow: hidden;
-  font-size: 0.75em;
+  font-size: .75em;
   line-height: inherit;
 }
 
 .us-cookies-link {
-  @include link-colors(white, white, white, white);
+  @include link-colors(#fff, #fff, #fff, #fff);
   display: block;
-  color: white;
+  color: #fff;
   text-decoration: none;
+
   &:hover span {
     text-decoration: underline;
   }
@@ -267,10 +294,12 @@
 
 .us-cookies-link-more {
   color: $c-typecyan;
+
   &.fade {
     transform: scale(1.5);
     opacity: 0;
   }
+
   &.close {
     @extend %reset-box-model;
     height: 0;
@@ -283,19 +312,21 @@
   font-size: 0;
   line-height: 0;
   cursor: pointer;
+
   &:before {
     content: "\2715";
     @extend %icon-font;
     transition: color 200ms;
     display: inline-block;
-    margin: 0.5em 0 0;
+    margin: .5em 0 0;
     color: inherit;
     font-size: 18px;
-    line-height: 0.5em;
+    line-height: .5em;
     font-weight: normal;
   }
+
   &:hover:before {
-    color: white;
+    color: #fff;
   }
 }
 
@@ -303,6 +334,7 @@
   display: none;
   color: $c-typecyan;
   padding: 0 20%;
+
   &.funnel {
     .comparison-message {
       display: block;
@@ -313,6 +345,6 @@
 .tswts {
   @include heading-font-primary;
   margin: 0 0 1em;
-  color: white;
+  color: #fff;
   text-align: center;
 }

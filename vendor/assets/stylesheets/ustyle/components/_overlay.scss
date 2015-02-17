@@ -31,14 +31,12 @@
 //     <div class="us-overlay__back-layer js-close-overlay"></div>
 //   </div>
 
-
-
 $overlay-modal-breakpoint: desktop !default;
 $overlay-modal-width: 60% !default;
 $overlay-modal-height: 80% !default;
 $overlay-max-modal-width: 700px !default;
 $overlay-forced-z-index: 1003 !default;
-$overlay-transition-speed: 0.4s !default;
+$overlay-transition-speed: .4s !default;
 $overlay-mobile-width: calc(100% - 25px) !default;
 $overlay-tablet-width: 340px !default;
 $overlay-header-height: 55px !default;
@@ -46,29 +44,33 @@ $overlay-close-icon-size: 50px !default;
 $overlay-z-index: $overlay-forced-z-index;
 
 @mixin overlay($place-above: false) {
-  -webkit-overflow-scrolling: auto;
   position: fixed;
-  z-index: $overlay-forced-z-index;
-  background: white;
-  overflow: auto;
   top: 0;
   left: 0;
+  z-index: $overlay-forced-z-index;
   width: $overlay-mobile-width;
   height: 100%;
+  background: #fff;
+  overflow: auto;
   transition: transform $overlay-transition-speed;
-  transition-timing-function: cubic-bezier(0.175, 0.885, 0.335, 1.05);
+  transition-timing-function: cubic-bezier(.175, .885, .335, 1.05);
   transform: translateX(-100%);
-  transform: translate3D(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+  -webkit-overflow-scrolling: auto;
+
   .no-csstransforms & {
     display: none;
   }
+
   .us-overlay--open & {
     transform: translateX(0);
-    transform: translate3D(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+
     .no-csstransforms & {
       display: block;
     }
   }
+
   @include respond-to(small-tablet, true) {
     width: $overlay-tablet-width;
   }
@@ -82,9 +84,11 @@ $overlay-z-index: $overlay-forced-z-index;
       margin: 5% auto;
     }
   }
+
   @if $place-above {
     $overlay-z-index: $overlay-z-index + 1;
   }
+
   z-index: $overlay-z-index;
 }
 
@@ -105,29 +109,32 @@ $overlay-z-index: $overlay-forced-z-index;
 .us-overlay__container {
   @extend %container !optional;
   padding: 1em;
+
   .us-overlay-modal-parent & {
     @include respond-to($overlay-modal-breakpoint, true) {
-      overflow: scroll;
       height: 100%;
       padding-bottom: $overlay-header-height + 16px;
+      overflow: scroll;
     }
   }
+
   .us-overlay--sticky-header & {
-    overflow: scroll;
     height: 100%;
     padding-bottom: $overlay-header-height + 16px;
+    overflow: scroll;
   }
 }
 
 .us-overlay-modal-parent {
   @include respond-to($overlay-modal-breakpoint, true) {
-    display: none;
     position: fixed;
     top: 0;
     left: 0;
+    z-index: $overlay-forced-z-index + 1;
+    display: none;
     width: 100%;
     height: 100%;
-    z-index: $overlay-forced-z-index + 1;
+
     &.us-overlay--open {
       display: block;
     }
@@ -135,14 +142,16 @@ $overlay-z-index: $overlay-forced-z-index;
 }
 
 .us-overlay--right {
-  transform: translateX(100%);
-  transform: translate3D(100%, 0, 0);
-  transform: translate3D(100%, 0, 0);
   right: 0;
   left: auto;
+  transform: translateX(100%);
+  transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+
   .us-overlay--open & {
     transform: translateX(0);
-    transform: translate3D(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+
     .no-csstransforms & {
       display: block;
     }
@@ -150,40 +159,43 @@ $overlay-z-index: $overlay-forced-z-index;
 }
 
 .us-overlay__header {
-  background: $c-navy;
-  color: white;
-  padding: 1em;
   min-height: $overlay-header-height;
+  padding: 1em;
+  color: #fff;
+  background: $c-navy;
 }
 
 .us-overlay__title {
-  width: calc(100% - #{$overlay-close-icon-size})
+  width: calc(100% - #{$overlay-close-icon-size});
 }
 
 .us-overlay__close {
-  cursor: pointer;
-  background-image: url(ustyle-image-path("anchor/close_white_fallback.png"));
-  background: inline-asset("anchor/close_white.svg");
-  width: $overlay-close-icon-size;
-  height: $overlay-close-icon-size;
-  border: 0;
   position: absolute;
+  top: .5em;
   right: 0;
   z-index: 10;
-  background-size: 40px;
-  top: 0.5em;
+  width: $overlay-close-icon-size;
+  height: $overlay-close-icon-size;
+  cursor: pointer;
+  background-color: transparent;
+  background-image: url(ustyle-image-path("anchor/close_white_fallback.png"));
+  background-image: inline-asset("anchor/close_white.svg");
   background-repeat: no-repeat;
+  background-size: 40px;
+  border: 0;
+  -webkit-appearance: none;
 }
 
 .us-overlay__back-layer {
-  width: 100%;
-  height: 150%;
   position: fixed;
-  background: rgba($c-blue, 0.5);
   top: 0;
   left: 0;
   z-index: $overlay-forced-z-index - 1;
   display: none;
+  width: 100%;
+  height: 150%;
+  background: rgba($c-blue, .5);
+
   .us-overlay--open & {
     display: block;
   }
