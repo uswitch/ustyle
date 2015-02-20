@@ -3,8 +3,8 @@
 //
 // @description USPs (Unique Sales Points) are used within tables and on splash pages to highlight offers within a deal, and also to differentiate deals.
 // General guidelines; There should only be one USP per deal. Text within USPs should be written in sentence case (not uppercase).
-// 
-// 
+//
+//
 // @state .us-usp--blue - uSwitch related
 // @state .us-usp--orange - Rewards (money/points)
 // @state .us-usp--purple - Gifts eg. free TV
@@ -21,26 +21,26 @@
 //   </div>
 
 $variants: (
-  (cyan, $c-cyan),
-  (typecyan, $c-typecyan),
-  (blue, $c-blue),
-  (navy, $c-navy),
-  (red, $c-red),
-  (green, $c-green),
-  (purple, $c-purple),
-  (orange, $c-orange),
-  (yellow, $c-yellow, $c-typegrey),
-  (typegrey, $c-typegrey, #fff)
+  ('cyan', $c-cyan),
+  ('typecyan', $c-typecyan),
+  ('blue', $c-blue),
+  ('navy', $c-navy),
+  ('red', $c-red),
+  ('green', $c-green),
+  ('purple', $c-purple),
+  ('orange', $c-orange),
+  ('yellow', $c-yellow, $c-typegrey),
+  ('typegrey', $c-typegrey)
 ) !default;
 
 .us-usp {
+  display: inline-block;
   padding: 0 10px;
   font-weight: bold;
   line-height: $base-line-ratio;
   color: #fff;
-  background-color: $c-typecyan;
   text-align: center;
-  display: inline-block;
+  background-color: $c-typecyan;
 }
 
 @each $colour in $variants {
@@ -56,16 +56,11 @@ $variants: (
 .us-usp--annotated {
   font-weight: normal;
   color: $c-typegrey;
-  background-color: $c-bggrey;
   text-align: left;
+  background-color: $c-bggrey;
 
   .us-usp {
-    margin-left: -10px;
     margin-right: 10px;
+    margin-left: -10px;
   }
-}
-
-.us-usp--yellow {
-  color:$c-typegrey;
-  background-color: $c-yellow;
 }
