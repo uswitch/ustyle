@@ -31,7 +31,7 @@ module.exports = function(grunt) {
     svg2png: {
       dist: {
         src: 'vendor/assets/images/icons/',
-        sizes: ["20 180", "32 288", "64 576"]
+        sizes: ["16 144", "32 288", "64 576"]
       }
     },
     svgmin: {
