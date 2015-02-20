@@ -11,7 +11,7 @@ require 'fileutils'
 namespace :ustyle do
   desc "Publishes uStyle v#{Ustyle::VERSION}"
   task :publish => [ "version:check", "version:update",
-                     "git:push"
+                     "git:push",
                      "build:images",
                      "deploy:images", "deploy:stylesheets", "deploy:styleguide"
                     ] do
