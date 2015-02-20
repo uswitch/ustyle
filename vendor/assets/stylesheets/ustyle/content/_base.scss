@@ -36,7 +36,7 @@
     }
 
     a {
-      @extend .us-link;
+      @extend %anchor-link;
     }
   }
   //
@@ -105,13 +105,14 @@
   }
 
   .internal-menu {
-    @extend .us-list;
+    @extend %list;
   }
 
   // scss-lint:disable NestingDepth, SelectorDepth
   .plans-ending {
     @extend %clearfix;
-    @extend .us-list--reset;
+    @extend %reset-box-model;
+    list-style: none;
     border-top: 1px solid $c-blue;
 
     li {
@@ -154,7 +155,7 @@
 
     .us-btn {
       @extend %btn;
-      @extend .us-btn--primary;
+      @extend %btn--primary;
     }
 
     .js & {
@@ -166,10 +167,11 @@
 
   .fuel-breakdown {
     @extend %clearfix;
-    @extend .us-list--reset;
+    @extend %reset-box-model;
     width: 100%;
     overflow: hidden;
-
+    list-style: none;
+    
     li {
       float: left;
       padding: $gutter-width / 2 0;

@@ -13,12 +13,13 @@
 //   </ul>
 //
 
+%list,
 .us-list {
   @extend %reset-box-model;
   list-style: none;
 
   a {
-    @extend .us-link;
+    @extend %anchor-link;
     display: block;
     padding-top: .5em;
     padding-bottom: .5em;

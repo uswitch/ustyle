@@ -206,11 +206,13 @@ $outline-button-styles: (
 }
 
 @each $button-style in $button-styles {
+  %btn--#{nth($button-style, 1)},
   .us-btn--#{nth($button-style, 1)} {
     @include button-style($button-style);
   }
 }
 @each $button-style in $outline-button-styles {
+  %btn--#{nth($button-style, 1)},
   .us-btn--#{nth($button-style, 1)} {
     @include button-style($button-style, true);
   }

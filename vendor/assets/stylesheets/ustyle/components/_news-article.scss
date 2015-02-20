@@ -60,9 +60,21 @@ $news-item-image-size: 128px !default;
   @extend %backface-visibility--hidden;
   position: relative;
   display: block;
+  overflow: hidden;
   text-decoration: none;
   background-color: #fff;
   transition: border-color 333ms, background-color 333ms;
+
+  @include respond-to(small-tablet,true) {
+    padding-bottom: em(35px);
+  }
+
+  .us-article-group & {
+    @include respond-to(mobile) {
+      border-top-width: 0;
+      border-radius: 0;
+    }
+  }
 }
 
 %base-item-image {
@@ -124,18 +136,6 @@ $news-item-image-size: 128px !default;
 
 .us-news-item-link {
   @extend %base-item-link;
-  overflow: hidden;
-
-  @include respond-to(small-tablet,true) {
-    padding-bottom: em(35px);
-  }
-
-  .us-article-group & {
-    @include respond-to(mobile) {
-      border-top-width: 0;
-      border-radius: 0;
-    }
-  }
 }
 
 .us-news-item-title {

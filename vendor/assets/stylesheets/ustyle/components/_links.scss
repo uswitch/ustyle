@@ -9,14 +9,7 @@
 //   <a href="#" class="{$modifiers}">Link</a>
 //
 
-a,
-.us-link {
-  @include link-colors($c-blue, $c-typecyan, $c-blue, $c-blue, darken($c-blue, 15%));
-  text-decoration: none;
-  transition: color 333ms, border-color 333ms;
-}
-
-.us-link {
+%anchor-link {
   border-bottom: 1px solid $c-blue;
 
   &:visited {
@@ -31,4 +24,15 @@ a,
   &:active {
     border-color: darken($c-blue, 15%);
   }
+}
+
+a,
+.us-link {
+  @include link-colors($c-blue, $c-typecyan, $c-blue, $c-blue, darken($c-blue, 15%));
+  text-decoration: none;
+  transition: color 333ms, border-color 333ms;
+}
+
+.us-link {
+  @extend %anchor-link;
 }

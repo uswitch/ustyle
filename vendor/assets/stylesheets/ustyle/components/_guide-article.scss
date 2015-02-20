@@ -3,46 +3,65 @@
 //
 // @description
 //   This is the default guide item for uSwitch landing page. It extends the
-//   news item heavily. The description is initially hidden and shown on hover or any desktop
-//   devices
+//   news item heavily. 
 //
 // @markup
-//   <div class='us-guide-item us-col-md-4'>
-//     <a class='us-guide-item-link' href='#'>
-//       <div class='us-guide-item-image-container'>
-//         <div class='us-guide-item-image background' style='background-image: url(http://www.uswitch.com/insurance/assets/guide-home-16141c84afd29e2063ee76803037716c.jpg)'></div>
-//       </div>
-//       <div class='us-guide-item-content'>
-//         <h4 class='us-guide-item-title'>Car insurance guides</h4>
-//         <p class='us-guide-item-description'>Read our car insurance advice guides for the facts on why you need car insurance, the types of cover available, and tips on how to make a claim.</p>
-//       </div>
-//       <div class='us-guide-item-readmore'>
-//         <span class='us-news-item-readmorelink'>Read more</span>
-//       </div>
-//     </a>
-//   </div>
+//   <div class='us-article-group'>
+//     <div class='us-guide-item us-col-md-4'>
+//       <a class='us-guide-item-link' href='#'>
+//         <div class='us-guide-item-image-container'>
+//           <div class='us-guide-item-image background' style='background-image: url(http://www.uswitch.com/insurance/assets/guide-home-16141c84afd29e2063ee76803037716c.jpg)'></div>
+//         </div>
+//         <div class='us-guide-item-content'>
+//           <h4 class='us-guide-item-title'>Car insurance guides</h4>
+//           <p class='us-guide-item-description'>Read our car insurance advice guides for the facts on why you need car insurance, the types of cover available, and tips on how to make a claim.</p>
+//         </div>
+//         <div class='us-guide-item-readmore'>
+//           <span class='us-news-item-readmorelink'>Read more</span>
+//         </div>
+//       </a>
+//     </div>
+//   </div> 
 
 $guide-item-image-size: 128px !default;
 
 .us-guide-item {
-  @extend .us-news-item;
+  @extend %base-item;
+
+  &:hover {
+    .us-guide-item-image {
+      opacity: .8;
+    }
+
+    %readmore:after {
+      left: .5em;
+    }
+  }
+
+  .us-article-group & {
+    @include respond-to(mobile) {
+      padding: 0;
+      margin-bottom: 0;
+    }
+  }
 }
 
 .us-guide-item-link {
-  @extend .us-news-item-link;
+  @extend %base-item-link;
 }
 
 .us-guide-item-title {
-  @extend .us-news-item-title;
-}
-
-.us-guide-item-title,
-.us-guide-item-description {
+  @extend %heading-4;
+  padding: $item-padding;
+  margin: 0;
   color: $c-navy;
+  transition: color 333ms;
 }
 
 .us-guide-item-description {
-  @extend .us-news-item-snippet;
+  @include baseline(14px);
+  padding: 0 $item-padding;
+  color: $c-navy;
 }
 
 .us-guide-item-image-container {
@@ -60,9 +79,29 @@ $guide-item-image-size: 128px !default;
 }
 
 .us-guide-item-readmore {
-  @extend .us-news-item-readmore;
+  @extend %readmore;
+  padding: $item-padding;
 }
 
 .us-guide-item-readmorelink {
   @extend %readmore-link;
+}
+
+.us-article-group {
+  @include respond-to(mobile) {
+    .us-guide-item:first-child {
+      .us-guide-item-link {
+        border-top-width: 1px;
+        border-bottom-width: 1px;
+        border-radius: em(5px) em(5px) 0 0;
+      }
+    }
+
+    .us-guide-item:last-child {
+      .us-guide-item-link {
+        border-bottom-width: 1px;
+        border-radius: 0 0 em(5px) em(5px);
+      }
+    }
+  }
 }

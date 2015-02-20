@@ -6,11 +6,11 @@
 // Styleguide 4.3
 
 .us-more-item {
-  @extend .us-news-item;
+  @extend %base-item;
 }
 
 .us-more-item-link {
-  @extend .us-news-item-link;
+  @extend %base-item-link;
 }
 
 .us-more-item-title {
