@@ -185,4 +185,12 @@
     width: $pixels;
     height: $pixels;
   }
+  @include respond-to(mobile){
+    .us-icon--#{$size-name}--mobile,
+    .us-icon--#{$size-name}--after--mobile:after,
+    .us-icon--#{$size-name}--before--mobile:before {
+      width: $pixels !important;
+      height: $pixels !important;
+    }
+  }
 }
