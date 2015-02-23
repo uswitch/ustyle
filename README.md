@@ -44,7 +44,9 @@ And then execute:
 
 Verion locking - if you're unsure about when you're going to have the change to upgrade again. (not recommended)
 
-    gem 'ustyle', git: "git@github.com:uswitch/ustyle.git", tag: VERSION
+```ruby
+gem 'ustyle', git: "git@github.com:uswitch/ustyle.git", tag: "VERSION"
+```
 
 To run on PHP projects or non-Ruby ones, you're going to have to set up a watch file to precompile the SASS. Guard-sass is a good option for this.
 
