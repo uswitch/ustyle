@@ -51,14 +51,12 @@ $outline-button-styles: (
       color: nth($name, 2);
       background-color: transparent;
       border-color: nth($name, 2);
-      transition: none 0;
     }
   } @else {
     &,
     &:visited {
       background-color: nth($name, 2);
       border-color: shade(nth($name, 2), 20%);
-      transition: all .3s;
       @if nth($name, 2) != #fff {
         color: #fff;
       }
@@ -113,6 +111,7 @@ $outline-button-styles: (
   border: 1px solid shade($base-button-color, 20%);
   border-radius: 3px;
   outline: 0;
+  transition: none 0;
 
   &:visited {
     color: $c-typegrey;
