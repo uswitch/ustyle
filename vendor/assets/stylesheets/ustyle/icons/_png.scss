@@ -1,7 +1,7 @@
 @mixin png-bg-icon($icon-name, $size-name, $size-px) {
   .us-icon--#{$icon-name}.us-icon--#{$size-name},
-  .us-icon--#{$icon-name}--after.us-icon--#{$size-name}:after,
-  .us-icon--#{$icon-name}--before.us-icon--#{$size-name}:before {
+  .us-icon--#{$icon-name}--after.us-icon--#{$size-name}--after:after,
+  .us-icon--#{$icon-name}--before.us-icon--#{$size-name}--before:before {
     background-image: url(ustyle-image-path("#{$base-icon-path}#{$size-px}/#{$icon-name}.png"));
   }
 }
