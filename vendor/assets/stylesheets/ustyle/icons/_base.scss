@@ -186,6 +186,15 @@
     height: $pixels;
   }
 
+  @include respond-to(to-small-tablet){
+    .us-icon--#{$size-name}--sm-tablet,
+    .us-icon--#{$size-name}--after--sm-tablet:after,
+    .us-icon--#{$size-name}--before--sm-tablet:before {
+      width: $pixels !important;
+      height: $pixels !important;
+    }
+  }
+
   @include respond-to(mobile) {
     .us-icon--#{$size-name}--mobile,
     .us-icon--#{$size-name}--after--mobile:after,
