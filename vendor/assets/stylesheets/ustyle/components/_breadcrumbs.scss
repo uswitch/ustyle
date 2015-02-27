@@ -42,3 +42,7 @@
 .us-crumbs__item {
   color: $c-typegrey-2;
 }
+
+.us-crumbs__link {
+  @include link-colors($c-typegrey-2, $c-typecyan, $c-typegrey-2, $c-typegrey-2);
+}
