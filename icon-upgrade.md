@@ -40,8 +40,58 @@ For `:pseudo` elements (:before, :after), add the class names onto the parent. L
 
 Will return:
 
+![Results save](http://snag.gy/t6l0L.jpg)
 
-Some icons have been removed from the icon set. Here is the table mapping the old names to the new ones:
+The class names used to build this icon are the following. Note that we don't declare the `.us-icon--white--before` because it's the default colour. If you want to change the colour, you will need to do that. E.g `.us-icon--typecyan--before`.
+
+```scss
+.us-icon--before (can be --after)
+.us-icon--tick-circle--before
+.us-icon--small--before
+```
+
+The same icon can be constructed with an additional `div`. Just remove the `--before` from all the classnames. Here is an example:
+
+```html
+<span class='us-btn save__button save__button--saved us-btn--blocked us-btn--action'>
+    <span class='us-icon--tick-circle us-icon--small us-icon--notext'></span>
+    Results saved
+</span>
+```
+
+Here, `.us-icon--notext` is used to make the icon display `inline-block`. Here is the `.us-icon--notext` CSS:
+
+```scss
+.us-icon--notext {
+  display: inline-block;
+  text-indent: -999em;
+}
+```
+
+Hover states
+---
+
+To have the icon change colour on hover, append the class: `.us-icon--hover-{COLOR}` or `.us-icon--hover-{COLOR}--before/after`. This will only target the icon element. We are working on giving you more flexibility here.
+
+Responsive icon sizes
+---
+
+To change the icon sizes for mobile / small-tablet, you have
+
+```scss
+.us-icon--{SIZE}--mobile
+.us-icon--{SIZE}--after--mobile
+.us-icon--{SIZE}--before--mobile
+
+.us-icon--{SIZE}--sm-tablet
+.us-icon--{SIZE}--after--sm-tablet
+.us-icon--{SIZE}--before--sm-tablet
+```
+
+Note that we only support changing icon sizes on smaller screens (max-width media queries).
+
+Icon list
+---
 
 | Old icon name   |      New icon name     |
 |----------|------------- |
