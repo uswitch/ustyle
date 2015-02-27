@@ -107,11 +107,18 @@ module.exports = function(grunt){
 
     function generateStaticContent(sections, callback) {
       var pages = grunt.file.expand(staticPages).map(function(file){
+        var filename = path.basename(file, '.tpl').split("-"),
+            order = filename[0],
+            name = filename[1];
+
         return {
-          name: humanize(path.basename(file, '.tpl')),
-          page: path.basename(file, 'tpl') + 'html',
+          name: humanize(name),
+          page: name + '.html',
+          order: order,
           template: file
         }
+      }).sort(function(a, b){
+        return a.order - b.order;
       });
 
       callback(null, pages.concat(sections));

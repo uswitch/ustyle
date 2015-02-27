@@ -12,7 +12,6 @@
       </div>
     </div>
     <div class="styleguide container sidebar--push">
-      <h1> This is the styleguide</h1>
     </div>
   </div>
   {{> _footer}}

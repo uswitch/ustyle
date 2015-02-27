@@ -1,0 +1,12 @@
+.col-example {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  background-color: $c-cyan-light;
+  border: 1px solid $c-typecyan;
+}
+
+.grid-example {
+  .us-grid-row {
+    margin-bottom: $gutter-width/2;
+  }
+}

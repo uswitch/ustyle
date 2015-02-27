@@ -4,9 +4,13 @@ $styleguide-block-border-color: $c-bordergrey;
 
 .styleguide {
 
-  &__block + &__block {
+  &__block {
     padding-top: $styleguide-block-padding;
     padding-bottom: $styleguide-block-padding;
+
+    &:first-child {
+      padding-top: 0;
+    }
   }
 
   &__header {
