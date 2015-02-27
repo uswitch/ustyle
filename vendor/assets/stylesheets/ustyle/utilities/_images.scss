@@ -1,16 +1,29 @@
-// Force image to be full width of container
+// @section Utilities
+// @name Images
+//
+// @description
+//   Helpful image classes for making images full width or floating within content.
+//
+// @state .us-img--full - Full width image
+// @state .us-img--left - Left floated image
+// @state .us-img--right - Right floated image
+//
+// @markup
+//   <p>
+//     <img class="{$modifiers}" src="http://uswitch-wp-cms-assets.s3-website-eu-west-1.amazonaws.com//www.uswitch.com/money/guides/wp-content/uploads/2014/11/DB2011AU01018_SMALL.jpg" width="400">
+//     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas mattis sit amet magna porta mollis. Pellentesque id pretium quam. Proin nec blandit ligula. Sed lectus orci, mattis ac hendrerit at, ultrices eget metus. Vestibulum dignissim venenatis malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent eget convallis urna, at ultrices ligula. Donec bibendum, lectus at consequat feugiat, nisi leo tincidunt purus, et condimentum lorem diam scelerisque neque. Nam imperdiet aliquet arcu a rhoncus.
+//   </p>
+
 .us-img--full {
   @extend %img--full;
 }
 
-// Float image left
 .us-img--left {
   @extend %float-left;
   margin-right: 1em;
   margin-bottom: 1em;
 }
 
-// Float image right
 .us-img--right {
   @extend %float-right;
   margin-bottom: 1em;
