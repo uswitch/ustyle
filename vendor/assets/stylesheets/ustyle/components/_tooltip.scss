@@ -1,0 +1,58 @@
+// @section JS components
+// @name Tooltip
+//
+// @state us-tooltip--small - 16x16 tooltip icons
+// @state us-tooltip--medium - 32x32 tooltip icons
+// @state us-tooltip--large - 64x64 tooltip icons
+//
+// @markup
+//   <div class="us-tooltip {$modifiers}">
+//     <div class="us-tooltip__icon"></div>
+//   </div>
+
+$tooltip-sizes: (
+  ("small", 16px, 11px),
+  ("medium", 32px, 22px),
+  ("large", 64px, 44px)
+);
+
+.us-tooltip {
+  display: inline-block;
+  padding: 1em 1.5em;
+  color: $c-typegrey;
+}
+
+.us-tooltip__icon {
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  text-indent: 1px;
+  background-color: $c-bordergrey;
+  border-radius: 50%;
+
+  &:before {
+    content: "?";
+  }
+}
+
+@each $size in $tooltip-sizes {
+  $size-name: nth($size, 1);
+  $pixels: nth($size, 2);
+  $font-size: nth($size, 3);
+  $selector: "";
+
+  @if $size-name == "medium" {
+    $selector: "us-tooltip, .us-tooltip.us-tooltip--#{$size-name}";
+  } @else {
+    $selector: "us-tooltip.us-tooltip--#{$size-name}";
+  }
+
+  .#{$selector} {
+    .us-tooltip__icon {
+      width: $pixels;
+      height: $pixels;
+      font-size: $font-size;
+      line-height: $pixels;
+    }
+  }
+}
