@@ -2,7 +2,7 @@ $sidebar-width          : 280px;
 $sidebar-bg-color       : $c-bggrey;
 $sidebar-breakpoint     : tablet;
 $sidebar-side-visibility: desktop;
-$sidebar-top-push       : 34.5px;
+$sidebar-top-push       : $gutter-width/2;
 $sidebar-padding        : 0;
 
 .sidebar {

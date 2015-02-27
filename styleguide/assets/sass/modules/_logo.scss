@@ -1,4 +1,10 @@
 .logo {
-  margin: $gutter-width auto;
-  display: block;
+  position: relative;
+  top: -5px;
+  margin-left: $gutter-width/2;
+
+  @include respond-to(tablet, true){
+    margin: $gutter-width auto;
+    display: block;
+  }
 }
