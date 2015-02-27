@@ -1,36 +1,31 @@
-require "aws/s3"
-require "cloudfront-invalidator"
+require "aws-sdk"
 
 module Ustyle
-  HOST = 's3-eu-west-1.amazonaws.com'
+  REGION = 'eu-west-1'
   BUCKET = 'uswitch-assets-eu'
   CLOUDFRONT_DISTRIBUTION = 'E3F1XI0HIG20E0'
 
-  def self.s3_connect!
-    AWS::S3::DEFAULT_HOST.replace HOST
-
-    @connection ||= AWS::S3::Base.establish_connection!(
-      :access_key_id     => ENV["AWS_ACCESS_KEY_ID"],
-      :secret_access_key => ENV["AWS_SECRET_ACCESS_KEY"]
-    )
-  end
-
   def self.s3_upload to, from, content_type, bucket = BUCKET
-    AWS::S3::S3Object.store(
-      to, 
-      open(from), 
-      bucket, 
-      :content_type => content_type, 
-      :access => :public_read
-    )
+    bucket = s3.bucket(bucket)
+    object = bucket.object(to)
+    object.put(body: open(from), content_type: content_type, acl: 'public-read')
   end
 
   def self.invalidate files
-    invalidator = CloudfrontInvalidator.new(
-                    ENV["AWS_ACCESS_KEY_ID"], 
-                    ENV["AWS_SECRET_ACCESS_KEY"], 
-                    CLOUDFRONT_DISTRIBUTION
-                  )
-    invalidator.invalidate(files)
+    cloudfront = Aws::CloudFront::Client.new(region: REGION)
+    cloudfront.create_invalidation(
+      distribution_id: CLOUDFRONT_DISTRIBUTION,
+      invalidation_batch: {
+        paths: {
+          quantity: files.length,
+          items: files
+        },
+        caller_reference: "ustyle invalidation at #{Time.now.to_s}"
+      }
+    )
+  end
+
+  def self.s3
+    @conn ||= Aws::S3::Resource.new(region: REGION)
   end
 end

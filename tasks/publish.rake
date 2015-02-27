@@ -59,8 +59,6 @@ end
 namespace :deploy do
   desc "Deploy stylesheets to S3"
   task :stylesheets do
-    Ustyle.s3_connect!
-
     Dir["build/*.{css,json,js}"].each do |file|
       file_name = File.basename(file)
       content_type = Ustyle.mime_type_for(file_name)
@@ -69,16 +67,14 @@ namespace :deploy do
     end
 
     Ustyle.invalidate([
-      "s3/#{Ustyle::BUCKET}/ustyle/ustyle-latest.css",
-      "s3/#{Ustyle::BUCKET}/ustyle/ustyle-content.css",
-      "s3/#{Ustyle::BUCKET}/ustyle/ustyle-icons.css"
+      "/s3/#{Ustyle::BUCKET}/ustyle/ustyle-latest.css",
+      "/s3/#{Ustyle::BUCKET}/ustyle/ustyle-content.css",
+      "/s3/#{Ustyle::BUCKET}/ustyle/ustyle-icons.css"
     ])
   end
 
   desc "Deploy images to S3"
   task :images do
-    Ustyle.s3_connect!
-
     Dir["build/images/**/*"].each do |file|
       next if File.directory?(file)
       file_path = file.gsub(/^build\//, "")
@@ -87,8 +83,6 @@ namespace :deploy do
   end
 
   task :styleguide do
-    Ustyle.s3_connect!
-
     Dir["build/docs/**/*"].each do |file|
       next if File.directory?(file)
       file_path = file.gsub(/^build\/docs\//, "")
