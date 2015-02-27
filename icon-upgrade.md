@@ -3,6 +3,23 @@ Upgrading the icon font to the SVG icons
 
 This will take some time, and you no longer have the ability to extend icons within your own stylesheets, so you need to rely on class names to build your icon styles. 
 
+Removal of old icons
+---
+
+In your project, remove all declarations of the following:
+```scss
+@extend %icon-font
+@include icon-font
+font-family: 'uswitch-icon' sans-serif
+```
+
+The next step will be to find any custom icon declarations within your Sass files. This is usually when you are editing :pseudo elements. Look for this in your project:
+```scss
+content: '\
+```
+
+There will be no additional CSS you need to write for the new icons, it is all markup. Positioning is up to you. 
+
 There are 3 sizes
 ---
 
