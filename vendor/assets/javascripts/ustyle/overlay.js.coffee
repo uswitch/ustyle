@@ -6,6 +6,7 @@ class window.Overlay
     overlay:        $('.us-overlay-parent')
     openButton:     $('.js-open-overlay')
     closeButton:    $('.js-close-overlay')
+    escapeKey:      27
     historyStatus:  '#seedeal'
     history:        true
     resetScroll:    true
@@ -20,8 +21,7 @@ class window.Overlay
     @options.closeButton.on 'click', (e)=>
       @hide()
     $(document).on 'keyup', (e)=>
-      ESCAPE_KEY = 27
-      if e.keyCode == ESCAPE_KEY
+      if e.keyCode == @options.escapeKey
         @hide()
     if @hasHistory()  
       window.onpopstate = (event)=>
