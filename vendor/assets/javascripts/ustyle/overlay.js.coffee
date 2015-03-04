@@ -19,7 +19,7 @@ class window.Overlay
       @show()
     @options.closeButton.on 'click', (e)=>
       @hide()
-    $(document).keyup (e)=>
+    $(document).on 'keydown', (e)=>
       ESCAPE_KEY = 27
       if e.keyCode == ESCAPE_KEY
         @hide()
