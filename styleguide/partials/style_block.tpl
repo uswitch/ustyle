@@ -23,7 +23,7 @@
     </div>
   
     {{#state}}
-      <div class="styleguide__block-example state">
+      <div class="styleguide__block-example state-{{classSanitizer name}}">
         {{{markup.example}}}
         <div class="styleguide__block-example-class">{{name}}</div>
       </div>

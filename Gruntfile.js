@@ -158,8 +158,8 @@ module.exports = function(grunt) {
   grunt.loadTasks('grunt/tasks');
 
   grunt.registerTask('icons', ['newer:svgmin', 'svg2png']);
-  grunt.registerTask('build', ['sass', 'sassdoc', 'styleguide', 'concat', 'lint', 'postcss', 'cssstats', 'builder']);
+  grunt.registerTask('build', ['sass', 'sassdoc', 'styleguide', 'concat', 'postcss', 'cssstats', 'builder']);
   grunt.registerTask('default', ['env:dev', 'build', 'browserSync-init', 'watch']);
   grunt.registerTask('lint', ['scsslint']);
-  grunt.registerTask('publish', ['env:build', 'icons', 'build', 'shell:publish']);
+  grunt.registerTask('publish', ['env:build', 'icons', 'build', 'lint' ,  'shell:publish']);
 };
