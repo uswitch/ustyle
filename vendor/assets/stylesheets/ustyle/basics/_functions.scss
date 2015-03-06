@@ -3,7 +3,7 @@
 /// @param {Number (unit)} $pixels
 ///   The pixel number you want converted to `rem`
 ///
-/// @param {Number (unit)} $font-size ($base-font-size)
+/// @param {Number (unit)} $font-size [$base-font-size]
 ///   The font-size relative to `rems`
 ///
 /// @return {Unit}
@@ -17,7 +17,7 @@
 /// @param {Number (unit)} $pixels
 ///   The pixel number you want converted to `em`
 ///
-/// @param {Number (unit)} $font-size ($base-font-size)
+/// @param {Number (unit)} $font-size [$base-font-size]
 ///   The font-size relative to `ems`
 ///
 /// @return {Unit}

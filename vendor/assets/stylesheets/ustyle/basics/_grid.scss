@@ -5,7 +5,7 @@
 
 /// Adds a negative left and right margin of `$gutter-width / 2` to normalise the outer padding of columns
 ///
-/// @param {String} $breakpoint ($default-grid-breakpoint)
+/// @param {String} $breakpoint [$default-grid-breakpoint]
 ///   The breakpoint where you want the margin to be set
 
 @mixin us-row($breakpoint: $default-grid-breakpoint) {
@@ -43,7 +43,7 @@
 /// @param {Number (unitless)} $cols
 ///   The number of columns for the `$selector`
 ///
-/// @param {Bool} $html-classes ($html-grid-classes)
+/// @param {Bool} $html-classes [$html-grid-classes]
 ///   If set to false will only output placeholder classes for selective CSS generation
 
 @mixin _grid-class($selector, $cols, $html-classes: $html-grid-classes) {
