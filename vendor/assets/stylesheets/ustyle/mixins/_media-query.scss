@@ -88,10 +88,10 @@ $devices: ();
 ///   The device to match up the media query with. Can be one from the list of `$min-breakpoints`
 ///   or `$max-breakpoints`
 ///
-/// @param {Bool} $ie-fallback (false)
+/// @param {Bool} $ie-fallback [false]
 ///   If set to `true` will return a `.ie8` {content} fallback to ensure IE8 gets the supporting styling
 ///
-/// @param {Bool} $ie-fallback-noherit (false)
+/// @param {Bool} $ie-fallback-noherit [false]
 ///   If attaching the mixin onto the root, then set this to `true` to ensure Sass builds the correct styles
 ///
 

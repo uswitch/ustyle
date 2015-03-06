@@ -9,7 +9,7 @@ $rgba-pixel-size: 5 !default;
 ///
 /// @param {Color} $color
 ///   The rgba color to be converted
-/// @param {Number (unitless)} $pixels ($rgba-pixel-size)
+/// @param {Number (unitless)} $pixels [$rgba-pixel-size]
 ///   Size of base64 PNG
 
 @mixin rgba-inline($color, $pixels: $rgba-pixel-size) {

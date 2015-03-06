@@ -6,16 +6,16 @@
 /// pushes for the selected font size and line height. Will vary from font to font, has been set to our
 /// defaults
 ///
-/// @param {Number (unit)} $font-size ($base-font-size)
+/// @param {Number (unit)} $font-size [$base-font-size]
 ///   The font size for the element
 ///
-/// @param {Number (unit)} $line-height ($base-line-ratio)
+/// @param {Number (unit)} $line-height [$base-line-ratio]
 ///   The line height ratio
 ///
-/// @param {Number (unit)} $scale ($base-scale)
+/// @param {Number (unit)} $scale [$base-scale]
 ///   Base scale for baseline
 ///
-/// @param {Number (unit)} $cap-height ($base-cap-height)
+/// @param {Number (unit)} $cap-height [$base-cap-height]
 ///   The cap height of the font being used on the element
 ///
 
