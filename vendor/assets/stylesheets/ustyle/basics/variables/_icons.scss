@@ -149,7 +149,7 @@ $png-support-class: ".svg-off" !default;
 /// @group Icons
 /// @type List
 
-$icon-colors: "white", "typegrey", "inputgrey", "typecyan", "custom";
+$icon-colors: "white", "typegrey", "inputgrey", "typecyan", "custom" !default;
 
 /// List of the icon sizes and their respective names
 /// 
@@ -160,4 +160,4 @@ $icon-sizes: (
   (small, 16px),
   (medium, 32px),
   (large, 64px)
-);
+) !default;
