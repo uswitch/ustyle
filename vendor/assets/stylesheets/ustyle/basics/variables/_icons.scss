@@ -156,7 +156,7 @@ $icon-color-names: "white", "typegrey", "inputgrey", "typecyan", "custom" !defau
 /// @group Icons
 /// @type List
 
-$icon-color-positions: "0", "25%", "50%", "75%", "100%" !default;
+$icon-color-positions: 0, 25%, 50%, 75%, 100% !default;
 
 /// List of the icon sizes and their respective names
 /// 
@@ -164,7 +164,7 @@ $icon-color-positions: "0", "25%", "50%", "75%", "100%" !default;
 /// @type List
 
 $icon-sizes: (
-  (small, 16px),
-  (medium, 32px),
-  (large, 64px)
+  (small, 16px, 16px),
+  (medium, 32px, 32px),
+  (large, 64px, 64px)
 ) !default;

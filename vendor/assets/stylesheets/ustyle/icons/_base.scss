@@ -170,7 +170,7 @@
 /// @type String
 
 @mixin icon-color($color, $parent: false){
-  $position: 0 unquote(nth($icon-color-positions, index($icon-color-names, $color)));
+  $position: 0 nth($icon-color-positions, index($icon-color-names, $color));
 
   @if $parent {
     [class^="us-icon--"],
@@ -204,21 +204,22 @@
 
 @each $size in $icon-sizes {
   $size-name: nth($size, 1);
-  $pixels: nth($size, 2);
+  $width: nth($size, 2);
+  $height: nth($size, 3);
 
   .us-icon--#{$size-name},
   .us-icon--#{$size-name}--after:after,
   .us-icon--#{$size-name}--before:before {
-    width: $pixels;
-    height: $pixels;
+    width: $width;
+    height: $height;
   }
 
   @include respond-to(to-small-tablet) {
     .us-icon--#{$size-name}--sm-tablet,
     .us-icon--#{$size-name}--after--sm-tablet:after,
     .us-icon--#{$size-name}--before--sm-tablet:before {
-      width: $pixels !important;
-      height: $pixels !important;
+      width: $width !important;
+      height: $height !important;
     }
   }
 
@@ -226,8 +227,8 @@
     .us-icon--#{$size-name}--mobile,
     .us-icon--#{$size-name}--after--mobile:after,
     .us-icon--#{$size-name}--before--mobile:before {
-      width: $pixels !important;
-      height: $pixels !important;
+      width: $width !important;
+      height: $height !important;
     }
   }
 }
