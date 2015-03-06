@@ -1,3 +1,7 @@
+// 
+// These are the default icon variables to set up the uStyle SVG/PNG icons
+// 
+
 $icons: (
   alarm
   android
@@ -100,37 +104,57 @@ $icons: (
   wondering
   world
   xml
-);
+) !default;
 
 /// If set to `true` it will load **all** the icons within the uStyle repository. Use with care unless
 /// you're modifying the icon set
 ///
-/// @group icons
+/// @group Icons
 /// @type Boolean
 
 $load-icons: false !default;
 
 /// Default path for the icons. Is relative for sprockets, may be different for other projects
 /// 
-/// @group icons
+/// @group Icons
 /// @type String
 
 $base-icon-path: "icons/" !default;
 
+/// If this is set then SVGs are loaded first with the `$png-support-class` being the
+/// fallback top level HTML class for loading in the PNGs.
+/// 
+/// @group Icons
+/// @type Bool
 
 $svg-first: true !default;
 
+/// Default support class fir SVG support. An SVG detection system is needed for this to 
+/// be implemented. Feature detection like modernizr will do the trick.
+/// 
+/// @group Icons
+/// @type String
+
 $svg-support-class: ".svg-on" !default;
+
+/// Same as the `$svg-support-class` but applicable if `$svg-first` is set to `true`
+/// 
+/// @group Icons
+/// @type String
 
 $png-support-class: ".svg-off" !default;
 
-$icon-colors: (
-  ("white", "0 0"),
-  ("typegrey","0 25%"),
-  ("inputgrey","0 50%"),
-  ("typecyan", "0 75%"),
-  ("custom", "0 100%")
-);
+/// List of the supported SVG sprite colours
+/// 
+/// @group Icons
+/// @type List
+
+$icon-colors: "white", "typegrey", "inputgrey", "typecyan", "custom";
+
+/// List of the icon sizes and their respective names
+/// 
+/// @group Icons
+/// @type List
 
 $icon-sizes: (
   (small, 16px),

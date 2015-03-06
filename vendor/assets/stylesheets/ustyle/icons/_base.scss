@@ -130,12 +130,21 @@
   &:before,
   &:after {
     display: inline-block;
-    margin-right: $gutter-width/4;
     vertical-align: middle;
     pointer-events: none;
     background-size: cover;
     content: " ";
   }
+}
+
+[class^="us-icon--before"]:before,
+[class*=" us-icon--before"]:before {
+  margin-right: $gutter-width/4;  
+}
+
+[class^="us-icon--before"]:after,
+[class*=" us-icon--before"]:after {
+  margin-left: $gutter-width/4;  
 }
 
 .us-icon--centered {
@@ -154,20 +163,37 @@
 // ICON COLOURS
 //
 
-@each $color-map in $icon-colors {
-  $color-name: nth($color-map, 1);
-  $background-position: nth($color-map, 2);
+/// Default support class fir SVG support. An SVG detection system is needed for this to 
+/// be implemented. Feature detection like modernizr will do the trick.
+/// 
+/// @group Icons
+/// @type String
 
-  .us-icon--#{$color-name},
-  .us-icon--#{$color-name}--after:after,
-  .us-icon--#{$color-name}--before:before {
-    background-position: unquote($background-position);
+@mixin icon-color($color, $parent: false){
+  $position: 0 percentage(index($icon-colors, $color) * .2);
+
+  @if $parent {
+    [class^="us-icon--"],
+    [class*=" us-icon--"] {
+      background-position: $position;
+    }
+  }
+  @else {
+    background-position: $position;
+  }
+}
+
+@each $color in $icon-colors {
+  .us-icon--#{$color},
+  .us-icon--#{$color}--after:after,
+  .us-icon--#{$color}--before:before {
+    @include icon-color($color);
   }
 
-  .us-icon--hover-#{$color-name}:hover,
-  .us-icon--hover-#{$color-name}--after:hover:after,
-  .us-icon--hover-#{$color-name}--before:hover:before {
-    background-position: unquote($background-position);
+  .us-icon--hover-#{$color}:hover,
+  .us-icon--hover-#{$color}--after:hover:after,
+  .us-icon--hover-#{$color}--before:hover:before {
+    @include icon-color($color);
   }
 }
 
