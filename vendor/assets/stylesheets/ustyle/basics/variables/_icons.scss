@@ -149,14 +149,7 @@ $png-support-class: ".svg-off" !default;
 /// @group Icons
 /// @type List
 
-$icon-color-names: "white", "typegrey", "inputgrey", "typecyan", "custom" !default;
-
-/// List of the supported SVG sprite colour positions
-/// 
-/// @group Icons
-/// @type List
-
-$icon-color-positions: 0, 25%, 50%, 75%, 100% !default;
+$icon-colors: "white", "typegrey", "inputgrey", "typecyan", "custom" !default;
 
 /// List of the icon sizes and their respective names
 /// 

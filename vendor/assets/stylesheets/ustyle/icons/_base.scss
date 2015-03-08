@@ -170,7 +170,7 @@
 /// @type String
 
 @mixin icon-color($color, $parent: false){
-  $position: 0 nth($icon-color-positions, index($icon-color-names, $color));
+  $position: 0 (index($icon-colors, $color) - 1) * 25%;
 
   @if $parent {
     [class^="us-icon--"],
@@ -183,8 +183,7 @@
   }
 }
 
-@each $color in $icon-color-names {
-
+@each $color in $icon-colors {
   .us-icon--#{$color},
   .us-icon--#{$color}--after:after,
   .us-icon--#{$color}--before:before {
