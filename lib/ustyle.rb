@@ -8,6 +8,7 @@ module Ustyle
   class << self
     def load!
       require "ustyle/sass_functions"
+      require "ustyle/icons"
       register_compass_extension if compass?
 
       if defined?(::Rails)
