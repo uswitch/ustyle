@@ -59,17 +59,17 @@ $input-border-color: $c-inputgrey !default;
 }
 
 .us-form-input::-webkit-input-placeholder {
-  color: $c-typegrey-2;
+  color: $c-bordergrey;
 }
 
 .us-form-input:-moz-placeholder {
-  color: $c-typegrey-2;
+  color: $c-bordergrey;
 }
 
 .us-form-input::-moz-placeholder {
-  color: $c-typegrey-2;
+  color: $c-bordergrey;
 }
 
 .us-form-input:-ms-input-placeholder {
-  color: $c-typegrey-2;
+  color: $c-bordergrey;
 }
