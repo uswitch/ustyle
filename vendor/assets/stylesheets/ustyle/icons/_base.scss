@@ -167,9 +167,8 @@
 /// be implemented. Feature detection like modernizr will do the trick.
 /// 
 /// @group Icons
-/// @type String
 
-@mixin icon-color($color, $parent: false){
+@mixin icon-color($color, $parent: false) {
   $position: 0 (index($icon-colors, $color) - 1) * 25%;
 
   @if $parent {
@@ -177,8 +176,7 @@
     [class*=" us-icon--"] {
       background-position: $position;
     }
-  }
-  @else {
+  } @else {
     background-position: $position;
   }
 }

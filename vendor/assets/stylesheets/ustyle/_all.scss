@@ -10,6 +10,15 @@
 // Structure
 @import "ustyle/structure/base";
 
+// Forms
+@import "ustyle/forms/base";
+
+// Tables
+@import "ustyle/tables/base";
+
+// Icons
+@import "ustyle/icons/base";
+
 // Components
 @import "ustyle/components/links";
 @import "ustyle/components/lists";
@@ -35,9 +44,3 @@
 @import "ustyle/utilities/images";
 @import "ustyle/utilities/grid";
 @import "ustyle/utilities/responsive";
-
-// Forms
-@import "ustyle/forms/base";
-
-// Tables
-@import "ustyle/tables/base";
