@@ -5,7 +5,6 @@
 $account-navigation-background: $c-navy !default;
 $account-navigation-active-color: $c-cyan !default;
 $account-navigation-links: account, energy, car-insurance, settings !default;
-$account-navigation-icons: "\e04d", "\e04a", "\e001", "\2731" !default;
 $account-navigation-arrows: #fff, $c-cyan, $c-keylinegrey, $c-cyan !default;
 $account-navigation-number: length($account-navigation-links);
 $account-settings-width: 54px !default;
@@ -49,17 +48,12 @@ $account-settings-padding: $gutter-width / 2 !default;
   @include respond-to(tablet, true) {
     padding-top: 1.5em;
     padding-bottom: 1.5em;
-
-    &:before {
-      display: none;
-    }
   }
+}
 
-  &:before {
-    @extend %icon-font;
-    display: inline-block;
-    font-size: 1.25em;
-    vertical-align: middle;
+.us-account-nav__icon {
+  @include respond-to(tablet, true) {
+    display: none;
   }
 }
 
@@ -90,14 +84,6 @@ $account-settings-padding: $gutter-width / 2 !default;
   }
 }
 
-@each $link in $account-navigation-links {
-  .us-account-nav--#{$link} {
-    &:before {
-      content: nth($account-navigation-icons, index($account-navigation-links, $link));
-    }
-  }
-}
-
 // Settings link
 
 .us-account-nav--settings {
@@ -112,12 +98,8 @@ $account-settings-padding: $gutter-width / 2 !default;
     width: $account-settings-width;
   }
 
-  &:before {
-    display: inline-block !important;
-
-    @include respond-to(tablet, true) {
-      line-height: .5em;
-    }
+  .us-account-nav__icon {
+    display: inline-block;
   }
 
   .us-account-nav__link-text {

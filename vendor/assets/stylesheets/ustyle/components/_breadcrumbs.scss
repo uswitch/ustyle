@@ -13,6 +13,7 @@
 //     <li class="us-crumbs__item"><a class="us-crumbs__link" href="http://www.uswitch.com/credit-reports/guides/">Credit reports guides</a></li>
 //     <li class="us-crumbs__item">Statutory credit reports</li>
 //   </ul>
+
 .us-crumbs {
   @extend %reset-box-model;
   @extend %clearfix;
@@ -27,10 +28,9 @@
   margin-bottom: 0;
 
   &:before {
-    @extend %icon-font;
     display: inline-block;
-    margin: 0 .25em;
-    content: "\232a";
+    margin: 0 .5em;
+    content: "\27E9";
   }
 
   &:first-child:before {

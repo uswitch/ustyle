@@ -25,20 +25,18 @@ $message-min-height: 2.4em;
 $message-triangle-size: 10px;
 
 $icon-bg-size: 26px;
-$icon-input-bg-size: $icon-bg-size / 2;
-$icon-ratio: $base-font-size / $icon-bg-size;
+$icon-input-bg-size: 14px;
+$icon-text-color: #fff;
 
 $error-color: $c-red;
-$error-icon: "\e600";
-$error-icon-color: #fff;
+$error-icon: "!";
 
 $success-color: $c-green;
-$success-icon: "\e01d";
-$success-icon-color: #fff;
+$success-icon: "\2713";
 
-@mixin validation-style($color: $error-color, $icon: $error-icon, $icon-color: $error-icon-color, $text-color: $error-color) {
+@mixin validation-style($color: $error-color, $icon: $error-icon) {
   .us-validation__message {
-    color: $text-color;
+    color: $color;
     border-color: $color;
 
     &:before,
@@ -52,7 +50,7 @@ $success-icon-color: #fff;
   }
   
   .us-validation__icon {
-    color: $color;
+    background-color: $color;
 
     &:before {
       content: $icon;
@@ -60,16 +58,24 @@ $success-icon-color: #fff;
   }
 }
 
-@mixin validation-input-style($color, $icon, $icon-color) {
+@mixin validation-input-style($color, $icon) {
   .us-form-input,
   .us-form-input:hover {
     border-color: $color;
   }
 
   &:after {
-    color: $color;
+    background-color: $color;
     content: $icon;
   }
+}
+
+%validation-icon {
+  @include heading-font-secondary;
+  position: absolute;
+  color: $icon-text-color;
+  text-align: center;
+  border-radius: 50%;
 }
 
 .us-validation {
@@ -84,7 +90,7 @@ $success-icon-color: #fff;
   }
 
   &.us-validation--success {
-    @include validation-style($success-color, $success-icon, $success-icon-color, $success-color);
+    @include validation-style($success-color, $success-icon);
   }
 }
 
@@ -124,44 +130,35 @@ $success-icon-color: #fff;
 }
 
 .us-validation__icon {
-  @extend %icon-font;
-  position: absolute;
+  @extend %validation-icon;
   top: 10px;
   left: 0;
-  display: block;
-  font-size: $icon-bg-size;
-  text-align: center;
+  width: $icon-bg-size;
+  height: $icon-bg-size;
+  font-size: ceil($icon-bg-size * .8);
+  line-height: $icon-bg-size;
 }
 
 .us-validation__input {
   position: relative;
   display: inline-block;
 
-  &:before,
   &:after {
-    position: absolute;
-    top: -$icon-input-bg-size;
+    @extend %validation-icon;
+    top: -$icon-input-bg-size / 2;
     right: -$icon-input-bg-size / 2;
-  }
-
-  &:before {
-    width: 13px;
-    height: 16px;
-    background-color: #fff;
-    content: " ";
-  }
-
-  &:after {
-    @extend %icon-font;
-    font-size: $icon-input-bg-size;
+    width: $icon-input-bg-size;
+    height: $icon-input-bg-size;
+    font-size: ceil($icon-input-bg-size * .8);
+    line-height: $icon-input-bg-size;
   }
 
   &,
   &.us-validation--error {
-    @include validation-input-style($error-color, $error-icon, $error-icon-color);
+    @include validation-input-style($error-color, $error-icon);
   }
   
   &.us-validation--success {
-    @include validation-input-style($success-color, $success-icon, $success-icon-color);
+    @include validation-input-style($success-color, $success-icon);
   }
 }

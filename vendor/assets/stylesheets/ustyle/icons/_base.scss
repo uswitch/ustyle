@@ -117,56 +117,18 @@
 
 @import "ustyle/basics/variables/icons";
 
-[class^="us-icon--"],
-[class*=" us-icon--"] {
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-[class^="us-icon--before"],
-[class*=" us-icon--before"],
-[class^="us-icon--after"],
-[class*=" us-icon--after"] {
-  &:before,
-  &:after {
-    display: inline-block;
-    vertical-align: middle;
-    pointer-events: none;
-    background-size: cover;
-    content: " ";
-  }
-}
-
-[class^="us-icon--before"]:before,
-[class*=" us-icon--before"]:before {
-  margin-right: $gutter-width/4;  
-}
-
-[class^="us-icon--before"]:after,
-[class*=" us-icon--before"]:after {
-  margin-left: $gutter-width/4;  
-}
-
-.us-icon--centered {
-  position: relative;
-  top: 50%;
-  margin: 0 auto;
-  transform: translateY(-50%);
-}
-
-.us-icon--notext {
-  display: inline-block;
-  text-indent: -999em;
-}
-
-//
-// ICON COLOURS
-//
-
-/// Default support class fir SVG support. An SVG detection system is needed for this to 
-/// be implemented. Feature detection like modernizr will do the trick.
+/// Returns a background position for the number of `$icon-colors`
+///
+/// @author David Annez
 /// 
-/// @group Icons
+/// @require {Variable} icon-colors
+/// 
+/// @param {String} $color
+///   The matching colour string from the list of colours
+///   
+/// @param {Bool} $parent [false]
+///   If set to true, you can use this on a parent element and any icon within the parent
+///   will have this icon colour. Especially useful for hover on buttons or larger elements.
 
 @mixin icon-color($color, $parent: false) {
   $position: 0 (index($icon-colors, $color) - 1) * 25%;
@@ -181,51 +143,99 @@
   }
 }
 
-@each $color in $icon-colors {
-  .us-icon--#{$color},
-  .us-icon--#{$color}--after:after,
-  .us-icon--#{$color}--before:before {
-    @include icon-color($color);
+@if $load-icons {
+  [class^="us-icon--"],
+  [class*=" us-icon--"] {
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
-  .us-icon--hover-#{$color}:hover,
-  .us-icon--hover-#{$color}--after:hover:after,
-  .us-icon--hover-#{$color}--before:hover:before {
-    @include icon-color($color);
-  }
-}
-
-//
-// ICON SIZING
-//
-
-@each $size in $icon-sizes {
-  $size-name: nth($size, 1);
-  $width: nth($size, 2);
-  $height: nth($size, 3);
-
-  .us-icon--#{$size-name},
-  .us-icon--#{$size-name}--after:after,
-  .us-icon--#{$size-name}--before:before {
-    width: $width;
-    height: $height;
-  }
-
-  @include respond-to(to-small-tablet) {
-    .us-icon--#{$size-name}--sm-tablet,
-    .us-icon--#{$size-name}--after--sm-tablet:after,
-    .us-icon--#{$size-name}--before--sm-tablet:before {
-      width: $width !important;
-      height: $height !important;
+  [class^="us-icon--before"],
+  [class*=" us-icon--before"],
+  [class^="us-icon--after"],
+  [class*=" us-icon--after"] {
+    &:before,
+    &:after {
+      display: inline-block;
+      vertical-align: middle;
+      pointer-events: none;
+      background-size: cover;
+      content: " ";
     }
   }
 
-  @include respond-to(mobile) {
-    .us-icon--#{$size-name}--mobile,
-    .us-icon--#{$size-name}--after--mobile:after,
-    .us-icon--#{$size-name}--before--mobile:before {
-      width: $width !important;
-      height: $height !important;
+  [class^="us-icon--before"]:before,
+  [class*=" us-icon--before"]:before {
+    margin-right: $gutter-width/4;
+  }
+
+  [class^="us-icon--before"]:after,
+  [class*=" us-icon--before"]:after {
+    margin-left: $gutter-width/4;
+  }
+
+  .us-icon--centered {
+    position: relative;
+    top: 50%;
+    margin: 0 auto;
+    transform: translateY(-50%);
+  }
+
+  .us-icon--notext {
+    display: inline-block;
+    text-indent: -999em;
+  }
+
+  //
+  // ICON COLOURS
+  //
+
+  @each $color in $icon-colors {
+    .us-icon--#{$color},
+    .us-icon--#{$color}--after:after,
+    .us-icon--#{$color}--before:before {
+      @include icon-color($color);
+    }
+
+    .us-icon--hover-#{$color}:hover,
+    .us-icon--hover-#{$color}--after:hover:after,
+    .us-icon--hover-#{$color}--before:hover:before {
+      @include icon-color($color);
+    }
+  }
+
+  //
+  // ICON SIZING
+  //
+
+  @each $size in $icon-sizes {
+    $size-name: nth($size, 1);
+    $width: nth($size, 2);
+    $height: nth($size, 3);
+
+    .us-icon--#{$size-name},
+    .us-icon--#{$size-name}--after:after,
+    .us-icon--#{$size-name}--before:before {
+      width: $width;
+      height: $height;
+    }
+
+    @include respond-to(to-small-tablet) {
+      .us-icon--#{$size-name}--sm-tablet,
+      .us-icon--#{$size-name}--after--sm-tablet:after,
+      .us-icon--#{$size-name}--before--sm-tablet:before {
+        width: $width !important;
+        height: $height !important;
+      }
+    }
+
+    @include respond-to(mobile) {
+      .us-icon--#{$size-name}--mobile,
+      .us-icon--#{$size-name}--after--mobile:after,
+      .us-icon--#{$size-name}--before--mobile:before {
+        width: $width !important;
+        height: $height !important;
+      }
     }
   }
 }

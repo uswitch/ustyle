@@ -8,8 +8,12 @@
 //
 // @markup
 //   <ul class='us-ticked-list'>
-//     <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-//     <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+//     <li class='us-icon--before us-icon--tick--before us-icon--small--before us-icon--typegrey--before'>
+//       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+//     </li>
+//     <li class='us-icon--before us-icon--tick--before us-icon--small--before us-icon--typegrey--before'>
+//       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+//     </li>
 //   </ul>
 //   <ul class='us-numbered-list'>
 //     <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin iaculis bibendum.</li>
@@ -29,7 +33,6 @@
 
     &:before {
       position: absolute;
-      top: 0;
       left: 0;
     }
   }
@@ -39,17 +42,14 @@
   @extend %base-custom-list;
 
   li {
-    color: $c-navy;
-
     &:before {
-      @extend %icon-font;
-      font-size: 1.2em;
-      content: "\2714";
+      top: 50%;
+      margin-top: - 8px;
     }
 
     .us-hero &:before,
     .us-custom-list-alt &:before {
-      color: #fff;
+      @include icon-color("white");
     }
   }
 }
@@ -62,6 +62,7 @@
     counter-increment: number-counter;
 
     &:before {
+      top: 0;
       width: 1.5em;
       height: 1.5em;
       padding-top: .25em;

@@ -234,11 +234,11 @@ $tab-width: col-width(2) !default;
     }
 
     &:before {
-      @extend %icon-font;
+      @include arrow(10px, 10px, right);
       display: inline-block;
       margin-right: .75em;
       font-size: .75em;
-      content: "\25b6";
+      content: "";
       transition: all 300ms;
     }
   }
