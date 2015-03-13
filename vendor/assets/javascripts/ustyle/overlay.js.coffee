@@ -19,12 +19,12 @@ class window.Overlay
   addEventListeners: ->
     @options.openButton.on 'click', (e)=>
       if @options.preventDefault
-        e.preventDefault
+        e.preventDefault()
 
       @show(e)
     @options.closeButton.on 'click', (e)=>
       if @options.preventDefault
-        e.preventDefault
+        e.preventDefault()
         
       @hide(e)
     $(document).on 'keyup', (e)=>
