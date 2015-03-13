@@ -10,6 +10,7 @@ class window.Overlay
     historyStatus:  '#seedeal'
     history:        true
     resetScroll:    true
+    preventDefault: true
 
   constructor: (options) ->
     {@overlay} = @options = setOptions options, defaults
@@ -17,9 +18,15 @@ class window.Overlay
  
   addEventListeners: ->
     @options.openButton.on 'click', (e)=>
-      @show()
+      if @options.preventDefault
+        e.preventDefault
+
+      @show(e)
     @options.closeButton.on 'click', (e)=>
-      @hide()
+      if @options.preventDefault
+        e.preventDefault
+        
+      @hide(e)
     $(document).on 'keyup', (e)=>
       if e.keyCode == @options.escapeKey
         @hide()
@@ -29,7 +36,7 @@ class window.Overlay
     
   show: ->
     @overlay.addClass @options.openedClass
-    @options.onOpen?()
+    @options.onOpen?(e)
     
     if @options.resetScroll
       @overlay.find('.us-overlay__container').scrollTop(0)
@@ -38,7 +45,8 @@ class window.Overlay
 
   hide: ->
     @overlay.removeClass @options.openedClass
-    @options.onClose?()
+    @options.onClose?(e)
+
     if @hasHistory()
       if history.state is 'open'
         history.back()
