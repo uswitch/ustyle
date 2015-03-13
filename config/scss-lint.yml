@@ -2,6 +2,9 @@ scss_files: './vendor/assets/stylesheets/**/*.scss'
 exclude: './vendor/assets/stylesheets/ustyle/vendor/*.scss'
 
 linters:
+  ColorVariable:
+    enabled: false
+
   DeclarationOrder:
     enabled: true
 
@@ -20,7 +23,7 @@ linters:
     severity: error
 
   ImportantRule:
-    enabled: true
+    enabled: false
 
   NestingDepth:
     enabled: true
