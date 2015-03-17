@@ -27,11 +27,3 @@
   @extend %normal-font;
   font-style: italic;
 }
-
-%icon-font {
-  font: {
-    family: $icon-font;
-    weight: normal;
-  };
-  -webkit-font-smoothing: antialiased;
-}

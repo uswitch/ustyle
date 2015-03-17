@@ -130,12 +130,13 @@
       transition: color .3s;
 
       &:after {
-        @extend %icon-font;
         position: absolute;
         top: 50%;
         right: 1em;
         margin-top: -.75em;
-        content: "\232a";
+        font-size: 2em;
+        font-weight: 700;
+        content: "\27E9";
       }
 
       &:hover {

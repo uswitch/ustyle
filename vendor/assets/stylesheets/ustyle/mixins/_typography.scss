@@ -15,23 +15,6 @@
   }
 }
 
-/// Returns the `$icon-font` declaration either as an extend or re-declares
-///
-/// @param {Bool} $extend [true]
-///   If set to `false` will redeclare the `$icon-font` family
-
-@mixin icon-font($extend: true) {
-  @if $extend {
-    @extend %icon-font;
-  } @else {
-    font: {
-      family: $icon-font;
-      weight: normal;
-    };
-    -webkit-font-smoothing: antialiased;
-  }
-}
-
 /// Returns the `$heading-font-primary` declaration either as an extend or re-declares
 ///
 /// @param {Bool} $extend [true]
