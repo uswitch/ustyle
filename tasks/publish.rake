@@ -31,7 +31,7 @@ namespace :version do
 
   desc "Update version"
   task :update do
-    `npm version #{Ustyle::VERSION} -m "Version %s"`
+    `git commit -am "Deploying version #{Ustyle::VERSION}" && npm version #{Ustyle::VERSION} -m "Version %s"`
   end
 end
 
