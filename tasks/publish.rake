@@ -46,7 +46,7 @@ namespace :build do
   desc "Building images and hashing them"
   task :images do
     images_dir = File.join Ustyle.assets_path, "images"
-    FileUtils.rm_r "build/images"
+    FileUtils.rm_r "build/images", force: true
     FileUtils.cp_r images_dir, "build"
     
     Dir["build/images/**/*"].each do |file|
