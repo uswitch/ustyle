@@ -31,8 +31,8 @@
   &:before {
     display: inline-block;
     margin: 0 .5em;
-    content: "\27E9";
     font-weight: normal;
+    content: "\27E9";
   }
 
   &:first-child:before {
@@ -46,10 +46,12 @@
 
 .us-crumbs__link {
   color: $c-typegrey;
+  
   &:visited {
     color: $c-typegrey;
   }
-  &:hover{
+
+  &:hover {
     color: $c-typegrey;
     text-decoration: underline;
   }
