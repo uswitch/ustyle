@@ -26,23 +26,31 @@
 .us-crumbs__item {
   @extend %float-left;
   margin-bottom: 0;
+  color: $c-typegrey;
 
   &:before {
     display: inline-block;
     margin: 0 .5em;
     content: "\27E9";
+    font-weight: normal;
   }
 
   &:first-child:before {
     display: none;
   }
-}
 
-.us-crumbs__link,
-.us-crumbs__item {
-  color: $c-typegrey-2;
+  &:last-child {
+    font-weight: bold;
+  }
 }
 
 .us-crumbs__link {
-  @include link-colors($c-typegrey-2, $c-typecyan, $c-typegrey-2, $c-typegrey-2);
+  color: $c-typegrey;
+  &:visited {
+    color: $c-typegrey;
+  }
+  &:hover{
+    color: $c-typegrey;
+    text-decoration: underline;
+  }
 }
