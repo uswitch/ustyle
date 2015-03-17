@@ -34,7 +34,7 @@ class window.Overlay
       window.onpopstate = (event)=>
         @hide()
     
-  show: ->
+  show: (e)->
     @overlay.addClass @options.openedClass
     @options.onOpen?(e)
     
@@ -43,7 +43,7 @@ class window.Overlay
     if @hasHistory()
       history.pushState('open', window.document.title, @options.historyStatus)
 
-  hide: ->
+  hide: (e)->
     @overlay.removeClass @options.openedClass
     @options.onClose?(e)
 
