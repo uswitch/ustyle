@@ -150,18 +150,15 @@
     background-size: cover;
   }
 
-  [class^="us-icon--before"],
-  [class*=" us-icon--before"],
-  [class^="us-icon--after"],
-  [class*=" us-icon--after"] {
-    &:before,
-    &:after {
-      display: inline-block;
-      vertical-align: middle;
-      pointer-events: none;
-      background-size: cover;
-      content: " ";
-    }
+  [class^="us-icon--before"]:before,
+  [class*=" us-icon--before"]:before,
+  [class^="us-icon--after"]:after,
+  [class*=" us-icon--after"]:after {
+    display: inline-block;
+    vertical-align: middle;
+    pointer-events: none;
+    background-size: cover;
+    content: " ";
   }
 
   [class^="us-icon--before"]:before,
@@ -169,8 +166,8 @@
     margin-right: $gutter-width/4;
   }
 
-  [class^="us-icon--before"]:after,
-  [class*=" us-icon--before"]:after {
+  [class^="us-icon--after"]:after,
+  [class*=" us-icon--after"]:after {
     margin-left: $gutter-width/4;
   }
 
