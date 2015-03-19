@@ -15,7 +15,10 @@
 //   </p>
 
 .us-img--full {
-  @extend %img--full;
+  display: block;
+  height: auto;
+  max-width: 100%;
+  min-width: 100%;
 }
 
 .us-img--left {

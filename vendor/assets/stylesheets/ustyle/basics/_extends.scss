@@ -40,8 +40,7 @@
   left: 0;
   display: inline;
   margin: 0 0 0 .5em;
-  font-family: "uswitch-icon";
-  font-size: .6em;
+  font-size: .5em;
   line-height: 0;
   vertical-align: middle;
   content: "\25b6";
@@ -73,12 +72,4 @@
 // Normalise Firefox mobile inputs - https://bugzilla.mozilla.org/show_bug.cgi?id=763671
 %input-background--normalise {
   background-image: none;
-}
-
-// Images
-%img--full {
-  display: block;
-  height: auto;
-  max-width: 100%;
-  min-width: 100%;
 }
