@@ -107,7 +107,7 @@ module.exports = function(grunt){
 
     function generateStaticContent(sections, callback) {
       var pages = grunt.file.expand(staticPages).map(function(file){
-        var filename = path.basename(file, '.tpl').split("-"),
+        var filename = path.basename(file, '.tpl').split(/-(.+)?/),
             order = filename[0],
             name = filename[1];
 
