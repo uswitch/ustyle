@@ -1,25 +1,38 @@
 // @section JS components
 // @name Tooltip
 //
-// @state us-tooltip--small - 16x16 tooltip icons
-// @state us-tooltip--medium - 32x32 tooltip icons
-// @state us-tooltip--large - 64x64 tooltip icons
+// @state us-tooltip__icon--small - 16x16 tooltip icons
+// @state us-tooltip__icon--medium - 32x32 tooltip icons
 //
 // @markup
-//   <div class="us-tooltip {$modifiers}">
-//     <div class="us-tooltip__icon"></div>
+//   <div class="us-tooltip">
+//     <div class="us-tooltip__icon {$modifiers}"></div>
+//     <div class="us-tooltip__message">Tooltip message content</div>
 //   </div>
 
 $tooltip-sizes: (
   ("small", 16px, 11px),
-  ("medium", 32px, 22px),
-  ("large", 64px, 44px)
+  ("medium", 32px, 22px)
+);
+
+$tooltip-positions: (
+  ("top", "down"),
+  ("right", "left"),
+  ("bottom", "up"),
+  ("left", "right")
 );
 
 .us-tooltip {
+  position: relative;
   display: inline-block;
-  padding: 1em 1.5em;
-  color: $c-typegrey;
+  cursor: pointer;
+}
+
+.us-tooltip-trigger,
+.us-tooltip:hover {
+  .us-tooltip__message {
+    display: block;
+  }
 }
 
 .us-tooltip__icon {
@@ -35,6 +48,20 @@ $tooltip-sizes: (
   }
 }
 
+.us-tooltip__message {
+  // display: none;
+  padding: 1em 1.5em;
+  color: $c-typegrey;
+  border: 1px solid $c-typecyan;
+  border-radius: 3px;
+
+  &:before,
+  &:after {
+    position: absolute;
+    content: " ";
+  }
+}
+
 @each $size in $tooltip-sizes {
   $size-name: nth($size, 1);
   $pixels: nth($size, 2);
@@ -42,17 +69,37 @@ $tooltip-sizes: (
   $selector: "";
 
   @if $size-name == "medium" {
-    $selector: "us-tooltip, .us-tooltip.us-tooltip--#{$size-name}";
+    $selector: "us-tooltip__icon, .us-tooltip__icon.us-tooltip__icon--#{$size-name}";
   } @else {
-    $selector: "us-tooltip.us-tooltip--#{$size-name}";
+    $selector: "us-tooltip__icon.us-tooltip__icon--#{$size-name}";
   }
 
   .#{$selector} {
-    .us-tooltip__icon {
-      width: $pixels;
-      height: $pixels;
-      font-size: $font-size;
-      line-height: $pixels;
+    width: $pixels;
+    height: $pixels;
+    font-size: $font-size;
+    line-height: $pixels;
+  }
+}
+
+@each $position in $tooltip-positions {
+  $tooltip-position: nth($position, 1);
+  $arrow-direction: nth($position, 2);
+  $selector: "";
+
+  @if $tooltip-position == "right" {
+    $selector: "us-tooltip__message, us-tooltip__message.us-tooltip__message--#{$tooltip-position}";
+  } @else {
+    $selector: "us-tooltip__message.us-tooltip__message--#{$tooltip-position}";
+  }
+
+  .#{$selector} {
+    &:before {
+      @include arrow(10px, 20px, $arrow-direction, $c-typecyan);
+    }
+
+    &:after {
+      @include arrow(10px, 20px, $arrow-direction, #fff);
     }
   }
 }
