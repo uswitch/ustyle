@@ -111,6 +111,13 @@ module.exports = function(grunt) {
         dest: 'build/docs/js/app.js'
       }
     },
+    copy: {
+      main: {
+        files: [
+          {expand: true, flatten: true, src: ['styleguide/assets/images/**'], dest: 'build/docs/images/'},
+        ]
+      }
+    },
     sassdoc: {
       default: {
         src: 'vendor/assets/stylesheets/ustyle/**/*.scss',
@@ -151,13 +158,14 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-newer');
   grunt.loadTasks('grunt/tasks');
 
   grunt.registerTask('icons', ['newer:svgmin', 'svg2png']);
-  grunt.registerTask('build', ['sass', 'sassdoc', 'styleguide', 'concat', 'lint', 'postcss', 'cssstats', 'builder']);
+  grunt.registerTask('build', ['sass', 'sassdoc', 'styleguide', 'copy', 'concat', 'lint', 'postcss', 'cssstats', 'builder']);
   grunt.registerTask('default', ['env:dev', 'build', 'browserSync-init', 'watch']);
   grunt.registerTask('lint', ['scsslint']);
   grunt.registerTask('publish', ['env:build', 'icons', 'build', 'shell:publish']);
