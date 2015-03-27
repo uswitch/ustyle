@@ -183,5 +183,5 @@ module.exports = function(grunt) {
   grunt.registerTask('build', ['sass', 'sassdoc', 'styleguide', 'copy', 'concat', 'lint', 'postcss', 'cssstats', 'builder']);
   grunt.registerTask('default', ['env:dev', 'build', 'browserSync-init', 'watch']);
   grunt.registerTask('lint', ['scsslint']);
-  grunt.registerTask('publish', ['env:build', 'icons', 'build', 'buildcontrol:pages']);
+  grunt.registerTask('publish', ['env:build', 'build', 'buildcontrol:pages']);
 };
