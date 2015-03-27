@@ -114,8 +114,14 @@
   position: absolute;
   top: -7.5px;
   right: -7.5px;
-  width: 30px;
-  height: 30px;
-  background-image: inline-asset("anchor/close.svg");
-  background-size: contain;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  background-color: #000;
+  border-radius: 50%;
+
+  &:before {
+    font-size: 2em;
+    content: "\00d7";
+  }
 }

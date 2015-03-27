@@ -40,7 +40,7 @@ $overlay-transition-speed: .4s !default;
 $overlay-mobile-width: calc(100% - 25px) !default;
 $overlay-tablet-width: 340px !default;
 $overlay-header-height: 55px !default;
-$overlay-close-icon-size: 50px !default;
+$overlay-close-icon-size: 35px !default;
 $overlay-z-index: $overlay-forced-z-index;
 
 @mixin overlay($place-above: false) {
@@ -159,6 +159,7 @@ $overlay-z-index: $overlay-forced-z-index;
 }
 
 .us-overlay__header {
+  position: relative;
   min-height: $overlay-header-height;
   padding: 1em;
   color: #fff;
@@ -171,19 +172,25 @@ $overlay-z-index: $overlay-forced-z-index;
 
 .us-overlay__close {
   position: absolute;
-  top: .5em;
-  right: 0;
+  top: 50%;
+  right: .5em;
   z-index: 10;
   width: $overlay-close-icon-size;
   height: $overlay-close-icon-size;
+  margin-top: - $overlay-close-icon-size / 2;
+  color: $c-navy;
   cursor: pointer;
-  background-color: transparent;
-  background-image: url(ustyle-image-path("anchor/close_white_fallback.png"));
-  background-image: inline-asset("anchor/close_white.svg");
-  background-repeat: no-repeat;
-  background-size: 40px;
+  background-color: #fff;
   border: 0;
+  border-radius: 50%;
   -webkit-appearance: none;
+
+  &:before {
+    font-size: $overlay-close-icon-size + 5px;
+    font-weight: bold;
+    line-height: 31px;
+    content: "\00d7";
+  }
 }
 
 .us-overlay__back-layer {
