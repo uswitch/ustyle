@@ -147,6 +147,20 @@ module.exports = function(grunt) {
       build : {
         NODE_ENV : 'production'
       }
+    },
+    buildcontrol: {
+      options: {
+        dir: 'build/docs',
+        commit: true,
+        push: true,
+        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+      },
+      pages: {
+        options: {
+          remote: 'git@github.com:ustyle/ustyle.git',
+          branch: 'gh-pages'
+        }
+      }
     }
   });
 
@@ -160,6 +174,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-build-control');
   grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-newer');
   grunt.loadTasks('grunt/tasks');
@@ -168,5 +183,5 @@ module.exports = function(grunt) {
   grunt.registerTask('build', ['sass', 'sassdoc', 'styleguide', 'copy', 'concat', 'lint', 'postcss', 'cssstats', 'builder']);
   grunt.registerTask('default', ['env:dev', 'build', 'browserSync-init', 'watch']);
   grunt.registerTask('lint', ['scsslint']);
-  grunt.registerTask('publish', ['env:build', 'icons', 'build', 'shell:publish']);
+  grunt.registerTask('publish', ['env:build', 'icons', 'build', 'buildcontrol:pages']);
 };
