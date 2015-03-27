@@ -157,7 +157,7 @@ module.exports = function(grunt) {
       },
       pages: {
         options: {
-          remote: 'git@github.com:ustyle/ustyle.git',
+          remote: 'git@github.com:uswitch/ustyle.git',
           branch: 'gh-pages'
         }
       }
