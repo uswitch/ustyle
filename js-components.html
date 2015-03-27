@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html class="no-js svg">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+  <title>ustyle styleguide</title>
+  <link rel="stylesheet" href="//assets0.uswitch.com/s3/uswitch-assets-eu/ustyle/ustyle-icons.css" type="text/css" />
+  <link rel="stylesheet" href="css/main.css" type="text/css" />
+  <script>
+    (function(html){
+      html.className=html.className.replace(/\bno-js\b/,'js')
+    })(document.documentElement);
+  </script>
+</head>
+<body>
+  <div id="wrapper">
+    <a href="javascript:void(0)" class="nav-mobile us-desktop--hidden js-toggle__link" data-target="sidebar"><span class="nav-mobile__hamburger">Open menu</span></a>
+    <div class='sidebar'>
+      <a class='logo us-icon--large us-icon--medium--sm-tablet us-icon--uswitch us-icon--notext us-icon--custom us-icon--hover-typecyan' href='/docs' id='logo'>ustyle styleguide</a>
+      <p class="version us-tablet--block">v0.14.4</p>
+      <div class='nav'>
+        <nav class='nav__container'>
+          <div class='nav__set-container'>
+            <ul class='nav__set'>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="index.html">Index</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="grid.html">Grid</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="imagery.html">Imagery</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="language.html">Language</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="brand-framework.html">Brand framework</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="typography.html">Typography</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="colours.html">Colours</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link active" href="js-components.html">JS components</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="components.html">Components</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="tables.html">Tables</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="forms.html">Forms</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="icons.html">Icons</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="utilities.html">Utilities</a>
+                </li>
+              <li class="nav__item">
+                <a class="nav__link nav__main-link" href="sass/">Sass doc</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <div class="us-hero trailered">
+      <div class="container sidebar--push styleguide__header">
+        <h1 class="styleguide__title">JS components</h1>
+        <div class='us-grid-row'>
+          <nav class="styleguide__nav us-col-md-8">
+                <div class="us-col-md-4">
+                  <a class="styleguide__nav-link" href="#anchor">Anchor</a>
+                </div>
+                <div class="us-col-md-4">
+                  <a class="styleguide__nav-link" href="#overlay">Overlay</a>
+                </div>
+                <div class="us-col-md-4">
+                  <a class="styleguide__nav-link" href="#tabs">Tabs</a>
+                </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div class="styleguide container sidebar--push">
+            <div class="styleguide__block" id="anchor">
+              <div class="styleguide__block-info">
+                <h2 class="styleguide__block-title">
+                  Anchor
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_anchor.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_anchor.scss</span></a>
+                </h2>
+                
+                <p>  Anchor is a naive implementation of Tether by HubSpot.
+              It creates an independent dropdown that is &quot;anchored&quot; to the bottom of the target element.
+              We&#39;ve decided to only support IE9+, as the uses of Anchor throughout uSwitch are for progressive enhancement.</p>
+            
+                
+              </div>
+              
+              <h3 class="styleguide__block-small-title">Example</h3>
+              <div class="styleguide__block-examples">
+                <div class="styleguide__block-example">
+                     <span class='us-btn js-example-anchor'>Click me!</span>
+               <div class='us-anchor__target js-example-anchor__target'>
+                 <p>Kielbasa tenderloin spare ribs, andouille doner brisket chuck drumstick bresaola short loin pork t-bone ground round jowl. Ball tip pork loin doner tongue filet mignon biltong hamburger leberkas. Filet mignon kielbasa kevin short ribs, drumstick chuck shankle spare ribs tri-tip.</p>
+               </div>
+                </div>
+              
+            
+                <pre><code class="html">
+               &lt;span class='us-btn js-example-anchor'&gt;Click me!&lt;/span&gt;
+               &lt;div class='us-anchor__target js-example-anchor__target'&gt;
+                 &lt;p&gt;Kielbasa tenderloin spare ribs, andouille doner brisket chuck drumstick bresaola short loin pork t-bone ground round jowl. Ball tip pork loin doner tongue filet mignon biltong hamburger leberkas. Filet mignon kielbasa kevin short ribs, drumstick chuck shankle spare ribs tri-tip.&lt;/p&gt;
+               &lt;/div&gt;
+                </code></pre>
+              </div>
+            
+            </div>            <div class="styleguide__block" id="overlay">
+              <div class="styleguide__block-info">
+                <h2 class="styleguide__block-title">
+                  Overlay
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_overlay.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_overlay.scss</span></a>
+                </h2>
+                
+                <p>  <code>.us-overlay</code> can slide from either side and turn into a modal if <code>.us-overlay-modal-parent</code> is added to a parent.
+              To initialise call <code>var overlay = new Overlay({options})</code></p>
+            
+                  <ul class="styleguide__block-states">
+                      <li class="name"><strong>.us-overlay--right</strong> - Slide from the right</li>
+                      <li class="name"><strong>.us-overlay--sticky-header</strong> - Sticky header</li>
+                  </ul>
+                
+              </div>
+              
+              <h3 class="styleguide__block-small-title">Example</h3>
+              <div class="styleguide__block-examples">
+                <div class="styleguide__block-example">
+                     <button class='us-btn js-open-overlay' modifier="{$modifiers}">Open</button>
+               <div class="us-overlay-parent us-overlay-modal-parent" modifier="{$modifiers}">
+                 <div class="us-overlay {$modifiers}">
+                   <div class="us-overlay__header">
+                     <div class="us-overlay__title">
+                       Overlay
+                     </div>
+                     <button class="us-overlay__close js-close-overlay"></button>
+                   </div>
+                   <div class="us-overlay__container">
+                     Bacon ipsum dolor amet exercitation ground round voluptate, fatback qui cupidatat sunt consectetur. Dolore strip steak pancetta ground round, venison rump tenderloin fatback frankfurter prosciutto deserunt do ex. In cupim ullamco bresaola, beef meatball aliqua laborum landjaeger consectetur tail cupidatat pariatur meatloaf ball tip. Anim cupim dolore, filet mignon kielbasa tri-tip short ribs esse porchetta landjaeger qui pork loin.
+                     Ground round nostrud pastrami tempor cow short loin. Ut short ribs alcatra laboris brisket leberkas cow ham hock pork loin excepteur porchetta labore meatloaf. Labore filet mignon ball tip eu pork chop tri-tip porchetta alcatra. Ut consequat cupim ad corned beef sunt proident strip steak tongue irure pastrami kielbasa t-bone.
+                     Cow in tenderloin minim, aliqua in turkey anim filet mignon adipisicing reprehenderit bacon. Kielbasa turducken sunt dolore, velit alcatra filet mignon sint commodo beef ribs consectetur pork belly frankfurter pork chop meatloaf. Veniam in ad pork belly deserunt. Kevin sed cupidatat magna, swine incididunt reprehenderit tongue short loin pig kielbasa ham hock frankfurter salami beef ribs. Est corned beef shoulder ipsum, pancetta pork shankle meatloaf in beef in drumstick fatback velit pork chop. Meatloaf velit brisket mollit, ut kielbasa t-bone ex landjaeger pork chop adipisicing prosciutto shankle. Brisket turkey ham hock beef ribs, voluptate venison swine flank doner capicola rump tempor.
+                     Reprehenderit proident turkey mollit ut ipsum magna chuck ut brisket venison do. Exercitation boudin cillum prosciutto. Incididunt excepteur sint pork labore pork loin tri-tip salami cow elit bresaola beef ribs aliquip duis. Dolore nisi frankfurter ut magna.
+                     Et anim ad commodo, pork aliquip occaecat. Frankfurter kielbasa dolore, landjaeger chuck pork in drumstick fatback. Nulla minim dolor, ut filet mignon ground round id esse beef strip steak do laboris. Kielbasa hamburger consectetur, picanha fatback incididunt aute turducken pig in rump landjaeger qui pork tongue. Sausage cupim consectetur, drumstick et ea fatback consequat leberkas alcatra meatloaf. Duis rump velit est cupidatat in.
+                   </div>
+                 </div>
+                 <div class="us-overlay__back-layer js-close-overlay"></div>
+               </div>
+                </div>
+              
+                  <div class="styleguide__block-example state-us-overlay--right">
+                       <button class='us-btn js-open-overlay' modifier="us-overlay--right">Open</button>
+               <div class="us-overlay-parent us-overlay-modal-parent" modifier="us-overlay--right">
+                 <div class="us-overlay us-overlay--right">
+                   <div class="us-overlay__header">
+                     <div class="us-overlay__title">
+                       Overlay
+                     </div>
+                     <button class="us-overlay__close js-close-overlay"></button>
+                   </div>
+                   <div class="us-overlay__container">
+                     Bacon ipsum dolor amet exercitation ground round voluptate, fatback qui cupidatat sunt consectetur. Dolore strip steak pancetta ground round, venison rump tenderloin fatback frankfurter prosciutto deserunt do ex. In cupim ullamco bresaola, beef meatball aliqua laborum landjaeger consectetur tail cupidatat pariatur meatloaf ball tip. Anim cupim dolore, filet mignon kielbasa tri-tip short ribs esse porchetta landjaeger qui pork loin.
+                     Ground round nostrud pastrami tempor cow short loin. Ut short ribs alcatra laboris brisket leberkas cow ham hock pork loin excepteur porchetta labore meatloaf. Labore filet mignon ball tip eu pork chop tri-tip porchetta alcatra. Ut consequat cupim ad corned beef sunt proident strip steak tongue irure pastrami kielbasa t-bone.
+                     Cow in tenderloin minim, aliqua in turkey anim filet mignon adipisicing reprehenderit bacon. Kielbasa turducken sunt dolore, velit alcatra filet mignon sint commodo beef ribs consectetur pork belly frankfurter pork chop meatloaf. Veniam in ad pork belly deserunt. Kevin sed cupidatat magna, swine incididunt reprehenderit tongue short loin pig kielbasa ham hock frankfurter salami beef ribs. Est corned beef shoulder ipsum, pancetta pork shankle meatloaf in beef in drumstick fatback velit pork chop. Meatloaf velit brisket mollit, ut kielbasa t-bone ex landjaeger pork chop adipisicing prosciutto shankle. Brisket turkey ham hock beef ribs, voluptate venison swine flank doner capicola rump tempor.
+                     Reprehenderit proident turkey mollit ut ipsum magna chuck ut brisket venison do. Exercitation boudin cillum prosciutto. Incididunt excepteur sint pork labore pork loin tri-tip salami cow elit bresaola beef ribs aliquip duis. Dolore nisi frankfurter ut magna.
+                     Et anim ad commodo, pork aliquip occaecat. Frankfurter kielbasa dolore, landjaeger chuck pork in drumstick fatback. Nulla minim dolor, ut filet mignon ground round id esse beef strip steak do laboris. Kielbasa hamburger consectetur, picanha fatback incididunt aute turducken pig in rump landjaeger qui pork tongue. Sausage cupim consectetur, drumstick et ea fatback consequat leberkas alcatra meatloaf. Duis rump velit est cupidatat in.
+                   </div>
+                 </div>
+                 <div class="us-overlay__back-layer js-close-overlay"></div>
+               </div>
+                    <div class="styleguide__block-example-class">.us-overlay--right</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-overlay--sticky-header">
+                       <button class='us-btn js-open-overlay' modifier="us-overlay--sticky-header">Open</button>
+               <div class="us-overlay-parent us-overlay-modal-parent" modifier="us-overlay--sticky-header">
+                 <div class="us-overlay us-overlay--sticky-header">
+                   <div class="us-overlay__header">
+                     <div class="us-overlay__title">
+                       Overlay
+                     </div>
+                     <button class="us-overlay__close js-close-overlay"></button>
+                   </div>
+                   <div class="us-overlay__container">
+                     Bacon ipsum dolor amet exercitation ground round voluptate, fatback qui cupidatat sunt consectetur. Dolore strip steak pancetta ground round, venison rump tenderloin fatback frankfurter prosciutto deserunt do ex. In cupim ullamco bresaola, beef meatball aliqua laborum landjaeger consectetur tail cupidatat pariatur meatloaf ball tip. Anim cupim dolore, filet mignon kielbasa tri-tip short ribs esse porchetta landjaeger qui pork loin.
+                     Ground round nostrud pastrami tempor cow short loin. Ut short ribs alcatra laboris brisket leberkas cow ham hock pork loin excepteur porchetta labore meatloaf. Labore filet mignon ball tip eu pork chop tri-tip porchetta alcatra. Ut consequat cupim ad corned beef sunt proident strip steak tongue irure pastrami kielbasa t-bone.
+                     Cow in tenderloin minim, aliqua in turkey anim filet mignon adipisicing reprehenderit bacon. Kielbasa turducken sunt dolore, velit alcatra filet mignon sint commodo beef ribs consectetur pork belly frankfurter pork chop meatloaf. Veniam in ad pork belly deserunt. Kevin sed cupidatat magna, swine incididunt reprehenderit tongue short loin pig kielbasa ham hock frankfurter salami beef ribs. Est corned beef shoulder ipsum, pancetta pork shankle meatloaf in beef in drumstick fatback velit pork chop. Meatloaf velit brisket mollit, ut kielbasa t-bone ex landjaeger pork chop adipisicing prosciutto shankle. Brisket turkey ham hock beef ribs, voluptate venison swine flank doner capicola rump tempor.
+                     Reprehenderit proident turkey mollit ut ipsum magna chuck ut brisket venison do. Exercitation boudin cillum prosciutto. Incididunt excepteur sint pork labore pork loin tri-tip salami cow elit bresaola beef ribs aliquip duis. Dolore nisi frankfurter ut magna.
+                     Et anim ad commodo, pork aliquip occaecat. Frankfurter kielbasa dolore, landjaeger chuck pork in drumstick fatback. Nulla minim dolor, ut filet mignon ground round id esse beef strip steak do laboris. Kielbasa hamburger consectetur, picanha fatback incididunt aute turducken pig in rump landjaeger qui pork tongue. Sausage cupim consectetur, drumstick et ea fatback consequat leberkas alcatra meatloaf. Duis rump velit est cupidatat in.
+                   </div>
+                 </div>
+                 <div class="us-overlay__back-layer js-close-overlay"></div>
+               </div>
+                    <div class="styleguide__block-example-class">.us-overlay--sticky-header</div>
+                  </div>
+            
+                <pre><code class="html">
+               &lt;button class='us-btn js-open-overlay' modifier="{$modifiers}"&gt;Open&lt;/button&gt;
+               &lt;div class="us-overlay-parent us-overlay-modal-parent" modifier="{$modifiers}"&gt;
+                 &lt;div class="us-overlay"&gt;
+                   &lt;div class="us-overlay__header"&gt;
+                     &lt;div class="us-overlay__title"&gt;
+                       Overlay
+                     &lt;/div&gt;
+                     &lt;button class="us-overlay__close js-close-overlay"&gt;&lt;/button&gt;
+                   &lt;/div&gt;
+                   &lt;div class="us-overlay__container"&gt;
+                     Bacon ipsum dolor amet exercitation ground round voluptate, fatback qui cupidatat sunt consectetur. Dolore strip steak pancetta ground round, venison rump tenderloin fatback frankfurter prosciutto deserunt do ex. In cupim ullamco bresaola, beef meatball aliqua laborum landjaeger consectetur tail cupidatat pariatur meatloaf ball tip. Anim cupim dolore, filet mignon kielbasa tri-tip short ribs esse porchetta landjaeger qui pork loin.
+                     Ground round nostrud pastrami tempor cow short loin. Ut short ribs alcatra laboris brisket leberkas cow ham hock pork loin excepteur porchetta labore meatloaf. Labore filet mignon ball tip eu pork chop tri-tip porchetta alcatra. Ut consequat cupim ad corned beef sunt proident strip steak tongue irure pastrami kielbasa t-bone.
+                     Cow in tenderloin minim, aliqua in turkey anim filet mignon adipisicing reprehenderit bacon. Kielbasa turducken sunt dolore, velit alcatra filet mignon sint commodo beef ribs consectetur pork belly frankfurter pork chop meatloaf. Veniam in ad pork belly deserunt. Kevin sed cupidatat magna, swine incididunt reprehenderit tongue short loin pig kielbasa ham hock frankfurter salami beef ribs. Est corned beef shoulder ipsum, pancetta pork shankle meatloaf in beef in drumstick fatback velit pork chop. Meatloaf velit brisket mollit, ut kielbasa t-bone ex landjaeger pork chop adipisicing prosciutto shankle. Brisket turkey ham hock beef ribs, voluptate venison swine flank doner capicola rump tempor.
+                     Reprehenderit proident turkey mollit ut ipsum magna chuck ut brisket venison do. Exercitation boudin cillum prosciutto. Incididunt excepteur sint pork labore pork loin tri-tip salami cow elit bresaola beef ribs aliquip duis. Dolore nisi frankfurter ut magna.
+                     Et anim ad commodo, pork aliquip occaecat. Frankfurter kielbasa dolore, landjaeger chuck pork in drumstick fatback. Nulla minim dolor, ut filet mignon ground round id esse beef strip steak do laboris. Kielbasa hamburger consectetur, picanha fatback incididunt aute turducken pig in rump landjaeger qui pork tongue. Sausage cupim consectetur, drumstick et ea fatback consequat leberkas alcatra meatloaf. Duis rump velit est cupidatat in.
+                   &lt;/div&gt;
+                 &lt;/div&gt;
+                 &lt;div class="us-overlay__back-layer js-close-overlay"&gt;&lt;/div&gt;
+               &lt;/div&gt;
+                </code></pre>
+              </div>
+            
+            </div>            <div class="styleguide__block" id="tabs">
+              <div class="styleguide__block-info">
+                <h2 class="styleguide__block-title">
+                  Tabs
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_tabs.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_tabs.scss</span></a>
+                </h2>
+                
+                <p>   These are the basic tabs used for landing pages. You can either reference a data-target for the urls or href
+               for the target tabs. They have a non-js fallback and fold over to accordion when in small tablet view. They are initialised
+               on page load if the tabs classes exist. To initialise call <code>var tabs = new Tabs()</code></p>
+            
+                
+              </div>
+              
+              <h3 class="styleguide__block-small-title">Example</h3>
+              <div class="styleguide__block-examples">
+                <div class="styleguide__block-example">
+                     <div class='us-tabs'>
+                 <nav class='us-tabs-nav'>
+                   <div class='us-tabs-nav-wrapper'>
+                     <div class='us-tabs-nav-menu'>
+                       <a class="us-tabs-nav-mainlink us-tabs-nav-link" href="#tab1">Tab 1</a>
+                       <a class="us-tabs-nav-mainlink us-tabs-nav-link" href="#tab2">Tab 2</a>
+                       <a class="us-tabs-nav-mainlink us-tabs-nav-link" href="#tab3">Tab 3</a>
+                     </div>
+                   </div>
+                 </nav>
+                 <div class='us-tabs-container'>
+                   <div class='us-tab' id='tab1'>
+                     <h2 class='us-tab-title'><a class="us-tabs-nav-mainlink" href="#tab1">Test 1</a></h2>
+                     <div class='us-tab-content'>
+                       <p>Fatback capicola leberkas pork loin pork jowl. Meatloaf shoulder pancetta, salami prosciutto ribeye andouille chuck landjaeger short loin filet mignon sirloin. Pork chop tri-tip ham pork hamburger frankfurter leberkas short ribs biltong. Prosciutto ham hock rump, andouille tongue flank sirloin tri-tip ball tip frankfurter ham drumstick meatloaf pork loin.</p>
+                     </div>
+                   </div>
+                   <div class='us-tab' id='tab2'>
+                     <h2 class='us-tab-title'><a class="us-tabs-nav-mainlink" href="#tab2">Test 2</a></h2>
+                     <div class='us-tab-content'>
+                       <p>Kielbasa tenderloin spare ribs, andouille doner brisket chuck drumstick bresaola short loin pork t-bone ground round jowl. Ball tip pork loin doner tongue filet mignon biltong hamburger leberkas. Filet mignon kielbasa kevin short ribs, drumstick chuck shankle spare ribs tri-tip.</p>
+                     </div>
+                   </div>
+                   <div class='us-tab' id='tab3'>
+                     <h2 class='us-tab-title'><a class="us-tabs-nav-mainlink" href="#tab3">Test 3</a></h2>
+                     <div class='us-tab-content'>
+                       <p>Pig pastrami pork loin kielbasa, filet mignon meatloaf short ribs tenderloin. Pork loin leberkas kevin fatback porchetta bresaola. Cow rump shoulder pastrami. Andouille pork belly t-bone short ribs brisket. Bresaola pork belly tail salami capicola meatball. Pork belly beef ham landjaeger.</p>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+                </div>
+              
+            
+                <pre><code class="html">
+               &lt;div class='us-tabs'&gt;
+                 &lt;nav class='us-tabs-nav'&gt;
+                   &lt;div class='us-tabs-nav-wrapper'&gt;
+                     &lt;div class='us-tabs-nav-menu'&gt;
+                       &lt;a class="us-tabs-nav-mainlink us-tabs-nav-link" href="#tab1"&gt;Tab 1&lt;/a&gt;
+                       &lt;a class="us-tabs-nav-mainlink us-tabs-nav-link" href="#tab2"&gt;Tab 2&lt;/a&gt;
+                       &lt;a class="us-tabs-nav-mainlink us-tabs-nav-link" href="#tab3"&gt;Tab 3&lt;/a&gt;
+                     &lt;/div&gt;
+                   &lt;/div&gt;
+                 &lt;/nav&gt;
+                 &lt;div class='us-tabs-container'&gt;
+                   &lt;div class='us-tab' id='tab1'&gt;
+                     &lt;h2 class='us-tab-title'&gt;&lt;a class="us-tabs-nav-mainlink" href="#tab1"&gt;Test 1&lt;/a&gt;&lt;/h2&gt;
+                     &lt;div class='us-tab-content'&gt;
+                       &lt;p&gt;Fatback capicola leberkas pork loin pork jowl. Meatloaf shoulder pancetta, salami prosciutto ribeye andouille chuck landjaeger short loin filet mignon sirloin. Pork chop tri-tip ham pork hamburger frankfurter leberkas short ribs biltong. Prosciutto ham hock rump, andouille tongue flank sirloin tri-tip ball tip frankfurter ham drumstick meatloaf pork loin.&lt;/p&gt;
+                     &lt;/div&gt;
+                   &lt;/div&gt;
+                   &lt;div class='us-tab' id='tab2'&gt;
+                     &lt;h2 class='us-tab-title'&gt;&lt;a class="us-tabs-nav-mainlink" href="#tab2"&gt;Test 2&lt;/a&gt;&lt;/h2&gt;
+                     &lt;div class='us-tab-content'&gt;
+                       &lt;p&gt;Kielbasa tenderloin spare ribs, andouille doner brisket chuck drumstick bresaola short loin pork t-bone ground round jowl. Ball tip pork loin doner tongue filet mignon biltong hamburger leberkas. Filet mignon kielbasa kevin short ribs, drumstick chuck shankle spare ribs tri-tip.&lt;/p&gt;
+                     &lt;/div&gt;
+                   &lt;/div&gt;
+                   &lt;div class='us-tab' id='tab3'&gt;
+                     &lt;h2 class='us-tab-title'&gt;&lt;a class="us-tabs-nav-mainlink" href="#tab3"&gt;Test 3&lt;/a&gt;&lt;/h2&gt;
+                     &lt;div class='us-tab-content'&gt;
+                       &lt;p&gt;Pig pastrami pork loin kielbasa, filet mignon meatloaf short ribs tenderloin. Pork loin leberkas kevin fatback porchetta bresaola. Cow rump shoulder pastrami. Andouille pork belly t-bone short ribs brisket. Bresaola pork belly tail salami capicola meatball. Pork belly beef ham landjaeger.&lt;/p&gt;
+                     &lt;/div&gt;
+                   &lt;/div&gt;
+                 &lt;/div&gt;
+               &lt;/div&gt;
+                </code></pre>
+              </div>
+            
+            </div>    </div>
+  </div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="js/app.js"></script></body>
+</html>
