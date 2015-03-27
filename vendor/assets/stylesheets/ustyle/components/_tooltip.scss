@@ -89,12 +89,12 @@ $tooltip-icon-size: 22px;
 .us-tooltip__note {
   position: relative;
   display: none;
-  padding: 1em;
+  padding: 1em 1.5em;
   margin-top: 2em;
   margin-bottom: 1em;
   color: $c-typegrey;
   background: #fff;
-  border: 2px solid $c-typecyan;
+  border: 1px solid $c-typecyan;
   border-radius: 4px;
   transition: opacity .2s, transform .2s;
   transition-timing-function: cubic-bezier(.175, .885, .335, 1.05);
@@ -109,44 +109,11 @@ $tooltip-icon-size: 22px;
     margin-top: 0;
     margin-bottom: 0;
     pointer-events: none;
-    border-width: 1px;
     opacity: 0;
     transform: translate3d(30px, 0, 0);
   }
 
   .no-csstransforms & {
     display: none;
-  }
-
-  &:before {
-    @include arrow(20px, 10px, up, $c-typecyan);
-    top: -10px;
-
-    @include respond-to(desktop, true) {
-      @include arrow(10px, 20px, left, $c-typecyan);
-      left: -20px;
-    }
-  }
-
-  &:after {
-    @include arrow(20px, 10px, up, #fff);
-    top: -7px;
-
-    @include respond-to(desktop, true) {
-      @include arrow(10px, 20px, left, #fff);
-      left: -19px;
-    }
-  }
-
-  &:before,
-  &:after {
-    position: absolute;
-    right: 0;
-    content: "";
-
-    @include respond-to(desktop, true) {
-      top: ($tooltip-icon-size/2);
-      right: auto;
-    }
   }
 }
