@@ -16,12 +16,12 @@
 // @markup
 //   <h4>Hover on the tooltip</h4>
 //   <div class="tooltip-demo">
+//     <div class="us-field">
+//       <label for='name'>Name</label>
+//       <input class='us-form-input' id='name' name='name' placeholder='Please enter your name'>
+//     </div>      
 //     <div class="us-tooltip">
 //       <div class="us-tooltip__icon">?</div>
-//       <div class="us-field">
-//         <label for='name'>Name</label>
-//         <input class='us-form-input' id='name' name='name' placeholder='Please enter your name'>
-//       </div>
 //       <div class="us-tooltip__note"><strong>Tooltip</strong> message content</div>
 //     </div>
 //   </div>
