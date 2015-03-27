@@ -1,19 +1,38 @@
 // @section JS components
 // @name Tooltip
 //
+// @description
+//  `.us-tooltip` can be applied to any parent, and by hovering it, it will toggle the visibility of `.us-tooltip__note`
+// 
+//  Tooltip doesn't have it's own javascript file, all it needs is to toggle a class, for that we can use:
+//  
+// `var tooltips = new ClassToggler({
+//   containerClass: '.us-tooltip',
+//   $target: $('.us-tooltip__icon'),
+//   activeClass: "us-tooltip--active"
+// });`
+// 
 // 
 // @markup
 //   <h4>Hover on the tooltip</h4>
 //   <div class="tooltip-demo">
 //     <div class="us-tooltip">
 //       <div class="us-tooltip__icon">?</div>
+//       <div class="us-field">
+//         <label for='name'>Name</label>
+//         <input class='us-form-input' id='name' name='name' placeholder='Please enter your name'>
+//       </div>
 //       <div class="us-tooltip__note"><strong>Tooltip</strong> message content</div>
 //     </div>
 //   </div>
 //   <h4>Hover on the parent</h4>
-//   <div class="us-tooltip tooltip-demo">
-//       <div class="us-tooltip__icon">?</div>
-//       <div class="us-tooltip__note"><strong>Tooltip</strong> message content</div>
+//   <div class="tooltip-demo us-tooltip">
+//     <div class="us-tooltip__icon">?</div>
+//     <div class="us-field">
+//       <label for='name'>Name</label>
+//       <input class='us-form-input' id='name' name='name' placeholder='Please enter your name'>
+//     </div>
+//     <div class="us-tooltip__note"><strong>Tooltip</strong> message content</div>
 //   </div>
 
 $tooltip-note-width: 300px;
