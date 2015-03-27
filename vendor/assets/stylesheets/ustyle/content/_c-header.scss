@@ -8,12 +8,6 @@
     @include respond-to(tablet, true) {
       display: block;
     }
-
-    ~ .us-content__title {
-      @include respond-to(desktop, true) {
-        margin: -100px 0 0 0;
-      }
-    }
   }
 }
 
