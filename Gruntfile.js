@@ -17,7 +17,7 @@ module.exports = function(grunt) {
     },
     watch: {
       options: {
-        spawn: false // Very important, don't miss this
+        spawn: false
       },
       build: {
         files: ['vendor/assets/**/*', 'styleguide/**/*', 'styleguide/build/ustyle.json'],
