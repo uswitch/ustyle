@@ -37,24 +37,12 @@ module.exports = function(grunt) {
     svgmin: {
         dist: {
             files: [{
-                expand: true,     // Enable dynamic expansion.
-                cwd: 'vendor/assets/images/icons/',      // Src matches are relative to this path.
-                src: ['**/*.svg'], // Actual pattern(s) to match.
-                dest: 'vendor/assets/images/icons/',   // Destination path prefix.
-                ext:  '.svg',   // Dest filepaths will have this extension.
-                extDot: 'first'   // Extensions in filenames begin after the first dot
+                expand: true,
+                cwd: 'vendor/assets/images/icons/',
+                src: "{,*/}*.svg",
+                dest: 'vendor/assets/images/icons/'
             }]
         }
-    },
-    imagemin: {
-      dynamic: {
-        files: [{
-          expand: true,
-          cwd: 'vendor/assets/images/',
-          src: ['**/*.png'],
-          dest: 'vendor/assets/images/'
-        }]
-      }
     },
     styleguide: {
       dist: {
@@ -178,10 +166,15 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-newer');
   grunt.loadTasks('grunt/tasks');
 
-  grunt.registerTask('icons', ['newer:svgmin', 'newer:svg2png']);
+
   grunt.registerTask('build', ['sass', 'sassdoc', 'styleguide', 'copy', 'coffee', 'concat', 'lint', 'postcss', 'cssstats', 'builder']);
-  grunt.registerTask('default', ['env:dev', 'build', 'browserSync-init', 'watch']);
+
   grunt.registerTask('lint', ['scsslint']);
-  grunt.registerTask('publish', ['env:build', 'icons', 'build', 'buildcontrol:pages']);
-  grunt.registerTask('publish:version', ['publish', 'shell:publish'])
+
+  grunt.registerTask('icons', ['newer:svgmin', 'svg2png']);
+
+  grunt.registerTask('publish', ['env:build', 'build', 'buildcontrol:pages']);
+  grunt.registerTask('publish:version', ['publish', 'shell:publish']);
+
+  grunt.registerTask('default', ['env:dev', 'build', 'browserSync-init', 'watch']);
 };
