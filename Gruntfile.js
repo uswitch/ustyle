@@ -73,7 +73,7 @@ module.exports = function(grunt) {
       dist:{
         files: {
           'build/docs/': 'build/ustyle.json',
-          'build/': 'build/stats.json'
+          'build/docs/stats/': 'build/stats.json'
         }
       }
     },
@@ -135,8 +135,7 @@ module.exports = function(grunt) {
         config: 'config/scss-lint.yml',
         reporterOutput: null,
         exclude: [
-          './vendor/assets/stylesheets/ustyle/vendor/*',
-          './vendor/assets/stylesheets/ustyle/structure/*'
+          './vendor/assets/stylesheets/ustyle/vendor/*'
         ]
       }
     },
@@ -179,9 +178,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-newer');
   grunt.loadTasks('grunt/tasks');
 
-  grunt.registerTask('icons', ['newer:svgmin', 'svg2png']);
-  grunt.registerTask('build', ['sass', 'sassdoc', 'styleguide', 'copy', 'concat', 'lint', 'postcss', 'cssstats', 'builder']);
+  grunt.registerTask('icons', ['newer:svgmin', 'newer:svg2png']);
+  grunt.registerTask('build', ['sass', 'sassdoc', 'styleguide', 'copy', 'coffee', 'concat', 'lint', 'postcss', 'cssstats', 'builder']);
   grunt.registerTask('default', ['env:dev', 'build', 'browserSync-init', 'watch']);
   grunt.registerTask('lint', ['scsslint']);
-  grunt.registerTask('publish', ['env:build', 'build', 'buildcontrol:pages']);
+  grunt.registerTask('publish', ['env:build', 'icons', 'build', 'buildcontrol:pages']);
+  grunt.registerTask('publish:version', ['publish', 'shell:publish'])
 };

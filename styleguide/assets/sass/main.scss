@@ -1,4 +1,5 @@
 $needs-font: true;
+$load-icons: true;
 
 // Ustyle imports
 @import "ustyle";
@@ -17,3 +18,8 @@ $needs-font: true;
         "modules/code",
         "modules/stats",
         "modules/states";
+
+
+@import "ustyle/icons/base";
+@import "ustyle/icons/svg";
+@import "ustyle/icons/png";

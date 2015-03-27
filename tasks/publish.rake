@@ -13,7 +13,7 @@ namespace :ustyle do
   task :publish => [ "version:check", "version:update",
                      "git:push",
                      "build:images",
-                     "deploy:images", "deploy:stylesheets", "deploy:styleguide"
+                     "deploy:images", "deploy:stylesheets"
                     ] do
     puts green("Publishing uStyle v#{Ustyle::VERSION}")
   end
@@ -79,14 +79,6 @@ namespace :deploy do
       next if File.directory?(file)
       file_path = file.gsub(/^build\//, "")
       Ustyle.s3_upload( Ustyle.versioned_path(file_path), file, Ustyle.mime_type_for(file))
-    end
-  end
-
-  task :styleguide do
-    Dir["build/docs/**/*"].each do |file|
-      next if File.directory?(file)
-      file_path = file.gsub(/^build\/docs\//, "")
-      Ustyle.s3_upload( file_path, file, Ustyle.mime_type_for(file), "ustyle.uswitchinternal.com" )
     end
   end
 end
