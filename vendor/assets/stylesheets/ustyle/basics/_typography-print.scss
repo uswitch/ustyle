@@ -2,11 +2,12 @@
   @media print {
     h1,
     h2,
-    h3 {
-      font: {
-        family: $heading-font-secondary;
-        weight: 700;
-      }
+    h3,
+    .us-heading--1,
+    .us-heading--2,
+    .us-heading--3 {
+      font-family: $heading-font-secondary;
+      font-weight: 700;
     }
   }
 }
