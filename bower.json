@@ -1,0 +1,45 @@
+{
+  "name": "ustyle",
+  "version": "0.14.4",
+  "main": [
+    "build/ustyle-latest.css",
+    "build/ustyle-icons.css",
+    "build/ustyle.js"
+  ],
+  "homepage": "https://github.com/uswitch/ustyle",
+  "authors": [
+    "Joe Green <joe.green@uswitch.com>"
+  ],
+  "description": "A front-end framework by uSwitch.",
+  "keywords": [
+    "css",
+    "sass",
+    "scss",
+    "js",
+    "javascript",
+    "front-end",
+    "uswitch",
+    "ustyle"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "bin",
+    "config",
+    "grunt",
+    "lib",
+    "node_modules",
+    "styleguide",
+    "tasks",
+    "CONTRIBUTING.md",
+    "Gemfile",
+    "Gemfile.lock",
+    "Gruntfile.js",
+    "icon-upgrade.md",
+    "package.json",
+    "Rakefile",
+    "README.md",
+    "ustyle.gemspec"
+  ]
+}
