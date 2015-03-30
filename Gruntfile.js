@@ -21,7 +21,7 @@ module.exports = function(grunt) {
       },
       build: {
         files: ['vendor/assets/**/*', 'styleguide/**/*', 'styleguide/build/ustyle.json'],
-        tasks: ['styleguide', 'sass', 'coffee', 'sassdoc', 'postcss', 'browserSync-inject', 'cssstats', 'builder']
+        tasks: ['styleguide', 'copy', 'sass', 'coffee', 'sassdoc', 'postcss', 'browserSync-inject', 'cssstats', 'builder']
       },
       scripts: {
         files: ['styleguide/**/*.js', 'vendor/**/*.coffee'],
