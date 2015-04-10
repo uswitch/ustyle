@@ -15,39 +15,67 @@
 //
 // @markup
 //   <h4>Hover on the tooltip</h4>
+//
 //   <div class="tooltip-demo">
 //     <div class="us-field">
 //       <label for='name'>Name</label>
 //       <input class='us-form-input' id='name' name='name' placeholder='Please enter your name'>
 //     </div>
-//     <div class="us-tooltip">
+//
+//     <div class="us-tooltip us-tooltip__wrapper">
 //       <div class="us-tooltip__icon"></div>
-//       <div class="us-tooltip__note"><strong>Tooltip</strong> message content</div>
+//       <div class="us-tooltip__note us-tooltip__note--right"><strong>Tooltip</strong> message content</div>
 //     </div>
 //   </div>
+//
 //   <h4>Hover on the parent</h4>
+//
 //   <div class="tooltip-demo us-tooltip">
-//     <div class="us-tooltip__icon"></div>
 //     <div class="us-field">
 //       <label for='name'>Name</label>
 //       <input class='us-form-input' id='name' name='name' placeholder='Please enter your name'>
 //     </div>
-//     <div class="us-tooltip__note"><strong>Tooltip</strong> message content</div>
+//
+//     <div class="us-tooltip__wrapper">
+//       <div class="us-tooltip__icon"></div>
+//       <div class="us-tooltip__note us-tooltip__note--right"><strong>Tooltip</strong> message content</div>
+//     </div>
 //   </div>
 
 $tooltip-note-width: 300px;
 $tooltip-icon-size: 22px;
+$tooltip-note-padding-vertical: 1em;
+$tooltip-note-padding-horizontal: .75em;
 
 @mixin tooltip--active {
   .us-tooltip__note {
     display: block;
     pointer-events: all;
     opacity: 1;
-    transform: translate3d(0, 0, 0);
   }
 
   .us-tooltip__icon {
     background: $c-typecyan;
+  }
+}
+
+@mixin tooltip-note--position($position: "right") {
+  @include respond-to(desktop, true) {
+    @if $position == "right" {
+      top: -$tooltip-note-padding-vertical;
+      right: -($tooltip-note-width + ($tooltip-icon-size / 2));
+    } @else if $position == "top" {
+      top: -($tooltip-icon-size + $tooltip-icon-size / 2);
+      right: -($tooltip-note-width / 2 - $tooltip-icon-size / 2);
+      transform: translateY(-50%);
+    } @else if $position == "bottom" {
+      top: $tooltip-icon-size + $tooltip-icon-size / 2;
+      right: -($tooltip-note-width / 2 - $tooltip-icon-size / 2);
+      transform: translateY(50%);
+    } @else if $position == "left" {
+      top: -$tooltip-note-padding-vertical;
+      right: $tooltip-icon-size + $tooltip-icon-size / 2;
+    }
   }
 }
 
@@ -65,11 +93,13 @@ $tooltip-icon-size: 22px;
   }
 }
 
-.us-tooltip__icon {
+.us-tooltip__wrapper {
   position: absolute;
   top: 0;
   right: 0;
-  z-index: 2;
+}
+
+.us-tooltip__icon {
   width: $tooltip-icon-size;
   height: $tooltip-icon-size;
   font-weight: bold;
@@ -82,38 +112,45 @@ $tooltip-icon-size: 22px;
   border-radius: 50%;
 
   &:before {
-    content: "?"
+    content: "?";
   }
 }
 
 .us-tooltip__note {
   position: relative;
   display: none;
-  padding: 1em 1.5em;
+  padding: $tooltip-note-padding-horizontal $tooltip-note-padding-vertical;
   margin-top: 2em;
   margin-bottom: 1em;
   color: $c-typegrey;
   background: #fff;
   border: 1px solid $c-typecyan;
   border-radius: 4px;
-  transition: opacity .2s, transform .2s;
-  transition-timing-function: cubic-bezier(.175, .885, .335, 1.05);
+  transition: opacity 300ms ease;
 
   @include respond-to(desktop, true) {
     position: absolute;
-    top: -15px;
-    right: -($tooltip-note-width + ($tooltip-icon-size/2));
-    z-index: 1;
     display: block;
     width: $tooltip-note-width;
     margin-top: 0;
     margin-bottom: 0;
     pointer-events: none;
     opacity: 0;
-    transform: translate3d(30px, 0, 0);
   }
+}
 
-  .no-csstransforms & {
-    display: none;
-  }
+.us-tooltip__note--top {
+  @include tooltip-note--position("top");
+}
+
+.us-tooltip__note--right {
+  @include tooltip-note--position("right");
+}
+
+.us-tooltip__note--bottom {
+  @include tooltip-note--position("bottom");
+}
+
+.us-tooltip__note--left {
+  @include tooltip-note--position("left");
 }
