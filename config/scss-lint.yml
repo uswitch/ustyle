@@ -49,7 +49,7 @@ linters:
   StringQuotes:
     style: double_quotes
 
-  VendorPrefixes:
+  VendorPrefix:
     enabled: false
     severity: error
 
