@@ -4,6 +4,7 @@
   {{> _head}}
 </head>
 <body>
+  {{> _header}}
   <div id="wrapper">
     {{> sidebar}}
     <div class="us-hero trailered">

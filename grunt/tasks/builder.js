@@ -9,8 +9,10 @@ module.exports = function(grunt){
         async       = require('async'),
         path        = require('path'),
         fs          = require('fs'),
+        fm          = require('front-matter'),
         template    = require('../modules/templates'),
         fileHelper  = require('../modules/file'),
+        slugify     = require("underscore.string/slugify"),
         promise     = this.async(),
         files       = this.files;
 
@@ -42,6 +44,26 @@ module.exports = function(grunt){
       callback(null, 'done');
     }
 
+    function dirTree(filename) {
+      var stats = fs.lstatSync(filename),
+          info = {
+              path: filename,
+              name: path.basename(filename)
+          };
+
+        if (stats.isDirectory()) {
+            info.type = "folder";
+            info.children = fs.readdirSync(filename).map(function(child) {
+                return dirTree(filename + '/' + child);
+            });
+        } else {
+            // Assuming it's a file. In real life it could be a symlink or
+            // something else!
+            info.type = "file";
+        }
+        return info;
+    }
+
     function generatePages(data, pages, dest){
       pages.map(function(page){
         var model = {
@@ -49,7 +71,7 @@ module.exports = function(grunt){
           page: page,
           pages: data.pages
         };
-        var outputFilePath = dest + page.page,
+        var outputFilePath = dest + slugify(page.section) + "/" + page.page,
             template = handlebars.compile(grunt.file.read(page.template))(model);
 
         fileHelper.writeFile(template, outputFilePath, "Build");

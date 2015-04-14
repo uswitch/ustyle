@@ -14,6 +14,8 @@ module.exports = function(grunt){
         humanize        = require("underscore.string/humanize"),
         underscored     = require("underscore.string/underscored"),
         slugify         = require("underscore.string/slugify"),
+        matter          = require("gray-matter"),
+        marked          = require('marked'),
         promise         = this.async(),
         files           = this.files,
         outputFilePath  = this.data.output,
@@ -25,7 +27,7 @@ module.exports = function(grunt){
         parsers: {
           variable: dssHelper.variableDssParser(),
           partial: function(i, line, block){ return line; },
-          section: function(i, line, block){ return line; },
+          page: function(i, line, block){ return line; },
           description: dssHelper.descriptionDssParser
         }
     });
@@ -91,35 +93,46 @@ module.exports = function(grunt){
     }
 
     function groupDSS(styleguide, callback){
-      var sections = _.chain(styleguide).flatten().groupBy('section')
+      var sections = _.chain(styleguide).flatten().groupBy('page')
                     .map(function(value, key) {
+
+                      var structure = key.split("/"),
+                          section = structure[0],
+                          page = structure[1];
+
                       return {
-                          name: key,
-                          page: slugify(key) + '.html',
+                          name: page,
+                          page: slugify(page) + '.html',
                           template: options.template,
+                          section: section,
                           blocks: value
                       }
                     })
                     // As it's iterating over files, we don't want files that aren't documented to come through
-                    .filter(function(object) { return object.name != "undefined" }).compact().value();
+                    .filter(function(object) { return object.section != "undefined" }).compact().value();
       callback(null, sections);
     }
 
     function generateStaticContent(sections, callback) {
-      var pages = grunt.file.expand(staticPages).map(function(file){
-        var filename = path.basename(file, '.tpl').split(/-(.+)?/),
-            order = filename[0],
-            name = filename[1];
+      var pages = grunt.file.expand("./styleguide/**/*")
+          .filter(function(dir){
+            var stats = fs.lstatSync(dir);
+            return !/assets|templates|partials/.test(dir) && !stats.isDirectory();
+          })
+          .map(function(file){
 
-        return {
-          name: humanize(name),
-          page: name + '.html',
-          order: order,
-          template: file
-        }
-      }).sort(function(a, b){
-        return a.order - b.order;
-      });
+            var data = matter.read(file),
+                extension = path.extname(file),
+                filename = path.basename(file, extension);
+
+            return {
+              name: data.data.name || humanize(filename),
+              page: filename + '.html',
+              template: data.data.template || "styleguide/templates/simple.tpl",
+              section: data.data.section || "",
+              content: marked(data.content)
+            }
+          });
 
       callback(null, pages.concat(sections));
     }
@@ -127,10 +140,15 @@ module.exports = function(grunt){
     function generateStyleguide(sections, callback){
       var model = {
         pages: sections,
+        navigation: _getSection(sections),
         project: grunt.file.readJSON('package.json')
       }
 
       callback(null, model);
+    }
+
+    function _getSection(sections){
+      return _.chain(sections).map(function(data){ return data.section }).compact().uniq().value();
     }
 
     function writeFile(model, callback){

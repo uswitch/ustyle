@@ -52,4 +52,3 @@ linters:
   VendorPrefix:
     enabled: false
     severity: error
-

@@ -12,7 +12,7 @@ You have several options with regards to modifying, each of which come with thei
 Documentation must be written for any component you are actively working on. All documentation that isn't full page examples remains within the source code `.scss` files. We use [DSS](https://github.com/darcyclarke/DSS) for documenting components. This is done like this:
 
 ```scss
-// @section Forms
+// @page Forms
 // @name Inputs
 // 
 // @description
@@ -28,7 +28,7 @@ Documentation must be written for any component you are actively working on. All
 `{$modifiers}` is a placeholder where the different states get rendered. If the component you are documenting requires an additional, more complex, component that doesn't quite fit the basic `style_block.tpl` layout, you can declare a partial, like so:
 
 ```scss
-@section Colours
+@page Colours
 @name Base colours
 @partial colours
 ```

@@ -4,6 +4,7 @@
   {{> _head}}
 </head>
 <body>
+  {{> _header}}
   <div id="wrapper">
     {{> sidebar}}
     <div class="us-hero trailered">
@@ -12,7 +13,8 @@
       </div>
     </div>
     <div class="styleguide container sidebar--push">
-    </div>
+      {{{page.content}}}
+    </div>  
   </div>
   {{> _footer}}
 </body>
