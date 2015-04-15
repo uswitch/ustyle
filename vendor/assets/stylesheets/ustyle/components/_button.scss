@@ -58,9 +58,9 @@ $outline-button-styles: (
   } @else {
     &,
     &:visited {
+      color: nth($name, 3);
       background-color: nth($name, 2);
       border-color: shade(nth($name, 2), 20%);
-      color: nth($name, 3);
     }
   }
 
@@ -75,9 +75,9 @@ $outline-button-styles: (
         background-color: tint(nth($name, 2), 90%);
       }
     } @else {
+      color: nth($name, 3);
       background-color: shade(nth($name, 2), 20%);
       border-color: shade(nth($name, 2), 20%);
-      color: nth($name, 3);
     }
   }
 
