@@ -52,7 +52,7 @@ $overlay-transition-speed: .4s !default;
 $overlay-mobile-width: calc(100% - 25px) !default;
 $overlay-tablet-width: 340px !default;
 $overlay-header-height: 55px !default;
-$overlay-close-icon-size: 35px !default;
+$overlay-close-icon-size: 32px !default;
 $overlay-z-index: $overlay-forced-z-index;
 
 @mixin overlay($place-above: false) {
@@ -205,6 +205,7 @@ $overlay-z-index: $overlay-forced-z-index;
     height: $overlay-close-icon-size;
     font-size: $overlay-close-icon-size;
     font-weight: bold;
+    font-size: 22px;
     line-height: $overlay-close-icon-size;
     color: $c-navy;
     content: "\00d7";
