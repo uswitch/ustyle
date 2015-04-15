@@ -18,37 +18,40 @@
 // @state .us-btn--small - Smaller button for mobile tables
 // @state .us-btn--blocked - Full width button
 // @state .us-btn--link - link style button
-// @state .disabled - Disabled styling (can also be styled with :disabled)
+// @state .us-btn--stronger - Emphasis button
+// @state .us-btn--disabled - Disabled styling (can also be styled with :disabled)
 //
 // @markup
 //  <a href="#" class="us-btn {$modifiers}">Link Button</a>
 //  <button class="us-btn {$modifiers}">Button Element</button>
 
-$base-button-color: $c-keylinegrey !default;
+$button-bg--base      : $c-keylinegrey !default;
+$button-bg--base-hover: $c-typecyan !default;
+$button-bg--primary   : $c-red !default;
+$button-bg--secondary : $c-typecyan !default;
+$button-bg--action    : $c-green !default;
+$button-bg--hero      : $c-navy !default;
+$button-bg--reversed  : #fff !default;
 
-$p-button-color       : $c-red !default;
-$s-button-color       : $c-typecyan !default;
-$action-button-color  : $c-green !default;
-$neutral-button-color : $c-keylinegrey !default;
-$hero-button-color    : $c-navy !default;
-$reversed-button-color: #fff !default;
+$button-text--light: #fff !default;
+$button-text--dark: $c-typegrey !default;
 
 $button-styles: (
-  ("primary", $p-button-color),
-  ("secondary", $s-button-color),
-  ("action", $action-button-color)
+  ("primary", $button-bg--primary, $button-text--light),
+  ("secondary", $button-bg--secondary, $button-text--light),
+  ("action", $button-bg--action, $button-text--light)
 ) !default;
 
 $outline-button-styles: (
-  ("hero", $c-navy),
-  ("reversed", #fff)
+  ("hero", $button-bg--hero, $button-bg--hero),
+  ("reversed", $button-bg--reversed, $button-bg--reversed)
 ) !default;
 
 @mixin button-style($name, $outlined: false) {
   @if $outlined {
     &,
     &:visited {
-      color: nth($name, 2);
+      color: nth($name, 3);
       background-color: transparent;
       border-color: nth($name, 2);
     }
@@ -57,9 +60,7 @@ $outline-button-styles: (
     &:visited {
       background-color: nth($name, 2);
       border-color: shade(nth($name, 2), 20%);
-      @if nth($name, 2) != #fff {
-        color: #fff;
-      }
+      color: nth($name, 3);
     }
   }
 
@@ -67,23 +68,28 @@ $outline-button-styles: (
   &:focus {
     @if $outlined {
       color: nth($name, 2);
-      background-color: tint(nth($name, 2), 90%);
       border-color: nth($name, 2);
+      @if nth($name, 2) == #fff {
+        @include rgba-inline(transparentize(nth($name, 2), .8));
+      } @else {
+        background-color: tint(nth($name, 2), 90%);
+      }
     } @else {
       background-color: shade(nth($name, 2), 20%);
       border-color: shade(nth($name, 2), 20%);
-      @if nth($name, 2) != #fff {
-        color: #fff;
-      }
+      color: nth($name, 3);
     }
   }
 
   &:active {
     @if $outlined {
-      color: #fff;
+      @if nth($name, 2) == #fff {
+        color: $button-text--dark;
+      } @else {
+        color: #fff;
+      }
       background-color: nth($name, 2);
       border-color: nth($name, 2);
-      box-shadow: none;
     } @else {
       color: #fff;
       background-color: shade(nth($name, 2), 50%);
@@ -107,8 +113,8 @@ $outline-button-styles: (
   white-space: nowrap;
   vertical-align: middle;
   cursor: pointer;
-  background-color: $base-button-color;
-  border: 1px solid shade($base-button-color, 20%);
+  background-color: $button-bg--base;
+  border: 1px solid shade($button-bg--base, 20%);
   border-radius: 3px;
   outline: 0;
   transition: none 0;
@@ -119,21 +125,15 @@ $outline-button-styles: (
 
   &:hover,
   &:focus {
-    color: $c-typecyan;
-    background-color: tint($c-typecyan, 90%);
-    border-color: $c-typecyan;
+    color: $button-bg--base-hover;
+    background-color: tint($button-bg--base-hover, 90%);
+    border-color: $button-bg--base-hover;
   }
 
   &:active {
     color: #fff;
-    background-color: $c-typecyan;
+    background-color: $button-bg--base-hover;
   }
-
-  &:disabled,
-  &.disabled {
-    pointer-events: none;
-    opacity: .5;
-  } 
 }
 
 .us-btn--stronger {
@@ -167,6 +167,12 @@ $outline-button-styles: (
     text-decoration: underline;
     background-color: transparent;
   }
+}
+
+.us-btn--disabled,
+.us-btn:disabled {
+  pointer-events: none;
+  opacity: .5;
 }
 
 .us-btn--arrowed,
