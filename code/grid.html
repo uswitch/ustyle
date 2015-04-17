@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+  <title>ustyle styleguide</title>
+  <link rel="stylesheet" href="css/main.css" type="text/css" />
+  <script>
+    (function(html){
+      html.className=html.className.replace(/\bno-js\b/,'js')
+    })(document.documentElement);
+  </script>
+</head>
+<body>
+  <header>
+    <nav>
+    </nav>
+  </header>
+  <div id="wrapper">
+    <a href="javascript:void(0)" class="nav-mobile us-desktop--hidden js-toggle__link" data-target="sidebar"><span class="nav-mobile__hamburger">Open menu</span></a>
+    <div class='sidebar'>
+      <a class='logo us-icon--large us-icon--medium--sm-tablet us-icon--uswitch us-icon--notext us-icon--custom us-icon--hover-typecyan' href='/docs' id='logo'>ustyle styleguide</a>
+      <p class="version us-tablet--block">v0.14.4</p>
+      <div class='nav'>
+        <nav class='nav__container'>
+          <div class='nav__set-container'>
+            <ul class='nav__set'>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link active" href="grid.html">Grid</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="index.html">Index</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="imagery.html">Imagery</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="index.html">Index</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="language.html">Language</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="index.html">Index</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="index.html">Index</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="typography.html">Typography</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="colours.html">Colours</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="js-components.html">JS components</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="components.html">Components</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="tables.html">Tables</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="forms.html">Forms</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="icons.html">Icons</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="utilities.html">Utilities</a>
+                </li>
+              <li class="nav__item">
+                <a class="nav__link nav__main-link" href="sass/">Sass doc</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <div class="us-hero trailered">
+      <div class="container sidebar--push styleguide__header">
+        <h1 class="styleguide__title">Grid</h1>
+      </div>
+    </div>
+    <div class="styleguide container sidebar--push">
+      <pre><code>  &lt;div class=&quot;styleguide__block&quot;&gt;
+    &lt;h2 class=&quot;styleguide__block-title&quot;&gt;Introduction&lt;/h2&gt;
+    &lt;p&gt;
+      Our grid is a 12 column grid, with similar sizes to that of Bootstrap. We also adhere to the same naming standards for device breakpoints.
+    &lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Default gutter width: &lt;strong&gt;15px either side&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;Large container width: &lt;strong&gt;1170px&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;Desktop container width: &lt;strong&gt;970px&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;Tablet container width: &lt;strong&gt;770px&lt;/strong&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;ul&gt;
+      &lt;li&gt;The parent container is &lt;code&gt;.us-container&lt;/code&gt;, you must have this to start building the uSwitch layouts.&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;.us-grid-row&lt;/code&gt; is then used when you are building rows of columns (gives a negative margin to the container so they align correctly)&lt;/li&gt;
+      &lt;li&gt;All grid class names are prefixed with &lt;code&gt;.us-col-&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;styleguide__block&quot;&gt;
+    &lt;h2 class=&quot;styleguide__block-title&quot;&gt;Example&lt;/h2&gt;
+    &lt;p&gt;Here is an example of a grid which will turn into 100% width columns on mobile.&lt;/p&gt;
+    &lt;div class=&quot;grid-example&quot;&gt;
+      &lt;div class=&quot;us-grid-row&quot;&gt;
+        &lt;div class=&quot;col-example us-col-md-2&quot;&gt;.us-col-md-2&lt;/div&gt;
+        &lt;div class=&quot;col-example us-col-md-2&quot;&gt;.us-col-md-2&lt;/div&gt;
+        &lt;div class=&quot;col-example us-col-md-4&quot;&gt;.us-col-md-4&lt;/div&gt;
+        &lt;div class=&quot;col-example us-col-md-4&quot;&gt;.us-col-md-4&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;us-grid-row&quot;&gt;
+        &lt;div class=&quot;col-example us-col-md-8&quot;&gt;.us-col-md-8&lt;/div&gt;
+        &lt;div class=&quot;col-example us-col-md-4&quot;&gt;.us-col-md-4&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;us-grid-row&quot;&gt;
+        &lt;div class=&quot;col-example us-col-md-6&quot;&gt;.us-col-md-6&lt;/div&gt;
+        &lt;div class=&quot;col-example us-col-md-6&quot;&gt;.us-col-md-6&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;pre&gt;&lt;code class=&quot;html&quot;&gt;
+</code></pre><p>&lt;div class=&quot;us-grid-row&quot;&gt;
+  &lt;div class=&quot;us-col-md-2&quot;&gt;.us-col-md-2&lt;/div&gt;
+  &lt;div class=&quot;us-col-md-2&quot;&gt;.us-col-md-2&lt;/div&gt;
+  &lt;div class=&quot;us-col-md-4&quot;&gt;.us-col-md-4&lt;/div&gt;
+  &lt;div class=&quot;us-col-md-4&quot;&gt;.us-col-md-4&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;us-grid-row&quot;&gt;
+  &lt;div class=&quot;us-col-md-8&quot;&gt;.us-col-md-8&lt;/div&gt;
+  &lt;div class=&quot;us-col-md-4&quot;&gt;.us-col-md-4&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;us-grid-row&quot;&gt;
+  &lt;div class=&quot;us-col-md-6&quot;&gt;.us-col-md-6&lt;/div&gt;
+  &lt;div class=&quot;us-col-md-6&quot;&gt;.us-col-md-6&lt;/div&gt;
+&lt;/div&gt;
+        </code></pre>
+      </div>
+      <div class="styleguide__block">
+        <h2 class="styleguide__block-title">Example with mobile columns</h2>
+        <div class="grid-example">
+          <div class="us-grid-row">
+            <div class="col-example us-col-xsm-6 us-col-md-2">.us-col-xsm-6.us-col-md-2</div>
+            <div class="col-example us-col-xsm-6 us-col-md-2">.us-col-xsm-6.us-col-md-2</div>
+            <div class="col-example us-col-sm-6 us-col-md-4">.us-col-sm-6.us-col-md-4</div>
+            <div class="col-example us-col-sm-6 us-col-md-4">.us-col-sm-6.us-col-md-4</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div></p>
+
+    </div>  
+  </div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="js/app.js"></script></body>
+</html>

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html class="no-js svg">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+  <title>ustyle styleguide</title>
+  <link rel="stylesheet" href="css/main.css" type="text/css" />
+  <script>
+    (function(html){
+      html.className=html.className.replace(/\bno-js\b/,'js')
+    })(document.documentElement);
+  </script>
+</head>
+<body>
+  <header>
+    <nav>
+    </nav>
+  </header>
+  <div id="wrapper">
+    <a href="javascript:void(0)" class="nav-mobile us-desktop--hidden js-toggle__link" data-target="sidebar"><span class="nav-mobile__hamburger">Open menu</span></a>
+    <div class='sidebar'>
+      <a class='logo us-icon--large us-icon--medium--sm-tablet us-icon--uswitch us-icon--notext us-icon--custom us-icon--hover-typecyan' href='/docs' id='logo'>ustyle styleguide</a>
+      <p class="version us-tablet--block">v0.14.4</p>
+      <div class='nav'>
+        <nav class='nav__container'>
+          <div class='nav__set-container'>
+            <ul class='nav__set'>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="grid.html">Grid</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="index.html">Index</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="imagery.html">Imagery</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="index.html">Index</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="language.html">Language</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="index.html">Index</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="index.html">Index</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="typography.html">Typography</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="colours.html">Colours</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="js-components.html">JS components</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="components.html">Components</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="tables.html">Tables</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="forms.html">Forms</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link active" href="icons.html">Icons</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__main-link " href="utilities.html">Utilities</a>
+                </li>
+              <li class="nav__item">
+                <a class="nav__link nav__main-link" href="sass/">Sass doc</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <div class="us-hero trailered">
+      <div class="container sidebar--push styleguide__header">
+        <h1 class="styleguide__title">Icons</h1>
+        <div class='us-grid-row'>
+          <nav class="styleguide__nav us-col-md-8">
+                <div class="us-col-md-4">
+                  <a class="styleguide__nav-link" href="#icons">Icons</a>
+                </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div class="styleguide container sidebar--push">
+            <div class="styleguide__block styleguide__block--icons" id="icons">
+  <div class="styleguide__block-info">
+    <h2 class="styleguide__block-title">
+      Icons
+      <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/icons/_base.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> _base.scss</a>
+    </h2>
+    <p>   Icons are created by chaining classes together with <code>us-icon</code>. There are 3 sizes, 16px, 32px, 64px, these are named
+   <code>us-icon--small</code>, <code>us-icon--medium</code> and <code>us-icon--large</code> respectively. There are 5 colours for each icon, <em>white</em>,
+   <em>typegrey</em>, <em>inputgrey</em>, <em>typecyan</em> and <em>custom</em>. Where <em>custom</em> can differ depending on what the icon represents
+   (for logos, the custom tends to be the brand colour of that company). If you want an icon to be part of a <strong>:pseudo</strong>
+   element (:before, :after) then suffix your icon name with <code>--before</code> and <code>--after</code> respectively. To have an
+   icon standalone with text as fallback, add <code>us-icon--notext</code> to the element.</p>
+
+  </div>
+  
+  <h3 class="styleguide__block-small-title">Example</h3>
+  <div class="styleguide__block-examples">
+    <pre><code class="html">
+&lt;div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan"&gt;&lt;/div&gt;
+    </code></pre>
+    <div class="us-clearfix">
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--alarm"></div>
+          <div class="styleguide__block-example-class">us-icon--alarm</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--android"></div>
+          <div class="styleguide__block-example-class">us-icon--android</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--angry"></div>
+          <div class="styleguide__block-example-class">us-icon--angry</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--apple"></div>
+          <div class="styleguide__block-example-class">us-icon--apple</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--arrow-circle"></div>
+          <div class="styleguide__block-example-class">us-icon--arrow-circle</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--arrow-up-left"></div>
+          <div class="styleguide__block-example-class">us-icon--arrow-up-left</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--arrow-up"></div>
+          <div class="styleguide__block-example-class">us-icon--arrow-up</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--barchart"></div>
+          <div class="styleguide__block-example-class">us-icon--barchart</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--blackberry"></div>
+          <div class="styleguide__block-example-class">us-icon--blackberry</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--book"></div>
+          <div class="styleguide__block-example-class">us-icon--book</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--bookmark"></div>
+          <div class="styleguide__block-example-class">us-icon--bookmark</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--breadcrumb"></div>
+          <div class="styleguide__block-example-class">us-icon--breadcrumb</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--calculator"></div>
+          <div class="styleguide__block-example-class">us-icon--calculator</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--calendar"></div>
+          <div class="styleguide__block-example-class">us-icon--calendar</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--car"></div>
+          <div class="styleguide__block-example-class">us-icon--car</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--checkbox-tick"></div>
+          <div class="styleguide__block-example-class">us-icon--checkbox-tick</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--clock"></div>
+          <div class="styleguide__block-example-class">us-icon--clock</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--close"></div>
+          <div class="styleguide__block-example-class">us-icon--close</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--cog"></div>
+          <div class="styleguide__block-example-class">us-icon--cog</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--credit-card"></div>
+          <div class="styleguide__block-example-class">us-icon--credit-card</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--cross"></div>
+          <div class="styleguide__block-example-class">us-icon--cross</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--desktop"></div>
+          <div class="styleguide__block-example-class">us-icon--desktop</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--doc"></div>
+          <div class="styleguide__block-example-class">us-icon--doc</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--down-arrow"></div>
+          <div class="styleguide__block-example-class">us-icon--down-arrow</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--dual-fuel"></div>
+          <div class="styleguide__block-example-class">us-icon--dual-fuel</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--electric-light"></div>
+          <div class="styleguide__block-example-class">us-icon--electric-light</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--envelope"></div>
+          <div class="styleguide__block-example-class">us-icon--envelope</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--exit-noexit"></div>
+          <div class="styleguide__block-example-class">us-icon--exit-noexit</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--facebook"></div>
+          <div class="styleguide__block-example-class">us-icon--facebook</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--filter"></div>
+          <div class="styleguide__block-example-class">us-icon--filter</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--fixed-variable"></div>
+          <div class="styleguide__block-example-class">us-icon--fixed-variable</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--gas"></div>
+          <div class="styleguide__block-example-class">us-icon--gas</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--gauge"></div>
+          <div class="styleguide__block-example-class">us-icon--gauge</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--github"></div>
+          <div class="styleguide__block-example-class">us-icon--github</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--google"></div>
+          <div class="styleguide__block-example-class">us-icon--google</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--graph-up"></div>
+          <div class="styleguide__block-example-class">us-icon--graph-up</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--happy"></div>
+          <div class="styleguide__block-example-class">us-icon--happy</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--home"></div>
+          <div class="styleguide__block-example-class">us-icon--home</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--hot"></div>
+          <div class="styleguide__block-example-class">us-icon--hot</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--info"></div>
+          <div class="styleguide__block-example-class">us-icon--info</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--kettle"></div>
+          <div class="styleguide__block-example-class">us-icon--kettle</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--key"></div>
+          <div class="styleguide__block-example-class">us-icon--key</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--laptop"></div>
+          <div class="styleguide__block-example-class">us-icon--laptop</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--lock"></div>
+          <div class="styleguide__block-example-class">us-icon--lock</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--magnify-in"></div>
+          <div class="styleguide__block-example-class">us-icon--magnify-in</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--magnify-out"></div>
+          <div class="styleguide__block-example-class">us-icon--magnify-out</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--magnify"></div>
+          <div class="styleguide__block-example-class">us-icon--magnify</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--menu"></div>
+          <div class="styleguide__block-example-class">us-icon--menu</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--message"></div>
+          <div class="styleguide__block-example-class">us-icon--message</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--mobile"></div>
+          <div class="styleguide__block-example-class">us-icon--mobile</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--monthly-dd"></div>
+          <div class="styleguide__block-example-class">us-icon--monthly-dd</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--neutral"></div>
+          <div class="styleguide__block-example-class">us-icon--neutral</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--no-exit"></div>
+          <div class="styleguide__block-example-class">us-icon--no-exit</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--pdf"></div>
+          <div class="styleguide__block-example-class">us-icon--pdf</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--pencil"></div>
+          <div class="styleguide__block-example-class">us-icon--pencil</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--person-add"></div>
+          <div class="styleguide__block-example-class">us-icon--person-add</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--person"></div>
+          <div class="styleguide__block-example-class">us-icon--person</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--phone"></div>
+          <div class="styleguide__block-example-class">us-icon--phone</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--piggy-bank"></div>
+          <div class="styleguide__block-example-class">us-icon--piggy-bank</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--pin"></div>
+          <div class="styleguide__block-example-class">us-icon--pin</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--pound-note"></div>
+          <div class="styleguide__block-example-class">us-icon--pound-note</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--power"></div>
+          <div class="styleguide__block-example-class">us-icon--power</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--present"></div>
+          <div class="styleguide__block-example-class">us-icon--present</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--print"></div>
+          <div class="styleguide__block-example-class">us-icon--print</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--quarterly-dd"></div>
+          <div class="styleguide__block-example-class">us-icon--quarterly-dd</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--question-circle"></div>
+          <div class="styleguide__block-example-class">us-icon--question-circle</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--question"></div>
+          <div class="styleguide__block-example-class">us-icon--question</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--quote"></div>
+          <div class="styleguide__block-example-class">us-icon--quote</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--recycle"></div>
+          <div class="styleguide__block-example-class">us-icon--recycle</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--remove"></div>
+          <div class="styleguide__block-example-class">us-icon--remove</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--renewable"></div>
+          <div class="styleguide__block-example-class">us-icon--renewable</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--results"></div>
+          <div class="styleguide__block-example-class">us-icon--results</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--sad"></div>
+          <div class="styleguide__block-example-class">us-icon--sad</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--save"></div>
+          <div class="styleguide__block-example-class">us-icon--save</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--share"></div>
+          <div class="styleguide__block-example-class">us-icon--share</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--sim"></div>
+          <div class="styleguide__block-example-class">us-icon--sim</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--smiley"></div>
+          <div class="styleguide__block-example-class">us-icon--smiley</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--sort"></div>
+          <div class="styleguide__block-example-class">us-icon--sort</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--speech-circle"></div>
+          <div class="styleguide__block-example-class">us-icon--speech-circle</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--speech"></div>
+          <div class="styleguide__block-example-class">us-icon--speech</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--spinner"></div>
+          <div class="styleguide__block-example-class">us-icon--spinner</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--star-half"></div>
+          <div class="styleguide__block-example-class">us-icon--star-half</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--star"></div>
+          <div class="styleguide__block-example-class">us-icon--star</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--starline-half"></div>
+          <div class="styleguide__block-example-class">us-icon--starline-half</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--starline"></div>
+          <div class="styleguide__block-example-class">us-icon--starline</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--tablet"></div>
+          <div class="styleguide__block-example-class">us-icon--tablet</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--talk"></div>
+          <div class="styleguide__block-example-class">us-icon--talk</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--tick-circle"></div>
+          <div class="styleguide__block-example-class">us-icon--tick-circle</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--tick"></div>
+          <div class="styleguide__block-example-class">us-icon--tick</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--tv"></div>
+          <div class="styleguide__block-example-class">us-icon--tv</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--twitter"></div>
+          <div class="styleguide__block-example-class">us-icon--twitter</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--uswitch"></div>
+          <div class="styleguide__block-example-class">us-icon--uswitch</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--variable"></div>
+          <div class="styleguide__block-example-class">us-icon--variable</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--warning-circle"></div>
+          <div class="styleguide__block-example-class">us-icon--warning-circle</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--warning"></div>
+          <div class="styleguide__block-example-class">us-icon--warning</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--wifi"></div>
+          <div class="styleguide__block-example-class">us-icon--wifi</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--wiki"></div>
+          <div class="styleguide__block-example-class">us-icon--wiki</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--windows"></div>
+          <div class="styleguide__block-example-class">us-icon--windows</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--wondering"></div>
+          <div class="styleguide__block-example-class">us-icon--wondering</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--world"></div>
+          <div class="styleguide__block-example-class">us-icon--world</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--xml"></div>
+          <div class="styleguide__block-example-class">us-icon--xml</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--play"></div>
+          <div class="styleguide__block-example-class">us-icon--play</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+          <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan us-icon--controller"></div>
+          <div class="styleguide__block-example-class">us-icon--controller</div>
+        </div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  </div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="js/app.js"></script></body>
+</html>
