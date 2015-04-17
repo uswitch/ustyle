@@ -1,7 +1,6 @@
 dir = File.dirname(__FILE__)
 $LOAD_PATH.unshift dir unless $LOAD_PATH.include?(dir)
 
-require "ustyle/installer"
 require "ustyle/utils"
 
 module Ustyle

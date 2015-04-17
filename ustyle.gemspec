@@ -7,7 +7,7 @@ require "ustyle/version"
 Gem::Specification.new do |spec|
   spec.name          = "ustyle"
   spec.version       = Ustyle::VERSION
-  spec.authors       = ["David Annez"]
+  spec.authors       = ["David Annez", "Ricardo Cerqueira", "Joe Green", "Thomas Britton", "Ivo Reis"]
   spec.email         = ["david.annez@uswitch.com"]
   spec.description   = %q{uSwitch style guide}
   spec.summary       = %q{Default styles for uSwitch in a modular SASS gem}
@@ -24,7 +24,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency "coffee-script"
   spec.add_dependency "autoprefixer-rails", "~> 4.0"
   spec.add_dependency "mime-types"
-  spec.add_dependency "thor"
   spec.add_dependency "json"
   spec.add_dependency "chunky_png",  ">= 0.8.0"
 

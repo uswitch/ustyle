@@ -8,7 +8,11 @@
   ],
   "homepage": "https://github.com/uswitch/ustyle",
   "authors": [
-    "Joe Green <joe.green@uswitch.com>"
+    "Joe Green <joe.green@uswitch.com>",
+    "David Annez <david.annez@uswitch.com>",
+    "Thomas Britton <thomas.britton@uswitch.com>",
+    "Ricardo Cerqueira <ricardo.cerqueira@uswitch.com>",
+    "Ivo Reis <ivo.reis@uswitch.com>"
   ],
   "description": "A front-end framework by uSwitch.",
   "keywords": [
