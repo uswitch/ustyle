@@ -24,14 +24,17 @@ class window.Overlay
         e.preventDefault()
 
       @show(e)
+
     @options.closeButton.on 'click', (e)=>
       if @options.preventDefault
         e.preventDefault()
 
       @hide(e)
+
     $(document).on 'keyup', (e)=>
       if e.keyCode == @options.escapeKey
         @hide()
+
     if @hasHistory()
       window.onpopstate = (event)=>
         @hide()
