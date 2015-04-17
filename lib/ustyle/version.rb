@@ -1,6 +1,6 @@
 require 'json'
 
 module Ustyle
-  version = "0.15.1"
+  version = "0.15.2"
   VERSION = version
 end
