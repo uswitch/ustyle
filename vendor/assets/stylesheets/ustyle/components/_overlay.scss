@@ -24,9 +24,9 @@
 // @markup
 //   <button class='us-btn js-open-overlay' modifier="{$modifiers}">Open</button>
 //
-//   <div class="us-overlay-parent us-overlay-parent--modal" modifier="{$modifiers}">
+//   <div class="us-overlay-parent us-overlay-parent--modal {$modifiers}" modifier="{$modifiers}">
 //     <div class="us-overlay-container">
-//       <div class="us-overlay {$modifiers}">
+//       <div class="us-overlay">
 //         <div class="us-overlay__header">
 //           <div class="us-overlay__title">
 //             Overlay
@@ -62,10 +62,6 @@ $overlay-z-index: $overlay-forced-z-index;
   position: relative;
   z-index: $overlay-forced-z-index;
   width: $overlay-mobile-width;
-  transition: transform $overlay-transition-speed;
-  transition-timing-function: cubic-bezier(.175, .885, .335, 1.05);
-  transform: translateX(-100%);
-  transform: translate3d(-100%, 0, 0);
   -webkit-overflow-scrolling: auto;
 
   @if $place-above {
@@ -79,19 +75,8 @@ $overlay-z-index: $overlay-forced-z-index;
   }
 
   .us-overlay--open & {
-    transform: translateX(0);
-    transform: translate3d(0, 0, 0);
-
     .no-csstransforms & {
       display: block;
-    }
-  }
-
-  .us-overlay-parent--modal & {
-    @include respond-to($overlay-modal-breakpoint, true) {
-      width: $overlay-modal-width;
-      max-width: $overlay-max-modal-width;
-      margin: 5% auto;
     }
   }
 
@@ -115,6 +100,23 @@ $overlay-z-index: $overlay-forced-z-index;
   }
 }
 
+.us-overlay-parent--modal {
+  .us-overlay-container {
+    @include respond-to($overlay-modal-breakpoint, true) {
+      width: $overlay-modal-width;
+      max-width: $overlay-max-modal-width;
+      margin: 5% auto;
+      float: none !important;
+    }
+  }
+}
+
+.us-overlay--right {
+  .us-overlay-container {
+    float: right;
+  }
+}
+
 .us-overlay {
   position: relative;
   background: #fff;
@@ -132,23 +134,6 @@ $overlay-z-index: $overlay-forced-z-index;
 .us-overlay__body {
   @extend %container !optional;
   padding: 1em;
-}
-
-.us-overlay--right {
-  right: 0;
-  left: auto;
-  transform: translateX(100%);
-  transform: translate3d(100%, 0, 0);
-  transform: translate3d(100%, 0, 0);
-
-  .us-overlay--open & {
-    transform: translateX(0);
-    transform: translate3d(0, 0, 0);
-
-    .no-csstransforms & {
-      display: block;
-    }
-  }
 }
 
 .us-overlay__header {
