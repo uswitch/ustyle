@@ -10,28 +10,11 @@ require 'fileutils'
 
 namespace :ustyle do
   desc "Publishes uStyle v#{Ustyle::VERSION}"
-  task :publish => [ "version:check", "version:update",
-                     "git:push",
+  task :publish => [ "git:push",
                      "build:images",
                      "deploy:images", "deploy:stylesheets"
                     ] do
     puts green("Publishing uStyle v#{Ustyle::VERSION}")
-  end
-end
-
-namespace :version do
-  desc "Check version before publishing"
-  task :check do
-    latest_version = `git describe --abbrev=0 --tags`.gsub(/(v|\n)/, "")
-
-    if Ustyle::VERSION == latest_version
-      raise red("You haven't updated the uStyle version from #{Ustyle::VERSION}, please do so before publishing")
-    end
-  end
-
-  desc "Update version"
-  task :update do
-    `git commit -am "Deploying version #{Ustyle::VERSION}" && npm version #{Ustyle::VERSION} -m "Version %s"`
   end
 end
 

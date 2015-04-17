@@ -1,3 +1,5 @@
+require 'json'
+
 module Ustyle
-  VERSION = "0.14.4"
+  VERSION = JSON.parse(File.read('package.json'))["version"]
 end

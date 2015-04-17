@@ -1,10 +1,19 @@
 var autoprefixer = require('autoprefixer-core');
 
 module.exports = function(grunt) {
+
+  require('load-grunt-tasks')(grunt);
+  grunt.loadTasks('grunt/tasks');
+
   grunt.initConfig({
     shell: {
       publish : {
         command: 'bundle exec rake ustyle:publish'
+      },
+      version: {
+        command: function(versionType){
+          return 'npm version ' + versionType
+        }
       }
     },
     postcss: {
@@ -152,30 +161,18 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.loadNpmTasks('grunt-env');
-  grunt.loadNpmTasks('grunt-shell');
-  grunt.loadNpmTasks('grunt-svgmin');
-  grunt.loadNpmTasks('grunt-sassdoc');
-  grunt.loadNpmTasks('grunt-scss-lint');
-  grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-contrib-coffee');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-build-control');
-  grunt.loadNpmTasks('grunt-postcss');
-  grunt.loadNpmTasks('grunt-newer');
-  grunt.loadTasks('grunt/tasks');
-
+  grunt.registerTask('lint', ['scsslint']);
+  grunt.registerTask('icons', ['newer:svgmin', 'svg2png']);
 
   grunt.registerTask('build', ['sass', 'sassdoc', 'styleguide', 'copy', 'coffee', 'concat', 'lint', 'postcss', 'cssstats', 'builder']);
 
-  grunt.registerTask('lint', ['scsslint']);
-
-  grunt.registerTask('icons', ['newer:svgmin', 'svg2png']);
-
   grunt.registerTask('publish', ['env:build', 'build', 'buildcontrol:pages']);
-  grunt.registerTask('publish:version', ['publish', 'shell:publish']);
+  grunt.registerTask('publish:version', 'Build and publish ustyle version', function(version){
+    if (version === null){
+      grunt.warn('Version must be specified when publishing ustyle')
+    }
+    grunt.task.run('publish', 'shell:version:' + version, 'shell:publish');
+  });
 
   grunt.registerTask('default', ['env:dev', 'build', 'browserSync-init', 'watch']);
 };
