@@ -171,7 +171,7 @@ module.exports = function(grunt) {
     if (version === null){
       grunt.warn('Version must be specified when publishing ustyle')
     }
-    grunt.task.run('publish', 'shell:version:' + version, 'shell:publish');
+    grunt.task.run('env:build', 'build', 'shell:version:' + version, 'shell:publish', 'buildcontrol:pages');
   });
 
   grunt.registerTask('default', ['env:dev', 'build', 'browserSync-init', 'watch']);
