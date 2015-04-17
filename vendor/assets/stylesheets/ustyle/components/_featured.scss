@@ -1,0 +1,45 @@
+// @section Components
+// @name Featured deal
+// 
+// @description
+//   The default `.featured`
+//
+// @markup
+//   <div class="featured">
+//     <div class="featured-header">
+//       <strong>
+//         Title goes here
+//       </strong>
+//       Subtitle
+//     </div>
+//     <div class="featured-content">
+//       I HAVE CONTENT
+//     </div>
+//     <div class="featured-legal">
+//       Legal stuff goes here
+//     </div>
+//   </div>
+//
+
+$featured-padding: 1em;
+
+.featured {
+  height: 300px;
+}
+
+.featured-header {
+  padding: $featured-padding;
+  background-color: #fff;
+}
+
+.featured-content {
+  padding: $featured-padding;
+  background-color: $c-cyan-light;
+}
+
+.featured-legal {
+  padding: $featured-padding;
+  border-top: 1px solid $c-bordergrey;
+  background-color: $c-cyan-light;
+  font-size: 0.9em;
+}
