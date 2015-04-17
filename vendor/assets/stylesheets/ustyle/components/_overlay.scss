@@ -2,7 +2,7 @@
 // @name Overlay
 //
 // @description
-//  `.us-overlay` can slide from either side and turn into a modal if `.us-overlay-modal-parent` is added to a parent.
+//  `.us-overlay` can slide from either side and turn into a modal if `.us-overlay-parent--modal` is added to a parent.
 //
 //  
 // @javascript
@@ -24,7 +24,7 @@
 // @markup
 //   <button class='us-btn js-open-overlay' modifier="{$modifiers}">Open</button>
 //
-//   <div class="us-overlay-parent us-overlay-modal-parent" modifier="{$modifiers}">
+//   <div class="us-overlay-parent us-overlay-parent--modal" modifier="{$modifiers}">
 //     <div class="us-overlay-container">
 //       <div class="us-overlay {$modifiers}">
 //         <div class="us-overlay__header">
@@ -58,9 +58,10 @@ $overlay-header-height: 55px !default;
 $overlay-close-icon-size: 32px !default;
 $overlay-z-index: $overlay-forced-z-index;
 
-@mixin overlay($place-above: false) {
+@mixin overlay-container($place-above: false) {
   position: relative;
-  background: #fff;
+  z-index: $overlay-forced-z-index;
+  width: $overlay-mobile-width;
   transition: transform $overlay-transition-speed;
   transition-timing-function: cubic-bezier(.175, .885, .335, 1.05);
   transform: translateX(-100%);
@@ -85,26 +86,42 @@ $overlay-z-index: $overlay-forced-z-index;
       display: block;
     }
   }
-}
 
-.us-overlay {
-  @include overlay;
-}
-
-.us-overlay-container {
-  width: $overlay-mobile-width;
-
-  @include respond-to(small-tablet, true) {
-    width: $overlay-tablet-width;
-  }
-
-  .us-overlay-modal-parent & {
+  .us-overlay-parent--modal & {
     @include respond-to($overlay-modal-breakpoint, true) {
       width: $overlay-modal-width;
       max-width: $overlay-max-modal-width;
       margin: 5% auto;
     }
   }
+
+  @include respond-to(small-tablet, true) {
+    width: $overlay-tablet-width;
+  }
+}
+
+.us-overlay-parent {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $overlay-forced-z-index;
+  display: none;
+
+  &.us-overlay--open {
+    display: block;
+    overflow: scroll;
+  }
+}
+
+.us-overlay {
+  position: relative;
+  background: #fff;
+}
+
+.us-overlay-container {
+  @include overlay-container;
 }
 
 .overlay--open,
@@ -115,23 +132,6 @@ $overlay-z-index: $overlay-forced-z-index;
 .us-overlay__body {
   @extend %container !optional;
   padding: 1em;
-}
-
-.us-overlay-modal-parent {
-  @include respond-to($overlay-modal-breakpoint, true) {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: $overlay-forced-z-index + 1;
-    display: none;
-
-    &.us-overlay--open {
-      display: block;
-      overflow: scroll;
-    }
-  }
 }
 
 .us-overlay--right {
