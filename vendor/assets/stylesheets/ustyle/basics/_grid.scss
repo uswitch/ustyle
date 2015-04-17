@@ -66,20 +66,20 @@
 %container {
   @extend %clearfix;
   position: relative;
-  padding: 0 em($gutter-width / 2);
+  padding: 0 $gutter-width / 2;
   margin-right: auto;
   margin-left: auto;
 
   @include respond-to(tablet) {
-    max-width: em($tablet-container-width);
+    max-width: $tablet-container-width;
   }
 
   @include respond-to(desktop, true) {
-    max-width: em($desktop-container-width);
+    max-width: $desktop-container-width;
   }
 
   @include respond-to(large-desktop) {
-    max-width: em($large-container-width);
+    max-width: $large-container-width;
   }
 }
 

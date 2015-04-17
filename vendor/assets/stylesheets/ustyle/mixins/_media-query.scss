@@ -11,52 +11,52 @@
 ///
 /// @type Number (unit)
 
-$large-desktop-width: em(1200px) !default;
+$large-desktop-width: 1200px !default;
 
 /// Breakpoint for desktop
 ///
 /// @type Number (unit)
 
-$desktop-width: em(992px) !default;
+$desktop-width: 992px !default;
 
 /// Breakpoint for tablet
 ///
 /// @type Number (unit)
 
-$tablet-width: em(768px) !default;
+$tablet-width: 768px !default;
 
 /// Breakpoint for small tablets
 ///
 /// @type Number (unit)
 
-$small-tablet-width: em(600px) !default;
+$small-tablet-width: 600px !default;
 
 /// Breakpoint for mobile
 ///
 /// @type Number (unit)
 
-$mobile-width: em(480px) !default;
+$mobile-width: 480px !default;
 
 /// Max-breakpoint for mobiles
 ///
 /// @require {Variable} small-tablet-width
 /// @type Number (unit)
 
-$mobile-end-width: $small-tablet-width - em(1px);
+$mobile-end-width: $small-tablet-width - 1;
 
 /// Max-breakpoint for small tablets
 ///
 /// @require {Variable} tablet-width
 /// @type Number (unit)
 
-$small-tablet-end-width: $tablet-width - em(1px);
+$small-tablet-end-width: $tablet-width - 1;
 
 /// Max-breakpoint for tablets
 ///
 /// @require {Variable} desktop-width
 /// @type Number (unit)
 
-$tablet-end-width: $desktop-width - em(1px);
+$tablet-end-width: $desktop-width - 1;
 
 /// A list containing the devices for `min-width` media-query breakpoints
 ///
