@@ -1,5 +1,6 @@
 require 'json'
 
 module Ustyle
-  VERSION = JSON.parse(File.read('package.json'))["version"]
+  version = "0.15.0"
+  VERSION = version
 end

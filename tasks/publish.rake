@@ -10,7 +10,7 @@ require 'fileutils'
 
 namespace :ustyle do
   desc "Publishes uStyle v#{Ustyle::VERSION}"
-  task :publish => [ "git:push",
+  task :publish => [ "git:add", "git:push",
                      "build:images",
                      "deploy:images", "deploy:stylesheets"
                     ] do
@@ -19,6 +19,10 @@ namespace :ustyle do
 end
 
 namespace :git do
+  task :add do
+    `git commit -am '#{Ustyle::VERSION}' && git tag -a v#{Ustyle::VERSION} -m '#{Ustyle::VERSION}'`
+  end
+
   desc "Push version #{Ustyle::VERSION} to github"
   task :push do
     `git push && git push --tags`

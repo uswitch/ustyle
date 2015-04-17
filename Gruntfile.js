@@ -9,11 +9,11 @@ module.exports = function(grunt) {
     shell: {
       publish : {
         command: 'bundle exec rake ustyle:publish'
-      },
-      version: {
-        command: function(versionType){
-          return 'npm version ' + versionType
-        }
+      }
+    },
+    version: {
+      project: {
+        src: ['package.json', 'bower.json', 'lib/ustyle/version.rb']
       }
     },
     postcss: {
@@ -171,7 +171,7 @@ module.exports = function(grunt) {
     if (version === null){
       grunt.warn('Version must be specified when publishing ustyle')
     }
-    grunt.task.run('env:build', 'shell:version:' + version, 'shell:publish', 'build', 'buildcontrol:pages');
+    grunt.task.run('env:build', 'version::' + version, 'shell:publish', 'build', 'buildcontrol:pages');
   });
 
   grunt.registerTask('default', ['env:dev', 'build', 'browserSync-init', 'watch']);
