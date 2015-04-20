@@ -2,44 +2,116 @@
 // @name Featured deal
 // 
 // @description
-//   The default `.featured`
+//   The `.featured` is mostly composed by smaller components, they can be shuffled around inside of a grid to create several variants
 //
 // @markup
 //   <div class="featured">
-//     <div class="featured-header">
+//     <div class="featured__header">
 //       <strong>
 //         Title goes here
 //       </strong>
 //       Subtitle
 //     </div>
-//     <div class="featured-content">
-//       I HAVE CONTENT
+//     <div class="featured__content">
+//       <div class='us-usp us-usp--blue'>
+//         Awesome deal usp
+//       </div>
+//       <ul>
+//         <li>List item 1</li>
+//         <li>List item 2</li>
+//         <li>List item 3</li>
+//       </ul>
+//       <p> 
+//         Blasf dsdfs fdsfsdf sdf sdfsdf
+//       </p>
+//       <div class="featured-highlight">
+//         <strong class="featured-highlight__title">
+//           £99.99
+//         </strong>
+//         monthly cost
+//         <div>
+//           <a class="us-link" href="#">Link</a>
+//         </div>
+//       </div>
+//       <div class="us-icon--before us-icon--small--before us-icon--custom--before us-icon--clock--before">
+//         <strong>3 days left</strong>
+//       </div>
+//       <img class="us-img--full" src="http://uswitch-wp-cms-assets.s3-website-eu-west-1.amazonaws.com//www.uswitch.com/money/guides/wp-content/uploads/2014/11/DB2011AU01018_SMALL.jpg" width="200">
+//       <button class="us-btn us-btn--primary us-btn">See deal</button>
 //     </div>
-//     <div class="featured-legal">
+//     <div class="featured__legal">
 //       Legal stuff goes here
+//     </div>
+//   </div>
+//
+//   <div class="featured">
+//     <div class="featured__header">
+//       <strong>
+//         uSwitch recomends
+//       </strong>
+//     </div>
+//     <div class="featured__content">
+//       <div class='us-usp us-usp--blue'>
+//         Exclusive deal
+//       </div>
+//       <p> 
+//         The uSwitch collective switch team has secured the cheapest deal on the market.
+//       </p>
+//       <div class="featured-highlight">
+//         <small class="featured-highlight__title">
+//           you could save
+//         </small>
+//         <strong>£429</strong>.64/yr
+//       </div>
+//       <button class="us-btn us-btn--primary us-btn">More details</button>
 //     </div>
 //   </div>
 //
 
 $featured-padding: 1em;
+$featured-list-padding: 1em;
+$featured-highlight-text-size: 1.5em;
+$featured-legal-text-size: .9em;
 
 .featured {
-  height: 300px;
+  
 }
 
-.featured-header {
+.featured__header {
   padding: $featured-padding;
   background-color: #fff;
 }
 
-.featured-content {
+.featured__content {
   padding: $featured-padding;
   background-color: $c-cyan-light;
+
+  ul {
+    padding-left: $featured-list-padding;
+  }
 }
 
-.featured-legal {
+.featured-highlight {
+  font-weight: bold;
+  color: $c-navy;
+  text-align: center;
+
+  strong {
+    font-size: $featured-highlight-text-size;
+  }
+
+  a {
+    font-weight: normal;
+  }
+}
+
+.featured-highlight__title {
+  display: block;
+}
+
+.featured__legal {
   padding: $featured-padding;
-  border-top: 1px solid $c-bordergrey;
+  font-size: $featured-legal-text-size;
   background-color: $c-cyan-light;
-  font-size: 0.9em;
+  border-top: 1px solid $c-bordergrey;
 }
