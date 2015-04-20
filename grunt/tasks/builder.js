@@ -44,30 +44,11 @@ module.exports = function(grunt){
       callback(null, 'done');
     }
 
-    function dirTree(filename) {
-      var stats = fs.lstatSync(filename),
-          info = {
-              path: filename,
-              name: path.basename(filename)
-          };
-
-        if (stats.isDirectory()) {
-            info.type = "folder";
-            info.children = fs.readdirSync(filename).map(function(child) {
-                return dirTree(filename + '/' + child);
-            });
-        } else {
-            // Assuming it's a file. In real life it could be a symlink or
-            // something else!
-            info.type = "file";
-        }
-        return info;
-    }
-
     function generatePages(data, pages, dest){
       pages.map(function(page){
         var model = {
           project: data.project,
+          navigation: data.navigation,
           page: page,
           pages: data.pages
         };

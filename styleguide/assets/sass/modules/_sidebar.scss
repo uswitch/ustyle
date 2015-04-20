@@ -1,34 +1,18 @@
 $sidebar-width          : 280px;
-$sidebar-bg-color       : $c-bggrey;
+$sidebar-bg-color       : transparent;
 $sidebar-breakpoint     : tablet;
 $sidebar-side-visibility: desktop;
 $sidebar-top-push       : $gutter-width/2;
 $sidebar-padding        : 0;
 
 .sidebar {
-  position: fixed;
-  top: 0;
-  width: 100%;
   background-color: $sidebar-bg-color;
   z-index: 10;
   overflow: visible;
-  padding: $sidebar-top-push $sidebar-padding $sidebar-padding;
 
   @include respond-to($sidebar-breakpoint){
-    bottom: 0;
-    width: $sidebar-width;
-    padding: $sidebar-padding;
+    min-height: 1px;
     overflow: auto;
-    transition: transform .2s;
-    transform: translate3d(-$sidebar-width,0,0);
-  }
-
-  &--active {
-    transform: translate3d(0,0,0);
-  }
-
-  @include respond-to($sidebar-side-visibility){
-    transform: translate3d(0,0,0);
   }
 
   &--push {
@@ -41,5 +25,22 @@ $sidebar-padding        : 0;
     @include respond-to($sidebar-side-visibility){
       left: $sidebar-width;
     }
+  }
+
+  &__nav-link {
+    @include link-colors($c-typegrey, $c-typecyan, $c-typegrey, $c-typegrey);
+    display: block;
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+}
+
+.sticky {
+  @include respond-to(tablet, true) {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 15;
+    padding-top: $gutter-width;
   }
 }

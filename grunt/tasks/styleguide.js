@@ -19,7 +19,7 @@ module.exports = function(grunt){
         promise         = this.async(),
         files           = this.files,
         outputFilePath  = this.data.output,
-        staticPages     = this.data.static,
+        styleguidePath  = this.data.dir,
         styleguide      = [];
 
     var options = this.options({
@@ -97,14 +97,14 @@ module.exports = function(grunt){
                     .map(function(value, key) {
 
                       var structure = key.split("/"),
-                          section = structure[0],
+                          section = slugify(structure[0]),
                           page = structure[1];
 
                       return {
                           name: page,
                           page: slugify(page) + '.html',
                           template: options.template,
-                          section: section,
+                          section: slugify(section),
                           blocks: value
                       }
                     })
@@ -114,27 +114,31 @@ module.exports = function(grunt){
     }
 
     function generateStaticContent(sections, callback) {
-      var pages = grunt.file.expand("./styleguide/**/*")
+
+      var pages = grunt.file.expand(styleguidePath + "/**/*")
           .filter(function(dir){
             var stats = fs.lstatSync(dir);
             return !/assets|templates|partials/.test(dir) && !stats.isDirectory();
           })
           .map(function(file){
-
             var data = matter.read(file),
                 extension = path.extname(file),
+                section = path.dirname(file).replace((new RegExp(styleguidePath + "\/?", "g")), ""),
                 filename = path.basename(file, extension);
 
             return {
               name: data.data.name || humanize(filename),
               page: filename + '.html',
               template: data.data.template || "styleguide/templates/simple.tpl",
-              section: data.data.section || "",
-              content: marked(data.content)
+              section: section,
+              content: (extension === ".md" ? marked(data.content) : data.content)
             }
           });
 
-      callback(null, pages.concat(sections));
+
+      var data = _sortyByIndex(pages).concat(sections);
+
+      callback(null, _sortyByIndex(data));
     }
 
     function generateStyleguide(sections, callback){
@@ -148,7 +152,13 @@ module.exports = function(grunt){
     }
 
     function _getSection(sections){
-      return _.chain(sections).map(function(data){ return data.section }).compact().uniq().value();
+      return _.chain(sections).map(function(data){ return slugify(data.section) }).compact().uniq().value();
+    }
+
+    function _sortyByIndex(sections){
+      return sections.sort(function(a, b){
+        return (a.page == "index.html" ? -1 : 1);
+      })
     }
 
     function writeFile(model, callback){

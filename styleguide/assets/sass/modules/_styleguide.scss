@@ -6,7 +6,10 @@ $styleguide-block-border-color: $c-bordergrey;
 
   &__block {
     padding-top: $styleguide-block-padding;
-    padding-bottom: $styleguide-block-padding;
+    
+    @include respond-to(tablet, true) {
+      padding-bottom: $styleguide-block-padding;  
+    }
 
     &:first-child {
       padding-top: 0;
@@ -14,7 +17,7 @@ $styleguide-block-border-color: $c-bordergrey;
   }
 
   &__header {
-    padding-top: $styleguide-block-padding/2 + 47px;
+    padding-top: $styleguide-block-padding/2;
     padding-bottom: $styleguide-block-padding/2;
 
     @include respond-to(tablet){
@@ -69,7 +72,6 @@ $styleguide-block-border-color: $c-bordergrey;
     @include bold-font;
     position: relative;
     margin-bottom: $gutter-width/2;
-    color: $c-typecyan;
   }
 
   &__block-examples {

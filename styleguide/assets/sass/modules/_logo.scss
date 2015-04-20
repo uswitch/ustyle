@@ -1,10 +1,9 @@
-.logo.logo {
-  position: relative;
-  top: -5px;
-  margin-left: $gutter-width/2;
-
-  @include respond-to(tablet, true){
-    margin: $gutter-width auto;
-    display: block;
-  }
+.logo {
+  @include link-colors(#fff, $c-typecyan, #fff, #fff);
+  @include bold-font;
+  display: block;
+  float: left;
+  padding: .55em;
+  font-size: 1.5em;
+  letter-spacing: 1px;
 }

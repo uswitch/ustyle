@@ -17,16 +17,16 @@ section: Design
       <p>Lifestyle photography should have a British feel where possible, avoiding obviously American or global images. It should be ‘reportage’ in style, avoiding cheesy, posed, forced or unrealistic photography.</p>
     </div>
     <div class="us-col-md-2">
-      <img class="us-img--full trailered" src="images/lifestyle-photography-01.png">
-      <img class="us-img--full trailered" src="images/lifestyle-photography-02.png">
-      <img class="us-img--full trailered" src="images/lifestyle-photography-05.png">
-      <img class="us-img--full trailered" src="images/lifestyle-photography-06.png">
+      <img class="us-img--full trailered" src="/images/lifestyle-photography-01.png">
+      <img class="us-img--full trailered" src="/images/lifestyle-photography-02.png">
+      <img class="us-img--full trailered" src="/images/lifestyle-photography-05.png">
+      <img class="us-img--full trailered" src="/images/lifestyle-photography-06.png">
     </div>
     <div class="us-col-md-2">
-      <img class="us-img--full trailered" src="images/lifestyle-photography-03.png">
-      <img class="us-img--full trailered" src="images/lifestyle-photography-04.png">
-      <img class="us-img--full trailered" src="images/lifestyle-photography-07.png">
-      <img class="us-img--full trailered" src="images/lifestyle-photography-08.png">
+      <img class="us-img--full trailered" src="/images/lifestyle-photography-03.png">
+      <img class="us-img--full trailered" src="/images/lifestyle-photography-04.png">
+      <img class="us-img--full trailered" src="/images/lifestyle-photography-07.png">
+      <img class="us-img--full trailered" src="/images/lifestyle-photography-08.png">
     </div>
   </div>
 </div>

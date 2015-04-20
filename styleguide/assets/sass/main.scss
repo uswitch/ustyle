@@ -1,10 +1,13 @@
+$heading-font-primary: "Open Sans", Helvetica, Arial, sans-serif;
+$hero-padding-top: 1em;
 $needs-font: true;
 $load-icons: true;
 
 // Ustyle imports
 @import "ustyle";
 
-@import "structure/base";
+@import "structure/base",
+        "structure/header";
 
 @import "modules/highlight",
         "modules/sidebar",
@@ -17,7 +20,8 @@ $load-icons: true;
         "modules/grid",
         "modules/code",
         "modules/stats",
-        "modules/states";
+        "modules/states",
+        "modules/typography";
 
 
 @import "ustyle/icons/base";

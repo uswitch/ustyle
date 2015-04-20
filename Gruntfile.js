@@ -57,7 +57,7 @@ module.exports = function(grunt) {
       dist: {
         src: 'vendor/assets/stylesheets/ustyle/**/*.scss',
         output: 'build/ustyle.json',
-        static: 'styleguide/static/*.tpl'
+        dir: 'styleguide'
       }
     },
     cssstats: {
@@ -105,7 +105,7 @@ module.exports = function(grunt) {
     },
     concat: {
       dist: {
-        src: ['styleguide/assets/javascripts/vendor/*.js', 'build/ustyle.js', 'styleguide/assets/javascripts/*.js'],
+        src: ['styleguide/assets/javascripts/vendor/*.js', 'build/ustyle.js', 'styleguide/assets/javascripts/modules/*.js', 'styleguide/assets/javascripts/*.js'],
         dest: 'build/docs/js/app.js'
       }
     },

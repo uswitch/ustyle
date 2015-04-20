@@ -5,14 +5,9 @@
 </head>
 <body>
   {{> _header}}
-  <div id="wrapper">
-    {{> sidebar}}
-    <div class="us-hero trailered">
-      <div class="container sidebar--push styleguide__header">
-        <h1 class="styleguide__title">{{page.name}}</h1>
-      </div>
-    </div>
-    <div class="styleguide container sidebar--push">
+  {{> _hero}}
+  <div id="wrapper" class="us-container">
+    <div class="styleguide">
       {{{page.content}}}
     </div>  
   </div>
