@@ -24,7 +24,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency "coffee-script"
   spec.add_dependency "autoprefixer-rails", "~> 4.0"
   spec.add_dependency "mime-types"
-  spec.add_dependency "json"
   spec.add_dependency "chunky_png",  ">= 0.8.0"
 
   spec.add_development_dependency "bundler", "~> 1.3"
