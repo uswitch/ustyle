@@ -107,6 +107,18 @@ To change the icon sizes for mobile / small-tablet, you have
 
 Note that we only support changing icon sizes on smaller screens (max-width media queries).
 
+
+Adding new icons
+---
+1. add a new icon under *vendor/assets/images/icons*
+1.1 make sure the new icon is using svg tiny and it's not responsive
+1.2 make sure the view port, width and height are as the following: *width="32" height="288" viewBox="0 0 32 288"*
+2. add your icon to variables/_icons.scss
+3. add your icon to icons/_state.scss
+4. run grunt icons 
+5. update includes 
+
+
 Icon list
 ---
 
