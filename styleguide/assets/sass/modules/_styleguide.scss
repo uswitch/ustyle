@@ -5,7 +5,7 @@ $styleguide-block-border-color: $c-bordergrey;
 .styleguide {
 
   &__block {
-    padding-top: $styleguide-block-padding;
+    padding-top: $styleguide-block-padding / 2;
     
     @include respond-to(tablet, true) {
       padding-bottom: $styleguide-block-padding;  
@@ -85,8 +85,8 @@ $styleguide-block-border-color: $c-bordergrey;
 
   &__block-example-class {
     position: absolute;
-    top: 0;
-    right: 0;
+    bottom: 0;
+    left: 0;
     background-color: $c-bggrey;
     color: $c-typegrey-2;
     padding: 3px 8px;

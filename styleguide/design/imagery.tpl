@@ -38,16 +38,16 @@ section: Design
         <p>This will also extend into 3D renderings of objects, which are used within the banner areas of our website.</p>
     </div>
     <div class="us-col-md-2">
-      <img class="us-img--full trailered" src="images/object-photography-01.png">
-      <img class="us-img--full trailered" src="images/object-photography-02.png">
-      <img class="us-img--full trailered" src="images/object-photography-05.png">
-      <img class="us-img--full trailered" src="images/object-photography-06.png">
+      <img class="us-img--full trailered" src="/images/object-photography-01.png">
+      <img class="us-img--full trailered" src="/images/object-photography-02.png">
+      <img class="us-img--full trailered" src="/images/object-photography-05.png">
+      <img class="us-img--full trailered" src="/images/object-photography-06.png">
     </div>
     <div class="us-col-md-2">
-      <img class="us-img--full trailered" src="images/object-photography-03.png">
-      <img class="us-img--full trailered" src="images/object-photography-04.png">
-      <img class="us-img--full trailered" src="images/object-photography-07.png">
-      <img class="us-img--full trailered" src="images/object-photography-08.png">
+      <img class="us-img--full trailered" src="/images/object-photography-03.png">
+      <img class="us-img--full trailered" src="/images/object-photography-04.png">
+      <img class="us-img--full trailered" src="/images/object-photography-07.png">
+      <img class="us-img--full trailered" src="/images/object-photography-08.png">
     </div>
   </div>
 </div>
@@ -58,16 +58,16 @@ section: Design
       <p>Our illustration style should be straightforward, clean and simple. Illustrations should be put over our brand colours, gradients or white, and they should be 2-D where possible, and not be overly metaphor based or cliché.</p>
     </div>
     <div class="us-col-md-2">
-      <img class="us-img--full trailered" src="images/illustration-01.png">
-      <img class="us-img--full trailered" src="images/illustration-02.png">
-      <img class="us-img--full trailered" src="images/illustration-05.png">
-      <img class="us-img--full trailered" src="images/illustration-06.png">
+      <img class="us-img--full trailered" src="/images/illustration-01.png">
+      <img class="us-img--full trailered" src="/images/illustration-02.png">
+      <img class="us-img--full trailered" src="/images/illustration-05.png">
+      <img class="us-img--full trailered" src="/images/illustration-06.png">
     </div>
     <div class="us-col-md-2">
-      <img class="us-img--full trailered" src="images/illustration-03.png">
-      <img class="us-img--full trailered" src="images/illustration-04.png">
-      <img class="us-img--full trailered" src="images/illustration-07.png">
-      <img class="us-img--full trailered" src="images/illustration-08.png">
+      <img class="us-img--full trailered" src="/images/illustration-03.png">
+      <img class="us-img--full trailered" src="/images/illustration-04.png">
+      <img class="us-img--full trailered" src="/images/illustration-07.png">
+      <img class="us-img--full trailered" src="/images/illustration-08.png">
     </div>
   </div>
 </div>
@@ -80,10 +80,10 @@ section: Design
       <p>Infographics are generally displayed on our news and guide pages, so size the graphic accordingly (ie. 8 column width). They are also sometimes printed, so prepare them at 300dpi, then save at 72dpi if also needed for web.</p>
     </div>
     <div class="us-col-md-2">
-      <img class="us-img--full trailered" src="images/infographic-01.png">
+      <img class="us-img--full trailered" src="/images/infographic-01.png">
     </div>
     <div class="us-col-md-2">
-      <img class="us-img--full trailered" src="images/infographic-02.png">
+      <img class="us-img--full trailered" src="/images/infographic-02.png">
     </div>
   </div>
     </div>

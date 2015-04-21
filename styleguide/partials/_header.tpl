@@ -16,7 +16,9 @@
           <a class="nav__link nav__main-link {{isActive this.name}}" href="{{page}}">{{name}}</a>
         {{/isSection}}
       {{/pages}}
-      <a class="nav__link nav__main-link" href="/sass/">Sass doc</a>
+      {{#isSection "code"}}
+        <a class="nav__link nav__main-link" href="/sass/">Sass doc</a>
+      {{/isSection}}
     </nav>
   </div>
 </div>

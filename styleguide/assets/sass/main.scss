@@ -4,7 +4,8 @@ $needs-font: true;
 $load-icons: true;
 
 // Ustyle imports
-@import "ustyle";
+@import "ustyle",
+        "ustyle/content";
 
 @import "structure/base",
         "structure/header";

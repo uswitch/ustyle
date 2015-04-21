@@ -7,7 +7,7 @@
   {{> _header}}
   {{> _hero}}
   <div id="wrapper" class="us-container">
-    <div class="styleguide">
+    <div class="us-content styleguide">
       {{{page.content}}}
     </div>  
   </div>

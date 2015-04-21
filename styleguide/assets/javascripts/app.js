@@ -2,7 +2,11 @@
   "use strict";
 
   function App(){
+    gumshoe.init({
+      activeClass: 'sidebar__nav-link--active'
+    });
     var tabs = new tabScroll($(".nav__link.active"), $(".nav-container"));
+
     var toggleLinks = document.querySelectorAll(".js-toggle__link");
 
     for (var i = toggleLinks.length - 1; i >= 0; i--) {
