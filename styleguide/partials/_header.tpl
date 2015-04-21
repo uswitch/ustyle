@@ -1,5 +1,6 @@
 <header class="ustyle__header">
   <a class="logo" href="/">ustyle</a>
+  <span class="version us-tablet--block">v{{project.version}}</span>
   <div class='nav nav--header'>
     <nav>
       {{#navigation}}
