@@ -71,6 +71,7 @@ $styleguide-block-border-color: $c-bordergrey;
   &__block-title {
     @include bold-font;
     position: relative;
+    color: $c-typecyan;
     margin-bottom: $gutter-width/2;
   }
 
@@ -88,8 +89,8 @@ $styleguide-block-border-color: $c-bordergrey;
     bottom: 0;
     left: 0;
     background-color: $c-bggrey;
-    color: $c-typegrey-2;
-    padding: 3px 8px;
+    color: $c-typegrey;
+    padding: 0 8px;
     font-size: .85em;
   }
 
