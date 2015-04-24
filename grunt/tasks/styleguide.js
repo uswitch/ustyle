@@ -20,10 +20,12 @@ module.exports = function(grunt){
         files           = this.files,
         outputFilePath  = this.data.output,
         styleguidePath  = this.data.dir,
+        contentPath     = this.data.dir + "/content",
         styleguide      = [];
 
     var options = this.options({
-        template: 'styleguide/templates/styleguide.tpl',
+        template: styleguidePath + '/templates/styleguide.tpl',
+        contentTemplate: styleguidePath + '/templates/simple.tpl',
         parsers: {
           variable: dssHelper.variableDssParser(),
           partial: function(i, line, block){ return line; },
@@ -115,21 +117,21 @@ module.exports = function(grunt){
 
     function generateStaticContent(sections, callback) {
 
-      var pages = grunt.file.expand(styleguidePath + "/**/*")
+      var pages = grunt.file.expand(contentPath + "/**/*")
           .filter(function(dir){
             var stats = fs.lstatSync(dir);
-            return !/assets|templates|partials/.test(dir) && !stats.isDirectory();
+            return !stats.isDirectory();
           })
           .map(function(file){
             var data = matter.read(file),
                 extension = path.extname(file),
-                section = path.dirname(file).replace((new RegExp(styleguidePath + "\/?", "g")), ""),
+                section = path.dirname(file).replace((new RegExp(contentPath + "\/?", "g")), ""),
                 filename = path.basename(file, extension);
 
             return {
               name: data.data.name || humanize(filename),
               page: filename + '.html',
-              template: data.data.template || "styleguide/templates/simple.tpl",
+              template: data.data.template || options.contentTemplate,
               section: section,
               content: (fileHelper.isMarkdown(extension) ? marked(data.content) : data.content)
             }
