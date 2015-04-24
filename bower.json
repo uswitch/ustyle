@@ -2,9 +2,9 @@
   "name": "ustyle",
   "version": "0.15.2",
   "main": [
-    "build/ustyle-latest.css",
-    "build/ustyle-icons.css",
-    "build/ustyle.js"
+    "dist/ustyle-latest.css",
+    "dist/ustyle-icons.css",
+    "dist/ustyle.js"
   ],
   "homepage": "https://github.com/uswitch/ustyle",
   "authors": [
@@ -30,6 +30,7 @@
   "ignore": [
     "**/.*",
     "bin",
+    "docs",
     "config",
     "grunt",
     "lib",

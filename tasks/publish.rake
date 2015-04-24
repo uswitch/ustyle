@@ -29,24 +29,10 @@ namespace :git do
   end
 end
 
-namespace :build do
-  desc "Building images and hashing them"
-  task :images do
-    images_dir = File.join Ustyle.assets_path, "images"
-    FileUtils.rm_r "build/images", force: true
-    FileUtils.cp_r images_dir, "build"
-    
-    Dir["build/images/**/*"].each do |file|
-      next if File.directory?(file)
-      FileUtils.mv file, Ustyle.asset_digest(file), force: true
-    end
-  end
-end
-
 namespace :deploy do
   desc "Deploy stylesheets to S3"
   task :stylesheets do
-    Dir["build/*.{css,json,js}"].each do |file|
+    Dir["dist/*.{css,json,js}"].each do |file|
       file_name = File.basename(file)
       content_type = Ustyle.mime_type_for(file_name)
       Ustyle.s3_upload( Ustyle.versioned_path(file_name), file, content_type )
@@ -62,10 +48,12 @@ namespace :deploy do
 
   desc "Deploy images to S3"
   task :images do
-    Dir["build/images/**/*"].each do |file|
+    images_dir = File.join Ustyle.assets_path, "images", "**", "*"
+    Dir[images_dir].each do |file|
       next if File.directory?(file)
-      file_path = file.gsub(/^build\//, "")
-      Ustyle.s3_upload( Ustyle.versioned_path(file_path), file, Ustyle.mime_type_for(file))
+      file_path = file.gsub(Regexp.new("#{Ustyle.assets_path}/"), "")
+      hashed_file = Ustyle.asset_digest(file_path)
+      Ustyle.s3_upload( Ustyle.versioned_path(hashed_file), file, Ustyle.mime_type_for(file))
     end
   end
 end

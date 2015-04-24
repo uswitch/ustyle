@@ -48,11 +48,7 @@ module Sass::Script::Functions
     url = if Ustyle.sprockets?
       sprockets_context.send(:"#{type}_path", source.value)
     else
-      if Ustyle.production?
-        Ustyle.cloudfront_url(source.value)
-      else
-        File.join("images/", Ustyle.asset_digest(source.value))
-      end
+      Ustyle.cloudfront_url(source.value, type)
     end
 
     # sass-only
@@ -69,14 +65,6 @@ module Sass::Script::Functions
     Sass::Script::String.new("url('data:image/png;base64,#{data}')")
   end
   declare :rgba_inline, :args => [:c, :px]
-
-  def list_files(path)
-    return Sass::Script::List.new(
-        Dir.glob(path.value).map! { |x| Sass::Script::String.new(x) },
-        :comma
-    )
-  end
-  declare :list_files, :args => [:path]
 
   protected
 

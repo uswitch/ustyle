@@ -7,8 +7,8 @@ module Ustyle
     ENV['RACK_ENV'] == 'production' || ENV['RAILS_ENV'] == 'production' || ENV['NODE_ENV'] == 'production' || false
   end
 
-  def self.cloudfront_url path
-    File.join "https://assets0.uswitch.com/s3/uswitch-assets-eu/ustyle/", Ustyle::VERSION, self.asset_digest(path)
+  def self.cloudfront_url path, type
+    File.join "https://assets0.uswitch.com/s3/uswitch-assets-eu/ustyle/", Ustyle::VERSION, folder_by_type(type), asset_digest(path)
   end
 
   def self.asset_digest path
@@ -23,10 +23,18 @@ module Ustyle
     File.join "ustyle", Ustyle::VERSION, file
   end
 
-  private
-
   def self.digest
     Digest::SHA1.hexdigest Ustyle::VERSION
+  end
+
+  def self.folder_by_type type
+    case type
+    when :image
+      "images"
+    when :font
+      "fonts"
+    else ""
+    end
   end
 
 end

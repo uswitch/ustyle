@@ -6,7 +6,7 @@ module.exports = function(grunt){
   grunt.registerTask("browserSync-init", function() {
       var done = this.async();
       browserSync({
-          server: "./build/docs"
+          server: "./docs"
       }, function (err, bs) {
           done();
       });

@@ -22,14 +22,14 @@ module.exports = function(grunt) {
               autoprefixer({ browsers: ['last 5 versions', 'Firefox 22', 'Explorer 8', '> 1%', 'Opera 12.1'] }).postcss
             ]
         },
-        dist: { src: 'build/**/*.css' }
+        dist: { src: ['build/**/*.css', 'dist/**/*.css'] }
     },
     watch: {
       options: {
         spawn: false
       },
       build: {
-        files: ['vendor/assets/**/*', 'styleguide/**/*', 'styleguide/build/ustyle.json'],
+        files: ['vendor/assets/**/*', 'styleguide/**/*', 'dist/ustyle.json'],
         tasks: ['styleguide', 'copy', 'sass', 'coffee', 'sassdoc', 'postcss', 'browserSync-inject', 'cssstats', 'builder']
       },
       scripts: {
@@ -56,21 +56,21 @@ module.exports = function(grunt) {
     styleguide: {
       dist: {
         src: 'vendor/assets/stylesheets/ustyle/**/*.scss',
-        output: 'build/ustyle.json',
+        output: 'dist/ustyle.json',
         dir: 'styleguide'
       }
     },
     cssstats: {
       dist: {
-        src: 'build/ustyle-latest.css',
-        output: 'build/stats.json'
+        src: 'dist/ustyle-latest.css',
+        output: 'dist/stats.json'
       }
     },
     builder: {
       dist:{
         files: {
-          'build/docs/': 'build/ustyle.json',
-          'build/docs/stats/': 'build/stats.json'
+          'docs/': 'dist/ustyle.json',
+          'docs/stats/': 'dist/stats.json'
         }
       }
     },
@@ -84,17 +84,17 @@ module.exports = function(grunt) {
           bundleExec: true
         },
         files: {
-          'build/ustyle-latest.css': 'vendor/assets/stylesheets/ustyle.scss',
-          'build/ustyle-content.css': 'vendor/assets/stylesheets/ustyle-content.scss',
-          'build/ustyle-icons.css': 'vendor/assets/stylesheets/ustyle-icons.scss',
-          'build/docs/css/main.css': 'styleguide/assets/sass/main.scss'
+          'dist/ustyle-latest.css': 'vendor/assets/stylesheets/ustyle.scss',
+          'dist/ustyle-content.css': 'vendor/assets/stylesheets/ustyle-content.scss',
+          'dist/ustyle-icons.css': 'vendor/assets/stylesheets/ustyle-icons.scss',
+          'docs/css/main.css': 'styleguide/assets/sass/main.scss'
         }
       }
     },
     coffee: {
       compile: {
         files: {
-          'build/ustyle.js': [
+          'dist/ustyle.js': [
             'vendor/assets/javascripts/ustyle/utils.js.coffee',
             'vendor/assets/javascripts/ustyle/anchor.js.coffee',
             'vendor/assets/javascripts/ustyle/tabs.js.coffee',
@@ -105,14 +105,14 @@ module.exports = function(grunt) {
     },
     concat: {
       dist: {
-        src: ['styleguide/assets/javascripts/vendor/*.js', 'build/ustyle.js', 'styleguide/assets/javascripts/modules/*.js', 'styleguide/assets/javascripts/*.js'],
-        dest: 'build/docs/js/app.js'
+        src: ['styleguide/assets/javascripts/vendor/*.js', 'dist/ustyle.js', 'styleguide/assets/javascripts/modules/*.js', 'styleguide/assets/javascripts/*.js'],
+        dest: 'docs/js/app.js'
       }
     },
     copy: {
       main: {
         files: [
-          {expand: true, flatten: true, src: ['styleguide/assets/images/**'], dest: 'build/docs/images/'},
+          {expand: true, flatten: true, src: ['styleguide/assets/images/**'], dest: 'docs/images/'},
         ]
       }
     },
@@ -120,7 +120,7 @@ module.exports = function(grunt) {
       default: {
         src: 'vendor/assets/stylesheets/ustyle/**/*.scss',
         options: {
-          dest: './build/docs/sass'
+          dest: './docs/sass'
         }
       }
     },
@@ -147,7 +147,7 @@ module.exports = function(grunt) {
     },
     buildcontrol: {
       options: {
-        dir: 'build/docs',
+        dir: 'docs/',
         commit: true,
         push: true,
         message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
