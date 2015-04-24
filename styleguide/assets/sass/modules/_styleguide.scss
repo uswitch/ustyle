@@ -5,8 +5,11 @@ $styleguide-block-border-color: $c-bordergrey;
 .styleguide {
 
   &__block {
-    padding-top: $styleguide-block-padding;
-    padding-bottom: $styleguide-block-padding;
+    padding-top: $styleguide-block-padding / 2;
+    
+    @include respond-to(tablet, true) {
+      padding-bottom: $styleguide-block-padding;  
+    }
 
     &:first-child {
       padding-top: 0;
@@ -14,7 +17,7 @@ $styleguide-block-border-color: $c-bordergrey;
   }
 
   &__header {
-    padding-top: $styleguide-block-padding/2 + 47px;
+    padding-top: $styleguide-block-padding/2;
     padding-bottom: $styleguide-block-padding/2;
 
     @include respond-to(tablet){
@@ -68,8 +71,8 @@ $styleguide-block-border-color: $c-bordergrey;
   &__block-title {
     @include bold-font;
     position: relative;
-    margin-bottom: $gutter-width/2;
     color: $c-typecyan;
+    margin-bottom: $gutter-width/2;
   }
 
   &__block-examples {
@@ -83,11 +86,11 @@ $styleguide-block-border-color: $c-bordergrey;
 
   &__block-example-class {
     position: absolute;
-    top: 0;
-    right: 0;
+    bottom: 0;
+    left: 0;
     background-color: $c-bggrey;
-    color: $c-typegrey-2;
-    padding: 3px 8px;
+    color: $c-typegrey;
+    padding: 0 8px;
     font-size: .85em;
   }
 

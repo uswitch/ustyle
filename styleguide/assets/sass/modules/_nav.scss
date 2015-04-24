@@ -1,12 +1,20 @@
-.nav {
-  display: none;
+.nav-container {
+  background-color: $c-navy-light;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
 
+.nav-container::-webkit-scrollbar {
+  display: none
+}
+
+.nav {
   .sidebar--active & {
     display: block;
   }
   
-  @include respond-to(tablet){
-    display: block;
+  @include respond-to(tablet, true) {
+    float: right;
   }
 
   &__set {
@@ -14,42 +22,38 @@
     list-style: none;
   }
 
-  &__item {
-    margin-bottom: 0;
+  &--sub {
+    width: 215%;
+    @include respond-to(tablet) {
+      width: auto;
+    }
+  }
 
-    .nav__sub-set & &:last-child {
-      margin-bottom: $gutter-width/2
+  &--header {
+    float: right;
+
+    .nav__link {
+      padding: 15px 5px;
+      @include respond-to(tablet) {
+        padding: 15px $gutter-width;  
+      }
     }
   }
 
   &__link {
-    @include link-colors($c-typegrey, $c-typecyan, $c-typegrey, $c-typegrey);
-    display: block;
+    @include link-colors(#fff, $c-typecyan, #fff, #fff);
+    display: inline-block;
     position: relative;
-    padding-top: 6px;
-    padding-bottom: 6px;
-    padding-left: $gutter-width;
+    padding: 6px $gutter-width/2;
     transition: color 200ms, background-color 200ms;
 
-    .nav__sub-set & {
-      padding-left: $gutter-width/2;
-    }
-
-    &:before {
-      content: '';
-      width: 0;
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      background-color: $c-typecyan;
-      transition: width 200ms;
+    @include respond-to(tablet) {
+      padding: 6px $gutter-width
     }
 
     &:hover,
     &.active {
       color: $c-typecyan;
-      background-color: white;
 
       &:before {
         width: 8px;

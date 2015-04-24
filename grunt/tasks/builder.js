@@ -9,8 +9,10 @@ module.exports = function(grunt){
         async       = require('async'),
         path        = require('path'),
         fs          = require('fs'),
+        fm          = require('front-matter'),
         template    = require('../modules/templates'),
         fileHelper  = require('../modules/file'),
+        slugify     = require("underscore.string/slugify"),
         promise     = this.async(),
         files       = this.files;
 
@@ -46,10 +48,11 @@ module.exports = function(grunt){
       pages.map(function(page){
         var model = {
           project: data.project,
+          navigation: data.navigation,
           page: page,
           pages: data.pages
         };
-        var outputFilePath = dest + page.page,
+        var outputFilePath = dest + slugify(page.section) + "/" + page.page,
             template = handlebars.compile(grunt.file.read(page.template))(model);
 
         fileHelper.writeFile(template, outputFilePath, "Build");

@@ -18,5 +18,9 @@ module.exports = {
     } else {
       grunt.log.writeln('‣ '+ message +' unchanged');
     }
+  },
+
+  isMarkdown: function(extension){
+    return extension === ".md";
   }
 }
