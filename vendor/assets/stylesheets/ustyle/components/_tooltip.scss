@@ -60,7 +60,7 @@ $tooltip-note-padding-horizontal: .75em;
 }
 
 @mixin tooltip-note--position($position: "right") {
-  @include respond-to(desktop, true) {
+  @include respond-to(tablet, true) {
     @if $position == "right" {
       top: -$tooltip-note-padding-vertical;
       right: -($tooltip-note-width + ($tooltip-icon-size / 2));
@@ -81,13 +81,13 @@ $tooltip-note-padding-horizontal: .75em;
 
 .us-tooltip {
   &.us-tooltip--active {
-    @include respond-to(to-tablet) {
+    @include respond-to(tablet, true) {
       @include tooltip--active;
     }
   }
 
   &:hover {
-    @include respond-to(desktop, true) {
+    @include respond-to(tablet, true) {
       @include tooltip--active;
     }
   }
@@ -128,7 +128,7 @@ $tooltip-note-padding-horizontal: .75em;
   border-radius: 4px;
   transition: opacity 300ms ease;
 
-  @include respond-to(desktop, true) {
+  @include respond-to(tablet, true) {
     position: absolute;
     display: block;
     width: $tooltip-note-width;
