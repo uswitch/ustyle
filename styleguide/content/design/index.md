@@ -1,5 +1,4 @@
 ---
-section: Design
 name: Design
 ---
 

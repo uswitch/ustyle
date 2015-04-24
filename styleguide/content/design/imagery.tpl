@@ -1,7 +1,3 @@
----
-section: Design
----
-
 <div class="us-content-group">
   <div class="us-grid-row">
     <div class="us-col-md-8">

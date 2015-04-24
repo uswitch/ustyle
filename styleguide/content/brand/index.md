@@ -1,5 +1,5 @@
 ---
-section: Framework
+name: Framework
 ---
 
 **We believe in simplicity**. And that’s why we’ve made these guidelines really simple. They inform the way we look, feel, behave and sound as a company, to ensure we remain consistent, impactful and recognisable across all of our communications.

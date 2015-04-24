@@ -1,6 +1,3 @@
----
-section: Code
----
 <div class="styleguide__block">
   <h2 class="styleguide__block-title">Introduction</h2>
   <p>

@@ -66,7 +66,7 @@ module.exports = function(grunt){
 
               block['path'] = file;
               block['file'] = path.basename(file);
-              block['link'] = underscored(block['name']);
+              block['link'] = underscored(slugify(block['name']));
 
               // Normalize @state and @variable to array
               ['state', 'variable'].forEach(function(prop) {
