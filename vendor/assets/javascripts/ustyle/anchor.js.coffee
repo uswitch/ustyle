@@ -142,10 +142,11 @@ createContext = (options) ->
 
     getXBounds = (target, anchor, arrow) ->
       targetBounds = target.getBoundingClientRect()
+      centerPoint = (targetBounds.left + target.offsetWidth/2)
 
       if document.body.offsetWidth < (targetBounds.left + (anchor.offsetWidth / 2) + (target.offsetWidth/2))
         document.body.offsetWidth - anchor.offsetWidth
-      else if (anchor.offsetWidth/2 - arrow.offsetWidth) > targetBounds.left
+      else if centerPoint - anchor.offsetWidth/2 < 0
         0
       else
         targetBounds.left - (anchor.offsetWidth / 2) + (target.offsetWidth/2)
