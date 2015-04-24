@@ -12,6 +12,7 @@
 //   activeClass: "us-tooltip--active"
 // });`
 //
+//  Please note that on mobile viewports, the tooltip will appeat underneath the element that is aligned with the tooltip icon.
 //
 // @markup
 //   <h4>Hover on the tooltip</h4>
@@ -25,6 +26,48 @@
 //     <div class="us-tooltip us-tooltip__wrapper">
 //       <div class="us-tooltip__icon"></div>
 //       <div class="us-tooltip__note us-tooltip__note--right"><strong>Tooltip</strong> message content</div>
+//     </div>
+//   </div>
+//
+//   <h4>Show Tooltip to the left</h4>
+//
+//   <div class="tooltip-demo">
+//     <div class="us-field">
+//       <label for='name'>Name</label>
+//       <input class='us-form-input' id='name' name='name' placeholder='Please enter your name'>
+//     </div>
+//
+//     <div class="us-tooltip us-tooltip__wrapper us-tooltip--active">
+//       <div class="us-tooltip__icon"></div>
+//       <div class="us-tooltip__note us-tooltip__note--left"><strong>Tooltip</strong> message content</div>
+//     </div>
+//   </div>
+//
+//   <h4>Show Tooltip to the top</h4>
+//
+//   <div class="tooltip-demo">
+//     <div class="us-field">
+//       <label for='name'>Name</label>
+//       <input class='us-form-input' id='name' name='name' placeholder='Please enter your name'>
+//     </div>
+//
+//     <div class="us-tooltip us-tooltip__wrapper">
+//       <div class="us-tooltip__icon"></div>
+//       <div class="us-tooltip__note us-tooltip__note--top"><strong>Tooltip</strong> message content</div>
+//     </div>
+//   </div>
+//
+//   <h4>Show Tooltip to the bottom </h4>
+//
+//   <div class="tooltip-demo">
+//     <div class="us-field">
+//       <label for='name'>Name</label>
+//       <input class='us-form-input' id='name' name='name' placeholder='Please enter your name'>
+//     </div>
+//
+//     <div class="us-tooltip us-tooltip__wrapper">
+//       <div class="us-tooltip__icon"></div>
+//       <div class="us-tooltip__note us-tooltip__note--bottom"><strong>Tooltip</strong> message content</div>
 //     </div>
 //   </div>
 //
@@ -62,28 +105,118 @@ $tooltip-note-padding-horizontal: .75em;
 @mixin tooltip-note--position($position: "right") {
   @include respond-to(tablet, true) {
     @if $position == "right" {
+      &:before {
+        @include arrow(10px, 20px, left, $c-typecyan);
+
+        top: 15px;
+
+        @include respond-to(tablet, true) {
+          left: -10px;
+        }
+
+      }
+
+      &:after {    
+        @include arrow(10px, 20px, left, #fff);
+
+        top: 15px;
+
+        @include respond-to(tablet, true) {
+          left: -9px;
+        }
+
+      }
+
       top: -$tooltip-note-padding-vertical;
-      right: -($tooltip-note-width + ($tooltip-icon-size / 2));
+      right: -($tooltip-note-width + ($tooltip-icon-size / 2)) - 4;
     } @else if $position == "top" {
-      top: -($tooltip-icon-size + $tooltip-icon-size / 2);
+      top: -40px;
       right: -($tooltip-note-width / 2 - $tooltip-icon-size / 2);
       transform: translateY(-50%);
+
+      &:before {
+        @include arrow(20px, 10px, down, $c-typecyan);
+
+        top: 100%;
+        transform: translateX(50%);
+
+        @include respond-to(tablet, true) {
+          right: 50%;
+        }
+
+      }
+
+      &:after {
+        @include arrow(20px, 10px, down, #fff);
+
+        top: 98%;
+        transform: translateX(50%);
+
+        @include respond-to(tablet, true) {
+          right: 50%;
+        }
+
+      }
     } @else if $position == "bottom" {
-      top: $tooltip-icon-size + $tooltip-icon-size / 2;
+      top: $tooltip-icon-size / 2;
       right: -($tooltip-note-width / 2 - $tooltip-icon-size / 2);
       transform: translateY(50%);
+      
+      &:before {
+        @include arrow(20px, 10px, up, $c-typecyan);
+
+        top: auto;
+        bottom: 100%;
+        transform: translateX(50%);
+
+        @include respond-to(tablet, true) {
+          right: 50%;
+        }
+      }
+
+      &:after {
+        @include arrow(20px, 10px, up, #fff);
+
+        top: auto;
+        bottom: 98%;
+        transform: translateX(50%);
+
+        @include respond-to(tablet, true) {
+          right: 50%;
+        }
+      }
     } @else if $position == "left" {
       top: -$tooltip-note-padding-vertical;
-      right: $tooltip-icon-size + $tooltip-icon-size / 2;
+      right: 37px;
+      
+      &:before {
+        @include arrow(10px, 20px, right, $c-typecyan);
+
+        top: 15px;
+
+        @include respond-to(tablet, true) {
+          right: -11px;
+        }
+
+      }
+
+      &:after {
+        @include arrow(10px, 20px, right, #fff);
+
+        top: 15px;
+
+        @include respond-to(tablet, true) {
+          right: -10px;
+        }
+
+      }
     }
   }
 }
 
 .us-tooltip {
   &.us-tooltip--active {
-    @include respond-to(tablet, true) {
-      @include tooltip--active;
-    }
+    @include tooltip--active;
   }
 
   &:hover {
@@ -94,12 +227,20 @@ $tooltip-note-padding-horizontal: .75em;
 }
 
 .us-tooltip__wrapper {
-  position: absolute;
+  position: static;
   top: 0;
   right: 0;
+
+  @include respond-to(tablet, true) {
+    position: absolute;
+  }
+
 }
 
 .us-tooltip__icon {
+  position: absolute;
+  top: 0;
+  right: 0;
   width: $tooltip-icon-size;
   height: $tooltip-icon-size;
   font-weight: bold;
@@ -111,22 +252,30 @@ $tooltip-note-padding-horizontal: .75em;
   background: $c-inputgrey;
   border-radius: 50%;
 
+  @include respond-to(tablet, true) {
+    position: static;
+  }
+
   &:before {
     content: "?";
   }
 }
 
 .us-tooltip__note {
-  position: relative;
+  position: static;
   display: none;
   padding: $tooltip-note-padding-horizontal $tooltip-note-padding-vertical;
-  margin-top: 2em;
+  margin-top: 1em;
   margin-bottom: 1em;
   color: $c-typegrey;
   background: #fff;
   border: 1px solid $c-typecyan;
   border-radius: 4px;
   transition: opacity 300ms ease;
+
+  @include respond-to(tablet, true) {
+    margin-top: 2em;
+  }
 
   @include respond-to(tablet, true) {
     position: absolute;
@@ -136,6 +285,12 @@ $tooltip-note-padding-horizontal: .75em;
     margin-bottom: 0;
     pointer-events: none;
     opacity: 0;
+  }
+
+  &:before,
+  &:after {
+    position: absolute;
+    content: "";
   }
 }
 
