@@ -33,6 +33,14 @@ module.exports = {
       return new handlebars.SafeString(active);
     });
 
+    handlebars.registerHelper('assetUrl', function(development, production){
+      if(process.env.NODE_ENV == 'development'){
+         return new handlebars.SafeString(development);
+       } else {
+         return new handlebars.SafeString(production);
+       }
+    });
+
     handlebars.registerHelper('isSection', function(name, context) {
       if(name === context.data.root.page.section){
         return context.fn(this);  
