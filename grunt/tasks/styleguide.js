@@ -131,10 +131,9 @@ module.exports = function(grunt){
               page: filename + '.html',
               template: data.data.template || "styleguide/templates/simple.tpl",
               section: section,
-              content: (extension === ".md" ? marked(data.content) : data.content)
+              content: (fileHelper.isMarkdown(extension) ? marked(data.content) : data.content)
             }
           });
-
 
       var data = _sortyByIndex(pages).concat(sections);
 
