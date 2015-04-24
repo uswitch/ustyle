@@ -14,8 +14,7 @@
     <div class="styleguide container sidebar--push" style="background: blue;">
       <div class="us-content-group">
         <div class="us-grid-row">
-          <div class="us-col-lg-9 us-col-xlg-10 us-col-xsm-7">
-            
+          <div class="us-col-lg-10 us-col-xlg-10 us-col-xsm-12">
             <div class="us-featured us-container">
              <div class="us-featured__header us-grid-row padding-top padding-bottom">
                <div class="us-featured__header-title us-col-xsm-9 content-left">
@@ -26,13 +25,15 @@
                </div>
              </div>
              <div class="us-featured__content us-grid-row padding-top padding-bottom">
-               <div class="us-desktop--hidden us-col-xsm-3 us-mobile-block">
-                 <img class="us-img--full" src="http://uswitch-wp-cms-assets.s3-website-eu-west-1.amazonaws.com//www.uswitch.com/money/guides/wp-content/uploads/2014/11/DB2011AU01018_SMALL.jpg" width="200">
-               </div>
-               <div class="us-col-xsm-6 us-col-lg-8">
+               <div class="us-col-xsm-12">
                  <div class='us-usp us-usp--blue'>
                    Awesome deal usp
                  </div>
+               </div>
+               <div class="us-desktop--hidden padding-top us-col-xsm-4 us-mobile-block">
+                 <img class="us-img--full" src="http://uswitch-wp-cms-assets.s3-website-eu-west-1.amazonaws.com//www.uswitch.com/money/guides/wp-content/uploads/2014/11/DB2011AU01018_SMALL.jpg" width="200">
+               </div>
+               <div class="us-col-xsm-7 us-col-lg-8 us-col-sm-5">
                  <ul>
                    <li>List item 1</li>
                    <li>List item 2</li>
@@ -57,13 +58,14 @@
                    </div>
                  </div>
                </div>
-               <div class="us-col-xsm-3 us-col-lg-4">
+               <div class="us-col-xsm-3 us-col-lg-4 us-tablet--block">
                  <img class="us-img--full us-desktop--block" src="http://uswitch-wp-cms-assets.s3-website-eu-west-1.amazonaws.com//www.uswitch.com/money/guides/wp-content/uploads/2014/11/DB2011AU01018_SMALL.jpg" width="200">
                  <button class="margin-top margin-bottom us-btn us-btn--primary us-btn us-btn--blocked">See deal</button>
                  <div class="us-icon--before us-icon--small--before us-icon--typegrey--before us-icon--clock--before content-center">
                    <strong>3 days left</strong>
                  </div>
                </div>
+               <div class="us-featured__mobile-icon  us-tablet--hidden us-col-xsm-3 us-icon us-icon--medium us-icon--typegrey us-icon--breadcrumb"></div>
              </div>
              <div class="us-featured__footer us-grid-row padding-top padding-bottom us-desktop--block">
                <div class="us-col-xsm-12">

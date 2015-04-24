@@ -1,6 +1,6 @@
 // @section Components
 // @name Featured deal
-// 
+//
 // @description
 //   The `.us-featured` is mostly composed by smaller components, the components can be shuffled around inside of a grid to create the needed variants.
 //   This featured deal won't make any assumptions around the media queries, it's up to you, to deal with it. As you can see on the examples.
@@ -68,7 +68,7 @@ $featured-highlight-text-size: 1.5em;
 $featured-legal-text-size: .9em;
 
 .us-featured {
-  
+
 }
 
 .us-featured__header {
@@ -77,15 +77,23 @@ $featured-legal-text-size: .9em;
 }
 
 .us-featured__label {
-  
+
 }
 
 .us-featured__content {
   background-color: $c-cyan-light;
+  position: relative;
 
   ul {
     padding-left: $featured-list-padding;
   }
+}
+
+.us-featured__mobile-icon {
+  float: right;
+  top: 40%;
+  position: absolute;
+  right: 0;
 }
 
 .us-featured-highlight {
@@ -96,7 +104,7 @@ $featured-legal-text-size: .9em;
 
 .us-featured-highlight__title {
   display: block;
-  font-size: $featured-highlight-text-size; 
+  font-size: $featured-highlight-text-size;
 }
 
 .us-featured-highlight__link {
