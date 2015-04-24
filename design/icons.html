@@ -4,7 +4,7 @@
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <meta content='width=device-width, initial-scale=1.0' name='viewport'>
   <title>ustyle styleguide</title>
-  <link rel="stylesheet" href="css/main.css" type="text/css" />
+  <link rel="stylesheet" href="/css/main.css" type="text/css" />
   <script>
     (function(html){
       html.className=html.className.replace(/\bno-js\b/,'js')
@@ -12,76 +12,47 @@
   </script>
 </head>
 <body>
-  <div id="wrapper">
-    <a href="javascript:void(0)" class="nav-mobile us-desktop--hidden js-toggle__link" data-target="sidebar"><span class="nav-mobile__hamburger">Open menu</span></a>
-    <div class='sidebar'>
-      <a class='logo us-icon--large us-icon--medium--sm-tablet us-icon--uswitch us-icon--notext us-icon--custom us-icon--hover-typecyan' href='/docs' id='logo'>ustyle styleguide</a>
-      <p class="version us-tablet--block">v0.15.2</p>
-      <div class='nav'>
-        <nav class='nav__container'>
-          <div class='nav__set-container'>
-            <ul class='nav__set'>
-                <li class="nav__item">
-                  <a class="nav__link nav__main-link " href="index.html">Index</a>
-                </li>
-                <li class="nav__item">
-                  <a class="nav__link nav__main-link " href="grid.html">Grid</a>
-                </li>
-                <li class="nav__item">
-                  <a class="nav__link nav__main-link " href="imagery.html">Imagery</a>
-                </li>
-                <li class="nav__item">
-                  <a class="nav__link nav__main-link " href="language.html">Language</a>
-                </li>
-                <li class="nav__item">
-                  <a class="nav__link nav__main-link " href="brand-framework.html">Brand framework</a>
-                </li>
-                <li class="nav__item">
-                  <a class="nav__link nav__main-link " href="typography.html">Typography</a>
-                </li>
-                <li class="nav__item">
-                  <a class="nav__link nav__main-link " href="colours.html">Colours</a>
-                </li>
-                <li class="nav__item">
-                  <a class="nav__link nav__main-link " href="js-components.html">JS components</a>
-                </li>
-                <li class="nav__item">
-                  <a class="nav__link nav__main-link " href="components.html">Components</a>
-                </li>
-                <li class="nav__item">
-                  <a class="nav__link nav__main-link " href="tables.html">Tables</a>
-                </li>
-                <li class="nav__item">
-                  <a class="nav__link nav__main-link " href="forms.html">Forms</a>
-                </li>
-                <li class="nav__item">
-                  <a class="nav__link nav__main-link active" href="icons.html">Icons</a>
-                </li>
-                <li class="nav__item">
-                  <a class="nav__link nav__main-link " href="utilities.html">Utilities</a>
-                </li>
-              <li class="nav__item">
-                <a class="nav__link nav__main-link" href="sass/">Sass doc</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </div>
+  <header class="ustyle__header">
+    <a class="logo" href="/">ustyle</a>
+    <span class="version us-tablet--block">v0.15.2</span>
+    <div class='nav nav--header'>
+      <nav>
+          <a href="/brand/" class="nav__link">Brand</a>
+          <a href="/design/" class="nav__link">Design</a>
+          <a href="/code/" class="nav__link">Code</a>
+      </nav>
+    </nav>
+  </header>
+  <div class='us-clearfix nav-container'>
+    <div class='nav nav--sub'>
+      <nav>
+            <a class="nav__link nav__main-link " href="index.html">Design</a>
+            <a class="nav__link nav__main-link " href="typography.html">Typography</a>
+            <a class="nav__link nav__main-link active" href="icons.html">Icons</a>
+            <a class="nav__link nav__main-link " href="colours.html">Colours</a>
+            <a class="nav__link nav__main-link " href="language.html">Language</a>
+            <a class="nav__link nav__main-link " href="imagery.html">Imagery</a>
+      </nav>
     </div>
-    <div class="us-hero trailered">
-      <div class="container sidebar--push styleguide__header">
+  </div>
+  <div class="us-hero trailered">
+    <div class="us-hero-container">
+      <div class="styleguide__header">
         <h1 class="styleguide__title">Icons</h1>
-        <div class='us-grid-row'>
-          <nav class="styleguide__nav us-col-md-8">
-                <div class="us-col-md-4">
-                  <a class="styleguide__nav-link" href="#icons">Icons</a>
-                </div>
-          </nav>
+      </div>  
+    </div>
+  </div>
+  <div id="wrapper" class="us-container">
+    <div class="us-grid-row">
+      <div class='sidebar us-col-md-2'>
+        <div class="js-sticky" data-gumshoe-header>
+          <nav class='sidebar__nav' data-gumshoe>
+                <a class="sidebar__nav-link" href="#icons">Icons</a>
+          </nav>  
         </div>
       </div>
-    </div>
-    <div class="styleguide container sidebar--push">
-            <div class="styleguide__block styleguide__block--icons" id="icons">
+      <div class="styleguide us-col-md-10">
+              <div class="styleguide__block styleguide__block--icons" id="icons">
   <div class="styleguide__block-info">
     <h2 class="styleguide__block-title">
       Icons
@@ -522,8 +493,11 @@
   </div>
 
 </div>
+      </div>  
     </div>
   </div>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script src="js/app.js"></script></body>
+  <script src="https://cdn.polyfill.io/v1/polyfill.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="/js/app.js"></script>
+</body>
 </html>
