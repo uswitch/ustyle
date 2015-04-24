@@ -27,7 +27,7 @@
                  <div class="us-desktop--hidden us-col-xsm-3 us-mobile-block">
                    <img class="us-img--full" src="http://uswitch-wp-cms-assets.s3-website-eu-west-1.amazonaws.com//www.uswitch.com/money/guides/wp-content/uploads/2014/11/DB2011AU01018_SMALL.jpg" width="200">
                  </div>
-                 <div class="us-col-xsm-6">
+                 <div class="us-col-xsm-6 us-col-lg-8">
                    <div class='us-usp us-usp--blue'>
                      Awesome deal usp
                    </div>
