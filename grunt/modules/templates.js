@@ -33,11 +33,11 @@ module.exports = {
       return new handlebars.SafeString(active);
     });
 
-    handlebars.registerHelper('assetUrl', function(development, production){
+    handlebars.registerHelper('url', function(url){
       if(process.env.NODE_ENV == 'development'){
-         return new handlebars.SafeString(development);
+         return new handlebars.SafeString(url);
        } else {
-         return new handlebars.SafeString(production);
+         return new handlebars.SafeString('ustyle/' + url);
        }
     });
 

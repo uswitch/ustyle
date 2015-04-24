@@ -4,7 +4,7 @@
   <div class='nav nav--header'>
     <nav>
       {{#navigation}}
-        <a href="/{{this}}/" class="nav__link">{{humanize this}}</a>
+        <a href="/{{url this}}/" class="nav__link">{{humanize this}}</a>
       {{/navigation}}    
     </nav>
   </nav>
