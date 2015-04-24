@@ -7,7 +7,6 @@ class window.Overlay
     overlay:         $('.us-overlay-parent')
     openButton:      $('.js-open-overlay')
     closeButton:     $('.js-close-overlay')
-    backLayer:       $('<div class="us-overlay__back-layer js-close-overlay"></div>')
     escapeKey:       27
     historyStatus:   '#seedeal'
     history:         true
@@ -31,6 +30,13 @@ class window.Overlay
 
       @hide(e)
 
+    @overlay.on 'click', (e)=>
+      if @options.preventDefault
+        e.preventDefault()
+
+      if e.target is @overlay[0]
+        @hide(e)
+
     $(document).on 'keyup', (e)=>
       if e.keyCode == @options.escapeKey
         @hide()
@@ -43,7 +49,9 @@ class window.Overlay
     body = $(document.body)
 
     body.addClass @options.bodyOpenedClass
-    body.append @options.backLayer
+
+    Backdrop.retain()
+
     @overlay.addClass @options.openedClass
     @options.onOpen?(e)
 
@@ -56,7 +64,9 @@ class window.Overlay
     body = $(document.body)
 
     body.removeClass @options.bodyOpenedClass
-    @options.backLayer.remove()
+
+    Backdrop.release()
+
     @overlay.removeClass @options.openedClass
     @options.onClose?(e)
 

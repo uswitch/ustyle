@@ -103,10 +103,10 @@ $overlay-z-index: $overlay-forced-z-index;
 .us-overlay-parent--modal {
   .us-overlay-container {
     @include respond-to($overlay-modal-breakpoint, true) {
+      float: none !important;
       width: $overlay-modal-width;
       max-width: $overlay-max-modal-width;
       margin: 5% auto;
-      float: none !important;
     }
   }
 }
@@ -175,14 +175,4 @@ $overlay-z-index: $overlay-forced-z-index;
     color: $c-navy;
     content: "\00d7";
   }
-}
-
-.us-overlay__back-layer {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: $overlay-forced-z-index - 1;
-  background: rgba-inline(rgba($c-blue, .5), 100);
 }

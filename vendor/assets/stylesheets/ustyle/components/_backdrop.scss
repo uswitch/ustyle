@@ -1,0 +1,14 @@
+.us-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1002;
+  background: rgba-inline(rgba($c-blue, .5), 100);
+  display: none;
+}
+
+.us-backdrop--visible {
+  display: block;
+}
