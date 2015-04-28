@@ -29,15 +29,6 @@
   @extend %reset-box-model;
 }
 
-// Floats
-.us-float--left {
-  @extend %float-left;
-}
-
-.us-float--right {
-  @extend %float-right;
-}
-
 .us-reset--padding {
   padding: 0;
 }
@@ -68,6 +59,27 @@
 
 .us-trailered--small {
   margin-bottom: .5em;
+}
+
+// Floats
+.us-float--left {
+  @extend %float-left;
+}
+
+.us-float--right {
+  @extend %float-right;
+}
+
+.us-content-left {
+  text-align: left;
+}
+
+.us-content-right {
+  text-align: right;
+}
+
+.us-content-center {
+  text-align: center;
 }
 
 // Colors

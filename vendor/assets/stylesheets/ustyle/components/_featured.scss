@@ -8,10 +8,10 @@
 // @markup
 //<div class="us-container">
 // <div class="us-featured__header us-grid-row padding-top padding-bottom">
-//   <div class="us-featured__header-title us-col-xsm-9 content-left">
+//   <div class="us-featured__header-title us-col-xsm-9 us-content-left">
 //     Title goes here
 //   </div>
-//   <div class="us-featured__header-subtitle us-col-xsm-3 content-right">
+//   <div class="us-featured__header-subtitle us-col-xsm-3 us-content-right">
 //     Promotion
 //   </div>
 // </div>
@@ -52,7 +52,7 @@
 //   <div class="us-col-xsm-3 us-col-lg-4 us-tablet--block">
 //     <img class="us-img--full us-desktop--block" src="http://uswitch-wp-cms-assets.s3-website-eu-west-1.amazonaws.com//www.uswitch.com/money/guides/wp-content/uploads/2014/11/DB2011AU01018_SMALL.jpg" width="200">
 //     <button class="margin-top margin-bottom us-btn us-btn--primary us-btn us-btn--blocked">See deal</button>
-//     <div class="us-icon--before us-icon--small--before us-icon--typegrey--before us-icon--clock--before content-center">
+//     <div class="us-icon--before us-icon--small--before us-icon--typegrey--before us-icon--clock--before us-content-center">
 //       <strong>3 days left</strong>
 //     </div>
 //   </div>
@@ -128,28 +128,4 @@ $featured-legal-text-size: .9em;
 
 .padding-bottom {
   padding-bottom: 1em;
-}
-
-// DO THIS PROPERLY ON IT's OWN UTILITY CLASS
-
-.pull-left {
-  float: left;
-}
-
-.pull-right {
-  float: right;
-}
-
-// DO THIS PROPERLY ON IT's OWN UTILITY CLASS
-
-.content-left {
-  text-align: left;
-}
-
-.content-right {
-  text-align: right;
-}
-
-.content-center {
-  text-align: center;
 }
