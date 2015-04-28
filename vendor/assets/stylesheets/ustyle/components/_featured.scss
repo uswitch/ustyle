@@ -6,7 +6,7 @@
 //   This featured deal won't make any assumptions around the media queries, it's up to you, to deal with it. As you can see on the examples.
 //
 // @markup
-//<div class="us-featured us-container">
+//<div class="us-container">
 // <div class="us-featured__header us-grid-row padding-top padding-bottom">
 //   <div class="us-featured__header-title us-col-xsm-9 content-left">
 //     Title goes here
@@ -69,17 +69,9 @@ $featured-list-padding: 1em;
 $featured-highlight-text-size: 1.5em;
 $featured-legal-text-size: .9em;
 
-.us-featured {
-
-}
-
 .us-featured__header {
   overflow: hidden;
   background-color: #fff;
-}
-
-.us-featured__label {
-
 }
 
 .us-featured__content {
