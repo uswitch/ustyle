@@ -112,6 +112,7 @@ module.exports = function(grunt) {
       main: {
         files: [
           {expand: true, flatten: true, src: ['styleguide/assets/images/**'], dest: 'docs/images/'},
+          {expand: true, flatten: true, src: ['styleguide/CNAME'], dest: 'docs/'},
         ]
       }
     },
