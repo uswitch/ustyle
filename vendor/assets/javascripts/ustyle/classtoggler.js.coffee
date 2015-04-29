@@ -22,10 +22,10 @@ class window.ClassToggler
   isActive: ($target)->
     $target.hasClass @options.activeClass
 
-  show: ($container,e)->
-    @options.onShow?($container,e)
-    $container.addClass @options.activeClass
+  show: ($togglableElement,e)->
+    @options.onShow?($togglableElement,e)
+    $togglableElement.addClass @options.activeClass
 
-  hide: ($container,e)->
-    @options.onHide?($container,e)
-    $container.removeClass @options.activeClass
+  hide: ($togglableElement,e)->
+    @options.onHide?($togglableElement,e)
+    $togglableElement.removeClass @options.activeClass

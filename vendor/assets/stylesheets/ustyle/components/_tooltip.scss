@@ -90,10 +90,87 @@ $tooltip-icon-size: 22px;
 $tooltip-note-padding-vertical: 1em;
 $tooltip-note-padding-horizontal: .75em;
 
+$tooltip-bg-color: #fff;
+$tooltip-border-color: $c-typecyan;
+
+$tooltip-arrow-width: 10px;
+$tooltip-arrow-height: $tooltip-arrow-width * 2;
+
+@mixin tooltip-arrow($arrow-type, $arrow-width, $arrow-height, $arrow-position, $bottom-position) {
+  @include respond-to(tablet) {
+    &:before {
+      @include arrow($arrow-width, $arrow-height, $arrow-type, $tooltip-border-color);
+      #{$arrow-position}: $bottom-position;
+    }
+
+    &:after {
+      @include arrow($arrow-width, $arrow-height, $arrow-type, $tooltip-bg-color);
+      #{$arrow-position}: $bottom-position+1;
+    }  
+  }
+}
+
+%tooltip-vertical-defaults {
+  @include respond-to(tablet, true) {
+    top: -$tooltip-note-padding-vertical;
+
+    &:before,
+    &:after {
+      top: $tooltip-note-padding-vertical;
+    }  
+  }
+}
+
+%tooltip-horizontal-defaults {
+  @include respond-to(tablet, true) {
+    left: 50%;
+    margin-left: - ($tooltip-note-width / 2);
+
+    &:before,
+    &:after {
+      left: 50%;
+      margin-left: -$tooltip-arrow-height/2;
+    }  
+  }
+}
+
+@mixin tooltip-position--horizontal($position, $icon-size: $tooltip-icon-size, $arrow-height: $tooltip-arrow-width, $arrow-width: $tooltip-arrow-height) {
+  $px-position: -($icon-size + $arrow-height * 4);
+  $bottom-position: -($arrow-width / 2);
+  $arrow-type: "down";
+  $arrow-position: "bottom";
+
+  @if $position == "bottom" {
+    $arrow-type: "up";
+    $arrow-position: "top";
+  }
+
+  @extend %tooltip-horizontal-defaults;
+  @include tooltip-arrow($arrow-type, $arrow-width, $arrow-height, $arrow-position, $bottom-position);
+  #{$position}: $px-position;
+}
+
+@mixin tooltip-position--vertical($position, $icon-size: $tooltip-icon-size, $arrow-height: $tooltip-arrow-height, $arrow-width: $tooltip-arrow-width) {
+  $arrow-type: "left";
+  $arrow-position: $arrow-type;
+  $bottom-position: -($arrow-height / 2);
+  $px-position: -($tooltip-note-width + ($icon-size / 2)) - 4;
+
+  @if $position == "left" {
+    $arrow-type: "right";
+    $arrow-position: $arrow-type;
+  }
+
+  @extend %tooltip-vertical-defaults;
+  @include tooltip-arrow($arrow-type, $arrow-width, $arrow-height, $arrow-position, $bottom-position);
+  #{$position}: $px-position;
+}
+
 @mixin tooltip--active {
   .us-tooltip__note {
     display: block;
     pointer-events: all;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
     opacity: 1;
   }
 
@@ -102,121 +179,11 @@ $tooltip-note-padding-horizontal: .75em;
   }
 }
 
-@mixin tooltip-note--position($position: "right") {
-  @include respond-to(tablet, true) {
-    @if $position == "right" {
-      &:before {
-        @include arrow(10px, 20px, left, $c-typecyan);
-
-        top: 15px;
-
-        @include respond-to(tablet, true) {
-          left: -10px;
-        }
-
-      }
-
-      &:after {    
-        @include arrow(10px, 20px, left, #fff);
-
-        top: 15px;
-
-        @include respond-to(tablet, true) {
-          left: -9px;
-        }
-
-      }
-
-      top: -$tooltip-note-padding-vertical;
-      right: -($tooltip-note-width + ($tooltip-icon-size / 2)) - 4;
-    } @else if $position == "top" {
-      top: -40px;
-      right: -($tooltip-note-width / 2 - $tooltip-icon-size / 2);
-      transform: translateY(-50%);
-
-      &:before {
-        @include arrow(20px, 10px, down, $c-typecyan);
-
-        top: 100%;
-        transform: translateX(50%);
-
-        @include respond-to(tablet, true) {
-          right: 50%;
-        }
-
-      }
-
-      &:after {
-        @include arrow(20px, 10px, down, #fff);
-
-        top: 98%;
-        transform: translateX(50%);
-
-        @include respond-to(tablet, true) {
-          right: 50%;
-        }
-
-      }
-    } @else if $position == "bottom" {
-      top: $tooltip-icon-size / 2;
-      right: -($tooltip-note-width / 2 - $tooltip-icon-size / 2);
-      transform: translateY(50%);
-      
-      &:before {
-        @include arrow(20px, 10px, up, $c-typecyan);
-
-        top: auto;
-        bottom: 100%;
-        transform: translateX(50%);
-
-        @include respond-to(tablet, true) {
-          right: 50%;
-        }
-      }
-
-      &:after {
-        @include arrow(20px, 10px, up, #fff);
-
-        top: auto;
-        bottom: 98%;
-        transform: translateX(50%);
-
-        @include respond-to(tablet, true) {
-          right: 50%;
-        }
-      }
-    } @else if $position == "left" {
-      top: -$tooltip-note-padding-vertical;
-      right: 37px;
-      
-      &:before {
-        @include arrow(10px, 20px, right, $c-typecyan);
-
-        top: 15px;
-
-        @include respond-to(tablet, true) {
-          right: -11px;
-        }
-
-      }
-
-      &:after {
-        @include arrow(10px, 20px, right, #fff);
-
-        top: 15px;
-
-        @include respond-to(tablet, true) {
-          right: -10px;
-        }
-
-      }
-    }
-  }
-}
-
 .us-tooltip {
   &.us-tooltip--active {
-    @include tooltip--active;
+    @include respond-to(to-tablet) {
+      @include tooltip--active;  
+    }
   }
 
   &:hover {
@@ -234,7 +201,6 @@ $tooltip-note-padding-horizontal: .75em;
   @include respond-to(tablet, true) {
     position: absolute;
   }
-
 }
 
 .us-tooltip__icon {
@@ -243,11 +209,10 @@ $tooltip-note-padding-horizontal: .75em;
   right: 0;
   width: $tooltip-icon-size;
   height: $tooltip-icon-size;
-  font-weight: bold;
+  font-weight: 700;
   line-height: $tooltip-icon-size;
   color: #fff;
   text-align: center;
-  text-indent: 1px;
   cursor: pointer;
   background: $c-inputgrey;
   border-radius: 50%;
@@ -268,14 +233,9 @@ $tooltip-note-padding-horizontal: .75em;
   margin-top: 1em;
   margin-bottom: 1em;
   color: $c-typegrey;
-  background: #fff;
-  border: 1px solid $c-typecyan;
+  background: $tooltip-bg-color;
+  border: 1px solid $tooltip-border-color;
   border-radius: 4px;
-  transition: opacity 300ms ease;
-
-  @include respond-to(tablet, true) {
-    margin-top: 2em;
-  }
 
   @include respond-to(tablet, true) {
     position: absolute;
@@ -284,7 +244,9 @@ $tooltip-note-padding-horizontal: .75em;
     margin-top: 0;
     margin-bottom: 0;
     pointer-events: none;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
     opacity: 0;
+    transition: opacity 300ms ease;
   }
 
   &:before,
@@ -295,17 +257,17 @@ $tooltip-note-padding-horizontal: .75em;
 }
 
 .us-tooltip__note--top {
-  @include tooltip-note--position("top");
-}
-
-.us-tooltip__note--right {
-  @include tooltip-note--position("right");
+  @include tooltip-position--horizontal("top");
 }
 
 .us-tooltip__note--bottom {
-  @include tooltip-note--position("bottom");
+  @include tooltip-position--horizontal("bottom");
+}
+
+.us-tooltip__note--right {
+  @include tooltip-position--vertical("right");
 }
 
 .us-tooltip__note--left {
-  @include tooltip-note--position("left");
+  @include tooltip-position--vertical("left");
 }
