@@ -15,7 +15,7 @@ linters:
     enabled: false
 
   EmptyRule:
-    enabled: false
+    enabled: true
     severity: error
 
   IdSelector:

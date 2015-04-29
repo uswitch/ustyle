@@ -63,14 +63,13 @@ module.exports = function(grunt) {
     cssstats: {
       dist: {
         src: 'dist/ustyle-latest.css',
-        output: 'dist/stats.json'
+        output: 'dist/ustyle.json'
       }
     },
     builder: {
       dist:{
         files: {
-          'docs/': 'dist/ustyle.json',
-          'docs/stats/': 'dist/stats.json'
+          'docs/': 'dist/ustyle.json'
         }
       }
     },
@@ -114,6 +113,7 @@ module.exports = function(grunt) {
       main: {
         files: [
           {expand: true, flatten: true, src: ['styleguide/assets/images/**'], dest: 'docs/images/'},
+          {expand: true, flatten: true, src: ['styleguide/CNAME'], dest: 'docs/'},
         ]
       }
     },

@@ -52,22 +52,22 @@ module.exports = function(grunt){
       }).compact().value();
 
       var model = {
-        pages: [{
-          name: 'Stats',
-          page: 'index.html',
-          template: 'styleguide/templates/stats.tpl',
-          content: {
-            report: styleStatsData,
-            complexity: data
-          }
-        }],
-        project: grunt.file.readJSON('package.json')
-      }
+        name: 'Stats',
+        section: 'code',
+        page: 'stats.html',
+        template: 'styleguide/templates/stats.tpl',
+        content: {
+          report: styleStatsData,
+          complexity: data
+        }
+      };
       callback(null, model);
     }
 
     function writeToFile(err, model) {
-      fileHelper.writeFile(JSON.stringify(model), outputFilePath, "css stats");
+      var content = grunt.file.readJSON(outputFilePath);
+      content.pages.push(model)
+      fileHelper.writeFile(JSON.stringify(content), outputFilePath, "css stats");
       done();
     }
 

@@ -170,8 +170,8 @@ $tooltip-arrow-height: $tooltip-arrow-width * 2;
   .us-tooltip__note {
     display: block;
     pointer-events: all;
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
     opacity: 1;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   }
 
   .us-tooltip__icon {
@@ -244,8 +244,8 @@ $tooltip-arrow-height: $tooltip-arrow-width * 2;
     margin-top: 0;
     margin-bottom: 0;
     pointer-events: none;
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
     opacity: 0;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
     transition: opacity 300ms ease;
   }
 
