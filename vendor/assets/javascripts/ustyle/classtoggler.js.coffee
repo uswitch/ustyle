@@ -12,15 +12,15 @@ class window.ClassToggler
 
   addEventListeners:->
     @options.$target.on @options.toggleOn, (e)=>
-      $togglableElement = if @options.containerClass then $(e.target).parent(@options.containerClass) else $(e.delegateTarget) 
+      $togglableElement = if @options.containerClass then $(e.target).closest(@options.containerClass) else $(e.delegateTarget) 
 
       if @isActive $togglableElement
         @hide $togglableElement,e
       else
         @show $togglableElement,e
   
-  isActive: ($target)->
-    $target.hasClass @options.activeClass
+  isActive: ($togglableElement)->
+    $togglableElement.hasClass @options.activeClass
 
   show: ($togglableElement,e)->
     @options.onShow?($togglableElement,e)
