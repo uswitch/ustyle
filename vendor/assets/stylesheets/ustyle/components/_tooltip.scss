@@ -1,0 +1,273 @@
+// @page Code/JS components
+// @name Tooltip
+//
+// @description
+//  `.us-tooltip` can be applied to any parent, and by hovering it, it will toggle the visibility of `.us-tooltip__note`
+//
+//  Tooltip doesn't have it's own javascript file, all it needs is to toggle a class, for that we can use:
+//
+// `var tooltips = new ClassToggler({
+//   containerClass: '.us-tooltip',
+//   $target: $('.us-tooltip__icon'),
+//   activeClass: "us-tooltip--active"
+// });`
+//
+//  Please note that on mobile viewports, the tooltip will appeat underneath the element that is aligned with the tooltip icon.
+//
+// @markup
+//   <h4>Hover on the tooltip</h4>
+//
+//   <div class="tooltip-demo">
+//     <div class="us-field">
+//       <label for='name'>Name</label>
+//       <input class='us-form-input' id='name' name='name' placeholder='Please enter your name'>
+//     </div>
+//
+//     <div class="us-tooltip us-tooltip__wrapper">
+//       <div class="us-tooltip__icon"></div>
+//       <div class="us-tooltip__note us-tooltip__note--right"><strong>Tooltip</strong> message content</div>
+//     </div>
+//   </div>
+//
+//   <h4>Show Tooltip to the left</h4>
+//
+//   <div class="tooltip-demo">
+//     <div class="us-field">
+//       <label for='name'>Name</label>
+//       <input class='us-form-input' id='name' name='name' placeholder='Please enter your name'>
+//     </div>
+//
+//     <div class="us-tooltip us-tooltip__wrapper us-tooltip--active">
+//       <div class="us-tooltip__icon"></div>
+//       <div class="us-tooltip__note us-tooltip__note--left"><strong>Tooltip</strong> message content</div>
+//     </div>
+//   </div>
+//
+//   <h4>Show Tooltip to the top</h4>
+//
+//   <div class="tooltip-demo">
+//     <div class="us-field">
+//       <label for='name'>Name</label>
+//       <input class='us-form-input' id='name' name='name' placeholder='Please enter your name'>
+//     </div>
+//
+//     <div class="us-tooltip us-tooltip__wrapper">
+//       <div class="us-tooltip__icon"></div>
+//       <div class="us-tooltip__note us-tooltip__note--top"><strong>Tooltip</strong> message content</div>
+//     </div>
+//   </div>
+//
+//   <h4>Show Tooltip to the bottom </h4>
+//
+//   <div class="tooltip-demo">
+//     <div class="us-field">
+//       <label for='name'>Name</label>
+//       <input class='us-form-input' id='name' name='name' placeholder='Please enter your name'>
+//     </div>
+//
+//     <div class="us-tooltip us-tooltip__wrapper">
+//       <div class="us-tooltip__icon"></div>
+//       <div class="us-tooltip__note us-tooltip__note--bottom"><strong>Tooltip</strong> message content</div>
+//     </div>
+//   </div>
+//
+//   <h4>Hover on the parent</h4>
+//
+//   <div class="tooltip-demo us-tooltip">
+//     <div class="us-field">
+//       <label for='name'>Name</label>
+//       <input class='us-form-input' id='name' name='name' placeholder='Please enter your name'>
+//     </div>
+//
+//     <div class="us-tooltip__wrapper">
+//       <div class="us-tooltip__icon"></div>
+//       <div class="us-tooltip__note us-tooltip__note--right"><strong>Tooltip</strong> message content</div>
+//     </div>
+//   </div>
+
+$tooltip-note-width: 300px;
+$tooltip-icon-size: 22px;
+$tooltip-note-padding-vertical: 1em;
+$tooltip-note-padding-horizontal: .75em;
+
+$tooltip-bg-color: #fff;
+$tooltip-border-color: $c-typecyan;
+
+$tooltip-arrow-width: 10px;
+$tooltip-arrow-height: $tooltip-arrow-width * 2;
+
+@mixin tooltip-arrow($arrow-type, $arrow-width, $arrow-height, $arrow-position, $bottom-position) {
+  @include respond-to(tablet) {
+    &:before {
+      @include arrow($arrow-width, $arrow-height, $arrow-type, $tooltip-border-color);
+      #{$arrow-position}: $bottom-position;
+    }
+
+    &:after {
+      @include arrow($arrow-width, $arrow-height, $arrow-type, $tooltip-bg-color);
+      #{$arrow-position}: $bottom-position+1;
+    }  
+  }
+}
+
+%tooltip-vertical-defaults {
+  @include respond-to(tablet, true) {
+    top: -$tooltip-note-padding-vertical;
+
+    &:before,
+    &:after {
+      top: $tooltip-note-padding-vertical;
+    }  
+  }
+}
+
+%tooltip-horizontal-defaults {
+  @include respond-to(tablet, true) {
+    left: 50%;
+    margin-left: - ($tooltip-note-width / 2);
+
+    &:before,
+    &:after {
+      left: 50%;
+      margin-left: -$tooltip-arrow-height/2;
+    }  
+  }
+}
+
+@mixin tooltip-position--horizontal($position, $icon-size: $tooltip-icon-size, $arrow-height: $tooltip-arrow-width, $arrow-width: $tooltip-arrow-height) {
+  $px-position: -($icon-size + $arrow-height * 4);
+  $bottom-position: -($arrow-width / 2);
+  $arrow-type: "down";
+  $arrow-position: "bottom";
+
+  @if $position == "bottom" {
+    $arrow-type: "up";
+    $arrow-position: "top";
+  }
+
+  @extend %tooltip-horizontal-defaults;
+  @include tooltip-arrow($arrow-type, $arrow-width, $arrow-height, $arrow-position, $bottom-position);
+  #{$position}: $px-position;
+}
+
+@mixin tooltip-position--vertical($position, $icon-size: $tooltip-icon-size, $arrow-height: $tooltip-arrow-height, $arrow-width: $tooltip-arrow-width) {
+  $arrow-type: "left";
+  $arrow-position: $arrow-type;
+  $bottom-position: -($arrow-height / 2);
+  $px-position: -($tooltip-note-width + ($icon-size / 2)) - 4;
+
+  @if $position == "left" {
+    $arrow-type: "right";
+    $arrow-position: $arrow-type;
+  }
+
+  @extend %tooltip-vertical-defaults;
+  @include tooltip-arrow($arrow-type, $arrow-width, $arrow-height, $arrow-position, $bottom-position);
+  #{$position}: $px-position;
+}
+
+@mixin tooltip--active {
+  .us-tooltip__note {
+    display: block;
+    pointer-events: all;
+    opacity: 1;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  }
+
+  .us-tooltip__icon {
+    background: $c-typecyan;
+  }
+}
+
+.us-tooltip {
+  &.us-tooltip--active {
+    @include respond-to(to-tablet) {
+      @include tooltip--active;  
+    }
+  }
+
+  &:hover {
+    @include respond-to(tablet, true) {
+      @include tooltip--active;
+    }
+  }
+}
+
+.us-tooltip__wrapper {
+  position: static;
+  top: 0;
+  right: 0;
+
+  @include respond-to(tablet, true) {
+    position: absolute;
+  }
+}
+
+.us-tooltip__icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: $tooltip-icon-size;
+  height: $tooltip-icon-size;
+  font-weight: 700;
+  line-height: $tooltip-icon-size;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  background: $c-inputgrey;
+  border-radius: 50%;
+
+  @include respond-to(tablet, true) {
+    position: static;
+  }
+
+  &:before {
+    content: "?";
+  }
+}
+
+.us-tooltip__note {
+  position: static;
+  display: none;
+  padding: $tooltip-note-padding-horizontal $tooltip-note-padding-vertical;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  color: $c-typegrey;
+  background: $tooltip-bg-color;
+  border: 1px solid $tooltip-border-color;
+  border-radius: 4px;
+
+  @include respond-to(tablet, true) {
+    position: absolute;
+    display: block;
+    width: $tooltip-note-width;
+    margin-top: 0;
+    margin-bottom: 0;
+    pointer-events: none;
+    opacity: 0;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    transition: opacity 300ms ease;
+  }
+
+  &:before,
+  &:after {
+    position: absolute;
+    content: "";
+  }
+}
+
+.us-tooltip__note--top {
+  @include tooltip-position--horizontal("top");
+}
+
+.us-tooltip__note--bottom {
+  @include tooltip-position--horizontal("bottom");
+}
+
+.us-tooltip__note--right {
+  @include tooltip-position--vertical("right");
+}
+
+.us-tooltip__note--left {
+  @include tooltip-position--vertical("left");
+}

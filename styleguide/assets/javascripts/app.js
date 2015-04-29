@@ -28,6 +28,12 @@
       )
     })
 
+    var tooltips = new ClassToggler({
+      containerClass: '.us-tooltip',
+      $target: $('.us-tooltip__icon'),
+      activeClass: "us-tooltip--active"
+    });
+    
     var tabs = new Tabs();
     var anchor = new Anchor({
       target: document.querySelector(".js-example-anchor"),
