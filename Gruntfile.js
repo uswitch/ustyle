@@ -22,7 +22,7 @@ module.exports = function(grunt) {
               autoprefixer({ browsers: ['last 5 versions', 'Firefox 22', 'Explorer 8', '> 1%', 'Opera 12.1'] }).postcss
             ]
         },
-        dist: { src: ['build/**/*.css', 'dist/**/*.css'] }
+        dist: { src: ['docs/**/*.css', 'dist/**/*.css'] }
     },
     watch: {
       options: {
