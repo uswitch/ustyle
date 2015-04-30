@@ -1,3 +1,24 @@
+// @page Code/Utilities
+// @name General utilities
+//
+// @description
+//   Utility classes to allow display of elements across devices. You have the option
+//   of displaying them as `block`, `inline-block` or `inline` elements. You can also hide elements
+//   by `.us-{DEVICE}--hidden` and will hide those elements above that breakpoint.
+//
+// @markup
+//   <div class='us-clearfix'>Clearfix</div>
+//   <div class='us-reset'>Reset paddings and margins</div>
+//   <div class='us-float--left'>Float left</div>
+//   <div class='us-float--right'>Float right</div>
+//   <div class='us-reset--padding'>Reset padding</div>
+//   <div class='us-reset--margin'>Reset margin</div>
+//   <span class='us-block'>Blocked element</span>
+//   <div class='us-color--cyan'>Set content colour (blue)</div>
+//   <ul class='us-list--reset'>
+//    <li>List style reset</li>
+//   </ul>
+
 // Clear floats
 .us-clearfix {
   @extend %clearfix;
@@ -6,6 +27,15 @@
 // Full box model reset
 .us-reset {
   @extend %reset-box-model;
+}
+
+// Floats
+.us-float--left {
+  @extend %float-left;
+}
+
+.us-float--right {
+  @extend %float-right;
 }
 
 .us-reset--padding {
@@ -38,15 +68,6 @@
 
 .us-trailered--small {
   margin-bottom: .5em;
-}
-
-// Floats
-.us-float--left {
-  @extend %float-left;
-}
-
-.us-float--right {
-  @extend %float-right;
 }
 
 // Colors

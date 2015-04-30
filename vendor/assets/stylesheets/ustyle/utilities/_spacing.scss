@@ -1,0 +1,39 @@
+// @page Code/Utilities
+// @name Spacing
+//
+// @description
+//   Utility classes to allow control of spacing around element.
+//   You can set margin or padding for an element without creating an extra class.
+//   An example of this `.us-margin-top`, `.us-margin-top--small`, `.us-margin-top--large` where
+//   `margin` can be replaced by `padding` and `top` can be replaced by `bottom`, `left` or `right`.
+//
+// @markup
+//   <div class='us-margin-top--small'>Top margin (small)</div>
+//   <div class='us-margin-top'>Top margin (default)</div>
+//   <div class='us-margin-top--large'>Top margin (large)</div>
+//   <div class='us-padding-top--small'>Top padding (small)</div>
+//   <div class='us-padding-top'>Top padding (default)</div>
+//   <div class='us-padding-top--large'>Top margin (large)</div>
+
+$positions: "top", "right", "bottom", "left";
+$spacing: "small" .5em, "large" 1.5em;
+
+@each $position in $positions {
+  .us-margin-#{$position} {
+    margin-#{$position}: 1em;
+  }
+
+  .us-padding-#{$position} {
+    padding-#{$position}: 1em;
+  }
+
+  @each $space in $spacing {
+    .us-margin-#{$position}--#{nth($space,1)} {
+      margin-#{$position}: nth($space,2);
+    }
+
+    .us-padding-#{$position}--#{nth($space,1)} {
+      padding-#{$position}: nth($space,2);
+    }
+  }
+}
