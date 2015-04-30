@@ -7,7 +7,7 @@
 //
 // @markup
 //<div class="us-container">
-// <div class="us-featured__header us-grid-row padding-top padding-bottom">
+// <div class="us-featured__header us-grid-row us-padding-top us-padding-bottom">
 //   <div class="us-featured__header-title us-col-xsm-9 us-content-left">
 //     Title goes here
 //   </div>
@@ -15,13 +15,13 @@
 //     Promotion
 //   </div>
 // </div>
-// <div class="us-featured__content us-grid-row padding-top padding-bottom">
+// <div class="us-featured__content us-grid-row us-padding-top us-padding-bottom">
 //   <div class="us-col-xsm-12">
 //     <div class='us-usp us-usp--blue'>
 //       Awesome deal usp
 //     </div>
 //   </div>
-//   <div class="us-desktop--hidden padding-top us-col-xsm-4 us-mobile-block">
+//   <div class="us-desktop--hidden us-padding-top us-col-xsm-4 us-mobile-block">
 //     <img class="us-img--full" src="http://uswitch-wp-cms-assets.s3-website-eu-west-1.amazonaws.com//www.uswitch.com/money/guides/wp-content/uploads/2014/11/DB2011AU01018_SMALL.jpg" width="200">
 //   </div>
 //   <div class="us-col-xsm-7 us-col-lg-8 us-col-sm-5">
@@ -58,7 +58,7 @@
 //   </div>
 //   <div class="us-featured__mobile-icon  us-tablet--hidden us-col-xsm-3 us-icon us-icon--medium us-icon--typegrey us-icon--breadcrumb"></div>
 // </div>
-// <div class="us-featured__footer us-grid-row padding-top padding-bottom us-desktop--block">
+// <div class="us-featured__footer us-grid-row us-padding-top us-padding-bottom us-desktop--block">
 //   <div class="us-col-xsm-12">
 //     Legal stuff goes here
 //   </div>
@@ -109,23 +109,4 @@ $featured-legal-text-size: .9em;
   font-size: $featured-legal-text-size;
   background-color: $c-cyan-light;
   border-top: 1px solid $c-bordergrey;
-}
-
-
-// DO THIS PROPERLY ON IT's OWN UTILITY CLASS like so: #{margin/padding}-#{direction}--#{breakpoin}
-
-.margin-top {
-  margin-top: 1em;
-}
-
-.margin-bottom {
-  margin-bottom: 1em;
-}
-
-.padding-top {
-  padding-top: 1em;
-}
-
-.padding-bottom {
-  padding-bottom: 1em;
 }
