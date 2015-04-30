@@ -11,6 +11,9 @@
 //   <div class='us-reset'>Reset paddings and margins</div>
 //   <div class='us-float--left'>Float left</div>
 //   <div class='us-float--right'>Float right</div>
+//   <div class='us-content--left'>Content left</div>
+//   <div class='us-content--center'>Content center</div>
+//   <div class='us-content--right'>Content right</div>
 //   <div class='us-reset--padding'>Reset padding</div>
 //   <div class='us-reset--margin'>Reset margin</div>
 //   <span class='us-block'>Blocked element</span>
@@ -27,15 +30,6 @@
 // Full box model reset
 .us-reset {
   @extend %reset-box-model;
-}
-
-// Floats
-.us-float--left {
-  @extend %float-left;
-}
-
-.us-float--right {
-  @extend %float-right;
 }
 
 .us-reset--padding {
@@ -68,6 +62,27 @@
 
 .us-trailered--small {
   margin-bottom: .5em;
+}
+
+// Floats
+.us-float--left {
+  @extend %float-left;
+}
+
+.us-float--right {
+  @extend %float-right;
+}
+
+.us-content-left {
+  text-align: left;
+}
+
+.us-content-right {
+  text-align: right;
+}
+
+.us-content-center {
+  text-align: center;
 }
 
 // Colors
