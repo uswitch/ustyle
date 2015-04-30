@@ -15,12 +15,15 @@ module.exports = function(grunt){
         underscored     = require("underscore.string/underscored"),
         slugify         = require("underscore.string/slugify"),
         matter          = require("gray-matter"),
+        cssstats        = require('cssstats'),
+        StyleStats      = require('stylestats'),
         marked          = require('marked'),
         promise         = this.async(),
         files           = this.files,
         outputFilePath  = this.data.output,
         styleguidePath  = this.data.dir,
         contentPath     = this.data.dir + "/content",
+        cssStatsFile    = this.data.statsFor,
         styleguide      = [];
 
     var options = this.options({
@@ -40,6 +43,7 @@ module.exports = function(grunt){
       groupDSS,
       generateStaticContent,
       generateStyleguide,
+      generateStats,
       writeFile
     ], completeTask);
 
@@ -149,6 +153,44 @@ module.exports = function(grunt){
         project: grunt.file.readJSON('package.json')
       }
 
+      callback(null, model);
+    }
+
+    function generateStats(model, callback) {
+      var cssFileData, selectors, cssParser, omitEntries, statsPage;
+
+      omitEntries = [
+        'dataUriSize', 'ratioOfDataUriSize','lowestCohesion',
+        'lowestCohesionSelector', 'uniqueFontSize', 'uniqueFontFamily',
+        'propertiesCount', 'published', 'paths'
+      ];
+
+      statsPage = {
+        name: 'Stats',
+        section: 'code',
+        page: 'stats.html',
+        template: 'styleguide/templates/stats.tpl',
+        content: {}
+      };
+
+      cssFileData = fs.readFileSync(cssStatsFile, 'utf8');
+      cssParser   = new StyleStats(cssStatsFile, {});
+      selectors   = (new cssstats(cssFileData, {safe: true})).selectors;
+
+      cssParser.parse(function(err, styleStatsData){
+        var generalReport     = _.omit(styleStatsData,omitEntries);
+        var complexityReport  = _.chain(selectors).map(function(key, value) {
+          return {
+            selector: key.selector,
+            specificity: key.specificity_10
+          }
+        }).compact().value();
+
+        statsPage.content.report      = generalReport;
+        statsPage.content.complexity  = complexityReport;
+      })
+
+      model.pages.push(statsPage);
       callback(null, model);
     }
 
