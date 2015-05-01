@@ -14,7 +14,7 @@
 <body>
   <header class="ustyle__header">
     <a class="logo" href="/">ustyle</a>
-    <span class="version us-tablet--block">v0.15.2</span>
+    <span class="version us-tablet--block">v0.16.0</span>
     <div class='nav nav--header'>
       <nav>
           <a href="/ustyle/brand/" class="nav__link">Brand</a>
@@ -32,6 +32,7 @@
             <a class="nav__link nav__main-link active" href="components.html">Components</a>
             <a class="nav__link nav__main-link " href="js-components.html">JS components</a>
             <a class="nav__link nav__main-link " href="grid.html">Grid</a>
+            <a class="nav__link nav__main-link " href="stats.html">Stats</a>
           <a class="nav__link nav__main-link" href="/sass/">Sass doc</a>
       </nav>
     </div>
@@ -52,6 +53,7 @@
                 <a class="sidebar__nav-link" href="#buttons">Buttons</a>
                 <a class="sidebar__nav-link" href="#content_group">Content group</a>
                 <a class="sidebar__nav-link" href="#ctas">CTAs</a>
+                <a class="sidebar__nav-link" href="#featured_deal">Featured deal</a>
                 <a class="sidebar__nav-link" href="#guide_article">Guide article</a>
                 <a class="sidebar__nav-link" href="#hero">Hero</a>
                 <a class="sidebar__nav-link" href="#anchor_links">Anchor links</a>
@@ -294,6 +296,145 @@
                        &lt;a href="/money/itsmyreport/" class="us-btn us-btn--arrowed us-btn--primary arrowed js-track-event" data-track-category="money-insurance-guides-cta" data-track-action="click - large quote box" data-track-label="/money/itsmyreport/" rel="nofollow"&gt;Sign the petition&lt;/a&gt;
                     &lt;/form&gt;
                 &lt;/section&gt;
+                  </code></pre>
+                </div>
+              
+              </div>              <div class="styleguide__block" id="featured_deal">
+                <div class="styleguide__block-info">
+                  <h2 class="styleguide__block-title">
+                    Featured deal
+                    <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_featured.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_featured.scss</span></a>
+                  </h2>
+                  
+                  <p>   The <code>.us-featured</code> is mostly composed by smaller components, the components can be shuffled around inside of a grid to create the needed variants.
+                 This featured deal won&#39;t make any assumptions around the media queries, it&#39;s up to you, to deal with it. As you can see on the examples.</p>
+              
+                  
+                </div>
+                
+                <h3 class="styleguide__block-small-title">Example</h3>
+                <div class="styleguide__block-examples">
+                  <div class="styleguide__block-example">
+                    <div class="us-container">
+               <div class="us-featured__header us-grid-row us-padding-top us-padding-bottom">
+                 <div class="us-featured__header-title us-col-xsm-9 us-content-left">
+                   Title goes here
+                 </div>
+                 <div class="us-featured__header-subtitle us-col-xsm-3 us-content-right">
+                   Promotion
+                 </div>
+               </div>
+               <div class="us-featured__content us-grid-row us-padding-top us-padding-bottom">
+                 <div class="us-col-xsm-12">
+                   <div class='us-usp us-usp--blue'>
+                     Awesome deal usp
+                   </div>
+                 </div>
+                 <div class="us-desktop--hidden us-padding-top us-col-xsm-4 us-mobile-block">
+                   <img class="us-img--full" src="http://uswitch-wp-cms-assets.s3-website-eu-west-1.amazonaws.com//www.uswitch.com/money/guides/wp-content/uploads/2014/11/DB2011AU01018_SMALL.jpg" width="200">
+                 </div>
+                 <div class="us-col-xsm-7 us-col-lg-8 us-col-sm-5">
+                   <ul>
+                     <li>List item 1</li>
+                     <li>List item 2</li>
+                     <li>List item 3</li>
+                   </ul>
+                   <div class="us-col-xsm-6 us-desktop--block">
+                     <div class="us-featured-highlight">
+                       <strong class="us-featured-highlight__title">
+                         £99.99
+                       </strong>
+                       monthly cost
+                     </div>
+                   </div>
+                   <div class="us-col-xsm-6 us-desktop--block">
+                     <div class="us-featured-highlight">
+                       <strong class="us-featured-highlight__title">
+                         £99.99
+                       </strong>
+                       monthly cost
+                       <br>
+                       <a class="us-featured-highlight__link us-link" href="#">Link</a>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="us-col-xsm-3 us-col-lg-4 us-tablet--block">
+                   <img class="us-img--full us-desktop--block" src="http://uswitch-wp-cms-assets.s3-website-eu-west-1.amazonaws.com//www.uswitch.com/money/guides/wp-content/uploads/2014/11/DB2011AU01018_SMALL.jpg" width="200">
+                   <button class="margin-top margin-bottom us-btn us-btn--primary us-btn us-btn--blocked">See deal</button>
+                   <div class="us-icon--before us-icon--small--before us-icon--typegrey--before us-icon--clock--before us-content-center">
+                     <strong>3 days left</strong>
+                   </div>
+                 </div>
+                 <div class="us-featured__mobile-icon  us-tablet--hidden us-col-xsm-3 us-icon us-icon--medium us-icon--typegrey us-icon--breadcrumb"></div>
+               </div>
+               <div class="us-featured__footer us-grid-row us-padding-top us-padding-bottom us-desktop--block">
+                 <div class="us-col-xsm-12">
+                   Legal stuff goes here
+                 </div>
+               </div>
+              </div>
+                  </div>
+                
+              
+                  <pre><code class="html">
+              &lt;div class="us-container"&gt;
+               &lt;div class="us-featured__header us-grid-row us-padding-top us-padding-bottom"&gt;
+                 &lt;div class="us-featured__header-title us-col-xsm-9 us-content-left"&gt;
+                   Title goes here
+                 &lt;/div&gt;
+                 &lt;div class="us-featured__header-subtitle us-col-xsm-3 us-content-right"&gt;
+                   Promotion
+                 &lt;/div&gt;
+               &lt;/div&gt;
+               &lt;div class="us-featured__content us-grid-row us-padding-top us-padding-bottom"&gt;
+                 &lt;div class="us-col-xsm-12"&gt;
+                   &lt;div class='us-usp us-usp--blue'&gt;
+                     Awesome deal usp
+                   &lt;/div&gt;
+                 &lt;/div&gt;
+                 &lt;div class="us-desktop--hidden us-padding-top us-col-xsm-4 us-mobile-block"&gt;
+                   &lt;img class="us-img--full" src="http://uswitch-wp-cms-assets.s3-website-eu-west-1.amazonaws.com//www.uswitch.com/money/guides/wp-content/uploads/2014/11/DB2011AU01018_SMALL.jpg" width="200"&gt;
+                 &lt;/div&gt;
+                 &lt;div class="us-col-xsm-7 us-col-lg-8 us-col-sm-5"&gt;
+                   &lt;ul&gt;
+                     &lt;li&gt;List item 1&lt;/li&gt;
+                     &lt;li&gt;List item 2&lt;/li&gt;
+                     &lt;li&gt;List item 3&lt;/li&gt;
+                   &lt;/ul&gt;
+                   &lt;div class="us-col-xsm-6 us-desktop--block"&gt;
+                     &lt;div class="us-featured-highlight"&gt;
+                       &lt;strong class="us-featured-highlight__title"&gt;
+                         £99.99
+                       &lt;/strong&gt;
+                       monthly cost
+                     &lt;/div&gt;
+                   &lt;/div&gt;
+                   &lt;div class="us-col-xsm-6 us-desktop--block"&gt;
+                     &lt;div class="us-featured-highlight"&gt;
+                       &lt;strong class="us-featured-highlight__title"&gt;
+                         £99.99
+                       &lt;/strong&gt;
+                       monthly cost
+                       &lt;br&gt;
+                       &lt;a class="us-featured-highlight__link us-link" href="#"&gt;Link&lt;/a&gt;
+                     &lt;/div&gt;
+                   &lt;/div&gt;
+                 &lt;/div&gt;
+                 &lt;div class="us-col-xsm-3 us-col-lg-4 us-tablet--block"&gt;
+                   &lt;img class="us-img--full us-desktop--block" src="http://uswitch-wp-cms-assets.s3-website-eu-west-1.amazonaws.com//www.uswitch.com/money/guides/wp-content/uploads/2014/11/DB2011AU01018_SMALL.jpg" width="200"&gt;
+                   &lt;button class="margin-top margin-bottom us-btn us-btn--primary us-btn us-btn--blocked"&gt;See deal&lt;/button&gt;
+                   &lt;div class="us-icon--before us-icon--small--before us-icon--typegrey--before us-icon--clock--before us-content-center"&gt;
+                     &lt;strong&gt;3 days left&lt;/strong&gt;
+                   &lt;/div&gt;
+                 &lt;/div&gt;
+                 &lt;div class="us-featured__mobile-icon  us-tablet--hidden us-col-xsm-3 us-icon us-icon--medium us-icon--typegrey us-icon--breadcrumb"&gt;&lt;/div&gt;
+               &lt;/div&gt;
+               &lt;div class="us-featured__footer us-grid-row us-padding-top us-padding-bottom us-desktop--block"&gt;
+                 &lt;div class="us-col-xsm-12"&gt;
+                   Legal stuff goes here
+                 &lt;/div&gt;
+               &lt;/div&gt;
+              &lt;/div&gt;
                   </code></pre>
                 </div>
               

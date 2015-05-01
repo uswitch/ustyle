@@ -14,7 +14,7 @@
 <body>
   <header class="ustyle__header">
     <a class="logo" href="/">ustyle</a>
-    <span class="version us-tablet--block">v0.15.2</span>
+    <span class="version us-tablet--block">v0.16.0</span>
     <div class='nav nav--header'>
       <nav>
           <a href="/ustyle/brand/" class="nav__link">Brand</a>
@@ -32,6 +32,7 @@
             <a class="nav__link nav__main-link " href="components.html">Components</a>
             <a class="nav__link nav__main-link active" href="js-components.html">JS components</a>
             <a class="nav__link nav__main-link " href="grid.html">Grid</a>
+            <a class="nav__link nav__main-link " href="stats.html">Stats</a>
           <a class="nav__link nav__main-link" href="/sass/">Sass doc</a>
       </nav>
     </div>
@@ -51,6 +52,7 @@
                 <a class="sidebar__nav-link" href="#anchor">Anchor</a>
                 <a class="sidebar__nav-link" href="#overlay">Overlay</a>
                 <a class="sidebar__nav-link" href="#tabs">Tabs</a>
+                <a class="sidebar__nav-link" href="#tooltip">Tooltip</a>
           </nav>  
         </div>
       </div>
@@ -277,6 +279,113 @@
                          &lt;p&gt;Pig pastrami pork loin kielbasa, filet mignon meatloaf short ribs tenderloin. Pork loin leberkas kevin fatback porchetta bresaola. Cow rump shoulder pastrami. Andouille pork belly t-bone short ribs brisket. Bresaola pork belly tail salami capicola meatball. Pork belly beef ham landjaeger.&lt;/p&gt;
                        &lt;/div&gt;
                      &lt;/div&gt;
+                   &lt;/div&gt;
+                 &lt;/div&gt;
+                  </code></pre>
+                </div>
+              
+              </div>              <div class="styleguide__block" id="tooltip">
+                <div class="styleguide__block-info">
+                  <h2 class="styleguide__block-title">
+                    Tooltip
+                    <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_tooltip.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_tooltip.scss</span></a>
+                  </h2>
+                  
+                  <p>  <code>.us-tooltip</code> can be applied to any parent, and by hovering it, it will toggle the visibility of <code>.us-tooltip__note</code>
+                Tooltip doesn&#39;t have it&#39;s own javascript file, all it needs is to toggle a class, for that we can use:
+               <code>var tooltips = new ClassToggler({
+                 containerClass: &#39;.us-tooltip&#39;,
+                 $target: $(&#39;.us-tooltip__icon&#39;),
+                 activeClass: &quot;us-tooltip--active&quot;
+               });</code>
+                Please note that on mobile viewports, the tooltip will appeat underneath the element that is aligned with the tooltip icon.</p>
+              
+                    <ul class="styleguide__block-states">
+                        <li class="name"><strong>.us-tooltip--top</strong> - </li>
+                        <li class="name"><strong>.us-tooltip--bottom</strong> - </li>
+                        <li class="name"><strong>.us-tooltip--left</strong> - </li>
+                        <li class="name"><strong>.us-tooltip--right</strong> - </li>
+                    </ul>
+                  
+                </div>
+                
+                <h3 class="styleguide__block-small-title">Example</h3>
+                <div class="styleguide__block-examples">
+                  <div class="styleguide__block-example">
+                       <div class="tooltip-demo us-tooltip {$modifiers}">
+                   <div class="us-field">
+                     <label for='name'>Name</label>
+                     <input class='us-form-input' id='name' name='name' placeholder='Please enter your name'>
+                   </div>
+                   <div class="us-tooltip__wrapper">
+                     <div class="us-tooltip__icon"></div>
+                     <div class="us-tooltip__note"><strong>Tooltip</strong> message content</div>
+                   </div>
+                 </div>
+                  </div>
+                
+                    <div class="styleguide__block-example state-us-tooltip--top">
+                         <div class="tooltip-demo us-tooltip us-tooltip--top">
+                   <div class="us-field">
+                     <label for='name'>Name</label>
+                     <input class='us-form-input' id='name' name='name' placeholder='Please enter your name'>
+                   </div>
+                   <div class="us-tooltip__wrapper">
+                     <div class="us-tooltip__icon"></div>
+                     <div class="us-tooltip__note"><strong>Tooltip</strong> message content</div>
+                   </div>
+                 </div>
+                      <div class="styleguide__block-example-class">.us-tooltip--top</div>
+                    </div>
+                    <div class="styleguide__block-example state-us-tooltip--bottom">
+                         <div class="tooltip-demo us-tooltip us-tooltip--bottom">
+                   <div class="us-field">
+                     <label for='name'>Name</label>
+                     <input class='us-form-input' id='name' name='name' placeholder='Please enter your name'>
+                   </div>
+                   <div class="us-tooltip__wrapper">
+                     <div class="us-tooltip__icon"></div>
+                     <div class="us-tooltip__note"><strong>Tooltip</strong> message content</div>
+                   </div>
+                 </div>
+                      <div class="styleguide__block-example-class">.us-tooltip--bottom</div>
+                    </div>
+                    <div class="styleguide__block-example state-us-tooltip--left">
+                         <div class="tooltip-demo us-tooltip us-tooltip--left">
+                   <div class="us-field">
+                     <label for='name'>Name</label>
+                     <input class='us-form-input' id='name' name='name' placeholder='Please enter your name'>
+                   </div>
+                   <div class="us-tooltip__wrapper">
+                     <div class="us-tooltip__icon"></div>
+                     <div class="us-tooltip__note"><strong>Tooltip</strong> message content</div>
+                   </div>
+                 </div>
+                      <div class="styleguide__block-example-class">.us-tooltip--left</div>
+                    </div>
+                    <div class="styleguide__block-example state-us-tooltip--right">
+                         <div class="tooltip-demo us-tooltip us-tooltip--right">
+                   <div class="us-field">
+                     <label for='name'>Name</label>
+                     <input class='us-form-input' id='name' name='name' placeholder='Please enter your name'>
+                   </div>
+                   <div class="us-tooltip__wrapper">
+                     <div class="us-tooltip__icon"></div>
+                     <div class="us-tooltip__note"><strong>Tooltip</strong> message content</div>
+                   </div>
+                 </div>
+                      <div class="styleguide__block-example-class">.us-tooltip--right</div>
+                    </div>
+              
+                  <pre><code class="html">
+                 &lt;div class="tooltip-demo us-tooltip"&gt;
+                   &lt;div class="us-field"&gt;
+                     &lt;label for='name'&gt;Name&lt;/label&gt;
+                     &lt;input class='us-form-input' id='name' name='name' placeholder='Please enter your name'&gt;
+                   &lt;/div&gt;
+                   &lt;div class="us-tooltip__wrapper"&gt;
+                     &lt;div class="us-tooltip__icon"&gt;&lt;/div&gt;
+                     &lt;div class="us-tooltip__note"&gt;&lt;strong&gt;Tooltip&lt;/strong&gt; message content&lt;/div&gt;
                    &lt;/div&gt;
                  &lt;/div&gt;
                   </code></pre>
