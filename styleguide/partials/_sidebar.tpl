@@ -3,7 +3,7 @@
     {{#pages}}
       {{#isActive this.section "section"}}
         <a class="sidebar__nav-link {{activeClass this.name 'name'}}" href="{{page}}">{{name}}</a>
-        {{#isActive this.name "page"}}
+        {{#isActive this.name "name"}}
           {{#if blocks}}
             <nav class="sidebar__sub-nav" data-ghumshoe>
               {{#blocks}}
@@ -14,7 +14,7 @@
         {{/isActive}}
       {{/isActive}}
     {{/pages}}
-    {{#isActive "code" "code"}}
+    {{#isActive "code" "section"}}
       <a class="sidebar__nav-link" href="/sass/">Sass doc</a>
     {{/isActive}}
   </nav>
