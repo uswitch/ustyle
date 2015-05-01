@@ -59,7 +59,6 @@ class window.Overlay
       history.pushState('open', window.document.title, @options.historyStatus)
 
   hide: (e)->
-    console.log arguments.callee.caller
     body = $(document.body)
 
     body.removeClass @options.bodyOpenedClass
