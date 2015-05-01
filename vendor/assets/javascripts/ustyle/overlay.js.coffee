@@ -5,8 +5,8 @@ class window.Overlay
     bodyOpenedClass: 'overlay--open'
     openedClass:     'us-overlay--open'
     overlay:         $('.us-overlay-parent')
-    openButton:      $('.js-open-overlay')
-    closeButton:     $('.js-close-overlay')
+    openButton:      '.js-open-overlay'
+    closeButton:     '.js-close-overlay'
     escapeKey:       27
     historyStatus:   '#seedeal'
     history:         true
@@ -18,26 +18,24 @@ class window.Overlay
     @addEventListeners()
 
   addEventListeners: ->
-    @options.openButton.on 'click', (e)=>
+    $(@options.openButton).on 'click.open-overlay', (e)=>
       if @options.preventDefault
         e.preventDefault()
 
       @show(e)
 
-    @options.closeButton.on 'click', (e)=>
+    @overlay.on 'click.close-overlay', (e)=>
+      targets = [@overlay[0], @overlay.find(@options.closeButton)[0]]
+
       if @options.preventDefault
         e.preventDefault()
 
-      @hide(e)
+      for target in targets
+        if e.target is target
+          @hide(e)
+          break
 
-    @overlay.on 'click', (e)=>
-      if @options.preventDefault
-        e.preventDefault()
-
-      if e.target is @overlay[0]
-        @hide(e)
-
-    $(document).on 'keyup', (e)=>
+    $(document).on 'keyup.close-overlay', (e)=>
       if e.keyCode == @options.escapeKey
         @hide()
 
@@ -61,6 +59,7 @@ class window.Overlay
       history.pushState('open', window.document.title, @options.historyStatus)
 
   hide: (e)->
+    console.log arguments.callee.caller
     body = $(document.body)
 
     body.removeClass @options.bodyOpenedClass
