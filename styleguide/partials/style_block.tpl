@@ -34,6 +34,11 @@
       {{~{escaped}}}
     {{/markup}}
     </code></pre>
+    {{#if javascript}}
+      <pre><code class="javascript">
+      {{~{javascript}}}
+      </code></pre>
+    {{/if}}
   </div>
 
 </div>

@@ -47,7 +47,7 @@
     for (var i = codeBlocks.length - 1; i >= 0; i--) {
       var codeBlock = codeBlocks[i],
           lines, offset;
-
+          
       lines = codeBlock.textContent.split( '\n' );
 
       if ( lines.length > 1 && lines[ lines.length - 1 ].trim() === '' ){
