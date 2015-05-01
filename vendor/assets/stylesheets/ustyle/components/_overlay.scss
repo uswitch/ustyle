@@ -85,15 +85,15 @@ $overlay-z-index: $overlay-forced-z-index;
   opacity: 0;
   visibility: hidden;
   transition: opacity .3s linear;
+}
 
-  &.us-overlay--visible {
-    visibility: visible;
-  }
+.us-overlay-parent--visible {
+  visibility: visible;
+}
 
-  &.us-overlay--active {
-    overflow: scroll;
-    opacity: 1;
-  }
+.us-overlay-parent--active {
+  overflow: scroll;
+  opacity: 1;
 }
 
 .us-overlay-parent--modal {
@@ -116,10 +116,12 @@ $overlay-z-index: $overlay-forced-z-index;
 .us-overlay {
   position: relative;
   background: #fff;
-  transition: opacity .3s linear;
+  transition: transform .3s ease-in;
+  transform: translate3d(0, -5%, 0);
 
-  .us-overlay-parent--modal & {
-
+  .us-overlay-parent--active & {
+    transition-timing-function: ease-out;
+    transform: translate3d(0, 0, 0);
   }
 }
 
