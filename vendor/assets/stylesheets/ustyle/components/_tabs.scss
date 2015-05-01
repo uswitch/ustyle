@@ -2,9 +2,17 @@
 // @name Tabs
 //
 // @description
-//   These are the basic tabs used for landing pages. You can either reference a data-target for the urls or href
-//   for the target tabs. They have a non-js fallback and fold over to accordion when in small tablet view. They are initialised
-//   on page load if the tabs classes exist. To initialise call `var tabs = new Tabs()`
+//   These are the basic tabs used for landing pages. You can either reference a data-target for the urls or href for the target tabs. 
+//   They have a non-js fallback and fold over to accordion when in small tablet view. They are initialised on page load if the tabs classes exist.
+//
+// @javascript
+//   var tabs = new Tabs({
+//     tabContainer: ".us-tabs"
+//     tabLinks: ".us-tabs-nav-mainlink"
+//     tabTitle: "us-tab-title"
+//     changeUrls: true
+//     activeClass: "active"
+//   });
 //
 // @markup
 //   <div class='us-tabs'>

@@ -2,8 +2,8 @@
 // @name Loader
 //
 // @description
-//   It shows when added the class `.us-loader--loading` and it can center itself
-//   on the parent container if you add `.us-loader--centered`
+//   Loader component to be added to any AJAX/filter loads across uSwitch. We use them specifically in tables when loading new rows.
+//   `.us-loader--loading` will initiate the animation and `.us-loader--centered` will vertically center the loading SVG.
 //
 // @markup
 //   <div class='us-loader__container'>

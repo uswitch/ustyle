@@ -3,12 +3,9 @@
 // @partial icons
 // 
 // @description
-//   Icons are created by chaining classes together with `us-icon`. There are 3 sizes, 16px, 32px, 64px, these are named
-//   `us-icon--small`, `us-icon--medium` and `us-icon--large` respectively. There are 5 colours for each icon, *white*,
-//   *typegrey*, *inputgrey*, *typecyan* and *custom*. Where *custom* can differ depending on what the icon represents
-//   (for logos, the custom tends to be the brand colour of that company). If you want an icon to be part of a **:pseudo**
-//   element (:before, :after) then suffix your icon name with `--before` and `--after` respectively. To have an
-//   icon standalone with text as fallback, add `us-icon--notext` to the element.
+//   Icons are created by chaining classes together with `us-icon`. There are 3 sizes, 16px, 32px, 64px, these are named `us-icon--small`, `us-icon--medium` and `us-icon--large` respectively. 
+//
+//   There are 5 colours for each icon, *white*, *typegrey*, *inputgrey*, *typecyan* and *custom*. Where *custom* can differ depending on what the icon represents (for logos, the custom tends to be the brand colour of that company). If you want an icon to be part of a **:pseudo** element (:before, :after) then suffix your icon name with `--before` and `--after` respectively. To have an icon standalone with text as fallback, add `us-icon--notext` to the element.
 // 
 // @state us-icon--alarm
 // @state us-icon--android
