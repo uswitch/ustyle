@@ -1,5 +1,13 @@
 $container-width: 90%;
 
+%header--push {
+  padding-top: $header-height;
+}
+
+#wrapper {
+  @extend %header--push;
+}
+
 .container {
   @extend %clearfix;
   margin-left: auto;
@@ -8,6 +16,6 @@ $container-width: 90%;
   padding: 0 $gutter-width / 2;
   
   @include respond-to(desktop, true){
-    width: 90%;
+    width: calc(100% - 270px);
   }
 }

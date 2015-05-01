@@ -1,9 +1,9 @@
 .logo {
-  @include link-colors(#fff, $c-typecyan, #fff, #fff);
+  @include link-colors($c-navy, #fff, $c-navy, $c-navy);
   @include bold-font;
   display: block;
   float: left;
-  padding: .55em;
+  padding: 1em .55em;
   font-size: 1.5em;
   letter-spacing: 1px;
 }

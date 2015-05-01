@@ -3,8 +3,10 @@
 
   function App(){
     gumshoe.init({
-      activeClass: 'sidebar__nav-link--active'
+      activeClass: 'sidebar__nav-link--active',
+      offset: 70
     });
+
     var tabs = new tabScroll($(".nav__link.active"), $(".nav-container"));
 
     var toggleLinks = document.querySelectorAll(".js-toggle__link");
@@ -14,7 +16,7 @@
       toggleLink.addEventListener("click", clickToggle, false);
     };
 
-    codeBlockClean();
+    codeBlockClean(document.querySelectorAll('pre code'));
 
     var overlays = []
 
@@ -41,13 +43,13 @@
     });
   }
 
-  function codeBlockClean(){
-    var codeBlocks = document.querySelectorAll('pre code');
+  function codeBlockClean(codeBlocks){
+    if (!codeBlocks) return;
 
     for (var i = codeBlocks.length - 1; i >= 0; i--) {
       var codeBlock = codeBlocks[i],
           lines, offset;
-          
+
       lines = codeBlock.textContent.split( '\n' );
 
       if ( lines.length > 1 && lines[ lines.length - 1 ].trim() === '' ){

@@ -1,5 +1,5 @@
-$sidebar-width          : 280px;
-$sidebar-bg-color       : transparent;
+$sidebar-width          : 270px;
+$sidebar-bg-color       : $c-bggrey;
 $sidebar-breakpoint     : tablet;
 $sidebar-side-visibility: desktop;
 $sidebar-top-push       : $gutter-width/2;
@@ -11,44 +11,37 @@ $sidebar-padding        : 0;
   overflow: visible;
 
   @include respond-to($sidebar-breakpoint){
+    position: fixed;
+    top: $header-height;
+    right: 0;
+    bottom: 0;
+    width: $sidebar-width;
     min-height: 1px;
-    overflow: auto;
-  }
-
-  &--push {
-    @include respond-to($sidebar-side-visibility){
-      padding-left: $sidebar-width;
-    }
-  }
-
-  &--fixed-push {
-    @include respond-to($sidebar-side-visibility){
-      left: $sidebar-width;
-    }
+    padding-top: $gutter-width;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
   &__nav-link {
-    @include link-colors($c-typegrey, $c-typecyan, $c-typegrey, $c-typegrey);
+    @include link-colors($c-navy, $c-typecyan, $c-navy, $c-navy);
     display: block;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    transition: transform .3s;
+    padding: 4px $gutter-width;
+
+    &.active {
+      background-color: white;
+      font-weight: 700;
+    }
+
+    &--sub {
+      @include link-colors($c-typecyan, $c-navy, $c-typecyan, $c-typecyan);
+      padding-left: $gutter-width*1.5;
+      transition: transform .3s;
+    }
 
     &--active,
     &--active:visited {
-      color: $c-typecyan;
       font-weight: 700;
       transform: translateX(5px);
     }
-  }
-}
-
-.sticky {
-  @include respond-to(tablet, true) {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    z-index: 15;
-    padding-top: $gutter-width;
   }
 }

@@ -3,6 +3,8 @@ $hero-padding-top: 1em;
 $needs-font: true;
 $load-icons: true;
 
+$header-height: 73px;
+
 // Ustyle imports
 @import "ustyle",
         "ustyle/content";
@@ -22,6 +24,7 @@ $load-icons: true;
         "modules/code",
         "modules/stats",
         "modules/states",
+        "modules/copyright",
         "modules/typography";
 
 @import "ustyle/icons/base";
