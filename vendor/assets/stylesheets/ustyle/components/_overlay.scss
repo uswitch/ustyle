@@ -70,16 +70,6 @@ $overlay-z-index: $overlay-forced-z-index;
 
   z-index: $overlay-z-index;
 
-  .no-csstransforms & {
-    display: none;
-  }
-
-  .us-overlay--open & {
-    .no-csstransforms & {
-      display: block;
-    }
-  }
-
   @include respond-to(small-tablet, true) {
     width: $overlay-tablet-width;
   }
@@ -92,11 +82,17 @@ $overlay-z-index: $overlay-forced-z-index;
   bottom: 0;
   left: 0;
   z-index: $overlay-forced-z-index;
-  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s linear;
 
-  &.us-overlay--open {
-    display: block;
+  &.us-overlay--visible {
+    visibility: visible;
+  }
+
+  &.us-overlay--active {
     overflow: scroll;
+    opacity: 1;
   }
 }
 
@@ -120,6 +116,11 @@ $overlay-z-index: $overlay-forced-z-index;
 .us-overlay {
   position: relative;
   background: #fff;
+  transition: opacity .3s linear;
+
+  .us-overlay-parent--modal & {
+
+  }
 }
 
 .us-overlay-container {

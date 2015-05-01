@@ -2,8 +2,9 @@
 
 class window.Overlay
   defaults =
-    bodyOpenedClass: 'overlay--open'
-    openedClass:     'us-overlay--open'
+    bodyActiveClass: 'overlay--open'
+    visibleClass:    'us-overlay--visible'
+    activeClass:     'us-overlay--active'
     overlay:         $('.us-overlay-parent')
     openButton:      '.js-open-overlay'
     closeButton:     '.js-close-overlay'
@@ -45,12 +46,17 @@ class window.Overlay
 
   show: (e)->
     body = $(document.body)
+    that = @
 
-    body.addClass @options.bodyOpenedClass
+    body.addClass @options.bodyActiveClass
 
     Backdrop.retain()
 
-    @overlay.addClass @options.openedClass
+    Utils.addClass @overlay[0], @options.visibleClass
+
+    Utils.requestAnimationFrame ->
+      Utils.addClass that.overlay[0], that.options.activeClass
+
     @options.onOpen?(e)
 
     if @options.resetScroll
@@ -60,12 +66,19 @@ class window.Overlay
 
   hide: (e)->
     body = $(document.body)
+    that = @
 
-    body.removeClass @options.bodyOpenedClass
+    body.removeClass @options.bodyActiveClass
 
     Backdrop.release()
 
-    @overlay.removeClass @options.openedClass
+    Utils.requestAnimationFrame ->
+      Utils.removeClass that.overlay[0], that.options.activeClass
+
+      setTimeout ->
+        Utils.removeClass that.overlay[0], that.options.visibleClass
+      , 300
+
     @options.onClose?(e)
 
     if @hasHistory()
