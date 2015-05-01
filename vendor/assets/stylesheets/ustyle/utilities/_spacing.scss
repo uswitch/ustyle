@@ -6,17 +6,42 @@
 //   You can set margin or padding for an element without creating an extra class.
 //   An example of this `.us-margin-top`, `.us-margin-top--small`, `.us-margin-top--large` where
 //   `margin` can be replaced by `padding` and `top` can be replaced by `bottom`, `left` or `right`.
+//   Default space for margin and padding is 1em, `small` modifier uses .5em and `large` modifier uses 1.5em.
+//
+// @state .us-margin-top - Use default top margin (1em)
+// @state .us-margin-top--small - Use small top margin (.5em)
+// @state .us-margin-top--large - Use large top margin (1.5em)
+// @state .us-margin-bottom - Use default bottom margin (1em)
+// @state .us-margin-bottom--small - Use small bottom margin (.5em)
+// @state .us-margin-bottom--large - Use large bottom margin (1.5em)
+// @state .us-margin-left - Use default left margin (1em)
+// @state .us-margin-left--small - Use small left margin (.5em)
+// @state .us-margin-left--large - Use large left margin (1.5em)
+// @state .us-margin-right - Use default right margin (1em)
+// @state .us-margin-right--small - Use small right margin (.5em)
+// @state .us-margin-right--large - Use large right margin (1.5em)
+// @state .us-padding-top - Use default top padding (1em)
+// @state .us-padding-top--small - Use small top padding (.5em)
+// @state .us-padding-top--large - Use large top padding (1.5em)
+// @state .us-padding-bottom - Use default bottom padding (1em)
+// @state .us-padding-bottom--small - Use small bottom padding (.5em)
+// @state .us-padding-bottom--large - Use large bottom padding (1.5em)
+// @state .us-padding-left - Use default left padding (1em)
+// @state .us-padding-left--small - Use small left padding (.5em)
+// @state .us-padding-left--large - Use large left padding (1.5em)
+// @state .us-padding-right - Use default right padding (1em)
+// @state .us-padding-right--small - Use small right padding (.5em)
+// @state .us-padding-right--large - Use large right padding (1.5em)
+// @state .us-reset--padding - Reset padding to 0
+// @state .us-reset--margin - Reset margin to 0
+// @state .us-reset - Reset padding and margin to 0
 //
 // @markup
-//   <div class='us-margin-top--small'>Top margin (small)</div>
-//   <div class='us-margin-top'>Top margin (default)</div>
-//   <div class='us-margin-top--large'>Top margin (large)</div>
-//   <div class='us-padding-top--small'>Top padding (small)</div>
-//   <div class='us-padding-top'>Top padding (default)</div>
-//   <div class='us-padding-top--large'>Top margin (large)</div>
+//   <div class='class-goes-here {$modifiers}'>Sample content</div>
 
 $positions: "top", "right", "bottom", "left";
 $spacing: "small" .5em, "large" 1.5em;
+
 
 @each $position in $positions {
   .us-margin-#{$position} {
@@ -36,4 +61,16 @@ $spacing: "small" .5em, "large" 1.5em;
       padding-#{$position}: nth($space,2);
     }
   }
+}
+
+.us-reset--padding {
+  padding: 0;
+}
+
+.us-reset--margin {
+  margin: 0;
+}
+
+.us-reset {
+  @extend %reset-box-model;
 }

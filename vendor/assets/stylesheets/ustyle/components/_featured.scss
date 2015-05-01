@@ -1,0 +1,112 @@
+// @page Code/Components
+// @name Featured deal
+//
+// @description
+//   The `.us-featured` is mostly composed by smaller components, the components can be shuffled around inside of a grid to create the needed variants.
+//   This featured deal won't make any assumptions around the media queries, it's up to you, to deal with it. As you can see on the examples.
+//
+// @markup
+//<div class="us-container">
+// <div class="us-featured__header us-grid-row us-padding-top us-padding-bottom">
+//   <div class="us-featured__header-title us-col-xsm-9 us-content-left">
+//     Title goes here
+//   </div>
+//   <div class="us-featured__header-subtitle us-col-xsm-3 us-content-right">
+//     Promotion
+//   </div>
+// </div>
+// <div class="us-featured__content us-grid-row us-padding-top us-padding-bottom">
+//   <div class="us-col-xsm-12">
+//     <div class='us-usp us-usp--blue'>
+//       Awesome deal usp
+//     </div>
+//   </div>
+//   <div class="us-desktop--hidden us-padding-top us-col-xsm-4 us-mobile-block">
+//     <img class="us-img--full" src="http://uswitch-wp-cms-assets.s3-website-eu-west-1.amazonaws.com//www.uswitch.com/money/guides/wp-content/uploads/2014/11/DB2011AU01018_SMALL.jpg" width="200">
+//   </div>
+//   <div class="us-col-xsm-7 us-col-lg-8 us-col-sm-5">
+//     <ul>
+//       <li>List item 1</li>
+//       <li>List item 2</li>
+//       <li>List item 3</li>
+//     </ul>
+//     <div class="us-col-xsm-6 us-desktop--block">
+//       <div class="us-featured-highlight">
+//         <strong class="us-featured-highlight__title">
+//           £99.99
+//         </strong>
+//         monthly cost
+//       </div>
+//     </div>
+//     <div class="us-col-xsm-6 us-desktop--block">
+//       <div class="us-featured-highlight">
+//         <strong class="us-featured-highlight__title">
+//           £99.99
+//         </strong>
+//         monthly cost
+//         <br>
+//         <a class="us-featured-highlight__link us-link" href="#">Link</a>
+//       </div>
+//     </div>
+//   </div>
+//   <div class="us-col-xsm-3 us-col-lg-4 us-tablet--block">
+//     <img class="us-img--full us-desktop--block" src="http://uswitch-wp-cms-assets.s3-website-eu-west-1.amazonaws.com//www.uswitch.com/money/guides/wp-content/uploads/2014/11/DB2011AU01018_SMALL.jpg" width="200">
+//     <button class="margin-top margin-bottom us-btn us-btn--primary us-btn us-btn--blocked">See deal</button>
+//     <div class="us-icon--before us-icon--small--before us-icon--typegrey--before us-icon--clock--before us-content-center">
+//       <strong>3 days left</strong>
+//     </div>
+//   </div>
+//   <div class="us-featured__mobile-icon  us-tablet--hidden us-col-xsm-3 us-icon us-icon--medium us-icon--typegrey us-icon--breadcrumb"></div>
+// </div>
+// <div class="us-featured__footer us-grid-row us-padding-top us-padding-bottom us-desktop--block">
+//   <div class="us-col-xsm-12">
+//     Legal stuff goes here
+//   </div>
+// </div>
+//</div>
+
+$featured-list-padding: 1em;
+$featured-highlight-text-size: 1.5em;
+$featured-legal-text-size: .9em;
+
+.us-featured__header {
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.us-featured__content {
+  position: relative;
+  background-color: $c-cyan-light;
+
+  ul {
+    padding-left: $featured-list-padding;
+  }
+}
+
+.us-featured__mobile-icon {
+  position: absolute;
+  top: 45%;
+  right: 5px;
+  float: right;
+}
+
+.us-featured-highlight {
+  font-weight: bold;
+  color: $c-navy;
+  text-align: center;
+}
+
+.us-featured-highlight__title {
+  display: block;
+  font-size: $featured-highlight-text-size;
+}
+
+.us-featured-highlight__link {
+  font-weight: normal;
+}
+
+.us-featured__footer {
+  font-size: $featured-legal-text-size;
+  background-color: $c-cyan-light;
+  border-top: 1px solid $c-bordergrey;
+}

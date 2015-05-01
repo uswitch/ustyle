@@ -6,44 +6,25 @@
 //   of displaying them as `block`, `inline-block` or `inline` elements. You can also hide elements
 //   by `.us-{DEVICE}--hidden` and will hide those elements above that breakpoint.
 //
+// @state .us-clearfix - Clear floats
+// @state .us-float--left - Float element to the left
+// @state .us-float--right - Float element to the right
+// @state .us-content--left - Align content of the element to the left
+// @state .us-content--center - Align content of the element to the center
+// @state .us-content--right - Align content of the element to the right
+// @state .us-block - Display element as a block
+// @state .us-color--cyan - Change content color to blue, navy, typecyan, cyan, red, green
+// @state .us-list--reset - Reset list style
+//
 // @markup
-//   <div class='us-clearfix'>Clearfix</div>
-//   <div class='us-reset'>Reset paddings and margins</div>
-//   <div class='us-float--left'>Float left</div>
-//   <div class='us-float--right'>Float right</div>
-//   <div class='us-reset--padding'>Reset padding</div>
-//   <div class='us-reset--margin'>Reset margin</div>
-//   <span class='us-block'>Blocked element</span>
-//   <div class='us-color--cyan'>Set content colour (blue)</div>
-//   <ul class='us-list--reset'>
-//    <li>List style reset</li>
-//   </ul>
+//   <div class='{$modifiers}'>
+//     <p>content</p>
+//   </div>
+
 
 // Clear floats
 .us-clearfix {
   @extend %clearfix;
-}
-
-// Full box model reset
-.us-reset {
-  @extend %reset-box-model;
-}
-
-// Floats
-.us-float--left {
-  @extend %float-left;
-}
-
-.us-float--right {
-  @extend %float-right;
-}
-
-.us-reset--padding {
-  padding: 0;
-}
-
-.us-reset--margin {
-  margin: 0;
 }
 
 // Reset list styling
@@ -68,6 +49,27 @@
 
 .us-trailered--small {
   margin-bottom: .5em;
+}
+
+// Floats
+.us-float--left {
+  @extend %float-left;
+}
+
+.us-float--right {
+  @extend %float-right;
+}
+
+.us-content-left {
+  text-align: left;
+}
+
+.us-content-right {
+  text-align: right;
+}
+
+.us-content-center {
+  text-align: center;
 }
 
 // Colors
