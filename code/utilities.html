@@ -1,5 +1,11 @@
 <!DOCTYPE html>
-<html class="no-js svg">
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]> <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]> <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]> <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]> ><! <![endif]-->
+<html class='no-js svg' lang='en'>
+  <!-- <![endif] -->
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <meta content='width=device-width, initial-scale=1.0' name='viewport'>
@@ -14,48 +20,29 @@
 <body>
   <header class="ustyle__header">
     <a class="logo" href="/">ustyle</a>
-    <span class="version us-tablet--block">v0.16.0</span>
+    <a class="version us-tablet--block" href="https://github.com/uswitch/ustyle/releases/tag/0.16.0">v0.16.0</a>
     <div class='nav nav--header'>
       <nav>
-          <a href="/brand/" class="nav__link">Brand</a>
-          <a href="/design/" class="nav__link">Design</a>
-          <a href="/code/" class="nav__link">Code</a>
+        <a href="/brand/" class="nav__link ">Brand</a>
+        <a href="/design/" class="nav__link ">Design</a>
+        <a href="/code/" class="nav__link active">Code</a>
       </nav>
     </nav>
   </header>
-  <div class='us-clearfix nav-container'>
-    <div class='nav nav--sub'>
-      <nav>
-            <a class="nav__link nav__main-link " href="index.html">Introduction</a>
-            <a class="nav__link nav__main-link active" href="utilities.html">Utilities</a>
-            <a class="nav__link nav__main-link " href="forms.html">Forms</a>
-            <a class="nav__link nav__main-link " href="components.html">Components</a>
-            <a class="nav__link nav__main-link " href="js-components.html">JS components</a>
-            <a class="nav__link nav__main-link " href="grid.html">Grid</a>
-            <a class="nav__link nav__main-link " href="stats.html">Stats</a>
-          <a class="nav__link nav__main-link" href="/sass/">Sass doc</a>
-      </nav>
-    </div>
+  <div class='sidebar'>
+    <nav class='sidebar__nav' data-gumshoe>
+          <a class="sidebar__nav-link " href="index.html">Introduction</a>
+          <a class="sidebar__nav-link active" href="utilities.html">Utilities</a>
+          <a class="sidebar__nav-link " href="forms.html">Forms</a>
+          <a class="sidebar__nav-link " href="components.html">Components</a>
+          <a class="sidebar__nav-link " href="js-components.html">JS components</a>
+          <a class="sidebar__nav-link " href="grid.html">Grid</a>
+          <a class="sidebar__nav-link " href="stats.html">Stats</a>
+    </nav>
   </div>
-  <div class="us-hero trailered">
-    <div class="us-hero-container">
-      <div class="styleguide__header">
-        <h1 class="styleguide__title">Utilities</h1>
-      </div>  
-    </div>
-  </div>
-  <div id="wrapper" class="us-container">
+  <div id="wrapper" class="container sidebar--push">
+    <h1 class="styleguide__title">Utilities</h1>
     <div class="us-grid-row">
-      <div class='sidebar us-col-md-2'>
-        <div class="js-sticky" data-gumshoe-header>
-          <nav class='sidebar__nav' data-gumshoe>
-                <a class="sidebar__nav-link" href="#general_utilities">General utilities</a>
-                <a class="sidebar__nav-link" href="#images">Images</a>
-                <a class="sidebar__nav-link" href="#responsive">Responsive</a>
-                <a class="sidebar__nav-link" href="#spacing">Spacing</a>
-          </nav>  
-        </div>
-      </div>
       <div class="styleguide us-col-md-10">
               <div class="styleguide__block" id="general_utilities">
                 <div class="styleguide__block-info">
@@ -64,9 +51,8 @@
                     <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/utilities/_general.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_general.scss</span></a>
                   </h2>
                   
-                  <p>   Utility classes to allow display of elements across devices. You have the option
-                 of displaying them as <code>block</code>, <code>inline-block</code> or <code>inline</code> elements. You can also hide elements
-                 by <code>.us-{DEVICE}--hidden</code> and will hide those elements above that breakpoint.</p>
+                  <p>   These utility classes allow for some basic CSS properties to be applied across elements.</p>
+              <p>   The classname applies to the property that is getting set, with the value as the modifier.</p>
               
                     <ul class="styleguide__block-states">
                         <li class="name"><strong>.us-clearfix</strong> - Clear floats</li>
@@ -152,7 +138,8 @@
                   </code></pre>
                 </div>
               
-              </div>              <div class="styleguide__block" id="images">
+              </div>
+              <div class="styleguide__block" id="images">
                 <div class="styleguide__block-info">
                   <h2 class="styleguide__block-title">
                     Images
@@ -208,16 +195,16 @@
                   </code></pre>
                 </div>
               
-              </div>              <div class="styleguide__block" id="responsive">
+              </div>
+              <div class="styleguide__block" id="responsive">
                 <div class="styleguide__block-info">
                   <h2 class="styleguide__block-title">
                     Responsive
                     <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/utilities/_responsive.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_responsive.scss</span></a>
                   </h2>
                   
-                  <p>   Utility classes to allow display of elements across devices. You have the option
-                 of displaying them as <code>block</code>, <code>inline-block</code> or <code>inline</code> elements. You can also hide elements
-                 by <code>.us-{DEVICE}--hidden</code> and will hide those elements above that breakpoint.</p>
+                  <p>   Responsive classes to allow display of elements across devices. You have the option of displaying them as <code>block</code>, <code>inline-block</code> or <code>inline</code> elements. </p>
+              <p>   You can also hide elements by <code>.us-{DEVICE}--hidden</code> and will hide those elements above that breakpoint.</p>
               
                   
                 </div>
@@ -244,18 +231,17 @@
                   </code></pre>
                 </div>
               
-              </div>              <div class="styleguide__block" id="spacing">
+              </div>
+              <div class="styleguide__block" id="spacing">
                 <div class="styleguide__block-info">
                   <h2 class="styleguide__block-title">
                     Spacing
                     <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/utilities/_spacing.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_spacing.scss</span></a>
                   </h2>
                   
-                  <p>   Utility classes to allow control of spacing around element.
-                 You can set margin or padding for an element without creating an extra class.
-                 An example of this <code>.us-margin-top</code>, <code>.us-margin-top--small</code>, <code>.us-margin-top--large</code> where
-                 <code>margin</code> can be replaced by <code>padding</code> and <code>top</code> can be replaced by <code>bottom</code>, <code>left</code> or <code>right</code>.
-                 Default space for margin and padding is 1em, <code>small</code> modifier uses .5em and <code>large</code> modifier uses 1.5em.</p>
+                  <p>   Allow control of spacing around element. You can set margin or padding for an element without creating an extra class.</p>
+              <p>   An example of this <code>.us-margin-top</code>, <code>.us-margin-top--small</code>, <code>.us-margin-top--large</code> where <code>margin</code> can be replaced by <code>padding</code> and <code>top</code> can be replaced by <code>bottom</code>, <code>left</code> or <code>right</code>.</p>
+              <p>   Default space for margin and padding is 1em, <code>small</code> modifier uses .5em and <code>large</code> modifier uses 1.5em.</p>
               
                     <ul class="styleguide__block-states">
                         <li class="name"><strong>.us-margin-top</strong> - Use default top margin (1em)</li>
@@ -409,11 +395,13 @@
                   </code></pre>
                 </div>
               
-              </div>      </div>  
+              </div>
+      </div>  
     </div>
   </div>
+  <p class="copyright">Copyright &copy; uSwitch limited.</p>
   <script src="https://cdn.polyfill.io/v1/polyfill.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="/js/app.js"></script>
 </body>
 </html>

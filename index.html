@@ -1,5 +1,11 @@
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]> <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]> <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]> <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]> ><! <![endif]-->
+<html class='no-js svg' lang='en'>
+  <!-- <![endif] -->
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <meta content='width=device-width, initial-scale=1.0' name='viewport'>
@@ -14,30 +20,22 @@
 <body>
   <header class="ustyle__header">
     <a class="logo" href="/">ustyle</a>
-    <span class="version us-tablet--block">v0.16.0</span>
+    <a class="version us-tablet--block" href="https://github.com/uswitch/ustyle/releases/tag/0.16.0">v0.16.0</a>
     <div class='nav nav--header'>
       <nav>
-          <a href="/brand/" class="nav__link">Brand</a>
-          <a href="/design/" class="nav__link">Design</a>
-          <a href="/code/" class="nav__link">Code</a>
+        <a href="/brand/" class="nav__link ">Brand</a>
+        <a href="/design/" class="nav__link ">Design</a>
+        <a href="/code/" class="nav__link ">Code</a>
       </nav>
     </nav>
   </header>
-  <div class='us-clearfix nav-container'>
-    <div class='nav nav--sub'>
-      <nav>
-            <a class="nav__link nav__main-link active" href="index.html">Index</a>
-      </nav>
-    </div>
+  <div class='sidebar'>
+    <nav class='sidebar__nav' data-gumshoe>
+          <a class="sidebar__nav-link active" href="index.html">Index</a>
+    </nav>
   </div>
-  <div class="us-hero trailered">
-    <div class="us-hero-container">
-      <div class="styleguide__header">
-        <h1 class="styleguide__title">Index</h1>
-      </div>  
-    </div>
-  </div>
-  <div id="wrapper" class="us-container">
+  <div id="wrapper" class="container">
+    <h1 class="styleguide__title">Index</h1>
     <div class="us-grid-row">
       <div class="us-content styleguide us-col-md-9">
         <p>This is the styleguide</p>
@@ -45,8 +43,9 @@
       </div>
     </div>
   </div>
+  <p class="copyright">Copyright &copy; uSwitch limited.</p>
   <script src="https://cdn.polyfill.io/v1/polyfill.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="/js/app.js"></script>
 </body>
 </html>
