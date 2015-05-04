@@ -75,13 +75,17 @@ $styleguide-block-border-color: $c-bordergrey;
     margin-bottom: $gutter-width/2;
   }
 
+  &__block-small-title {
+    padding: $gutter-width/2;
+    margin-bottom: 0;
+    font-size: 1.125em;
+    color: $c-typegrey-2;
+    text-transform: uppercase;
+  }
+
   &__block-examples {
     border: 1px solid $styleguide-block-border-color;
     border-radius: 3px;
-  }
-
-  &__block-example {
-    position: relative;
   }
 
   &__block-example-class {
