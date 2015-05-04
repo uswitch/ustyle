@@ -29,6 +29,7 @@
       </nav>
     </nav>
   </header>
+  <a href="javascript:void(0);" class="nav-mobile js-toggle__link us-desktop--hidden" data-target="sidebar"><span class="nav-mobile__hamburger">Sidebar</span></a>
   <div class='sidebar'>
     <nav class='sidebar__nav' data-gumshoe>
           <a class="sidebar__nav-link " href="index.html">Design</a>
@@ -47,162 +48,162 @@
   </div>
   <div id="wrapper" class="container sidebar--push">
     <h1 class="styleguide__title">Typography</h1>
-    <div class="us-grid-row">
-      <div class="styleguide us-col-md-10">
-              <div class="styleguide__block" id="headings">
-                <div class="styleguide__block-info">
-                  <h2 class="styleguide__block-title">
-                    Headings
-                    <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/basics/_typography.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_typography.scss</span></a>
-                  </h2>
-                  
-                  <p>   The default heading styling across all uSwitch pages.</p>
-              <p>   We allow extending the sizes of these headings with <code>%heading-{$i}</code> so that we don&#39;t repeat similar font sizes across the site</p>
-              
-                  
-                </div>
+    <div class="styleguide">
+            <div class="styleguide__block" id="headings">
+              <div class="styleguide__block-info">
+                <h2 class="styleguide__block-title">
+                  Headings
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/basics/_typography.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_typography.scss</span></a>
+                </h2>
                 
-                <h3 class="styleguide__block-small-title">Example</h3>
-                <div class="styleguide__block-examples">
-                  <div class="styleguide__block-example">
-                      <h1>Heading 1</h1>
-                <h2>Heading 2</h2>
-                <h3>Heading 3</h3>
-                <h4>Heading 4</h4>
-                <h5>Heading 5</h5>
-                <h6>Heading 6</h6>
-                  </div>
+                <p>   The default heading styling across all uSwitch pages.</p>
+            <p>   We allow extending the sizes of these headings with <code>%heading-{$i}</code> so that we don&#39;t repeat similar font sizes across the site</p>
+            
                 
-              
-                  <pre><code class="html">
-                &lt;h1&gt;Heading 1&lt;/h1&gt;
-                &lt;h2&gt;Heading 2&lt;/h2&gt;
-                &lt;h3&gt;Heading 3&lt;/h3&gt;
-                &lt;h4&gt;Heading 4&lt;/h4&gt;
-                &lt;h5&gt;Heading 5&lt;/h5&gt;
-                &lt;h6&gt;Heading 6&lt;/h6&gt;
-                  </code></pre>
-                </div>
-              
               </div>
-              <div class="styleguide__block" id="paragraphs">
-                <div class="styleguide__block-info">
-                  <h2 class="styleguide__block-title">
-                    Paragraphs
-                    <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/basics/_typography.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_typography.scss</span></a>
-                  </h2>
-                  
-                  <p>   Default paragraph styling with a margin bottom.</p>
               
-                    <ul class="styleguide__block-states">
-                        <li class="name"><strong>.us-standfirst</strong> - Used for heros and introductory paragraphs</li>
-                    </ul>
-                  
-                </div>
-                
+              <div class="styleguide__block-examples">
                 <h3 class="styleguide__block-small-title">Example</h3>
-                <div class="styleguide__block-examples">
-                  <div class="styleguide__block-example">
-                       <p class="{$modifiers}">
-                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel arcu non magna varius sagittis vel at elit.
-                   Vivamus et orci pretium, commodo eros vitae, tincidunt purus. Nunc consequat condimentum porttitor.
-                   Cras at mi sed quam hendrerit bibendum ac a lorem. Mauris a sapien vitae massa lacinia malesuada.
-                 </p>
-                  </div>
-                
-                    <div class="styleguide__block-example state-us-standfirst">
-                         <p class="us-standfirst">
-                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel arcu non magna varius sagittis vel at elit.
-                   Vivamus et orci pretium, commodo eros vitae, tincidunt purus. Nunc consequat condimentum porttitor.
-                   Cras at mi sed quam hendrerit bibendum ac a lorem. Mauris a sapien vitae massa lacinia malesuada.
-                 </p>
-                      <div class="styleguide__block-example-class">.us-standfirst</div>
-                    </div>
+                <div class="styleguide__block-example">
+                    <h1>Heading 1</h1>
+              <h2>Heading 2</h2>
+              <h3>Heading 3</h3>
+              <h4>Heading 4</h4>
+              <h5>Heading 5</h5>
+              <h6>Heading 6</h6>
+                </div>
               
-                  <pre><code class="html">
+            
+                <pre><code class="html">
+              &lt;h1&gt;Heading 1&lt;/h1&gt;
+              &lt;h2&gt;Heading 2&lt;/h2&gt;
+              &lt;h3&gt;Heading 3&lt;/h3&gt;
+              &lt;h4&gt;Heading 4&lt;/h4&gt;
+              &lt;h5&gt;Heading 5&lt;/h5&gt;
+              &lt;h6&gt;Heading 6&lt;/h6&gt;
+                </code></pre>
+              </div>
+            
+            </div>
+            <div class="styleguide__block" id="paragraphs">
+              <div class="styleguide__block-info">
+                <h2 class="styleguide__block-title">
+                  Paragraphs
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/basics/_typography.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_typography.scss</span></a>
+                </h2>
+                
+                <p>   Default paragraph styling with a margin bottom.</p>
+            
+                  <ul class="styleguide__block-states">
+                      <li class="name"><strong>.us-standfirst</strong> - Used for heros and introductory paragraphs</li>
+                  </ul>
+                
+              </div>
+              
+              <div class="styleguide__block-examples">
+                <h3 class="styleguide__block-small-title">Example</h3>
+                <div class="styleguide__block-example">
+                     <p class="{$modifiers}">
+                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel arcu non magna varius sagittis vel at elit.
+                 Vivamus et orci pretium, commodo eros vitae, tincidunt purus. Nunc consequat condimentum porttitor.
+                 Cras at mi sed quam hendrerit bibendum ac a lorem. Mauris a sapien vitae massa lacinia malesuada.
+               </p>
+                </div>
+              
+                  <div class="styleguide__block-example state-us-standfirst">
+                       <p class="us-standfirst">
+                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel arcu non magna varius sagittis vel at elit.
+                 Vivamus et orci pretium, commodo eros vitae, tincidunt purus. Nunc consequat condimentum porttitor.
+                 Cras at mi sed quam hendrerit bibendum ac a lorem. Mauris a sapien vitae massa lacinia malesuada.
+               </p>
+                    <div class="styleguide__block-example-class">.us-standfirst</div>
+                  </div>
+            
+                <pre><code class="html">
+               &lt;p&gt;
+                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel arcu non magna varius sagittis vel at elit.
+                 Vivamus et orci pretium, commodo eros vitae, tincidunt purus. Nunc consequat condimentum porttitor.
+                 Cras at mi sed quam hendrerit bibendum ac a lorem. Mauris a sapien vitae massa lacinia malesuada.
+               &lt;/p&gt;
+                </code></pre>
+              </div>
+            
+            </div>
+            <div class="styleguide__block" id="lists">
+              <div class="styleguide__block-info">
+                <h2 class="styleguide__block-title">
+                  Lists
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/basics/_typography.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_typography.scss</span></a>
+                </h2>
+                
+                <p>   Normal list styling</p>
+            
+                
+              </div>
+              
+              <div class="styleguide__block-examples">
+                <h3 class="styleguide__block-small-title">Example</h3>
+                <div class="styleguide__block-example">
+                     <ul>
+                 <li>List item 1</li>
+                 <li>List item 2</li>
+                 <li>List item 3</li>
+               </ul>
+                </div>
+              
+            
+                <pre><code class="html">
+               &lt;ul&gt;
+                 &lt;li&gt;List item 1&lt;/li&gt;
+                 &lt;li&gt;List item 2&lt;/li&gt;
+                 &lt;li&gt;List item 3&lt;/li&gt;
+               &lt;/ul&gt;
+                </code></pre>
+              </div>
+            
+            </div>
+            <div class="styleguide__block" id="blockquote">
+              <div class="styleguide__block-info">
+                <h2 class="styleguide__block-title">
+                  Blockquote
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/basics/_typography.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_typography.scss</span></a>
+                </h2>
+                
+                <p>   Default blockquote</p>
+            
+                
+              </div>
+              
+              <div class="styleguide__block-examples">
+                <h3 class="styleguide__block-small-title">Example</h3>
+                <div class="styleguide__block-example">
+                     <blockquote>
+                 <p>
+                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                   Aenean vel arcu non magna varius sagittis vel at elit.
+                   Vivamus et orci pretium, commodo eros vitae, tincidunt purus.
+                 </p>
+               </blockquote>
+                </div>
+              
+            
+                <pre><code class="html">
+               &lt;blockquote&gt;
                  &lt;p&gt;
-                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel arcu non magna varius sagittis vel at elit.
-                   Vivamus et orci pretium, commodo eros vitae, tincidunt purus. Nunc consequat condimentum porttitor.
-                   Cras at mi sed quam hendrerit bibendum ac a lorem. Mauris a sapien vitae massa lacinia malesuada.
+                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                   Aenean vel arcu non magna varius sagittis vel at elit.
+                   Vivamus et orci pretium, commodo eros vitae, tincidunt purus.
                  &lt;/p&gt;
-                  </code></pre>
-                </div>
-              
+               &lt;/blockquote&gt;
+                </code></pre>
               </div>
-              <div class="styleguide__block" id="lists">
-                <div class="styleguide__block-info">
-                  <h2 class="styleguide__block-title">
-                    Lists
-                    <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/basics/_typography.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_typography.scss</span></a>
-                  </h2>
-                  
-                  <p>   Normal list styling</p>
-              
-                  
-                </div>
-                
-                <h3 class="styleguide__block-small-title">Example</h3>
-                <div class="styleguide__block-examples">
-                  <div class="styleguide__block-example">
-                       <ul>
-                   <li>List item 1</li>
-                   <li>List item 2</li>
-                   <li>List item 3</li>
-                 </ul>
-                  </div>
-                
-              
-                  <pre><code class="html">
-                 &lt;ul&gt;
-                   &lt;li&gt;List item 1&lt;/li&gt;
-                   &lt;li&gt;List item 2&lt;/li&gt;
-                   &lt;li&gt;List item 3&lt;/li&gt;
-                 &lt;/ul&gt;
-                  </code></pre>
-                </div>
-              
-              </div>
-              <div class="styleguide__block" id="blockquote">
-                <div class="styleguide__block-info">
-                  <h2 class="styleguide__block-title">
-                    Blockquote
-                    <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/basics/_typography.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_typography.scss</span></a>
-                  </h2>
-                  
-                  <p>   Default blockquote</p>
-              
-                  
-                </div>
-                
-                <h3 class="styleguide__block-small-title">Example</h3>
-                <div class="styleguide__block-examples">
-                  <div class="styleguide__block-example">
-                       <blockquote>
-                   <p>
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                     Aenean vel arcu non magna varius sagittis vel at elit.
-                     Vivamus et orci pretium, commodo eros vitae, tincidunt purus.
-                   </p>
-                 </blockquote>
-                  </div>
-                
-              
-                  <pre><code class="html">
-                 &lt;blockquote&gt;
-                   &lt;p&gt;
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                     Aenean vel arcu non magna varius sagittis vel at elit.
-                     Vivamus et orci pretium, commodo eros vitae, tincidunt purus.
-                   &lt;/p&gt;
-                 &lt;/blockquote&gt;
-                  </code></pre>
-                </div>
-              
-              </div>
-      </div>  
+            
+            </div>
     </div>
   </div>
-  <p class="copyright">Copyright &copy; uSwitch limited.</p>
+  <div class="container">
+    <p class="copyright">Copyright &copy; uSwitch limited.</p>  
+  </div>
   <script src="https://cdn.polyfill.io/v1/polyfill.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="/js/app.js"></script>

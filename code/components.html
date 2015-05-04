@@ -29,6 +29,7 @@
       </nav>
     </nav>
   </header>
+  <a href="javascript:void(0);" class="nav-mobile js-toggle__link us-desktop--hidden" data-target="sidebar"><span class="nav-mobile__hamburger">Sidebar</span></a>
   <div class='sidebar'>
     <nav class='sidebar__nav' data-gumshoe>
           <a class="sidebar__nav-link " href="index.html">Introduction</a>
@@ -48,6 +49,7 @@
                   <a class="sidebar__nav-link sidebar__nav-link--sub" href="#link_lists">Link lists</a>
                   <a class="sidebar__nav-link sidebar__nav-link--sub" href="#loader">Loader</a>
                   <a class="sidebar__nav-link sidebar__nav-link--sub" href="#news_article">News article</a>
+                  <a class="sidebar__nav-link sidebar__nav-link--sub" href="#progress_navigation">Progress navigation</a>
                   <a class="sidebar__nav-link sidebar__nav-link--sub" href="#usps">USPs</a>
               </nav>
           <a class="sidebar__nav-link " href="js-components.html">JS components</a>
@@ -58,843 +60,929 @@
   </div>
   <div id="wrapper" class="container sidebar--push">
     <h1 class="styleguide__title">Components</h1>
-    <div class="us-grid-row">
-      <div class="styleguide us-col-md-10">
-              <div class="styleguide__block" id="breadcrumbs">
-                <div class="styleguide__block-info">
-                  <h2 class="styleguide__block-title">
-                    Breadcrumbs
-                    <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_breadcrumbs.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_breadcrumbs.scss</span></a>
-                  </h2>
-                  
-                  <p>  Breadcrumbs are used to provide signposting of a users location and to enable quick navigation around the site. They are only to be used as a secondary means of navigation however. Pages should also be navigable through other means.</p>
-              
-                  
-                </div>
+    <div class="styleguide">
+            <div class="styleguide__block" id="breadcrumbs">
+              <div class="styleguide__block-info">
+                <h2 class="styleguide__block-title">
+                  Breadcrumbs
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_breadcrumbs.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_breadcrumbs.scss</span></a>
+                </h2>
                 
-                <h3 class="styleguide__block-small-title">Example</h3>
-                <div class="styleguide__block-examples">
-                  <div class="styleguide__block-example">
-                       <ul class="us-crumbs">
-                   <li class="us-crumbs__item"><a href="/" class="us-crumbs__link">uSwitch.com</a></li>
-                   <li class="us-crumbs__item"><a class="us-crumbs__link" href="http://www.uswitch.com/credit-reports/">Credit report</a></li>
-                   <li class="us-crumbs__item"><a class="us-crumbs__link" href="http://www.uswitch.com/credit-reports/guides/">Credit reports guides</a></li>
-                   <li class="us-crumbs__item">Statutory credit reports</li>
-                 </ul>
-                  </div>
+                <p>  Breadcrumbs are used to provide signposting of a users location and to enable quick navigation around the site. They are only to be used as a secondary means of navigation however. Pages should also be navigable through other means.</p>
+            
                 
-              
-                  <pre><code class="html">
-                 &lt;ul class="us-crumbs"&gt;
-                   &lt;li class="us-crumbs__item"&gt;&lt;a href="/" class="us-crumbs__link"&gt;uSwitch.com&lt;/a&gt;&lt;/li&gt;
-                   &lt;li class="us-crumbs__item"&gt;&lt;a class="us-crumbs__link" href="http://www.uswitch.com/credit-reports/"&gt;Credit report&lt;/a&gt;&lt;/li&gt;
-                   &lt;li class="us-crumbs__item"&gt;&lt;a class="us-crumbs__link" href="http://www.uswitch.com/credit-reports/guides/"&gt;Credit reports guides&lt;/a&gt;&lt;/li&gt;
-                   &lt;li class="us-crumbs__item"&gt;Statutory credit reports&lt;/li&gt;
-                 &lt;/ul&gt;
-                  </code></pre>
-                </div>
-              
               </div>
-              <div class="styleguide__block" id="buttons">
-                <div class="styleguide__block-info">
-                  <h2 class="styleguide__block-title">
-                    Buttons
-                    <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_button.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_button.scss</span></a>
-                  </h2>
-                  
-                  <p>   Our buttons used across the site. The states give different use cases. </p>
-              <p>   Both <code>&lt;a&gt;</code> and <code>&lt;button&gt;</code> tags are supported. </p>
               
-                    <ul class="styleguide__block-states">
-                        <li class="name"><strong>.us-btn--primary</strong> - Used a save/update button</li>
-                        <li class="name"><strong>.us-btn--action</strong> - Navigational button</li>
-                        <li class="name"><strong>.us-btn--secondary</strong> - Secondary</li>
-                        <li class="name"><strong>.us-btn--hero</strong> - Navy outline used for buttons on hero banners</li>
-                        <li class="name"><strong>.us-btn--reversed</strong> - White outline for dark backgrounds</li>
-                        <li class="name"><strong>.us-btn--arrowed , .us-btn--arrowed-right</strong> - Arrowed button used for CTAs (right pointing)</li>
-                        <li class="name"><strong>.us-btn--arrowed-left</strong> - Left pointing variation of arrowed buttons</li>
-                        <li class="name"><strong>.us-btn--large</strong> - Larger button for heros</li>
-                        <li class="name"><strong>.us-btn--small</strong> - Smaller button for mobile tables</li>
-                        <li class="name"><strong>.us-btn--blocked</strong> - Full width button</li>
-                        <li class="name"><strong>.us-btn--link</strong> - link style button</li>
-                        <li class="name"><strong>.us-btn--stronger</strong> - Emphasis button</li>
-                        <li class="name"><strong>.us-btn--disabled</strong> - Disabled styling (can also be styled with :disabled)</li>
-                    </ul>
-                  
-                </div>
-                
+              <div class="styleguide__block-examples">
                 <h3 class="styleguide__block-small-title">Example</h3>
-                <div class="styleguide__block-examples">
-                  <div class="styleguide__block-example">
-                      <a href="#" class="us-btn {$modifiers}">Link Button</a>
-                <button class="us-btn {$modifiers}">Button Element</button>
-                  </div>
-                
-                    <div class="styleguide__block-example state-us-btn--primary">
-                        <a href="#" class="us-btn us-btn--primary">Link Button</a>
-                <button class="us-btn us-btn--primary">Button Element</button>
-                      <div class="styleguide__block-example-class">.us-btn--primary</div>
-                    </div>
-                    <div class="styleguide__block-example state-us-btn--action">
-                        <a href="#" class="us-btn us-btn--action">Link Button</a>
-                <button class="us-btn us-btn--action">Button Element</button>
-                      <div class="styleguide__block-example-class">.us-btn--action</div>
-                    </div>
-                    <div class="styleguide__block-example state-us-btn--secondary">
-                        <a href="#" class="us-btn us-btn--secondary">Link Button</a>
-                <button class="us-btn us-btn--secondary">Button Element</button>
-                      <div class="styleguide__block-example-class">.us-btn--secondary</div>
-                    </div>
-                    <div class="styleguide__block-example state-us-btn--hero">
-                        <a href="#" class="us-btn us-btn--hero">Link Button</a>
-                <button class="us-btn us-btn--hero">Button Element</button>
-                      <div class="styleguide__block-example-class">.us-btn--hero</div>
-                    </div>
-                    <div class="styleguide__block-example state-us-btn--reversed">
-                        <a href="#" class="us-btn us-btn--reversed">Link Button</a>
-                <button class="us-btn us-btn--reversed">Button Element</button>
-                      <div class="styleguide__block-example-class">.us-btn--reversed</div>
-                    </div>
-                    <div class="styleguide__block-example state-us-btn--arrowed , ">
-                        <a href="#" class="us-btn us-btn--arrowed , .us-btn--arrowed-right">Link Button</a>
-                <button class="us-btn us-btn--arrowed , .us-btn--arrowed-right">Button Element</button>
-                      <div class="styleguide__block-example-class">.us-btn--arrowed , .us-btn--arrowed-right</div>
-                    </div>
-                    <div class="styleguide__block-example state-us-btn--arrowed-left">
-                        <a href="#" class="us-btn us-btn--arrowed-left">Link Button</a>
-                <button class="us-btn us-btn--arrowed-left">Button Element</button>
-                      <div class="styleguide__block-example-class">.us-btn--arrowed-left</div>
-                    </div>
-                    <div class="styleguide__block-example state-us-btn--large">
-                        <a href="#" class="us-btn us-btn--large">Link Button</a>
-                <button class="us-btn us-btn--large">Button Element</button>
-                      <div class="styleguide__block-example-class">.us-btn--large</div>
-                    </div>
-                    <div class="styleguide__block-example state-us-btn--small">
-                        <a href="#" class="us-btn us-btn--small">Link Button</a>
-                <button class="us-btn us-btn--small">Button Element</button>
-                      <div class="styleguide__block-example-class">.us-btn--small</div>
-                    </div>
-                    <div class="styleguide__block-example state-us-btn--blocked">
-                        <a href="#" class="us-btn us-btn--blocked">Link Button</a>
-                <button class="us-btn us-btn--blocked">Button Element</button>
-                      <div class="styleguide__block-example-class">.us-btn--blocked</div>
-                    </div>
-                    <div class="styleguide__block-example state-us-btn--link">
-                        <a href="#" class="us-btn us-btn--link">Link Button</a>
-                <button class="us-btn us-btn--link">Button Element</button>
-                      <div class="styleguide__block-example-class">.us-btn--link</div>
-                    </div>
-                    <div class="styleguide__block-example state-us-btn--stronger">
-                        <a href="#" class="us-btn us-btn--stronger">Link Button</a>
-                <button class="us-btn us-btn--stronger">Button Element</button>
-                      <div class="styleguide__block-example-class">.us-btn--stronger</div>
-                    </div>
-                    <div class="styleguide__block-example state-us-btn--disabled">
-                        <a href="#" class="us-btn us-btn--disabled">Link Button</a>
-                <button class="us-btn us-btn--disabled">Button Element</button>
-                      <div class="styleguide__block-example-class">.us-btn--disabled</div>
-                    </div>
-              
-                  <pre><code class="html">
-                &lt;a href="#" class="us-btn"&gt;Link Button&lt;/a&gt;
-                &lt;button class="us-btn"&gt;Button Element&lt;/button&gt;
-                  </code></pre>
+                <div class="styleguide__block-example">
+                     <ul class="us-crumbs">
+                 <li class="us-crumbs__item"><a href="/" class="us-crumbs__link">uSwitch.com</a></li>
+                 <li class="us-crumbs__item"><a class="us-crumbs__link" href="http://www.uswitch.com/credit-reports/">Credit report</a></li>
+                 <li class="us-crumbs__item"><a class="us-crumbs__link" href="http://www.uswitch.com/credit-reports/guides/">Credit reports guides</a></li>
+                 <li class="us-crumbs__item">Statutory credit reports</li>
+               </ul>
                 </div>
               
+            
+                <pre><code class="html">
+               &lt;ul class="us-crumbs"&gt;
+                 &lt;li class="us-crumbs__item"&gt;&lt;a href="/" class="us-crumbs__link"&gt;uSwitch.com&lt;/a&gt;&lt;/li&gt;
+                 &lt;li class="us-crumbs__item"&gt;&lt;a class="us-crumbs__link" href="http://www.uswitch.com/credit-reports/"&gt;Credit report&lt;/a&gt;&lt;/li&gt;
+                 &lt;li class="us-crumbs__item"&gt;&lt;a class="us-crumbs__link" href="http://www.uswitch.com/credit-reports/guides/"&gt;Credit reports guides&lt;/a&gt;&lt;/li&gt;
+                 &lt;li class="us-crumbs__item"&gt;Statutory credit reports&lt;/li&gt;
+               &lt;/ul&gt;
+                </code></pre>
               </div>
-              <div class="styleguide__block" id="content_group">
-                <div class="styleguide__block-info">
-                  <h2 class="styleguide__block-title">
-                    Content group
-                    <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_content-group.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_content-group.scss</span></a>
-                  </h2>
-                  
-                  <p>   The <code>.us-content-group</code> is a separator element for content groupings. Ideal to split up landing pages with reasonable padding.</p>
-              
-                    <ul class="styleguide__block-states">
-                        <li class="name"><strong>.mobile-bordered</strong> - Adds a smaller border and padding to mobile devices.</li>
-                    </ul>
-                  
-                </div>
+            
+            </div>
+            <div class="styleguide__block" id="buttons">
+              <div class="styleguide__block-info">
+                <h2 class="styleguide__block-title">
+                  Buttons
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_button.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_button.scss</span></a>
+                </h2>
                 
+                <p>   Our buttons used across the site. The states give different use cases. </p>
+            <p>   Both <code>&lt;a&gt;</code> and <code>&lt;button&gt;</code> tags are supported. </p>
+            
+                  <ul class="styleguide__block-states">
+                      <li class="name"><strong>.us-btn--primary</strong> - Used a save/update button</li>
+                      <li class="name"><strong>.us-btn--action</strong> - Navigational button</li>
+                      <li class="name"><strong>.us-btn--secondary</strong> - Secondary</li>
+                      <li class="name"><strong>.us-btn--hero</strong> - Navy outline used for buttons on hero banners</li>
+                      <li class="name"><strong>.us-btn--reversed</strong> - White outline for dark backgrounds</li>
+                      <li class="name"><strong>.us-btn--arrowed , .us-btn--arrowed-right</strong> - Arrowed button used for CTAs (right pointing)</li>
+                      <li class="name"><strong>.us-btn--arrowed-left</strong> - Left pointing variation of arrowed buttons</li>
+                      <li class="name"><strong>.us-btn--large</strong> - Larger button for heros</li>
+                      <li class="name"><strong>.us-btn--small</strong> - Smaller button for mobile tables</li>
+                      <li class="name"><strong>.us-btn--blocked</strong> - Full width button</li>
+                      <li class="name"><strong>.us-btn--link</strong> - link style button</li>
+                      <li class="name"><strong>.us-btn--stronger</strong> - Emphasis button</li>
+                      <li class="name"><strong>.us-btn--disabled</strong> - Disabled styling (can also be styled with :disabled)</li>
+                  </ul>
+                
+              </div>
+              
+              <div class="styleguide__block-examples">
                 <h3 class="styleguide__block-small-title">Example</h3>
-                <div class="styleguide__block-examples">
-                  <div class="styleguide__block-example">
-                      <div class='us-content-group {$modifiers}'>
-                  <p>
-                    Swat at dog intrigued by the shower missing until dinner time and run in circles use lap as chair.
-                  </p>
-                  <p>
-                    Swat at dog stretch and stand in front of the computer screen.
-                  </p>
+                <div class="styleguide__block-example">
+                    <a href="#" class="us-btn {$modifiers}">Link Button</a>
+              <button class="us-btn {$modifiers}">Button Element</button>
                 </div>
+              
+                  <div class="styleguide__block-example state-us-btn--primary">
+                      <a href="#" class="us-btn us-btn--primary">Link Button</a>
+              <button class="us-btn us-btn--primary">Button Element</button>
+                    <div class="styleguide__block-example-class">.us-btn--primary</div>
                   </div>
-                
-                    <div class="styleguide__block-example state-mobile-bordered">
-                        <div class='us-content-group mobile-bordered'>
-                  <p>
-                    Swat at dog intrigued by the shower missing until dinner time and run in circles use lap as chair.
-                  </p>
-                  <p>
-                    Swat at dog stretch and stand in front of the computer screen.
-                  </p>
-                </div>
-                      <div class="styleguide__block-example-class">.mobile-bordered</div>
-                    </div>
-              
-                  <pre><code class="html">
-                &lt;div class='us-content-group'&gt;
-                  &lt;p&gt;
-                    Swat at dog intrigued by the shower missing until dinner time and run in circles use lap as chair.
-                  &lt;/p&gt;
-                  &lt;p&gt;
-                    Swat at dog stretch and stand in front of the computer screen.
-                  &lt;/p&gt;
-                &lt;/div&gt;
-                  </code></pre>
-                </div>
-              
+                  <div class="styleguide__block-example state-us-btn--action">
+                      <a href="#" class="us-btn us-btn--action">Link Button</a>
+              <button class="us-btn us-btn--action">Button Element</button>
+                    <div class="styleguide__block-example-class">.us-btn--action</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-btn--secondary">
+                      <a href="#" class="us-btn us-btn--secondary">Link Button</a>
+              <button class="us-btn us-btn--secondary">Button Element</button>
+                    <div class="styleguide__block-example-class">.us-btn--secondary</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-btn--hero">
+                      <a href="#" class="us-btn us-btn--hero">Link Button</a>
+              <button class="us-btn us-btn--hero">Button Element</button>
+                    <div class="styleguide__block-example-class">.us-btn--hero</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-btn--reversed">
+                      <a href="#" class="us-btn us-btn--reversed">Link Button</a>
+              <button class="us-btn us-btn--reversed">Button Element</button>
+                    <div class="styleguide__block-example-class">.us-btn--reversed</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-btn--arrowed , ">
+                      <a href="#" class="us-btn us-btn--arrowed , .us-btn--arrowed-right">Link Button</a>
+              <button class="us-btn us-btn--arrowed , .us-btn--arrowed-right">Button Element</button>
+                    <div class="styleguide__block-example-class">.us-btn--arrowed , .us-btn--arrowed-right</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-btn--arrowed-left">
+                      <a href="#" class="us-btn us-btn--arrowed-left">Link Button</a>
+              <button class="us-btn us-btn--arrowed-left">Button Element</button>
+                    <div class="styleguide__block-example-class">.us-btn--arrowed-left</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-btn--large">
+                      <a href="#" class="us-btn us-btn--large">Link Button</a>
+              <button class="us-btn us-btn--large">Button Element</button>
+                    <div class="styleguide__block-example-class">.us-btn--large</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-btn--small">
+                      <a href="#" class="us-btn us-btn--small">Link Button</a>
+              <button class="us-btn us-btn--small">Button Element</button>
+                    <div class="styleguide__block-example-class">.us-btn--small</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-btn--blocked">
+                      <a href="#" class="us-btn us-btn--blocked">Link Button</a>
+              <button class="us-btn us-btn--blocked">Button Element</button>
+                    <div class="styleguide__block-example-class">.us-btn--blocked</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-btn--link">
+                      <a href="#" class="us-btn us-btn--link">Link Button</a>
+              <button class="us-btn us-btn--link">Button Element</button>
+                    <div class="styleguide__block-example-class">.us-btn--link</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-btn--stronger">
+                      <a href="#" class="us-btn us-btn--stronger">Link Button</a>
+              <button class="us-btn us-btn--stronger">Button Element</button>
+                    <div class="styleguide__block-example-class">.us-btn--stronger</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-btn--disabled">
+                      <a href="#" class="us-btn us-btn--disabled">Link Button</a>
+              <button class="us-btn us-btn--disabled">Button Element</button>
+                    <div class="styleguide__block-example-class">.us-btn--disabled</div>
+                  </div>
+            
+                <pre><code class="html">
+              &lt;a href="#" class="us-btn"&gt;Link Button&lt;/a&gt;
+              &lt;button class="us-btn"&gt;Button Element&lt;/button&gt;
+                </code></pre>
               </div>
-              <div class="styleguide__block" id="ctas">
-                <div class="styleguide__block-info">
-                  <h2 class="styleguide__block-title">
-                    CTAs
-                    <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_cta.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_cta.scss</span></a>
-                  </h2>
-                  
-                  <p>  Used within guide and news articles, these CTAs are intended to not interupt the content but to integrate in more subtle means. </p>
-              
-                  
-                </div>
+            
+            </div>
+            <div class="styleguide__block" id="content_group">
+              <div class="styleguide__block-info">
+                <h2 class="styleguide__block-title">
+                  Content group
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_content-group.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_content-group.scss</span></a>
+                </h2>
                 
+                <p>   The <code>.us-content-group</code> is a separator element for content groupings. Ideal to split up landing pages with reasonable padding.</p>
+            
+                  <ul class="styleguide__block-states">
+                      <li class="name"><strong>.mobile-bordered</strong> - Adds a smaller border and padding to mobile devices.</li>
+                  </ul>
+                
+              </div>
+              
+              <div class="styleguide__block-examples">
                 <h3 class="styleguide__block-small-title">Example</h3>
-                <div class="styleguide__block-examples">
-                  <div class="styleguide__block-example">
-                       <section class="us-cta cta cta-column">
-                    <form>
-                      <h3 class="us-cta__title">It’s your report</h3>
-                      <p>Join the campaign to fight for free annual credit reports for everyone</p>
-                       <a href="/money/itsmyreport/" class="us-btn us-btn--arrowed us-btn--primary arrowed js-track-event" data-track-category="money-insurance-guides-cta" data-track-action="click - large quote box" data-track-label="/money/itsmyreport/" rel="nofollow">Sign the petition</a>
-                    </form>
-                </section>
-                  </div>
-                
-              
-                  <pre><code class="html">
-                 &lt;section class="us-cta cta cta-column"&gt;
-                    &lt;form&gt;
-                      &lt;h3 class="us-cta__title"&gt;It’s your report&lt;/h3&gt;
-                      &lt;p&gt;Join the campaign to fight for free annual credit reports for everyone&lt;/p&gt;
-                       &lt;a href="/money/itsmyreport/" class="us-btn us-btn--arrowed us-btn--primary arrowed js-track-event" data-track-category="money-insurance-guides-cta" data-track-action="click - large quote box" data-track-label="/money/itsmyreport/" rel="nofollow"&gt;Sign the petition&lt;/a&gt;
-                    &lt;/form&gt;
-                &lt;/section&gt;
-                  </code></pre>
+                <div class="styleguide__block-example">
+                    <div class='us-content-group {$modifiers}'>
+                <p>
+                  Swat at dog intrigued by the shower missing until dinner time and run in circles use lap as chair.
+                </p>
+                <p>
+                  Swat at dog stretch and stand in front of the computer screen.
+                </p>
+              </div>
                 </div>
               
+                  <div class="styleguide__block-example state-mobile-bordered">
+                      <div class='us-content-group mobile-bordered'>
+                <p>
+                  Swat at dog intrigued by the shower missing until dinner time and run in circles use lap as chair.
+                </p>
+                <p>
+                  Swat at dog stretch and stand in front of the computer screen.
+                </p>
               </div>
-              <div class="styleguide__block" id="featured_deal">
-                <div class="styleguide__block-info">
-                  <h2 class="styleguide__block-title">
-                    Featured deal
-                    <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_featured.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_featured.scss</span></a>
-                  </h2>
-                  
-                  <p>   The <code>.us-featured</code> is mostly composed by smaller components, the components can be shuffled around inside of a grid to create the needed variants.</p>
-              <p>   This featured deal won&#39;t make any assumptions around the media queries, it&#39;s up to you, to deal with it. As you can see on the examples.</p>
-              
-                  
-                </div>
-                
-                <h3 class="styleguide__block-small-title">Example</h3>
-                <div class="styleguide__block-examples">
-                  <div class="styleguide__block-example">
-                    <div class="us-container">
-               <div class="us-featured__header us-grid-row us-padding-top us-padding-bottom">
-                 <div class="us-featured__header-title us-col-xsm-9 us-content-left">
-                   Title goes here
-                 </div>
-                 <div class="us-featured__header-subtitle us-col-xsm-3 us-content-right">
-                   Promotion
-                 </div>
-               </div>
-               <div class="us-featured__content us-grid-row us-padding-top us-padding-bottom">
-                 <div class="us-col-xsm-12">
-                   <div class='us-usp us-usp--blue'>
-                     Awesome deal usp
-                   </div>
-                 </div>
-                 <div class="us-desktop--hidden us-padding-top us-col-xsm-4 us-mobile-block">
-                   <img class="us-img--full" src="http://uswitch-wp-cms-assets.s3-website-eu-west-1.amazonaws.com//www.uswitch.com/money/guides/wp-content/uploads/2014/11/DB2011AU01018_SMALL.jpg" width="200">
-                 </div>
-                 <div class="us-col-xsm-7 us-col-lg-8 us-col-sm-5">
-                   <ul>
-                     <li>List item 1</li>
-                     <li>List item 2</li>
-                     <li>List item 3</li>
-                   </ul>
-                   <div class="us-col-xsm-6 us-desktop--block">
-                     <div class="us-featured-highlight">
-                       <strong class="us-featured-highlight__title">
-                         £99.99
-                       </strong>
-                       monthly cost
-                     </div>
-                   </div>
-                   <div class="us-col-xsm-6 us-desktop--block">
-                     <div class="us-featured-highlight">
-                       <strong class="us-featured-highlight__title">
-                         £99.99
-                       </strong>
-                       monthly cost
-                       <br>
-                       <a class="us-featured-highlight__link us-link" href="#">Link</a>
-                     </div>
-                   </div>
-                 </div>
-                 <div class="us-col-xsm-3 us-col-lg-4 us-tablet--block">
-                   <img class="us-img--full us-desktop--block" src="http://uswitch-wp-cms-assets.s3-website-eu-west-1.amazonaws.com//www.uswitch.com/money/guides/wp-content/uploads/2014/11/DB2011AU01018_SMALL.jpg" width="200">
-                   <button class="margin-top margin-bottom us-btn us-btn--primary us-btn us-btn--blocked">See deal</button>
-                   <div class="us-icon--before us-icon--small--before us-icon--typegrey--before us-icon--clock--before us-content-center">
-                     <strong>3 days left</strong>
-                   </div>
-                 </div>
-                 <div class="us-featured__mobile-icon  us-tablet--hidden us-col-xsm-3 us-icon us-icon--medium us-icon--typegrey us-icon--breadcrumb"></div>
-               </div>
-               <div class="us-featured__footer us-grid-row us-padding-top us-padding-bottom us-desktop--block">
-                 <div class="us-col-xsm-12">
-                   Legal stuff goes here
-                 </div>
-               </div>
-              </div>
+                    <div class="styleguide__block-example-class">.mobile-bordered</div>
                   </div>
-                
-              
-                  <pre><code class="html">
-              &lt;div class="us-container"&gt;
-               &lt;div class="us-featured__header us-grid-row us-padding-top us-padding-bottom"&gt;
-                 &lt;div class="us-featured__header-title us-col-xsm-9 us-content-left"&gt;
-                   Title goes here
-                 &lt;/div&gt;
-                 &lt;div class="us-featured__header-subtitle us-col-xsm-3 us-content-right"&gt;
-                   Promotion
-                 &lt;/div&gt;
-               &lt;/div&gt;
-               &lt;div class="us-featured__content us-grid-row us-padding-top us-padding-bottom"&gt;
-                 &lt;div class="us-col-xsm-12"&gt;
-                   &lt;div class='us-usp us-usp--blue'&gt;
-                     Awesome deal usp
-                   &lt;/div&gt;
-                 &lt;/div&gt;
-                 &lt;div class="us-desktop--hidden us-padding-top us-col-xsm-4 us-mobile-block"&gt;
-                   &lt;img class="us-img--full" src="http://uswitch-wp-cms-assets.s3-website-eu-west-1.amazonaws.com//www.uswitch.com/money/guides/wp-content/uploads/2014/11/DB2011AU01018_SMALL.jpg" width="200"&gt;
-                 &lt;/div&gt;
-                 &lt;div class="us-col-xsm-7 us-col-lg-8 us-col-sm-5"&gt;
-                   &lt;ul&gt;
-                     &lt;li&gt;List item 1&lt;/li&gt;
-                     &lt;li&gt;List item 2&lt;/li&gt;
-                     &lt;li&gt;List item 3&lt;/li&gt;
-                   &lt;/ul&gt;
-                   &lt;div class="us-col-xsm-6 us-desktop--block"&gt;
-                     &lt;div class="us-featured-highlight"&gt;
-                       &lt;strong class="us-featured-highlight__title"&gt;
-                         £99.99
-                       &lt;/strong&gt;
-                       monthly cost
-                     &lt;/div&gt;
-                   &lt;/div&gt;
-                   &lt;div class="us-col-xsm-6 us-desktop--block"&gt;
-                     &lt;div class="us-featured-highlight"&gt;
-                       &lt;strong class="us-featured-highlight__title"&gt;
-                         £99.99
-                       &lt;/strong&gt;
-                       monthly cost
-                       &lt;br&gt;
-                       &lt;a class="us-featured-highlight__link us-link" href="#"&gt;Link&lt;/a&gt;
-                     &lt;/div&gt;
-                   &lt;/div&gt;
-                 &lt;/div&gt;
-                 &lt;div class="us-col-xsm-3 us-col-lg-4 us-tablet--block"&gt;
-                   &lt;img class="us-img--full us-desktop--block" src="http://uswitch-wp-cms-assets.s3-website-eu-west-1.amazonaws.com//www.uswitch.com/money/guides/wp-content/uploads/2014/11/DB2011AU01018_SMALL.jpg" width="200"&gt;
-                   &lt;button class="margin-top margin-bottom us-btn us-btn--primary us-btn us-btn--blocked"&gt;See deal&lt;/button&gt;
-                   &lt;div class="us-icon--before us-icon--small--before us-icon--typegrey--before us-icon--clock--before us-content-center"&gt;
-                     &lt;strong&gt;3 days left&lt;/strong&gt;
-                   &lt;/div&gt;
-                 &lt;/div&gt;
-                 &lt;div class="us-featured__mobile-icon  us-tablet--hidden us-col-xsm-3 us-icon us-icon--medium us-icon--typegrey us-icon--breadcrumb"&gt;&lt;/div&gt;
-               &lt;/div&gt;
-               &lt;div class="us-featured__footer us-grid-row us-padding-top us-padding-bottom us-desktop--block"&gt;
-                 &lt;div class="us-col-xsm-12"&gt;
-                   Legal stuff goes here
-                 &lt;/div&gt;
-               &lt;/div&gt;
+            
+                <pre><code class="html">
+              &lt;div class='us-content-group'&gt;
+                &lt;p&gt;
+                  Swat at dog intrigued by the shower missing until dinner time and run in circles use lap as chair.
+                &lt;/p&gt;
+                &lt;p&gt;
+                  Swat at dog stretch and stand in front of the computer screen.
+                &lt;/p&gt;
               &lt;/div&gt;
-                  </code></pre>
-                </div>
-              
+                </code></pre>
               </div>
-              <div class="styleguide__block" id="guide_article">
-                <div class="styleguide__block-info">
-                  <h2 class="styleguide__block-title">
-                    Guide article
-                    <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_guide-article.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_guide-article.scss</span></a>
-                  </h2>
-                  
-                  <p>   Our guide and news articles are used across the site to communicate news/guide snippets.</p>
-              <p>   The layout is decided by our grid, by default they have 100% width.</p>
-              
-                  
-                </div>
+            
+            </div>
+            <div class="styleguide__block" id="ctas">
+              <div class="styleguide__block-info">
+                <h2 class="styleguide__block-title">
+                  CTAs
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_cta.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_cta.scss</span></a>
+                </h2>
                 
+                <p>  Used within guide and news articles, these CTAs are intended to not interupt the content but to integrate in more subtle means. </p>
+            
+                
+              </div>
+              
+              <div class="styleguide__block-examples">
                 <h3 class="styleguide__block-small-title">Example</h3>
-                <div class="styleguide__block-examples">
-                  <div class="styleguide__block-example">
-                       <div class='us-article-group'>
-                   <div class='us-guide-item us-col-md-4'>
-                     <a class='us-guide-item-link' href='#'>
-                       <div class='us-guide-item-image-container'>
-                         <div class='us-guide-item-image background' style='background-image: url(http://www.uswitch.com/insurance/assets/guide-home-16141c84afd29e2063ee76803037716c.jpg)'></div>
-                       </div>
-                       <div class='us-guide-item-content'>
-                         <h4 class='us-guide-item-title'>Car insurance guides</h4>
-                         <p class='us-guide-item-description'>Read our car insurance advice guides for the facts on why you need car insurance, the types of cover available, and tips on how to make a claim.</p>
-                       </div>
-                       <div class='us-guide-item-readmore'>
-                         <span class='us-news-item-readmorelink'>Read more</span>
-                       </div>
-                     </a>
+                <div class="styleguide__block-example">
+                     <section class="us-cta cta cta-column">
+                  <form>
+                    <h3 class="us-cta__title">It’s your report</h3>
+                    <p>Join the campaign to fight for free annual credit reports for everyone</p>
+                     <a href="/money/itsmyreport/" class="us-btn us-btn--arrowed us-btn--primary arrowed js-track-event" data-track-category="money-insurance-guides-cta" data-track-action="click - large quote box" data-track-label="/money/itsmyreport/" rel="nofollow">Sign the petition</a>
+                  </form>
+              </section>
+                </div>
+              
+            
+                <pre><code class="html">
+               &lt;section class="us-cta cta cta-column"&gt;
+                  &lt;form&gt;
+                    &lt;h3 class="us-cta__title"&gt;It’s your report&lt;/h3&gt;
+                    &lt;p&gt;Join the campaign to fight for free annual credit reports for everyone&lt;/p&gt;
+                     &lt;a href="/money/itsmyreport/" class="us-btn us-btn--arrowed us-btn--primary arrowed js-track-event" data-track-category="money-insurance-guides-cta" data-track-action="click - large quote box" data-track-label="/money/itsmyreport/" rel="nofollow"&gt;Sign the petition&lt;/a&gt;
+                  &lt;/form&gt;
+              &lt;/section&gt;
+                </code></pre>
+              </div>
+            
+            </div>
+            <div class="styleguide__block" id="featured_deal">
+              <div class="styleguide__block-info">
+                <h2 class="styleguide__block-title">
+                  Featured deal
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_featured.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_featured.scss</span></a>
+                </h2>
+                
+                <p>   The <code>.us-featured</code> is mostly composed by smaller components, the components can be shuffled around inside of a grid to create the needed variants.</p>
+            <p>   This featured deal won&#39;t make any assumptions around the media queries, it&#39;s up to you, to deal with it. As you can see on the examples.</p>
+            
+                
+              </div>
+              
+              <div class="styleguide__block-examples">
+                <h3 class="styleguide__block-small-title">Example</h3>
+                <div class="styleguide__block-example">
+                  <div class="us-container">
+             <div class="us-featured__header us-grid-row us-padding-top us-padding-bottom">
+               <div class="us-featured__header-title us-col-xsm-9 us-content-left">
+                 Title goes here
+               </div>
+               <div class="us-featured__header-subtitle us-col-xsm-3 us-content-right">
+                 Promotion
+               </div>
+             </div>
+             <div class="us-featured__content us-grid-row us-padding-top us-padding-bottom">
+               <div class="us-col-xsm-12">
+                 <div class='us-usp us-usp--blue'>
+                   Awesome deal usp
+                 </div>
+               </div>
+               <div class="us-desktop--hidden us-padding-top us-col-xsm-4 us-mobile-block">
+                 <img class="us-img--full" src="http://uswitch-wp-cms-assets.s3-website-eu-west-1.amazonaws.com//www.uswitch.com/money/guides/wp-content/uploads/2014/11/DB2011AU01018_SMALL.jpg" width="200">
+               </div>
+               <div class="us-col-xsm-7 us-col-lg-8 us-col-sm-5">
+                 <ul>
+                   <li>List item 1</li>
+                   <li>List item 2</li>
+                   <li>List item 3</li>
+                 </ul>
+                 <div class="us-col-xsm-6 us-desktop--block">
+                   <div class="us-featured-highlight">
+                     <strong class="us-featured-highlight__title">
+                       £99.99
+                     </strong>
+                     monthly cost
                    </div>
                  </div>
-                  </div>
-                
-              
-                  <pre><code class="html">
-                 &lt;div class='us-article-group'&gt;
-                   &lt;div class='us-guide-item us-col-md-4'&gt;
-                     &lt;a class='us-guide-item-link' href='#'&gt;
-                       &lt;div class='us-guide-item-image-container'&gt;
-                         &lt;div class='us-guide-item-image background' style='background-image: url(http://www.uswitch.com/insurance/assets/guide-home-16141c84afd29e2063ee76803037716c.jpg)'&gt;&lt;/div&gt;
-                       &lt;/div&gt;
-                       &lt;div class='us-guide-item-content'&gt;
-                         &lt;h4 class='us-guide-item-title'&gt;Car insurance guides&lt;/h4&gt;
-                         &lt;p class='us-guide-item-description'&gt;Read our car insurance advice guides for the facts on why you need car insurance, the types of cover available, and tips on how to make a claim.&lt;/p&gt;
-                       &lt;/div&gt;
-                       &lt;div class='us-guide-item-readmore'&gt;
-                         &lt;span class='us-news-item-readmorelink'&gt;Read more&lt;/span&gt;
-                       &lt;/div&gt;
-                     &lt;/a&gt;
-                   &lt;/div&gt;
-                 &lt;/div&gt;
-                  </code></pre>
-                </div>
-              
-              </div>
-              <div class="styleguide__block" id="hero">
-                <div class="styleguide__block-info">
-                  <h2 class="styleguide__block-title">
-                    Hero
-                    <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_hero.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_hero.scss</span></a>
-                  </h2>
-                  
-                  <p>   The <code>.us-hero</code> is used for the upper part of most pages, where the calls to action are usually kept.</p>
-              <p>   It is intended to draw attention with <code>$c-cyan</code> as it&#39;s background color, and should be used across all landing pages.</p>
-              
-                  
-                </div>
-                
-                <h3 class="styleguide__block-small-title">Example</h3>
-                <div class="styleguide__block-examples">
-                  <div class="styleguide__block-example">
-                       <div class='us-hero'>
-                   <div class='us-hero-container'>
-                     <h1 class='us-hero-title'>Hero title</h1>
-                     <p class='us-hero-description us-standfirst'>Swat at dog intrigued by the shower missing until dinner time.</p>
+                 <div class="us-col-xsm-6 us-desktop--block">
+                   <div class="us-featured-highlight">
+                     <strong class="us-featured-highlight__title">
+                       £99.99
+                     </strong>
+                     monthly cost
+                     <br>
+                     <a class="us-featured-highlight__link us-link" href="#">Link</a>
                    </div>
                  </div>
-                  </div>
-                
+               </div>
+               <div class="us-col-xsm-3 us-col-lg-4 us-tablet--block">
+                 <img class="us-img--full us-desktop--block" src="http://uswitch-wp-cms-assets.s3-website-eu-west-1.amazonaws.com//www.uswitch.com/money/guides/wp-content/uploads/2014/11/DB2011AU01018_SMALL.jpg" width="200">
+                 <button class="margin-top margin-bottom us-btn us-btn--primary us-btn us-btn--blocked">See deal</button>
+                 <div class="us-icon--before us-icon--small--before us-icon--typegrey--before us-icon--clock--before us-content-center">
+                   <strong>3 days left</strong>
+                 </div>
+               </div>
+               <div class="us-featured__mobile-icon  us-tablet--hidden us-col-xsm-3 us-icon us-icon--medium us-icon--typegrey us-icon--breadcrumb"></div>
+             </div>
+             <div class="us-featured__footer us-grid-row us-padding-top us-padding-bottom us-desktop--block">
+               <div class="us-col-xsm-12">
+                 Legal stuff goes here
+               </div>
+             </div>
+            </div>
+                </div>
               
-                  <pre><code class="html">
-                 &lt;div class='us-hero'&gt;
-                   &lt;div class='us-hero-container'&gt;
-                     &lt;h1 class='us-hero-title'&gt;Hero title&lt;/h1&gt;
-                     &lt;p class='us-hero-description us-standfirst'&gt;Swat at dog intrigued by the shower missing until dinner time.&lt;/p&gt;
+            
+                <pre><code class="html">
+            &lt;div class="us-container"&gt;
+             &lt;div class="us-featured__header us-grid-row us-padding-top us-padding-bottom"&gt;
+               &lt;div class="us-featured__header-title us-col-xsm-9 us-content-left"&gt;
+                 Title goes here
+               &lt;/div&gt;
+               &lt;div class="us-featured__header-subtitle us-col-xsm-3 us-content-right"&gt;
+                 Promotion
+               &lt;/div&gt;
+             &lt;/div&gt;
+             &lt;div class="us-featured__content us-grid-row us-padding-top us-padding-bottom"&gt;
+               &lt;div class="us-col-xsm-12"&gt;
+                 &lt;div class='us-usp us-usp--blue'&gt;
+                   Awesome deal usp
+                 &lt;/div&gt;
+               &lt;/div&gt;
+               &lt;div class="us-desktop--hidden us-padding-top us-col-xsm-4 us-mobile-block"&gt;
+                 &lt;img class="us-img--full" src="http://uswitch-wp-cms-assets.s3-website-eu-west-1.amazonaws.com//www.uswitch.com/money/guides/wp-content/uploads/2014/11/DB2011AU01018_SMALL.jpg" width="200"&gt;
+               &lt;/div&gt;
+               &lt;div class="us-col-xsm-7 us-col-lg-8 us-col-sm-5"&gt;
+                 &lt;ul&gt;
+                   &lt;li&gt;List item 1&lt;/li&gt;
+                   &lt;li&gt;List item 2&lt;/li&gt;
+                   &lt;li&gt;List item 3&lt;/li&gt;
+                 &lt;/ul&gt;
+                 &lt;div class="us-col-xsm-6 us-desktop--block"&gt;
+                   &lt;div class="us-featured-highlight"&gt;
+                     &lt;strong class="us-featured-highlight__title"&gt;
+                       £99.99
+                     &lt;/strong&gt;
+                     monthly cost
                    &lt;/div&gt;
                  &lt;/div&gt;
-                  </code></pre>
-                </div>
-              
+                 &lt;div class="us-col-xsm-6 us-desktop--block"&gt;
+                   &lt;div class="us-featured-highlight"&gt;
+                     &lt;strong class="us-featured-highlight__title"&gt;
+                       £99.99
+                     &lt;/strong&gt;
+                     monthly cost
+                     &lt;br&gt;
+                     &lt;a class="us-featured-highlight__link us-link" href="#"&gt;Link&lt;/a&gt;
+                   &lt;/div&gt;
+                 &lt;/div&gt;
+               &lt;/div&gt;
+               &lt;div class="us-col-xsm-3 us-col-lg-4 us-tablet--block"&gt;
+                 &lt;img class="us-img--full us-desktop--block" src="http://uswitch-wp-cms-assets.s3-website-eu-west-1.amazonaws.com//www.uswitch.com/money/guides/wp-content/uploads/2014/11/DB2011AU01018_SMALL.jpg" width="200"&gt;
+                 &lt;button class="margin-top margin-bottom us-btn us-btn--primary us-btn us-btn--blocked"&gt;See deal&lt;/button&gt;
+                 &lt;div class="us-icon--before us-icon--small--before us-icon--typegrey--before us-icon--clock--before us-content-center"&gt;
+                   &lt;strong&gt;3 days left&lt;/strong&gt;
+                 &lt;/div&gt;
+               &lt;/div&gt;
+               &lt;div class="us-featured__mobile-icon  us-tablet--hidden us-col-xsm-3 us-icon us-icon--medium us-icon--typegrey us-icon--breadcrumb"&gt;&lt;/div&gt;
+             &lt;/div&gt;
+             &lt;div class="us-featured__footer us-grid-row us-padding-top us-padding-bottom us-desktop--block"&gt;
+               &lt;div class="us-col-xsm-12"&gt;
+                 Legal stuff goes here
+               &lt;/div&gt;
+             &lt;/div&gt;
+            &lt;/div&gt;
+                </code></pre>
               </div>
-              <div class="styleguide__block" id="anchor_links">
-                <div class="styleguide__block-info">
-                  <h2 class="styleguide__block-title">
-                    Anchor links
-                    <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_links.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_links.scss</span></a>
-                  </h2>
-                  
-                  <p>   Anchor tag styling, with and without a border</p>
-              
-                    <ul class="styleguide__block-states">
-                        <li class="name"><strong>.us-link</strong> - Adds a border bottom to the link</li>
-                        <li class="name"><strong>.us-link--light</strong> - Changes the link colors to white for when links are placed on dark backgrounds</li>
-                    </ul>
-                  
-                </div>
+            
+            </div>
+            <div class="styleguide__block" id="guide_article">
+              <div class="styleguide__block-info">
+                <h2 class="styleguide__block-title">
+                  Guide article
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_guide-article.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_guide-article.scss</span></a>
+                </h2>
                 
+                <p>   Our guide and news articles are used across the site to communicate news/guide snippets.</p>
+            <p>   The layout is decided by our grid, by default they have 100% width.</p>
+            
+                
+              </div>
+              
+              <div class="styleguide__block-examples">
                 <h3 class="styleguide__block-small-title">Example</h3>
-                <div class="styleguide__block-examples">
-                  <div class="styleguide__block-example">
-                    <a href="#" class="{$modifiers}">Link</a>
+                <div class="styleguide__block-example">
+                     <div class='us-article-group'>
+                 <div class='us-guide-item us-col-md-4'>
+                   <a class='us-guide-item-link' href='#'>
+                     <div class='us-guide-item-image-container'>
+                       <div class='us-guide-item-image background' style='background-image: url(http://www.uswitch.com/insurance/assets/guide-home-16141c84afd29e2063ee76803037716c.jpg)'></div>
+                     </div>
+                     <div class='us-guide-item-content'>
+                       <h4 class='us-guide-item-title'>Car insurance guides</h4>
+                       <p class='us-guide-item-description'>Read our car insurance advice guides for the facts on why you need car insurance, the types of cover available, and tips on how to make a claim.</p>
+                     </div>
+                     <div class='us-guide-item-readmore'>
+                       <span class='us-news-item-readmorelink'>Read more</span>
+                     </div>
+                   </a>
+                 </div>
+               </div>
+                </div>
+              
+            
+                <pre><code class="html">
+               &lt;div class='us-article-group'&gt;
+                 &lt;div class='us-guide-item us-col-md-4'&gt;
+                   &lt;a class='us-guide-item-link' href='#'&gt;
+                     &lt;div class='us-guide-item-image-container'&gt;
+                       &lt;div class='us-guide-item-image background' style='background-image: url(http://www.uswitch.com/insurance/assets/guide-home-16141c84afd29e2063ee76803037716c.jpg)'&gt;&lt;/div&gt;
+                     &lt;/div&gt;
+                     &lt;div class='us-guide-item-content'&gt;
+                       &lt;h4 class='us-guide-item-title'&gt;Car insurance guides&lt;/h4&gt;
+                       &lt;p class='us-guide-item-description'&gt;Read our car insurance advice guides for the facts on why you need car insurance, the types of cover available, and tips on how to make a claim.&lt;/p&gt;
+                     &lt;/div&gt;
+                     &lt;div class='us-guide-item-readmore'&gt;
+                       &lt;span class='us-news-item-readmorelink'&gt;Read more&lt;/span&gt;
+                     &lt;/div&gt;
+                   &lt;/a&gt;
+                 &lt;/div&gt;
+               &lt;/div&gt;
+                </code></pre>
+              </div>
+            
+            </div>
+            <div class="styleguide__block" id="hero">
+              <div class="styleguide__block-info">
+                <h2 class="styleguide__block-title">
+                  Hero
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_hero.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_hero.scss</span></a>
+                </h2>
+                
+                <p>   The <code>.us-hero</code> is used for the upper part of most pages, where the calls to action are usually kept.</p>
+            <p>   It is intended to draw attention with <code>$c-cyan</code> as it&#39;s background color, and should be used across all landing pages.</p>
+            
+                
+              </div>
+              
+              <div class="styleguide__block-examples">
+                <h3 class="styleguide__block-small-title">Example</h3>
+                <div class="styleguide__block-example">
+                     <div class='us-hero'>
+                 <div class='us-hero-container'>
+                   <h1 class='us-hero-title'>Hero title</h1>
+                   <p class='us-hero-description us-standfirst'>Swat at dog intrigued by the shower missing until dinner time.</p>
+                 </div>
+               </div>
+                </div>
+              
+            
+                <pre><code class="html">
+               &lt;div class='us-hero'&gt;
+                 &lt;div class='us-hero-container'&gt;
+                   &lt;h1 class='us-hero-title'&gt;Hero title&lt;/h1&gt;
+                   &lt;p class='us-hero-description us-standfirst'&gt;Swat at dog intrigued by the shower missing until dinner time.&lt;/p&gt;
+                 &lt;/div&gt;
+               &lt;/div&gt;
+                </code></pre>
+              </div>
+            
+            </div>
+            <div class="styleguide__block" id="anchor_links">
+              <div class="styleguide__block-info">
+                <h2 class="styleguide__block-title">
+                  Anchor links
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_links.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_links.scss</span></a>
+                </h2>
+                
+                <p>   Anchor tag styling, with and without a border</p>
+            
+                  <ul class="styleguide__block-states">
+                      <li class="name"><strong>.us-link</strong> - Adds a border bottom to the link</li>
+                      <li class="name"><strong>.us-link--light</strong> - Changes the link colors to white for when links are placed on dark backgrounds</li>
+                  </ul>
+                
+              </div>
+              
+              <div class="styleguide__block-examples">
+                <h3 class="styleguide__block-small-title">Example</h3>
+                <div class="styleguide__block-example">
+                  <a href="#" class="{$modifiers}">Link</a>
+                </div>
+              
+                  <div class="styleguide__block-example state-us-link">
+                    <a href="#" class="us-link">Link</a>
+                    <div class="styleguide__block-example-class">.us-link</div>
                   </div>
-                
-                    <div class="styleguide__block-example state-us-link">
-                      <a href="#" class="us-link">Link</a>
-                      <div class="styleguide__block-example-class">.us-link</div>
-                    </div>
-                    <div class="styleguide__block-example state-us-link--light">
-                      <a href="#" class="us-link--light">Link</a>
-                      <div class="styleguide__block-example-class">.us-link--light</div>
-                    </div>
-              
-                  <pre><code class="html">
-              &lt;a href="#"&gt;Link&lt;/a&gt;
-                  </code></pre>
-                </div>
-              
-              </div>
-              <div class="styleguide__block" id="numbered_tick_lists">
-                <div class="styleguide__block-info">
-                  <h2 class="styleguide__block-title">
-                    Numbered/tick lists
-                    <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_lists-li.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_lists-li.scss</span></a>
-                  </h2>
-                  
-                  <p>   A simple way of quickly styling up <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code> with ticks or custom numbers.</p>
-              <p>   <code>.us-custom-list-alt</code> allows us to use the lists on hero/blue backgrounds.</p>
-              
-                  
-                </div>
-                
-                <h3 class="styleguide__block-small-title">Example</h3>
-                <div class="styleguide__block-examples">
-                  <div class="styleguide__block-example">
-                       <ul class='us-ticked-list'>
-                   <li class='us-icon--before us-icon--tick--before us-icon--small--before us-icon--typegrey--before'>
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                   </li>
-                   <li class='us-icon--before us-icon--tick--before us-icon--small--before us-icon--typegrey--before'>
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                   </li>
-                 </ul>
-                 <ul class='us-numbered-list'>
-                   <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin iaculis bibendum.</li>
-                   <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin iaculis bibendum.</li>
-                 </ul>
+                  <div class="styleguide__block-example state-us-link--light">
+                    <a href="#" class="us-link--light">Link</a>
+                    <div class="styleguide__block-example-class">.us-link--light</div>
                   </div>
-                
-              
-                  <pre><code class="html">
-                 &lt;ul class='us-ticked-list'&gt;
-                   &lt;li class='us-icon--before us-icon--tick--before us-icon--small--before us-icon--typegrey--before'&gt;
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                   &lt;/li&gt;
-                   &lt;li class='us-icon--before us-icon--tick--before us-icon--small--before us-icon--typegrey--before'&gt;
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                   &lt;/li&gt;
-                 &lt;/ul&gt;
-                 &lt;ul class='us-numbered-list'&gt;
-                   &lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin iaculis bibendum.&lt;/li&gt;
-                   &lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin iaculis bibendum.&lt;/li&gt;
-                 &lt;/ul&gt;
-                  </code></pre>
-                </div>
-              
+            
+                <pre><code class="html">
+            &lt;a href="#"&gt;Link&lt;/a&gt;
+                </code></pre>
               </div>
-              <div class="styleguide__block" id="link_lists">
-                <div class="styleguide__block-info">
-                  <h2 class="styleguide__block-title">
-                    Link lists
-                    <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_lists.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_lists.scss</span></a>
-                  </h2>
-                  
-                  <p>   The default list styling for lists that have anchors to take you to other pages.</p>
-              
-                  
-                </div>
+            
+            </div>
+            <div class="styleguide__block" id="numbered_tick_lists">
+              <div class="styleguide__block-info">
+                <h2 class="styleguide__block-title">
+                  Numbered/tick lists
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_lists-li.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_lists-li.scss</span></a>
+                </h2>
                 
+                <p>   A simple way of quickly styling up <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code> with ticks or custom numbers.</p>
+            <p>   <code>.us-custom-list-alt</code> allows us to use the lists on hero/blue backgrounds.</p>
+            
+                
+              </div>
+              
+              <div class="styleguide__block-examples">
                 <h3 class="styleguide__block-small-title">Example</h3>
-                <div class="styleguide__block-examples">
-                  <div class="styleguide__block-example">
-                       <ul class='us-list'>
+                <div class="styleguide__block-example">
+                     <ul class='us-ticked-list'>
+                 <li class='us-icon--before us-icon--tick--before us-icon--small--before us-icon--typegrey--before'>
+                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                 </li>
+                 <li class='us-icon--before us-icon--tick--before us-icon--small--before us-icon--typegrey--before'>
+                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                 </li>
+               </ul>
+               <ul class='us-numbered-list'>
+                 <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin iaculis bibendum.</li>
+                 <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin iaculis bibendum.</li>
+               </ul>
+                </div>
+              
+            
+                <pre><code class="html">
+               &lt;ul class='us-ticked-list'&gt;
+                 &lt;li class='us-icon--before us-icon--tick--before us-icon--small--before us-icon--typegrey--before'&gt;
+                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                 &lt;/li&gt;
+                 &lt;li class='us-icon--before us-icon--tick--before us-icon--small--before us-icon--typegrey--before'&gt;
+                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                 &lt;/li&gt;
+               &lt;/ul&gt;
+               &lt;ul class='us-numbered-list'&gt;
+                 &lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin iaculis bibendum.&lt;/li&gt;
+                 &lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin iaculis bibendum.&lt;/li&gt;
+               &lt;/ul&gt;
+                </code></pre>
+              </div>
+            
+            </div>
+            <div class="styleguide__block" id="link_lists">
+              <div class="styleguide__block-info">
+                <h2 class="styleguide__block-title">
+                  Link lists
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_lists.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_lists.scss</span></a>
+                </h2>
+                
+                <p>   The default list styling for lists that have anchors to take you to other pages.</p>
+            
+                
+              </div>
+              
+              <div class="styleguide__block-examples">
+                <h3 class="styleguide__block-small-title">Example</h3>
+                <div class="styleguide__block-example">
+                     <ul class='us-list'>
+                 <li><a href="#">List item 1</a></li>
+                 <li><a href="#">List item 2</a></li>
+                 <li><a href="#">List item 3</a></li>
+               </ul>
+                </div>
+              
+            
+                <pre><code class="html">
+               &lt;ul class='us-list'&gt;
+                 &lt;li&gt;&lt;a href="#"&gt;List item 1&lt;/a&gt;&lt;/li&gt;
+                 &lt;li&gt;&lt;a href="#"&gt;List item 2&lt;/a&gt;&lt;/li&gt;
+                 &lt;li&gt;&lt;a href="#"&gt;List item 3&lt;/a&gt;&lt;/li&gt;
+               &lt;/ul&gt;
+                </code></pre>
+              </div>
+            
+            </div>
+            <div class="styleguide__block" id="loader">
+              <div class="styleguide__block-info">
+                <h2 class="styleguide__block-title">
+                  Loader
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_loader.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_loader.scss</span></a>
+                </h2>
+                
+                <p>   Loader component to be added to any AJAX/filter loads across uSwitch. We use them specifically in tables when loading new rows.</p>
+            <p>   <code>.us-loader--loading</code> will initiate the animation and <code>.us-loader--centered</code> will vertically center the loading SVG.</p>
+            
+                
+              </div>
+              
+              <div class="styleguide__block-examples">
+                <h3 class="styleguide__block-small-title">Example</h3>
+                <div class="styleguide__block-example">
+                     <div class='us-loader__container'>
+                 <div class='us-loader us-loader--loading us-loader--centered'>
+                   <div class='us-loader__inner'>
+                     <div class='us-loader__spinner'></div>
+                     <div class='us-loader__text'>
+                       Loading deals
+                     </div>
+                   </div>
+                   <div class='us-loader__overlay'></div>
+                 </div>
+                 <!-- EXAMPLE CONTENT -->
+                 <ul class='us-list'>
                    <li><a href="#">List item 1</a></li>
                    <li><a href="#">List item 2</a></li>
                    <li><a href="#">List item 3</a></li>
+                   <li><a href="#">List item 4</a></li>
                  </ul>
-                  </div>
-                
+                 <!-- END EXAMPLE -->
+               </div>
+                </div>
               
-                  <pre><code class="html">
+            
+                <pre><code class="html">
+               &lt;div class='us-loader__container'&gt;
+                 &lt;div class='us-loader us-loader--loading us-loader--centered'&gt;
+                   &lt;div class='us-loader__inner'&gt;
+                     &lt;div class='us-loader__spinner'&gt;&lt;/div&gt;
+                     &lt;div class='us-loader__text'&gt;
+                       Loading deals
+                     &lt;/div&gt;
+                   &lt;/div&gt;
+                   &lt;div class='us-loader__overlay'&gt;&lt;/div&gt;
+                 &lt;/div&gt;
+                 &lt;!-- EXAMPLE CONTENT --&gt;
                  &lt;ul class='us-list'&gt;
                    &lt;li&gt;&lt;a href="#"&gt;List item 1&lt;/a&gt;&lt;/li&gt;
                    &lt;li&gt;&lt;a href="#"&gt;List item 2&lt;/a&gt;&lt;/li&gt;
                    &lt;li&gt;&lt;a href="#"&gt;List item 3&lt;/a&gt;&lt;/li&gt;
+                   &lt;li&gt;&lt;a href="#"&gt;List item 4&lt;/a&gt;&lt;/li&gt;
                  &lt;/ul&gt;
-                  </code></pre>
-                </div>
-              
+                 &lt;!-- END EXAMPLE --&gt;
+               &lt;/div&gt;
+                </code></pre>
               </div>
-              <div class="styleguide__block" id="loader">
-                <div class="styleguide__block-info">
-                  <h2 class="styleguide__block-title">
-                    Loader
-                    <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_loader.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_loader.scss</span></a>
-                  </h2>
-                  
-                  <p>   Loader component to be added to any AJAX/filter loads across uSwitch. We use them specifically in tables when loading new rows.</p>
-              <p>   <code>.us-loader--loading</code> will initiate the animation and <code>.us-loader--centered</code> will vertically center the loading SVG.</p>
-              
-                  
-                </div>
+            
+            </div>
+            <div class="styleguide__block" id="news_article">
+              <div class="styleguide__block-info">
+                <h2 class="styleguide__block-title">
+                  News article
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_news-article.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_news-article.scss</span></a>
+                </h2>
                 
+                <p>   The news item article standard. It mirrors the guide article.</p>
+            <p>   The news item image is a background image as the problem of not displaying <code>&lt;img&gt;</code> tags on mobile hasn&#39;t been resolved.</p>
+            
+                
+              </div>
+              
+              <div class="styleguide__block-examples">
                 <h3 class="styleguide__block-small-title">Example</h3>
-                <div class="styleguide__block-examples">
-                  <div class="styleguide__block-example">
-                       <div class='us-loader__container'>
-                   <div class='us-loader us-loader--loading us-loader--centered'>
-                     <div class='us-loader__inner'>
-                       <div class='us-loader__spinner'></div>
-                       <div class='us-loader__text'>
-                         Loading deals
-                       </div>
+                <div class="styleguide__block-example">
+                     <div class='us-article-group'>
+                 <div class='us-news-item us-col-md-4'>
+                   <a class='us-news-item-link' href='#'>
+                     <div class='us-news-item-image-container'>
+                       <div class='us-news-item-image background' style='background-image: url(http://uswitch-wp-blog-assets.s3-website-eu-west-1.amazonaws.com/wp-content/uploads/2013/09/Untitled-1.jpg)'></div>
                      </div>
-                     <div class='us-loader__overlay'></div>
-                   </div>
-                   <!-- EXAMPLE CONTENT -->
-                   <ul class='us-list'>
-                     <li><a href="#">List item 1</a></li>
-                     <li><a href="#">List item 2</a></li>
-                     <li><a href="#">List item 3</a></li>
-                     <li><a href="#">List item 4</a></li>
-                   </ul>
-                   <!-- END EXAMPLE -->
+                     <div class='us-news-meta'>
+                       <span class='category'>Consumer rights</span>
+                       <span class='date'>14 Nov 2014</span>
+                     </div>
+                     <h3 class='us-news-item-title'>Customer uses promoted tweet to complain about BA</h3>
+                     <p class='us-news-item-snippet'>Sign of things to come? Social media helps to empower disgruntled consumer amid lost luggage row</p>
+                     <div class='us-news-item-readmore'>
+                       <span class='us-news-item-readmorelink'>More consumer rights</span>
+                     </div>
+                   </a>
                  </div>
-                  </div>
-                
+               </div>
+                </div>
               
-                  <pre><code class="html">
-                 &lt;div class='us-loader__container'&gt;
-                   &lt;div class='us-loader us-loader--loading us-loader--centered'&gt;
-                     &lt;div class='us-loader__inner'&gt;
-                       &lt;div class='us-loader__spinner'&gt;&lt;/div&gt;
-                       &lt;div class='us-loader__text'&gt;
-                         Loading deals
-                       &lt;/div&gt;
+            
+                <pre><code class="html">
+               &lt;div class='us-article-group'&gt;
+                 &lt;div class='us-news-item us-col-md-4'&gt;
+                   &lt;a class='us-news-item-link' href='#'&gt;
+                     &lt;div class='us-news-item-image-container'&gt;
+                       &lt;div class='us-news-item-image background' style='background-image: url(http://uswitch-wp-blog-assets.s3-website-eu-west-1.amazonaws.com/wp-content/uploads/2013/09/Untitled-1.jpg)'&gt;&lt;/div&gt;
                      &lt;/div&gt;
-                     &lt;div class='us-loader__overlay'&gt;&lt;/div&gt;
-                   &lt;/div&gt;
-                   &lt;!-- EXAMPLE CONTENT --&gt;
-                   &lt;ul class='us-list'&gt;
-                     &lt;li&gt;&lt;a href="#"&gt;List item 1&lt;/a&gt;&lt;/li&gt;
-                     &lt;li&gt;&lt;a href="#"&gt;List item 2&lt;/a&gt;&lt;/li&gt;
-                     &lt;li&gt;&lt;a href="#"&gt;List item 3&lt;/a&gt;&lt;/li&gt;
-                     &lt;li&gt;&lt;a href="#"&gt;List item 4&lt;/a&gt;&lt;/li&gt;
+                     &lt;div class='us-news-meta'&gt;
+                       &lt;span class='category'&gt;Consumer rights&lt;/span&gt;
+                       &lt;span class='date'&gt;14 Nov 2014&lt;/span&gt;
+                     &lt;/div&gt;
+                     &lt;h3 class='us-news-item-title'&gt;Customer uses promoted tweet to complain about BA&lt;/h3&gt;
+                     &lt;p class='us-news-item-snippet'&gt;Sign of things to come? Social media helps to empower disgruntled consumer amid lost luggage row&lt;/p&gt;
+                     &lt;div class='us-news-item-readmore'&gt;
+                       &lt;span class='us-news-item-readmorelink'&gt;More consumer rights&lt;/span&gt;
+                     &lt;/div&gt;
+                   &lt;/a&gt;
+                 &lt;/div&gt;
+               &lt;/div&gt;
+                </code></pre>
+              </div>
+            
+            </div>
+            <div class="styleguide__block" id="progress_navigation">
+              <div class="styleguide__block-info">
+                <h2 class="styleguide__block-title">
+                  Progress navigation
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_progress.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_progress.scss</span></a>
+                </h2>
+                
+                <p>   The progress navigation should be used for any funnel journeys on the website. Once a section has been completed the user should be able to get back to that step. </p>
+            <p>   The mobile view of the navigation just has the dotted numbers. A <code>.us-hero</code> is expected underneath the navigation.</p>
+            
+                
+              </div>
+              
+              <div class="styleguide__block-examples">
+                <h3 class="styleguide__block-small-title">Example</h3>
+                <div class="styleguide__block-example">
+                     <div class="us-progress">
+                 <nav>
+                   <ul class="us-progress__nav us-clearfix">
+                     <li class="us-progress__item">
+                       <a href="#" class="us-progress__link us-progress__link--complete">
+                         <span class="us-tablet--inline">Current supplier</span>
+                       </a>
+                     </li>
+                     <li class="us-progress__item">
+                       <a href="#" class="us-progress__link us-progress__link--complete">
+                         <span class="us-tablet--inline">Usage</span>
+                       </a>          
+                     </li>
+                     <li class="us-progress__item">
+                       <span class="us-progress__link us-progress__link--current">
+                         <span class="us-tablet--inline">Results</span>
+                       </span>
+                     </li>
+                     <li class="us-progress__item">
+                       <span class="us-progress__link us-progress__link--next">
+                         <span class="us-tablet--inline">New tariff</span>
+                       </span>
+                     </li>
+                     <li class="us-progress__item">
+                       <span class="us-progress__link us-progress__link--next">
+                         <span class="us-tablet--inline">Apply</span>
+                       </span>
+                     </li>
+                   </ul>
+                 </nav>
+               </div>
+                </div>
+              
+            
+                <pre><code class="html">
+               &lt;div class="us-progress"&gt;
+                 &lt;nav&gt;
+                   &lt;ul class="us-progress__nav us-clearfix"&gt;
+                     &lt;li class="us-progress__item"&gt;
+                       &lt;a href="#" class="us-progress__link us-progress__link--complete"&gt;
+                         &lt;span class="us-tablet--inline"&gt;Current supplier&lt;/span&gt;
+                       &lt;/a&gt;
+                     &lt;/li&gt;
+                     &lt;li class="us-progress__item"&gt;
+                       &lt;a href="#" class="us-progress__link us-progress__link--complete"&gt;
+                         &lt;span class="us-tablet--inline"&gt;Usage&lt;/span&gt;
+                       &lt;/a&gt;          
+                     &lt;/li&gt;
+                     &lt;li class="us-progress__item"&gt;
+                       &lt;span class="us-progress__link us-progress__link--current"&gt;
+                         &lt;span class="us-tablet--inline"&gt;Results&lt;/span&gt;
+                       &lt;/span&gt;
+                     &lt;/li&gt;
+                     &lt;li class="us-progress__item"&gt;
+                       &lt;span class="us-progress__link us-progress__link--next"&gt;
+                         &lt;span class="us-tablet--inline"&gt;New tariff&lt;/span&gt;
+                       &lt;/span&gt;
+                     &lt;/li&gt;
+                     &lt;li class="us-progress__item"&gt;
+                       &lt;span class="us-progress__link us-progress__link--next"&gt;
+                         &lt;span class="us-tablet--inline"&gt;Apply&lt;/span&gt;
+                       &lt;/span&gt;
+                     &lt;/li&gt;
                    &lt;/ul&gt;
-                   &lt;!-- END EXAMPLE --&gt;
-                 &lt;/div&gt;
-                  </code></pre>
-                </div>
-              
+                 &lt;/nav&gt;
+               &lt;/div&gt;
+                </code></pre>
               </div>
-              <div class="styleguide__block" id="news_article">
-                <div class="styleguide__block-info">
-                  <h2 class="styleguide__block-title">
-                    News article
-                    <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_news-article.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_news-article.scss</span></a>
-                  </h2>
-                  
-                  <p>   The news item article standard. It mirrors the guide article.</p>
-              <p>   The news item image is a background image as the problem of not displaying <code>&lt;img&gt;</code> tags on mobile hasn&#39;t been resolved.</p>
-              
-                  
-                </div>
+            
+            </div>
+            <div class="styleguide__block" id="usps">
+              <div class="styleguide__block-info">
+                <h2 class="styleguide__block-title">
+                  USPs
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_usp.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_usp.scss</span></a>
+                </h2>
                 
+                <p> USPs (Unique Selling Points) are used within tables and on splash pages to highlight offers within a deal, and also to differentiate deals.</p>
+            <p> General guidelines; There should only be one USP per deal. Text within USPs should be written in sentence case (not uppercase).</p>
+            
+                  <ul class="styleguide__block-states">
+                      <li class="name"><strong>.us-usp--blue</strong> - uSwitch related</li>
+                      <li class="name"><strong>.us-usp--orange</strong> - Rewards (money/points)</li>
+                      <li class="name"><strong>.us-usp--purple</strong> - Gifts eg. free TV</li>
+                      <li class="name"><strong>.us-usp--yellow</strong> - Vouchers</li>
+                      <li class="name"><strong>.us-usp--typecyan</strong> - Micro persuasions eg. most popular, half price</li>
+                      <li class="name"><strong>.us-usp--green</strong> - Renewable and environmentally friendly</li>
+                      <li class="name"><strong>.us-usp--navy</strong> - Generic vertical specific USP</li>
+                      <li class="name"><strong>.us-usp--cyan</strong> - Generic vertical specific USP</li>
+                      <li class="name"><strong>.us-usp--typegrey</strong> - Generic vertical specific USP</li>
+                      <li class="name"><strong>.us-usp--red</strong> - Generic vertical specific USP</li>
+                  </ul>
+                
+              </div>
+              
+              <div class="styleguide__block-examples">
                 <h3 class="styleguide__block-small-title">Example</h3>
-                <div class="styleguide__block-examples">
-                  <div class="styleguide__block-example">
-                       <div class='us-article-group'>
-                   <div class='us-news-item us-col-md-4'>
-                     <a class='us-news-item-link' href='#'>
-                       <div class='us-news-item-image-container'>
-                         <div class='us-news-item-image background' style='background-image: url(http://uswitch-wp-blog-assets.s3-website-eu-west-1.amazonaws.com/wp-content/uploads/2013/09/Untitled-1.jpg)'></div>
-                       </div>
-                       <div class='us-news-meta'>
-                         <span class='category'>Consumer rights</span>
-                         <span class='date'>14 Nov 2014</span>
-                       </div>
-                       <h3 class='us-news-item-title'>Customer uses promoted tweet to complain about BA</h3>
-                       <p class='us-news-item-snippet'>Sign of things to come? Social media helps to empower disgruntled consumer amid lost luggage row</p>
-                       <div class='us-news-item-readmore'>
-                         <span class='us-news-item-readmorelink'>More consumer rights</span>
-                       </div>
-                     </a>
-                   </div>
-                 </div>
+                <div class="styleguide__block-example">
+                     <div class='us-usp {$modifiers}'>Shortened USP</div>
+               <div class='us-usp us-usp--annotated'>
+                 <div class='us-usp {$modifiers}'>Annotated USP</div>
+                 More information about USP goes here
+               </div>
+                </div>
+              
+                  <div class="styleguide__block-example state-us-usp--blue">
+                       <div class='us-usp us-usp--blue'>Shortened USP</div>
+               <div class='us-usp us-usp--annotated'>
+                 <div class='us-usp us-usp--blue'>Annotated USP</div>
+                 More information about USP goes here
+               </div>
+                    <div class="styleguide__block-example-class">.us-usp--blue</div>
                   </div>
-                
-              
-                  <pre><code class="html">
-                 &lt;div class='us-article-group'&gt;
-                   &lt;div class='us-news-item us-col-md-4'&gt;
-                     &lt;a class='us-news-item-link' href='#'&gt;
-                       &lt;div class='us-news-item-image-container'&gt;
-                         &lt;div class='us-news-item-image background' style='background-image: url(http://uswitch-wp-blog-assets.s3-website-eu-west-1.amazonaws.com/wp-content/uploads/2013/09/Untitled-1.jpg)'&gt;&lt;/div&gt;
-                       &lt;/div&gt;
-                       &lt;div class='us-news-meta'&gt;
-                         &lt;span class='category'&gt;Consumer rights&lt;/span&gt;
-                         &lt;span class='date'&gt;14 Nov 2014&lt;/span&gt;
-                       &lt;/div&gt;
-                       &lt;h3 class='us-news-item-title'&gt;Customer uses promoted tweet to complain about BA&lt;/h3&gt;
-                       &lt;p class='us-news-item-snippet'&gt;Sign of things to come? Social media helps to empower disgruntled consumer amid lost luggage row&lt;/p&gt;
-                       &lt;div class='us-news-item-readmore'&gt;
-                         &lt;span class='us-news-item-readmorelink'&gt;More consumer rights&lt;/span&gt;
-                       &lt;/div&gt;
-                     &lt;/a&gt;
-                   &lt;/div&gt;
-                 &lt;/div&gt;
-                  </code></pre>
-                </div>
-              
-              </div>
-              <div class="styleguide__block" id="usps">
-                <div class="styleguide__block-info">
-                  <h2 class="styleguide__block-title">
-                    USPs
-                    <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_usp.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_usp.scss</span></a>
-                  </h2>
-                  
-                  <p> USPs (Unique Selling Points) are used within tables and on splash pages to highlight offers within a deal, and also to differentiate deals.</p>
-              <p> General guidelines; There should only be one USP per deal. Text within USPs should be written in sentence case (not uppercase).</p>
-              
-                    <ul class="styleguide__block-states">
-                        <li class="name"><strong>.us-usp--blue</strong> - uSwitch related</li>
-                        <li class="name"><strong>.us-usp--orange</strong> - Rewards (money/points)</li>
-                        <li class="name"><strong>.us-usp--purple</strong> - Gifts eg. free TV</li>
-                        <li class="name"><strong>.us-usp--yellow</strong> - Vouchers</li>
-                        <li class="name"><strong>.us-usp--typecyan</strong> - Micro persuasions eg. most popular, half price</li>
-                        <li class="name"><strong>.us-usp--green</strong> - Renewable and environmentally friendly</li>
-                        <li class="name"><strong>.us-usp--navy</strong> - Generic vertical specific USP</li>
-                        <li class="name"><strong>.us-usp--cyan</strong> - Generic vertical specific USP</li>
-                        <li class="name"><strong>.us-usp--typegrey</strong> - Generic vertical specific USP</li>
-                        <li class="name"><strong>.us-usp--red</strong> - Generic vertical specific USP</li>
-                    </ul>
-                  
-                </div>
-                
-                <h3 class="styleguide__block-small-title">Example</h3>
-                <div class="styleguide__block-examples">
-                  <div class="styleguide__block-example">
-                       <div class='us-usp {$modifiers}'>Shortened USP</div>
-                 <div class='us-usp us-usp--annotated'>
-                   <div class='us-usp {$modifiers}'>Annotated USP</div>
-                   More information about USP goes here
-                 </div>
+                  <div class="styleguide__block-example state-us-usp--orange">
+                       <div class='us-usp us-usp--orange'>Shortened USP</div>
+               <div class='us-usp us-usp--annotated'>
+                 <div class='us-usp us-usp--orange'>Annotated USP</div>
+                 More information about USP goes here
+               </div>
+                    <div class="styleguide__block-example-class">.us-usp--orange</div>
                   </div>
-                
-                    <div class="styleguide__block-example state-us-usp--blue">
-                         <div class='us-usp us-usp--blue'>Shortened USP</div>
-                 <div class='us-usp us-usp--annotated'>
-                   <div class='us-usp us-usp--blue'>Annotated USP</div>
-                   More information about USP goes here
-                 </div>
-                      <div class="styleguide__block-example-class">.us-usp--blue</div>
-                    </div>
-                    <div class="styleguide__block-example state-us-usp--orange">
-                         <div class='us-usp us-usp--orange'>Shortened USP</div>
-                 <div class='us-usp us-usp--annotated'>
-                   <div class='us-usp us-usp--orange'>Annotated USP</div>
-                   More information about USP goes here
-                 </div>
-                      <div class="styleguide__block-example-class">.us-usp--orange</div>
-                    </div>
-                    <div class="styleguide__block-example state-us-usp--purple">
-                         <div class='us-usp us-usp--purple'>Shortened USP</div>
-                 <div class='us-usp us-usp--annotated'>
-                   <div class='us-usp us-usp--purple'>Annotated USP</div>
-                   More information about USP goes here
-                 </div>
-                      <div class="styleguide__block-example-class">.us-usp--purple</div>
-                    </div>
-                    <div class="styleguide__block-example state-us-usp--yellow">
-                         <div class='us-usp us-usp--yellow'>Shortened USP</div>
-                 <div class='us-usp us-usp--annotated'>
-                   <div class='us-usp us-usp--yellow'>Annotated USP</div>
-                   More information about USP goes here
-                 </div>
-                      <div class="styleguide__block-example-class">.us-usp--yellow</div>
-                    </div>
-                    <div class="styleguide__block-example state-us-usp--typecyan">
-                         <div class='us-usp us-usp--typecyan'>Shortened USP</div>
-                 <div class='us-usp us-usp--annotated'>
-                   <div class='us-usp us-usp--typecyan'>Annotated USP</div>
-                   More information about USP goes here
-                 </div>
-                      <div class="styleguide__block-example-class">.us-usp--typecyan</div>
-                    </div>
-                    <div class="styleguide__block-example state-us-usp--green">
-                         <div class='us-usp us-usp--green'>Shortened USP</div>
-                 <div class='us-usp us-usp--annotated'>
-                   <div class='us-usp us-usp--green'>Annotated USP</div>
-                   More information about USP goes here
-                 </div>
-                      <div class="styleguide__block-example-class">.us-usp--green</div>
-                    </div>
-                    <div class="styleguide__block-example state-us-usp--navy">
-                         <div class='us-usp us-usp--navy'>Shortened USP</div>
-                 <div class='us-usp us-usp--annotated'>
-                   <div class='us-usp us-usp--navy'>Annotated USP</div>
-                   More information about USP goes here
-                 </div>
-                      <div class="styleguide__block-example-class">.us-usp--navy</div>
-                    </div>
-                    <div class="styleguide__block-example state-us-usp--cyan">
-                         <div class='us-usp us-usp--cyan'>Shortened USP</div>
-                 <div class='us-usp us-usp--annotated'>
-                   <div class='us-usp us-usp--cyan'>Annotated USP</div>
-                   More information about USP goes here
-                 </div>
-                      <div class="styleguide__block-example-class">.us-usp--cyan</div>
-                    </div>
-                    <div class="styleguide__block-example state-us-usp--typegrey">
-                         <div class='us-usp us-usp--typegrey'>Shortened USP</div>
-                 <div class='us-usp us-usp--annotated'>
-                   <div class='us-usp us-usp--typegrey'>Annotated USP</div>
-                   More information about USP goes here
-                 </div>
-                      <div class="styleguide__block-example-class">.us-usp--typegrey</div>
-                    </div>
-                    <div class="styleguide__block-example state-us-usp--red">
-                         <div class='us-usp us-usp--red'>Shortened USP</div>
-                 <div class='us-usp us-usp--annotated'>
-                   <div class='us-usp us-usp--red'>Annotated USP</div>
-                   More information about USP goes here
-                 </div>
-                      <div class="styleguide__block-example-class">.us-usp--red</div>
-                    </div>
-              
-                  <pre><code class="html">
-                 &lt;div class='us-usp'&gt;Shortened USP&lt;/div&gt;
-                 &lt;div class='us-usp us-usp--annotated'&gt;
-                   &lt;div class='us-usp'&gt;Annotated USP&lt;/div&gt;
-                   More information about USP goes here
-                 &lt;/div&gt;
-                  </code></pre>
-                </div>
-              
+                  <div class="styleguide__block-example state-us-usp--purple">
+                       <div class='us-usp us-usp--purple'>Shortened USP</div>
+               <div class='us-usp us-usp--annotated'>
+                 <div class='us-usp us-usp--purple'>Annotated USP</div>
+                 More information about USP goes here
+               </div>
+                    <div class="styleguide__block-example-class">.us-usp--purple</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-usp--yellow">
+                       <div class='us-usp us-usp--yellow'>Shortened USP</div>
+               <div class='us-usp us-usp--annotated'>
+                 <div class='us-usp us-usp--yellow'>Annotated USP</div>
+                 More information about USP goes here
+               </div>
+                    <div class="styleguide__block-example-class">.us-usp--yellow</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-usp--typecyan">
+                       <div class='us-usp us-usp--typecyan'>Shortened USP</div>
+               <div class='us-usp us-usp--annotated'>
+                 <div class='us-usp us-usp--typecyan'>Annotated USP</div>
+                 More information about USP goes here
+               </div>
+                    <div class="styleguide__block-example-class">.us-usp--typecyan</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-usp--green">
+                       <div class='us-usp us-usp--green'>Shortened USP</div>
+               <div class='us-usp us-usp--annotated'>
+                 <div class='us-usp us-usp--green'>Annotated USP</div>
+                 More information about USP goes here
+               </div>
+                    <div class="styleguide__block-example-class">.us-usp--green</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-usp--navy">
+                       <div class='us-usp us-usp--navy'>Shortened USP</div>
+               <div class='us-usp us-usp--annotated'>
+                 <div class='us-usp us-usp--navy'>Annotated USP</div>
+                 More information about USP goes here
+               </div>
+                    <div class="styleguide__block-example-class">.us-usp--navy</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-usp--cyan">
+                       <div class='us-usp us-usp--cyan'>Shortened USP</div>
+               <div class='us-usp us-usp--annotated'>
+                 <div class='us-usp us-usp--cyan'>Annotated USP</div>
+                 More information about USP goes here
+               </div>
+                    <div class="styleguide__block-example-class">.us-usp--cyan</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-usp--typegrey">
+                       <div class='us-usp us-usp--typegrey'>Shortened USP</div>
+               <div class='us-usp us-usp--annotated'>
+                 <div class='us-usp us-usp--typegrey'>Annotated USP</div>
+                 More information about USP goes here
+               </div>
+                    <div class="styleguide__block-example-class">.us-usp--typegrey</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-usp--red">
+                       <div class='us-usp us-usp--red'>Shortened USP</div>
+               <div class='us-usp us-usp--annotated'>
+                 <div class='us-usp us-usp--red'>Annotated USP</div>
+                 More information about USP goes here
+               </div>
+                    <div class="styleguide__block-example-class">.us-usp--red</div>
+                  </div>
+            
+                <pre><code class="html">
+               &lt;div class='us-usp'&gt;Shortened USP&lt;/div&gt;
+               &lt;div class='us-usp us-usp--annotated'&gt;
+                 &lt;div class='us-usp'&gt;Annotated USP&lt;/div&gt;
+                 More information about USP goes here
+               &lt;/div&gt;
+                </code></pre>
               </div>
-      </div>  
+            
+            </div>
     </div>
   </div>
-  <p class="copyright">Copyright &copy; uSwitch limited.</p>
+  <div class="container">
+    <p class="copyright">Copyright &copy; uSwitch limited.</p>  
+  </div>
   <script src="https://cdn.polyfill.io/v1/polyfill.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="/js/app.js"></script>

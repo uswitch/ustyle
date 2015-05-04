@@ -29,6 +29,7 @@
       </nav>
     </nav>
   </header>
+  <a href="javascript:void(0);" class="nav-mobile js-toggle__link us-desktop--hidden" data-target="sidebar"><span class="nav-mobile__hamburger">Sidebar</span></a>
   <div class='sidebar'>
     <nav class='sidebar__nav' data-gumshoe>
           <a class="sidebar__nav-link " href="index.html">Introduction</a>
@@ -51,336 +52,336 @@
   </div>
   <div id="wrapper" class="container sidebar--push">
     <h1 class="styleguide__title">Forms</h1>
-    <div class="us-grid-row">
-      <div class="styleguide us-col-md-10">
-              <div class="styleguide__block" id="fields">
-                <div class="styleguide__block-info">
-                  <h2 class="styleguide__block-title">
-                    Fields
-                    <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/forms/_fields.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_fields.scss</span></a>
-                  </h2>
-                  
-                  
-                    <ul class="styleguide__block-states">
-                        <li class="name"><strong>.us-field-required</strong> - Any required form field has this class to show an asterisk beside the label</li>
-                        <li class="name"><strong>.us-field-blocked</strong> - Blocked label styling</li>
-                        <li class="name"><strong>.us-field-inline</strong> - Inline label styling</li>
-                    </ul>
-                  
-                </div>
+    <div class="styleguide">
+            <div class="styleguide__block" id="fields">
+              <div class="styleguide__block-info">
+                <h2 class="styleguide__block-title">
+                  Fields
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/forms/_fields.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_fields.scss</span></a>
+                </h2>
                 
-                <h3 class="styleguide__block-small-title">Example</h3>
-                <div class="styleguide__block-examples">
-                  <div class="styleguide__block-example">
-                       <div class="us-field {$modifiers}">
-                   <label for='name'>Name</label>
-                   <input class='us-form-input' id='name' name='name' placeholder='Please enter your name'>
-                 </div>
-                  </div>
                 
-                    <div class="styleguide__block-example state-us-field-required">
-                         <div class="us-field us-field-required">
-                   <label for='name'>Name</label>
-                   <input class='us-form-input' id='name' name='name' placeholder='Please enter your name'>
-                 </div>
-                      <div class="styleguide__block-example-class">.us-field-required</div>
-                    </div>
-                    <div class="styleguide__block-example state-us-field-blocked">
-                         <div class="us-field us-field-blocked">
-                   <label for='name'>Name</label>
-                   <input class='us-form-input' id='name' name='name' placeholder='Please enter your name'>
-                 </div>
-                      <div class="styleguide__block-example-class">.us-field-blocked</div>
-                    </div>
-                    <div class="styleguide__block-example state-us-field-inline">
-                         <div class="us-field us-field-inline">
-                   <label for='name'>Name</label>
-                   <input class='us-form-input' id='name' name='name' placeholder='Please enter your name'>
-                 </div>
-                      <div class="styleguide__block-example-class">.us-field-inline</div>
-                    </div>
+                  <ul class="styleguide__block-states">
+                      <li class="name"><strong>.us-field-required</strong> - Any required form field has this class to show an asterisk beside the label</li>
+                      <li class="name"><strong>.us-field-blocked</strong> - Blocked label styling</li>
+                      <li class="name"><strong>.us-field-inline</strong> - Inline label styling</li>
+                  </ul>
+                
+              </div>
               
-                  <pre><code class="html">
-                 &lt;div class="us-field"&gt;
-                   &lt;label for='name'&gt;Name&lt;/label&gt;
-                   &lt;input class='us-form-input' id='name' name='name' placeholder='Please enter your name'&gt;
+              <div class="styleguide__block-examples">
+                <h3 class="styleguide__block-small-title">Example</h3>
+                <div class="styleguide__block-example">
+                     <div class="us-field {$modifiers}">
+                 <label for='name'>Name</label>
+                 <input class='us-form-input' id='name' name='name' placeholder='Please enter your name'>
+               </div>
+                </div>
+              
+                  <div class="styleguide__block-example state-us-field-required">
+                       <div class="us-field us-field-required">
+                 <label for='name'>Name</label>
+                 <input class='us-form-input' id='name' name='name' placeholder='Please enter your name'>
+               </div>
+                    <div class="styleguide__block-example-class">.us-field-required</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-field-blocked">
+                       <div class="us-field us-field-blocked">
+                 <label for='name'>Name</label>
+                 <input class='us-form-input' id='name' name='name' placeholder='Please enter your name'>
+               </div>
+                    <div class="styleguide__block-example-class">.us-field-blocked</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-field-inline">
+                       <div class="us-field us-field-inline">
+                 <label for='name'>Name</label>
+                 <input class='us-form-input' id='name' name='name' placeholder='Please enter your name'>
+               </div>
+                    <div class="styleguide__block-example-class">.us-field-inline</div>
+                  </div>
+            
+                <pre><code class="html">
+               &lt;div class="us-field"&gt;
+                 &lt;label for='name'&gt;Name&lt;/label&gt;
+                 &lt;input class='us-form-input' id='name' name='name' placeholder='Please enter your name'&gt;
+               &lt;/div&gt;
+                </code></pre>
+              </div>
+            
+            </div>
+            <div class="styleguide__block" id="icon_inputs">
+              <div class="styleguide__block-info">
+                <h2 class="styleguide__block-title">
+                  Icon inputs
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/forms/_input-backgrounds.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_input-backgrounds.scss</span></a>
+                </h2>
+                
+                <p>   In addition to our basic inputs we&#39;ve got some useful input backgrounds that are used across the site. Each input background is a base64 encoded (for IE9 purposes)</p>
+            <p>   SVG to allow scalability on retina devices. Any browser not supporting SVG has a PNG fallback.</p>
+            
+                  <ul class="styleguide__block-states">
+                      <li class="name"><strong>.postcode</strong> - Used for form fields asking for a postcode (typically in hero&#x27;s)</li>
+                      <li class="name"><strong>.email</strong> - Used for email inputs</li>
+                      <li class="name"><strong>.phone</strong> - Used when asking for a phone number</li>
+                      <li class="name"><strong>.pound</strong> - Used when asking for cost of something</li>
+                      <li class="name"><strong>.password</strong> - For password only fields</li>
+                      <li class="name"><strong>.kwh</strong> - Energy specific</li>
+                  </ul>
+                
+              </div>
+              
+              <div class="styleguide__block-examples">
+                <h3 class="styleguide__block-small-title">Example</h3>
+                <div class="styleguide__block-example">
+                  <input class='us-form-input {$modifiers}' type='text'>
+                </div>
+              
+                  <div class="styleguide__block-example state-postcode">
+                    <input class='us-form-input postcode' type='text'>
+                    <div class="styleguide__block-example-class">.postcode</div>
+                  </div>
+                  <div class="styleguide__block-example state-email">
+                    <input class='us-form-input email' type='text'>
+                    <div class="styleguide__block-example-class">.email</div>
+                  </div>
+                  <div class="styleguide__block-example state-phone">
+                    <input class='us-form-input phone' type='text'>
+                    <div class="styleguide__block-example-class">.phone</div>
+                  </div>
+                  <div class="styleguide__block-example state-pound">
+                    <input class='us-form-input pound' type='text'>
+                    <div class="styleguide__block-example-class">.pound</div>
+                  </div>
+                  <div class="styleguide__block-example state-password">
+                    <input class='us-form-input password' type='text'>
+                    <div class="styleguide__block-example-class">.password</div>
+                  </div>
+                  <div class="styleguide__block-example state-kwh">
+                    <input class='us-form-input kwh' type='text'>
+                    <div class="styleguide__block-example-class">.kwh</div>
+                  </div>
+            
+                <pre><code class="html">
+            &lt;input class='us-form-input' type='text'&gt;
+                </code></pre>
+              </div>
+            
+            </div>
+            <div class="styleguide__block" id="inputs">
+              <div class="styleguide__block-info">
+                <h2 class="styleguide__block-title">
+                  Inputs
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/forms/_input.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_input.scss</span></a>
+                </h2>
+                
+                <p>   Our standard input styling across the website. This is specifically for type text and textarea.</p>
+            
+                  <ul class="styleguide__block-states">
+                      <li class="name"><strong>.large</strong> - Larger input style</li>
+                  </ul>
+                
+              </div>
+              
+              <div class="styleguide__block-examples">
+                <h3 class="styleguide__block-small-title">Example</h3>
+                <div class="styleguide__block-example">
+                  <input class='us-form-input {$modifiers}' type='text'>
+                </div>
+              
+                  <div class="styleguide__block-example state-large">
+                    <input class='us-form-input large' type='text'>
+                    <div class="styleguide__block-example-class">.large</div>
+                  </div>
+            
+                <pre><code class="html">
+            &lt;input class='us-form-input' type='text'&gt;
+                </code></pre>
+              </div>
+            
+            </div>
+            <div class="styleguide__block" id="radios_and_checkboxes">
+              <div class="styleguide__block-info">
+                <h2 class="styleguide__block-title">
+                  Radios and checkboxes
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/forms/_radio-checkbox.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_radio-checkbox.scss</span></a>
+                </h2>
+                
+                <p>   Webkit/Blink browsers display our font icon tick or a box shadow circle. Other browsers fallback to default styling.</p>
+            
+                
+              </div>
+              
+              <div class="styleguide__block-examples">
+                <h3 class="styleguide__block-small-title">Example</h3>
+                <div class="styleguide__block-example">
+                     <div class='us-field us-field-blocked'>
+                 <label>Do you have a different billing address?</label>
+                 <div class='us-field-toggle'>
+                   <label>
+                     <input checked='checked' class='us-form-input' name='null' type='radio'>Yes</input>
+                   </label>
+                   <label>
+                     <input class='us-form-input' name='null' type='radio'>No</input>
+                   </label>
+                 </div>
+               </div>
+               <div class='us-field us-field-blocked'>
+                 <label>How would you like to be contacted?</label>
+                 <div class='us-field-toggle'>
+                   <label>
+                     <input checked='checked' class='us-form-input' name='null' type='checkbox'>Mobile</input>
+                   </label>
+                   <label>
+                     <input class='us-form-input' name='null' type='checkbox'>Email</input>
+                   </label>
+                 </div>
+               </div>
+                </div>
+              
+            
+                <pre><code class="html">
+               &lt;div class='us-field us-field-blocked'&gt;
+                 &lt;label&gt;Do you have a different billing address?&lt;/label&gt;
+                 &lt;div class='us-field-toggle'&gt;
+                   &lt;label&gt;
+                     &lt;input checked='checked' class='us-form-input' name='null' type='radio'&gt;Yes&lt;/input&gt;
+                   &lt;/label&gt;
+                   &lt;label&gt;
+                     &lt;input class='us-form-input' name='null' type='radio'&gt;No&lt;/input&gt;
+                   &lt;/label&gt;
                  &lt;/div&gt;
-                  </code></pre>
-                </div>
-              
-              </div>
-              <div class="styleguide__block" id="icon_inputs">
-                <div class="styleguide__block-info">
-                  <h2 class="styleguide__block-title">
-                    Icon inputs
-                    <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/forms/_input-backgrounds.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_input-backgrounds.scss</span></a>
-                  </h2>
-                  
-                  <p>   In addition to our basic inputs we&#39;ve got some useful input backgrounds that are used across the site. Each input background is a base64 encoded (for IE9 purposes)</p>
-              <p>   SVG to allow scalability on retina devices. Any browser not supporting SVG has a PNG fallback.</p>
-              
-                    <ul class="styleguide__block-states">
-                        <li class="name"><strong>.postcode</strong> - Used for form fields asking for a postcode (typically in hero&#x27;s)</li>
-                        <li class="name"><strong>.email</strong> - Used for email inputs</li>
-                        <li class="name"><strong>.phone</strong> - Used when asking for a phone number</li>
-                        <li class="name"><strong>.pound</strong> - Used when asking for cost of something</li>
-                        <li class="name"><strong>.password</strong> - For password only fields</li>
-                        <li class="name"><strong>.kwh</strong> - Energy specific</li>
-                    </ul>
-                  
-                </div>
-                
-                <h3 class="styleguide__block-small-title">Example</h3>
-                <div class="styleguide__block-examples">
-                  <div class="styleguide__block-example">
-                    <input class='us-form-input {$modifiers}' type='text'>
-                  </div>
-                
-                    <div class="styleguide__block-example state-postcode">
-                      <input class='us-form-input postcode' type='text'>
-                      <div class="styleguide__block-example-class">.postcode</div>
-                    </div>
-                    <div class="styleguide__block-example state-email">
-                      <input class='us-form-input email' type='text'>
-                      <div class="styleguide__block-example-class">.email</div>
-                    </div>
-                    <div class="styleguide__block-example state-phone">
-                      <input class='us-form-input phone' type='text'>
-                      <div class="styleguide__block-example-class">.phone</div>
-                    </div>
-                    <div class="styleguide__block-example state-pound">
-                      <input class='us-form-input pound' type='text'>
-                      <div class="styleguide__block-example-class">.pound</div>
-                    </div>
-                    <div class="styleguide__block-example state-password">
-                      <input class='us-form-input password' type='text'>
-                      <div class="styleguide__block-example-class">.password</div>
-                    </div>
-                    <div class="styleguide__block-example state-kwh">
-                      <input class='us-form-input kwh' type='text'>
-                      <div class="styleguide__block-example-class">.kwh</div>
-                    </div>
-              
-                  <pre><code class="html">
-              &lt;input class='us-form-input' type='text'&gt;
-                  </code></pre>
-                </div>
-              
-              </div>
-              <div class="styleguide__block" id="inputs">
-                <div class="styleguide__block-info">
-                  <h2 class="styleguide__block-title">
-                    Inputs
-                    <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/forms/_input.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_input.scss</span></a>
-                  </h2>
-                  
-                  <p>   Our standard input styling across the website. This is specifically for type text and textarea.</p>
-              
-                    <ul class="styleguide__block-states">
-                        <li class="name"><strong>.large</strong> - Larger input style</li>
-                    </ul>
-                  
-                </div>
-                
-                <h3 class="styleguide__block-small-title">Example</h3>
-                <div class="styleguide__block-examples">
-                  <div class="styleguide__block-example">
-                    <input class='us-form-input {$modifiers}' type='text'>
-                  </div>
-                
-                    <div class="styleguide__block-example state-large">
-                      <input class='us-form-input large' type='text'>
-                      <div class="styleguide__block-example-class">.large</div>
-                    </div>
-              
-                  <pre><code class="html">
-              &lt;input class='us-form-input' type='text'&gt;
-                  </code></pre>
-                </div>
-              
-              </div>
-              <div class="styleguide__block" id="radios_and_checkboxes">
-                <div class="styleguide__block-info">
-                  <h2 class="styleguide__block-title">
-                    Radios and checkboxes
-                    <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/forms/_radio-checkbox.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_radio-checkbox.scss</span></a>
-                  </h2>
-                  
-                  <p>   Webkit/Blink browsers display our font icon tick or a box shadow circle. Other browsers fallback to default styling.</p>
-              
-                  
-                </div>
-                
-                <h3 class="styleguide__block-small-title">Example</h3>
-                <div class="styleguide__block-examples">
-                  <div class="styleguide__block-example">
-                       <div class='us-field us-field-blocked'>
-                   <label>Do you have a different billing address?</label>
-                   <div class='us-field-toggle'>
-                     <label>
-                       <input checked='checked' class='us-form-input' name='null' type='radio'>Yes</input>
-                     </label>
-                     <label>
-                       <input class='us-form-input' name='null' type='radio'>No</input>
-                     </label>
-                   </div>
-                 </div>
-                 <div class='us-field us-field-blocked'>
-                   <label>How would you like to be contacted?</label>
-                   <div class='us-field-toggle'>
-                     <label>
-                       <input checked='checked' class='us-form-input' name='null' type='checkbox'>Mobile</input>
-                     </label>
-                     <label>
-                       <input class='us-form-input' name='null' type='checkbox'>Email</input>
-                     </label>
-                   </div>
-                 </div>
-                  </div>
-                
-              
-                  <pre><code class="html">
-                 &lt;div class='us-field us-field-blocked'&gt;
-                   &lt;label&gt;Do you have a different billing address?&lt;/label&gt;
-                   &lt;div class='us-field-toggle'&gt;
-                     &lt;label&gt;
-                       &lt;input checked='checked' class='us-form-input' name='null' type='radio'&gt;Yes&lt;/input&gt;
-                     &lt;/label&gt;
-                     &lt;label&gt;
-                       &lt;input class='us-form-input' name='null' type='radio'&gt;No&lt;/input&gt;
-                     &lt;/label&gt;
-                   &lt;/div&gt;
+               &lt;/div&gt;
+               &lt;div class='us-field us-field-blocked'&gt;
+                 &lt;label&gt;How would you like to be contacted?&lt;/label&gt;
+                 &lt;div class='us-field-toggle'&gt;
+                   &lt;label&gt;
+                     &lt;input checked='checked' class='us-form-input' name='null' type='checkbox'&gt;Mobile&lt;/input&gt;
+                   &lt;/label&gt;
+                   &lt;label&gt;
+                     &lt;input class='us-form-input' name='null' type='checkbox'&gt;Email&lt;/input&gt;
+                   &lt;/label&gt;
                  &lt;/div&gt;
-                 &lt;div class='us-field us-field-blocked'&gt;
-                   &lt;label&gt;How would you like to be contacted?&lt;/label&gt;
-                   &lt;div class='us-field-toggle'&gt;
-                     &lt;label&gt;
-                       &lt;input checked='checked' class='us-form-input' name='null' type='checkbox'&gt;Mobile&lt;/input&gt;
-                     &lt;/label&gt;
-                     &lt;label&gt;
-                       &lt;input class='us-form-input' name='null' type='checkbox'&gt;Email&lt;/input&gt;
-                     &lt;/label&gt;
-                   &lt;/div&gt;
-                 &lt;/div&gt;
-                  </code></pre>
-                </div>
-              
+               &lt;/div&gt;
+                </code></pre>
               </div>
-              <div class="styleguide__block" id="selects">
-                <div class="styleguide__block-info">
-                  <h2 class="styleguide__block-title">
-                    Selects
-                    <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/forms/_select.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_select.scss</span></a>
-                  </h2>
-                  
-                  <p>   The select is built with inline background-image SVGs for Webkit/Blink browsers that allow for customisation on the hover/normal colours. </p>
-              <p>   Firefox allows for <code>.us-form-select-wrap</code> to be added on top of the select to replicate styling, whilst other browser fallback to native implementation. </p>
-              <p>   <code>$select-base-color</code>, <code>$select-hover-color</code> and <code>$select-active-color</code> allow for different colouring of the border/dropdown.</p>
-              
-                  
-                </div>
+            
+            </div>
+            <div class="styleguide__block" id="selects">
+              <div class="styleguide__block-info">
+                <h2 class="styleguide__block-title">
+                  Selects
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/forms/_select.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_select.scss</span></a>
+                </h2>
                 
+                <p>   The select is built with inline background-image SVGs for Webkit/Blink browsers that allow for customisation on the hover/normal colours. </p>
+            <p>   Firefox allows for <code>.us-form-select-wrap</code> to be added on top of the select to replicate styling, whilst other browser fallback to native implementation. </p>
+            <p>   <code>$select-base-color</code>, <code>$select-hover-color</code> and <code>$select-active-color</code> allow for different colouring of the border/dropdown.</p>
+            
+                
+              </div>
+              
+              <div class="styleguide__block-examples">
                 <h3 class="styleguide__block-small-title">Example</h3>
-                <div class="styleguide__block-examples">
-                  <div class="styleguide__block-example">
-                       <span class='us-form-select-wrap'>
-                   <select class='us-form-select'>
-                     <option>A select menu</option>
-                     <option>With lots of options</option>
-                     <option>And a few more</option>
-                   </select>
-                 </span>
-                  </div>
-                
-              
-                  <pre><code class="html">
-                 &lt;span class='us-form-select-wrap'&gt;
-                   &lt;select class='us-form-select'&gt;
-                     &lt;option&gt;A select menu&lt;/option&gt;
-                     &lt;option&gt;With lots of options&lt;/option&gt;
-                     &lt;option&gt;And a few more&lt;/option&gt;
-                   &lt;/select&gt;
-                 &lt;/span&gt;
-                  </code></pre>
+                <div class="styleguide__block-example">
+                     <span class='us-form-select-wrap'>
+                 <select class='us-form-select'>
+                   <option>A select menu</option>
+                   <option>With lots of options</option>
+                   <option>And a few more</option>
+                 </select>
+               </span>
                 </div>
               
+            
+                <pre><code class="html">
+               &lt;span class='us-form-select-wrap'&gt;
+                 &lt;select class='us-form-select'&gt;
+                   &lt;option&gt;A select menu&lt;/option&gt;
+                   &lt;option&gt;With lots of options&lt;/option&gt;
+                   &lt;option&gt;And a few more&lt;/option&gt;
+                 &lt;/select&gt;
+               &lt;/span&gt;
+                </code></pre>
               </div>
-              <div class="styleguide__block" id="form_validation">
-                <div class="styleguide__block-info">
-                  <h2 class="styleguide__block-title">
-                    Form validation
-                    <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/forms/_validation.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_validation.scss</span></a>
-                  </h2>
-                  
-                  <p>   Validation message and input styling provides a consistent look and feel to uStyle forms.</p>
-              
-                    <ul class="styleguide__block-states">
-                        <li class="name"><strong>.us-validation--bordered</strong> - use this for any singular field validation or validation on backgrounds</li>
-                        <li class="name"><strong>.us-validation--success</strong> - Success styling for correct forms</li>
-                        <li class="name"><strong>.us-validation--error</strong> - Error styling (default) for incorrect data on forms</li>
-                    </ul>
-                  
-                </div>
+            
+            </div>
+            <div class="styleguide__block" id="form_validation">
+              <div class="styleguide__block-info">
+                <h2 class="styleguide__block-title">
+                  Form validation
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/forms/_validation.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_validation.scss</span></a>
+                </h2>
                 
+                <p>   Validation message and input styling provides a consistent look and feel to uStyle forms.</p>
+            
+                  <ul class="styleguide__block-states">
+                      <li class="name"><strong>.us-validation--bordered</strong> - use this for any singular field validation or validation on backgrounds</li>
+                      <li class="name"><strong>.us-validation--success</strong> - Success styling for correct forms</li>
+                      <li class="name"><strong>.us-validation--error</strong> - Error styling (default) for incorrect data on forms</li>
+                  </ul>
+                
+              </div>
+              
+              <div class="styleguide__block-examples">
                 <h3 class="styleguide__block-small-title">Example</h3>
-                <div class="styleguide__block-examples">
-                  <div class="styleguide__block-example">
-                       <div class="us-validation__input {$modifiers}">
-                   <input type="email" class="us-form-input" name="email" />
-                 </div>
-                 <div class="us-validation {$modifiers}">
-                   <div class="us-validation__icon"></div>
-                   <div class="us-validation__message">Validation message here</div>
-                 </div>
-                  </div>
-                
-                    <div class="styleguide__block-example state-us-validation--bordered">
-                         <div class="us-validation__input us-validation--bordered">
-                   <input type="email" class="us-form-input" name="email" />
-                 </div>
-                 <div class="us-validation us-validation--bordered">
-                   <div class="us-validation__icon"></div>
-                   <div class="us-validation__message">Validation message here</div>
-                 </div>
-                      <div class="styleguide__block-example-class">.us-validation--bordered</div>
-                    </div>
-                    <div class="styleguide__block-example state-us-validation--success">
-                         <div class="us-validation__input us-validation--success">
-                   <input type="email" class="us-form-input" name="email" />
-                 </div>
-                 <div class="us-validation us-validation--success">
-                   <div class="us-validation__icon"></div>
-                   <div class="us-validation__message">Validation message here</div>
-                 </div>
-                      <div class="styleguide__block-example-class">.us-validation--success</div>
-                    </div>
-                    <div class="styleguide__block-example state-us-validation--error">
-                         <div class="us-validation__input us-validation--error">
-                   <input type="email" class="us-form-input" name="email" />
-                 </div>
-                 <div class="us-validation us-validation--error">
-                   <div class="us-validation__icon"></div>
-                   <div class="us-validation__message">Validation message here</div>
-                 </div>
-                      <div class="styleguide__block-example-class">.us-validation--error</div>
-                    </div>
-              
-                  <pre><code class="html">
-                 &lt;div class="us-validation__input"&gt;
-                   &lt;input type="email" class="us-form-input" name="email" /&gt;
-                 &lt;/div&gt;
-                 &lt;div class="us-validation"&gt;
-                   &lt;div class="us-validation__icon"&gt;&lt;/div&gt;
-                   &lt;div class="us-validation__message"&gt;Validation message here&lt;/div&gt;
-                 &lt;/div&gt;
-                  </code></pre>
+                <div class="styleguide__block-example">
+                     <div class="us-validation__input {$modifiers}">
+                 <input type="email" class="us-form-input" name="email" />
+               </div>
+               <div class="us-validation {$modifiers}">
+                 <div class="us-validation__icon"></div>
+                 <div class="us-validation__message">Validation message here</div>
+               </div>
                 </div>
               
+                  <div class="styleguide__block-example state-us-validation--bordered">
+                       <div class="us-validation__input us-validation--bordered">
+                 <input type="email" class="us-form-input" name="email" />
+               </div>
+               <div class="us-validation us-validation--bordered">
+                 <div class="us-validation__icon"></div>
+                 <div class="us-validation__message">Validation message here</div>
+               </div>
+                    <div class="styleguide__block-example-class">.us-validation--bordered</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-validation--success">
+                       <div class="us-validation__input us-validation--success">
+                 <input type="email" class="us-form-input" name="email" />
+               </div>
+               <div class="us-validation us-validation--success">
+                 <div class="us-validation__icon"></div>
+                 <div class="us-validation__message">Validation message here</div>
+               </div>
+                    <div class="styleguide__block-example-class">.us-validation--success</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-validation--error">
+                       <div class="us-validation__input us-validation--error">
+                 <input type="email" class="us-form-input" name="email" />
+               </div>
+               <div class="us-validation us-validation--error">
+                 <div class="us-validation__icon"></div>
+                 <div class="us-validation__message">Validation message here</div>
+               </div>
+                    <div class="styleguide__block-example-class">.us-validation--error</div>
+                  </div>
+            
+                <pre><code class="html">
+               &lt;div class="us-validation__input"&gt;
+                 &lt;input type="email" class="us-form-input" name="email" /&gt;
+               &lt;/div&gt;
+               &lt;div class="us-validation"&gt;
+                 &lt;div class="us-validation__icon"&gt;&lt;/div&gt;
+                 &lt;div class="us-validation__message"&gt;Validation message here&lt;/div&gt;
+               &lt;/div&gt;
+                </code></pre>
               </div>
-      </div>  
+            
+            </div>
     </div>
   </div>
-  <p class="copyright">Copyright &copy; uSwitch limited.</p>
+  <div class="container">
+    <p class="copyright">Copyright &copy; uSwitch limited.</p>  
+  </div>
   <script src="https://cdn.polyfill.io/v1/polyfill.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="/js/app.js"></script>

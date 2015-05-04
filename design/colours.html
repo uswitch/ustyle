@@ -29,6 +29,7 @@
       </nav>
     </nav>
   </header>
+  <a href="javascript:void(0);" class="nav-mobile js-toggle__link us-desktop--hidden" data-target="sidebar"><span class="nav-mobile__hamburger">Sidebar</span></a>
   <div class='sidebar'>
     <nav class='sidebar__nav' data-gumshoe>
           <a class="sidebar__nav-link " href="index.html">Design</a>
@@ -45,9 +46,8 @@
   </div>
   <div id="wrapper" class="container sidebar--push">
     <h1 class="styleguide__title">Colours</h1>
-    <div class="us-grid-row">
-      <div class="styleguide us-col-md-10">
-              <div class="styleguide__block" id="primary_palette">
+    <div class="styleguide">
+            <div class="styleguide__block" id="primary_palette">
   <div class="styleguide__block-info">
     <h2 class="styleguide__block-title">
       Primary palette
@@ -160,7 +160,7 @@
   </div>
 </div>
 
-              <div class="styleguide__block" id="secondary_palette">
+            <div class="styleguide__block" id="secondary_palette">
   <div class="styleguide__block-info">
     <h2 class="styleguide__block-title">
       Secondary palette
@@ -263,10 +263,11 @@
   </div>
 </div>
 
-      </div>  
     </div>
   </div>
-  <p class="copyright">Copyright &copy; uSwitch limited.</p>
+  <div class="container">
+    <p class="copyright">Copyright &copy; uSwitch limited.</p>  
+  </div>
   <script src="https://cdn.polyfill.io/v1/polyfill.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="/js/app.js"></script>

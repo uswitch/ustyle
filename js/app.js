@@ -575,60 +575,40 @@
 
 }).call(this);
 
-(function(root, document, window){
-  "use strict";
+function cleanWhiteSpace(codeBlocks){
+    if (!codeBlocks) return;
 
-  function stickySidebar(){
-    var elem = document.querySelector(".js-sticky");
-    
-    if (elem === null) return;
+    for (var i = codeBlocks.length - 1; i >= 0; i--) {
+      var codeBlock = codeBlocks[i],
+          lines, offset;
 
-    var box = elem.getBoundingClientRect();
-    var targetOffset = box.top + window.pageYOffset - document.documentElement.clientTop;
+      lines = codeBlock.textContent.split( '\n' );
 
-    _listenToScroll(targetOffset, elem);
+      if ( lines.length > 1 && lines[ lines.length - 1 ].trim() === '' ){
+        lines.pop();
+      }
 
-    window.addEventListener("scroll", function(e){
-      _listenToScroll(targetOffset, elem)
-    });
+      var canClean = lines[1] != undefined;
+
+      if (canClean) {
+          // how much white-space do we need to remove form each line?
+        offset = lines[ 1 ].match( /^\s*/ )[ 0 ].length;
+
+        // remove the excess white-space from the beginning of each line
+        lines = lines.map( function ( line ) {
+            return line.slice( offset );
+        });
+
+        lines.shift();
+
+        codeBlock.textContent = lines.join( '\n' );  
+      }
+
+      hljs.highlightBlock(codeBlock);
+    };
   }
 
-  function _listenToScroll(targetOffset, elem){
-    var winTop = window.pageYOffset;
-    if (targetOffset < winTop){
-      elem.classList.add("sticky");
-    } else {
-      elem.classList.remove("sticky");
-    }
-  }
-
-  return new stickySidebar();
-
-})(this, document, window);
-
-;(function(document, $, root){
-  "use strict";
-
-  function tabScroll(activeTab, container){
-    this.activeTab = activeTab;
-    this.container = container;
-
-    var activeTabWidth = this.activeTab.width() + 15;
-    var activeTabIndex = this.activeTab.index();
-    var scrollLeftDistance = activeTabWidth * activeTabIndex;
-
-    container.animate({
-      scrollLeft: scrollLeftDistance
-    })
-  }
-
-  root.tabScroll = tabScroll
-
-  return tabScroll;
-
-})(document, $, this);
-
-(function(document, window){
+(function(document, window, cleanWhiteSpace){
   "use strict";
 
   function App(){
@@ -637,8 +617,6 @@
       offset: 70
     });
 
-    var tabs = new tabScroll($(".nav__link.active"), $(".nav-container"));
-
     var toggleLinks = document.querySelectorAll(".js-toggle__link");
 
     for (var i = toggleLinks.length - 1; i >= 0; i--) {
@@ -646,9 +624,9 @@
       toggleLink.addEventListener("click", clickToggle, false);
     };
 
-    codeBlockClean(document.querySelectorAll('pre code'));
+    cleanWhiteSpace(document.querySelectorAll('pre code'));
 
-    var overlays = []
+    var overlays = [];
 
     $(".js-open-overlay").each(function(e){
       overlays.push( 
@@ -667,39 +645,11 @@
     });
     
     var tabs = new Tabs();
+
     var anchor = new Anchor({
       target: document.querySelector(".js-example-anchor"),
       content: document.querySelector(".js-example-anchor__target")
     });
-  }
-
-  function codeBlockClean(codeBlocks){
-    if (!codeBlocks) return;
-
-    for (var i = codeBlocks.length - 1; i >= 0; i--) {
-      var codeBlock = codeBlocks[i],
-          lines, offset;
-
-      lines = codeBlock.textContent.split( '\n' );
-
-      if ( lines.length > 1 && lines[ lines.length - 1 ].trim() === '' ){
-        lines.pop();
-      }
-
-      // how much white-space do we need to remove form each line?
-      offset = lines[ 1 ].match( /^\s*/ )[ 0 ].length;
-
-      // remove the excess white-space from the beginning of each line
-      lines = lines.map( function ( line ) {
-          return line.slice( offset );
-      });
-
-      lines.shift();
-
-      codeBlock.textContent = lines.join( '\n' );
-
-      hljs.highlightBlock(codeBlock);
-    };
   }
 
   function clickToggle(event){
@@ -717,4 +667,4 @@
 
   return new App();
 
-})(document, window);
+})(document, window, cleanWhiteSpace);
