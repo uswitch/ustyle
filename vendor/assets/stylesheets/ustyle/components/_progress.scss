@@ -85,11 +85,11 @@ $progress-next-color: tint($c-navy, 35%);
     display: inline-block;
     width: 1.5em;
     height: 1.5em;
-    line-height: 1.5em;
     margin-right: $gutter-width/3;
+    font-weight: 700;
+    line-height: 1.5em;
     color: $c-navy;
     text-align: center;
-    font-weight: 700;
     vertical-align: middle;
     border-radius: 50%;
     content: counter(number-counter);
@@ -112,22 +112,23 @@ $progress-next-color: tint($c-navy, 35%);
   &:before {
     background-color: $progress-current-color;
   }
+
   &:after {
     @include arrow(20px, 11px, up, $c-cyan);
     position: absolute;
     bottom: -4px;
     left: 2px;
-    content: '';
+    content: "";
 
     @include respond-to(tablet, true) {
-      left: 50%;
       bottom: 0;
+      left: 50%;
     }
   }
 }
 
 .us-progress__link--complete {
-  @include link-colors($progress-complete-color, white, $progress-complete-color, $progress-complete-color, white);
+  @include link-colors($progress-complete-color, #fff, $progress-complete-color, $progress-complete-color, #fff);
 
   &:before {
     background-color: $progress-complete-color;
@@ -135,7 +136,7 @@ $progress-next-color: tint($c-navy, 35%);
 
   &:hover:before,
   &:active:before {
-    background-color: white;
+    background-color: #fff;
   }
 }
   
