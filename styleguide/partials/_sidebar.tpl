@@ -1,3 +1,4 @@
+<a href="javascript:void(0);" class="nav-mobile js-toggle__link us-desktop--hidden" data-target="sidebar"><span class="nav-mobile__hamburger">Sidebar</span></a>
 <div class='sidebar'>
   <nav class='sidebar__nav' data-gumshoe>
     {{#pages}}

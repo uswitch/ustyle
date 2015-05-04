@@ -3,7 +3,11 @@
   @include bold-font;
   display: block;
   float: left;
-  padding: 1em .55em;
-  font-size: 1.5em;
-  letter-spacing: 1px;
+  padding: .55em;
+
+  @include respond-to(tablet, true) {
+    font-size: 1.5em;
+    letter-spacing: 1px;
+    padding: 1em .55em;
+  }
 }

@@ -17,5 +17,6 @@ $container-width: 90%;
   
   @include respond-to(desktop, true){
     width: calc(100% - 270px);
+    padding-right: 135px + $gutter-width;
   }
 }

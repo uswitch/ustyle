@@ -1,6 +1,5 @@
 'use strict';
 
-
 module.exports = function(grunt){
 
   grunt.registerMultiTask("cssstats", function() {
@@ -35,7 +34,6 @@ module.exports = function(grunt){
         'propertiesCount', 'published', 'paths'
       ];
 
-
       (new StyleStats(cssFile, {})).parse(function(err, styleStatsData){
         var result = _.omit(styleStatsData,omitEntries);
         callback(null, stats, result);
@@ -66,7 +64,7 @@ module.exports = function(grunt){
 
     function writeToFile(err, model) {
       var content = grunt.file.readJSON(outputFilePath);
-      content.pages.push(model)
+      content.pages.push(model);
       fileHelper.writeFile(JSON.stringify(content), outputFilePath, "css stats");
       done();
     }

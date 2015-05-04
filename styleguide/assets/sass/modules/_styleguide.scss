@@ -29,6 +29,7 @@ $styleguide-block-border-color: $c-bordergrey;
     @include bold-font;
     margin-top: 1em;
     margin-bottom: 1em;
+    color: $c-navy;
   }
 
   &__nav {
@@ -57,10 +58,8 @@ $styleguide-block-border-color: $c-bordergrey;
     background-color: $c-bggrey;
     font-size: 14px;
     line-height: 1.25;
+    font-weight: 400;
     margin-top: 5px;
-    span {
-      color: $c-typegrey-2;
-    }
   }
 
   &__block {

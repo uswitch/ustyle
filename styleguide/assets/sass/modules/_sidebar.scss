@@ -6,11 +6,14 @@ $sidebar-top-push       : $gutter-width/2;
 $sidebar-padding        : 0;
 
 .sidebar {
+  position: relative;
+  top: 43px;
   background-color: $sidebar-bg-color;
   z-index: 10;
   overflow: visible;
+  display: none;
 
-  @include respond-to($sidebar-breakpoint){
+  @include respond-to($sidebar-breakpoint) {
     position: fixed;
     top: $header-height;
     right: 0;
@@ -18,14 +21,23 @@ $sidebar-padding        : 0;
     width: $sidebar-width;
     min-height: 1px;
     padding-top: $gutter-width;
+    padding-bottom: $gutter-width;
     overflow-y: auto;
     overflow-x: hidden;
+  }
+
+  @include respond-to($sidebar-side-visibility) {
+    display: block;
+  }
+
+  &--active {
+    display: block;
   }
 
   &__nav-link {
     @include link-colors($c-navy, $c-typecyan, $c-navy, $c-navy);
     display: block;
-    padding: 4px $gutter-width;
+    padding: 6px $gutter-width;
 
     &.active {
       background-color: white;
@@ -34,7 +46,7 @@ $sidebar-padding        : 0;
 
     &--sub {
       @include link-colors($c-typecyan, $c-navy, $c-typecyan, $c-typecyan);
-      padding-left: $gutter-width*1.5;
+      padding: 4px $gutter-width 4px $gutter-width*1.5;
       transition: transform .3s;
     }
 
@@ -43,5 +55,11 @@ $sidebar-padding        : 0;
       font-weight: 700;
       transform: translateX(5px);
     }
+  }
+
+  &__toggle {
+    position: absolute;
+    top: $header-height;
+    right: $gutter-width;
   }
 }

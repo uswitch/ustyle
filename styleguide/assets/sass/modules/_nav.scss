@@ -9,14 +9,12 @@
 }
 
 .nav {
+  float: right;
+
   .sidebar--active & {
     display: block;
   }
   
-  @include respond-to(tablet, true) {
-    float: right;
-  }
-
   &__set {
     @extend %reset-box-model;
     list-style: none;
@@ -26,11 +24,11 @@
     @include link-colors($c-navy, $c-typecyan, $c-navy, $c-navy);
     display: inline-block;
     position: relative;
-    padding: 6px $gutter-width/2;
+    padding: .55em $gutter-width/2;
     transition: color 200ms, background-color 200ms;
 
     @include respond-to(tablet) {
-      padding: 1.5em $gutter-width
+      padding: 1.5em $gutter-width;
     }
 
     &.active {

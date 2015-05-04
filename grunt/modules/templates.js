@@ -69,6 +69,5 @@ module.exports = {
     handlebars.registerHelper('classSanitizer', function(klass){
       return new handlebars.SafeString(klass.split('.')[1]);
     });
-
   }
 };
