@@ -9,7 +9,7 @@ module Ustyle
     }
 
     initializer "ustyle.assets.precompile" do |app|
-      app.config.assets.precompile += %w( inputs/**.* icons/**.* )
+      app.config.assets.precompile += %w( icons/**.* )
     end
 
     initializer "ustyle.update_asset_paths", &add_paths_block
