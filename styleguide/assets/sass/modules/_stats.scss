@@ -4,7 +4,8 @@
     margin: 10px 0;
   }
 
-  &--number {
+  &--number,
+  &--string {
     .stat__value {
       font-size: 3.6em;
       line-height: 1em;
@@ -16,7 +17,7 @@
   }
 
   &--string {
-    display: none;
+    color: $c-typecyan-light;
   }
 
   &--array {
@@ -27,5 +28,11 @@
     float: left;
     clear: both;
   }
+}
 
+.report--entry {
+  float: left;
+  margin: 10px;
+  padding-bottom: 10px;
+  border-bottom: solid 1px $c-bordergrey;
 }

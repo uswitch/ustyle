@@ -56,9 +56,11 @@ module.exports = function(grunt) {
     styleguide: {
       dist: {
         src: 'vendor/assets/stylesheets/ustyle/**/*.scss',
+        dir: 'styleguide',
         output: 'dist/ustyle.json',
-        statsFor: 'dist/ustyle-latest.css',
-        dir: 'styleguide'
+        statsFor: 'https://assets0.uswitch.com/s3/uswitch-assets-eu/ustyle/{#tag}/ustyle-latest.css',
+        tagPlaceholder: '{#tag}',
+        tagStartVersion: '0.9.9'
       }
     },
     builder: {
