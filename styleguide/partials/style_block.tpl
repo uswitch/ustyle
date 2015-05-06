@@ -16,8 +16,8 @@
     
   </div>
   
-  <h3 class="styleguide__block-small-title">Example</h3>
   <div class="styleguide__block-examples">
+    <h3 class="styleguide__block-small-title">Example</h3>
     <div class="styleguide__block-example">
       {{{markup.example}}}
     </div>
@@ -34,6 +34,11 @@
       {{~{escaped}}}
     {{/markup}}
     </code></pre>
+    {{#if javascript}}
+      <pre><code class="javascript">
+      {{~{javascript}}}
+      </code></pre>
+    {{/if}}
   </div>
 
 </div>

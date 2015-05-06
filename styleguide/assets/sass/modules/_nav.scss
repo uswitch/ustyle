@@ -9,55 +9,30 @@
 }
 
 .nav {
+  float: right;
+
   .sidebar--active & {
     display: block;
   }
   
-  @include respond-to(tablet, true) {
-    float: right;
-  }
-
   &__set {
     @extend %reset-box-model;
     list-style: none;
   }
 
-  &--sub {
-    width: 215%;
-    @include respond-to(tablet) {
-      width: auto;
-    }
-  }
-
-  &--header {
-    float: right;
-
-    .nav__link {
-      padding: 15px 5px;
-      @include respond-to(tablet) {
-        padding: 15px $gutter-width;  
-      }
-    }
-  }
-
   &__link {
-    @include link-colors(#fff, $c-typecyan, #fff, #fff);
+    @include link-colors($c-navy, $c-typecyan, $c-navy, $c-navy);
     display: inline-block;
     position: relative;
-    padding: 6px $gutter-width/2;
+    padding: .55em $gutter-width/2;
     transition: color 200ms, background-color 200ms;
 
     @include respond-to(tablet) {
-      padding: 6px $gutter-width
+      padding: 1.5em $gutter-width;
     }
 
-    &:hover,
     &.active {
-      color: $c-typecyan;
-
-      &:before {
-        width: 8px;
-      }
+      font-weight: 700;
     }
   }
 }

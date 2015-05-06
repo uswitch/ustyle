@@ -3,21 +3,19 @@
 //
 // @description
 //  `.us-tooltip` can be applied to any parent, and by hovering it, it will toggle the visibility of `.us-tooltip__note`
-//
-//  Tooltip doesn't have it's own javascript file, all it needs is to toggle a class, for that we can use:
-//
-// `var tooltips = new ClassToggler({
-//   containerClass: '.us-tooltip',
-//   $target: $('.us-tooltip__icon'),
-//   activeClass: "us-tooltip--active"
-// });`
-//
 //  Please note that on mobile viewports, the tooltip will appeat underneath the element that is aligned with the tooltip icon.
 //  
 // @state .us-tooltip--top
 // @state .us-tooltip--bottom
 // @state .us-tooltip--left
 // @state .us-tooltip--right
+//
+// @javascript
+//  var tooltips = new ClassToggler({
+//    containerClass: '.us-tooltip',
+//    $target: $('.us-tooltip__icon'),
+//    activeClass: "us-tooltip--active"
+//  });
 //
 // @markup
 //   <div class="tooltip-demo us-tooltip {$modifiers}">

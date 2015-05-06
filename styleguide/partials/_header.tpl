@@ -1,25 +1,11 @@
 <header class="ustyle__header">
   <a class="logo" href="/">ustyle</a>
-  <span class="version us-tablet--block">v{{project.version}}</span>
+  <a class="version us-tablet--block" href="https://github.com/uswitch/ustyle/releases/tag/{{project.version}}">v{{project.version}}</a>
   <div class='nav nav--header'>
     <nav>
       {{#navigation}}
-        <a href="/{{url this}}/" class="nav__link">{{humanize this}}</a>
+      <a href="/{{this}}/" class="nav__link {{activeClass this 'section'}}">{{humanize this}}</a>
       {{/navigation}}    
     </nav>
   </nav>
 </header>
-<div class='us-clearfix nav-container'>
-  <div class='nav nav--sub'>
-    <nav>
-      {{#pages}}
-        {{#isSection this.section}}
-          <a class="nav__link nav__main-link {{isActive this.name}}" href="{{page}}">{{name}}</a>
-        {{/isSection}}
-      {{/pages}}
-      {{#isSection "code"}}
-        <a class="nav__link nav__main-link" href="/sass/">Sass doc</a>
-      {{/isSection}}
-    </nav>
-  </div>
-</div>

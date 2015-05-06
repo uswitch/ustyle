@@ -1,6 +1,6 @@
 {
   "name": "ustyle",
-  "version": "0.15.2",
+  "version": "0.16.0",
   "main": [
     "dist/ustyle-latest.css",
     "dist/ustyle-icons.css",

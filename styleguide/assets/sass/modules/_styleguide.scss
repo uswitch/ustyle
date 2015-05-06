@@ -27,7 +27,9 @@ $styleguide-block-border-color: $c-bordergrey;
 
   &__title {
     @include bold-font;
-    margin: 0;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    color: $c-navy;
   }
 
   &__nav {
@@ -56,10 +58,8 @@ $styleguide-block-border-color: $c-bordergrey;
     background-color: $c-bggrey;
     font-size: 14px;
     line-height: 1.25;
+    font-weight: 400;
     margin-top: 5px;
-    span {
-      color: $c-typegrey-2;
-    }
   }
 
   &__block {
@@ -71,17 +71,21 @@ $styleguide-block-border-color: $c-bordergrey;
   &__block-title {
     @include bold-font;
     position: relative;
-    color: $c-typecyan;
+    color: $c-navy;
     margin-bottom: $gutter-width/2;
+  }
+
+  &__block-small-title {
+    padding: $gutter-width/2;
+    margin-bottom: 0;
+    font-size: 1.125em;
+    color: $c-typegrey-2;
+    text-transform: uppercase;
   }
 
   &__block-examples {
     border: 1px solid $styleguide-block-border-color;
     border-radius: 3px;
-  }
-
-  &__block-example {
-    position: relative;
   }
 
   &__block-example-class {

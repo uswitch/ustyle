@@ -15,7 +15,7 @@ Our values
 - Confidence
 - Possibilities
       
-Our missiion
+Our mission
 ---
 Using our expansive market knowledge and customer insight, we want to provide a simple, relevant service allowing customers to switch with minimal hassle.
 

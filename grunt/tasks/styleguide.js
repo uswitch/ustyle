@@ -33,7 +33,8 @@ module.exports = function(grunt){
           variable: dssHelper.variableDssParser(),
           partial: function(i, line, block){ return line; },
           page: function(i, line, block){ return line; },
-          description: dssHelper.descriptionDssParser
+          description: dssHelper.descriptionDssParser,
+          javascript: dssHelper.javascriptParser
         }
     });
 

@@ -2,9 +2,21 @@
 // @name Overlay
 //
 // @description
-//  `.us-overlay` can slide from either side and turn into a modal if `.us-overlay-modal-parent` is added to a parent.
+//  Our overlay can slide from either side and turn into a modal if `.us-overlay-modal-parent` is added to a parent.
+//  We use this across the site on mobile to display filters and clickout detail pages without taking the user away from the page.
 //  
-//  To initialise call `var overlay = new Overlay({options})`
+// @javascript
+//   var overlay = new Overlay({
+//     openedClass:    'us-overlay--open'
+//     overlay:        $('.us-overlay-parent')
+//     openButton:     $('.js-open-overlay')
+//     closeButton:    $('.js-close-overlay')
+//     escapeKey:      27
+//     historyStatus:  '#seedeal'
+//     history:        true
+//     resetScroll:    true
+//     preventDefault: true
+//   })
 // 
 // @state .us-overlay--right - Slide from the right
 // @state .us-overlay--sticky-header - Sticky header

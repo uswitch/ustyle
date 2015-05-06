@@ -25,24 +25,16 @@ module.exports = {
       return new handlebars.SafeString(handlebars.compile(partial)(this));
     });
 
-    handlebars.registerHelper('isActive', function(name, context) {
+    handlebars.registerHelper('activeClass', function(name, attribute, context) {
       var active = '';
-      if(name === context.data.root.page.name) {
+      if(name === context.data.root.page[attribute]) {
         active = 'active'
       }
       return new handlebars.SafeString(active);
     });
 
-    handlebars.registerHelper('url', function(url){
-      if(process.env.NODE_ENV == 'development'){
-         return new handlebars.SafeString(url);
-       } else {
-         return new handlebars.SafeString('ustyle/' + url);
-       }
-    });
-
-    handlebars.registerHelper('isSection', function(name, context) {
-      if(name === context.data.root.page.section){
+    handlebars.registerHelper('isActive', function(name, attribute, context) {
+      if(name === context.data.root.page[attribute]){
         return context.fn(this);  
       }
       return context.inverse(this);
@@ -77,6 +69,5 @@ module.exports = {
     handlebars.registerHelper('classSanitizer', function(klass){
       return new handlebars.SafeString(klass.split('.')[1]);
     });
-
   }
 };

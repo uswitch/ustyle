@@ -1,25 +1,19 @@
-<!DOCTYPE html>
-<html class="no-js svg">
-<head>
-  {{> _head}}
-</head>
+{{> _head}}
 <body>
   {{> _header}}
-  {{> _hero}}
-  <div id="wrapper" class="us-container">
-    <div class="us-grid-row">
-      {{> sidebar}}
-      <div class="styleguide us-col-md-10">
-        {{#page}}
-          {{#blocks}}
-            {{#if partial}}
-              {{partial partial}}
-            {{else}}
-              {{> style_block}}
-            {{/if}}
-          {{/blocks}}
-        {{/page}}
-      </div>  
+  {{> _sidebar}}
+  <div id="wrapper" class="container sidebar--push">
+    <h1 class="styleguide__title">{{page.name}}</h1>
+    <div class="styleguide">
+      {{#page}}
+        {{#blocks}}
+          {{#if partial}}
+            {{partial partial}}
+          {{else}}
+            {{> style_block}}
+          {{/if}}
+        {{/blocks}}
+      {{/page}}
     </div>
   </div>
   {{> _footer}}

@@ -2,9 +2,16 @@
 // @name Anchor
 //
 // @description
-//  Anchor is a naive implementation of Tether by HubSpot.
-//  It creates an independent dropdown that is "anchored" to the bottom of the target element.
+//  Anchor is a naive implementation of Tether by HubSpot. It creates an independent dropdown that is "anchored" to the bottom of the target element.
 //  We've decided to only support IE9+, as the uses of Anchor throughout uSwitch are for progressive enhancement.
+//
+// @javascript
+//   var anchor = new Anchor({
+//     classPrefix: "us-anchor"
+//     openEvent: "click"
+//     showClose: true
+//     isAjax: false
+//   });
 //
 // @markup
 //   <span class='us-btn js-example-anchor'>Click me!</span>

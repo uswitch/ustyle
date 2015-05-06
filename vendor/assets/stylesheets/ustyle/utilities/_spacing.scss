@@ -2,10 +2,8 @@
 // @name Spacing
 //
 // @description
-//   Utility classes to allow control of spacing around element.
-//   You can set margin or padding for an element without creating an extra class.
-//   An example of this `.us-margin-top`, `.us-margin-top--small`, `.us-margin-top--large` where
-//   `margin` can be replaced by `padding` and `top` can be replaced by `bottom`, `left` or `right`.
+//   Allow control of spacing around element. You can set margin or padding for an element without creating an extra class.
+//   An example of this `.us-margin-top`, `.us-margin-top--small`, `.us-margin-top--large` where `margin` can be replaced by `padding` and `top` can be replaced by `bottom`, `left` or `right`.
 //   Default space for margin and padding is 1em, `small` modifier uses .5em and `large` modifier uses 1.5em.
 //
 // @state .us-margin-top - Use default top margin (1em)

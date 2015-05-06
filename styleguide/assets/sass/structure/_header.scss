@@ -1,5 +1,8 @@
 .ustyle__header {
   @extend %clearfix;
-  position: relative;
-  background-color: $c-navy;
+  position: fixed;
+  z-index: 15;
+  left: 0;
+  right: 0;
+  background-color: $c-cyan;
 }

@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-  {{> _head}}
-</head>
+{{> _head}}
 <body>
   {{> _header}}
-  {{> _hero}}
-  <div id="wrapper" class="us-container">
+  {{> _sidebar}}
+  <div id="wrapper" class="container">
+    <h1 class="styleguide__title">{{page.name}}</h1>
     <div class="us-grid-row">
       <div class="us-content styleguide us-col-md-9">
         {{#each page.content.report}}

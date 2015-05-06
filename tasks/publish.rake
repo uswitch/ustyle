@@ -11,7 +11,6 @@ require 'fileutils'
 namespace :ustyle do
   desc "Publishes uStyle v#{Ustyle::VERSION}"
   task :publish => [ "git:add", "git:push",
-                     "build:images",
                      "deploy:images", "deploy:stylesheets"
                     ] do
     puts green("Publishing uStyle v#{Ustyle::VERSION}")

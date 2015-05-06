@@ -1,11 +1,11 @@
-(function(document, window){
+(function(document, window, cleanWhiteSpace){
   "use strict";
 
   function App(){
     gumshoe.init({
-      activeClass: 'sidebar__nav-link--active'
+      activeClass: 'sidebar__nav-link--active',
+      offset: 70
     });
-    var tabs = new tabScroll($(".nav__link.active"), $(".nav-container"));
 
     var toggleLinks = document.querySelectorAll(".js-toggle__link");
 
@@ -14,9 +14,9 @@
       toggleLink.addEventListener("click", clickToggle, false);
     };
 
-    codeBlockClean();
+    cleanWhiteSpace(document.querySelectorAll('pre code'));
 
-    var overlays = []
+    var overlays = [];
 
     $(".js-open-overlay").each(function(e){
       overlays.push( 
@@ -35,39 +35,11 @@
     });
     
     var tabs = new Tabs();
+
     var anchor = new Anchor({
       target: document.querySelector(".js-example-anchor"),
       content: document.querySelector(".js-example-anchor__target")
     });
-  }
-
-  function codeBlockClean(){
-    var codeBlocks = document.querySelectorAll('pre code');
-
-    for (var i = codeBlocks.length - 1; i >= 0; i--) {
-      var codeBlock = codeBlocks[i],
-          lines, offset;
-
-      lines = codeBlock.textContent.split( '\n' );
-
-      if ( lines.length > 1 && lines[ lines.length - 1 ].trim() === '' ){
-        lines.pop();
-      }
-
-      // how much white-space do we need to remove form each line?
-      offset = lines[ 1 ].match( /^\s*/ )[ 0 ].length;
-
-      // remove the excess white-space from the beginning of each line
-      lines = lines.map( function ( line ) {
-          return line.slice( offset );
-      });
-
-      lines.shift();
-
-      codeBlock.textContent = lines.join( '\n' );
-
-      hljs.highlightBlock(codeBlock);
-    };
   }
 
   function clickToggle(event){
@@ -85,4 +57,4 @@
 
   return new App();
 
-})(document, window);
+})(document, window, cleanWhiteSpace);

@@ -1,54 +1,65 @@
-$sidebar-width          : 280px;
-$sidebar-bg-color       : transparent;
+$sidebar-width          : 270px;
+$sidebar-bg-color       : $c-bggrey;
 $sidebar-breakpoint     : tablet;
 $sidebar-side-visibility: desktop;
 $sidebar-top-push       : $gutter-width/2;
 $sidebar-padding        : 0;
 
 .sidebar {
+  position: relative;
+  top: 43px;
   background-color: $sidebar-bg-color;
   z-index: 10;
   overflow: visible;
+  display: none;
 
-  @include respond-to($sidebar-breakpoint){
+  @include respond-to($sidebar-breakpoint) {
+    position: fixed;
+    top: $header-height;
+    right: 0;
+    bottom: 0;
+    width: $sidebar-width;
     min-height: 1px;
-    overflow: auto;
+    padding-top: $gutter-width;
+    padding-bottom: $gutter-width;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
-  &--push {
-    @include respond-to($sidebar-side-visibility){
-      padding-left: $sidebar-width;
-    }
+  @include respond-to($sidebar-side-visibility) {
+    display: block;
   }
 
-  &--fixed-push {
-    @include respond-to($sidebar-side-visibility){
-      left: $sidebar-width;
-    }
+  &--active {
+    display: block;
   }
 
   &__nav-link {
-    @include link-colors($c-typegrey, $c-typecyan, $c-typegrey, $c-typegrey);
+    @include link-colors($c-navy, $c-typecyan, $c-navy, $c-navy);
     display: block;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    transition: transform .3s;
+    padding: 6px $gutter-width;
+
+    &.active {
+      background-color: white;
+      font-weight: 700;
+    }
+
+    &--sub {
+      @include link-colors($c-typecyan, $c-navy, $c-typecyan, $c-typecyan);
+      padding: 4px $gutter-width 4px $gutter-width*1.5;
+      transition: transform .3s;
+    }
 
     &--active,
     &--active:visited {
-      color: $c-typecyan;
       font-weight: 700;
       transform: translateX(5px);
     }
   }
-}
 
-.sticky {
-  @include respond-to(tablet, true) {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    z-index: 15;
-    padding-top: $gutter-width;
+  &__toggle {
+    position: absolute;
+    top: $header-height;
+    right: $gutter-width;
   }
 }

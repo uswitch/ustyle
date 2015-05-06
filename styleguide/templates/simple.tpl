@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-  {{> _head}}
-</head>
+{{> _head}}
 <body>
   {{> _header}}
-  {{> _hero}}
-  <div id="wrapper" class="us-container">
-    <div class="us-grid-row">
-      <div class="us-content styleguide us-col-md-9">
-        {{{page.content}}}
-      </div>
+  {{> _sidebar}}
+  <div id="wrapper" class="container">
+    <h1 class="styleguide__title">{{page.name}}</h1>
+    <div class="us-content styleguide">
+      {{{page.content}}}
     </div>
   </div>
   {{> _footer}}

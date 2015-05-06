@@ -1,8 +1,9 @@
 "use strict";
 
-var dss    = require("dss"),
-    crypto = require("crypto"),
-    marked = require('marked');
+var dss        = require("dss"),
+    crypto     = require("crypto"),
+    marked     = require('marked'),
+    escaped    = require("underscore.string/escapeHTML");
 
 module.exports = {
 
@@ -86,8 +87,31 @@ module.exports = {
     descriptionDssParser: function(i, line, block){
       var nextParserIndex = block.indexOf("@", i+1),
           markupLength = nextParserIndex > -1 ? nextParserIndex - i : block.length,
-          markup = block.split('').splice(i, markupLength).join('').replace(/@description/, '');
+          markup = block.split('')
+                        .splice(i, markupLength)
+                        .join('')
+                        .replace(/\n/g, '\n\n')
+                        .replace(/@description/, '');
 
-          return marked(markup);  
+          return marked(markup);
+    },
+
+    /**
+     * Read over multiple lines and return a javascript code snippet
+     *
+     * @param {number} i - line number
+     * @param {string} line - Line matching parser
+     * @param {string} block - Entire block of text matching
+     * @return {string} Javascript code snipper
+     */
+    javascriptParser: function(i, line, block){
+      var nextParserIndex = block.indexOf("@", i+1),
+          markupLength = nextParserIndex > -1 ? nextParserIndex - i : block.length,
+          markup = block.split('')
+                        .splice(i, markupLength)
+                        .join('')
+                        .replace(/@javascript/, '');
+
+          return escaped(markup);
     }
 };
