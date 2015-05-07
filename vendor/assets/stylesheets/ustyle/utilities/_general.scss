@@ -8,9 +8,9 @@
 // @state .us-clearfix - Clear floats
 // @state .us-float--left - Float element to the left
 // @state .us-float--right - Float element to the right
-// @state .us-content--left - Align content of the element to the left
-// @state .us-content--center - Align content of the element to the center
-// @state .us-content--right - Align content of the element to the right
+// @state .us-align--left - Align content of the element to the left
+// @state .us-align--center - Align content of the element to the center
+// @state .us-align--right - Align content of the element to the right
 // @state .us-block - Display element as a block
 // @state .us-color--cyan - Change content color to blue, navy, typecyan, cyan, red, green
 // @state .us-list--reset - Reset list style
@@ -59,15 +59,15 @@
   @extend %float-right;
 }
 
-.us-content--left {
+.us-align--left {
   text-align: left;
 }
 
-.us-content--right {
+.us-align--right {
   text-align: right;
 }
 
-.us-content--center {
+.us-align--center {
   text-align: center;
 }
 
