@@ -2,7 +2,7 @@
 // @name Overlay
 //
 // @description
-//  `.us-overlay` can slide from either side and turn into a modal if `.us-overlay-parent--modal` is added to a parent.
+//  `.us-overlay` can slide from either side and turn into a modal if `.us-overlay--modal` is added.
 //
 //  
 // @javascript
@@ -18,15 +18,16 @@
 //     preventDefault: true
 //   })
 //
-// @state .us-overlay--right - Slide from the right
-// @state .us-overlay--sticky-header - Sticky header
+// @state .us-overlay--modal - Overlay appears as a modal window
+// @state .us-overlay--right - Overlay appears on the right side of the viewport (not applicable when using the overlay as a modal)
+// @state .us-overlay--sticky-header - The title bar of the overlay sticks to the top of the overlay as you sroll (not applicable when using the overlay as a modal)
 //
 // @markup
-//   <button class='us-btn js-open-overlay' modifier="{$modifiers}">Open</button>
+//   <button class="us-btn js-open-overlay" modifier="{$modifiers}">Open</button>
 //
-//   <div class="us-overlay-parent us-overlay-parent--modal {$modifiers}" modifier="{$modifiers}">
-//     <div class="us-overlay-container">
-//       <div class="us-overlay">
+//   <div class="us-overlay-parent" modifier="{$modifiers}">
+//     <div class="us-overlay {$modifiers}" modifier="{$modifiers}">
+//       <div class="us-overlay__container">
 //         <div class="us-overlay__header">
 //           <div class="us-overlay__title">
 //             Overlay
@@ -51,15 +52,19 @@ $overlay-modal-width: 60% !default;
 $overlay-modal-height: 80% !default;
 $overlay-max-modal-width: 700px !default;
 $overlay-forced-z-index: 1003 !default;
-$overlay-transition-speed: .4s !default;
+$overlay-transition-speed: .3s !default;
 $overlay-mobile-width: calc(100% - 25px) !default;
 $overlay-tablet-width: 340px !default;
 $overlay-header-height: 55px !default;
 $overlay-close-icon-size: 32px !default;
 $overlay-z-index: $overlay-forced-z-index;
 
-@mixin overlay-container($place-above: false) {
-  position: relative;
+.overlay--open {
+  overflow: hidden;
+}
+
+@mixin overlay($place-above: false) {
+  position: absolute;
   z-index: $overlay-forced-z-index;
   width: $overlay-mobile-width;
   -webkit-overflow-scrolling: auto;
@@ -84,7 +89,7 @@ $overlay-z-index: $overlay-forced-z-index;
   z-index: $overlay-forced-z-index;
   opacity: 0;
   visibility: hidden;
-  transition: opacity .3s linear;
+  transition: opacity $overlay-transition-speed linear;
 }
 
 .us-overlay-parent--visible {
@@ -96,42 +101,62 @@ $overlay-z-index: $overlay-forced-z-index;
   opacity: 1;
 }
 
-.us-overlay-parent--modal {
-  .us-overlay-container {
-    @include respond-to($overlay-modal-breakpoint, true) {
-      float: none !important;
-      width: $overlay-modal-width;
-      max-width: $overlay-max-modal-width;
-      margin: 5% auto;
+.us-overlay {
+  @include overlay;
+}
+
+.us-overlay--modal {
+  position: relative;
+
+  @include respond-to($overlay-modal-breakpoint, true) {
+    float: none !important;
+    width: $overlay-modal-width;
+    max-width: $overlay-max-modal-width;
+    margin: 5% auto;
+  }
+
+  .us-overlay__container {
+    transform: translate(0, -5%);
+
+    .us-overlay-parent--active & {
+      transform: translate(0, 0);
     }
   }
 }
 
 .us-overlay--right {
-  .us-overlay-container {
-    float: right;
+  right: 0;
+
+  .us-overlay__container {
+    transform: translate(100%, 0);
+
+    .us-overlay-parent--active & {
+      transform: translate(0, 0);
+    }
   }
 }
 
-.us-overlay {
+.us-overlay--sticky-header {
+  .us-overlay__header {
+    position: fixed;
+    top: 0;
+  }
+
+  .us-overlay__container {
+    padding-top: $overlay-header-height;
+  }
+}
+
+.us-overlay__container {
   position: relative;
   background: #fff;
-  transition: transform .3s ease-in;
-  transform: translate3d(0, -5%, 0);
+  transform: translateX(-100%);
+  transition: transform $overlay-transition-speed ease-in;
 
   .us-overlay-parent--active & {
+    transform: translateX(0);
     transition-timing-function: ease-out;
-    transform: translate3d(0, 0, 0);
   }
-}
-
-.us-overlay-container {
-  @include overlay-container;
-}
-
-.overlay--open,
-.us-overlay--sticky-header {
-  overflow: hidden;
 }
 
 .us-overlay__body {
@@ -141,6 +166,7 @@ $overlay-z-index: $overlay-forced-z-index;
 
 .us-overlay__header {
   position: relative;
+  width: 100%;
   min-height: $overlay-header-height;
   padding: 1em;
   color: #fff;
