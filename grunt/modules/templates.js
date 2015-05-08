@@ -15,6 +15,10 @@ module.exports = {
       return new handlebars.SafeString(humanize(name));
     });
 
+    handlebars.registerHelper('json', function(context) {
+        return JSON.stringify(context);
+    });
+    
     handlebars.registerHelper("partial", function (name, options) {
       // Get the partial with the given name. This is a string.
       var partial = handlebars.partials[name];
@@ -35,7 +39,7 @@ module.exports = {
 
     handlebars.registerHelper('isActive', function(name, attribute, context) {
       if(name === context.data.root.page[attribute]){
-        return context.fn(this);  
+        return context.fn(this);
       }
       return context.inverse(this);
     });
