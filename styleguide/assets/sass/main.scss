@@ -6,8 +6,7 @@ $load-icons: true;
 $header-height: 73px;
 
 // Ustyle imports
-@import "ustyle",
-        "ustyle/content";
+@import "ustyle/content";
 
 @import "structure/base",
         "structure/header";
