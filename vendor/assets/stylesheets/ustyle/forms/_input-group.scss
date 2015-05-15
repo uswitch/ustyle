@@ -27,9 +27,9 @@
   .us-form-input {
     position: relative;
     display: table-cell;
+    float: left;
     width: 100%;
     height: 100%;
-    float: left;
 
     @include respond-to(tablet, true) {
       width: auto;
@@ -48,13 +48,13 @@
   border: 1px solid $c-inputgrey;
   border-radius: 3px;
 
+  @include respond-to(tablet, true) {
+    width: auto;
+  }
+  
   [class^="us-icon--"],
   [class*=" us-icon--"] {
     vertical-align: middle;
-  }
-
-  @include respond-to(tablet, true) {
-    width: auto;
   }
 }
 

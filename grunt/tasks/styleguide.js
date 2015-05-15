@@ -15,12 +15,19 @@ module.exports = function(grunt){
         underscored     = require("underscore.string/underscored"),
         slugify         = require("underscore.string/slugify"),
         matter          = require("gray-matter"),
+        cssstats        = require('cssstats'),
+        StyleStats      = require('stylestats'),
         marked          = require('marked'),
+        semver          = require('semver'),
+        simpleGit       = require('simple-git')( path.resolve('.') ),
         promise         = this.async(),
         files           = this.files,
         outputFilePath  = this.data.output,
         styleguidePath  = this.data.dir,
         contentPath     = this.data.dir + "/content",
+        cssStatsFile    = this.data.statsFor,
+        tagStartVersion = this.data.tagStartVersion,
+        tagPlaceholder  = this.data.tagPlaceholder,
         styleguide      = [];
 
     var options = this.options({
@@ -41,6 +48,7 @@ module.exports = function(grunt){
       groupDSS,
       generateStaticContent,
       generateStyleguide,
+      generateStats,
       writeFile
     ], completeTask);
 
@@ -151,6 +159,82 @@ module.exports = function(grunt){
       }
 
       callback(null, model);
+    }
+
+    function generateStats(model, callback) {
+      var cssFileData, selectors, cssParser, omitEntries, statsPage;
+
+      statsPage = {
+        name: 'Stats',
+        page: 'stats.html',
+        section: 'code',
+        content: {report: []},
+        template: 'styleguide/templates/stats.tpl',
+      };
+
+      async.waterfall([
+        getTags,
+        getStylesListing,
+        getStats,
+      ], next);
+
+
+      function getTags(callback) {
+        simpleGit.pull().tags(function(err, tags) {
+          callback(null, tags);
+        });
+      }
+
+      function getStylesListing(tags, callback) {
+        var styleListing = tags.all.map(function(tag){
+          var cleanTag = semver.clean(tag);
+          if(cleanTag!=null && semver.gt(cleanTag, tagStartVersion)) {
+            return {
+                    version: cleanTag,
+                    path: cssStatsFile.replace(tagPlaceholder, cleanTag)
+                   }
+          }
+        });
+        callback(null, _.compact(styleListing));
+      }
+
+      function getStats(styleListing, callback) {
+        omitEntries = [
+          'dataUriSize', 'ratioOfDataUriSize','lowestCohesion',
+          'lowestCohesionSelector', 'uniqueFontSize', 'uniqueFontFamily',
+          'propertiesCount', 'published', 'paths', 'mostIdentifierSelector',
+          'totalUniqueFontSizes', 'mostIdentifier', 'totalUniqueFontFamilies',
+          'totalUniqueColors', 'unqualifiedAttributeSelectors', 'floatProperties',
+          'uniqueColor'
+        ];
+
+        async.map(styleListing,
+          function(entry, cb){
+            cssParser = new StyleStats(entry.path, {});
+            cssParser.parse(function(err, styleStatsData){
+              var generalReport = _.omit(styleStatsData,omitEntries);
+              if(Object.keys(generalReport).length) {
+                generalReport.version = entry.version;
+                statsPage.content.report.push(generalReport);
+              }
+              cb();
+            });
+          },
+          function(){
+            //Sort array
+            var sortedReport = statsPage.content.report.sort(function(a,b){
+              return semver.compare(a.version, b.version);
+            });
+            statsPage.content.report = sortedReport;
+            callback();
+          }
+        );
+      }
+
+      function next(){
+        model.pages.push(statsPage);
+        callback(null, model);
+      }
     }
 
     function _getSection(sections){

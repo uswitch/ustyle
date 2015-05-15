@@ -30,7 +30,7 @@ module.exports = function(grunt) {
       },
       build: {
         files: ['vendor/assets/**/*', 'styleguide/**/*', 'dist/ustyle.json'],
-        tasks: ['styleguide', 'copy', 'sass', 'coffee', 'sassdoc', 'postcss', 'browserSync-inject', 'cssstats', 'builder']
+        tasks: ['copy', 'sass', 'coffee', 'sassdoc', 'postcss', 'browserSync-inject', 'styleguide', 'builder']
       },
       scripts: {
         files: ['styleguide/**/*.js', 'vendor/**/*.coffee'],
@@ -56,14 +56,11 @@ module.exports = function(grunt) {
     styleguide: {
       dist: {
         src: 'vendor/assets/stylesheets/ustyle/**/*.scss',
+        dir: 'styleguide',
         output: 'dist/ustyle.json',
-        dir: 'styleguide'
-      }
-    },
-    cssstats: {
-      dist: {
-        src: 'dist/ustyle-latest.css',
-        output: 'dist/ustyle.json'
+        statsFor: 'https://assets0.uswitch.com/s3/uswitch-assets-eu/ustyle/{#tag}/ustyle-latest.css',
+        tagPlaceholder: '{#tag}',
+        tagStartVersion: '0.9.9'
       }
     },
     builder: {
@@ -165,7 +162,7 @@ module.exports = function(grunt) {
   grunt.registerTask('lint', ['scsslint']);
   grunt.registerTask('icons', ['newer:svgmin', 'svg2png']);
 
-  grunt.registerTask('build', ['sass', 'sassdoc', 'styleguide', 'copy', 'coffee', 'concat', 'lint', 'postcss', 'cssstats', 'builder']);
+  grunt.registerTask('build', ['sass', 'sassdoc', 'copy', 'coffee', 'concat', 'lint', 'postcss', 'styleguide', 'builder']);
 
   grunt.registerTask('publish', ['env:build', 'build', 'buildcontrol:pages']);
   grunt.registerTask('publish:version', 'Build and publish ustyle version', function(version){
