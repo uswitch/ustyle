@@ -10,8 +10,6 @@
 // @state .us-btn--secondary - Secondary
 // @state .us-btn--hero - Navy outline used for buttons on hero banners
 // @state .us-btn--reversed - White outline for dark backgrounds
-// @state .us-btn--arrowed , .us-btn--arrowed-right - Arrowed button used for CTAs (right pointing)
-// @state .us-btn--arrowed-left - Left pointing variation of arrowed buttons
 // @state .us-btn--large - Larger button for heros
 // @state .us-btn--small - Smaller button for mobile tables
 // @state .us-btn--blocked - Full width button
@@ -171,41 +169,6 @@ $outline-button-styles: (
 .us-btn:disabled {
   pointer-events: none;
   opacity: .5;
-}
-
-.us-btn--arrowed,
-.us-btn--arrowed-right {
-  padding: .63em 1.25em .63em .95em;
-
-  &:after {
-    @extend %link-triangle;
-  }
-
-  &:hover {
-    &:after {
-      left: .5em;
-    }
-  }
-}
-
-.us-btn--arrowed-left {
-  padding-right: .95em;
-  padding-left: 1.25em;
-
-  &:before {
-    @extend %link-triangle-left;
-  }
-
-  &:after {
-    display: none;
-    content: "";
-  }
-
-  &:hover {
-    &:before {
-      left: -.5em;
-    }
-  }
 }
 
 @each $button-style in $button-styles {
