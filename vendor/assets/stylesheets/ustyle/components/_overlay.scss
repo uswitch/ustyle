@@ -19,8 +19,7 @@
 //   })
 //
 // @state .us-overlay--modal - Overlay appears as a modal window
-// @state .us-overlay--right - Overlay appears on the right side of the viewport (not applicable when using the overlay as a modal)
-// @state .us-overlay--sticky-header - The title bar of the overlay sticks to the top of the overlay as you sroll (not applicable when using the overlay as a modal)
+// @state .us-overlay--right - Overlay appears on the right side of the viewport (not applicable when used in conjunction with .us-overlay--modal)
 //
 // @markup
 //   <button class="us-btn js-open-overlay" modifier="{$modifiers}">Open</button>
@@ -133,17 +132,6 @@ $overlay-z-index: $overlay-forced-z-index;
     .us-overlay-parent--active & {
       transform: translate(0, 0);
     }
-  }
-}
-
-.us-overlay--sticky-header {
-  .us-overlay__header {
-    position: fixed;
-    top: 0;
-  }
-
-  .us-overlay__container {
-    padding-top: $overlay-header-height;
   }
 }
 
