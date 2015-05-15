@@ -37,7 +37,7 @@
           <a class="sidebar__nav-link active" href="forms.html">Forms</a>
               <nav class="sidebar__sub-nav" data-ghumshoe>
                   <a class="sidebar__nav-link sidebar__nav-link--sub" href="#fields">Fields</a>
-                  <a class="sidebar__nav-link sidebar__nav-link--sub" href="#icon_inputs">Icon inputs</a>
+                  <a class="sidebar__nav-link sidebar__nav-link--sub" href="#input_group">Input group</a>
                   <a class="sidebar__nav-link sidebar__nav-link--sub" href="#inputs">Inputs</a>
                   <a class="sidebar__nav-link sidebar__nav-link--sub" href="#radios_and_checkboxes">Radios and checkboxes</a>
                   <a class="sidebar__nav-link sidebar__nav-link--sub" href="#selects">Selects</a>
@@ -109,60 +109,41 @@
               </div>
             
             </div>
-            <div class="styleguide__block" id="icon_inputs">
+            <div class="styleguide__block" id="input_group">
               <div class="styleguide__block-info">
                 <h2 class="styleguide__block-title">
-                  Icon inputs
-                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/forms/_input-backgrounds.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_input-backgrounds.scss</span></a>
+                  Input group
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/forms/_input-group.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_input-group.scss</span></a>
                 </h2>
                 
-                <p>   In addition to our basic inputs we&#39;ve got some useful input backgrounds that are used across the site. Each input background is a base64 encoded (for IE9 purposes)</p>
-            <p>   SVG to allow scalability on retina devices. Any browser not supporting SVG has a PNG fallback.</p>
+                <p>   Inputs groups allow you to add &quot;boxes&quot; to the left or right of an input. These boxes usually contain a visual icon to represent the usage of the input</p>
             
-                  <ul class="styleguide__block-states">
-                      <li class="name"><strong>.postcode</strong> - Used for form fields asking for a postcode (typically in hero&#x27;s)</li>
-                      <li class="name"><strong>.email</strong> - Used for email inputs</li>
-                      <li class="name"><strong>.phone</strong> - Used when asking for a phone number</li>
-                      <li class="name"><strong>.pound</strong> - Used when asking for cost of something</li>
-                      <li class="name"><strong>.password</strong> - For password only fields</li>
-                      <li class="name"><strong>.kwh</strong> - Energy specific</li>
-                  </ul>
                 
               </div>
               
               <div class="styleguide__block-examples">
                 <h3 class="styleguide__block-small-title">Example</h3>
                 <div class="styleguide__block-example">
-                  <input class='us-form-input {$modifiers}' type='text'>
+                     <div class="us-input-group">
+                 <span class="us-input-group__box"><span class="us-icon--small  us-icon--inputgrey us-icon--envelope us-icon--notext"></span></span>
+                 <input class="us-form-input" type="text" id="email" placeholder="Email" />
+               </div>
+               <div class="us-input-group">
+                 <input class="us-form-input" type="text" id="kwh" placeholder="Kwh" />
+                 <span class="us-input-group__box"><span class="us-icon--small us-icon--inputgrey us-icon--dual-fuel us-icon--notext"></span></span>
+               </div>
                 </div>
               
-                  <div class="styleguide__block-example state-postcode">
-                    <input class='us-form-input postcode' type='text'>
-                    <div class="styleguide__block-example-class">.postcode</div>
-                  </div>
-                  <div class="styleguide__block-example state-email">
-                    <input class='us-form-input email' type='text'>
-                    <div class="styleguide__block-example-class">.email</div>
-                  </div>
-                  <div class="styleguide__block-example state-phone">
-                    <input class='us-form-input phone' type='text'>
-                    <div class="styleguide__block-example-class">.phone</div>
-                  </div>
-                  <div class="styleguide__block-example state-pound">
-                    <input class='us-form-input pound' type='text'>
-                    <div class="styleguide__block-example-class">.pound</div>
-                  </div>
-                  <div class="styleguide__block-example state-password">
-                    <input class='us-form-input password' type='text'>
-                    <div class="styleguide__block-example-class">.password</div>
-                  </div>
-                  <div class="styleguide__block-example state-kwh">
-                    <input class='us-form-input kwh' type='text'>
-                    <div class="styleguide__block-example-class">.kwh</div>
-                  </div>
             
                 <pre><code class="html">
-            &lt;input class='us-form-input' type='text'&gt;
+               &lt;div class="us-input-group"&gt;
+                 &lt;span class="us-input-group__box"&gt;&lt;span class="us-icon--small  us-icon--inputgrey us-icon--envelope us-icon--notext"&gt;&lt;/span&gt;&lt;/span&gt;
+                 &lt;input class="us-form-input" type="text" id="email" placeholder="Email" /&gt;
+               &lt;/div&gt;
+               &lt;div class="us-input-group"&gt;
+                 &lt;input class="us-form-input" type="text" id="kwh" placeholder="Kwh" /&gt;
+                 &lt;span class="us-input-group__box"&gt;&lt;span class="us-icon--small us-icon--inputgrey us-icon--dual-fuel us-icon--notext"&gt;&lt;/span&gt;&lt;/span&gt;
+               &lt;/div&gt;
                 </code></pre>
               </div>
             
