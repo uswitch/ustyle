@@ -95,7 +95,8 @@ module.exports = function(grunt) {
             'vendor/assets/javascripts/ustyle/anchor.js.coffee',
             'vendor/assets/javascripts/ustyle/tabs.js.coffee',
             'vendor/assets/javascripts/ustyle/overlay.js.coffee',
-            'vendor/assets/javascripts/ustyle/classtoggler.js.coffee'
+            'vendor/assets/javascripts/ustyle/classtoggler.js.coffee',
+            'vendor/assets/javascripts/ustyle/radioToggle.js.coffee'
           ]
         }
       },

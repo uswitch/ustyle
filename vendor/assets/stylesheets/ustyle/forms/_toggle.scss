@@ -1,0 +1,107 @@
+// @page Code/Forms
+// @name Toggle
+// 
+// @description
+//  This is a form toggle used for single select options. Best usage is for 2 - 3 options that are short answers.
+//  IE8 support is included with `radioToggle.js` which sets a `.checked` class on the radio button when clicked.
+//
+// @javascript
+//   var radioToggle = new RadioToggle({
+//     $target: $(".us-toggle")
+//   })
+//
+// @markup
+// 
+// <div class="us-field us-field-blocked">
+//   <label>Gender</label>
+//   <div class="us-toggle">
+//     <label class="us-toggle__label" for="gender_male">
+//       <input class='us-form-input' name='gender' type='radio' id="gender_male" />
+//       <span class="us-toggle__btn">
+//         Male
+//       </span>
+//     </label>
+//     <label class="us-toggle__label" for="gender_female">
+//       <input class='us-form-input' name='gender' type='radio' id="gender_female" />
+//       <span class="us-toggle__btn">
+//         Female
+//       </span>
+//     </label>
+//   </div>  
+// </div>
+
+$toggle-btn-padding: 6px 30px !default;
+$toggle-default-color: $c-typegrey-2 !default;
+$toggle-default-bg: #fff !default;
+$toggle-default-border: $c-bordergrey !default;
+
+$toggle-hover-color: $c-typegrey !default;
+$toggle-hover-bg: $c-bggrey !default;
+$toggle-hover-border: $c-inputgrey !default;
+
+$toggle-active-color: $c-typegrey !default;
+$toggle-active-bg: $c-cyan-light !default;
+$toggle-active-border: $c-typecyan !default;
+
+$toggle-active-font-weight: 400 !default;
+
+.us-toggle {
+  @extend %clearfix;
+  display: block;
+
+  @include respond-to($default-grid-breakpoint, true) {
+    display: inline-block;
+  }
+}
+
+.us-toggle__label {
+  position: relative;
+  float: left;
+  width: 50%;
+  vertical-align: middle;
+  cursor: pointer;
+
+  @include respond-to($default-grid-breakpoint, true) {
+    width: auto;
+  }
+
+  // Don't hide inputs due to tabbing
+  .us-form-input {
+    position: absolute;
+    left: -999em;
+  }
+}
+
+.us-toggle__btn {
+  display: block;
+  padding: $toggle-btn-padding;
+  color: $toggle-default-color;
+  text-align: center;
+  border: 1px solid $toggle-default-border;
+
+  .us-toggle__label:hover &,
+  .us-toggle__label:focus &,
+  .us-toggle__label .us-form-input:focus + & {
+    color: $toggle-hover-color;
+    background-color: $toggle-hover-bg;
+    border-color: $toggle-hover-border;
+  }
+
+  .us-toggle__label .us-form-input:checked + &,
+  .us-toggle__label .us-form-input.checked + & {
+    font-weight: $toggle-active-font-weight;
+    color: $toggle-active-color;
+    background-color: $toggle-active-bg;
+    border-color: $toggle-active-border;
+  }
+
+  .us-toggle__label:first-child & {
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+  }
+
+  .us-toggle__label:last-child & {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+}
