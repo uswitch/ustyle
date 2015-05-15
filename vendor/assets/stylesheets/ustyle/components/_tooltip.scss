@@ -9,6 +9,7 @@
 // @state .us-tooltip--bottom
 // @state .us-tooltip--left
 // @state .us-tooltip--right
+// @state .us-tooltip--small
 //
 // @javascript
 //  var tooltips = new ClassToggler({
@@ -32,6 +33,7 @@
 
 $tooltip-note-width: 300px;
 $tooltip-icon-size: 22px;
+$tooltip-icon-size--small: 16px;
 $tooltip-note-padding-vertical: 1em;
 $tooltip-note-padding-horizontal: .75em;
 
@@ -40,6 +42,9 @@ $tooltip-border-color: $c-typecyan;
 
 $tooltip-arrow-width: 10px;
 $tooltip-arrow-height: $tooltip-arrow-width * 2;
+
+$tooltip-h-positions: "top", "bottom";
+$tooltip-v-positions: "left", "right";
 
 @mixin tooltip-arrow($arrow-type, $arrow-width, $arrow-height, $arrow-position, $bottom-position) {
   @include respond-to(tablet) {
@@ -201,26 +206,27 @@ $tooltip-arrow-height: $tooltip-arrow-width * 2;
   }
 }
 
-.us-tooltip--top {
-  .us-tooltip__note {
-    @include tooltip-position--horizontal("top");
+.us-tooltip--small {
+  .us-tooltip__icon {
+    width: $tooltip-icon-size--small;
+    height: $tooltip-icon-size--small;
+    font-size: 0.875em;
+    line-height: $tooltip-icon-size--small;
   }
 }
 
-.us-tooltip--bottom {
-  .us-tooltip__note {
-    @include tooltip-position--horizontal("bottom");
+@each $position in $tooltip-h-positions {
+  .us-tooltip--#{$position} {
+    .us-tooltip__note {
+      @include tooltip-position--horizontal($position);
+    }
   }
 }
 
-.us-tooltip--right {
-  .us-tooltip__note {
-    @include tooltip-position--vertical("right");
-  }
-}
-
-.us-tooltip--left {
-  .us-tooltip__note {
-    @include tooltip-position--vertical("left");
+@each $position in $tooltip-v-positions {
+  .us-tooltip--#{$position} {
+    .us-tooltip__note {
+      @include tooltip-position--vertical($position);
+    }
   }
 }
