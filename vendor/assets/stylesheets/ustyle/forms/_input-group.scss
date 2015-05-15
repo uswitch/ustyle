@@ -1,0 +1,79 @@
+// @page Code/Forms
+// @name Input group
+// 
+// @description
+//   Inputs groups allow you to add "boxes" to the left or right of an input. These boxes usually contain a visual icon to represent the usage of the input
+// 
+// @markup
+//   <div class="us-input-group">
+//     <span class="us-input-group__box"><span class="us-icon--small  us-icon--inputgrey us-icon--envelope us-icon--notext"></span></span>
+//     <input class="us-form-input" type="text" id="email" placeholder="Email" />
+//   </div>
+//   <div class="us-input-group">
+//     <input class="us-form-input" type="text" id="kwh" placeholder="Kwh" />
+//     <span class="us-input-group__box"><span class="us-icon--small us-icon--inputgrey us-icon--dual-fuel us-icon--notext"></span></span>
+//   </div>
+
+.us-input-group {
+  position: relative;
+  display: table;
+  border-collapse: separate;
+
+  @include respond-to(tablet, true) {
+    display: inline-table;
+    vertical-align: middle;
+  }
+
+  .us-form-input {
+    position: relative;
+    display: table-cell;
+    float: left;
+    width: 100%;
+    height: 100%;
+
+    @include respond-to(tablet, true) {
+      width: auto;
+    }
+  }
+}
+
+.us-input-group__box {
+  display: table-cell;
+  width: 1%;
+  padding-right: .5em;
+  padding-left: .5em;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  border: 1px solid $c-inputgrey;
+  border-radius: 3px;
+
+  @include respond-to(tablet, true) {
+    width: auto;
+  }
+  
+  [class^="us-icon--"],
+  [class*=" us-icon--"] {
+    vertical-align: middle;
+  }
+}
+
+.us-input-group__box:first-child {
+  border-right: 0;
+}
+
+.us-input-group__box:last-child {
+  border-left: 0;
+}
+
+.us-input-group__box:first-child,
+.us-input-group .us-form-input:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.us-input-group__box:last-child,
+.us-input-group .us-form-input:last-child {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
