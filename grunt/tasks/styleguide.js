@@ -180,7 +180,7 @@ module.exports = function(grunt){
 
 
       function getTags(callback) {
-        simpleGit.pull().tags(function(err, tags) {
+        simpleGit.tags(function(err, tags) {
           callback(null, tags);
         });
       }
