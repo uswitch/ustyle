@@ -223,7 +223,7 @@ module.exports = function(grunt){
           function(){
             //Sort array
             var sortedReport = statsPage.content.report.sort(function(a,b){
-              return semver.compare(a.version, b.version);
+              return semver.rcompare(a.version, b.version);
             });
             statsPage.content.report = sortedReport;
             callback();
