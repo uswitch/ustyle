@@ -35,7 +35,7 @@
     });
     
     var tabs = new Tabs();
-
+    var radio = new RadioToggle();
     var anchor = new Anchor({
       target: document.querySelector(".js-example-anchor"),
       content: document.querySelector(".js-example-anchor__target")
