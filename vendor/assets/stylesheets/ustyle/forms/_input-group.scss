@@ -4,14 +4,15 @@
 // @description
 //   Inputs groups allow you to add "boxes" to the left or right of an input. These boxes usually contain a visual icon to represent the usage of the input
 // 
+// @state .us-input-group--disabled - Disabled state for input groups
 // @markup
-//   <div class="us-input-group">
+//   <div class="us-input-group {$modifiers}">
 //     <span class="us-input-group__box"><span class="us-icon--small  us-icon--inputgrey us-icon--envelope us-icon--notext"></span></span>
 //     <input class="us-form-input" type="text" id="email" placeholder="Email" />
 //   </div>
-//   <div class="us-input-group">
-//     <input class="us-form-input" type="text" id="kwh" placeholder="Kwh" />
-//     <span class="us-input-group__box"><span class="us-icon--small us-icon--inputgrey us-icon--dual-fuel us-icon--notext"></span></span>
+//   <div class="us-input-group {$modifiers}">
+//     <input class="us-form-input" type="text" id="kwh" />
+//     <span class="us-input-group__box">kWh</span>
 //   </div>
 
 .us-input-group {
@@ -36,15 +37,28 @@
   }
 }
 
+.us-input-group--disabled {
+  .us-input-group__box {
+    border-color: lighten($input-border-color, 15%);
+    color: lighten($input-border-color, 15%);
+
+    [class^="us-icon--"],
+    [class*=" us-icon--"] {
+      opacity: .85;  
+    }
+  }
+}
+
 .us-input-group__box {
   display: table-cell;
   width: 1%;
   padding-right: .5em;
   padding-left: .5em;
+  color: $c-inputgrey;
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
-  border: 1px solid $c-inputgrey;
+  border: 1px solid $input-border-color;
   border-radius: 3px;
 
   @include respond-to(tablet, true) {
