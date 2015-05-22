@@ -189,18 +189,24 @@ $overlay-z-index: $overlay-forced-z-index;
   z-index: 10;
   width: $overlay-close-icon-size;
   height: $overlay-close-icon-size;
-  margin-top: - $overlay-close-icon-size / 2;
-  color: $c-navy;
+  margin-top: -($overlay-close-icon-size / 2);
+  text-align: center;
   cursor: pointer;
-  background-color: #fff;
+  background: #fff;
   border: 0;
   border-radius: 50%;
   -webkit-appearance: none;
 
   &:before {
-    font-size: $overlay-close-icon-size + 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $overlay-close-icon-size;
+    height: $overlay-close-icon-size;
+    font-size: $overlay-close-icon-size;
     font-weight: bold;
-    line-height: 31px;
+    line-height: $overlay-close-icon-size;
+    color: $c-navy;
     content: "\00d7";
   }
 }

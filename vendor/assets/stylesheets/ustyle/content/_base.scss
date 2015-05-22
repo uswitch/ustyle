@@ -33,6 +33,7 @@
 
     @include respond-to(desktop, true) {
       @include baseline(20px);
+      text-rendering: optimizeSpeed;
     }
 
     a {

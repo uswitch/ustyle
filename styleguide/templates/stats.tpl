@@ -54,7 +54,7 @@
         return ( size / Math.pow(1024, i) ).toFixed(2) * 1  + ['B', 'kB', 'MB', 'GB', 'TB'][i];
     };
 
-    google.load("visualization", "1.1", {packages:["bar"]});
+    google.load('visualization', '1.1', {packages:['line']});
     google.setOnLoadCallback(drawChart);
 
     function drawChart() {
@@ -62,7 +62,7 @@
       sizeData, sizeTable, sizeOptions, sizeChart,
       formatter;
 
-      simplicityData = reportData.map(function(e){return [e.version, e.rules, e.selectors]});
+      simplicityData = reportData.reverse().map(function(e){return [e.version, e.rules, e.selectors]});
       simplicityData.unshift(['Version', 'Rules', 'Selectors']);
       simplicityTable = google.visualization.arrayToDataTable(simplicityData);
 
@@ -76,7 +76,7 @@
         }
       };
 
-      simplicityChart = new google.charts.Bar(document.getElementById('simplicity_chart'));
+      simplicityChart = new google.charts.Line(document.getElementById('simplicity_chart'));
       simplicityChart.draw(simplicityTable, simplicityOptions);
 
       sizeData = reportData.map(function(e){return [e.version, e.size]});
@@ -93,7 +93,7 @@
         }
       };
 
-      sizeChart = new google.charts.Bar(document.getElementById('size_chart'));
+      sizeChart = new google.charts.Line(document.getElementById('size_chart'));
       sizeChart.draw(sizeTable, sizeOptions);
 
     };
