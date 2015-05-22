@@ -50,6 +50,7 @@
                   <a class="sidebar__nav-link sidebar__nav-link--sub" href="#loader">Loader</a>
                   <a class="sidebar__nav-link sidebar__nav-link--sub" href="#news_article">News article</a>
                   <a class="sidebar__nav-link sidebar__nav-link--sub" href="#progress_navigation">Progress navigation</a>
+                  <a class="sidebar__nav-link sidebar__nav-link--sub" href="#related_items">Related items</a>
                   <a class="sidebar__nav-link sidebar__nav-link--sub" href="#usps">USPs</a>
               </nav>
           <a class="sidebar__nav-link " href="js-components.html">JS components</a>
@@ -58,7 +59,7 @@
         <a class="sidebar__nav-link" href="/sass/">Sass doc</a>
     </nav>
   </div>
-  <div id="wrapper" class="container sidebar--push">
+  <div id="wrapper" class="container sidebar--push header--push">
     <h1 class="styleguide__title">Components</h1>
     <div class="styleguide">
             <div class="styleguide__block" id="breadcrumbs">
@@ -214,9 +215,6 @@
                 <p>
                   Swat at dog intrigued by the shower missing until dinner time and run in circles use lap as chair.
                 </p>
-                <p>
-                  Swat at dog stretch and stand in front of the computer screen.
-                </p>
               </div>
                 </div>
               
@@ -224,9 +222,6 @@
                       <div class='us-content-group mobile-bordered'>
                 <p>
                   Swat at dog intrigued by the shower missing until dinner time and run in circles use lap as chair.
-                </p>
-                <p>
-                  Swat at dog stretch and stand in front of the computer screen.
                 </p>
               </div>
                     <div class="styleguide__block-example-class">.mobile-bordered</div>
@@ -236,9 +231,6 @@
               &lt;div class='us-content-group'&gt;
                 &lt;p&gt;
                   Swat at dog intrigued by the shower missing until dinner time and run in circles use lap as chair.
-                &lt;/p&gt;
-                &lt;p&gt;
-                  Swat at dog stretch and stand in front of the computer screen.
                 &lt;/p&gt;
               &lt;/div&gt;
                 </code></pre>
@@ -260,23 +252,23 @@
               <div class="styleguide__block-examples">
                 <h3 class="styleguide__block-small-title">Example</h3>
                 <div class="styleguide__block-example">
-                     <section class="us-cta cta cta-column">
-                  <form>
-                    <h3 class="us-cta__title">It’s your report</h3>
-                    <p>Join the campaign to fight for free annual credit reports for everyone</p>
-                     <a href="/money/itsmyreport/" class="us-btn us-btn--arrowed us-btn--primary arrowed js-track-event" data-track-category="money-insurance-guides-cta" data-track-action="click - large quote box" data-track-label="/money/itsmyreport/" rel="nofollow">Sign the petition</a>
-                  </form>
+                    <section class="us-cta cta cta-column">
+                <form>
+                  <h3 class="us-cta__title">It’s your report</h3>
+                  <p>Join the campaign to fight for free annual credit reports for everyone</p>
+                  <a href="/money/itsmyreport/" class="us-btn us-btn--primary" rel="nofollow">Sign the petition</a>
+                </form>
               </section>
                 </div>
               
             
                 <pre><code class="html">
-               &lt;section class="us-cta cta cta-column"&gt;
-                  &lt;form&gt;
-                    &lt;h3 class="us-cta__title"&gt;It’s your report&lt;/h3&gt;
-                    &lt;p&gt;Join the campaign to fight for free annual credit reports for everyone&lt;/p&gt;
-                     &lt;a href="/money/itsmyreport/" class="us-btn us-btn--arrowed us-btn--primary arrowed js-track-event" data-track-category="money-insurance-guides-cta" data-track-action="click - large quote box" data-track-label="/money/itsmyreport/" rel="nofollow"&gt;Sign the petition&lt;/a&gt;
-                  &lt;/form&gt;
+              &lt;section class="us-cta cta cta-column"&gt;
+                &lt;form&gt;
+                  &lt;h3 class="us-cta__title"&gt;It’s your report&lt;/h3&gt;
+                  &lt;p&gt;Join the campaign to fight for free annual credit reports for everyone&lt;/p&gt;
+                  &lt;a href="/money/itsmyreport/" class="us-btn us-btn--primary" rel="nofollow"&gt;Sign the petition&lt;/a&gt;
+                &lt;/form&gt;
               &lt;/section&gt;
                 </code></pre>
               </div>
@@ -840,6 +832,57 @@
               </div>
             
             </div>
+            <div class="styleguide__block" id="related_items">
+              <div class="styleguide__block-info">
+                <h2 class="styleguide__block-title">
+                  Related items
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_related.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_related.scss</span></a>
+                </h2>
+                
+                <p>   Related lists used for content sidebars</p>
+            
+                
+              </div>
+              
+              <div class="styleguide__block-examples">
+                <h3 class="styleguide__block-small-title">Example</h3>
+                <div class="styleguide__block-example">
+                     <ul class="us-related us-list--reset">
+                 <li class="us-related__item">
+                   <a class="us-related__item-link" href="#">Car accident claims — How to make a car insurance claim</a>
+                 </li>
+                 <li class="us-related__item">
+                   <a class="us-related__item-link" href="#">How to get the best car insurance deals</a>
+                 </li>
+                 <li class="us-related__item">
+                   <a class="us-related__item-link" href="#">No claims bonus explained: how to protect a no claims discount</a>
+                 </li>
+                 <li class="us-related__item">
+                   <a class="us-related__item-link us-related__item-link--more" href="#">See more guides</a>
+                 </li>
+               </ul>
+                </div>
+              
+            
+                <pre><code class="html">
+               &lt;ul class="us-related us-list--reset"&gt;
+                 &lt;li class="us-related__item"&gt;
+                   &lt;a class="us-related__item-link" href="#"&gt;Car accident claims — How to make a car insurance claim&lt;/a&gt;
+                 &lt;/li&gt;
+                 &lt;li class="us-related__item"&gt;
+                   &lt;a class="us-related__item-link" href="#"&gt;How to get the best car insurance deals&lt;/a&gt;
+                 &lt;/li&gt;
+                 &lt;li class="us-related__item"&gt;
+                   &lt;a class="us-related__item-link" href="#"&gt;No claims bonus explained: how to protect a no claims discount&lt;/a&gt;
+                 &lt;/li&gt;
+                 &lt;li class="us-related__item"&gt;
+                   &lt;a class="us-related__item-link us-related__item-link--more" href="#"&gt;See more guides&lt;/a&gt;
+                 &lt;/li&gt;
+               &lt;/ul&gt;
+                </code></pre>
+              </div>
+            
+            </div>
             <div class="styleguide__block" id="usps">
               <div class="styleguide__block-info">
                 <h2 class="styleguide__block-title">
@@ -969,7 +1012,7 @@
     </div>
   </div>
   <div class="container">
-    <p class="copyright">Copyright &copy; uSwitch limited.</p>  
+    <p class="copyright">Copyright uSwitch Limited 2015. <a href="https://github.com/uswitch/ustyle.git">Github</a></p>
   </div>
   <script src="https://cdn.polyfill.io/v1/polyfill.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

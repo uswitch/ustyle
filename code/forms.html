@@ -41,6 +41,7 @@
                   <a class="sidebar__nav-link sidebar__nav-link--sub" href="#inputs">Inputs</a>
                   <a class="sidebar__nav-link sidebar__nav-link--sub" href="#radios_and_checkboxes">Radios and checkboxes</a>
                   <a class="sidebar__nav-link sidebar__nav-link--sub" href="#selects">Selects</a>
+                  <a class="sidebar__nav-link sidebar__nav-link--sub" href="#toggle">Toggle</a>
                   <a class="sidebar__nav-link sidebar__nav-link--sub" href="#form_validation">Form validation</a>
               </nav>
           <a class="sidebar__nav-link " href="components.html">Components</a>
@@ -50,7 +51,7 @@
         <a class="sidebar__nav-link" href="/sass/">Sass doc</a>
     </nav>
   </div>
-  <div id="wrapper" class="container sidebar--push">
+  <div id="wrapper" class="container sidebar--push header--push">
     <h1 class="styleguide__title">Forms</h1>
     <div class="styleguide">
             <div class="styleguide__block" id="fields">
@@ -118,22 +119,36 @@
                 
                 <p>   Inputs groups allow you to add &quot;boxes&quot; to the left or right of an input. These boxes usually contain a visual icon to represent the usage of the input</p>
             
+                  <ul class="styleguide__block-states">
+                      <li class="name"><strong>.us-input-group--disabled</strong> - Disabled state for input groups</li>
+                  </ul>
                 
               </div>
               
               <div class="styleguide__block-examples">
                 <h3 class="styleguide__block-small-title">Example</h3>
                 <div class="styleguide__block-example">
-                     <div class="us-input-group">
+                     <div class="us-input-group {$modifiers}">
                  <span class="us-input-group__box"><span class="us-icon--small  us-icon--inputgrey us-icon--envelope us-icon--notext"></span></span>
                  <input class="us-form-input" type="text" id="email" placeholder="Email" />
                </div>
-               <div class="us-input-group">
-                 <input class="us-form-input" type="text" id="kwh" placeholder="Kwh" />
-                 <span class="us-input-group__box"><span class="us-icon--small us-icon--inputgrey us-icon--dual-fuel us-icon--notext"></span></span>
+               <div class="us-input-group {$modifiers}">
+                 <input class="us-form-input" type="text" id="kwh" />
+                 <span class="us-input-group__box">kWh</span>
                </div>
                 </div>
               
+                  <div class="styleguide__block-example state-us-input-group--disabled">
+                       <div class="us-input-group us-input-group--disabled">
+                 <span class="us-input-group__box"><span class="us-icon--small  us-icon--inputgrey us-icon--envelope us-icon--notext"></span></span>
+                 <input class="us-form-input" type="text" id="email" placeholder="Email" />
+               </div>
+               <div class="us-input-group us-input-group--disabled">
+                 <input class="us-form-input" type="text" id="kwh" />
+                 <span class="us-input-group__box">kWh</span>
+               </div>
+                    <div class="styleguide__block-example-class">.us-input-group--disabled</div>
+                  </div>
             
                 <pre><code class="html">
                &lt;div class="us-input-group"&gt;
@@ -141,8 +156,8 @@
                  &lt;input class="us-form-input" type="text" id="email" placeholder="Email" /&gt;
                &lt;/div&gt;
                &lt;div class="us-input-group"&gt;
-                 &lt;input class="us-form-input" type="text" id="kwh" placeholder="Kwh" /&gt;
-                 &lt;span class="us-input-group__box"&gt;&lt;span class="us-icon--small us-icon--inputgrey us-icon--dual-fuel us-icon--notext"&gt;&lt;/span&gt;&lt;/span&gt;
+                 &lt;input class="us-form-input" type="text" id="kwh" /&gt;
+                 &lt;span class="us-input-group__box"&gt;kWh&lt;/span&gt;
                &lt;/div&gt;
                 </code></pre>
               </div>
@@ -286,6 +301,70 @@
               </div>
             
             </div>
+            <div class="styleguide__block" id="toggle">
+              <div class="styleguide__block-info">
+                <h2 class="styleguide__block-title">
+                  Toggle
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/forms/_toggle.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_toggle.scss</span></a>
+                </h2>
+                
+                <p>  This is a form toggle used for single select options. Best usage is for 2 - 3 options that are short answers.</p>
+            <p>  IE8 support is included with <code>radioToggle.js</code> which sets a <code>.checked</code> class on the radio button when clicked.</p>
+            
+                
+              </div>
+              
+              <div class="styleguide__block-examples">
+                <h3 class="styleguide__block-small-title">Example</h3>
+                <div class="styleguide__block-example">
+                   <div class="us-field us-field-blocked">
+               <label>Gender</label>
+               <div class="us-toggle">
+                 <label class="us-toggle__label" for="gender_male">
+                   <input class='us-form-input' name='gender' type='radio' id="gender_male" />
+                   <span class="us-toggle__btn">
+                     Male
+                   </span>
+                 </label>
+                 <label class="us-toggle__label" for="gender_female">
+                   <input class='us-form-input' name='gender' type='radio' id="gender_female" />
+                   <span class="us-toggle__btn">
+                     Female
+                   </span>
+                 </label>
+               </div>  
+             </div>
+                </div>
+              
+            
+                <pre><code class="html">
+             &lt;div class="us-field us-field-blocked"&gt;
+               &lt;label&gt;Gender&lt;/label&gt;
+               &lt;div class="us-toggle"&gt;
+                 &lt;label class="us-toggle__label" for="gender_male"&gt;
+                   &lt;input class='us-form-input' name='gender' type='radio' id="gender_male" /&gt;
+                   &lt;span class="us-toggle__btn"&gt;
+                     Male
+                   &lt;/span&gt;
+                 &lt;/label&gt;
+                 &lt;label class="us-toggle__label" for="gender_female"&gt;
+                   &lt;input class='us-form-input' name='gender' type='radio' id="gender_female" /&gt;
+                   &lt;span class="us-toggle__btn"&gt;
+                     Female
+                   &lt;/span&gt;
+                 &lt;/label&gt;
+               &lt;/div&gt;  
+             &lt;/div&gt;
+                </code></pre>
+                  <pre><code class="javascript">
+               var radioToggle = new RadioToggle({
+                 $target: $(&quot;.us-toggle&quot;)
+               })
+             
+                  </code></pre>
+              </div>
+            
+            </div>
             <div class="styleguide__block" id="form_validation">
               <div class="styleguide__block-info">
                 <h2 class="styleguide__block-title">
@@ -361,7 +440,7 @@
     </div>
   </div>
   <div class="container">
-    <p class="copyright">Copyright &copy; uSwitch limited.</p>  
+    <p class="copyright">Copyright uSwitch Limited 2015. <a href="https://github.com/uswitch/ustyle.git">Github</a></p>
   </div>
   <script src="https://cdn.polyfill.io/v1/polyfill.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
