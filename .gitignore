@@ -20,4 +20,3 @@ tmp
 docs/
 .sass-cache/
 node_modules/
-dist/.stats-cache

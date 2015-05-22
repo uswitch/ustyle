@@ -167,7 +167,7 @@ module.exports = function(grunt){
       var cssFileData, selectors, cssParser,
           omitEntries, statsPage, cachedStatsFile;
 
-      cachedStatsFile = 'dist/.stats-cache';
+      cachedStatsFile = 'tmp/.stats-cache';
 
       statsPage = {
         name: 'Stats',
