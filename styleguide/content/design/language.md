@@ -1,7 +1,6 @@
 **How does a brilliantly simple brand sound?** Think of our tone of voice as a natural extension of our values and personality. We might not mention them in our copy, but their ‘feel’ should come across in every word, sentence and paragraph.
 
-Tone of voice
----
+## Tone of voice
 
 ### Expert
 We have a deep understanding of people, household finances and the industries in which we operate. Be confident and authoritative.
@@ -18,8 +17,7 @@ We speak truthfully and with insight. Be honest and transparent.
 ### Advisory
 We make a positive impact on the lives of our customers. Be empowering and informative.
 
-Some writing tups
----
+## Some writing tips
 
 ### Write like you speak
 Write as if the reader is in front of you. It’ll make your words sound more natural and believable.
@@ -54,8 +52,7 @@ If you have a lot of information to get across, use bullet points or sub-heading
 ### Go with the flow
 Do your words trip off the tongue? There’s one way to find out. Read them out loud and you’ll soon find out where it’s not flowing.
 
-Writing conventions
----
+## Writing conventions
 
 ### Abbreviations
 For names of companies or organisations, if an abbreviation is more familiar than the full form (e.g. BBC, IBM) use that. If not, write the name in full the first time you mention it, followed by the abbreviation in brackets. The next time you refer to it, use only the abbreviation.
