@@ -28,6 +28,11 @@ $sidebar-padding        : 0;
 
   @include respond-to($sidebar-side-visibility) {
     display: block;
+
+    &--push {
+      width: calc(100% - #{$sidebar-width});
+      padding-right: $sidebar-width/2 + $gutter-width;    
+    }
   }
 
   &--active {

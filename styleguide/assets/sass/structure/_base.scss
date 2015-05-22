@@ -1,11 +1,8 @@
 $container-width: 90%;
 
-%header--push {
+%header--push,
+.header--push {
   padding-top: $header-height;
-}
-
-#wrapper {
-  @extend %header--push;
 }
 
 .container {
@@ -13,10 +10,6 @@ $container-width: 90%;
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  padding: 0 $gutter-width / 2;
-  
-  @include respond-to(desktop, true){
-    width: calc(100% - 270px);
-    padding-right: 135px + $gutter-width;
-  }
+  padding-right: $gutter-width / 2;
+  padding-left: $gutter-width / 2;
 }

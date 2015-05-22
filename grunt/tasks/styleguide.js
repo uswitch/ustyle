@@ -24,15 +24,16 @@ module.exports = function(grunt){
         files           = this.files,
         outputFilePath  = this.data.output,
         styleguidePath  = this.data.dir,
-        contentPath     = this.data.dir + "/content",
+        contentPath     = path.join(styleguidePath, "content"),
+        templatePath    = path.join(styleguidePath, "templates"),
         cssStatsFile    = this.data.statsFor,
         tagStartVersion = this.data.tagStartVersion,
         tagPlaceholder  = this.data.tagPlaceholder,
         styleguide      = [];
 
     var options = this.options({
-        template: styleguidePath + '/templates/styleguide.tpl',
-        contentTemplate: styleguidePath + '/templates/simple.tpl',
+        template: "styleguide.tpl",
+        contentTemplate: "simple.tpl",
         parsers: {
           variable: dssHelper.variableDssParser(),
           partial: function(i, line, block){ return line; },
@@ -114,7 +115,7 @@ module.exports = function(grunt){
                       return {
                           name: page,
                           page: slugify(page) + '.html',
-                          template: options.template,
+                          template: _getTemplate(options.template),
                           section: slugify(section),
                           blocks: value
                       }
@@ -140,7 +141,7 @@ module.exports = function(grunt){
             return {
               name: data.data.name || humanize(filename),
               page: filename + '.html',
-              template: data.data.template || options.contentTemplate,
+              template: _getTemplate(data.data.template || options.contentTemplate),
               section: section,
               content: (fileHelper.isMarkdown(extension) ? marked(data.content) : data.content)
             }
@@ -245,6 +246,10 @@ module.exports = function(grunt){
       return sections.sort(function(a, b){
         return (a.page == "index.html" ? -1 : 1);
       })
+    }
+
+    function _getTemplate(name){
+      return path.join(templatePath, name);
     }
 
     function writeFile(model, callback){
