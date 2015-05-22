@@ -7,12 +7,12 @@ require "ustyle/version"
 Gem::Specification.new do |spec|
   spec.name          = "ustyle"
   spec.version       = Ustyle::VERSION
-  spec.authors       = ["David Annez", "Ricardo Cerqueira", "Joe Green", "Thomas Britton", "Ivo Reis"]
-  spec.email         = ["david.annez@uswitch.com"]
+  spec.authors       = ["uSwitch Limited", "David Annez", "Ricardo Cerqueira", "Joe Green", "Thomas Britton", "Ivo Reis"]
+  spec.email         = ["developers@uswitch.com", "david.annez@uswitch.com"]
   spec.description   = %q{uSwitch style guide}
-  spec.summary       = %q{Default styles for uSwitch in a modular SASS gem}
-  spec.homepage      = ""
-  spec.license       = "MIT" 
+  spec.summary       = %q{Pattern library for uSwitch}
+  spec.homepage      = "http://ustyle.guide"
+  spec.license       = "Apache-2.0" 
   spec.platform      = Gem::Platform::RUBY
 
   spec.files         = `git ls-files`.split($/)

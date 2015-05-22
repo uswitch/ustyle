@@ -8,13 +8,14 @@
   ],
   "homepage": "https://github.com/uswitch/ustyle",
   "authors": [
+    "uSwitch Limited <developers@uswitch.com>",
     "Joe Green <joe.green@uswitch.com>",
     "David Annez <david.annez@uswitch.com>",
     "Thomas Britton <thomas.britton@uswitch.com>",
     "Ricardo Cerqueira <ricardo.cerqueira@uswitch.com>",
     "Ivo Reis <ivo.reis@uswitch.com>"
   ],
-  "description": "A front-end framework by uSwitch.",
+  "description": "A living styleguide and pattern library by uSwitch.",
   "keywords": [
     "css",
     "sass",
@@ -25,7 +26,7 @@
     "uswitch",
     "ustyle"
   ],
-  "license": "MIT",
+  "license": "Apache-2.0",
   "private": true,
   "ignore": [
     "**/.*",
