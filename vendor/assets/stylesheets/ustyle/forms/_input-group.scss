@@ -39,8 +39,8 @@
 
 .us-input-group--disabled {
   .us-input-group__box {
-    border-color: lighten($input-border-color, 15%);
     color: lighten($input-border-color, 15%);
+    border-color: lighten($input-border-color, 15%);
 
     [class^="us-icon--"],
     [class*=" us-icon--"] {
