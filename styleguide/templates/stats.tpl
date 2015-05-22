@@ -44,7 +44,6 @@
       </div>
     </div>
   </div>
-  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
   {{> _footer}}
 </body>
 </html>
