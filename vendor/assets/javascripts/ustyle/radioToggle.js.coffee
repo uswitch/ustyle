@@ -1,10 +1,13 @@
 class window.RadioToggle
-  defaults = 
+  defaults =
     $target: $(".us-toggle")
 
   constructor: (options) ->
     @options = Utils.setOptions options, defaults
-    if @options.$target then @addEventListeners() else throw new Error("No target defined")
+    if @options.$target
+      @addEventListeners()
+    else
+      throw new Error("No target defined")
 
   addEventListeners: ->
     @options.$target.on "change", "input:radio", (e) ->

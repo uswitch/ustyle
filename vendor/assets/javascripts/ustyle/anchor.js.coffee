@@ -1,7 +1,7 @@
 # This is a naive implementation of Tether by Hubspot.
 {addClass, removeClass, hasClass, merge, setOptions, transformKey} = @Utils
 
-createContext = (options) ->  
+createContext = (options) ->
 
   class Anchor
     defaults:
@@ -30,7 +30,7 @@ createContext = (options) ->
           @show(anchor)
         else
           @hide(anchor)
-        
+
       hide = (event) =>
         return if not @isOpen()
 
@@ -38,7 +38,7 @@ createContext = (options) ->
           event.preventDefault()
           event.stopPropagation()
           @hide(anchor)
-          
+
         return if event.target is anchor or anchor.contains(event.target)
         return if event.target is @target or @target.contains(event.target)
 
@@ -64,7 +64,7 @@ createContext = (options) ->
         @setPosition()
 
       if @options.isAjax
-        @options.onOpen?.call().done =>
+        @options.onOpen?.call().done ->
           fire()
       else
         fire()
@@ -114,7 +114,7 @@ createContext = (options) ->
       addClass document.documentElement, "#{@classPrefix}--ready"
 
       {anchor, arrow, content}
-      
+
     setPosition: ->
       leftOffset = getXBounds(@target, @anchor, @arrow)
       targetBounds = @target.getBoundingClientRect()
@@ -130,21 +130,29 @@ createContext = (options) ->
         transformYOrigin = "-12px"
         bottomOffset = getYBounds(@target, @anchor, @arrow)
 
-      style = "translateX(#{Math.round leftOffset}px) translateY(#{Math.round bottomOffset}px)"
+      style = "translateX(#{Math.round leftOffset}px) "
+      style += "translateY(#{Math.round bottomOffset}px)"
       style += " translateZ(0)" unless transformKey is 'msTransform'
 
       @anchor.style[transformKey] = style
 
-      transformXOrigin = (targetBounds.left - @anchor.getBoundingClientRect().left) + (@target.offsetWidth/2)
+      transformXOrigin =
+        (targetBounds.left - @anchor.getBoundingClientRect().left) +
+        (@target.offsetWidth/2)
 
       @arrow.style.left = "#{transformXOrigin}px"
-      @content.style["#{transformKey}Origin"] = "#{transformXOrigin}px #{transformYOrigin}"
+      @content.style["#{transformKey}Origin"] =
+        "#{transformXOrigin}px #{transformYOrigin}"
 
     getXBounds = (target, anchor, arrow) ->
       targetBounds = target.getBoundingClientRect()
       centerPoint = (targetBounds.left + target.offsetWidth/2)
 
-      if document.body.offsetWidth < (targetBounds.left + (anchor.offsetWidth / 2) + (target.offsetWidth/2))
+      calculatedWidth = (targetBounds.left +
+                        (anchor.offsetWidth / 2) +
+                        (target.offsetWidth/2))
+
+      if document.body.offsetWidth < calculatedWidth
         document.body.offsetWidth - anchor.offsetWidth
       else if centerPoint - anchor.offsetWidth/2 < 0
         0
@@ -155,9 +163,11 @@ createContext = (options) ->
       targetBounds = target.getBoundingClientRect()
 
       if documentYBoundary(targetBounds, anchor)
-        targetBounds.top - (anchor.offsetHeight - window.pageYOffset) + arrow.offsetHeight - target.offsetHeight
+        targetBounds.top - (anchor.offsetHeight - window.pageYOffset) +
+        arrow.offsetHeight - target.offsetHeight
       else
-        targetBounds.top + arrow.offsetHeight + target.offsetHeight + window.pageYOffset
+        targetBounds.top + arrow.offsetHeight +
+        target.offsetHeight + window.pageYOffset
 
     documentYBoundary = (target, anchor) ->
       return if target.top < anchor.offsetHeight

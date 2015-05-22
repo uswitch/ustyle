@@ -15,7 +15,9 @@
   };
 
   removeClass = function(element, name) {
-    return element.className = element.className.replace(new RegExp("(\\s|^)" + name + "(\\s|$)", "gi"), "");
+    var regExp;
+    regExp = "(\\s|^)" + name + "(\\s|$)";
+    return element.className = element.className.replace(new RegExp(regExp, "gi"), "");
   };
 
   hasClass = function(element, name) {
@@ -54,11 +56,11 @@
   };
 
   transformKey = (function() {
-    var el, key, _i, _len, _ref;
+    var el, key, transforms, _i, _len;
     el = document.createElement('div');
-    _ref = ['transform', 'webkitTransform', 'OTransform', 'MozTransform', 'msTransform'];
-    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-      key = _ref[_i];
+    transforms = ['transform', 'webkitTransform', 'OTransform', 'MozTransform', 'msTransform'];
+    for (_i = 0, _len = transforms.length; _i < _len; _i++) {
+      key = transforms[_i];
       if (el.style[key] !== void 0) {
         return key;
       }
@@ -170,11 +172,9 @@
           };
         })(this);
         if (this.options.isAjax) {
-          return (_ref1 = this.options.onOpen) != null ? _ref1.call().done((function(_this) {
-            return function() {
-              return fire();
-            };
-          })(this)) : void 0;
+          return (_ref1 = this.options.onOpen) != null ? _ref1.call().done(function() {
+            return fire();
+          }) : void 0;
         } else {
           fire();
           return (_ref2 = this.options.onOpen) != null ? _ref2.call() : void 0;
@@ -240,7 +240,8 @@
           transformYOrigin = "-12px";
           bottomOffset = getYBounds(this.target, this.anchor, this.arrow);
         }
-        style = "translateX(" + (Math.round(leftOffset)) + "px) translateY(" + (Math.round(bottomOffset)) + "px)";
+        style = "translateX(" + (Math.round(leftOffset)) + "px) ";
+        style += "translateY(" + (Math.round(bottomOffset)) + "px)";
         if (transformKey !== 'msTransform') {
           style += " translateZ(0)";
         }
@@ -251,10 +252,11 @@
       };
 
       getXBounds = function(target, anchor, arrow) {
-        var centerPoint, targetBounds;
+        var calculatedWidth, centerPoint, targetBounds;
         targetBounds = target.getBoundingClientRect();
         centerPoint = targetBounds.left + target.offsetWidth / 2;
-        if (document.body.offsetWidth < (targetBounds.left + (anchor.offsetWidth / 2) + (target.offsetWidth / 2))) {
+        calculatedWidth = targetBounds.left + (anchor.offsetWidth / 2) + (target.offsetWidth / 2);
+        if (document.body.offsetWidth < calculatedWidth) {
           return document.body.offsetWidth - anchor.offsetWidth;
         } else if (centerPoint - anchor.offsetWidth / 2 < 0) {
           return 0;

@@ -137,6 +137,9 @@ module.exports = function(grunt) {
         ]
       }
     },
+    coffeelint: {
+      app: ['vendor/assets/**/*.coffee']
+    },
     env : {
       dev : {
         NODE_ENV : 'development'
@@ -161,7 +164,7 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('lint', ['scsslint']);
+  grunt.registerTask('lint', ['scsslint', 'coffeelint']);
   grunt.registerTask('icons', ['newer:svgmin', 'svg2png']);
 
   grunt.registerTask('build', ['sass', 'sassdoc', 'copy', 'coffee', 'concat', 'lint', 'postcss', 'styleguide', 'builder']);
