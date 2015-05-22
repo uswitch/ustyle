@@ -19,6 +19,7 @@ module.exports = function(grunt){
         StyleStats      = require('stylestats'),
         marked          = require('marked'),
         semver          = require('semver'),
+        exec            = require('child_process').exec,
         simpleGit       = require('simple-git')( path.resolve('.') ),
         promise         = this.async(),
         files           = this.files,
@@ -163,7 +164,10 @@ module.exports = function(grunt){
     }
 
     function generateStats(model, callback) {
-      var cssFileData, selectors, cssParser, omitEntries, statsPage;
+      var cssFileData, selectors, cssParser,
+          omitEntries, statsPage, cachedStatsFile;
+
+      cachedStatsFile = 'tmp/.stats-cache';
 
       statsPage = {
         name: 'Stats',
@@ -173,12 +177,37 @@ module.exports = function(grunt){
         template: 'styleguide/templates/stats.tpl',
       };
 
-      async.waterfall([
-        getTags,
-        getStylesListing,
-        getStats,
-      ], next);
+      //Get the latest tag, if the tag is different from the cached one
+      //fetch new data.
+      exec('git describe --tags `git rev-list --tags --max-count=1`',
+        function(error, stdout, sterr) {
+          var latestTag = semver.clean(stdout);
+          var data;
 
+          try {
+            data = grunt.file.readJSON(cachedStatsFile);
+            var latestVersion = data[0].version;
+            if(data[0] && data[0].version && semver.eq(latestVersion, latestTag)) {
+              statsPage.content.report = data;
+              next();
+            }else {
+              fetchNewStatsData();
+            }
+          }
+          catch(err) {
+            // File does't exist or wrong format.
+            fetchNewStatsData()
+          }
+        }
+      );
+
+      function fetchNewStatsData() {
+        async.waterfall([
+          getTags,
+          getStylesListing,
+          getStats,
+        ], next);
+      }
 
       function getTags(callback) {
         simpleGit.tags(function(err, tags) {
@@ -227,6 +256,7 @@ module.exports = function(grunt){
               return semver.rcompare(a.version, b.version);
             });
             statsPage.content.report = sortedReport;
+            fileHelper.writeFile(JSON.stringify(sortedReport), cachedStatsFile, "Cached stats");
             callback();
           }
         );
