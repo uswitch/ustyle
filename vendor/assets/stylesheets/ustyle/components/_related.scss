@@ -1,4 +1,24 @@
-// Related news items
+// @page Code/Components
+// @name Related items
+// 
+// @description
+//   Related lists used for content sidebars
+//
+// @markup
+//   <ul class="us-related us-list--reset">
+//     <li class="us-related__item">
+//       <a class="us-related__item-link" href="#">Car accident claims — How to make a car insurance claim</a>
+//     </li>
+//     <li class="us-related__item">
+//       <a class="us-related__item-link" href="#">How to get the best car insurance deals</a>
+//     </li>
+//     <li class="us-related__item">
+//       <a class="us-related__item-link" href="#">No claims bonus explained: how to protect a no claims discount</a>
+//     </li>
+//     <li class="us-related__item">
+//       <a class="us-related__item-link us-related__item-link--more" href="#">See more guides</a>
+//     </li>
+//   </ul>
 
 .us-related {
   margin-bottom: $gutter-width;
