@@ -7,16 +7,18 @@
 //
 // @javascript
 //   var overlay = new Overlay({
-//     openedClass:    'us-overlay--open'
-//     overlay:        $('.us-overlay-parent')
-//     openButton:     $('.js-open-overlay')
-//     closeButton:    $('.js-close-overlay')
-//     escapeKey:      27
-//     historyStatus:  '#seedeal'
-//     history:        true
-//     resetScroll:    true
-//     preventDefault: true
-//   })
+//     bodyActiveClass: 'overlay--open',
+//     activeClass:     'us-overlay-parent--active',
+//     visibleClass:    'us-overlay-parent--visible',
+//     overlay:         $('.us-overlay-parent'),
+//     openButton:      '.js-open-overlay',
+//     closeButton:     '.js-close-overlay',
+//     escapeKey:       27,
+//     historyStatus:   '#seedeal',
+//     history:         true,
+//     resetScroll:     true,
+//     preventDefault:  true
+//   });
 //
 // @state .us-overlay--modal - Overlay appears as a modal window.
 // @state .us-overlay--right - Overlay appears on the right side of the viewport (not applicable when used in conjunction with .us-overlay--modal).
