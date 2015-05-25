@@ -71,12 +71,12 @@ $overlay-z-index: $overlay-forced-z-index;
   min-height: 100%;
   background: #fff;
   -webkit-overflow-scrolling: auto;
-  transform: translateX(-100%);
+  transform: translate3d(-100%, 0, 0);
   transition: transform $overlay-transition-speed ease-in, opacity $overlay-transition-speed linear;
 
   @include overlay-open {
     opacity: 1;
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
     transition-timing-function: ease-out;
   }
 
@@ -118,20 +118,20 @@ $overlay-z-index: $overlay-forced-z-index;
     max-width: $overlay-max-modal-width;
     margin: 5% auto;
     opacity: 0;
-    transform: translate(0, -30px);
+    transform: translate3d(0, -30px, 0);
 
     @include overlay-open {
-      transform: translate(0, 0);
+      transform: translate3d(0, 0, 0);
     }
   }
 }
 
 .us-overlay--right {
   right: 0;
-  transform: translate(100%, 0);
+  transform: translate3d(100%, 0, 0);
 
   @include overlay-open {
-    transform: translate(0, 0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
