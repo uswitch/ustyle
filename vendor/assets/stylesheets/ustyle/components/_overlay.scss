@@ -4,7 +4,7 @@
 // @description
 //  `.us-overlay` slides in from either side of the viewport, or can be shown as a modal window.
 //
-//  
+//
 // @javascript
 //   var overlay = new Overlay({
 //     openedClass:    'us-overlay--open'
@@ -94,14 +94,14 @@ $overlay-close-icon-size: 32px !default;
   width: $overlay-mobile-width;
   min-height: 100%;
   background: #fff;
-  -webkit-overflow-scrolling: auto;
   transform: translate3d(-100%, 0, 0);
   transition: transform $overlay-transition-speed ease-in, opacity $overlay-transition-speed linear, box-shadow $overlay-transition-speed linear;
+  -webkit-overflow-scrolling: auto;
 
   @include overlay--open {
     opacity: 1;
-    box-shadow: 1px 0 18px 0 rgba(0, 0, 0, .3);
     transform: translate3d(0, 0, 0);
+    box-shadow: 1px 0 18px 0 rgba(0, 0, 0, .3);
     transition-timing-function: ease-out;
   }
 
@@ -129,8 +129,8 @@ $overlay-close-icon-size: 32px !default;
     transform: translate3d(0, -30px, 0);
 
     @include overlay--open {
-      box-shadow: 0 1px 18px 0 rgba(0, 0, 0, .3);
       transform: translate3d(0, 0, 0);
+      box-shadow: 0 1px 18px 0 rgba(0, 0, 0, .3);
 
       @include overlay--above {
         box-shadow: 0 1px 30px 5px rgba(0, 0, 0, .3);
@@ -144,8 +144,8 @@ $overlay-close-icon-size: 32px !default;
   transform: translate3d(100%, 0, 0);
 
   @include overlay--open {
-    box-shadow: -1px 0 18px 0 rgba(0, 0, 0, .3);
     transform: translate3d(0, 0, 0);
+    box-shadow: -1px 0 18px 0 rgba(0, 0, 0, .3);
 
     @include overlay--above {
       box-shadow: -1px 0 30px 5px rgba(0, 0, 0, .3);
