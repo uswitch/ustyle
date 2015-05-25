@@ -3,8 +3,8 @@
 class window.Overlay
   defaults =
     bodyActiveClass: 'overlay--open'
-    visibleClass:    'us-overlay-parent--visible'
     activeClass:     'us-overlay-parent--active'
+    visibleClass:    'us-overlay-parent--visible'
     overlay:         $('.us-overlay-parent')
     openButton:      '.js-open-overlay'
     closeButton:     '.js-close-overlay'

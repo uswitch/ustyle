@@ -58,6 +58,12 @@ $overlay-z-index: $overlay-forced-z-index;
   overflow: hidden;
 }
 
+@mixin overlay-open {
+  .us-overlay-parent--active & {
+    @content;
+  }
+}
+
 @mixin overlay($place-above: false) {
   position: absolute;
   z-index: $overlay-forced-z-index;
@@ -66,9 +72,10 @@ $overlay-z-index: $overlay-forced-z-index;
   background: #fff;
   -webkit-overflow-scrolling: auto;
   transform: translateX(-100%);
-  transition: transform $overlay-transition-speed ease-in;
+  transition: transform $overlay-transition-speed ease-in, opacity $overlay-transition-speed linear;
 
-  .us-overlay-parent--active & {
+  @include overlay-open {
+    opacity: 1;
     transform: translateX(0);
     transition-timing-function: ease-out;
   }
@@ -91,18 +98,12 @@ $overlay-z-index: $overlay-forced-z-index;
   bottom: 0;
   left: 0;
   z-index: $overlay-forced-z-index;
-  opacity: 0;
   visibility: hidden;
-  transition: opacity $overlay-transition-speed linear;
 }
 
 .us-overlay-parent--visible {
-  visibility: visible;
-}
-
-.us-overlay-parent--active {
   overflow: scroll;
-  opacity: 1;
+  visibility: visible;
 }
 
 .us-overlay {
@@ -110,19 +111,19 @@ $overlay-z-index: $overlay-forced-z-index;
 }
 
 .us-overlay--modal {
-  position: relative;
-  min-height: 0;
-  transform: translate(0, -5%);
-
-  .us-overlay-parent--active & {
-    transform: translate(0, 0);
-  }
-
   @include respond-to($overlay-modal-breakpoint, true) {
-    float: none !important;
+    position: relative;
+    min-height: 0;
     width: $overlay-modal-width;
     max-width: $overlay-max-modal-width;
     margin: 5% auto;
+    opacity: 0;
+    float: none !important;
+    transform: translate(0, -5%);
+
+    @include overlay-open {
+      transform: translate(0, 0);
+    }
   }
 }
 
@@ -130,7 +131,7 @@ $overlay-z-index: $overlay-forced-z-index;
   right: 0;
   transform: translate(100%, 0);
 
-  .us-overlay-parent--active & {
+  @include overlay-open {
     transform: translate(0, 0);
   }
 }
