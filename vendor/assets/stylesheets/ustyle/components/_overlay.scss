@@ -118,8 +118,7 @@ $overlay-z-index: $overlay-forced-z-index;
     max-width: $overlay-max-modal-width;
     margin: 5% auto;
     opacity: 0;
-    float: none !important;
-    transform: translate(0, -5%);
+    transform: translate(0, -30px);
 
     @include overlay-open {
       transform: translate(0, 0);
