@@ -60,7 +60,7 @@ class window.Overlay
     @options.onOpen?(e)
 
     if @options.resetScroll
-      @overlay.find('.us-overlay__container').scrollTop(0)
+      @overlay.scrollTop(0)
     if @hasHistory()
       history.pushState('open', window.document.title, @options.historyStatus)
 
