@@ -11,7 +11,6 @@ class window.Overlay
     escapeKey:       27
     historyStatus:   '#seedeal'
     history:         true
-    resetScroll:     true
     preventDefault:  true
 
   constructor: (options) ->
@@ -59,8 +58,6 @@ class window.Overlay
 
     @options.onOpen?(e)
 
-    if @options.resetScroll
-      @overlay.scrollTop(0)
     if @hasHistory()
       history.pushState('open', window.document.title, @options.historyStatus)
 
