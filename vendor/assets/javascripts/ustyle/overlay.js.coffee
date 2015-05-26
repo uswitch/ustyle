@@ -8,7 +8,6 @@ class window.Overlay
     overlay:         $('.us-overlay-parent')
     openButton:      '.js-open-overlay'
     closeButton:     '.js-close-overlay'
-    escapeKey:       27
     historyStatus:   '#seedeal'
     history:         true
     preventDefault:  true
@@ -35,13 +34,9 @@ class window.Overlay
           @hide(e)
           break
 
-    $(document).on 'keyup.close-overlay', (e)=>
-      if e.keyCode == @options.escapeKey
-        @hide()
-
     if @hasHistory()
-      window.onpopstate = (event)=>
-        @hide()
+      window.onpopstate = (e)=>
+        @hide(e)
 
   show: (e)->
     body = $(document.body)
