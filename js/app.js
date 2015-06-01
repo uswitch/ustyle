@@ -647,7 +647,7 @@ function humanFileSize(size) {
   return ( size / Math.pow(1024, i) ).toFixed(2) * 1  + ['B', 'kB', 'MB', 'GB', 'TB'][i];
 };
 
-if(reportData){
+if (typeof reportData !== 'undefined' && reportData) {
   google.load('visualization', '1.1', {packages:['line']});
   google.setOnLoadCallback(drawChart);
 }
