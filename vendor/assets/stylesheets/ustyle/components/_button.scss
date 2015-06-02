@@ -113,7 +113,7 @@ $outline-button-styles: (
   border: 1px solid shade($button-bg--base, 20%);
   border-radius: 3px;
   outline: 0;
-  transition: none 0;
+  transition: none;
 
   &:visited {
     color: $c-typegrey;
