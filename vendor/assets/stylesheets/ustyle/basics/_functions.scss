@@ -60,3 +60,20 @@
 @function tint($color, $percentage) {
   @return mix(#fff, $color, $percentage);
 }
+
+/// Returns the opposite direction of each direction in a list
+/// @param {List} $directions - List of initial directions
+/// @return {List} - List of opposite directions
+
+@function opposite-direction($directions) {
+  $opposite-directions: ();
+  $directions-normal: 'top', 'bottom', 'left', 'right', 'up', 'down';
+  $directions-opposite: 'bottom', 'top', 'right', 'left', 'down', 'up';
+ 
+  @each $direction in $directions {
+    $direction: to-lower-case($direction);
+    $opposite-directions: append($opposite-directions, unquote(nth($directions-opposite, index($directions-normal, $direction))));
+  }
+ 
+  @return $opposite-directions;
+}

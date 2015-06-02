@@ -85,31 +85,21 @@ $tooltip-v-positions: "left", "right";
 }
 
 @mixin tooltip-position--horizontal($position, $icon-size: $tooltip-icon-size, $arrow-height: $tooltip-arrow-width, $arrow-width: $tooltip-arrow-height) {
-  $px-position: -($icon-size + $arrow-height * 4);
+  $px-position: $icon-size + $arrow-height;
   $bottom-position: -($arrow-width / 2);
-  $arrow-type: "down";
-  $arrow-position: "bottom";
-
-  @if $position == "bottom" {
-    $arrow-type: "up";
-    $arrow-position: "top";
-  }
+  $arrow-type: opposite-direction($position);
+  $arrow-position: opposite-direction($position);
 
   @extend %tooltip-horizontal-defaults;
   @include tooltip-arrow($arrow-type, $arrow-width, $arrow-height, $arrow-position, $bottom-position);
-  #{$position}: $px-position;
+  #{opposite-direction($position)}: $px-position;
 }
 
 @mixin tooltip-position--vertical($position, $icon-size: $tooltip-icon-size, $arrow-height: $tooltip-arrow-height, $arrow-width: $tooltip-arrow-width) {
-  $arrow-type: "left";
+  $arrow-type: opposite-direction($position);
   $arrow-position: $arrow-type;
   $bottom-position: -($arrow-height / 2);
   $px-position: -($tooltip-note-width + ($icon-size / 2)) - 4;
-
-  @if $position == "left" {
-    $arrow-type: "right";
-    $arrow-position: $arrow-type;
-  }
 
   @extend %tooltip-vertical-defaults;
   @include tooltip-arrow($arrow-type, $arrow-width, $arrow-height, $arrow-position, $bottom-position);
