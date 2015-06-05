@@ -8,7 +8,7 @@
     {{{description}}}
     <div class="us-grid-row">
       {{#variable}}
-        <div class="colour us-col-md-3">
+        <div class="colour us-col-md-4">
           <div class="colour__block">
             <div class="colour__hex" style='background: {{value}}; color: white;'>
             </div>

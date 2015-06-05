@@ -48,22 +48,46 @@ $c-blue-light: #0c72bf;
 $c-typecyan-light: #4cc0f4;
 $c-cyan-light: #e4f8ff;
 
-// Backup colours
+// @page Design/Colours
+// @name Tertiary palette
+// @partial colour
+// 
+// @variable c-yellow-lightest
+// @variable c-yellow-light
+// @variable c-yellow-dark
+//
+// @variable c-orange-lightest
+// @variable c-orange-light
+// @variable c-orange-dark
+//
+// @variable c-purple-lightest
+// @variable c-purple-light
+// @variable c-purple-dark
+//
+// @variable c-red-lightest
+// @variable c-red-light
+// @variable c-red-dark
+//
+// @variable c-green-lightest
+// @variable c-green-light
+// @variable c-green-dark
 
-$c-yellow-dark    : shade($c-yellow, 15%);
-$c-orange-dark    : shade($c-orange, 15%);
-$c-purple-dark    : shade($c-purple, 15%);
-$c-red-dark       : shade($c-red, 15%);
-$c-green-dark     : shade($c-green, 15%);
+$c-yellow-lightest: #ffedab;
+$c-yellow-light: #ffe06d;
+$c-yellow-dark: #d8b327;
 
-$c-yellow-light   : tint($c-yellow, 30%);
-$c-orange-light   : tint($c-orange, 30%);
-$c-purple-light   : tint($c-purple, 30%);
-$c-red-light      : tint($c-red, 30%);
-$c-green-light    : tint($c-green, 30%);
+$c-orange-lightest: #f9c9ac;
+$c-orange-light: #f5a16e;
+$c-orange-dark: #cd6628;
 
-$c-yellow-lightest: tint($c-yellow, 60%);
-$c-orange-lightest: tint($c-orange, 60%);
-$c-purple-lightest: tint($c-purple, 60%);
-$c-red-lightest   : tint($c-red, 60%);
-$c-green-lightest : tint($c-green, 60%);
+$c-purple-lightest: #d7bbe2;
+$c-purple-light: #b988cd;
+$c-purple-dark: #84489c;
+
+$c-red-lightest: #eeb3a8;
+$c-red-light: #e27a67;
+$c-red-dark: #b53820;
+
+$c-green-lightest: #a9ddbd;
+$c-green-light: #69c38c;
+$c-green-dark: #23904d;
