@@ -30,4 +30,14 @@ transformKey = do ->
     if el.style[key] isnt undefined
       return key
 
-@Utils = {addClass, removeClass, hasClass, merge, setOptions, transformKey, deleteUndefined}
+requestAnimationFrame = (do (window) ->
+  for vendor in ['ms', 'moz', 'webkit', 'o']
+    break if window.requestAnimationFrame
+
+    window.requestAnimationFrame = window["#{vendor}RequestAnimationFrame"]
+
+  window.requestAnimationFrame or= (callback) ->
+    setTimeout callback, (1000 / 60)
+).bind(window)
+
+@Utils = {addClass, removeClass, hasClass, merge, setOptions, deleteUndefined, transformKey, requestAnimationFrame}

@@ -93,8 +93,9 @@ module.exports = function(grunt) {
           'dist/ustyle.js': [
             'vendor/assets/javascripts/ustyle/utils.js.coffee',
             'vendor/assets/javascripts/ustyle/anchor.js.coffee',
-            'vendor/assets/javascripts/ustyle/tabs.js.coffee',
+            'vendor/assets/javascripts/ustyle/backdrop.js.coffee',
             'vendor/assets/javascripts/ustyle/overlay.js.coffee',
+            'vendor/assets/javascripts/ustyle/tabs.js.coffee',
             'vendor/assets/javascripts/ustyle/classtoggler.js.coffee',
             'vendor/assets/javascripts/ustyle/radioToggle.js.coffee'
           ]

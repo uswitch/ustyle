@@ -1,50 +1,76 @@
 {setOptions} = @Utils
 
 class window.Overlay
-  defaults = 
-    openedClass:    'us-overlay--open'
-    overlay:        $('.us-overlay-parent')
-    openButton:     $('.js-open-overlay')
-    closeButton:    $('.js-close-overlay')
-    escapeKey:      27
-    historyStatus:  '#seedeal'
-    history:        true
-    resetScroll:    true
-    preventDefault: true
+  defaults =
+    bodyActiveClass: 'overlay--open'
+    activeClass:     'us-overlay-parent--active'
+    visibleClass:    'us-overlay-parent--visible'
+    overlay:         $('.us-overlay-parent')
+    openButton:      '.js-open-overlay'
+    closeButton:     '.js-close-overlay'
+    historyStatus:   '#seedeal'
+    history:         true
+    preventDefault:  true
 
   constructor: (options) ->
     {@overlay} = @options = setOptions options, defaults
     @addEventListeners()
- 
+
   addEventListeners: ->
-    @options.openButton.on 'click', (e)=>
+    $(@options.openButton).on 'click.open-overlay', (e)=>
       if @options.preventDefault
         e.preventDefault()
 
       @show(e)
-    @options.closeButton.on 'click', (e)=>
+
+    @overlay.on 'click.close-overlay', (e)=>
+      targets = [@overlay[0], @overlay.find(@options.closeButton)[0]]
+
       if @options.preventDefault
         e.preventDefault()
-        
-      @hide(e)
-    $(document).on 'keyup', (e)=>
-      if e.keyCode == @options.escapeKey
-        @hide()
-    if @hasHistory()  
-      window.onpopstate = (event)=>
-        @hide()
-    
+
+      for target in targets
+        if e.target is target
+          @hide(e)
+          break
+
+    if @hasHistory()
+      window.onpopstate = (e)=>
+        @hide(e)
+
   show: (e)->
-    @overlay.addClass @options.openedClass
+    body = $(document.body)
+    that = @
+
+    body.addClass @options.bodyActiveClass
+
+    Backdrop.retain()
+
+    Utils.addClass @overlay[0], @options.visibleClass
+
+    Utils.requestAnimationFrame ->
+      Utils.addClass that.overlay[0], that.options.activeClass
+
     @options.onOpen?(e)
-    
-    if @options.resetScroll
-      @overlay.find('.us-overlay__container').scrollTop(0)
+
     if @hasHistory()
       history.pushState('open', window.document.title, @options.historyStatus)
 
   hide: (e)->
-    @overlay.removeClass @options.openedClass
+    body = $(document.body)
+    that = @
+
+    body.removeClass @options.bodyActiveClass
+
+    Backdrop.release()
+
+    Utils.requestAnimationFrame ->
+      Utils.removeClass that.overlay[0], that.options.activeClass
+
+      setTimeout ->
+        Utils.removeClass that.overlay[0], that.options.visibleClass
+      , 300
+
     @options.onClose?(e)
 
     if @hasHistory()

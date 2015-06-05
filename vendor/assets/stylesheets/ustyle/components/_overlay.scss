@@ -2,176 +2,169 @@
 // @name Overlay
 //
 // @description
-//  Our overlay can slide from either side and turn into a modal if `.us-overlay-modal-parent` is added to a parent.
-//  We use this across the site on mobile to display filters and clickout detail pages without taking the user away from the page.
-//  
+//  `.us-overlay` slides in from either side of the viewport, or can be shown as a modal window.
+//
+//
 // @javascript
 //   var overlay = new Overlay({
-//     openedClass:    'us-overlay--open'
-//     overlay:        $('.us-overlay-parent')
-//     openButton:     $('.js-open-overlay')
-//     closeButton:    $('.js-close-overlay')
-//     escapeKey:      27
-//     historyStatus:  '#seedeal'
-//     history:        true
-//     resetScroll:    true
-//     preventDefault: true
-//   })
-// 
-// @state .us-overlay--right - Slide from the right
-// @state .us-overlay--sticky-header - Sticky header
+//     bodyActiveClass: 'overlay--open',
+//     activeClass:     'us-overlay-parent--active',
+//     visibleClass:    'us-overlay-parent--visible',
+//     overlay:         $('.us-overlay-parent'),
+//     openButton:      '.js-open-overlay',
+//     closeButton:     '.js-close-overlay',
+//     historyStatus:   '#seedeal',
+//     history:         true,
+//     preventDefault:  true
+//   });
+//
+// @state .us-overlay--modal - Overlay appears as a modal window.
+// @state .us-overlay--right - Overlay appears on the right side of the viewport (not applicable when used in conjunction with .us-overlay--modal).
+// @state .us-overlay--above - Overlay appears over the top of another open overlay.
 //
 // @markup
-//   <button class='us-btn js-open-overlay' modifier="{$modifiers}">Open</button>
-// 
-//   <div class="us-overlay-parent us-overlay-modal-parent" modifier="{$modifiers}">
-//     <div class="us-overlay {$modifiers}">
-//       <div class="us-overlay__header">
-//         <div class="us-overlay__title">
-//           Overlay
-//         </div>
-//         <button class="us-overlay__close js-close-overlay"></button>
-//       </div>
+//   <button class="us-btn js-open-overlay" modifier="{$modifiers}">Open</button>
+//
+//   <div class="us-overlay-parent" modifier="{$modifiers}">
+//     <div class="us-overlay {$modifiers}" modifier="{$modifiers}">
 //       <div class="us-overlay__container">
-//         Bacon ipsum dolor amet exercitation ground round voluptate, fatback qui cupidatat sunt consectetur. Dolore strip steak pancetta ground round, venison rump tenderloin fatback frankfurter prosciutto deserunt do ex. In cupim ullamco bresaola, beef meatball aliqua laborum landjaeger consectetur tail cupidatat pariatur meatloaf ball tip. Anim cupim dolore, filet mignon kielbasa tri-tip short ribs esse porchetta landjaeger qui pork loin.
+//         <div class="us-overlay__header">
+//           <div class="us-overlay__title">
+//             Overlay
+//           </div>
+//
+//           <button class="us-overlay__close js-close-overlay"></button>
+//         </div>
+//
+//         <div class="us-overlay__body">
+//           Bacon ipsum dolor amet exercitation ground round voluptate, fatback qui cupidatat sunt consectetur. Dolore strip steak pancetta ground round, venison rump tenderloin fatback frankfurter prosciutto deserunt do ex. In cupim ullamco bresaola, beef meatball aliqua laborum landjaeger consectetur tail cupidatat pariatur meatloaf ball tip. Anim cupim dolore, filet mignon kielbasa tri-tip short ribs esse porchetta landjaeger qui pork loin.
 //         Ground round nostrud pastrami tempor cow short loin. Ut short ribs alcatra laboris brisket leberkas cow ham hock pork loin excepteur porchetta labore meatloaf. Labore filet mignon ball tip eu pork chop tri-tip porchetta alcatra. Ut consequat cupim ad corned beef sunt proident strip steak tongue irure pastrami kielbasa t-bone.
 //         Cow in tenderloin minim, aliqua in turkey anim filet mignon adipisicing reprehenderit bacon. Kielbasa turducken sunt dolore, velit alcatra filet mignon sint commodo beef ribs consectetur pork belly frankfurter pork chop meatloaf. Veniam in ad pork belly deserunt. Kevin sed cupidatat magna, swine incididunt reprehenderit tongue short loin pig kielbasa ham hock frankfurter salami beef ribs. Est corned beef shoulder ipsum, pancetta pork shankle meatloaf in beef in drumstick fatback velit pork chop. Meatloaf velit brisket mollit, ut kielbasa t-bone ex landjaeger pork chop adipisicing prosciutto shankle. Brisket turkey ham hock beef ribs, voluptate venison swine flank doner capicola rump tempor.
 //         Reprehenderit proident turkey mollit ut ipsum magna chuck ut brisket venison do. Exercitation boudin cillum prosciutto. Incididunt excepteur sint pork labore pork loin tri-tip salami cow elit bresaola beef ribs aliquip duis. Dolore nisi frankfurter ut magna.
 //         Et anim ad commodo, pork aliquip occaecat. Frankfurter kielbasa dolore, landjaeger chuck pork in drumstick fatback. Nulla minim dolor, ut filet mignon ground round id esse beef strip steak do laboris. Kielbasa hamburger consectetur, picanha fatback incididunt aute turducken pig in rump landjaeger qui pork tongue. Sausage cupim consectetur, drumstick et ea fatback consequat leberkas alcatra meatloaf. Duis rump velit est cupidatat in.
+//         </div>
 //       </div>
 //     </div>
-//     <div class="us-overlay__back-layer js-close-overlay"></div>
 //   </div>
 
 $overlay-modal-breakpoint: desktop !default;
 $overlay-modal-width: 60% !default;
-$overlay-modal-height: 80% !default;
 $overlay-max-modal-width: 700px !default;
-$overlay-forced-z-index: 1003 !default;
-$overlay-transition-speed: .4s !default;
+$overlay-z-index: 1003 !default;
+$overlay-transition-speed: .3s !default;
 $overlay-mobile-width: calc(100% - 25px) !default;
 $overlay-tablet-width: 340px !default;
 $overlay-header-height: 55px !default;
-$overlay-close-icon-size: 35px !default;
-$overlay-z-index: $overlay-forced-z-index;
+$overlay-close-icon-size: 32px !default;
 
-@mixin overlay($place-above: false) {
+.overlay--open {
+  overflow: hidden;
+}
+
+@mixin overlay--open {
+  .us-overlay-parent--active & {
+    @content;
+  }
+}
+
+@mixin overlay--above {
+  &.us-overlay--above {
+    @content;
+  }
+}
+
+.us-overlay-parent {
   position: fixed;
   top: 0;
+  right: 0;
+  bottom: 0;
   left: 0;
-  z-index: $overlay-forced-z-index;
+  z-index: $overlay-z-index;
+  visibility: hidden;
+}
+
+.us-overlay-parent--visible {
+  overflow: scroll;
+  visibility: visible;
+}
+
+.us-overlay {
+  position: absolute;
+  z-index: $overlay-z-index;
   width: $overlay-mobile-width;
-  height: 100%;
+  min-height: 100%;
   background: #fff;
-  overflow: auto;
-  transition: transform $overlay-transition-speed;
-  transition-timing-function: cubic-bezier(.175, .885, .335, 1.05);
-  transform: translateX(-100%);
   transform: translate3d(-100%, 0, 0);
+  transition: transform $overlay-transition-speed ease-in, opacity $overlay-transition-speed linear, box-shadow $overlay-transition-speed linear;
   -webkit-overflow-scrolling: auto;
 
-  .no-csstransforms & {
-    display: none;
-  }
-
-  .us-overlay--open & {
-    transform: translateX(0);
+  @include overlay--open {
+    opacity: 1;
     transform: translate3d(0, 0, 0);
-
-    .no-csstransforms & {
-      display: block;
-    }
+    box-shadow: 1px 0 18px 0 rgba(0, 0, 0, .3);
+    transition-timing-function: ease-out;
   }
 
   @include respond-to(small-tablet, true) {
     width: $overlay-tablet-width;
   }
-
-  .us-overlay-modal-parent & {
-    @include respond-to($overlay-modal-breakpoint, true) {
-      position: relative;
-      width: $overlay-modal-width;
-      max-width: $overlay-max-modal-width;
-      max-height: $overlay-modal-height;
-      margin: 5% auto;
-    }
-  }
-
-  @if $place-above {
-    $overlay-z-index: $overlay-z-index + 1;
-  }
-
-  z-index: $overlay-z-index;
 }
 
-.us-overlay {
-  @include overlay;
+.us-overlay--above {
+  z-index: $overlay-z-index + 1;
 
-  .us-overlay-modal-parent & {
-    @include respond-to($overlay-modal-breakpoint, true) {
-      overflow: hidden;
-    }
+  @include overlay--open {
+    box-shadow: 1px 0 30px 5px rgba(0, 0, 0, .3);
   }
 }
 
-.us-overlay--sticky-header {
-  overflow: hidden;
-}
-
-.us-overlay__container {
-  @extend %container !optional;
-  padding: 1em;
-
-  .us-overlay-modal-parent & {
-    @include respond-to($overlay-modal-breakpoint, true) {
-      height: 100%;
-      padding-bottom: $overlay-header-height + 16px;
-      overflow: scroll;
-    }
-  }
-
-  .us-overlay--sticky-header & {
-    height: 100%;
-    padding-bottom: $overlay-header-height + 16px;
-    overflow: scroll;
-  }
-}
-
-.us-overlay-modal-parent {
+.us-overlay--modal {
   @include respond-to($overlay-modal-breakpoint, true) {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: $overlay-forced-z-index + 1;
-    display: none;
-    width: 100%;
-    height: 100%;
+    position: relative;
+    width: $overlay-modal-width;
+    max-width: $overlay-max-modal-width;
+    min-height: 0;
+    margin: 5% auto;
+    opacity: 0;
+    transform: translate3d(0, -30px, 0);
 
-    &.us-overlay--open {
-      display: block;
+    @include overlay--open {
+      transform: translate3d(0, 0, 0);
+      box-shadow: 0 1px 18px 0 rgba(0, 0, 0, .3);
+
+      @include overlay--above {
+        box-shadow: 0 1px 30px 5px rgba(0, 0, 0, .3);
+      }
     }
   }
 }
 
 .us-overlay--right {
   right: 0;
-  left: auto;
-  transform: translateX(100%);
-  transform: translate3d(100%, 0, 0);
   transform: translate3d(100%, 0, 0);
 
-  .us-overlay--open & {
-    transform: translateX(0);
+  @include overlay--open {
     transform: translate3d(0, 0, 0);
+    box-shadow: -1px 0 18px 0 rgba(0, 0, 0, .3);
 
-    .no-csstransforms & {
-      display: block;
+    @include overlay--above {
+      box-shadow: -1px 0 30px 5px rgba(0, 0, 0, .3);
     }
   }
 }
 
+.us-overlay__container {
+  position: relative;
+}
+
+.us-overlay__body {
+  @extend %container !optional;
+  padding: 1em;
+}
+
 .us-overlay__header {
   position: relative;
+  width: 100%;
   min-height: $overlay-header-height;
   padding: 1em;
   color: #fff;
@@ -203,29 +196,10 @@ $overlay-z-index: $overlay-forced-z-index;
     left: 0;
     width: $overlay-close-icon-size;
     height: $overlay-close-icon-size;
-    font-size: $overlay-close-icon-size;
+    font-size: 28px;
     font-weight: bold;
     line-height: $overlay-close-icon-size;
     color: $c-navy;
     content: "\00d7";
   }
-}
-
-.us-overlay__back-layer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: $overlay-forced-z-index - 1;
-  display: none;
-  width: 100%;
-  height: 150%;
-  background: rgba($c-blue, .5);
-
-  .us-overlay--open & {
-    display: block;
-  }
-}
-
-.us-overlay__back-layer--open {
-  display: block;
 }
