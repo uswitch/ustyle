@@ -14,17 +14,24 @@ class window.Overlay
 
   constructor: (options) ->
     {@overlay} = @options = setOptions options, defaults
-    @addEventListeners()
+    if @overlay? and Backdrop?
+      @backdrop = new Backdrop()
+      @addEventListeners()
+    else
+      throw new Error("There's no overlay or you haven't included Backdrop")
 
   addEventListeners: ->
-    $(@options.openButton).on 'click.open-overlay', (e)=>
+    $(@options.openButton).on 'click.open-overlay', (e) =>
       if @options.preventDefault
         e.preventDefault()
 
       @show(e)
 
-    @overlay.on 'click.close-overlay', (e)=>
-      targets = [@overlay[0], @overlay.find(@options.closeButton)[0]]
+    @overlay.on 'click.close-overlay', (e) =>
+      targets = [
+        @overlay[0],
+        @overlay.find(@options.closeButton)[0]
+      ]
 
       if @options.preventDefault
         e.preventDefault()
@@ -35,16 +42,15 @@ class window.Overlay
           break
 
     if @hasHistory()
-      window.onpopstate = (e)=>
+      window.onpopstate = (e) =>
         @hide(e)
 
-  show: (e)->
-    body = $(document.body)
+  show: (e) ->
     that = @
 
-    body.addClass @options.bodyActiveClass
+    $(document.body).addClass @options.bodyActiveClass
 
-    Backdrop.retain()
+    @backdrop.retain()
 
     Utils.addClass @overlay[0], @options.visibleClass
 
@@ -56,13 +62,12 @@ class window.Overlay
     if @hasHistory()
       history.pushState('open', window.document.title, @options.historyStatus)
 
-  hide: (e)->
-    body = $(document.body)
+  hide: (e) ->
     that = @
 
-    body.removeClass @options.bodyActiveClass
+    $(document.body).removeClass @options.bodyActiveClass
 
-    Backdrop.release()
+    @backdrop.release()
 
     Utils.requestAnimationFrame ->
       Utils.removeClass that.overlay[0], that.options.activeClass

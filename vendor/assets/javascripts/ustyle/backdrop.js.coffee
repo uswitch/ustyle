@@ -1,4 +1,4 @@
-class Backdrop
+class window.Backdrop
   backdrop = null
   holds = 0
 
@@ -24,5 +24,3 @@ class Backdrop
         setTimeout ->
           Utils.removeClass backdrop, 'us-backdrop--visible'
         , 300
-
-  window.Backdrop = new @

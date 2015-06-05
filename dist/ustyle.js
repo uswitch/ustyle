@@ -342,9 +342,7 @@
 }).call(this);
 
 (function() {
-  var Backdrop;
-
-  Backdrop = (function() {
+  window.Backdrop = (function() {
     var backdrop, holds;
 
     backdrop = null;
@@ -379,8 +377,6 @@
       }
     };
 
-    window.Backdrop = new Backdrop;
-
     return Backdrop;
 
   })();
@@ -409,7 +405,12 @@
 
     function Overlay(options) {
       this.overlay = (this.options = setOptions(options, defaults)).overlay;
-      this.addEventListeners();
+      if ((this.overlay != null) && (typeof Backdrop !== "undefined" && Backdrop !== null)) {
+        this.backdrop = new Backdrop();
+        this.addEventListeners();
+      } else {
+        throw new Error("There's no overlay or you haven't included Backdrop");
+      }
     }
 
     Overlay.prototype.addEventListeners = function() {
@@ -451,11 +452,10 @@
     };
 
     Overlay.prototype.show = function(e) {
-      var body, that, _base;
-      body = $(document.body);
+      var that, _base;
       that = this;
-      body.addClass(this.options.bodyActiveClass);
-      Backdrop.retain();
+      $(document.body).addClass(this.options.bodyActiveClass);
+      this.backdrop.retain();
       Utils.addClass(this.overlay[0], this.options.visibleClass);
       Utils.requestAnimationFrame(function() {
         return Utils.addClass(that.overlay[0], that.options.activeClass);
@@ -469,11 +469,10 @@
     };
 
     Overlay.prototype.hide = function(e) {
-      var body, that, _base;
-      body = $(document.body);
+      var that, _base;
       that = this;
-      body.removeClass(this.options.bodyActiveClass);
-      Backdrop.release();
+      $(document.body).removeClass(this.options.bodyActiveClass);
+      this.backdrop.release();
       Utils.requestAnimationFrame(function() {
         Utils.removeClass(that.overlay[0], that.options.activeClass);
         return setTimeout(function() {
