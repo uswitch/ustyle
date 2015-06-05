@@ -1,4 +1,4 @@
-(function(document, window, cleanWhiteSpace){
+(function(document, window, cleanWhiteSpace, gumshoe, $, Overlay, ClassToggler, Tabs, Anchor, RadioToggle){
   "use strict";
 
   function App(){
@@ -57,4 +57,4 @@
 
   return new App();
 
-})(document, window, cleanWhiteSpace);
+})(document, window, cleanWhiteSpace, gumshoe, $, Overlay, ClassToggler, Tabs, Anchor, RadioToggle);

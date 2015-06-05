@@ -13,7 +13,7 @@ $sidebar-padding        : 0;
   overflow: visible;
   display: none;
 
-  @include respond-to($sidebar-breakpoint) {
+  @include respond-to($sidebar-breakpoint, true) {
     position: fixed;
     top: $header-height;
     right: 0;
@@ -26,10 +26,11 @@ $sidebar-padding        : 0;
     overflow-x: hidden;
   }
 
-  @include respond-to($sidebar-side-visibility) {
+  @include respond-to($sidebar-side-visibility, true) {
     display: block;
 
     &--push {
+      width: 80%;
       width: calc(100% - #{$sidebar-width});
       padding-right: $sidebar-width/2 + $gutter-width;    
     }

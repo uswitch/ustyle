@@ -10,7 +10,7 @@ $button-menu-slice-height: 3px !default;
   width: 42px;
   background-color: $c-navy;
 
-  @include respond-to($sidebar-breakpoint) {
+  @include respond-to($sidebar-breakpoint, true) {
     top: $header-height;
     right: $gutter-width;
   }

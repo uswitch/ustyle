@@ -5,7 +5,9 @@ function cleanWhiteSpace(codeBlocks){
       var codeBlock = codeBlocks[i],
           lines, offset;
 
-      lines = codeBlock.textContent.split( '\n' );
+      var text = codeBlock.textContent || codeBlock.innerText;
+
+      lines = text.split( '\n' );
 
       if ( lines.length > 1 && lines[ lines.length - 1 ].trim() === '' ){
         lines.pop();
