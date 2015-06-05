@@ -11,9 +11,12 @@
   <meta content='width=device-width, initial-scale=1.0' name='viewport'>
   <title>ustyle styleguide</title>
   <link rel="stylesheet" href="/css/main.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <![endif] -->
   <script>
     (function(html){
-      html.className=html.className.replace(/\bno-js\b/,'js')
+      html.className=html.className.replace(/\bno-js\b/,'js');
     })(document.documentElement);
   </script>
 </head>
@@ -23,8 +26,8 @@
     <a class="version us-tablet--block" href="https://github.com/uswitch/ustyle/releases/tag/0.18.2">v0.18.2</a>
     <div class='nav nav--header'>
       <nav>
-        <a href="/brand/" class="nav__link ">Brand</a>
-        <a href="/design/" class="nav__link active">Design</a>
+        <a href="/brand/" class="nav__link active">Brand</a>
+        <a href="/design/" class="nav__link ">Design</a>
         <a href="/code/" class="nav__link ">Code</a>
       </nav>
     </nav>
@@ -32,12 +35,8 @@
   <a href="javascript:void(0);" class="nav-mobile js-toggle__link us-desktop--hidden" data-target="sidebar"><span class="nav-mobile__hamburger">Sidebar</span></a>
   <div class='sidebar'>
     <nav class='sidebar__nav' data-gumshoe>
-          <a class="sidebar__nav-link " href="index.html">Design</a>
-          <a class="sidebar__nav-link " href="icons.html">Icons</a>
-          <a class="sidebar__nav-link " href="colours.html">Colours</a>
-          <a class="sidebar__nav-link " href="typography.html">Typography</a>
+          <a class="sidebar__nav-link " href="index.html">Framework</a>
           <a class="sidebar__nav-link active" href="language.html">Language</a>
-          <a class="sidebar__nav-link " href="imagery.html">Imagery</a>
     </nav>
   </div>
   <div id="wrapper" class="container header--push sidebar--push">

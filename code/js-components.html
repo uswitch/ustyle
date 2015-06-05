@@ -11,9 +11,12 @@
   <meta content='width=device-width, initial-scale=1.0' name='viewport'>
   <title>ustyle styleguide</title>
   <link rel="stylesheet" href="/css/main.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <![endif] -->
   <script>
     (function(html){
-      html.className=html.className.replace(/\bno-js\b/,'js')
+      html.className=html.className.replace(/\bno-js\b/,'js');
     })(document.documentElement);
   </script>
 </head>
@@ -99,12 +102,12 @@
                   <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_overlay.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_overlay.scss</span></a>
                 </h2>
                 
-                <p>  Our overlay can slide from either side and turn into a modal if <code>.us-overlay-modal-parent</code> is added to a parent.</p>
-            <p>  We use this across the site on mobile to display filters and clickout detail pages without taking the user away from the page.</p>
+                <p>  <code>.us-overlay</code> slides in from either side of the viewport, or can be shown as a modal window.</p>
             
                   <ul class="styleguide__block-states">
-                      <li class="name"><strong>.us-overlay--right</strong> - Slide from the right</li>
-                      <li class="name"><strong>.us-overlay--sticky-header</strong> - Sticky header</li>
+                      <li class="name"><strong>.us-overlay--modal</strong> - Overlay appears as a modal window.</li>
+                      <li class="name"><strong>.us-overlay--right</strong> - Overlay appears on the right side of the viewport (not applicable when used in conjunction with .us-overlay--modal).</li>
+                      <li class="name"><strong>.us-overlay--above</strong> - Overlay appears over the top of another open overlay.</li>
                   </ul>
                 
               </div>
@@ -112,105 +115,132 @@
               <div class="styleguide__block-examples">
                 <h3 class="styleguide__block-small-title">Example</h3>
                 <div class="styleguide__block-example">
-                     <button class='us-btn js-open-overlay' modifier="{$modifiers}">Open</button>
-               <div class="us-overlay-parent us-overlay-modal-parent" modifier="{$modifiers}">
-                 <div class="us-overlay {$modifiers}">
-                   <div class="us-overlay__header">
-                     <div class="us-overlay__title">
-                       Overlay
-                     </div>
-                     <button class="us-overlay__close js-close-overlay"></button>
-                   </div>
+                     <button class="us-btn js-open-overlay" modifier="{$modifiers}">Open</button>
+               <div class="us-overlay-parent" modifier="{$modifiers}">
+                 <div class="us-overlay {$modifiers}" modifier="{$modifiers}">
                    <div class="us-overlay__container">
-                     Bacon ipsum dolor amet exercitation ground round voluptate, fatback qui cupidatat sunt consectetur. Dolore strip steak pancetta ground round, venison rump tenderloin fatback frankfurter prosciutto deserunt do ex. In cupim ullamco bresaola, beef meatball aliqua laborum landjaeger consectetur tail cupidatat pariatur meatloaf ball tip. Anim cupim dolore, filet mignon kielbasa tri-tip short ribs esse porchetta landjaeger qui pork loin.
+                     <div class="us-overlay__header">
+                       <div class="us-overlay__title">
+                         Overlay
+                       </div>
+                       <button class="us-overlay__close js-close-overlay"></button>
+                     </div>
+                     <div class="us-overlay__body">
+                       Bacon ipsum dolor amet exercitation ground round voluptate, fatback qui cupidatat sunt consectetur. Dolore strip steak pancetta ground round, venison rump tenderloin fatback frankfurter prosciutto deserunt do ex. In cupim ullamco bresaola, beef meatball aliqua laborum landjaeger consectetur tail cupidatat pariatur meatloaf ball tip. Anim cupim dolore, filet mignon kielbasa tri-tip short ribs esse porchetta landjaeger qui pork loin.
                      Ground round nostrud pastrami tempor cow short loin. Ut short ribs alcatra laboris brisket leberkas cow ham hock pork loin excepteur porchetta labore meatloaf. Labore filet mignon ball tip eu pork chop tri-tip porchetta alcatra. Ut consequat cupim ad corned beef sunt proident strip steak tongue irure pastrami kielbasa t-bone.
                      Cow in tenderloin minim, aliqua in turkey anim filet mignon adipisicing reprehenderit bacon. Kielbasa turducken sunt dolore, velit alcatra filet mignon sint commodo beef ribs consectetur pork belly frankfurter pork chop meatloaf. Veniam in ad pork belly deserunt. Kevin sed cupidatat magna, swine incididunt reprehenderit tongue short loin pig kielbasa ham hock frankfurter salami beef ribs. Est corned beef shoulder ipsum, pancetta pork shankle meatloaf in beef in drumstick fatback velit pork chop. Meatloaf velit brisket mollit, ut kielbasa t-bone ex landjaeger pork chop adipisicing prosciutto shankle. Brisket turkey ham hock beef ribs, voluptate venison swine flank doner capicola rump tempor.
                      Reprehenderit proident turkey mollit ut ipsum magna chuck ut brisket venison do. Exercitation boudin cillum prosciutto. Incididunt excepteur sint pork labore pork loin tri-tip salami cow elit bresaola beef ribs aliquip duis. Dolore nisi frankfurter ut magna.
                      Et anim ad commodo, pork aliquip occaecat. Frankfurter kielbasa dolore, landjaeger chuck pork in drumstick fatback. Nulla minim dolor, ut filet mignon ground round id esse beef strip steak do laboris. Kielbasa hamburger consectetur, picanha fatback incididunt aute turducken pig in rump landjaeger qui pork tongue. Sausage cupim consectetur, drumstick et ea fatback consequat leberkas alcatra meatloaf. Duis rump velit est cupidatat in.
+                     </div>
                    </div>
                  </div>
-                 <div class="us-overlay__back-layer js-close-overlay"></div>
                </div>
                 </div>
               
-                  <div class="styleguide__block-example state-us-overlay--right">
-                       <button class='us-btn js-open-overlay' modifier="us-overlay--right">Open</button>
-               <div class="us-overlay-parent us-overlay-modal-parent" modifier="us-overlay--right">
-                 <div class="us-overlay us-overlay--right">
-                   <div class="us-overlay__header">
-                     <div class="us-overlay__title">
-                       Overlay
-                     </div>
-                     <button class="us-overlay__close js-close-overlay"></button>
-                   </div>
+                  <div class="styleguide__block-example state-us-overlay--modal">
+                       <button class="us-btn js-open-overlay" modifier="us-overlay--modal">Open</button>
+               <div class="us-overlay-parent" modifier="us-overlay--modal">
+                 <div class="us-overlay us-overlay--modal" modifier="us-overlay--modal">
                    <div class="us-overlay__container">
-                     Bacon ipsum dolor amet exercitation ground round voluptate, fatback qui cupidatat sunt consectetur. Dolore strip steak pancetta ground round, venison rump tenderloin fatback frankfurter prosciutto deserunt do ex. In cupim ullamco bresaola, beef meatball aliqua laborum landjaeger consectetur tail cupidatat pariatur meatloaf ball tip. Anim cupim dolore, filet mignon kielbasa tri-tip short ribs esse porchetta landjaeger qui pork loin.
+                     <div class="us-overlay__header">
+                       <div class="us-overlay__title">
+                         Overlay
+                       </div>
+                       <button class="us-overlay__close js-close-overlay"></button>
+                     </div>
+                     <div class="us-overlay__body">
+                       Bacon ipsum dolor amet exercitation ground round voluptate, fatback qui cupidatat sunt consectetur. Dolore strip steak pancetta ground round, venison rump tenderloin fatback frankfurter prosciutto deserunt do ex. In cupim ullamco bresaola, beef meatball aliqua laborum landjaeger consectetur tail cupidatat pariatur meatloaf ball tip. Anim cupim dolore, filet mignon kielbasa tri-tip short ribs esse porchetta landjaeger qui pork loin.
                      Ground round nostrud pastrami tempor cow short loin. Ut short ribs alcatra laboris brisket leberkas cow ham hock pork loin excepteur porchetta labore meatloaf. Labore filet mignon ball tip eu pork chop tri-tip porchetta alcatra. Ut consequat cupim ad corned beef sunt proident strip steak tongue irure pastrami kielbasa t-bone.
                      Cow in tenderloin minim, aliqua in turkey anim filet mignon adipisicing reprehenderit bacon. Kielbasa turducken sunt dolore, velit alcatra filet mignon sint commodo beef ribs consectetur pork belly frankfurter pork chop meatloaf. Veniam in ad pork belly deserunt. Kevin sed cupidatat magna, swine incididunt reprehenderit tongue short loin pig kielbasa ham hock frankfurter salami beef ribs. Est corned beef shoulder ipsum, pancetta pork shankle meatloaf in beef in drumstick fatback velit pork chop. Meatloaf velit brisket mollit, ut kielbasa t-bone ex landjaeger pork chop adipisicing prosciutto shankle. Brisket turkey ham hock beef ribs, voluptate venison swine flank doner capicola rump tempor.
                      Reprehenderit proident turkey mollit ut ipsum magna chuck ut brisket venison do. Exercitation boudin cillum prosciutto. Incididunt excepteur sint pork labore pork loin tri-tip salami cow elit bresaola beef ribs aliquip duis. Dolore nisi frankfurter ut magna.
                      Et anim ad commodo, pork aliquip occaecat. Frankfurter kielbasa dolore, landjaeger chuck pork in drumstick fatback. Nulla minim dolor, ut filet mignon ground round id esse beef strip steak do laboris. Kielbasa hamburger consectetur, picanha fatback incididunt aute turducken pig in rump landjaeger qui pork tongue. Sausage cupim consectetur, drumstick et ea fatback consequat leberkas alcatra meatloaf. Duis rump velit est cupidatat in.
+                     </div>
                    </div>
                  </div>
-                 <div class="us-overlay__back-layer js-close-overlay"></div>
+               </div>
+                    <div class="styleguide__block-example-class">.us-overlay--modal</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-overlay--right">
+                       <button class="us-btn js-open-overlay" modifier="us-overlay--right">Open</button>
+               <div class="us-overlay-parent" modifier="us-overlay--right">
+                 <div class="us-overlay us-overlay--right" modifier="us-overlay--right">
+                   <div class="us-overlay__container">
+                     <div class="us-overlay__header">
+                       <div class="us-overlay__title">
+                         Overlay
+                       </div>
+                       <button class="us-overlay__close js-close-overlay"></button>
+                     </div>
+                     <div class="us-overlay__body">
+                       Bacon ipsum dolor amet exercitation ground round voluptate, fatback qui cupidatat sunt consectetur. Dolore strip steak pancetta ground round, venison rump tenderloin fatback frankfurter prosciutto deserunt do ex. In cupim ullamco bresaola, beef meatball aliqua laborum landjaeger consectetur tail cupidatat pariatur meatloaf ball tip. Anim cupim dolore, filet mignon kielbasa tri-tip short ribs esse porchetta landjaeger qui pork loin.
+                     Ground round nostrud pastrami tempor cow short loin. Ut short ribs alcatra laboris brisket leberkas cow ham hock pork loin excepteur porchetta labore meatloaf. Labore filet mignon ball tip eu pork chop tri-tip porchetta alcatra. Ut consequat cupim ad corned beef sunt proident strip steak tongue irure pastrami kielbasa t-bone.
+                     Cow in tenderloin minim, aliqua in turkey anim filet mignon adipisicing reprehenderit bacon. Kielbasa turducken sunt dolore, velit alcatra filet mignon sint commodo beef ribs consectetur pork belly frankfurter pork chop meatloaf. Veniam in ad pork belly deserunt. Kevin sed cupidatat magna, swine incididunt reprehenderit tongue short loin pig kielbasa ham hock frankfurter salami beef ribs. Est corned beef shoulder ipsum, pancetta pork shankle meatloaf in beef in drumstick fatback velit pork chop. Meatloaf velit brisket mollit, ut kielbasa t-bone ex landjaeger pork chop adipisicing prosciutto shankle. Brisket turkey ham hock beef ribs, voluptate venison swine flank doner capicola rump tempor.
+                     Reprehenderit proident turkey mollit ut ipsum magna chuck ut brisket venison do. Exercitation boudin cillum prosciutto. Incididunt excepteur sint pork labore pork loin tri-tip salami cow elit bresaola beef ribs aliquip duis. Dolore nisi frankfurter ut magna.
+                     Et anim ad commodo, pork aliquip occaecat. Frankfurter kielbasa dolore, landjaeger chuck pork in drumstick fatback. Nulla minim dolor, ut filet mignon ground round id esse beef strip steak do laboris. Kielbasa hamburger consectetur, picanha fatback incididunt aute turducken pig in rump landjaeger qui pork tongue. Sausage cupim consectetur, drumstick et ea fatback consequat leberkas alcatra meatloaf. Duis rump velit est cupidatat in.
+                     </div>
+                   </div>
+                 </div>
                </div>
                     <div class="styleguide__block-example-class">.us-overlay--right</div>
                   </div>
-                  <div class="styleguide__block-example state-us-overlay--sticky-header">
-                       <button class='us-btn js-open-overlay' modifier="us-overlay--sticky-header">Open</button>
-               <div class="us-overlay-parent us-overlay-modal-parent" modifier="us-overlay--sticky-header">
-                 <div class="us-overlay us-overlay--sticky-header">
-                   <div class="us-overlay__header">
-                     <div class="us-overlay__title">
-                       Overlay
-                     </div>
-                     <button class="us-overlay__close js-close-overlay"></button>
-                   </div>
+                  <div class="styleguide__block-example state-us-overlay--above">
+                       <button class="us-btn js-open-overlay" modifier="us-overlay--above">Open</button>
+               <div class="us-overlay-parent" modifier="us-overlay--above">
+                 <div class="us-overlay us-overlay--above" modifier="us-overlay--above">
                    <div class="us-overlay__container">
-                     Bacon ipsum dolor amet exercitation ground round voluptate, fatback qui cupidatat sunt consectetur. Dolore strip steak pancetta ground round, venison rump tenderloin fatback frankfurter prosciutto deserunt do ex. In cupim ullamco bresaola, beef meatball aliqua laborum landjaeger consectetur tail cupidatat pariatur meatloaf ball tip. Anim cupim dolore, filet mignon kielbasa tri-tip short ribs esse porchetta landjaeger qui pork loin.
+                     <div class="us-overlay__header">
+                       <div class="us-overlay__title">
+                         Overlay
+                       </div>
+                       <button class="us-overlay__close js-close-overlay"></button>
+                     </div>
+                     <div class="us-overlay__body">
+                       Bacon ipsum dolor amet exercitation ground round voluptate, fatback qui cupidatat sunt consectetur. Dolore strip steak pancetta ground round, venison rump tenderloin fatback frankfurter prosciutto deserunt do ex. In cupim ullamco bresaola, beef meatball aliqua laborum landjaeger consectetur tail cupidatat pariatur meatloaf ball tip. Anim cupim dolore, filet mignon kielbasa tri-tip short ribs esse porchetta landjaeger qui pork loin.
                      Ground round nostrud pastrami tempor cow short loin. Ut short ribs alcatra laboris brisket leberkas cow ham hock pork loin excepteur porchetta labore meatloaf. Labore filet mignon ball tip eu pork chop tri-tip porchetta alcatra. Ut consequat cupim ad corned beef sunt proident strip steak tongue irure pastrami kielbasa t-bone.
                      Cow in tenderloin minim, aliqua in turkey anim filet mignon adipisicing reprehenderit bacon. Kielbasa turducken sunt dolore, velit alcatra filet mignon sint commodo beef ribs consectetur pork belly frankfurter pork chop meatloaf. Veniam in ad pork belly deserunt. Kevin sed cupidatat magna, swine incididunt reprehenderit tongue short loin pig kielbasa ham hock frankfurter salami beef ribs. Est corned beef shoulder ipsum, pancetta pork shankle meatloaf in beef in drumstick fatback velit pork chop. Meatloaf velit brisket mollit, ut kielbasa t-bone ex landjaeger pork chop adipisicing prosciutto shankle. Brisket turkey ham hock beef ribs, voluptate venison swine flank doner capicola rump tempor.
                      Reprehenderit proident turkey mollit ut ipsum magna chuck ut brisket venison do. Exercitation boudin cillum prosciutto. Incididunt excepteur sint pork labore pork loin tri-tip salami cow elit bresaola beef ribs aliquip duis. Dolore nisi frankfurter ut magna.
                      Et anim ad commodo, pork aliquip occaecat. Frankfurter kielbasa dolore, landjaeger chuck pork in drumstick fatback. Nulla minim dolor, ut filet mignon ground round id esse beef strip steak do laboris. Kielbasa hamburger consectetur, picanha fatback incididunt aute turducken pig in rump landjaeger qui pork tongue. Sausage cupim consectetur, drumstick et ea fatback consequat leberkas alcatra meatloaf. Duis rump velit est cupidatat in.
+                     </div>
                    </div>
                  </div>
-                 <div class="us-overlay__back-layer js-close-overlay"></div>
                </div>
-                    <div class="styleguide__block-example-class">.us-overlay--sticky-header</div>
+                    <div class="styleguide__block-example-class">.us-overlay--above</div>
                   </div>
             
                 <pre><code class="html">
-               &lt;button class='us-btn js-open-overlay' modifier="{$modifiers}"&gt;Open&lt;/button&gt;
-               &lt;div class="us-overlay-parent us-overlay-modal-parent" modifier="{$modifiers}"&gt;
-                 &lt;div class="us-overlay"&gt;
-                   &lt;div class="us-overlay__header"&gt;
-                     &lt;div class="us-overlay__title"&gt;
-                       Overlay
-                     &lt;/div&gt;
-                     &lt;button class="us-overlay__close js-close-overlay"&gt;&lt;/button&gt;
-                   &lt;/div&gt;
+               &lt;button class="us-btn js-open-overlay" modifier="{$modifiers}"&gt;Open&lt;/button&gt;
+               &lt;div class="us-overlay-parent" modifier="{$modifiers}"&gt;
+                 &lt;div class="us-overlay" modifier="{$modifiers}"&gt;
                    &lt;div class="us-overlay__container"&gt;
-                     Bacon ipsum dolor amet exercitation ground round voluptate, fatback qui cupidatat sunt consectetur. Dolore strip steak pancetta ground round, venison rump tenderloin fatback frankfurter prosciutto deserunt do ex. In cupim ullamco bresaola, beef meatball aliqua laborum landjaeger consectetur tail cupidatat pariatur meatloaf ball tip. Anim cupim dolore, filet mignon kielbasa tri-tip short ribs esse porchetta landjaeger qui pork loin.
+                     &lt;div class="us-overlay__header"&gt;
+                       &lt;div class="us-overlay__title"&gt;
+                         Overlay
+                       &lt;/div&gt;
+                       &lt;button class="us-overlay__close js-close-overlay"&gt;&lt;/button&gt;
+                     &lt;/div&gt;
+                     &lt;div class="us-overlay__body"&gt;
+                       Bacon ipsum dolor amet exercitation ground round voluptate, fatback qui cupidatat sunt consectetur. Dolore strip steak pancetta ground round, venison rump tenderloin fatback frankfurter prosciutto deserunt do ex. In cupim ullamco bresaola, beef meatball aliqua laborum landjaeger consectetur tail cupidatat pariatur meatloaf ball tip. Anim cupim dolore, filet mignon kielbasa tri-tip short ribs esse porchetta landjaeger qui pork loin.
                      Ground round nostrud pastrami tempor cow short loin. Ut short ribs alcatra laboris brisket leberkas cow ham hock pork loin excepteur porchetta labore meatloaf. Labore filet mignon ball tip eu pork chop tri-tip porchetta alcatra. Ut consequat cupim ad corned beef sunt proident strip steak tongue irure pastrami kielbasa t-bone.
                      Cow in tenderloin minim, aliqua in turkey anim filet mignon adipisicing reprehenderit bacon. Kielbasa turducken sunt dolore, velit alcatra filet mignon sint commodo beef ribs consectetur pork belly frankfurter pork chop meatloaf. Veniam in ad pork belly deserunt. Kevin sed cupidatat magna, swine incididunt reprehenderit tongue short loin pig kielbasa ham hock frankfurter salami beef ribs. Est corned beef shoulder ipsum, pancetta pork shankle meatloaf in beef in drumstick fatback velit pork chop. Meatloaf velit brisket mollit, ut kielbasa t-bone ex landjaeger pork chop adipisicing prosciutto shankle. Brisket turkey ham hock beef ribs, voluptate venison swine flank doner capicola rump tempor.
                      Reprehenderit proident turkey mollit ut ipsum magna chuck ut brisket venison do. Exercitation boudin cillum prosciutto. Incididunt excepteur sint pork labore pork loin tri-tip salami cow elit bresaola beef ribs aliquip duis. Dolore nisi frankfurter ut magna.
                      Et anim ad commodo, pork aliquip occaecat. Frankfurter kielbasa dolore, landjaeger chuck pork in drumstick fatback. Nulla minim dolor, ut filet mignon ground round id esse beef strip steak do laboris. Kielbasa hamburger consectetur, picanha fatback incididunt aute turducken pig in rump landjaeger qui pork tongue. Sausage cupim consectetur, drumstick et ea fatback consequat leberkas alcatra meatloaf. Duis rump velit est cupidatat in.
+                     &lt;/div&gt;
                    &lt;/div&gt;
                  &lt;/div&gt;
-                 &lt;div class="us-overlay__back-layer js-close-overlay"&gt;&lt;/div&gt;
                &lt;/div&gt;
                 </code></pre>
                   <pre><code class="javascript">
                var overlay = new Overlay({
-                 openedClass:    &#39;us-overlay--open&#39;
-                 overlay:        $(&#39;.us-overlay-parent&#39;)
-                 openButton:     $(&#39;.js-open-overlay&#39;)
-                 closeButton:    $(&#39;.js-close-overlay&#39;)
-                 escapeKey:      27
-                 historyStatus:  &#39;#seedeal&#39;
-                 history:        true
-                 resetScroll:    true
-                 preventDefault: true
-               })
+                 bodyActiveClass: &#39;overlay--open&#39;,
+                 activeClass:     &#39;us-overlay-parent--active&#39;,
+                 visibleClass:    &#39;us-overlay-parent--visible&#39;,
+                 overlay:         $(&#39;.us-overlay-parent&#39;),
+                 openButton:      &#39;.js-open-overlay&#39;,
+                 closeButton:     &#39;.js-close-overlay&#39;,
+                 historyStatus:   &#39;#seedeal&#39;,
+                 history:         true,
+                 preventDefault:  true
+               });
              
                   </code></pre>
               </div>

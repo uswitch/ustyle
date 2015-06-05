@@ -11,9 +11,12 @@
   <meta content='width=device-width, initial-scale=1.0' name='viewport'>
   <title>ustyle styleguide</title>
   <link rel="stylesheet" href="/css/main.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <![endif] -->
   <script>
     (function(html){
-      html.className=html.className.replace(/\bno-js\b/,'js')
+      html.className=html.className.replace(/\bno-js\b/,'js');
     })(document.documentElement);
   </script>
 </head>
@@ -42,7 +45,6 @@
               </nav>
           <a class="sidebar__nav-link " href="icons.html">Icons</a>
           <a class="sidebar__nav-link " href="colours.html">Colours</a>
-          <a class="sidebar__nav-link " href="language.html">Language</a>
           <a class="sidebar__nav-link " href="imagery.html">Imagery</a>
     </nav>
   </div>
