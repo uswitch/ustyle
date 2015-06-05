@@ -1,5 +1,5 @@
 class window.ClassToggler
-  defaults = 
+  defaults =
     containerClass: null
     $target: null
     activeClass: "active"
@@ -8,17 +8,22 @@ class window.ClassToggler
 
   constructor:(options) ->
     @options = Utils.setOptions options, defaults
-    if @options.$target then @addEventListeners() else console.trace "ClassToggle", @options
+    if @options.$target
+      @addEventListeners()
+    else
+      console.trace "ClassToggle", @options
 
   addEventListeners:->
-    @options.$target.on @options.toggleOn, (e)=>
-      $togglableElement = if @options.containerClass then $(e.target).closest(@options.containerClass) else $(e.delegateTarget) 
-
+    @options.$target.on @options.toggleOn, (e) =>
+      $togglableElement =
+        if @options.containerClass
+          $(e.target).closest(@options.containerClass)
+        else $(e.delegateTarget)
       if @isActive $togglableElement
         @hide $togglableElement,e
       else
         @show $togglableElement,e
-  
+
   isActive: ($togglableElement)->
     $togglableElement.hasClass @options.activeClass
 

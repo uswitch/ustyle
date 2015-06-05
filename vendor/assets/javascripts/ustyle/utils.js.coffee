@@ -1,11 +1,12 @@
 @Utils ?= {modules: []}
 
 addClass = (element, name) ->
-    removeClass element, name
-    element.className += " #{name} "
+  removeClass element, name
+  element.className += " #{name} "
 
 removeClass = (element, name) ->
-  element.className = element.className.replace new RegExp("(\\s|^)#{name}(\\s|$)" , "gi"), ""
+  regExp = new RegExp("(\\s|^)#{name}(\\s|$)" , "gi")
+  element.className = element.className.replace regExp, ""
 
 hasClass = (element, name) ->
   new RegExp("(^| )#{ name }( |$)", 'gi').test(element.className)
@@ -26,7 +27,15 @@ deleteUndefined = (obj) ->
 
 transformKey = do ->
   el = document.createElement 'div'
-  for key in ['transform', 'webkitTransform', 'OTransform', 'MozTransform', 'msTransform']
+  transforms = [
+    'transform',
+    'webkitTransform',
+    'OTransform',
+    'MozTransform',
+    'msTransform'
+  ]
+
+  for key in transforms
     if el.style[key] isnt undefined
       return key
 
@@ -38,6 +47,15 @@ requestAnimationFrame = (do (window) ->
 
   window.requestAnimationFrame or= (callback) ->
     setTimeout callback, (1000 / 60)
-).bind(window)
+  ).bind(window)
 
-@Utils = {addClass, removeClass, hasClass, merge, setOptions, deleteUndefined, transformKey, requestAnimationFrame}
+@Utils = {
+  addClass,
+  removeClass,
+  hasClass,
+  merge,
+  setOptions,
+  deleteUndefined,
+  transformKey,
+  requestAnimationFrame
+}

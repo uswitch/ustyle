@@ -25,7 +25,10 @@ createContext = (options) ->
         e.preventDefault()
 
     init: ->
-      $first = if @tab.hasClass(@options.activeClass) then @tab.filter(".#{@options.activeClass}")  else @tab.first()
+      $first =
+        if @tab.hasClass(@options.activeClass)
+          @tab.filter(".#{@options.activeClass}")
+        else @tab.first()
       $initialHash = @tab.filter("[#{@filter}='#{@hash.replace("!", "")}']")
 
       if $initialHash.length
@@ -45,7 +48,8 @@ createContext = (options) ->
       @tab.filter("[#{@filter}='#{selector}']").addClass(@options.activeClass)
 
       $selected
-        .siblings(".#{@options.activeClass}").removeClass(@options.activeClass).end()
+        .siblings(".#{@options.activeClass}")
+        .removeClass(@options.activeClass).end()
         .addClass(@options.activeClass)
 
       if activeSelector.parent().hasClass(@options.tabTitle)

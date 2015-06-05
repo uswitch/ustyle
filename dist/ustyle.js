@@ -1,5 +1,5 @@
 (function() {
-  var addClass, deleteUndefined, hasClass, merge, removeClass, setOptions, transformKey,
+  var addClass, deleteUndefined, hasClass, merge, removeClass, requestAnimationFrame, setOptions, transformKey,
     __slice = [].slice,
     __hasProp = {}.hasOwnProperty;
 
@@ -15,7 +15,9 @@
   };
 
   removeClass = function(element, name) {
-    return element.className = element.className.replace(new RegExp("(\\s|^)" + name + "(\\s|$)", "gi"), "");
+    var regExp;
+    regExp = new RegExp("(\\s|^)" + name + "(\\s|$)", "gi");
+    return element.className = element.className.replace(regExp, "");
   };
 
   hasClass = function(element, name) {
@@ -54,16 +56,31 @@
   };
 
   transformKey = (function() {
-    var el, key, _i, _len, _ref;
+    var el, key, transforms, _i, _len;
     el = document.createElement('div');
-    _ref = ['transform', 'webkitTransform', 'OTransform', 'MozTransform', 'msTransform'];
-    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-      key = _ref[_i];
+    transforms = ['transform', 'webkitTransform', 'OTransform', 'MozTransform', 'msTransform'];
+    for (_i = 0, _len = transforms.length; _i < _len; _i++) {
+      key = transforms[_i];
       if (el.style[key] !== void 0) {
         return key;
       }
     }
   })();
+
+  requestAnimationFrame = ((function(window) {
+    var vendor, _i, _len, _ref;
+    _ref = ['ms', 'moz', 'webkit', 'o'];
+    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+      vendor = _ref[_i];
+      if (window.requestAnimationFrame) {
+        break;
+      }
+      window.requestAnimationFrame = window["" + vendor + "RequestAnimationFrame"];
+    }
+    return window.requestAnimationFrame || (window.requestAnimationFrame = function(callback) {
+      return setTimeout(callback, 1000 / 60);
+    });
+  })(window)).bind(window);
 
   this.Utils = {
     addClass: addClass,
@@ -71,8 +88,9 @@
     hasClass: hasClass,
     merge: merge,
     setOptions: setOptions,
+    deleteUndefined: deleteUndefined,
     transformKey: transformKey,
-    deleteUndefined: deleteUndefined
+    requestAnimationFrame: requestAnimationFrame
   };
 
 }).call(this);
@@ -170,11 +188,9 @@
           };
         })(this);
         if (this.options.isAjax) {
-          return (_ref1 = this.options.onOpen) != null ? _ref1.call().done((function(_this) {
-            return function() {
-              return fire();
-            };
-          })(this)) : void 0;
+          return (_ref1 = this.options.onOpen) != null ? _ref1.call().done(function() {
+            return fire();
+          }) : void 0;
         } else {
           fire();
           return (_ref2 = this.options.onOpen) != null ? _ref2.call() : void 0;
@@ -240,7 +256,8 @@
           transformYOrigin = "-12px";
           bottomOffset = getYBounds(this.target, this.anchor, this.arrow);
         }
-        style = "translateX(" + (Math.round(leftOffset)) + "px) translateY(" + (Math.round(bottomOffset)) + "px)";
+        style = "translateX(" + (Math.round(leftOffset)) + "px) ";
+        style += "translateY(" + (Math.round(bottomOffset)) + "px)";
         if (transformKey !== 'msTransform') {
           style += " translateZ(0)";
         }
@@ -251,10 +268,11 @@
       };
 
       getXBounds = function(target, anchor, arrow) {
-        var centerPoint, targetBounds;
+        var calculatedWidth, centerPoint, targetBounds;
         targetBounds = target.getBoundingClientRect();
         centerPoint = targetBounds.left + target.offsetWidth / 2;
-        if (document.body.offsetWidth < (targetBounds.left + (anchor.offsetWidth / 2) + (target.offsetWidth / 2))) {
+        calculatedWidth = targetBounds.left + (anchor.offsetWidth / 2) + (target.offsetWidth / 2);
+        if (document.body.offsetWidth < calculatedWidth) {
           return document.body.offsetWidth - anchor.offsetWidth;
         } else if (centerPoint - anchor.offsetWidth / 2 < 0) {
           return 0;
@@ -320,6 +338,168 @@
   };
 
   window.Anchor = createContext();
+
+}).call(this);
+
+(function() {
+  window.Backdrop = (function() {
+    var backdrop, holds;
+
+    backdrop = null;
+
+    holds = 0;
+
+    function Backdrop() {
+      backdrop = document.createElement('div');
+      Utils.addClass(backdrop, 'us-backdrop');
+      document.body.appendChild(backdrop);
+    }
+
+    Backdrop.prototype.element = backdrop;
+
+    Backdrop.prototype.retain = function() {
+      if (++holds === 1) {
+        Utils.addClass(backdrop, 'us-backdrop--visible');
+        return Utils.requestAnimationFrame(function() {
+          return Utils.addClass(backdrop, 'us-backdrop--active');
+        });
+      }
+    };
+
+    Backdrop.prototype.release = function() {
+      if (--holds === 0) {
+        return Utils.requestAnimationFrame(function() {
+          Utils.removeClass(backdrop, 'us-backdrop--active');
+          return setTimeout(function() {
+            return Utils.removeClass(backdrop, 'us-backdrop--visible');
+          }, 300);
+        });
+      }
+    };
+
+    return Backdrop;
+
+  })();
+
+}).call(this);
+
+(function() {
+  var setOptions;
+
+  setOptions = this.Utils.setOptions;
+
+  window.Overlay = (function() {
+    var defaults;
+
+    defaults = {
+      bodyActiveClass: 'overlay--open',
+      activeClass: 'us-overlay-parent--active',
+      visibleClass: 'us-overlay-parent--visible',
+      overlay: $('.us-overlay-parent'),
+      openButton: '.js-open-overlay',
+      closeButton: '.js-close-overlay',
+      historyStatus: '#seedeal',
+      history: true,
+      preventDefault: true
+    };
+
+    function Overlay(options) {
+      this.overlay = (this.options = setOptions(options, defaults)).overlay;
+      if ((this.overlay != null) && (typeof Backdrop !== "undefined" && Backdrop !== null)) {
+        this.backdrop = new Backdrop();
+        this.addEventListeners();
+      } else {
+        throw new Error("There's no overlay or you haven't included Backdrop");
+      }
+    }
+
+    Overlay.prototype.addEventListeners = function() {
+      $(this.options.openButton).on('click.open-overlay', (function(_this) {
+        return function(e) {
+          if (_this.options.preventDefault) {
+            e.preventDefault();
+          }
+          return _this.show(e);
+        };
+      })(this));
+      this.overlay.on('click.close-overlay', (function(_this) {
+        return function(e) {
+          var target, targets, _i, _len, _results;
+          targets = [_this.overlay[0], _this.overlay.find(_this.options.closeButton)[0]];
+          if (_this.options.preventDefault) {
+            e.preventDefault();
+          }
+          _results = [];
+          for (_i = 0, _len = targets.length; _i < _len; _i++) {
+            target = targets[_i];
+            if (e.target === target) {
+              _this.hide(e);
+              break;
+            } else {
+              _results.push(void 0);
+            }
+          }
+          return _results;
+        };
+      })(this));
+      if (this.hasHistory()) {
+        return window.onpopstate = (function(_this) {
+          return function(e) {
+            return _this.hide(e);
+          };
+        })(this);
+      }
+    };
+
+    Overlay.prototype.show = function(e) {
+      var that, _base;
+      that = this;
+      $(document.body).addClass(this.options.bodyActiveClass);
+      this.backdrop.retain();
+      Utils.addClass(this.overlay[0], this.options.visibleClass);
+      Utils.requestAnimationFrame(function() {
+        return Utils.addClass(that.overlay[0], that.options.activeClass);
+      });
+      if (typeof (_base = this.options).onOpen === "function") {
+        _base.onOpen(e);
+      }
+      if (this.hasHistory()) {
+        return history.pushState('open', window.document.title, this.options.historyStatus);
+      }
+    };
+
+    Overlay.prototype.hide = function(e) {
+      var that, _base;
+      that = this;
+      $(document.body).removeClass(this.options.bodyActiveClass);
+      this.backdrop.release();
+      Utils.requestAnimationFrame(function() {
+        Utils.removeClass(that.overlay[0], that.options.activeClass);
+        return setTimeout(function() {
+          return Utils.removeClass(that.overlay[0], that.options.visibleClass);
+        }, 300);
+      });
+      if (typeof (_base = this.options).onClose === "function") {
+        _base.onClose(e);
+      }
+      if (this.hasHistory()) {
+        if (history.state === 'open') {
+          return history.back();
+        }
+      }
+    };
+
+    Overlay.prototype.hasHistory = function() {
+      if (this.options.history && uSwitch.hasHistory) {
+        return true;
+      } else {
+        return false;
+      }
+    };
+
+    return Overlay;
+
+  })();
 
 }).call(this);
 
@@ -407,105 +587,6 @@
   };
 
   window.Tabs = createContext();
-
-}).call(this);
-
-(function() {
-  var setOptions;
-
-  setOptions = this.Utils.setOptions;
-
-  window.Overlay = (function() {
-    var defaults;
-
-    defaults = {
-      openedClass: 'us-overlay--open',
-      overlay: $('.us-overlay-parent'),
-      openButton: $('.js-open-overlay'),
-      closeButton: $('.js-close-overlay'),
-      escapeKey: 27,
-      historyStatus: '#seedeal',
-      history: true,
-      resetScroll: true,
-      preventDefault: true
-    };
-
-    function Overlay(options) {
-      this.overlay = (this.options = setOptions(options, defaults)).overlay;
-      this.addEventListeners();
-    }
-
-    Overlay.prototype.addEventListeners = function() {
-      this.options.openButton.on('click', (function(_this) {
-        return function(e) {
-          if (_this.options.preventDefault) {
-            e.preventDefault();
-          }
-          return _this.show(e);
-        };
-      })(this));
-      this.options.closeButton.on('click', (function(_this) {
-        return function(e) {
-          if (_this.options.preventDefault) {
-            e.preventDefault();
-          }
-          return _this.hide(e);
-        };
-      })(this));
-      $(document).on('keyup', (function(_this) {
-        return function(e) {
-          if (e.keyCode === _this.options.escapeKey) {
-            return _this.hide();
-          }
-        };
-      })(this));
-      if (this.hasHistory()) {
-        return window.onpopstate = (function(_this) {
-          return function(event) {
-            return _this.hide();
-          };
-        })(this);
-      }
-    };
-
-    Overlay.prototype.show = function(e) {
-      var _base;
-      this.overlay.addClass(this.options.openedClass);
-      if (typeof (_base = this.options).onOpen === "function") {
-        _base.onOpen(e);
-      }
-      if (this.options.resetScroll) {
-        this.overlay.find('.us-overlay__container').scrollTop(0);
-      }
-      if (this.hasHistory()) {
-        return history.pushState('open', window.document.title, this.options.historyStatus);
-      }
-    };
-
-    Overlay.prototype.hide = function(e) {
-      var _base;
-      this.overlay.removeClass(this.options.openedClass);
-      if (typeof (_base = this.options).onClose === "function") {
-        _base.onClose(e);
-      }
-      if (this.hasHistory()) {
-        if (history.state === 'open') {
-          return history.back();
-        }
-      }
-    };
-
-    Overlay.prototype.hasHistory = function() {
-      if (this.options.history && uSwitch.hasHistory) {
-        return true;
-      } else {
-        return false;
-      }
-    };
-
-    return Overlay;
-
-  })();
 
 }).call(this);
 

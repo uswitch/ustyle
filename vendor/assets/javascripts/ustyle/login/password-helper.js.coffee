@@ -1,13 +1,16 @@
 (($, window, document) ->
 
-  class passwordHelper
+  class PasswordHelper
+    regMediumExp =
+      '^(?=.*\\d)(?=.*[a-z])(?!.*\\s).{8,}$|'+
+      '^(?=.*[a-z])(?=.*[A-Z])(?!.*\\s).{8,}$'
     defaults:
       classPrefix: 'pass-helper'
       veryWeakText: 'very weak'
       minLength: 6
       tests:
         weak: new RegExp('^[a-zA-Z0-9]{6,}$')
-        medium: new RegExp('^(?=.*\\d)(?=.*[a-z])(?!.*\\s).{8,}$|^(?=.*[a-z])(?=.*[A-Z])(?!.*\\s).{8,}$')
+        medium: new RegExp(regMediumExp)
         strong: new RegExp('^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\\s).{8,}$')
       showHide: true
       showText: "Show"
@@ -24,26 +27,30 @@
       @showHide() if @options.showHide
 
     strengthChecker: ->
-      @$el.after $("<div class='#{@options.classPrefix}__meter'><div class='#{@options.classPrefix}__meter-bar' /></div>")
+      html = "<div class='#{@options.classPrefix}__meter'>"
+      html += "<div class='#{@options.classPrefix}__meter-bar' /></div>"
+      @$el.after $(html)
       strengthMeter = $(".#{@options.classPrefix}__meter-bar")
 
       strengthTest = (value) =>
         return strengthMeter.removeClass() unless value.length
-        return strengthMeter.removeClass().addClass("very-weak") if value.length < @options.minLength
+        condition = value.length < @options.minLength
+        return strengthMeter.removeClass().addClass("very-weak") if condition
 
-        $.each @tests, (name, test) =>
+        $.each @tests, (name, test) ->
           if value.match(test)
             strengthMeter.removeClass().addClass(name)
 
       $(document).on 'keyup', ".#{@options.classPrefix}__input", (e) =>
         passwordValue = $(e.target).val()
         $(".#{@options.classPrefix}__input").addClass "strength--started"
-        $(".#{@options.classPrefix}__input").removeClass "strength--started" unless passwordValue.length
+        if !passwordValue.length
+          $(".#{@options.classPrefix}__input").removeClass "strength--started"
         strengthTest(passwordValue)
 
     showHide: ->
-      @$el.after $("<a class='#{@options.classPrefix}__show-hide' />").text(@options.showText)
-      showButton = 
+      exp = "<a class='#{@options.classPrefix}__show-hide' />"
+      @$el.after $(exp).text(@options.showText)
       showClass = "#{@options.classPrefix}__input--pass-shown"
 
       $(".#{@options.classPrefix}__show-hide").on "click", (e) =>
@@ -60,7 +67,12 @@
           $(e.target).text(@options.showText)
 
     createHiddenPassword = (el, classPrefix) ->
-      input = $("<input style='display: none' class='#{el.attr('class')} #{classPrefix}__input-hidden' type='text' name='#{el.attr('name')}' placeholder='#{el.attr('placeholder') or ""}' size='#{el.attr('size')}' value='' disabled='disabled' />")
+      expression = "<input style='display: none' class='#{el.attr('class')} "
+      expression += "#{classPrefix}__input-hidden' type='text' "
+      expression += "name='#{el.attr('name')}' "
+      expression += "placeholder='#{el.attr('placeholder') or ""}' "
+      expression += "size='#{el.attr('size')}' value='' disabled='disabled' />"
+      input = $(expression)
       el.after input
       input
 
@@ -70,7 +82,10 @@
         height: el.css('height')
         display: el.css('display')
 
-      wrapper = el.wrap($("<div />").addClass("#{classPrefix}__wrapper").css(wrapperCss))
+      wrapper =
+        el.wrap($("<div />")
+        .addClass("#{classPrefix}__wrapper")
+        .css(wrapperCss))
 
     $.fn.extend passwordHelper: (options, args...) ->
       @each ->
@@ -78,7 +93,8 @@
         data = $(this).data('passwordHelper')
 
         if !data
-          $this.data 'passwordHelper', (data = new passwordHelper(this, options))
+          helper = (data = new passwordHelper(this, options))
+          $this.data 'passwordHelper', helper
         if typeof options == 'string'
           data[options].apply(data, args)
 

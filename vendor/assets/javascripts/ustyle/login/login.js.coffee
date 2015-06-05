@@ -1,6 +1,6 @@
 {addClass, merge, setOptions, deleteUndefined} = @Utils
 
-createContext = (options) ->  
+createContext = (options) ->
   class Login
     defaults:
       origin: window.location.href
@@ -10,10 +10,11 @@ createContext = (options) ->
     constructor: (options) ->
       @options = setOptions options, @defaults
       return if @options.target is null
-      return unless @options.target.length is undefined or @options.target.length
+      return unless @options.target.length is undefined or
+        @options.target.length
       @target = $(@options.target)
 
-      @formData = 
+      @formData =
         source: @target.data('source')
         origin: @target.data('origin') or @options.origin
         email: @target.data('email')
@@ -35,7 +36,7 @@ createContext = (options) ->
         @anchorInstance(target, container) for target in @options.target
       else
         @anchorInstance(@options.target, container)
-      
+
     anchorInstance: (target, container) ->
       @anchor = new Anchor
         target: target
@@ -62,7 +63,7 @@ createContext = (options) ->
       jqxhr = $.ajax
         url: "#{window.uSwitch.Accounts.popupUrl()}?#{$.param(@formData)}"
         dataType: 'jsonp'
-        
+
     setState: ->
       activeState = @loginForm.filter ".us-login__form--#{@options.state}"
       @loginForm.removeClass "login-state--active"
@@ -72,7 +73,11 @@ createContext = (options) ->
     toggle: ->
       $(document).on "click", ".login-state__toggle", (e) ->
         $currentState = $(this).parents(".us-login__form")
-        $nextState = if $currentState.next().length then $currentState.next() else $currentState.prev()
+        $nextState =
+          if $currentState.next().length
+            $currentState.next()
+          else
+            $currentState.prev()
         $nextState.addClass("login-state--active")
         $currentState.removeClass("login-state--active")
 
@@ -80,10 +85,14 @@ createContext = (options) ->
 
     setContent: ->
       return unless @title
-      loginTitle = $("<h2 class='us-login__title #{@options.removeableClass}'>#{@title}</h2>")
+      selector = "<h2 class='us-login__title "
+      selector += "#{@options.removeableClass}'>#{@title}</h2>"
+      loginTitle = $(selector)
       @loginContainer.prepend(loginTitle)
       return unless @description
-      loginTitle.after "<p class='us-login__description #{@options.removeableClass}'>#{@description}</p>"
+      descriptionElm = "<p class='us-login__description "
+      descriptionElm += "#{@options.removeableClass}'>#{@description}</p>"
+      loginTitle.after descriptionElm
 
     resetForm: ->
       $(".#{@options.removeableClass}").remove()
@@ -92,7 +101,7 @@ createContext = (options) ->
       window.setTimeout ->
         form.find(".password-strength").passwordHelper()
       , 1
-        
+
     Login
 
 window.Login = createContext()
