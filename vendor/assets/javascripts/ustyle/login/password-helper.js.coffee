@@ -93,7 +93,7 @@
         data = $(this).data('passwordHelper')
 
         if !data
-          helper = (data = new passwordHelper(this, options))
+          helper = (data = new PasswordHelper(this, options))
           $this.data 'passwordHelper', helper
         if typeof options == 'string'
           data[options].apply(data, args)
