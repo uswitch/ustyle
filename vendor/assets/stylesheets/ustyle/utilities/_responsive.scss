@@ -2,16 +2,16 @@
 // @name Responsive
 //
 // @description
-//   Responsive classes to allow display of elements across devices. You have the option of displaying them as `block`, `inline-block` or `inline` elements. 
+//   Responsive classes to allow display of elements across devices. You have the option of displaying them as `block`, `inline-block` or `inline` elements.
 //   You can also hide elements by `.us-{DEVICE}--hidden` and will hide those elements above that breakpoint.
 //
 // @markup
-//   <div class='us-lg-desktop--block'>Shows large desktop and above</div>
-//   <div class='us-desktop--block'>Shows desktop and above</div>
-//   <div class='us-tablet--block'>Shows tablet and above</div>
-//   <div class='us-sm-tablet--block'>Shows small tablet and above</div>
-//   <div class='us-mobile-block'>Shows mobile and above</div>
-//   <div class='us-tablet--hidden'>Hides from tablet and above</div>
+//   <div class='us-lg-desktop--block'><strong>.us-lg-desktop--block</strong> Shows on large desktop and up</div>
+//   <div class='us-desktop--block'><strong>.us-desktop--block</strong> Shows on desktop and up</div>
+//   <div class='us-tablet--block'><strong>.us-tablet--block</strong> Shows on tablet and up</div>
+//   <div class='us-sm-tablet--block'><strong>.us-sm-tablet--block</strong> Shows on small tablet and up</div>
+//   <div class='us-mobile--block'><strong>.us-mobile--block</strong> Shows on mobile only</div>
+//   <div class='us-tablet--hidden'><strong>.us-tablet--hidden</strong> Hidden on tablet and up</div>
 
 $display-properties: block, inline-block, inline;
 
