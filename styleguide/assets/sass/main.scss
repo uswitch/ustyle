@@ -25,9 +25,9 @@ $header-height: 73px;
         "modules/states",
         "modules/copyright",
         "modules/typography",
-        "modules/home";
+        "modules/home",
+        "modules/tooltip";
 
 @import "ustyle/icons/base";
 @import "ustyle/icons/svg";
 @import "ustyle/icons/png";
-@import "layout/tooltip";

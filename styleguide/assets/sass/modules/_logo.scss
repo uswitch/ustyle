@@ -11,3 +11,39 @@
     padding: 1em .55em;
   }
 }
+
+
+// Logo states
+
+.logo-state {
+  display: inline-block;
+  padding: 18px;
+
+  .us-icon--uswitch {
+    vertical-align: middle;
+  }
+}
+
+.logo--blue {
+  border: 2px dotted $c-blue;
+}
+
+.logo--white {
+  background-color: $c-blue;
+}
+
+.logo-spacer {
+  position: relative;
+  border: 1px dashed $c-red;
+
+  &:before {
+    content: 's';
+    position: absolute;
+    width: 18px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: $c-cyan-light;
+    text-align: center;
+  }
+}
