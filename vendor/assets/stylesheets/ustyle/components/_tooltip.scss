@@ -46,6 +46,9 @@ $tooltip-note-border-color: $c-typecyan !default;
 $tooltip-arrow-width: 10px !default;
 $tooltip-arrow-height: $tooltip-arrow-width * 2 !default;
 
+$tooltip-hover: true !default;
+$tooltip-active-class-breakpoint: to-tablet !default;
+
 $tooltip-h-positions: "top", "bottom";
 $tooltip-v-positions: "left", "right";
 
@@ -124,14 +127,20 @@ $tooltip-v-positions: "left", "right";
 
 .us-tooltip {
   &.us-tooltip--active {
-    @include respond-to(to-tablet) {
-      @include tooltip--active;  
+    @if $tooltip-active-class-breakpoint {
+      @include respond-to($tooltip-active-class-breakpoint) {
+        @include tooltip--active;
+      }
+    } @else {
+      @include tooltip--active;
     }
   }
 
-  &:hover {
-    @include respond-to(tablet, true) {
-      @include tooltip--active;
+  @if $tooltip-hover {
+    &:hover {
+      @include respond-to(tablet, true) {
+        @include tooltip--active;
+      }
     }
   }
 }
