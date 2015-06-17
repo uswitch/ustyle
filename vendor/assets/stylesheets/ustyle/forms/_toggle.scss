@@ -45,6 +45,13 @@ $toggle-active-border: $c-typecyan !default;
 
 $toggle-active-font-weight: 400 !default;
 
+@mixin toggle-active-style {
+  font-weight: $toggle-active-font-weight;
+  color: $toggle-active-color;
+  background-color: $toggle-active-bg;
+  border-color: $toggle-active-border;
+}
+
 .us-toggle {
   @extend %clearfix;
   display: block;
@@ -87,12 +94,13 @@ $toggle-active-font-weight: 400 !default;
     border-color: $toggle-hover-border;
   }
 
-  .us-toggle__label .us-form-input:checked + &,
+  // [nodoc] Legacy, as grouping selectors will fail on pseudo-selector :checked
   .us-toggle__label .us-form-input.checked + & {
-    font-weight: $toggle-active-font-weight;
-    color: $toggle-active-color;
-    background-color: $toggle-active-bg;
-    border-color: $toggle-active-border;
+    @include toggle-active-style;
+  }
+
+  .us-toggle__label .us-form-input:checked + & {
+    @include toggle-active-style;
   }
 
   .us-toggle__label:first-child & {
