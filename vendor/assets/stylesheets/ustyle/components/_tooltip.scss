@@ -51,13 +51,14 @@ $tooltip-arrow-height: $tooltip-arrow-width * 2 !default;
 
 $tooltip-hover: true !default;
 $tooltip-active-class-breakpoint: to-tablet !default;
+$tooltip-default-breakpoint: tablet !default;
 
 $tooltip-h-positions: "top", "bottom";
 $tooltip-v-positions: "left", "right";
 
 @mixin tooltip-arrow($arrow-type, $arrow-width, $arrow-height, $arrow-position, $bottom-position) {
   .us-tooltip__arrow {
-    @include respond-to(tablet) {
+    @include respond-to($tooltip-default-breakpoint) {
       @include arrow($arrow-width, $arrow-height, $arrow-type, $tooltip-note-border-color);
       #{$arrow-position}: $bottom-position;
 
@@ -70,7 +71,7 @@ $tooltip-v-positions: "left", "right";
 }
 
 %tooltip-vertical-defaults {
-  @include respond-to(tablet, true) {
+  @include respond-to($tooltip-default-breakpoint, true) {
     top: -$tooltip-note-padding-vertical;
 
     .us-tooltip__arrow {
@@ -84,7 +85,7 @@ $tooltip-v-positions: "left", "right";
 }
 
 %tooltip-horizontal-defaults {
-  @include respond-to(tablet, true) {
+  @include respond-to($tooltip-default-breakpoint, true) {
     left: 50%;
     margin-left: - ($tooltip-note-width / 2);
 
@@ -144,7 +145,7 @@ $tooltip-v-positions: "left", "right";
 
   @if $tooltip-hover {
     &:hover {
-      @include respond-to(tablet, true) {
+      @include respond-to($tooltip-default-breakpoint, true) {
         @include tooltip--active;
       }
     }
@@ -156,7 +157,7 @@ $tooltip-v-positions: "left", "right";
   top: 0;
   right: 0;
 
-  @include respond-to(tablet, true) {
+  @include respond-to($tooltip-default-breakpoint, true) {
     position: absolute;
   }
 }
@@ -175,7 +176,7 @@ $tooltip-v-positions: "left", "right";
   background: $tooltip-icon-bg-color;
   border-radius: 50%;
 
-  @include respond-to(tablet, true) {
+  @include respond-to($tooltip-default-breakpoint, true) {
     position: static;
   }
 
@@ -195,7 +196,7 @@ $tooltip-v-positions: "left", "right";
   border: 1px solid $tooltip-note-border-color;
   border-radius: 4px;
 
-  @include respond-to(tablet, true) {
+  @include respond-to($tooltip-default-breakpoint, true) {
     position: absolute;
     display: block;
     width: $tooltip-note-width;
