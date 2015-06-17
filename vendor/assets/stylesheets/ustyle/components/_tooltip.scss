@@ -27,7 +27,10 @@
 //
 //     <div class="us-tooltip__wrapper">
 //       <div class="us-tooltip__icon"></div>
-//       <div class="us-tooltip__note"><strong>Tooltip</strong> message content</div>
+//       <div class="us-tooltip__note">
+//         <div class="us-tooltip__arrow"></div>
+//         <strong>Tooltip</strong> message content
+//       </div>
 //     </div>
 //   </div>
 
@@ -53,15 +56,15 @@ $tooltip-h-positions: "top", "bottom";
 $tooltip-v-positions: "left", "right";
 
 @mixin tooltip-arrow($arrow-type, $arrow-width, $arrow-height, $arrow-position, $bottom-position) {
-  @include respond-to(tablet) {
-    &:before {
+  .us-tooltip__arrow {
+    @include respond-to(tablet) {
       @include arrow($arrow-width, $arrow-height, $arrow-type, $tooltip-note-border-color);
       #{$arrow-position}: $bottom-position;
-    }
 
-    &:after {
-      @include arrow($arrow-width, $arrow-height, $arrow-type, $tooltip-note-bg-color);
-      #{$arrow-position}: $bottom-position+1;
+      &:after {        
+        @include arrow($arrow-width, $arrow-height, $arrow-type, $tooltip-note-bg-color);
+        #{$arrow-position}: 1px;
+      }
     }  
   }
 }
@@ -70,10 +73,13 @@ $tooltip-v-positions: "left", "right";
   @include respond-to(tablet, true) {
     top: -$tooltip-note-padding-vertical;
 
-    &:before,
-    &:after {
+    .us-tooltip__arrow {
       top: $tooltip-note-padding-vertical;
-    }  
+    }
+
+    .us-tooltip__arrow:after {
+      top: -$tooltip-arrow-width;
+    }
   }
 }
 
@@ -82,11 +88,11 @@ $tooltip-v-positions: "left", "right";
     left: 50%;
     margin-left: - ($tooltip-note-width / 2);
 
-    &:before,
-    &:after {
+    .us-tooltip__arrow,
+    .us-tooltip__arrow:after {
       left: 50%;
       margin-left: -$tooltip-arrow-height/2;
-    }  
+    }
   }
 }
 
@@ -200,8 +206,11 @@ $tooltip-v-positions: "left", "right";
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
     transition: opacity 300ms ease;
   }
+}
 
-  &:before,
+.us-tooltip__arrow {
+  position: absolute;
+
   &:after {
     position: absolute;
     content: "";
