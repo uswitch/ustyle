@@ -22,9 +22,7 @@ class window.Overlay
 
   addEventListeners: ->
     $(@options.openButton).on 'click.open-overlay', (e) =>
-      if @options.preventDefault
-        e.preventDefault()
-
+      e.preventDefault() if @options.preventDefault
       @show(e)
 
     @overlay.on 'click.close-overlay', (e) =>
@@ -33,11 +31,9 @@ class window.Overlay
         @overlay.find(@options.closeButton)[0]
       ]
 
-      if @options.preventDefault
-        e.preventDefault()
-
       for target in targets
         if e.target is target
+          e.preventDefault() if @options.preventDefault
           @hide(e)
           break
 
