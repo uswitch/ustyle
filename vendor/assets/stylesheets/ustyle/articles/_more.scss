@@ -1,0 +1,31 @@
+// @page Pattern Library/Articles
+// @name More article
+//
+// @description
+//   If the article listing has more in a category, we use this to let a user navigate to that category
+//
+// @markup
+//   <div class='us-more-item us-col-md-4'>
+//     <a class='us-more-item-link' href='#'>
+//       <span class='us-more-item-title'>See more banking news</span>
+//     </a>
+//   </div>
+
+.us-more-item {
+  @extend %base-item;
+}
+
+.us-more-item-link {
+  @extend %base-item-link;
+}
+
+.us-more-item-title {
+  @extend %heading-1;
+  display: block;
+  padding: $item-padding;
+  color: $c-typecyan;
+
+  &.small {
+    @extend %heading-3;
+  }
+}

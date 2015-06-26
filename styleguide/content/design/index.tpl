@@ -1,3 +1,7 @@
+---
+name: Imagery
+---
+
 <p>Our brand imagery is made up of <strong>lifestyle photography, product and object images, illustrations,</strong>  and <strong>infographics.</strong>  All of our imagery types should reassert our brand values of fairness, clarity and confidence.</p>
 <p>It’s important to remember that imagery is an extension of the uSwitch brand. It's use is to support or convey a message, not drive it.</p>
 <div class="us-content-group">

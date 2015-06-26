@@ -1,3 +1,22 @@
+////
+//// @group icons
+////
+
+/// Output classes to build the PNG icons
+///
+/// @require {Variable} icon-sizes
+/// @require {Variable} svg-first
+/// @require {Variable} png-support-class
+///
+/// @param {String} $icon-name
+///   Icon name that matches one of the ones in the list
+///
+/// @param {String} $size-name
+///   Size name for the class-naming convention
+///
+/// @param {String} $size-px
+///   Used to build folder structure of PNG fallbacks in different sizes
+
 @mixin png-bg-icon($icon-name, $size-name, $size-px) {
   .us-icon--#{$icon-name}.us-icon--#{$size-name},
   .us-icon--#{$icon-name}--after.us-icon--#{$size-name}--after:after,

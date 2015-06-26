@@ -47,12 +47,6 @@
   transition: left 200ms;
 }
 
-%link-triangle-left {
-  @extend %link-triangle;
-  margin: 0 .5em 0 0;
-  content: "\25c0";
-}
-
 // Vertical alignment helpers
 
 %vertical-align-parent {

@@ -1,3 +1,12 @@
+////
+//// @group icons
+////
+
+/// Output classes to build the SVG icons
+///
+/// @param {String} $icon-name
+///   Icon name that matches one of the ones in the list
+
 @mixin svg-bg-icon($icon-name) {
   .us-icon--#{$icon-name},
   .us-icon--#{$icon-name}--after:after,
