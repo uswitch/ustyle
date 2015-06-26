@@ -1,0 +1,13 @@
+.hero__nav-link {
+  @include link-colors($c-navy, $c-typecyan, $c-navy, $c-navy);
+  display: block;
+  padding-bottom: .25em;
+  margin-bottom: .25em;
+  border-bottom: 1px dotted $c-blue;
+
+  @include respond-to(tablet, true) {
+    float: left;
+    width: 32%;
+    margin-right: 1.3%;
+  }
+}

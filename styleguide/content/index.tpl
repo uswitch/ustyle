@@ -10,7 +10,7 @@ template: home.tpl
     </p>
   </div>
 </div>
-<div class="us-content-group">
+<div class="us-content-group mobile-bordered">
   <div class="us-container">
     <div class="us-grid-row">
       <div class="us-col-md-6">
@@ -24,7 +24,7 @@ template: home.tpl
     </div>
   </div>
 </div>
-<div class="us-content-group">
+<div class="us-content-group mobile-bordered">
   <div class="us-container">
     <div class="us-grid-row">
       <div class="us-col-md-6">
