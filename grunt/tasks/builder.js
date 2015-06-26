@@ -8,7 +8,6 @@ module.exports = function(grunt){
         async       = require('async'),
         path        = require('path'),
         fs          = require('fs'),
-        fm          = require('front-matter'),
         template    = require('../modules/templates'),
         fileHelper  = require('../modules/file'),
         slugify     = require("underscore.string/slugify"),
