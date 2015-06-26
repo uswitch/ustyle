@@ -1,9 +1,8 @@
-// @page Code/Components
+// @page Pattern Library/Components
 // @name Buttons
 //
 // @description
-//   Our buttons used across the site. The states give different use cases. 
-//   Both `<a>` and `<button>` tags are supported. 
+//   Our buttons used across the site. The states give different use cases. Both `<a>` and `<button>` tags are supported. Please use `role='button'` when using in a `<a>` tag.
 //
 // @state .us-btn--primary - Used a save/update button
 // @state .us-btn--action - Navigational button
@@ -18,7 +17,7 @@
 // @state .us-btn--disabled - Disabled styling (can also be styled with :disabled)
 //
 // @markup
-//  <a href="#" class="us-btn {$modifiers}">Link Button</a>
+//  <a href="#" class="us-btn {$modifiers}" role="button">Link Button</a>
 //  <button class="us-btn {$modifiers}">Button Element</button>
 
 $button-bg--base      : $c-keylinegrey !default;

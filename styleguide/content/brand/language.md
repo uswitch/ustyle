@@ -1,23 +1,19 @@
 **How does a brilliantly simple brand sound?** Think of our tone of voice as a natural extension of our values and personality. We might not mention them in our copy, but their ‘feel’ should come across in every word, sentence and paragraph.
 
+#### Table of contents
+1. [Tone of voice](#tone-of-voice)
+2. [Writing tips](#writing-tips)
+3. [Writing conventions](#writing-conventions)
+
 ## Tone of voice
 
-### Expert
-We have a deep understanding of people, household finances and the industries in which we operate. Be confident and authoritative.
+1. **Expert** - We have a deep understanding of people, household finances and the industries in which we operate. Be confident and authoritative.
+2. **Human** - We always talk on the same level as our customers. Be friendly and conversational, never patronising.
+3. **Connected** - We are seamlessly synchronised with the wider world and financial one. Be timely, knowledgeable and accurate.
+4. **Frank** - We speak truthfully and with insight. Be honest and transparent.
+5. **Advisory** - We make a positive impact on the lives of our customers. Be empowering and informative.
 
-### Human
-We always talk on the same level as our customers. Be friendly and conversational, never patronising.
-
-### Connected
-We are seamlessly synchronised with the wider world and financial one. Be timely, knowledgeable and accurate.
-
-### Frank
-We speak truthfully and with insight. Be honest and transparent.
-
-### Advisory
-We make a positive impact on the lives of our customers. Be empowering and informative.
-
-## Some writing tips
+## Writing tips
 
 ### Write like you speak
 Write as if the reader is in front of you. It’ll make your words sound more natural and believable.

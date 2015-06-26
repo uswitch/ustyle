@@ -1,9 +1,8 @@
-// @page Code/JS components
+// @page Pattern Library/Javascript
 // @name Tabs
 //
 // @description
-//   These are the basic tabs used for landing pages. You can either reference a data-target for the urls or href for the target tabs. 
-//   They have a non-js fallback and fold over to accordion when in small tablet view. They are initialised on page load if the tabs classes exist.
+//   These are the basic tabs used for landing pages. You can either reference a data-target for the urls or href for the target tabs. They have a non-js fallback and fold over to accordion when in small tablet view. They are initialised on page load if the tabs classes exist.
 //
 // @javascript
 //   var tabs = new Tabs({

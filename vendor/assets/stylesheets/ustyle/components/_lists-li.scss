@@ -1,24 +1,15 @@
-// @page Code/Components
-// @name Numbered/tick lists
+// @page Design/Typography
+// @name Numbered list
 // 
 // @description
-//   A simple way of quickly styling up `<ul>` or `<ol>` with ticks or custom numbers.
+//   Our default numbered list styling
 //   `.us-custom-list-alt` allows us to use the lists on hero/blue backgrounds.
 //
 // @markup
-//   <ul class='us-ticked-list'>
-//     <li class='us-icon--before us-icon--tick--before us-icon--small--before us-icon--typegrey--before'>
-//       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-//     </li>
-//     <li class='us-icon--before us-icon--tick--before us-icon--small--before us-icon--typegrey--before'>
-//       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-//     </li>
-//   </ul>
 //   <ul class='us-numbered-list'>
 //     <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin iaculis bibendum.</li>
 //     <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin iaculis bibendum.</li>
 //   </ul>
-//
 
 %base-custom-list {
   padding: 0;
@@ -33,21 +24,6 @@
     &:before {
       position: absolute;
       left: 0;
-    }
-  }
-}
-
-.us-ticked-list {
-  @extend %base-custom-list;
-
-  li {
-    &:before {
-      top: 50%;
-      margin-top: - 8px;
-    }
-
-    .us-custom-list-alt &:before {
-      @include icon-color("white");
     }
   }
 }
@@ -77,6 +53,37 @@
       color: $c-navy;
       background: #fff;
       background: rgba(255, 255, 255, .7);
+    }
+  }
+}
+
+// @page Design/Typography
+// @name Ticked list
+// 
+// @description
+//   Our default ticked list styling. `.us-custom-list-alt` allows us to use the lists on hero/blue backgrounds.
+//
+// @markup
+//   <ul class='us-ticked-list'>
+//     <li class='us-icon--before us-icon--tick--before us-icon--small--before us-icon--typegrey--before'>
+//       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+//     </li>
+//     <li class='us-icon--before us-icon--tick--before us-icon--small--before us-icon--typegrey--before'>
+//       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+//     </li>
+//   </ul>
+
+.us-ticked-list {
+  @extend %base-custom-list;
+
+  li {
+    &:before {
+      top: 50%;
+      margin-top: - 8px;
+    }
+
+    .us-custom-list-alt &:before {
+      @include icon-color("white");
     }
   }
 }

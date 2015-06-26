@@ -5,14 +5,15 @@ $styleguide-block-border-color: $c-bordergrey;
 .styleguide {
 
   &__block {
-    padding-top: $styleguide-block-padding / 2;
-    
-    @include respond-to(tablet, true) {
-      padding-bottom: $styleguide-block-padding;  
-    }
+    @extend %clearfix;
+    position: relative;  
+    border-bottom: 1px solid $styleguide-separator-color;
 
-    &:first-child {
-      padding-top: 0;
+    &:target:before {
+      content: "";
+      display: block;
+      height: 73px;
+      margin-top: -73px;
     }
   }
 
@@ -62,10 +63,8 @@ $styleguide-block-border-color: $c-bordergrey;
     margin-top: 5px;
   }
 
-  &__block {
-    @extend %clearfix;
-    position: relative;  
-    border-bottom: 1px solid $styleguide-separator-color;
+  &__block-info {
+    padding-top: $styleguide-block-padding / 2;
   }
 
   &__block-title {
@@ -86,6 +85,10 @@ $styleguide-block-border-color: $c-bordergrey;
   &__block-examples {
     border: 1px solid $styleguide-block-border-color;
     border-radius: 3px;
+
+    @include respond-to(tablet, true) {
+      margin-bottom: $styleguide-block-padding;  
+    }
   }
 
   &__block-example-class {
@@ -96,6 +99,24 @@ $styleguide-block-border-color: $c-bordergrey;
     color: $c-typegrey;
     padding: 0 8px;
     font-size: .85em;
+  }
+
+  &__block-states {
+    color: lighten($c-typegrey, 10%);
+    margin-top: 0;
+    list-style: none;
+    padding-left: 0;
+
+    li {
+      &:before {
+        display: inline-block;
+        margin: 0 .35em;
+        font-size: 1.4em;
+        font-weight: normal;
+        content: "\203A";
+        color: $c-bordergrey;
+      }
+    }
   }
 
   &__block-example + &__block-example { 

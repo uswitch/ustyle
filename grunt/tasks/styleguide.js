@@ -172,7 +172,7 @@ module.exports = function(grunt){
       statsPage = {
         name: 'Stats',
         page: 'stats.html',
-        section: 'code',
+        section: 'pattern-library',
         content: {report: []},
         template: 'styleguide/templates/stats.tpl',
       };

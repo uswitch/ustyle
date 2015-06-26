@@ -4,7 +4,7 @@
   function App(){
     gumshoe.init({
       activeClass: 'sidebar__nav-link--active',
-      offset: 70
+      offset: 190
     });
 
     var toggleLinks = document.querySelectorAll(".js-toggle__link");

@@ -23,21 +23,23 @@
 @import "ustyle/components/button";
 @import "ustyle/components/featured";
 @import "ustyle/components/hero";
-@import "ustyle/components/news-article";
-@import "ustyle/components/guide-article";
-@import "ustyle/components/see-more";
 @import "ustyle/components/content-group";
 @import "ustyle/components/tabs";
 @import "ustyle/components/anchor";
 @import "ustyle/components/loader";
 @import "ustyle/components/breadcrumbs";
 @import "ustyle/components/cta";
-@import "ustyle/components/related";
 @import "ustyle/components/overlay";
 @import "ustyle/components/tooltip";
 @import "ustyle/components/usp";
 @import "ustyle/components/progress";
 @import "ustyle/components/backdrop";
+
+// Articles
+@import "ustyle/articles/news";
+@import "ustyle/articles/guide";
+@import "ustyle/articles/see-more";
+@import "ustyle/articles/related";
 
 // Utilities
 @import "ustyle/utilities/general";

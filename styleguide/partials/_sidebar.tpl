@@ -15,7 +15,7 @@
         {{/isActive}}
       {{/isActive}}
     {{/pages}}
-    {{#isActive "code" "section"}}
+    {{#isActive "pattern-library" "section"}}
       <a class="sidebar__nav-link" href="/sass/">Sass doc</a>
     {{/isActive}}
   </nav>

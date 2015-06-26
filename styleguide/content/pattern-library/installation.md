@@ -1,5 +1,5 @@
 ---
-name: Introduction
+name: Installation
 ---
 uStyle, aptly named, is the styleguide gem for uSwitch. Include it in your Rails/Sinatra/Anything project as a gem and forget about those annoying additional cloudfront includes.
 

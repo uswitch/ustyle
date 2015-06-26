@@ -1,10 +1,10 @@
 pre {
-  font-family: Consolas, monospace;
-  font-size: 0.85em;
+  font-family: Consolas,"Liberation Mono", Menlo, Courier, monospace;
+  font-size: 0.9em;
   line-height: 1.4;
   display: block;
   padding: 1.5em;
-  background: lighten($c-bggrey, 2%);
+  background: #fafafa;
   color: $c-typegrey;
   border-top: 1px solid $c-bordergrey;
   margin-bottom: 0;
@@ -54,7 +54,7 @@ pre code {
 .hljs-tag .hljs-value,
 .hljs-phpdoc,
 .tex .hljs-formula {
-  color: #dd1144;
+  color: deeppink;
 }
 
 .hljs-title,
@@ -84,14 +84,14 @@ pre code {
 .hljs-tag .hljs-title,
 .hljs-rules .hljs-property,
 .django .hljs-tag .hljs-keyword {
-  color: navy;
+  color: $c-blue;
   font-weight: normal;
 }
 
 .hljs-attribute,
 .hljs-variable,
 .lisp .hljs-body {
-  color: teal;
+  color: $c-typecyan;
 }
 
 .hljs-regexp {

@@ -6,8 +6,9 @@
     </h2>
     
     {{{description}}}
+    <h4>States</h4>
     {{#if state}}
-      <ul class="styleguide__block-states">
+      <ul class="styleguide__block-states us-clearfix">
         {{#state}}
           <li class="name"><strong>{{name}}</strong> - {{description}}</li>
         {{/state}}
