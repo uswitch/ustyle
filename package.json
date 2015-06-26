@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/uswitch/ustyle/issues"
   },
-  "homepage": "https://github.com/uswitch/ustyle",
+  "homepage": "https://ustyle.guide",
   "devDependencies": {
     "async": "^0.9.0",
     "autoprefixer-core": "^4.0.1",
