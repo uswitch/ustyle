@@ -23,12 +23,12 @@
 <body>
   <header class="ustyle__header">
     <a class="logo" href="/">ustyle</a>
-    <a class="version us-tablet--block" href="https://github.com/uswitch/ustyle/releases/tag/0.19.1">v0.19.1</a>
+    <a class="version us-tablet--block" href="https://github.com/uswitch/ustyle/releases/tag/0.20.0">v0.20.0</a>
     <div class='nav nav--header'>
       <nav>
         <a href="/brand/" class="nav__link ">Brand</a>
+        <a href="/pattern-library/" class="nav__link ">Pattern library</a>
         <a href="/design/" class="nav__link active">Design</a>
-        <a href="/code/" class="nav__link ">Code</a>
       </nav>
     </nav>
   </header>
@@ -37,19 +37,19 @@
     <nav class='sidebar__nav' data-gumshoe>
           <a class="sidebar__nav-link " href="index.html">Design</a>
           <a class="sidebar__nav-link " href="icons.html">Icons</a>
-          <a class="sidebar__nav-link " href="colours.html">Colours</a>
+          <a class="sidebar__nav-link " href="imagery.html">Imagery</a>
           <a class="sidebar__nav-link active" href="typography.html">Typography</a>
               <nav class="sidebar__sub-nav" data-ghumshoe>
                   <a class="sidebar__nav-link sidebar__nav-link--sub" href="#headings">Headings</a>
                   <a class="sidebar__nav-link sidebar__nav-link--sub" href="#paragraphs">Paragraphs</a>
                   <a class="sidebar__nav-link sidebar__nav-link--sub" href="#lists">Lists</a>
                   <a class="sidebar__nav-link sidebar__nav-link--sub" href="#blockquote">Blockquote</a>
+                  <a class="sidebar__nav-link sidebar__nav-link--sub" href="#numbered_list">Numbered list</a>
+                  <a class="sidebar__nav-link sidebar__nav-link--sub" href="#ticked_list">Ticked list</a>
               </nav>
-          <a class="sidebar__nav-link " href="imagery.html">Imagery</a>
     </nav>
   </div>
   <div id="wrapper" class="container sidebar--push header--push">
-    <h1 class="styleguide__title">Typography</h1>
     <div class="styleguide">
             <div class="styleguide__block" id="headings">
               <div class="styleguide__block-info">
@@ -61,6 +61,7 @@
                 <p>   The default heading styling across all uSwitch pages.</p>
             <p>   We allow extending the sizes of these headings with <code>%heading-{$i}</code> so that we don&#39;t repeat similar font sizes across the site</p>
             
+                <h4>States</h4>
                 
               </div>
               
@@ -96,7 +97,8 @@
                 
                 <p>   Default paragraph styling with a margin bottom.</p>
             
-                  <ul class="styleguide__block-states">
+                <h4>States</h4>
+                  <ul class="styleguide__block-states us-clearfix">
                       <li class="name"><strong>.us-standfirst</strong> - Used for heros and introductory paragraphs</li>
                   </ul>
                 
@@ -140,6 +142,7 @@
                 
                 <p>   Normal list styling</p>
             
+                <h4>States</h4>
                 
               </div>
               
@@ -173,6 +176,7 @@
                 
                 <p>   Default blockquote</p>
             
+                <h4>States</h4>
                 
               </div>
               
@@ -197,6 +201,79 @@
                    Vivamus et orci pretium, commodo eros vitae, tincidunt purus.
                  &lt;/p&gt;
                &lt;/blockquote&gt;
+                </code></pre>
+              </div>
+            
+            </div>
+            <div class="styleguide__block" id="numbered_list">
+              <div class="styleguide__block-info">
+                <h2 class="styleguide__block-title">
+                  Numbered list
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_lists-li.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_lists-li.scss</span></a>
+                </h2>
+                
+                <p>   Our default numbered list styling</p>
+            <p>   <code>.us-custom-list-alt</code> allows us to use the lists on hero/blue backgrounds.</p>
+            
+                <h4>States</h4>
+                
+              </div>
+              
+              <div class="styleguide__block-examples">
+                <h3 class="styleguide__block-small-title">Example</h3>
+                <div class="styleguide__block-example">
+                     <ul class='us-numbered-list'>
+                 <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin iaculis bibendum.</li>
+                 <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin iaculis bibendum.</li>
+               </ul>
+                </div>
+              
+            
+                <pre><code class="html">
+               &lt;ul class='us-numbered-list'&gt;
+                 &lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin iaculis bibendum.&lt;/li&gt;
+                 &lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin iaculis bibendum.&lt;/li&gt;
+               &lt;/ul&gt;
+                </code></pre>
+              </div>
+            
+            </div>
+            <div class="styleguide__block" id="ticked_list">
+              <div class="styleguide__block-info">
+                <h2 class="styleguide__block-title">
+                  Ticked list
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_lists-li.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_lists-li.scss</span></a>
+                </h2>
+                
+                <p>   Our default ticked list styling. <code>.us-custom-list-alt</code> allows us to use the lists on hero/blue backgrounds.</p>
+            
+                <h4>States</h4>
+                
+              </div>
+              
+              <div class="styleguide__block-examples">
+                <h3 class="styleguide__block-small-title">Example</h3>
+                <div class="styleguide__block-example">
+                     <ul class='us-ticked-list'>
+                 <li class='us-icon--before us-icon--tick--before us-icon--small--before us-icon--typegrey--before'>
+                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                 </li>
+                 <li class='us-icon--before us-icon--tick--before us-icon--small--before us-icon--typegrey--before'>
+                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                 </li>
+               </ul>
+                </div>
+              
+            
+                <pre><code class="html">
+               &lt;ul class='us-ticked-list'&gt;
+                 &lt;li class='us-icon--before us-icon--tick--before us-icon--small--before us-icon--typegrey--before'&gt;
+                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                 &lt;/li&gt;
+                 &lt;li class='us-icon--before us-icon--tick--before us-icon--small--before us-icon--typegrey--before'&gt;
+                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                 &lt;/li&gt;
+               &lt;/ul&gt;
                 </code></pre>
               </div>
             

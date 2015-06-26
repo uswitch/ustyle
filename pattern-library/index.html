@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]> <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]> <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]> <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]> ><! <![endif]-->
+<html class='no-js svg' lang='en'>
+  <!-- <![endif] -->
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+  <title>ustyle styleguide</title>
+  <link rel="stylesheet" href="/css/main.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <![endif] -->
+  <script>
+    (function(html){
+      html.className=html.className.replace(/\bno-js\b/,'js');
+    })(document.documentElement);
+  </script>
+</head>
+<body>
+  <header class="ustyle__header">
+    <a class="logo" href="/">ustyle</a>
+    <a class="version us-tablet--block" href="https://github.com/uswitch/ustyle/releases/tag/0.20.0">v0.20.0</a>
+    <div class='nav nav--header'>
+      <nav>
+        <a href="/brand/" class="nav__link ">Brand</a>
+        <a href="/pattern-library/" class="nav__link active">Pattern library</a>
+        <a href="/design/" class="nav__link ">Design</a>
+      </nav>
+    </nav>
+  </header>
+  <div class="us-hero header--push hero--pattern">
+    <div class="us-hero-container">
+      <h1 class="us-hero-title">Pattern library</h1>
+      <p class="us-standfirst">
+        Our pattern library comes as a easily distributed package, ready to use in multiple programming environments.
+      </p>
+          <a class="hero__nav-link" href="index.html">Index</a>
+          <a class="hero__nav-link" href="utilities.html">Utilities</a>
+          <a class="hero__nav-link" href="grid.html">Grid</a>
+          <a class="hero__nav-link" href="forms.html">Forms</a>
+          <a class="hero__nav-link" href="components.html">Components</a>
+          <a class="hero__nav-link" href="javascript.html">Javascript</a>
+          <a class="hero__nav-link" href="articles.html">Articles</a>
+          <a class="hero__nav-link" href="installation.html">Installation</a>
+          <a class="hero__nav-link" href="stats.html">Stats</a>
+        <a class="hero__nav-link" href="/sass/">Sass doc</a>
+    </div>
+  </div>
+  <div class="us-content-group mobile-bordered">
+  <div class="us-container">
+    <h2 class="trailered">Distribution methods</h2>
+    <div class="us-grid-row">
+      <div class="us-col-md-6 trailered">
+        <img src="/images/ruby-logo.png" alt="Ruby logo" class="distro-image">
+        <h3>Ruby gem</h3>
+        <p>Ustyle was initially created as a gem. Some of the Sass functions rely on Ruby to run. You can install it via any Gemfile and it will install the required dependencies.</p>
+        <pre><code class="ruby">gem 'ustyle', git: "git@github.com:uswitch/ustyle.git"</code></pre>
+      </div>
+      <div class="us-col-md-6 trailered">
+        <img src="/images/bower-logo.png" alt="Bower logo" class="distro-image">
+        <h3>Bower package</h3>
+        <p>Install is as a bower package. This will pull down the original <code>.scss</code> files and compiled static CSS + JS.</p>
+        <pre><code class="javascript">
+          "dependencies": {
+            "ustyle": "git@github.com:uswitch/ustyle.git#~0.19.1"  
+          }
+        </code></pre>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="us-content-group mobile-bordered">
+  <div class="us-container">
+    <div class="us-grid-row">
+      <div class="us-col-md-6 trailered">
+        <img src="/images/cloudfront-logo.png" alt="Cloudfront logo" class="distro-image">
+        <h3>Cloudfront</h3>
+        <p>Every time ustyle gets a new version, the version gets updated across our Cloudfront distributions.
+        <pre><code class="html">
+          &lt;!-- get latest --&gt;
+          &lt;link href='//assets0.uswitch.com/s3/uswitch-assets-eu/ustyle/ustyle-latest.css' media='all' rel='stylesheet' type='text/css' /&gt;
+          &lt;!-- get versioned --&gt;
+          &lt;link href='//assets0.uswitch.com/s3/uswitch-assets-eu/ustyle/VERSION/ustyle-latest.css' media='all' rel='stylesheet' type='text/css' /&gt;
+        </code></pre>
+      </div>
+      <div class="us-col-md-6">
+        <img src="/images/npm-logo.png" alt="NPM logo" class="distro-image">
+        <h3>NPM Package</h3>
+        <p>Similar installation method to Bower</p>
+      </div>
+    </div>
+  </div>  
+</div>
+
+  <div class="container">
+    <p class="copyright">Copyright uSwitch Limited 2015. <a href="https://github.com/uswitch/ustyle.git">Github</a></p>
+  </div>
+  <script src="https://www.google.com/jsapi"></script>
+  <script src="https://cdn.polyfill.io/v1/polyfill.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

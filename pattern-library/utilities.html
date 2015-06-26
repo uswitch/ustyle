@@ -23,48 +23,49 @@
 <body>
   <header class="ustyle__header">
     <a class="logo" href="/">ustyle</a>
-    <a class="version us-tablet--block" href="https://github.com/uswitch/ustyle/releases/tag/0.19.1">v0.19.1</a>
+    <a class="version us-tablet--block" href="https://github.com/uswitch/ustyle/releases/tag/0.20.0">v0.20.0</a>
     <div class='nav nav--header'>
       <nav>
         <a href="/brand/" class="nav__link ">Brand</a>
+        <a href="/pattern-library/" class="nav__link active">Pattern library</a>
         <a href="/design/" class="nav__link ">Design</a>
-        <a href="/code/" class="nav__link active">Code</a>
       </nav>
     </nav>
   </header>
   <a href="javascript:void(0);" class="nav-mobile js-toggle__link us-desktop--hidden" data-target="sidebar"><span class="nav-mobile__hamburger">Sidebar</span></a>
   <div class='sidebar'>
     <nav class='sidebar__nav' data-gumshoe>
-          <a class="sidebar__nav-link " href="index.html">Introduction</a>
+          <a class="sidebar__nav-link " href="index.html">Index</a>
           <a class="sidebar__nav-link active" href="utilities.html">Utilities</a>
               <nav class="sidebar__sub-nav" data-ghumshoe>
-                  <a class="sidebar__nav-link sidebar__nav-link--sub" href="#general_utilities">General utilities</a>
+                  <a class="sidebar__nav-link sidebar__nav-link--sub" href="#general">General</a>
                   <a class="sidebar__nav-link sidebar__nav-link--sub" href="#images">Images</a>
                   <a class="sidebar__nav-link sidebar__nav-link--sub" href="#responsive">Responsive</a>
                   <a class="sidebar__nav-link sidebar__nav-link--sub" href="#spacing">Spacing</a>
               </nav>
+          <a class="sidebar__nav-link " href="grid.html">Grid</a>
           <a class="sidebar__nav-link " href="forms.html">Forms</a>
           <a class="sidebar__nav-link " href="components.html">Components</a>
-          <a class="sidebar__nav-link " href="js-components.html">JS components</a>
-          <a class="sidebar__nav-link " href="grid.html">Grid</a>
+          <a class="sidebar__nav-link " href="javascript.html">Javascript</a>
+          <a class="sidebar__nav-link " href="articles.html">Articles</a>
+          <a class="sidebar__nav-link " href="installation.html">Installation</a>
           <a class="sidebar__nav-link " href="stats.html">Stats</a>
         <a class="sidebar__nav-link" href="/sass/">Sass doc</a>
     </nav>
   </div>
   <div id="wrapper" class="container sidebar--push header--push">
-    <h1 class="styleguide__title">Utilities</h1>
     <div class="styleguide">
-            <div class="styleguide__block" id="general_utilities">
+            <div class="styleguide__block" id="general">
               <div class="styleguide__block-info">
                 <h2 class="styleguide__block-title">
-                  General utilities
+                  General
                   <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/utilities/_general.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_general.scss</span></a>
                 </h2>
                 
-                <p>   These utility classes allow for some basic CSS properties to be applied across elements.</p>
-            <p>   The classname applies to the property that is getting set, with the value as the modifier.</p>
+                <p>   These utility classes allow for some basic CSS properties to be applied across elements. The classname applies to the property that is getting set, with the value as the modifier.</p>
             
-                  <ul class="styleguide__block-states">
+                <h4>States</h4>
+                  <ul class="styleguide__block-states us-clearfix">
                       <li class="name"><strong>.us-clearfix</strong> - Clear floats</li>
                       <li class="name"><strong>.us-float--left</strong> - Float element to the left</li>
                       <li class="name"><strong>.us-float--right</strong> - Float element to the right</li>
@@ -158,7 +159,8 @@
                 
                 <p>   Helpful image classes for making images full width or floating within content.</p>
             
-                  <ul class="styleguide__block-states">
+                <h4>States</h4>
+                  <ul class="styleguide__block-states us-clearfix">
                       <li class="name"><strong>.us-img--full</strong> - Full width image</li>
                       <li class="name"><strong>.us-img--left</strong> - Left floated image</li>
                       <li class="name"><strong>.us-img--right</strong> - Right floated image</li>
@@ -216,6 +218,7 @@
                 <p>   Responsive classes to allow display of elements across devices. You have the option of displaying them as <code>block</code>, <code>inline-block</code> or <code>inline</code> elements.</p>
             <p>   You can also hide elements by <code>.us-{DEVICE}--hidden</code> and will hide those elements above that breakpoint.</p>
             
+                <h4>States</h4>
                 
               </div>
               
@@ -253,7 +256,8 @@
             <p>   An example of this <code>.us-margin-top</code>, <code>.us-margin-top--small</code>, <code>.us-margin-top--large</code> where <code>margin</code> can be replaced by <code>padding</code> and <code>top</code> can be replaced by <code>bottom</code>, <code>left</code> or <code>right</code>.</p>
             <p>   Default space for margin and padding is 1em, <code>small</code> modifier uses .5em and <code>large</code> modifier uses 1.5em.</p>
             
-                  <ul class="styleguide__block-states">
+                <h4>States</h4>
+                  <ul class="styleguide__block-states us-clearfix">
                       <li class="name"><strong>.us-margin-top</strong> - Use default top margin (1em)</li>
                       <li class="name"><strong>.us-margin-top--small</strong> - Use small top margin (.5em)</li>
                       <li class="name"><strong>.us-margin-top--large</strong> - Use large top margin (1.5em)</li>

@@ -431,13 +431,13 @@
         return function(e) {
           var target, targets, _i, _len, _results;
           targets = [_this.overlay[0], _this.overlay.find(_this.options.closeButton)[0]];
-          if (_this.options.preventDefault) {
-            e.preventDefault();
-          }
           _results = [];
           for (_i = 0, _len = targets.length; _i < _len; _i++) {
             target = targets[_i];
             if (e.target === target) {
+              if (_this.options.preventDefault) {
+                e.preventDefault();
+              }
               _this.hide(e);
               break;
             } else {
@@ -782,7 +782,7 @@ function drawChart() {
   function App(){
     gumshoe.init({
       activeClass: 'sidebar__nav-link--active',
-      offset: 70
+      offset: 190
     });
 
     var toggleLinks = document.querySelectorAll(".js-toggle__link");
