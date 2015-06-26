@@ -23,7 +23,7 @@
 <body>
   <header class="ustyle__header">
     <a class="logo" href="/">ustyle</a>
-    <a class="version us-tablet--block" href="https://github.com/uswitch/ustyle/releases/tag/0.20.0">v0.20.0</a>
+    <a class="version us-tablet--block" href="https://github.com/uswitch/ustyle/releases/tag/1.0.0">v1.0.0</a>
     <div class='nav nav--header'>
       <nav>
         <a href="/brand/" class="nav__link ">Brand</a>
@@ -36,17 +36,18 @@
   <div class='sidebar'>
     <nav class='sidebar__nav' data-gumshoe>
           <a class="sidebar__nav-link " href="index.html">Index</a>
+          <a class="sidebar__nav-link active" href="articles.html">Articles</a>
+              <nav class="sidebar__sub-nav" data-ghumshoe>
+                  <a class="sidebar__nav-link sidebar__nav-link--sub" href="#guide_article">Guide article</a>
+                  <a class="sidebar__nav-link sidebar__nav-link--sub" href="#more_article">More article</a>
+                  <a class="sidebar__nav-link sidebar__nav-link--sub" href="#news_article">News article</a>
+                  <a class="sidebar__nav-link sidebar__nav-link--sub" href="#related_items">Related items</a>
+              </nav>
           <a class="sidebar__nav-link " href="utilities.html">Utilities</a>
           <a class="sidebar__nav-link " href="grid.html">Grid</a>
           <a class="sidebar__nav-link " href="forms.html">Forms</a>
           <a class="sidebar__nav-link " href="components.html">Components</a>
           <a class="sidebar__nav-link " href="javascript.html">Javascript</a>
-          <a class="sidebar__nav-link active" href="articles.html">Articles</a>
-              <nav class="sidebar__sub-nav" data-ghumshoe>
-                  <a class="sidebar__nav-link sidebar__nav-link--sub" href="#guide_article">Guide article</a>
-                  <a class="sidebar__nav-link sidebar__nav-link--sub" href="#news_article">News article</a>
-                  <a class="sidebar__nav-link sidebar__nav-link--sub" href="#related_items">Related items</a>
-              </nav>
           <a class="sidebar__nav-link " href="installation.html">Installation</a>
           <a class="sidebar__nav-link " href="stats.html">Stats</a>
         <a class="sidebar__nav-link" href="/sass/">Sass doc</a>
@@ -105,6 +106,40 @@
                      &lt;/div&gt;
                    &lt;/a&gt;
                  &lt;/div&gt;
+               &lt;/div&gt;
+                </code></pre>
+              </div>
+            
+            </div>
+            <div class="styleguide__block" id="more_article">
+              <div class="styleguide__block-info">
+                <h2 class="styleguide__block-title">
+                  More article
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/articles/_more.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_more.scss</span></a>
+                </h2>
+                
+                <p>   If the article listing has more in a category, we use this to let a user navigate to that category</p>
+            
+                <h4>States</h4>
+                
+              </div>
+              
+              <div class="styleguide__block-examples">
+                <h3 class="styleguide__block-small-title">Example</h3>
+                <div class="styleguide__block-example">
+                     <div class='us-more-item us-col-md-4'>
+                 <a class='us-more-item-link' href='#'>
+                   <span class='us-more-item-title'>See more banking news</span>
+                 </a>
+               </div>
+                </div>
+              
+            
+                <pre><code class="html">
+               &lt;div class='us-more-item us-col-md-4'&gt;
+                 &lt;a class='us-more-item-link' href='#'&gt;
+                   &lt;span class='us-more-item-title'&gt;See more banking news&lt;/span&gt;
+                 &lt;/a&gt;
                &lt;/div&gt;
                 </code></pre>
               </div>
