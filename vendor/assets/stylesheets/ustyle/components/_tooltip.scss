@@ -3,7 +3,7 @@
 //
 // @description
 //  `.us-tooltip` can be applied to any parent, and by hovering it, it will toggle the visibility of `.us-tooltip__note`. Please note that on mobile viewports, the tooltip will appeat underneath the element that is aligned with the tooltip icon.
-//  
+//
 // @state .us-tooltip--top
 // @state .us-tooltip--bottom
 // @state .us-tooltip--left
@@ -61,11 +61,11 @@ $tooltip-v-positions: "left", "right";
       @include arrow($arrow-width, $arrow-height, $arrow-type, $tooltip-note-border-color);
       #{$arrow-position}: $bottom-position;
 
-      &:after {        
+      &:after {
         @include arrow($arrow-width, $arrow-height, $arrow-type, $tooltip-note-bg-color);
         #{$arrow-position}: 1px;
       }
-    }  
+    }
   }
 }
 
@@ -123,7 +123,8 @@ $tooltip-v-positions: "left", "right";
     display: block;
     pointer-events: all;
     opacity: 1;
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    visibility: visible;
+    transition-delay: 0ms;
   }
 
   .us-tooltip__icon {
@@ -203,8 +204,8 @@ $tooltip-v-positions: "left", "right";
     margin-bottom: 0;
     pointer-events: none;
     opacity: 0;
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-    transition: opacity 300ms ease;
+    visibility: hidden;
+    transition: visibility 0ms ease 300ms, opacity 300ms ease;
   }
 }
 
