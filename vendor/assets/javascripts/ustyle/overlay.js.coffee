@@ -1,4 +1,4 @@
-{setOptions} = @Utils
+{setOptions, hasClass, addClass, removeClass, requestAnimationFrame} = @Utils
 
 class window.Overlay
   defaults =
@@ -9,8 +9,9 @@ class window.Overlay
     openButton:      '.js-open-overlay'
     closeButton:     '.js-close-overlay'
     historyStatus:   '#seedeal'
-    history:         true
+    history:         false
     preventDefault:  true
+    animationSpeed:  300
 
   constructor: (options) ->
     {@overlay} = @options = setOptions options, defaults
@@ -39,7 +40,7 @@ class window.Overlay
 
     if @hasHistory()
       window.onpopstate = (e) =>
-        @hide(e)
+        @hide(e) if @isOpen()
 
   show: (e) ->
     that = @
@@ -48,10 +49,10 @@ class window.Overlay
 
     @backdrop.retain()
 
-    Utils.addClass @overlay[0], @options.visibleClass
+    addClass @overlay[0], @options.visibleClass
 
-    Utils.requestAnimationFrame ->
-      Utils.addClass that.overlay[0], that.options.activeClass
+    requestAnimationFrame ->
+      addClass that.overlay[0], that.options.activeClass
 
     @options.onOpen?(e)
 
@@ -65,12 +66,12 @@ class window.Overlay
 
     @backdrop.release()
 
-    Utils.requestAnimationFrame ->
-      Utils.removeClass that.overlay[0], that.options.activeClass
+    requestAnimationFrame ->
+      removeClass that.overlay[0], that.options.activeClass
 
       setTimeout ->
-        Utils.removeClass that.overlay[0], that.options.visibleClass
-      , 300
+        removeClass that.overlay[0], that.options.visibleClass
+      , that.options.animationSpeed
 
     @options.onClose?(e)
 
@@ -78,5 +79,8 @@ class window.Overlay
       if history.state is 'open'
         history.back()
 
+  isOpen: ->
+    hasClass @overlay[0], @options.activeClass
+
   hasHistory: ->
-    if @options.history && uSwitch.hasHistory then true else false
+    @options.history and window.history and window.history.pushState
