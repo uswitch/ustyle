@@ -384,9 +384,9 @@
 }).call(this);
 
 (function() {
-  var setOptions;
+  var addClass, hasClass, removeClass, requestAnimationFrame, setOptions, _ref;
 
-  setOptions = this.Utils.setOptions;
+  _ref = this.Utils, setOptions = _ref.setOptions, hasClass = _ref.hasClass, addClass = _ref.addClass, removeClass = _ref.removeClass, requestAnimationFrame = _ref.requestAnimationFrame;
 
   window.Overlay = (function() {
     var defaults;
@@ -399,8 +399,9 @@
       openButton: '.js-open-overlay',
       closeButton: '.js-close-overlay',
       historyStatus: '#seedeal',
-      history: true,
-      preventDefault: true
+      history: false,
+      preventDefault: true,
+      animationSpeed: 300
     };
 
     function Overlay(options) {
@@ -445,7 +446,9 @@
       if (this.hasHistory()) {
         return window.onpopstate = (function(_this) {
           return function(e) {
-            return _this.hide(e);
+            if (_this.isOpen()) {
+              return _this.hide(e);
+            }
           };
         })(this);
       }
@@ -456,9 +459,9 @@
       that = this;
       $(document.body).addClass(this.options.bodyActiveClass);
       this.backdrop.retain();
-      Utils.addClass(this.overlay[0], this.options.visibleClass);
-      Utils.requestAnimationFrame(function() {
-        return Utils.addClass(that.overlay[0], that.options.activeClass);
+      addClass(this.overlay[0], this.options.visibleClass);
+      requestAnimationFrame(function() {
+        return addClass(that.overlay[0], that.options.activeClass);
       });
       if (typeof (_base = this.options).onOpen === "function") {
         _base.onOpen(e);
@@ -473,11 +476,11 @@
       that = this;
       $(document.body).removeClass(this.options.bodyActiveClass);
       this.backdrop.release();
-      Utils.requestAnimationFrame(function() {
-        Utils.removeClass(that.overlay[0], that.options.activeClass);
+      requestAnimationFrame(function() {
+        removeClass(that.overlay[0], that.options.activeClass);
         return setTimeout(function() {
-          return Utils.removeClass(that.overlay[0], that.options.visibleClass);
-        }, 300);
+          return removeClass(that.overlay[0], that.options.visibleClass);
+        }, that.options.animationSpeed);
       });
       if (typeof (_base = this.options).onClose === "function") {
         _base.onClose(e);
@@ -489,12 +492,12 @@
       }
     };
 
+    Overlay.prototype.isOpen = function() {
+      return hasClass(this.overlay[0], this.options.activeClass);
+    };
+
     Overlay.prototype.hasHistory = function() {
-      if (this.options.history && uSwitch.hasHistory) {
-        return true;
-      } else {
-        return false;
-      }
+      return this.options.history && window.history && window.history.pushState;
     };
 
     return Overlay;

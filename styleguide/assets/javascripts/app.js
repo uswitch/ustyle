@@ -21,7 +21,6 @@
     $(".js-open-overlay").each(function(e){
       overlays.push( 
         new Overlay({
-          history: false,
           openButton: $(".js-open-overlay[modifier='"+$(this).attr('modifier')+"']"),
           overlay: $(".us-overlay-parent[modifier='"+$(this).attr('modifier')+"']")
         })
