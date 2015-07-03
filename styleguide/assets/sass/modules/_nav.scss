@@ -24,7 +24,7 @@
     @include link-colors($c-navy, $c-typecyan, $c-navy, $c-navy);
     display: inline-block;
     position: relative;
-    padding: .55em $gutter-width/2;
+    padding: .55em $gutter-width/3;
     transition: color 200ms, background-color 200ms;
 
     @include respond-to(tablet, true) {

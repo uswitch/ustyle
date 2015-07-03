@@ -1,8 +1,18 @@
 $container-width: 90%;
 
+html {
+  @include respond-to(mobile) {
+    font-size: $base-font-size * .875
+  }
+}
+
 %header--push,
 .header--push {
-  padding-top: $header-height;
+  padding-top: $header-height / 2;
+
+  @include respond-to(tablet, true) {
+    padding-top: $header-height;
+  }
 }
 
 .container {
