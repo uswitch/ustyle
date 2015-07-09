@@ -1,6 +1,6 @@
 // @page Pattern Library/Forms
 // @name Inputs
-// 
+//
 // @description
 //   Our standard input styling across the website. This is specifically for type text and textarea.
 //
@@ -12,6 +12,22 @@
 $input-hover-color: $c-typecyan !default;
 $input-text-color: $c-typegrey !default;
 $input-border-color: $c-inputgrey !default;
+$input-placeholder-color: $c-inputgrey !default;
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+
+  &::-moz-placeholder {
+    @content;
+    opacity: 1;
+  }
+
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
 
 .us-form-input {
   @extend %base-form-element;
@@ -25,6 +41,10 @@ $input-border-color: $c-inputgrey !default;
   box-shadow: none;
   transition: border-color 200ms, box-shadow 200ms;
 
+  @include placeholder {
+    color: $input-placeholder-color;
+  }
+
   &:hover {
     border-color: $input-hover-color;
   }
@@ -32,13 +52,6 @@ $input-border-color: $c-inputgrey !default;
   &:focus {
     border-color: $input-hover-color;
     box-shadow: 0 0 3px $input-hover-color;
-
-    &::-webkit-input-placeholder,
-    &:-moz-placeholder,
-    &::-moz-placeholder,
-    &:-ms-input-placeholder {
-      color: $input-border-color;
-    }
   }
 
   &:disabled {
@@ -55,20 +68,4 @@ $input-border-color: $c-inputgrey !default;
   .ie8 & {
     height: auto;
   }
-}
-
-.us-form-input::-webkit-input-placeholder {
-  color: $c-bordergrey;
-}
-
-.us-form-input:-moz-placeholder {
-  color: $c-bordergrey;
-}
-
-.us-form-input::-moz-placeholder {
-  color: $c-bordergrey;
-}
-
-.us-form-input:-ms-input-placeholder {
-  color: $c-bordergrey;
 }
