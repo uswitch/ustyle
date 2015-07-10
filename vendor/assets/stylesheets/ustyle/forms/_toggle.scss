@@ -31,23 +31,15 @@
 // </div>
 
 $toggle-btn-padding: 6px 30px !default;
-$toggle-default-color: $c-typegrey-2 !default;
 $toggle-default-bg: #fff !default;
 $toggle-default-border: $c-bordergrey !default;
 
-$toggle-hover-color: $c-typegrey !default;
-$toggle-hover-bg: $c-bggrey !default;
-$toggle-hover-border: $c-inputgrey !default;
+$toggle-hover-border: $c-typecyan !default;
 
-$toggle-active-color: $c-typegrey !default;
 $toggle-active-bg: $c-cyan-light !default;
 $toggle-active-border: $c-typecyan !default;
 
-$toggle-active-font-weight: 400 !default;
-
 @mixin toggle-active-style {
-  font-weight: $toggle-active-font-weight;
-  color: $toggle-active-color;
   background-color: $toggle-active-bg;
   border-color: $toggle-active-border;
 }
@@ -82,16 +74,17 @@ $toggle-active-font-weight: 400 !default;
 .us-toggle__btn {
   display: block;
   padding: $toggle-btn-padding;
-  color: $toggle-default-color;
+  color: $c-typegrey;
   text-align: center;
   border: 1px solid $toggle-default-border;
 
-  .us-toggle__label:hover &,
+  .us-toggle__label:hover & {
+    border-color: $toggle-hover-border;
+  }
+
   .us-toggle__label:focus &,
   .us-toggle__label .us-form-input:focus + & {
-    color: $toggle-hover-color;
-    background-color: $toggle-hover-bg;
-    border-color: $toggle-hover-border;
+    box-shadow: inset 0 0 0 1px $c-typecyan;
   }
 
   // [nodoc] Legacy, as grouping selectors will fail on pseudo-selector :checked
