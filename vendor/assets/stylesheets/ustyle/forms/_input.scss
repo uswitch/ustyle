@@ -44,7 +44,8 @@ $input-placeholder-color: $c-inputgrey !default;
     color: $input-placeholder-color;
   }
 
-  &:hover {
+  &:hover,
+  &:checked {
     border-color: $input-hover-color;
   }
 

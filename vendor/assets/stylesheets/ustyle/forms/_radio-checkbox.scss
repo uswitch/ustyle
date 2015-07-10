@@ -59,13 +59,13 @@
       &:after {
         position: absolute;
         bottom: 0;
-        left: 0;
+        left: .1em;
         display: block;
-        width: 1.6em;
-        height: 1.6em;
+        width: 1.75em;
+        height: 1.75em;
         pointer-events: none;
         background-image: inline-svg("#{$base-icon-path}checkbox-tick.svg");
-        background-position: 0 25%;
+        background-position: 0 75%;
         background-size: cover;
         content: "";
         opacity: 0;
@@ -80,9 +80,18 @@
     }
 
     &[type="radio"] {
+      &:focus {
+        box-shadow: inset 0 0 0 1px $c-typecyan;
+      }
+
       &:checked {
-        background: $c-typegrey;
+        background: $c-typecyan;
         box-shadow: inset 0 0 0 .35em #fff;
+      }
+
+      &:checked:focus {
+        background: $c-typecyan;
+        box-shadow: inset 0 0 0 1px $c-typecyan, inset 0 0 0 .35em #fff;
       }
     }
   }
