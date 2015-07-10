@@ -5,7 +5,7 @@
 //   Webkit/Blink browsers display our font icon tick or a box shadow circle. Other browsers fallback to default styling.
 //
 // @markup
-//   <div class='us-field us-field-blocked'>
+//   <div class='us-field us-field--blocked'>
 //     <label>Do you have a different billing address?</label>
 //     <div class='us-field-toggle'>
 //       <label>
@@ -16,7 +16,7 @@
 //       </label>
 //     </div>
 //   </div>
-//   <div class='us-field us-field-blocked'>
+//   <div class='us-field us-field--blocked'>
 //     <label>How would you like to be contacted?</label>
 //     <div class='us-field-toggle'>
 //       <label>

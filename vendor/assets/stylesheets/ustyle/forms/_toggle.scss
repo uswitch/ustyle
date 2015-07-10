@@ -1,6 +1,6 @@
 // @page Pattern Library/Forms
 // @name Toggle
-// 
+//
 // @description
 //  This is a form toggle used for single select options. Best usage is for 2 - 3 options that are short answers.
 //  IE8 support is included with `radioToggle.js` which sets a `.checked` class on the radio button when clicked.
@@ -11,8 +11,8 @@
 //   })
 //
 // @markup
-// 
-// <div class="us-field us-field-blocked">
+//
+// <div class="us-field us-field--blocked">
 //   <label>Gender</label>
 //   <div class="us-toggle">
 //     <label class="us-toggle__label" for="gender_male">
@@ -27,7 +27,7 @@
 //         Female
 //       </span>
 //     </label>
-//   </div>  
+//   </div>
 // </div>
 
 $toggle-btn-padding: 6px 30px !default;
