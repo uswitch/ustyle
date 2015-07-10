@@ -66,12 +66,5 @@ $label-inline-breakpoint: tablet !default;
     font-weight: normal;
     line-height: 1.5em;
     cursor: pointer;
-    border: 1px solid transparent;
-    border-radius: 3px;
-    transition: border 333ms;
-
-    &:hover {
-      border-color: $c-bordergrey;
-    }
   }
 }
