@@ -4,8 +4,8 @@
 // @description
 //   This is the basic form field, `.us-field` wrapper for any single input or select. It sets a few layout options by default (margin) and styles any labels within. You can create a fake label style with `.us-faux-label`
 //
-// @state .us-field-blocked - Blocked label styling
-// @state .us-field-inline - Inline label styling
+// @state .us-field--blocked - Blocked label styling
+// @state .us-field--inline - Inline label styling
 //
 // @markup
 //   <div class="us-field {$modifiers}">
@@ -36,16 +36,29 @@ $label-inline-breakpoint: tablet !default;
   }
 }
 
-.us-field-blocked {
+.us-field--blocked {
   > label,
   > .us-faux-label {
     @extend %base-block-label;
   }
 }
 
+// This is an inline field, for quick, easy to read forms
+.us-field--inline {
+  > label,
+  > .us-faux-label {
+    @extend %base-block-label;
+
+    @include respond-to($label-inline-breakpoint, true) {
+      display: inline-block;
+      min-width: $default-label-width;
+      vertical-align: middle;
+    }
+  }
+}
+
 // The toggle field is for radios and checkboxes. It sits within the .us-field to allow
 // styling for labels of radio/checboxes
-
 .us-field-toggle {
   label {
     @include normal-font;
@@ -59,21 +72,6 @@ $label-inline-breakpoint: tablet !default;
 
     &:hover {
       border-color: $c-bordergrey;
-    }
-  }
-}
-
-// This is an inline field, for quick, easy to read forms
-
-.us-field-inline {
-  > label,
-  > .us-faux-label {
-    @extend %base-block-label;
-
-    @include respond-to($label-inline-breakpoint, true) {
-      display: inline-block;
-      min-width: $default-label-width;
-      vertical-align: middle;
     }
   }
 }
