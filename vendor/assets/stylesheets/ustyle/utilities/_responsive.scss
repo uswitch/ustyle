@@ -15,62 +15,24 @@
 
 $display-properties: block, inline-block, inline;
 
-// Large desktop ~ 1200px
-
-.us-lg-desktop--hidden {
-  @include respond-to(large-desktop) {
+// Mobile
+.us-mobile--hidden {
+  @include respond-to(mobile) {
     display: none;
   }
 }
 
 @each $property in $display-properties {
-  .us-lg-desktop--#{$property} {
+  .us-mobile--#{$property} {
     display: none;
 
-    @include respond-to(large-desktop) {
-      display: $property;
-    }
-  }
-}
-
-// Desktop size ~ 990px
-
-.us-desktop--hidden {
-  @include respond-to(desktop, true) {
-    display: none;
-  }
-}
-
-@each $property in $display-properties {
-  .us-desktop--#{$property} {
-    display: none;
-
-    @include respond-to(desktop, true) {
-      display: $property;
-    }
-  }
-}
-
-// Tablet
-
-.us-tablet--hidden {
-  @include respond-to(tablet, true) {
-    display: none;
-  }
-}
-
-@each $property in $display-properties {
-  .us-tablet--#{$property} {
-    display: none;
-
-    @include respond-to(tablet, true) {
+    @include respond-to(mobile) {
       display: $property;
     }
   }
 }
 
 // Small tablet
-
 .us-sm-tablet--hidden {
   @include respond-to(small-tablet, true) {
     display: none;
@@ -87,19 +49,52 @@ $display-properties: block, inline-block, inline;
   }
 }
 
-// Mobile
-
-.us-mobile--hidden {
-  @include respond-to(mobile) {
+// Tablet
+.us-tablet--hidden {
+  @include respond-to(tablet, true) {
     display: none;
   }
 }
 
 @each $property in $display-properties {
-  .us-mobile--#{$property} {
+  .us-tablet--#{$property} {
     display: none;
 
-    @include respond-to(mobile) {
+    @include respond-to(tablet, true) {
+      display: $property;
+    }
+  }
+}
+
+// Desktop
+.us-desktop--hidden {
+  @include respond-to(desktop, true) {
+    display: none;
+  }
+}
+
+@each $property in $display-properties {
+  .us-desktop--#{$property} {
+    display: none;
+
+    @include respond-to(desktop, true) {
+      display: $property;
+    }
+  }
+}
+
+// Large desktop
+.us-lg-desktop--hidden {
+  @include respond-to(large-desktop) {
+    display: none;
+  }
+}
+
+@each $property in $display-properties {
+  .us-lg-desktop--#{$property} {
+    display: none;
+
+    @include respond-to(large-desktop) {
       display: $property;
     }
   }
