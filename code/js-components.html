@@ -23,37 +23,36 @@
 <body>
   <header class="ustyle__header">
     <a class="logo" href="/">ustyle</a>
-    <a class="version us-tablet--block" href="https://github.com/uswitch/ustyle/releases/tag/1.0.1">v1.0.1</a>
+    <a class="version us-tablet--block" href="https://github.com/uswitch/ustyle/releases/tag/0.18.2">v0.18.2</a>
     <div class='nav nav--header'>
       <nav>
         <a href="/brand/" class="nav__link ">Brand</a>
-        <a href="/pattern-library/" class="nav__link active">Pattern library</a>
         <a href="/design/" class="nav__link ">Design</a>
+        <a href="/code/" class="nav__link active">Code</a>
       </nav>
     </nav>
   </header>
   <a href="javascript:void(0);" class="nav-mobile js-toggle__link us-desktop--hidden" data-target="sidebar"><span class="nav-mobile__hamburger">Sidebar</span></a>
   <div class='sidebar'>
     <nav class='sidebar__nav' data-gumshoe>
-          <a class="sidebar__nav-link " href="index.html">Index</a>
-          <a class="sidebar__nav-link " href="articles.html">Articles</a>
+          <a class="sidebar__nav-link " href="index.html">Introduction</a>
           <a class="sidebar__nav-link " href="utilities.html">Utilities</a>
-          <a class="sidebar__nav-link " href="grid.html">Grid</a>
           <a class="sidebar__nav-link " href="forms.html">Forms</a>
           <a class="sidebar__nav-link " href="components.html">Components</a>
-          <a class="sidebar__nav-link active" href="javascript.html">Javascript</a>
+          <a class="sidebar__nav-link active" href="js-components.html">JS components</a>
               <nav class="sidebar__sub-nav" data-ghumshoe>
                   <a class="sidebar__nav-link sidebar__nav-link--sub" href="#anchor">Anchor</a>
                   <a class="sidebar__nav-link sidebar__nav-link--sub" href="#overlay">Overlay</a>
                   <a class="sidebar__nav-link sidebar__nav-link--sub" href="#tabs">Tabs</a>
                   <a class="sidebar__nav-link sidebar__nav-link--sub" href="#tooltip">Tooltip</a>
               </nav>
-          <a class="sidebar__nav-link " href="installation.html">Installation</a>
+          <a class="sidebar__nav-link " href="grid.html">Grid</a>
           <a class="sidebar__nav-link " href="stats.html">Stats</a>
         <a class="sidebar__nav-link" href="/sass/">Sass doc</a>
     </nav>
   </div>
   <div id="wrapper" class="container sidebar--push header--push">
+    <h1 class="styleguide__title">JS components</h1>
     <div class="styleguide">
             <div class="styleguide__block" id="anchor">
               <div class="styleguide__block-info">
@@ -65,7 +64,6 @@
                 <p>  Anchor is a naive implementation of Tether by HubSpot. It creates an independent dropdown that is &quot;anchored&quot; to the bottom of the target element.</p>
             <p>  We&#39;ve decided to only support IE9+, as the uses of Anchor throughout uSwitch are for progressive enhancement.</p>
             
-                <h4>States</h4>
                 
               </div>
               
@@ -106,8 +104,7 @@
                 
                 <p>  <code>.us-overlay</code> slides in from either side of the viewport, or can be shown as a modal window.</p>
             
-                <h4>States</h4>
-                  <ul class="styleguide__block-states us-clearfix">
+                  <ul class="styleguide__block-states">
                       <li class="name"><strong>.us-overlay--modal</strong> - Overlay appears as a modal window.</li>
                       <li class="name"><strong>.us-overlay--right</strong> - Overlay appears on the right side of the viewport (not applicable when used in conjunction with .us-overlay--modal).</li>
                       <li class="name"><strong>.us-overlay--above</strong> - Overlay appears over the top of another open overlay.</li>
@@ -120,7 +117,7 @@
                 <div class="styleguide__block-example">
                      <button class="us-btn js-open-overlay" modifier="{$modifiers}">Open</button>
                <div class="us-overlay-parent" modifier="{$modifiers}">
-                 <div class="us-overlay {$modifiers}">
+                 <div class="us-overlay {$modifiers}" modifier="{$modifiers}">
                    <div class="us-overlay__container">
                      <div class="us-overlay__header">
                        <div class="us-overlay__title">
@@ -143,7 +140,7 @@
                   <div class="styleguide__block-example state-us-overlay--modal">
                        <button class="us-btn js-open-overlay" modifier="us-overlay--modal">Open</button>
                <div class="us-overlay-parent" modifier="us-overlay--modal">
-                 <div class="us-overlay us-overlay--modal">
+                 <div class="us-overlay us-overlay--modal" modifier="us-overlay--modal">
                    <div class="us-overlay__container">
                      <div class="us-overlay__header">
                        <div class="us-overlay__title">
@@ -166,7 +163,7 @@
                   <div class="styleguide__block-example state-us-overlay--right">
                        <button class="us-btn js-open-overlay" modifier="us-overlay--right">Open</button>
                <div class="us-overlay-parent" modifier="us-overlay--right">
-                 <div class="us-overlay us-overlay--right">
+                 <div class="us-overlay us-overlay--right" modifier="us-overlay--right">
                    <div class="us-overlay__container">
                      <div class="us-overlay__header">
                        <div class="us-overlay__title">
@@ -189,7 +186,7 @@
                   <div class="styleguide__block-example state-us-overlay--above">
                        <button class="us-btn js-open-overlay" modifier="us-overlay--above">Open</button>
                <div class="us-overlay-parent" modifier="us-overlay--above">
-                 <div class="us-overlay us-overlay--above">
+                 <div class="us-overlay us-overlay--above" modifier="us-overlay--above">
                    <div class="us-overlay__container">
                      <div class="us-overlay__header">
                        <div class="us-overlay__title">
@@ -213,7 +210,7 @@
                 <pre><code class="html">
                &lt;button class="us-btn js-open-overlay" modifier="{$modifiers}"&gt;Open&lt;/button&gt;
                &lt;div class="us-overlay-parent" modifier="{$modifiers}"&gt;
-                 &lt;div class="us-overlay"&gt;
+                 &lt;div class="us-overlay" modifier="{$modifiers}"&gt;
                    &lt;div class="us-overlay__container"&gt;
                      &lt;div class="us-overlay__header"&gt;
                        &lt;div class="us-overlay__title"&gt;
@@ -241,7 +238,7 @@
                  openButton:      &#39;.js-open-overlay&#39;,
                  closeButton:     &#39;.js-close-overlay&#39;,
                  historyStatus:   &#39;#seedeal&#39;,
-                 history:         false,
+                 history:         true,
                  preventDefault:  true
                });
              
@@ -256,9 +253,9 @@
                   <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_tabs.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_tabs.scss</span></a>
                 </h2>
                 
-                <p>   These are the basic tabs used for landing pages. You can either reference a data-target for the urls or href for the target tabs. They have a non-js fallback and fold over to accordion when in small tablet view. They are initialised on page load if the tabs classes exist.</p>
+                <p>   These are the basic tabs used for landing pages. You can either reference a data-target for the urls or href for the target tabs. </p>
+            <p>   They have a non-js fallback and fold over to accordion when in small tablet view. They are initialised on page load if the tabs classes exist.</p>
             
-                <h4>States</h4>
                 
               </div>
               
@@ -352,10 +349,10 @@
                   <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_tooltip.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_tooltip.scss</span></a>
                 </h2>
                 
-                <p>  <code>.us-tooltip</code> can be applied to any parent, and by hovering it, it will toggle the visibility of <code>.us-tooltip__note</code>. Please note that on mobile viewports, the tooltip will appeat underneath the element that is aligned with the tooltip icon.</p>
+                <p>  <code>.us-tooltip</code> can be applied to any parent, and by hovering it, it will toggle the visibility of <code>.us-tooltip__note</code></p>
+            <p>  Please note that on mobile viewports, the tooltip will appeat underneath the element that is aligned with the tooltip icon.</p>
             
-                <h4>States</h4>
-                  <ul class="styleguide__block-states us-clearfix">
+                  <ul class="styleguide__block-states">
                       <li class="name"><strong>.us-tooltip--top</strong> - </li>
                       <li class="name"><strong>.us-tooltip--bottom</strong> - </li>
                       <li class="name"><strong>.us-tooltip--left</strong> - </li>
@@ -375,10 +372,7 @@
                  </div>
                  <div class="us-tooltip__wrapper">
                    <div class="us-tooltip__icon"></div>
-                   <div class="us-tooltip__note">
-                     <div class="us-tooltip__arrow"></div>
-                     <strong>Tooltip</strong> message content
-                   </div>
+                   <div class="us-tooltip__note"><strong>Tooltip</strong> message content</div>
                  </div>
                </div>
                 </div>
@@ -391,10 +385,7 @@
                  </div>
                  <div class="us-tooltip__wrapper">
                    <div class="us-tooltip__icon"></div>
-                   <div class="us-tooltip__note">
-                     <div class="us-tooltip__arrow"></div>
-                     <strong>Tooltip</strong> message content
-                   </div>
+                   <div class="us-tooltip__note"><strong>Tooltip</strong> message content</div>
                  </div>
                </div>
                     <div class="styleguide__block-example-class">.us-tooltip--top</div>
@@ -407,10 +398,7 @@
                  </div>
                  <div class="us-tooltip__wrapper">
                    <div class="us-tooltip__icon"></div>
-                   <div class="us-tooltip__note">
-                     <div class="us-tooltip__arrow"></div>
-                     <strong>Tooltip</strong> message content
-                   </div>
+                   <div class="us-tooltip__note"><strong>Tooltip</strong> message content</div>
                  </div>
                </div>
                     <div class="styleguide__block-example-class">.us-tooltip--bottom</div>
@@ -423,10 +411,7 @@
                  </div>
                  <div class="us-tooltip__wrapper">
                    <div class="us-tooltip__icon"></div>
-                   <div class="us-tooltip__note">
-                     <div class="us-tooltip__arrow"></div>
-                     <strong>Tooltip</strong> message content
-                   </div>
+                   <div class="us-tooltip__note"><strong>Tooltip</strong> message content</div>
                  </div>
                </div>
                     <div class="styleguide__block-example-class">.us-tooltip--left</div>
@@ -439,10 +424,7 @@
                  </div>
                  <div class="us-tooltip__wrapper">
                    <div class="us-tooltip__icon"></div>
-                   <div class="us-tooltip__note">
-                     <div class="us-tooltip__arrow"></div>
-                     <strong>Tooltip</strong> message content
-                   </div>
+                   <div class="us-tooltip__note"><strong>Tooltip</strong> message content</div>
                  </div>
                </div>
                     <div class="styleguide__block-example-class">.us-tooltip--right</div>
@@ -455,10 +437,7 @@
                  </div>
                  <div class="us-tooltip__wrapper">
                    <div class="us-tooltip__icon"></div>
-                   <div class="us-tooltip__note">
-                     <div class="us-tooltip__arrow"></div>
-                     <strong>Tooltip</strong> message content
-                   </div>
+                   <div class="us-tooltip__note"><strong>Tooltip</strong> message content</div>
                  </div>
                </div>
                     <div class="styleguide__block-example-class">.us-tooltip--small</div>
@@ -472,10 +451,7 @@
                  &lt;/div&gt;
                  &lt;div class="us-tooltip__wrapper"&gt;
                    &lt;div class="us-tooltip__icon"&gt;&lt;/div&gt;
-                   &lt;div class="us-tooltip__note"&gt;
-                     &lt;div class="us-tooltip__arrow"&gt;&lt;/div&gt;
-                     &lt;strong&gt;Tooltip&lt;/strong&gt; message content
-                   &lt;/div&gt;
+                   &lt;div class="us-tooltip__note"&gt;&lt;strong&gt;Tooltip&lt;/strong&gt; message content&lt;/div&gt;
                  &lt;/div&gt;
                &lt;/div&gt;
                 </code></pre>
