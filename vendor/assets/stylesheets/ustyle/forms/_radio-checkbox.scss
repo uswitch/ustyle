@@ -54,7 +54,7 @@
     border-radius: .3em;
   }
 
-  @media all and (-webkit-min-device-pixel-ratio: 0) {
+  @include hidpi(0) {
     &[type="checkbox"] {
       &:after {
         position: absolute;
