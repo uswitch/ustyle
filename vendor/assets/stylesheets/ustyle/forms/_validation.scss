@@ -3,16 +3,22 @@
 //
 // @description
 //   Used to provide more detailed feedback about the data users have entered into forms.
+//   #### Best practices
+//   * For inputs that have a label above them, place the validation message between the input and the label.
 //
 // @state .us-validation--error - Error styling for incorrect data on forms
 // @state .us-validation--success - Success styling for correct forms
 //
 // @markup
-//   <input type="email" class="us-form-input" name="email" />
+//   <div class="us-field">
+//     <label>Email</label>
 //
-//   <div class="us-validation {$modifiers}">
-//     <div class="us-validation__icon"></div>
-//     <div class="us-validation__message">Validation message here</div>
+//     <div class="us-validation {$modifiers}">
+//       <div class="us-validation__icon"></div>
+//       <div class="us-validation__message">Validation message here</div>
+//     </div>
+//
+//     <input type="email" class="us-form-input" name="email" />
 //   </div>
 
 $message-padding-vertical: .35em !default;
