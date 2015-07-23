@@ -4,6 +4,9 @@
 // @description
 //   This is the basic form field, `.us-field` wrapper for any single input or select. It sets a few layout options by default (margin) and styles any labels within. You can create a fake label style with `.us-faux-label`
 //
+//   #### Best practices
+//   * For text inputs that are optional, add "(optional)" to the `placeholder` attribute for the input. Not highlighting required fields makes the form look less intimidating.
+//
 // @state .us-field--blocked - Blocked label styling
 // @state .us-field--inline - Inline label styling
 //
