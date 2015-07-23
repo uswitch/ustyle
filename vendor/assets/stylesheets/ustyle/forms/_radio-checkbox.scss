@@ -4,6 +4,12 @@
 // @description
 //   Webkit/Blink browsers display our font icon tick or a box shadow circle. Other browsers fallback to default styling.
 //
+//   #### Best practices
+//   * Like select boxes, radio buttons are good for making a selection from a mutually exclusive list of options. The main difference between the two is that with radio buttons, the user must choose exactly one of the options.
+//   * Use radio buttons when each of the choices matters to the user. Each needs to be considered before they make their choice.
+//   * Checkboxes in a group should be used for choosing zero or more options from a list of independent options. Toggling one should not change the state of others in the group.
+//   * A stand-alone checkbox is good for toggling something on/off or opting in/out.
+//
 // @markup
 //   <div class='us-field us-field--blocked'>
 //     <label>Do you have a different billing address?</label>
@@ -29,31 +35,6 @@
 //   </div>
 
 .us-form-input {
-  &[type="checkbox"],
-  &[type="radio"] {
-    position: relative;
-    width: 1.6em;
-    height: 1.6em;
-    padding: 0;
-    font-size: .8em;
-    cursor: pointer;
-    background-color: #fff;
-
-    .us-field-toggle & {
-      margin-top: .1em;
-      margin-right: .5em;
-      vertical-align: top;
-    }
-  }
-
-  &[type="radio"] {
-    border-radius: 50%;
-  }
-
-  &[type="checkbox"] {
-    border-radius: .3em;
-  }
-
   @include hidpi(0) {
     &[type="checkbox"] {
       &:after {
@@ -94,5 +75,30 @@
         box-shadow: inset 0 0 0 1px $c-typecyan, inset 0 0 0 .35em #fff;
       }
     }
+  }
+
+  &[type="checkbox"],
+  &[type="radio"] {
+    position: relative;
+    width: 1.6em;
+    height: 1.6em;
+    padding: 0;
+    font-size: .8em;
+    cursor: pointer;
+    background-color: #fff;
+
+    .us-field-toggle & {
+      margin-top: .1em;
+      margin-right: .5em;
+      vertical-align: top;
+    }
+  }
+
+  &[type="radio"] {
+    border-radius: 50%;
+  }
+
+  &[type="checkbox"] {
+    border-radius: .3em;
   }
 }
