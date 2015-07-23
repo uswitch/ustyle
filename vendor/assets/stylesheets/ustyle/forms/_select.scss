@@ -2,9 +2,11 @@
 // @name Selects
 //
 // @description
-//   The select is built with inline background-image SVGs for Webkit/Blink browsers that allow for customisation on the hover/normal colours.
-//   Firefox allows for `.us-form-select-wrap` to be added on top of the select to replicate styling, whilst other browser fallback to native implementation.
-//   `$select-base-color` and `$select-hover-color` allow for different colouring of the border/dropdown.
+//   Select boxes allow users to choose and option or options from a list of options.
+//
+//   #### Best practices
+//   * Use select boxes when choosing between related, independent options e.g. profession, title, month.
+//   * It can be tempting to have many things in the list that a user can choose from. Try to keep the list of options to more than 4, but less than 15 so the user doesn't have to spend too long deciding what to pick.
 //
 // @state .us-form-select-wrap--scrollable - Removes the drop down arrow and adjusts the padding of <option> elements. Useful when using <select> elements that have the size="" attribute set to anything higher than 1.
 //
