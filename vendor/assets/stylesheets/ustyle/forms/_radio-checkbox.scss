@@ -9,6 +9,7 @@
 //   * Use radio buttons when each of the choices matters to the user. Each needs to be considered before they make their choice.
 //   * Checkboxes in a group should be used for choosing zero or more options from a list of independent options. Toggling one should not change the state of others in the group.
 //   * A stand-alone checkbox is good for toggling something on/off or opting in/out.
+//   * Try to keep the number of radio buttons and checkboxes in the same group to a maximum of 6.
 //
 // @markup
 //   <div class='us-field us-field--blocked'>
