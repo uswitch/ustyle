@@ -3,6 +3,9 @@
 //
 // @description
 //   Our standard input styling across the website. This is specifically for type text and textarea.
+//   #### Best practices
+//   * Specifying an appropriate [type attribute](https://developer.mozilla.org/en/docs/Web/HTML/Element/Input#attr-type) (e.g. type="tel" for telephone number fields) will not only control what input is displayed, but also helps mobile devices select a keyboard layout suitable for entering that type of data.
+//   * Where appropriate use the [autocomplete attribute](https://developer.mozilla.org/en/docs/Web/HTML/Element/Input#attr-autocomplete) to make it easier for the browser to fill in fields on the users behalf, saving them time on lengthy forms.
 //
 // @state .us-form-input--large - Larger input style
 // @state .us-form-input--error - Visual feedback for when the input has an error
