@@ -2,8 +2,13 @@
 // @name Toggle
 //
 // @description
-//  This is a form toggle used for single select options. Best usage is for 2 - 3 options that are short answers.
+//  Toggle buttons provide and alternative way of displaying radio groups with a small number of options to a user.
 //  IE8 support is included with `radioToggle.js` which sets a `.checked` class on the radio button when clicked.
+//
+//  #### Best practices
+//  * Use as an alternation to radio groups that have short labels for each option (Yes/No, Opt-in/Opt-out).
+//  * For forms that have many short radio group questions in them, toggle buttons provide a better experience for quickly selecting answers on both desktop and mobile due to larger visible click areas for each option.
+//  * Limit the number of options in the toggle group to 3.
 //
 // @javascript
 //   var radioToggle = new RadioToggle({
@@ -13,18 +18,19 @@
 // @markup
 //
 // <div class="us-field us-field--blocked">
-//   <label>Gender</label>
+//   <label>Answer truthfully</label>
 //   <div class="us-toggle">
-//     <label class="us-toggle__label" for="gender_male">
-//       <input class="us-form-input" name="gender" type="radio" id="gender_male" />
+//     <label class="us-toggle__label" for="toggle-yes">
+//       <input class="us-form-input" name="choice" type="radio" id="toggle-yes" />
 //       <span class="us-toggle__btn">
-//         Male
+//         Yes
 //       </span>
 //     </label>
-//     <label class="us-toggle__label" for="gender_female">
-//       <input class="us-form-input" name="gender" type="radio" id="gender_female" />
+//
+//     <label class="us-toggle__label" for="toggle-no">
+//       <input class="us-form-input" name="choice" type="radio" id="toggle-no" />
 //       <span class="us-toggle__btn">
-//         Female
+//         No
 //       </span>
 //     </label>
 //   </div>
