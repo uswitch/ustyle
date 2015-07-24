@@ -20,7 +20,7 @@ createContext = (options) ->
 
       @tabs.on "click.ustyle.tab", (e) =>
         $target = $(e.currentTarget)
-        if isAccordeon() && @options.collapsible && @isActive($target)
+        if isAccordéon() && @options.collapsible && @isActive($target)
           @collapse($target)
           @hashClear()
         else
@@ -29,13 +29,13 @@ createContext = (options) ->
         e.preventDefault()
 
     init: ->
-      $initialHash = @tabs.filter("[#{@filter}='#{location.hash.replace("!", "")}']")
+      $initialHash = @tabFromHash()
       $activeTab   = @activeTab()
       if $initialHash.length
         @navigateTo($initialHash)
       else if $activeTab.length
         @navigateTo($activeTab)
-      else if !@options.collapsible || !isAccordeon()
+      else if !@options.collapsible || !isAccordéon()
         @navigateTo(@tabs.first())
 
     hashChange: (target) ->
@@ -44,7 +44,8 @@ createContext = (options) ->
 
     hashClear: ->
       return unless @options.changeUrls
-      history.pushState("", document.title, window.location.pathname + window.location.search);
+      url = window.location.pathname + window.location.search
+      history.pushState("", document.title, url)
 
     navigateTo: (target) ->
       selector  = getSelector(target)
@@ -58,7 +59,7 @@ createContext = (options) ->
         .removeClass(@options.activeClass).end()
         .addClass(@options.activeClass)
 
-      if isAccordeon() && @options.autoScroll
+      if isAccordéon() && @options.autoScroll
         scrollToTab($selected)
 
       $selected.trigger("ustyle.tab.active")
@@ -71,6 +72,10 @@ createContext = (options) ->
     activeTab: ->
       @tabs.filter(".#{@options.activeClass}")
 
+    tabFromHash: ->
+      tabId = location.hash.replace("!", "")
+      @tabs.filter("[#{@filter}='#{tabId}']")
+
     isActive: (target) ->
       getSelector(target) == getSelector(@activeTab())
 
@@ -80,7 +85,7 @@ createContext = (options) ->
     scrollToTab = (activeTab) ->
       $("html,body").scrollTop(activeTab.offset().top)
 
-    isAccordeon = ->
+    isAccordéon = ->
       !$(".us-tabs-nav").is(":visible")
 
     Tabs

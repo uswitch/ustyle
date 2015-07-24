@@ -514,7 +514,7 @@
   createContext = function(options) {
     var Tabs;
     return Tabs = (function() {
-      var getSelector, isAccordeon, scrollToTab;
+      var getSelector, isAccordéon, scrollToTab;
 
       Tabs.prototype.defaults = {
         tabContainer: ".us-tabs",
@@ -536,7 +536,7 @@
           return function(e) {
             var $target;
             $target = $(e.currentTarget);
-            if (isAccordeon() && _this.options.collapsible && _this.isActive($target)) {
+            if (isAccordéon() && _this.options.collapsible && _this.isActive($target)) {
               _this.collapse($target);
               _this.hashClear();
             } else {
@@ -550,13 +550,13 @@
 
       Tabs.prototype.init = function() {
         var $activeTab, $initialHash;
-        $initialHash = this.tabs.filter("[" + this.filter + "='" + (location.hash.replace("!", "")) + "']");
+        $initialHash = this.tabFromHash();
         $activeTab = this.activeTab();
         if ($initialHash.length) {
           return this.navigateTo($initialHash);
         } else if ($activeTab.length) {
           return this.navigateTo($activeTab);
-        } else if (!this.options.collapsible || !isAccordeon()) {
+        } else if (!this.options.collapsible || !isAccordéon()) {
           return this.navigateTo(this.tabs.first());
         }
       };
@@ -569,10 +569,12 @@
       };
 
       Tabs.prototype.hashClear = function() {
+        var url;
         if (!this.options.changeUrls) {
           return;
         }
-        return history.pushState("", document.title, window.location.pathname + window.location.search);
+        url = window.location.pathname + window.location.search;
+        return history.pushState("", document.title, url);
       };
 
       Tabs.prototype.navigateTo = function(target) {
@@ -582,7 +584,7 @@
         this.tabs.removeClass(this.options.activeClass).end();
         this.tabs.filter("[" + this.filter + "='" + selector + "']").addClass(this.options.activeClass);
         $selected.siblings("." + this.options.activeClass).removeClass(this.options.activeClass).end().addClass(this.options.activeClass);
-        if (isAccordeon() && this.options.autoScroll) {
+        if (isAccordéon() && this.options.autoScroll) {
           scrollToTab($selected);
         }
         return $selected.trigger("ustyle.tab.active");
@@ -599,6 +601,12 @@
         return this.tabs.filter("." + this.options.activeClass);
       };
 
+      Tabs.prototype.tabFromHash = function() {
+        var tabId;
+        tabId = location.hash.replace("!", "");
+        return this.tabs.filter("[" + this.filter + "='" + tabId + "']");
+      };
+
       Tabs.prototype.isActive = function(target) {
         return getSelector(target) === getSelector(this.activeTab());
       };
@@ -611,7 +619,7 @@
         return $("html,body").scrollTop(activeTab.offset().top);
       };
 
-      isAccordeon = function() {
+      isAccordéon = function() {
         return !$(".us-tabs-nav").is(":visible");
       };
 
