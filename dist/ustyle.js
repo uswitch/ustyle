@@ -521,7 +521,7 @@
   createContext = function(options) {
     var Tabs;
     return Tabs = (function() {
-      var getSelector, isAccordion, scrollToTab;
+      var getSelector, isAccordion;
 
       Tabs.prototype.defaults = {
         tabContainer: ".us-tabs",
@@ -548,6 +548,7 @@
               _this.hashClear();
             } else {
               _this.navigateTo($target);
+              _this.scrollToTab($target);
               _this.hashChange($target);
             }
             return e.preventDefault();
@@ -591,9 +592,6 @@
         this.tabs.removeClass(this.options.activeClass).end();
         this.tabs.filter("[" + this.filter + "='" + selector + "']").addClass(this.options.activeClass);
         $selected.siblings("." + this.options.activeClass).removeClass(this.options.activeClass).end().addClass(this.options.activeClass);
-        if (isAccordion() && this.options.autoScroll) {
-          scrollToTab($selected);
-        }
         return $selected.trigger("ustyle.tab.active");
       };
 
@@ -602,6 +600,15 @@
         $selected = $(getSelector(target));
         this.tabs.removeClass(this.options.activeClass).end();
         return $selected.removeClass(this.options.activeClass);
+      };
+
+      Tabs.prototype.scrollToTab = function(target) {
+        var $selected;
+        if (!(isAccordion() && this.options.autoScroll)) {
+          return;
+        }
+        $selected = $(getSelector(target));
+        return $("html,body").scrollTop($selected.offset().top);
       };
 
       Tabs.prototype.activeTab = function() {
@@ -620,10 +627,6 @@
 
       getSelector = function(clicked) {
         return clicked.data("target") || clicked.attr("href");
-      };
-
-      scrollToTab = function(activeTab) {
-        return $("html,body").scrollTop(activeTab.offset().top);
       };
 
       isAccordion = function() {

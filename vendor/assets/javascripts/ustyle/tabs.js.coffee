@@ -25,6 +25,7 @@ createContext = (options) ->
           @hashClear()
         else
           @navigateTo($target)
+          @scrollToTab($target)
           @hashChange($target)
         e.preventDefault()
 
@@ -59,15 +60,17 @@ createContext = (options) ->
         .removeClass(@options.activeClass).end()
         .addClass(@options.activeClass)
 
-      if isAccordion() && @options.autoScroll
-        scrollToTab($selected)
-
       $selected.trigger("ustyle.tab.active")
 
     collapse: (target) ->
       $selected = $(getSelector(target))
       @tabs.removeClass(@options.activeClass).end()
       $selected.removeClass(@options.activeClass)
+
+    scrollToTab: (target) ->
+      return unless isAccordion() && @options.autoScroll
+      $selected = $(getSelector(target))
+      $("html,body").scrollTop($selected.offset().top)
 
     activeTab: ->
       @tabs.filter(".#{@options.activeClass}")
@@ -81,9 +84,6 @@ createContext = (options) ->
 
     getSelector = (clicked) ->
       return clicked.data("target") or clicked.attr("href")
-
-    scrollToTab = (activeTab) ->
-      $("html,body").scrollTop(activeTab.offset().top)
 
     isAccordion = ->
       !$(".us-tabs-nav").is(":visible")
