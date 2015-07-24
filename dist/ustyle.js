@@ -343,19 +343,26 @@
 
 (function() {
   window.Backdrop = (function() {
-    var backdrop, holds;
+    var backdrop, createBackdrop, holds;
 
     backdrop = null;
 
     holds = 0;
 
     function Backdrop() {
-      backdrop = document.createElement('div');
-      Utils.addClass(backdrop, 'us-backdrop');
-      document.body.appendChild(backdrop);
+      backdrop = document.querySelector('.us-backdrop');
+      if (backdrop == null) {
+        backdrop = createBackdrop();
+      }
     }
 
     Backdrop.prototype.element = backdrop;
+
+    createBackdrop = function() {
+      backdrop = document.createElement('div');
+      Utils.addClass(backdrop, 'us-backdrop');
+      return document.body.appendChild(backdrop);
+    };
 
     Backdrop.prototype.retain = function() {
       if (++holds === 1) {

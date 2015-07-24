@@ -3,11 +3,17 @@ class window.Backdrop
   holds = 0
 
   constructor: ->
+    backdrop = document.querySelector('.us-backdrop')
+
+    unless backdrop?
+      backdrop = createBackdrop()
+
+  element: backdrop
+
+  createBackdrop = ->
     backdrop = document.createElement('div')
     Utils.addClass backdrop, 'us-backdrop'
     document.body.appendChild backdrop
-
-  element: backdrop
 
   retain: ->
     if ++holds is 1
