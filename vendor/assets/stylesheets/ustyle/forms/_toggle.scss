@@ -16,25 +16,24 @@
 //   })
 //
 // @markup
+//   <div class="us-field us-field--blocked">
+//     <label>Answer truthfully</label>
+//     <div class="us-toggle">
+//       <label class="us-toggle__label" for="toggle-yes">
+//         <input class="us-form-input" name="choice" type="radio" id="toggle-yes" />
+//         <span class="us-toggle__btn">
+//           Yes
+//         </span>
+//       </label>
 //
-// <div class="us-field us-field--blocked">
-//   <label>Answer truthfully</label>
-//   <div class="us-toggle">
-//     <label class="us-toggle__label" for="toggle-yes">
-//       <input class="us-form-input" name="choice" type="radio" id="toggle-yes" />
-//       <span class="us-toggle__btn">
-//         Yes
-//       </span>
-//     </label>
-//
-//     <label class="us-toggle__label" for="toggle-no">
-//       <input class="us-form-input" name="choice" type="radio" id="toggle-no" />
-//       <span class="us-toggle__btn">
-//         No
-//       </span>
-//     </label>
+//       <label class="us-toggle__label" for="toggle-no">
+//         <input class="us-form-input" name="choice" type="radio" id="toggle-no" />
+//         <span class="us-toggle__btn">
+//           No
+//         </span>
+//       </label>
+//     </div>
 //   </div>
-// </div>
 
 $toggle-btn-padding: 6px 30px !default;
 $toggle-default-bg: #fff !default;
