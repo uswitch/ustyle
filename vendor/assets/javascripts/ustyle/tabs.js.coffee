@@ -45,7 +45,7 @@ createContext = (options) ->
     hashClear: ->
       return unless @options.changeUrls
       url = window.location.pathname + window.location.search
-      history?.pushState("", document.title, url)
+      history?.replaceState("", document.title, url)
 
     navigateTo: (target) ->
       selector  = getSelector(target)
