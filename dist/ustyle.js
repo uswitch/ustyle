@@ -581,7 +581,7 @@
           return;
         }
         url = window.location.pathname + window.location.search;
-        return typeof history !== "undefined" && history !== null ? history.replaceState("", document.title, url) : void 0;
+        return typeof history.replaceState === "function" ? history.replaceState("", document.title, url) : void 0;
       };
 
       Tabs.prototype.navigateTo = function(target) {
