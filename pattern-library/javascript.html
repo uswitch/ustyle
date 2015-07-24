@@ -23,7 +23,7 @@
 <body>
   <header class="ustyle__header">
     <a class="logo" href="/">ustyle</a>
-    <a class="version us-tablet--block" href="https://github.com/uswitch/ustyle/releases/tag/1.0.1">v1.0.1</a>
+    <a class="version us-tablet--block" href="https://github.com/uswitch/ustyle/releases/tag/1.0.2">v1.0.2</a>
     <div class='nav nav--header'>
       <nav>
         <a href="/brand/" class="nav__link ">Brand</a>
@@ -334,11 +334,13 @@
                 </code></pre>
                   <pre><code class="javascript">
                var tabs = new Tabs({
-                 tabContainer: &quot;.us-tabs&quot;
-                 tabLinks: &quot;.us-tabs-nav-mainlink&quot;
-                 tabTitle: &quot;us-tab-title&quot;
-                 changeUrls: true
-                 activeClass: &quot;active&quot;
+                 tabContainer: &quot;.us-tabs&quot;,
+                 tabLinks: &quot;.us-tabs-nav-mainlink&quot;,
+                 tabTitle: &quot;us-tab-title&quot;,
+                 activeClass: &quot;active&quot;,
+                 changeUrls: true,
+                 collapsible: true,
+                 autoScroll: false
                });
              
                   </code></pre>

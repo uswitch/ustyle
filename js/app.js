@@ -348,19 +348,26 @@
 
 (function() {
   window.Backdrop = (function() {
-    var backdrop, holds;
+    var backdrop, createBackdrop, holds;
 
     backdrop = null;
 
     holds = 0;
 
     function Backdrop() {
-      backdrop = document.createElement('div');
-      Utils.addClass(backdrop, 'us-backdrop');
-      document.body.appendChild(backdrop);
+      backdrop = document.querySelector('.us-backdrop');
+      if (backdrop == null) {
+        backdrop = createBackdrop();
+      }
     }
 
     Backdrop.prototype.element = backdrop;
+
+    createBackdrop = function() {
+      backdrop = document.createElement('div');
+      Utils.addClass(backdrop, 'us-backdrop');
+      return document.body.appendChild(backdrop);
+    };
 
     Backdrop.prototype.retain = function() {
       if (++holds === 1) {
@@ -519,72 +526,116 @@
   createContext = function(options) {
     var Tabs;
     return Tabs = (function() {
-      var getSelector, scrollToTab;
+      var getSelector, isAccordion;
 
       Tabs.prototype.defaults = {
         tabContainer: ".us-tabs",
         tabLinks: ".us-tabs-nav-mainlink",
         tabTitle: "us-tab-title",
         changeUrls: true,
-        activeClass: "active"
+        activeClass: "active",
+        collapsible: false,
+        autoScroll: true
       };
 
       function Tabs(options) {
-        var _ref;
-        _ref = this.options = setOptions(options, this.defaults), this.tabContainer = _ref.tabContainer, this.tabLinks = _ref.tabLinks;
-        this.tabs = $(this.tabContainer);
-        this.tab = this.tabs.find(this.tabLinks);
-        this.filter = this.tab.data("target") ? "data-target" : "href";
-        this.hash = window.location.hash;
+        var tabContainer, tabLinks, _ref;
+        _ref = this.options = setOptions(options, this.defaults), tabContainer = _ref.tabContainer, tabLinks = _ref.tabLinks;
+        this.tabs = $(tabContainer).find(tabLinks);
+        this.filter = this.tabs.data("target") ? "data-target" : "href";
         this.init();
-        $(this.tabLinks).on("click.ustyle.tab", (function(_this) {
+        this.tabs.on("click.ustyle.tab", (function(_this) {
           return function(e) {
-            var target;
-            target = $(e.currentTarget);
-            _this.navigateTo(target);
-            _this.hashChange(target);
+            var $target;
+            $target = $(e.currentTarget);
+            if (isAccordion() && _this.options.collapsible && _this.isActive($target)) {
+              _this.collapse($target);
+              _this.hashClear();
+            } else {
+              _this.navigateTo($target);
+              _this.scrollToTab($target);
+              _this.hashChange($target);
+            }
             return e.preventDefault();
           };
         })(this));
       }
 
       Tabs.prototype.init = function() {
-        var $first, $initialHash;
-        $first = this.tab.hasClass(this.options.activeClass) ? this.tab.filter("." + this.options.activeClass) : this.tab.first();
-        $initialHash = this.tab.filter("[" + this.filter + "='" + (this.hash.replace("!", "")) + "']");
+        var $activeTab, $initialHash;
+        $initialHash = this.tabFromHash();
+        $activeTab = this.activeTab();
         if ($initialHash.length) {
           return this.navigateTo($initialHash);
-        } else {
-          return this.navigateTo($first);
+        } else if ($activeTab.length) {
+          return this.navigateTo($activeTab);
+        } else if (!this.options.collapsible || !isAccordion()) {
+          return this.navigateTo(this.tabs.first());
         }
       };
 
-      Tabs.prototype.hashChange = function(selector) {
+      Tabs.prototype.hashChange = function(target) {
         if (!this.options.changeUrls) {
           return;
         }
-        return location.replace("#!" + (getSelector(selector).replace(/#/, "")));
+        return location.replace("#!" + (getSelector(target).replace(/#/, "")));
       };
 
-      Tabs.prototype.navigateTo = function(activeSelector) {
-        var $selected, selector;
-        selector = getSelector(activeSelector);
-        $selected = $(selector);
-        this.tab.removeClass(this.options.activeClass).end();
-        this.tab.filter("[" + this.filter + "='" + selector + "']").addClass(this.options.activeClass);
-        $selected.siblings("." + this.options.activeClass).removeClass(this.options.activeClass).end().addClass(this.options.activeClass);
-        if (activeSelector.parent().hasClass(this.options.tabTitle)) {
-          scrollToTab($selected);
+      Tabs.prototype.hashClear = function() {
+        var url;
+        if (!this.options.changeUrls) {
+          return;
         }
+        url = window.location.pathname + window.location.search;
+        return typeof history.replaceState === "function" ? history.replaceState("", document.title, url) : void 0;
+      };
+
+      Tabs.prototype.navigateTo = function(target) {
+        var $selected, selector;
+        selector = getSelector(target);
+        $selected = $(selector);
+        this.tabs.removeClass(this.options.activeClass).end();
+        this.tabs.filter("[" + this.filter + "='" + selector + "']").addClass(this.options.activeClass);
+        $selected.siblings("." + this.options.activeClass).removeClass(this.options.activeClass).end().addClass(this.options.activeClass);
         return $selected.trigger("ustyle.tab.active");
+      };
+
+      Tabs.prototype.collapse = function(target) {
+        var $selected;
+        $selected = $(getSelector(target));
+        this.tabs.removeClass(this.options.activeClass).end();
+        return $selected.removeClass(this.options.activeClass);
+      };
+
+      Tabs.prototype.scrollToTab = function(target) {
+        var $selected;
+        if (!(isAccordion() && this.options.autoScroll)) {
+          return;
+        }
+        $selected = $(getSelector(target));
+        return $("html,body").scrollTop($selected.offset().top);
+      };
+
+      Tabs.prototype.activeTab = function() {
+        return this.tabs.filter("." + this.options.activeClass);
+      };
+
+      Tabs.prototype.tabFromHash = function() {
+        var tabId;
+        tabId = location.hash.replace("!", "");
+        return this.tabs.filter("[" + this.filter + "='" + tabId + "']");
+      };
+
+      Tabs.prototype.isActive = function(target) {
+        return getSelector(target) === getSelector(this.activeTab());
       };
 
       getSelector = function(clicked) {
         return clicked.data("target") || clicked.attr("href");
       };
 
-      scrollToTab = function(activeTab) {
-        return $("html,body").scrollTop(activeTab.offset().top);
+      isAccordion = function() {
+        return !$(".us-tabs-nav").is(":visible");
       };
 
       Tabs;
@@ -814,7 +865,7 @@ function drawChart() {
       activeClass: "us-tooltip--active"
     });
     
-    var tabs = new Tabs();
+    var tabs = new Tabs({collapsible: true, autoScroll: false});
     var radio = new RadioToggle();
     var anchor = new Anchor({
       target: document.querySelector(".js-example-anchor"),
