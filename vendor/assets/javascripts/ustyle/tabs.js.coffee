@@ -8,60 +8,80 @@ createContext = (options) ->
       tabTitle: "us-tab-title"
       changeUrls: true
       activeClass: "active"
+      collapsible: false
+      autoScroll: true
 
     constructor: (options) ->
-      {@tabContainer, @tabLinks} = @options = setOptions options, @defaults
-      @tabs = $(@tabContainer)
-      @tab = @tabs.find(@tabLinks)
-      @filter = if @tab.data "target" then "data-target" else "href"
-      @hash = window.location.hash
+      {tabContainer, tabLinks} = @options = setOptions options, @defaults
+      @tabs   = $(tabContainer).find(tabLinks)
+      @filter = if @tabs.data "target" then "data-target" else "href"
 
       @init()
 
-      $(@tabLinks).on "click.ustyle.tab", (e) =>
-        target = $(e.currentTarget)
-        @navigateTo(target)
-        @hashChange(target)
+      @tabs.on "click.ustyle.tab", (e) =>
+        $target = $(e.currentTarget)
+        if isAccordeon() && @options.collapsible && @isActive($target)
+          @collapse($target)
+          @hashClear()
+        else
+          @navigateTo($target)
+          @hashChange($target)
         e.preventDefault()
 
     init: ->
-      $first =
-        if @tab.hasClass(@options.activeClass)
-          @tab.filter(".#{@options.activeClass}")
-        else @tab.first()
-      $initialHash = @tab.filter("[#{@filter}='#{@hash.replace("!", "")}']")
-
+      $initialHash = @tabs.filter("[#{@filter}='#{location.hash.replace("!", "")}']")
+      $activeTab   = @activeTab()
       if $initialHash.length
         @navigateTo($initialHash)
-      else
-        @navigateTo($first)
+      else if $activeTab.length
+        @navigateTo($activeTab)
+      else if !@options.collapsible || !isAccordeon()
+        @navigateTo(@tabs.first())
 
-    hashChange: (selector) ->
+    hashChange: (target) ->
       return unless @options.changeUrls
-      location.replace "#!#{getSelector(selector).replace(/#/, "")}"
+      location.replace("#!#{getSelector(target).replace(/#/, "")}")
 
-    navigateTo: (activeSelector) ->
-      selector = getSelector(activeSelector)
+    hashClear: ->
+      return unless @options.changeUrls
+      history.pushState("", document.title, window.location.pathname + window.location.search);
+
+    navigateTo: (target) ->
+      selector  = getSelector(target)
       $selected = $(selector)
 
-      @tab.removeClass(@options.activeClass).end()
-      @tab.filter("[#{@filter}='#{selector}']").addClass(@options.activeClass)
+      @tabs.removeClass(@options.activeClass).end()
+      @tabs.filter("[#{@filter}='#{selector}']").addClass(@options.activeClass)
 
       $selected
         .siblings(".#{@options.activeClass}")
         .removeClass(@options.activeClass).end()
         .addClass(@options.activeClass)
 
-      if activeSelector.parent().hasClass(@options.tabTitle)
+      if isAccordeon() && @options.autoScroll
         scrollToTab($selected)
 
       $selected.trigger("ustyle.tab.active")
+
+    collapse: (target) ->
+      $selected = $(getSelector(target))
+      @tabs.removeClass(@options.activeClass).end()
+      $selected.removeClass(@options.activeClass)
+
+    activeTab: ->
+      @tabs.filter(".#{@options.activeClass}")
+
+    isActive: (target) ->
+      getSelector(target) == getSelector(@activeTab())
 
     getSelector = (clicked) ->
       return clicked.data("target") or clicked.attr("href")
 
     scrollToTab = (activeTab) ->
       $("html,body").scrollTop(activeTab.offset().top)
+
+    isAccordeon = ->
+      !$(".us-tabs-nav").is(":visible")
 
     Tabs
 

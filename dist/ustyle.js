@@ -514,64 +514,93 @@
   createContext = function(options) {
     var Tabs;
     return Tabs = (function() {
-      var getSelector, scrollToTab;
+      var getSelector, isAccordeon, scrollToTab;
 
       Tabs.prototype.defaults = {
         tabContainer: ".us-tabs",
         tabLinks: ".us-tabs-nav-mainlink",
         tabTitle: "us-tab-title",
         changeUrls: true,
-        activeClass: "active"
+        activeClass: "active",
+        collapsible: false,
+        autoScroll: true
       };
 
       function Tabs(options) {
-        var _ref;
-        _ref = this.options = setOptions(options, this.defaults), this.tabContainer = _ref.tabContainer, this.tabLinks = _ref.tabLinks;
-        this.tabs = $(this.tabContainer);
-        this.tab = this.tabs.find(this.tabLinks);
-        this.filter = this.tab.data("target") ? "data-target" : "href";
-        this.hash = window.location.hash;
+        var tabContainer, tabLinks, _ref;
+        _ref = this.options = setOptions(options, this.defaults), tabContainer = _ref.tabContainer, tabLinks = _ref.tabLinks;
+        this.tabs = $(tabContainer).find(tabLinks);
+        this.filter = this.tabs.data("target") ? "data-target" : "href";
         this.init();
-        $(this.tabLinks).on("click.ustyle.tab", (function(_this) {
+        this.tabs.on("click.ustyle.tab", (function(_this) {
           return function(e) {
-            var target;
-            target = $(e.currentTarget);
-            _this.navigateTo(target);
-            _this.hashChange(target);
+            var $target;
+            $target = $(e.currentTarget);
+            if (isAccordeon() && _this.options.collapsible && _this.isActive($target)) {
+              _this.collapse($target);
+              _this.hashClear();
+            } else {
+              _this.navigateTo($target);
+              _this.hashChange($target);
+            }
             return e.preventDefault();
           };
         })(this));
       }
 
       Tabs.prototype.init = function() {
-        var $first, $initialHash;
-        $first = this.tab.hasClass(this.options.activeClass) ? this.tab.filter("." + this.options.activeClass) : this.tab.first();
-        $initialHash = this.tab.filter("[" + this.filter + "='" + (this.hash.replace("!", "")) + "']");
+        var $activeTab, $initialHash;
+        $initialHash = this.tabs.filter("[" + this.filter + "='" + (location.hash.replace("!", "")) + "']");
+        $activeTab = this.activeTab();
         if ($initialHash.length) {
           return this.navigateTo($initialHash);
-        } else {
-          return this.navigateTo($first);
+        } else if ($activeTab.length) {
+          return this.navigateTo($activeTab);
+        } else if (!this.options.collapsible || !isAccordeon()) {
+          return this.navigateTo(this.tabs.first());
         }
       };
 
-      Tabs.prototype.hashChange = function(selector) {
+      Tabs.prototype.hashChange = function(target) {
         if (!this.options.changeUrls) {
           return;
         }
-        return location.replace("#!" + (getSelector(selector).replace(/#/, "")));
+        return location.replace("#!" + (getSelector(target).replace(/#/, "")));
       };
 
-      Tabs.prototype.navigateTo = function(activeSelector) {
+      Tabs.prototype.hashClear = function() {
+        if (!this.options.changeUrls) {
+          return;
+        }
+        return history.pushState("", document.title, window.location.pathname + window.location.search);
+      };
+
+      Tabs.prototype.navigateTo = function(target) {
         var $selected, selector;
-        selector = getSelector(activeSelector);
+        selector = getSelector(target);
         $selected = $(selector);
-        this.tab.removeClass(this.options.activeClass).end();
-        this.tab.filter("[" + this.filter + "='" + selector + "']").addClass(this.options.activeClass);
+        this.tabs.removeClass(this.options.activeClass).end();
+        this.tabs.filter("[" + this.filter + "='" + selector + "']").addClass(this.options.activeClass);
         $selected.siblings("." + this.options.activeClass).removeClass(this.options.activeClass).end().addClass(this.options.activeClass);
-        if (activeSelector.parent().hasClass(this.options.tabTitle)) {
+        if (isAccordeon() && this.options.autoScroll) {
           scrollToTab($selected);
         }
         return $selected.trigger("ustyle.tab.active");
+      };
+
+      Tabs.prototype.collapse = function(target) {
+        var $selected;
+        $selected = $(getSelector(target));
+        this.tabs.removeClass(this.options.activeClass).end();
+        return $selected.removeClass(this.options.activeClass);
+      };
+
+      Tabs.prototype.activeTab = function() {
+        return this.tabs.filter("." + this.options.activeClass);
+      };
+
+      Tabs.prototype.isActive = function(target) {
+        return getSelector(target) === getSelector(this.activeTab());
       };
 
       getSelector = function(clicked) {
@@ -580,6 +609,10 @@
 
       scrollToTab = function(activeTab) {
         return $("html,body").scrollTop(activeTab.offset().top);
+      };
+
+      isAccordeon = function() {
+        return !$(".us-tabs-nav").is(":visible");
       };
 
       Tabs;
