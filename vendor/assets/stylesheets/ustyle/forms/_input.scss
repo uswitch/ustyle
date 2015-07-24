@@ -11,6 +11,7 @@
 // @state .us-form-input--large - Larger input style
 // @state .us-form-input--error - Visual feedback for when the input has an error
 // @state .us-form-input--success - Visual feedback for when success needs to be communicated to the user
+// @state .us-form-input--disabled - Inactive state for form inputs that can't be interacted with
 //
 // @markup
 //   <input class="us-form-input {$modifiers}" type="text" placeholder="Placeholder">
@@ -21,6 +22,8 @@ $input-success-color: $c-green !default;
 $input-text-color: $c-typegrey !default;
 $input-border-color: $c-inputgrey !default;
 $input-placeholder-color: $c-inputgrey !default;
+$input-disabled-color: #ddd !default;
+$input-disabled-background-color: #fafafa !default;
 
 @mixin placeholder {
   &::-webkit-input-placeholder {
@@ -71,11 +74,6 @@ $input-placeholder-color: $c-inputgrey !default;
     }
   }
 
-  &:disabled {
-    background-color: #fff;
-    border-color: lighten($input-border-color, 15%);
-  }
-
   .ie8 & {
     height: auto;
   }
@@ -89,10 +87,30 @@ $input-placeholder-color: $c-inputgrey !default;
 
 .us-form-input--error {
   @include input-style($input-error-color);
-  border: 1px solid $input-error-color;
+  border-color: $input-error-color;
 }
 
 .us-form-input--success {
   @include input-style($input-success-color);
-  border: 1px solid $input-success-color;
+  border-color: $input-success-color;
+}
+
+.us-form-input:disabled,
+.us-form-input--disabled {
+  @include input-style($input-disabled-color);
+  color: #ccc;
+  background-color: $input-disabled-background-color;
+  border-color: $input-disabled-color;
+
+  @include placeholder {
+    color: #ccc;
+  }
+
+  &:focus {
+    box-shadow: none;
+
+    @include placeholder {
+      color: #ccc;
+    }
+  }
 }
