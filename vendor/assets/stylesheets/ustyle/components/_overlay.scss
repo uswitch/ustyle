@@ -160,6 +160,7 @@ $overlay-close-icon-size: 32px !default;
 .us-overlay__body {
   @extend %container !optional;
   padding: 1em;
+  color: $c-typegrey;
 }
 
 .us-overlay__header {
