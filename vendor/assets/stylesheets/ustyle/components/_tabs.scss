@@ -6,11 +6,13 @@
 //
 // @javascript
 //   var tabs = new Tabs({
-//     tabContainer: ".us-tabs"
-//     tabLinks: ".us-tabs-nav-mainlink"
-//     tabTitle: "us-tab-title"
-//     changeUrls: true
-//     activeClass: "active"
+//     tabContainer: ".us-tabs",
+//     tabLinks: ".us-tabs-nav-mainlink",
+//     tabTitle: "us-tab-title",
+//     activeClass: "active",
+//     changeUrls: true,
+//     collapsible: true,
+//     autoScroll: false
 //   });
 //
 // @markup
@@ -227,7 +229,6 @@ $tab-width: col-width(2) !default;
 
     .active & {
       color: #fff;
-      cursor: default;
       background-color: $c-navy;
     }
 

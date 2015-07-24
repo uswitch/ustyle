@@ -33,7 +33,7 @@
       activeClass: "us-tooltip--active"
     });
     
-    var tabs = new Tabs();
+    var tabs = new Tabs({collapsible: true, autoScroll: false});
     var radio = new RadioToggle();
     var anchor = new Anchor({
       target: document.querySelector(".js-example-anchor"),
