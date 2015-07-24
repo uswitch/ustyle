@@ -20,7 +20,7 @@ createContext = (options) ->
 
       @tabs.on "click.ustyle.tab", (e) =>
         $target = $(e.currentTarget)
-        if isAccordéon() && @options.collapsible && @isActive($target)
+        if isAccordion() && @options.collapsible && @isActive($target)
           @collapse($target)
           @hashClear()
         else
@@ -35,7 +35,7 @@ createContext = (options) ->
         @navigateTo($initialHash)
       else if $activeTab.length
         @navigateTo($activeTab)
-      else if !@options.collapsible || !isAccordéon()
+      else if !@options.collapsible || !isAccordion()
         @navigateTo(@tabs.first())
 
     hashChange: (target) ->
@@ -59,7 +59,7 @@ createContext = (options) ->
         .removeClass(@options.activeClass).end()
         .addClass(@options.activeClass)
 
-      if isAccordéon() && @options.autoScroll
+      if isAccordion() && @options.autoScroll
         scrollToTab($selected)
 
       $selected.trigger("ustyle.tab.active")
@@ -85,7 +85,7 @@ createContext = (options) ->
     scrollToTab = (activeTab) ->
       $("html,body").scrollTop(activeTab.offset().top)
 
-    isAccordéon = ->
+    isAccordion = ->
       !$(".us-tabs-nav").is(":visible")
 
     Tabs
