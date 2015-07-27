@@ -54,7 +54,9 @@ class window.Overlay
     requestAnimationFrame ->
       addClass that.overlay[0], that.options.activeClass
 
-    @options.onOpen?(e)
+      setTimeout ->
+        that.options.onOpen?(e)
+      , that.options.animationSpeed
 
     if @hasHistory()
       history.pushState('open', window.document.title, @options.historyStatus)
@@ -71,9 +73,8 @@ class window.Overlay
 
       setTimeout ->
         removeClass that.overlay[0], that.options.visibleClass
+        that.options.onClose?(e)
       , that.options.animationSpeed
-
-    @options.onClose?(e)
 
     if @hasHistory()
       if history.state is 'open'

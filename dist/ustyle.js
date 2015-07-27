@@ -462,36 +462,36 @@
     };
 
     Overlay.prototype.show = function(e) {
-      var that, _base;
+      var that;
       that = this;
       $(document.body).addClass(this.options.bodyActiveClass);
       this.backdrop.retain();
       addClass(this.overlay[0], this.options.visibleClass);
       requestAnimationFrame(function() {
-        return addClass(that.overlay[0], that.options.activeClass);
+        addClass(that.overlay[0], that.options.activeClass);
+        return setTimeout(function() {
+          var _base;
+          return typeof (_base = that.options).onOpen === "function" ? _base.onOpen(e) : void 0;
+        }, that.options.animationSpeed);
       });
-      if (typeof (_base = this.options).onOpen === "function") {
-        _base.onOpen(e);
-      }
       if (this.hasHistory()) {
         return history.pushState('open', window.document.title, this.options.historyStatus);
       }
     };
 
     Overlay.prototype.hide = function(e) {
-      var that, _base;
+      var that;
       that = this;
       $(document.body).removeClass(this.options.bodyActiveClass);
       this.backdrop.release();
       requestAnimationFrame(function() {
         removeClass(that.overlay[0], that.options.activeClass);
         return setTimeout(function() {
-          return removeClass(that.overlay[0], that.options.visibleClass);
+          var _base;
+          removeClass(that.overlay[0], that.options.visibleClass);
+          return typeof (_base = that.options).onClose === "function" ? _base.onClose(e) : void 0;
         }, that.options.animationSpeed);
       });
-      if (typeof (_base = this.options).onClose === "function") {
-        _base.onClose(e);
-      }
       if (this.hasHistory()) {
         if (history.state === 'open') {
           return history.back();
