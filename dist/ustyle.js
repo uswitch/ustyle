@@ -521,12 +521,12 @@
   createContext = function(options) {
     var Tabs;
     return Tabs = (function() {
-      var getSelector, isAccordion;
+      var getSelector;
 
       Tabs.prototype.defaults = {
         tabContainer: ".us-tabs",
         tabLinks: ".us-tabs-nav-mainlink",
-        tabTitle: "us-tab-title",
+        tabNav: ".us-tabs-nav",
         changeUrls: true,
         activeClass: "active",
         collapsible: false,
@@ -543,7 +543,7 @@
           return function(e) {
             var $target;
             $target = $(e.currentTarget);
-            if (isAccordion() && _this.options.collapsible && _this.isActive($target)) {
+            if (_this.isAccordion() && _this.options.collapsible && _this.isActive($target)) {
               _this.collapse($target);
               _this.hashClear();
             } else {
@@ -564,7 +564,7 @@
           return this.navigateTo($initialHash);
         } else if ($activeTab.length) {
           return this.navigateTo($activeTab);
-        } else if (!this.options.collapsible || !isAccordion()) {
+        } else if (!this.options.collapsible || !this.isAccordion()) {
           return this.navigateTo(this.tabs.first());
         }
       };
@@ -604,7 +604,7 @@
 
       Tabs.prototype.scrollToTab = function(target) {
         var $selected;
-        if (!(isAccordion() && this.options.autoScroll)) {
+        if (!(this.isAccordion() && this.options.autoScroll)) {
           return;
         }
         $selected = $(getSelector(target));
@@ -625,12 +625,12 @@
         return getSelector(target) === getSelector(this.activeTab());
       };
 
-      getSelector = function(clicked) {
-        return clicked.data("target") || clicked.attr("href");
+      Tabs.prototype.isAccordion = function() {
+        return !$(this.options.tabNav).is(":visible");
       };
 
-      isAccordion = function() {
-        return !$(".us-tabs-nav").is(":visible");
+      getSelector = function(clicked) {
+        return clicked.data("target") || clicked.attr("href");
       };
 
       Tabs;

@@ -5,7 +5,7 @@ createContext = (options) ->
     defaults:
       tabContainer: ".us-tabs"
       tabLinks: ".us-tabs-nav-mainlink"
-      tabTitle: "us-tab-title"
+      tabNav: ".us-tabs-nav"
       changeUrls: true
       activeClass: "active"
       collapsible: false
@@ -20,7 +20,7 @@ createContext = (options) ->
 
       @tabs.on "click.ustyle.tab", (e) =>
         $target = $(e.currentTarget)
-        if isAccordion() && @options.collapsible && @isActive($target)
+        if @isAccordion() and @options.collapsible and @isActive($target)
           @collapse($target)
           @hashClear()
         else
@@ -36,7 +36,7 @@ createContext = (options) ->
         @navigateTo($initialHash)
       else if $activeTab.length
         @navigateTo($activeTab)
-      else if !@options.collapsible || !isAccordion()
+      else if !@options.collapsible or !@isAccordion()
         @navigateTo(@tabs.first())
 
     hashChange: (target) ->
@@ -68,7 +68,7 @@ createContext = (options) ->
       $selected.removeClass(@options.activeClass)
 
     scrollToTab: (target) ->
-      return unless isAccordion() && @options.autoScroll
+      return unless @isAccordion() and @options.autoScroll
       $selected = $(getSelector(target))
       $("html,body").scrollTop($selected.offset().top)
 
@@ -80,13 +80,13 @@ createContext = (options) ->
       @tabs.filter("[#{@filter}='#{tabId}']")
 
     isActive: (target) ->
-      getSelector(target) == getSelector(@activeTab())
+      getSelector(target) is getSelector(@activeTab())
+
+    isAccordion: ->
+      !$(@options.tabNav).is(":visible")
 
     getSelector = (clicked) ->
       return clicked.data("target") or clicked.attr("href")
-
-    isAccordion = ->
-      !$(".us-tabs-nav").is(":visible")
 
     Tabs
 
