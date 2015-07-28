@@ -82,6 +82,7 @@ $tab-width: col-width(2) !default;
 }
 
 .us-tabs-nav-menu {
+  display: table;
   display: -webkit-flex;
   display: flex;
   width: 100%;
@@ -91,14 +92,16 @@ $tab-width: col-width(2) !default;
 
 .us-tabs-nav-link {
   @include normal-font;
-  @include link-colors(#fff, $c-typecyan, $c-typecyan, #fff);
+  @include link-colors(#fff, $c-navy, $c-navy, #fff);
   position: relative;
   z-index: 10;
+  display: table-cell;
   width: $tab-width;
   padding: .475em .15em 1.2em;
   text-align: center;
   vertical-align: middle;
-  border-radius: 5px 5px 0 0;
+  border-radius: 3px 3px 0 0;
+  transition: none;
   
   @include respond-to(tablet) {
     font-size: em(14px);
@@ -113,54 +116,8 @@ $tab-width: col-width(2) !default;
     font-size: em(18px);
   }
 
-  .no-flexboxlegacy & {
-    display: block;
-    float: left;
-    height: 70px;
-  }
-
   &:hover {
-    &:before {
-      transform: translate3d(0, 0, 0);
-
-      .no-csstransforms & {
-        top: 0;
-      }
-    }
-  }
-
-  &:before {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
-    display: none;
-    width: 100%;
     background-color: #fff;
-    border-radius: 5px 5px 0 0;
-    content: "";
-    transform: translate3d(0, 200px, 0);
-    transition: transform 300ms;
-  }
-
-  .csstransitions &,
-  &:hover {
-    &:before {
-      display: block;
-    }
-  }
-
-  &:after {
-    position: absolute;
-    right: -4px;
-    bottom: 0;
-    left: -4px;
-    height: 0;
-    border-color: transparent;
-    border-style: solid;
-    border-width: 0 4px 4px 4px;
-    content: "";
   }
 
   &.active {
@@ -168,10 +125,6 @@ $tab-width: col-width(2) !default;
     color: $c-navy;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, .5);
-
-    &:after {
-      border-color: #fff transparent;
-    }
   }
 }
 

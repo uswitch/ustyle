@@ -42,28 +42,8 @@
   display: none;
   transition: transform 300ms;
 
-  .csstransforms & {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    width: 100%;
-    transform: translateX(101%);
-
-    &:first-child {
-      transform: translateX(-101%);
-    }
-  }
-
   &.login-state--active {
     display: block;
-
-    .csstransforms & {
-      position: relative;
-      top: 0;
-      left: 0;
-      transform: translateX(0);
-    }
   }
   
   .us-login__input {
