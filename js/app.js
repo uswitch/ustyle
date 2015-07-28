@@ -467,36 +467,36 @@
     };
 
     Overlay.prototype.show = function(e) {
-      var that, _base;
+      var that;
       that = this;
       $(document.body).addClass(this.options.bodyActiveClass);
       this.backdrop.retain();
       addClass(this.overlay[0], this.options.visibleClass);
       requestAnimationFrame(function() {
-        return addClass(that.overlay[0], that.options.activeClass);
+        addClass(that.overlay[0], that.options.activeClass);
+        return setTimeout(function() {
+          var _base;
+          return typeof (_base = that.options).onOpen === "function" ? _base.onOpen(e) : void 0;
+        }, that.options.animationSpeed);
       });
-      if (typeof (_base = this.options).onOpen === "function") {
-        _base.onOpen(e);
-      }
       if (this.hasHistory()) {
         return history.pushState('open', window.document.title, this.options.historyStatus);
       }
     };
 
     Overlay.prototype.hide = function(e) {
-      var that, _base;
+      var that;
       that = this;
       $(document.body).removeClass(this.options.bodyActiveClass);
       this.backdrop.release();
       requestAnimationFrame(function() {
         removeClass(that.overlay[0], that.options.activeClass);
         return setTimeout(function() {
-          return removeClass(that.overlay[0], that.options.visibleClass);
+          var _base;
+          removeClass(that.overlay[0], that.options.visibleClass);
+          return typeof (_base = that.options).onClose === "function" ? _base.onClose(e) : void 0;
         }, that.options.animationSpeed);
       });
-      if (typeof (_base = this.options).onClose === "function") {
-        _base.onClose(e);
-      }
       if (this.hasHistory()) {
         if (history.state === 'open') {
           return history.back();
@@ -526,12 +526,12 @@
   createContext = function(options) {
     var Tabs;
     return Tabs = (function() {
-      var getSelector, isAccordion;
+      var getSelector;
 
       Tabs.prototype.defaults = {
         tabContainer: ".us-tabs",
         tabLinks: ".us-tabs-nav-mainlink",
-        tabTitle: "us-tab-title",
+        tabNav: ".us-tabs-nav",
         changeUrls: true,
         activeClass: "active",
         collapsible: false,
@@ -548,7 +548,7 @@
           return function(e) {
             var $target;
             $target = $(e.currentTarget);
-            if (isAccordion() && _this.options.collapsible && _this.isActive($target)) {
+            if (_this.isAccordion() && _this.options.collapsible && _this.isActive($target)) {
               _this.collapse($target);
               _this.hashClear();
             } else {
@@ -569,7 +569,7 @@
           return this.navigateTo($initialHash);
         } else if ($activeTab.length) {
           return this.navigateTo($activeTab);
-        } else if (!this.options.collapsible || !isAccordion()) {
+        } else if (!this.options.collapsible || !this.isAccordion()) {
           return this.navigateTo(this.tabs.first());
         }
       };
@@ -609,7 +609,7 @@
 
       Tabs.prototype.scrollToTab = function(target) {
         var $selected;
-        if (!(isAccordion() && this.options.autoScroll)) {
+        if (!(this.isAccordion() && this.options.autoScroll)) {
           return;
         }
         $selected = $(getSelector(target));
@@ -630,12 +630,12 @@
         return getSelector(target) === getSelector(this.activeTab());
       };
 
-      getSelector = function(clicked) {
-        return clicked.data("target") || clicked.attr("href");
+      Tabs.prototype.isAccordion = function() {
+        return !$(this.options.tabNav).is(":visible");
       };
 
-      isAccordion = function() {
-        return !$(".us-tabs-nav").is(":visible");
+      getSelector = function(clicked) {
+        return clicked.data("target") || clicked.attr("href");
       };
 
       Tabs;
