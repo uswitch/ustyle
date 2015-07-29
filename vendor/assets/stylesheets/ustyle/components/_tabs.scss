@@ -94,7 +94,7 @@ $tab-width: col-width(2) !default;
   @include normal-font;
   @include link-colors(#fff, $c-navy, $c-navy, #fff);
   position: relative;
-  z-index: 10;
+  z-index: 1;
   display: table-cell;
   width: $tab-width;
   padding: .475em .15em 1.2em;
@@ -121,7 +121,7 @@ $tab-width: col-width(2) !default;
   }
 
   &.active {
-    z-index: 15;
+    z-index: 2;
     color: $c-navy;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, .5);
