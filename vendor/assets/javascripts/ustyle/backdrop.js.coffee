@@ -33,4 +33,4 @@ class window.Backdrop
           Utils.removeClass backdrop, 'us-backdrop--visible'
         , 300
 
-      Utils.requestAnimationFrame.call(window, onFrame);
+      Utils.requestAnimationFrame.call(window, onFrame)
