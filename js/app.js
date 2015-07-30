@@ -72,7 +72,7 @@
     }
   })();
 
-  requestAnimationFrame = ((function(window) {
+  requestAnimationFrame = (function(window) {
     var vendor, _i, _len, _ref;
     _ref = ['ms', 'moz', 'webkit', 'o'];
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
@@ -85,7 +85,7 @@
     return window.requestAnimationFrame || (window.requestAnimationFrame = function(callback) {
       return setTimeout(callback, 1000 / 60);
     });
-  })(window)).bind(window);
+  })(window);
 
   this.Utils = {
     addClass: addClass,
@@ -370,22 +370,26 @@
     };
 
     Backdrop.prototype.retain = function() {
+      var onFrame;
       if (++holds === 1) {
         Utils.addClass(backdrop, 'us-backdrop--visible');
-        return Utils.requestAnimationFrame(function() {
+        onFrame = function() {
           return Utils.addClass(backdrop, 'us-backdrop--active');
-        });
+        };
+        return Utils.requestAnimationFrame.call(window, onFrame);
       }
     };
 
     Backdrop.prototype.release = function() {
+      var onFrame;
       if (--holds === 0) {
-        return Utils.requestAnimationFrame(function() {
+        onFrame = function() {
           Utils.removeClass(backdrop, 'us-backdrop--active');
           return setTimeout(function() {
             return Utils.removeClass(backdrop, 'us-backdrop--visible');
           }, 300);
-        });
+        };
+        return Utils.requestAnimationFrame.call(window, onFrame);
       }
     };
 
@@ -467,36 +471,38 @@
     };
 
     Overlay.prototype.show = function(e) {
-      var that;
+      var onFrame, that;
       that = this;
       $(document.body).addClass(this.options.bodyActiveClass);
       this.backdrop.retain();
       addClass(this.overlay[0], this.options.visibleClass);
-      requestAnimationFrame(function() {
+      onFrame = function() {
         addClass(that.overlay[0], that.options.activeClass);
         return setTimeout(function() {
           var _base;
           return typeof (_base = that.options).onOpen === "function" ? _base.onOpen(e) : void 0;
         }, that.options.animationSpeed);
-      });
+      };
+      requestAnimationFrame.call(window, onFrame);
       if (this.hasHistory()) {
         return history.pushState('open', window.document.title, this.options.historyStatus);
       }
     };
 
     Overlay.prototype.hide = function(e) {
-      var that;
+      var onFrame, that;
       that = this;
       $(document.body).removeClass(this.options.bodyActiveClass);
       this.backdrop.release();
-      requestAnimationFrame(function() {
+      onFrame = function() {
         removeClass(that.overlay[0], that.options.activeClass);
         return setTimeout(function() {
           var _base;
           removeClass(that.overlay[0], that.options.visibleClass);
           return typeof (_base = that.options).onClose === "function" ? _base.onClose(e) : void 0;
         }, that.options.animationSpeed);
-      });
+      };
+      requestAnimationFrame.call(window, onFrame);
       if (this.hasHistory()) {
         if (history.state === 'open') {
           return history.back();
