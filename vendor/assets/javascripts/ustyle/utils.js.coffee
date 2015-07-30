@@ -45,9 +45,9 @@ requestAnimationFrame = (do (window) ->
 
     window.requestAnimationFrame = window["#{vendor}RequestAnimationFrame"]
 
-  window.requestAnimationFrame or= (callback) ->
+  window.requestAnimationFrame or = (callback) ->
     setTimeout callback, (1000 / 60)
-  ).bind(window)
+)
 
 @Utils = {
   addClass,

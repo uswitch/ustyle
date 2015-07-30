@@ -51,12 +51,14 @@ class window.Overlay
 
     addClass @overlay[0], @options.visibleClass
 
-    requestAnimationFrame ->
+    onFrame = ->
       addClass that.overlay[0], that.options.activeClass
 
       setTimeout ->
         that.options.onOpen?(e)
       , that.options.animationSpeed
+
+    requestAnimationFrame.call(window, onFrame)
 
     if @hasHistory()
       history.pushState('open', window.document.title, @options.historyStatus)
@@ -68,13 +70,15 @@ class window.Overlay
 
     @backdrop.release()
 
-    requestAnimationFrame ->
+    onFrame = ->
       removeClass that.overlay[0], that.options.activeClass
 
       setTimeout ->
         removeClass that.overlay[0], that.options.visibleClass
         that.options.onClose?(e)
       , that.options.animationSpeed
+
+    requestAnimationFrame.call(window, onFrame)
 
     if @hasHistory()
       if history.state is 'open'
