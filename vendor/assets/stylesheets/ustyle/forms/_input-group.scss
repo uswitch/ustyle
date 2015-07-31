@@ -1,9 +1,9 @@
 // @page Pattern Library/Forms
 // @name Input group
-// 
+//
 // @description
 //   Inputs groups allow you to add "boxes" to the left or right of an input. These boxes usually contain a visual icon to represent the usage of the input
-// 
+//
 // @state .us-input-group--disabled - Disabled state for input groups
 // @markup
 //   <div class="us-input-group {$modifiers}">
@@ -16,6 +16,8 @@
 //   </div>
 
 $input-group-bg-color: #fff !default;
+$input-group-disabled-color: #ddd !default;
+$input-group-disabled-background-color: #fafafa !default;
 
 .us-input-group {
   position: relative;
@@ -41,12 +43,13 @@ $input-group-bg-color: #fff !default;
 
 .us-input-group--disabled {
   .us-input-group__box {
-    color: lighten($input-border-color, 15%);
-    border-color: lighten($input-border-color, 15%);
+    color: #ccc;
+    background-color: $input-group-disabled-background-color;
+    border-color: $input-group-disabled-color;
 
     [class^="us-icon--"],
     [class*=" us-icon--"] {
-      opacity: .85;  
+      opacity: .35;
     }
   }
 }
@@ -67,7 +70,7 @@ $input-group-bg-color: #fff !default;
   @include respond-to(tablet, true) {
     width: auto;
   }
-  
+
   [class^="us-icon--"],
   [class*=" us-icon--"] {
     vertical-align: middle;
