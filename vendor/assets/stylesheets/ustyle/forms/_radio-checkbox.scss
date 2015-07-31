@@ -13,25 +13,29 @@
 //   * Try to keep the number of radio buttons and checkboxes in the same group to a maximum of 6.
 //
 // @markup
-//   <div class='us-field us-field--blocked'>
+//   <div class="us-field us-field--blocked">
 //     <label>Do you have a different billing address?</label>
-//     <div class='us-field-toggle'>
+//     <div class="us-field-toggle">
 //       <label>
-//         <input checked='checked' class='us-form-input' name='null' type='radio'>Yes</input>
+//         <input checked="checked" class="us-form-input" name="null" type="radio">
+//         Yes
 //       </label>
 //       <label>
-//         <input class='us-form-input' name='null' type='radio'>No</input>
+//         <input class="us-form-input" name="null" type="radio">
+//         No
 //       </label>
 //     </div>
 //   </div>
-//   <div class='us-field us-field--blocked'>
+//   <div class="us-field us-field--blocked">
 //     <label>How would you like to be contacted?</label>
-//     <div class='us-field-toggle'>
+//     <div class="us-field-toggle">
 //       <label>
-//         <input checked='checked' class='us-form-input' name='null' type='checkbox'>Mobile</input>
+//         <input checked="checked" class="us-form-input" name="null" type="checkbox">
+//         Mobile
 //       </label>
 //       <label>
-//         <input class='us-form-input' name='null' type='checkbox'>Email</input>
+//         <input class="us-form-input" name="null" type="checkbox">
+//         Email
 //       </label>
 //     </div>
 //   </div>
