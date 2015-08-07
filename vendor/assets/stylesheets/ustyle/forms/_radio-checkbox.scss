@@ -56,13 +56,10 @@
         background-size: cover;
         content: "";
         opacity: 0;
-        transform: scale3d(2, 2, 1);
-        transition: transform 100ms ease-in, opacity 100ms ease-in;
       }
 
       &:checked:after {
         opacity: 1;
-        transform: scale3d(1, 1, 1);
       }
     }
 
