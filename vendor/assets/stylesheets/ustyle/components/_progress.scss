@@ -42,7 +42,7 @@
 $progress-bg-color: $c-navy;
 $progress-current-color: #fff;
 $progress-complete-color: $c-cyan;
-$progress-next-color: tint($c-navy, 35%);
+$progress-next-color: tint($c-navy, 50%);
 
 .us-progress {
   position: relative;
