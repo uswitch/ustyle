@@ -140,6 +140,15 @@ module.exports = function(grunt) {
     coffeelint: {
       app: ['vendor/assets/**/*.coffee']
     },
+    jscs: {
+      src: "vendor/assets/javascripts/**/*.js",
+      options: {
+        config: "config/.jscsrc",
+        esnext: true,
+        verbose: true,
+        requireCurlyBraces: [ "if" ]
+      }
+    },
     env : {
       dev : {
         NODE_ENV : 'development'
@@ -164,12 +173,13 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('lint', ['scsslint', 'coffeelint']);
+  grunt.registerTask('lint', ['scsslint', 'coffeelint', 'jscs']);
   grunt.registerTask('icons', ['newer:svgmin', 'svg2png']);
 
   grunt.registerTask('build', ['sass', 'sassdoc', 'copy', 'coffee', 'concat', 'lint', 'postcss', 'styleguide', 'builder']);
 
   grunt.registerTask('publish', ['env:build', 'build', 'buildcontrol:pages']);
+
   grunt.registerTask('publish:version', 'Build and publish ustyle version', function(version){
     if (version === null){
       grunt.warn('Version must be specified when publishing ustyle')
