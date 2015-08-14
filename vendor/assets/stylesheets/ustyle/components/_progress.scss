@@ -1,9 +1,9 @@
 // @page Pattern Library/Components
 // @name Progress navigation
 //
-// @description 
-//   The progress navigation should be used for any funnel journeys on the website. Once a section has been completed the user should be able to get back to that step. 
-//   The mobile view of the navigation just has the dotted numbers. A `.us-hero` is expected underneath the navigation.
+// @description
+//   The progress navigation should be used for any funnel journeys on the website. Once a section has been completed the user should be able to get back to that step.
+//   The mobile view of the navigation just has the dotted numbers.
 //
 // @markup
 //   <div class="us-progress">
@@ -17,7 +17,7 @@
 //         <li class="us-progress__item">
 //           <a href="#" class="us-progress__link us-progress__link--complete">
 //             <span class="us-tablet--inline">Usage</span>
-//           </a>          
+//           </a>
 //         </li>
 //         <li class="us-progress__item">
 //           <span class="us-progress__link us-progress__link--current">
@@ -48,7 +48,6 @@ $progress-next-color: tint($c-navy, 35%);
   position: relative;
   z-index: 4;
   background-color: $progress-bg-color;
-  border-bottom: 4px solid $c-cyan;
 }
 
 .us-progress__nav {
@@ -56,7 +55,7 @@ $progress-next-color: tint($c-navy, 35%);
   list-style: none;
   counter-reset: number-counter;
 }
-  
+
 .us-progress__item {
   @extend %reset-box-model;
   position: relative;
@@ -104,26 +103,13 @@ $progress-next-color: tint($c-navy, 35%);
     background-color: $progress-next-color;
   }
 }
-  
-  
+
+
 .us-progress__link--current {
   color: $progress-current-color;
 
   &:before {
     background-color: $progress-current-color;
-  }
-
-  &:after {
-    @include arrow(20px, 11px, up, $c-cyan);
-    position: absolute;
-    bottom: -4px;
-    left: 2px;
-    content: "";
-
-    @include respond-to(tablet, true) {
-      bottom: 0;
-      left: 50%;
-    }
   }
 }
 
@@ -139,4 +125,4 @@ $progress-next-color: tint($c-navy, 35%);
     background-color: #fff;
   }
 }
-  
+
