@@ -58,9 +58,9 @@ $progress-next-color: tint($c-navy, 50%);
 
 .us-progress__item {
   @extend %reset-box-model;
-  line-height: 1.5em;
   position: relative;
   float: left;
+  line-height: 1.5em;
   counter-increment: number-counter;
 
   @include respond-to(tablet, true) {
