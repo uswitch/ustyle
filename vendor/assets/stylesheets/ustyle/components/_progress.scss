@@ -58,6 +58,7 @@ $progress-next-color: tint($c-navy, 35%);
 
 .us-progress__item {
   @extend %reset-box-model;
+  line-height: 1.5em;
   position: relative;
   float: left;
   counter-increment: number-counter;
@@ -80,16 +81,13 @@ $progress-next-color: tint($c-navy, 35%);
 
   &:before {
     position: relative;
-    top: -2px;
     display: inline-block;
     width: 1.5em;
     height: 1.5em;
     margin-right: $gutter-width/3;
     font-weight: 700;
-    line-height: 1.5em;
     color: $c-navy;
     text-align: center;
-    vertical-align: middle;
     border-radius: 50%;
     content: counter(number-counter);
     transition: background-color .3s;
