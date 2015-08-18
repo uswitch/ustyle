@@ -16,21 +16,27 @@ class window.Backdrop
     document.body.appendChild backdrop
 
   retain: ->
-    if ++holds is 1
+    holds++
+
+    if holds is 1
       Utils.addClass backdrop, 'us-backdrop--visible'
 
       onFrame = ->
-        Utils.addClass backdrop, 'us-backdrop--active'
+        if holds >= 1
+          Utils.addClass backdrop, 'us-backdrop--active'
 
       Utils.requestAnimationFrame.call(window, onFrame)
 
   release: ->
-    if --holds is 0
-      onFrame = ->
-        Utils.removeClass backdrop, 'us-backdrop--active'
+    if holds is 1
+      Utils.removeClass backdrop, 'us-backdrop--active'
 
+      onFrame = ->
         setTimeout ->
-          Utils.removeClass backdrop, 'us-backdrop--visible'
+          if holds is 0
+            Utils.removeClass backdrop, 'us-backdrop--visible'
         , 300
 
       Utils.requestAnimationFrame.call(window, onFrame)
+
+    holds = Math.max(0, holds - 1)
