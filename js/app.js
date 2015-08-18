@@ -371,10 +371,13 @@
 
     Backdrop.prototype.retain = function() {
       var onFrame;
-      if (++holds === 1) {
+      holds++;
+      if (holds === 1) {
         Utils.addClass(backdrop, 'us-backdrop--visible');
         onFrame = function() {
-          return Utils.addClass(backdrop, 'us-backdrop--active');
+          if (holds >= 1) {
+            return Utils.addClass(backdrop, 'us-backdrop--active');
+          }
         };
         return Utils.requestAnimationFrame.call(window, onFrame);
       }
@@ -382,15 +385,18 @@
 
     Backdrop.prototype.release = function() {
       var onFrame;
-      if (--holds === 0) {
+      if (holds === 1) {
+        Utils.removeClass(backdrop, 'us-backdrop--active');
         onFrame = function() {
-          Utils.removeClass(backdrop, 'us-backdrop--active');
           return setTimeout(function() {
-            return Utils.removeClass(backdrop, 'us-backdrop--visible');
+            if (holds === 0) {
+              return Utils.removeClass(backdrop, 'us-backdrop--visible');
+            }
           }, 300);
         };
-        return Utils.requestAnimationFrame.call(window, onFrame);
+        Utils.requestAnimationFrame.call(window, onFrame);
       }
+      return holds = Math.max(0, holds - 1);
     };
 
     return Backdrop;
