@@ -2,6 +2,7 @@
   "use strict";
 
   function App(){
+
     gumshoe.init({
       activeClass: 'sidebar__nav-link--active',
       offset: 190
@@ -14,12 +15,14 @@
       toggleLink.addEventListener("click", clickToggle, false);
     };
 
-    cleanWhiteSpace(document.querySelectorAll('pre code'));
+    if(!$("html").hasClass("ie8")) {
+      cleanWhiteSpace(document.querySelectorAll('pre code'));
+    }
 
     var overlays = [];
 
     $(".js-open-overlay").each(function(e){
-      overlays.push( 
+      overlays.push(
         new Overlay({
           openButton: $(".js-open-overlay[modifier='"+$(this).attr('modifier')+"']"),
           overlay: $(".us-overlay-parent[modifier='"+$(this).attr('modifier')+"']")
@@ -32,7 +35,7 @@
       $target: $('.us-tooltip__icon'),
       activeClass: "us-tooltip--active"
     });
-    
+
     var tabs = new Tabs({collapsible: true, autoScroll: false});
     var radio = new RadioToggle();
     var anchor = new Anchor({

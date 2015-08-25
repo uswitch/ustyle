@@ -5,7 +5,7 @@
     <nav>
       {{#navigation}}
       <a href="/{{this}}/" class="nav__link {{activeClass this 'section'}}">{{humanize this}}</a>
-      {{/navigation}}    
+      {{/navigation}}
     </nav>
-  </nav>
+  </div>
 </header>

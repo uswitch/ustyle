@@ -3,17 +3,15 @@
   {{> _header}}
   {{> _sidebar}}
   <div id="wrapper" class="container sidebar--push header--push">
-    <div class="styleguide">
-      {{#page}}
-        {{#blocks}}
-          {{#if partial}}
-            {{partial partial}}
-          {{else}}
-            {{> style_block}}
-          {{/if}}
-        {{/blocks}}
-      {{/page}}
-    </div>
+    {{#page}}
+      {{#blocks}}
+        {{#if partial}}
+          {{partial partial}}
+        {{else}}
+          {{> style_block}}
+        {{/if}}
+      {{/blocks}}
+    {{/page}}
   </div>
   {{> _footer}}
 </body>

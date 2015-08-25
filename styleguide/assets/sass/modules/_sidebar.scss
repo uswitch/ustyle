@@ -6,18 +6,21 @@ $sidebar-top-push       : $gutter-width/2;
 $sidebar-padding        : 0;
 
 .sidebar {
-  position: relative;
-  top: 43px;
+  position: fixed;
+  top: 37px;
+  bottom: 0;
   background-color: $sidebar-bg-color;
   z-index: 10;
-  overflow: visible;
   display: none;
+  left: 0;
+  right: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
 
   @include respond-to($sidebar-breakpoint, true) {
     position: fixed;
     top: $header-height;
-    right: 0;
-    bottom: 0;
+    left: auto;
     width: $sidebar-width;
     min-height: 1px;
     padding-top: $gutter-width;
@@ -32,7 +35,7 @@ $sidebar-padding        : 0;
     &--push {
       width: 80%;
       width: calc(100% - #{$sidebar-width});
-      padding-right: $sidebar-width/2 + $gutter-width;    
+      padding-right: $sidebar-width/2 + $gutter-width;
     }
   }
 
