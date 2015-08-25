@@ -4,9 +4,6 @@
 
 /// Output classes to build the PNG icons
 ///
-/// @require {Variable} icon-sizes
-/// @require {Variable} svg-first
-/// @require {Variable} png-support-class
 ///
 /// @param {String} $icon-name
 ///   Icon name that matches one of the ones in the list
@@ -33,7 +30,7 @@
       @include png-bg-icon($icon, $size-name, $pixels);
     } @else {
       #{$png-support-class} {
-        @include png-bg-icon($icon, $size-name, $pixels);  
+        @include png-bg-icon($icon, $size-name, $pixels);
       }
     }
   }
