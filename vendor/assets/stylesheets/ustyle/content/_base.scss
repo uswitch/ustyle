@@ -4,26 +4,26 @@
 .us-content {
   margin-bottom: $gutter-width;
 
-  h2, 
-  h3, 
-  h4, 
-  h5, 
+  h2,
+  h3,
+  h4,
+  h5,
   h6 {
     margin-top: 50px;
   }
   //
   // Default heading styles for content
   //
-  h1, 
-  h2, 
+  h1,
+  h2,
   h3 {
     @include heading-font-secondary;
   }
   //
   // Default typography styling
   //
-  p, 
-  ul, 
+  p,
+  ul,
   blockquote {
     @include baseline($base-font-size);
 
@@ -44,6 +44,7 @@
   // Default image styling
   //
   img {
+    height: auto;
     max-width: 100%;
     padding-top: 1em;
     margin-bottom: 1em;
@@ -64,7 +65,7 @@
       border: 0;
     }
 
-    td, 
+    td,
     th {
       padding: $gutter-width / 4;
       vertical-align: middle;
@@ -173,7 +174,7 @@
     width: 100%;
     overflow: hidden;
     list-style: none;
-    
+
     li {
       float: left;
       padding: $gutter-width / 2 0;
