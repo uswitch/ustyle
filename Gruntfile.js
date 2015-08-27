@@ -111,6 +111,7 @@ module.exports = function(grunt) {
     copy: {
       main: {
         files: [
+          {expand: true, flatten: true, src: ['dist/*.css'], dest: 'docs/css/'},
           {expand: true, flatten: true, src: ['styleguide/assets/images/**'], dest: 'docs/images/'},
           {expand: true, flatten: true, src: ['styleguide/CNAME'], dest: 'docs/'},
         ]
