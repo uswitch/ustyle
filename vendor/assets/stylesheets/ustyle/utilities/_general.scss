@@ -71,8 +71,19 @@
 }
 
 // Colors
-
-$colors: "blue" $c-blue, "navy" $c-navy, "typecyan" $c-typecyan, "cyan" $c-cyan, "red" $c-red, "green" $c-green;
+$colors: (
+  "blue" $c-blue,
+  "navy" $c-navy,
+  "typecyan" $c-typecyan,
+  "cyan" $c-cyan,
+  "red" $c-red,
+  "green" $c-green,
+  "typegrey" $c-typegrey,
+  "typegrey-2" $c-typegrey-2,
+  "inputgrey" $c-inputgrey,
+  "bordergrey" $c-bordergrey,
+  "keylinegrey" $c-keylinegrey
+);
 
 @each $color in $colors {
   .us-color--#{nth($color, 1)} {
