@@ -8,7 +8,7 @@
 //   * Use select boxes when choosing one or more options from a list of similar, but usually mutually exclusive options e.g. profession, title, month.
 //   * It can be tempting to have many things in the list that a user can choose from. Try to keep the list of options to more than 4, but less than 15 so the user doesn't have to spend too long deciding what to pick.
 //
-// @state .us-form-select-wrap--scrollable - Removes the drop down arrow and adjusts the padding of <option> elements. Useful when using <select> elements that have the size="" attribute set to anything higher than 1.
+// @state .us-form-select-wrap--multiple - Removes the drop down arrow and adjusts the padding of <option> elements. Useful when using <select> elements that have the size="" attribute set to anything higher than 1.
 // @state .us-form-select-wrap--blocked - Fluid style
 //
 // @markup
@@ -48,7 +48,7 @@ $select-hover-color: $c-typecyan !default;
   }
 }
 
-.us-form-select-wrap--scrollable {
+.us-form-select-wrap--multiple {
   &:after {
     display: none;
   }
