@@ -9,7 +9,7 @@
 //   * Where appropriate use the [autocomplete attribute](https://developer.mozilla.org/en/docs/Web/HTML/Element/Input#attr-autocomplete) to make it easier for the browser to fill in fields on the users behalf, saving them time on lengthy forms.
 //
 // @state .us-form-input--large - Larger input style
-// @state .us-form-input--textarea - Allows <textarea> inputs to be resized by the user.
+// @state .us-form-input--blocked - Fluid input style
 // @state .us-form-input--error - Visual feedback for when the input has an error
 // @state .us-form-input--success - Visual feedback for when success needs to be communicated to the user
 // @state .us-form-input--disabled - Inactive state for form inputs that can't be interacted with
@@ -86,8 +86,8 @@ $input-disabled-background-color: #fafafa !default;
   font-size: 1.2em;
 }
 
-.us-form-input--textarea {
-  height: auto;
+.us-form-input--blocked {
+  width: 100%;
 }
 
 .us-form-input--error {
@@ -100,22 +100,23 @@ $input-disabled-background-color: #fafafa !default;
   border-color: $input-success-color;
 }
 
+%us-form-input--disabled,
 .us-form-input:disabled,
 .us-form-input--disabled {
   @include input-style($input-disabled-color);
-  color: #ccc;
+  color: $input-disabled-color;
   background-color: $input-disabled-background-color;
   border-color: $input-disabled-color;
 
   @include placeholder {
-    color: #ccc;
+    color: $input-disabled-color;
   }
 
   &:focus {
     box-shadow: none;
 
     @include placeholder {
-      color: #ccc;
+      color: $input-disabled-color;
     }
   }
 }

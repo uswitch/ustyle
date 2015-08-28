@@ -9,6 +9,7 @@
 //   * It can be tempting to have many things in the list that a user can choose from. Try to keep the list of options to more than 4, but less than 15 so the user doesn't have to spend too long deciding what to pick.
 //
 // @state .us-form-select-wrap--scrollable - Removes the drop down arrow and adjusts the padding of <option> elements. Useful when using <select> elements that have the size="" attribute set to anything higher than 1.
+// @state .us-form-select-wrap--blocked - Fluid style
 //
 // @markup
 //   <span class="us-form-select-wrap {$modifiers}">
@@ -38,6 +39,12 @@ $select-hover-color: $c-typecyan !default;
     margin-top: -3px;
     pointer-events: none;
     content: " ";
+  }
+
+  &:hover {
+    &:after {
+      border-top-color: $select-hover-color;
+    }
   }
 }
 
@@ -71,10 +78,7 @@ $select-hover-color: $c-typecyan !default;
   background-color: #fff;
   border: 1px solid $select-border-color;
   outline: 0;
-
-  @include respond-to($default-grid-breakpoint, true) {
-    width: auto;
-  }
+  -moz-appearance: none;
 
   &:hover,
   &:focus {
@@ -97,4 +101,8 @@ $select-hover-color: $c-typecyan !default;
   .ie8 & {
     height: auto;
   }
+}
+
+.us-form-select-wrap--blocked {
+  width: 100%;
 }
