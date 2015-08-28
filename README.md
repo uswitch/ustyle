@@ -72,8 +72,8 @@ This will open a [BrowserSync](http://www.browsersync.io/) window with an overvi
 
 ## Documentation
 
-See CONTRIBUTING.md
+See [JAVASCRIPT_STANDARDS.md](https://github.com/uswitch/ustyle/blob/master/JAVASCRIPT_STANDARDS.md)
 
 ## Contributing
 
-See CONTRIBUTING.md
+See [CONTRIBUTING.md](https://github.com/uswitch/ustyle/blob/master/CONTRIBUTING.md)
