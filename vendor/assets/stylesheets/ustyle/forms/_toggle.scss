@@ -10,6 +10,8 @@
 //  * For forms that have many short radio group questions in them, toggle buttons provide a better experience for quickly selecting answers on both desktop and mobile due to larger visible click areas for each option.
 //  * Limit the number of options in the toggle group to 3.
 //
+// @state .us-toggle__btn--disabled - Visual styling for toggle buttons that can't be interacted with
+//
 // @javascript
 //   var radioToggle = new RadioToggle({
 //     $target: $(".us-toggle")
@@ -19,15 +21,15 @@
 //   <div class="us-field us-field--blocked">
 //     <label>Answer truthfully</label>
 //     <div class="us-toggle">
-//       <label class="us-toggle__label" for="toggle-yes">
-//         <input class="us-form-input" name="choice" type="radio" id="toggle-yes" />
-//         <span class="us-toggle__btn">
+//       <label class="us-toggle__label">
+//         <input class="us-form-input" name="choice" type="radio">
+//         <span class="us-toggle__btn {$modifiers}">
 //           Yes
 //         </span>
 //       </label>
 //
-//       <label class="us-toggle__label" for="toggle-no">
-//         <input class="us-form-input" name="choice" type="radio" id="toggle-no" />
+//       <label class="us-toggle__label">
+//         <input class="us-form-input" name="choice" type="radio">
 //         <span class="us-toggle__btn">
 //           No
 //         </span>
@@ -38,15 +40,19 @@
 $toggle-btn-padding: 5px 30px !default;
 $toggle-default-bg: #fff !default;
 $toggle-default-border: $c-bordergrey !default;
-
 $toggle-hover-border: $c-typecyan !default;
-
 $toggle-active-bg: $c-cyan-light !default;
 $toggle-active-border: $c-typecyan !default;
 
 @mixin toggle-active-style {
-  background-color: $toggle-active-bg;
+  background: $toggle-active-bg;
   border-color: $toggle-active-border;
+}
+
+@mixin toggle-disabled-style {
+  color: $c-input-disabled-foreground;
+  background-color: $c-input-disabled-background;
+  border-color: $c-input-disabled-foreground;
 }
 
 .us-toggle {
@@ -89,6 +95,7 @@ $toggle-active-border: $c-typecyan !default;
 
   .us-toggle__label:focus &,
   .us-toggle__label .us-form-input:focus + & {
+    border-color: $toggle-hover-border;
     box-shadow: inset 0 0 0 1px $c-typecyan;
   }
 
@@ -110,4 +117,8 @@ $toggle-active-border: $c-typecyan !default;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
   }
+}
+
+.us-toggle__btn--disabled {
+  @include input-disabled;
 }

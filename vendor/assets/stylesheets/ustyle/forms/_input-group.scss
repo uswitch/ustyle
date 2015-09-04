@@ -6,11 +6,13 @@
 //
 // @state .us-input-group--disabled - Disabled state for input groups
 // @state .us-input-group--blocked - Fluid style
+//
 // @markup
 //   <div class="us-input-group us-margin-bottom {$modifiers}">
 //     <span class="us-input-group__box"><span class="us-icon--small  us-icon--inputgrey us-icon--envelope us-icon--notext"></span></span>
 //     <input class="us-form-input" type="text" id="email" placeholder="Email" />
 //   </div>
+//
 //   <div class="us-input-group us-margin-bottom {$modifiers}">
 //     <input class="us-form-input" type="text" id="kwh" />
 //     <span class="us-input-group__box">kWh</span>
