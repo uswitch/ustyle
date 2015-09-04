@@ -46,10 +46,10 @@
 /// @param {Color} $background-color [#fafafa]
 ///   Background colour of the form input
 
-@mixin input-disabled($color: #ddd, $background-color: #fafafa) {
+@mixin input-disabled($color: $c-input-disabled-foreground, $background: $c-input-disabled-background) {
   @include input-style($color);
   color: $color;
-  background-color: $background-color;
+  background: $background;
   border-color: $color;
   cursor: default;
 
