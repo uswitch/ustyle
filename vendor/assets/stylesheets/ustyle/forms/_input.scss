@@ -23,35 +23,6 @@ $input-success-color: $c-green !default;
 $input-text-color: $c-typegrey !default;
 $input-border-color: $c-inputgrey !default;
 $input-placeholder-color: $c-inputgrey !default;
-$input-disabled-color: #ddd !default;
-$input-disabled-background-color: #fafafa !default;
-
-@mixin placeholder {
-  &::-webkit-input-placeholder {
-    @content;
-  }
-
-  &::-moz-placeholder {
-    @content;
-    opacity: 1;
-  }
-
-  &:-ms-input-placeholder {
-    @content;
-  }
-}
-
-@mixin input-style($border-color) {
-  &:hover,
-  &:focus,
-  &:checked {
-    border-color: $border-color;
-  }
-
-  &:focus {
-    box-shadow: inset 0 0 0 1px $border-color;
-  }
-}
 
 .us-form-input {
   @extend %base-form-element;
@@ -100,23 +71,7 @@ $input-disabled-background-color: #fafafa !default;
   border-color: $input-success-color;
 }
 
-%us-form-input--disabled,
 .us-form-input:disabled,
 .us-form-input--disabled {
-  @include input-style($input-disabled-color);
-  color: $input-disabled-color;
-  background-color: $input-disabled-background-color;
-  border-color: $input-disabled-color;
-
-  @include placeholder {
-    color: $input-disabled-color;
-  }
-
-  &:focus {
-    box-shadow: none;
-
-    @include placeholder {
-      color: $input-disabled-color;
-    }
-  }
+  @include input-disabled;
 }

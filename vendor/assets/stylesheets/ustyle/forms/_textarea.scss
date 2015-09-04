@@ -5,11 +5,11 @@
 //   Our standard textarea styling across the website.
 //
 //
-// @state .us-form-textarea - default style
-// @state .us-form-textarea--blocked - fluid textarea style
+// @state .us-form-textarea--blocked - Fluid textarea style
+// @state .us-form-textarea--disabled - Inactive state for textareas that can't be interacted with
 //
 // @markup
-//   <textarea class="us-form-textarea {$modifiers}" ></textarea>
+//   <textarea class="us-form-textarea {$modifiers}"></textarea>
 
 .us-form-textarea {
   @extend %base-form-element;
@@ -30,4 +30,9 @@
 
 .us-form-textarea--blocked {
   width: 100%;
+}
+
+.us-form-textarea:disabled,
+.us-form-textarea--disabled {
+  @include input-disabled;
 }

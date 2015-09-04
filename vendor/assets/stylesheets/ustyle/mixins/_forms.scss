@@ -1,0 +1,67 @@
+/// Style placeholder attributes on form elements
+///
+/// @author Joe Green
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+
+  &::-moz-placeholder {
+    @content;
+    opacity: 1;
+  }
+
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+/// Conveniently style form input pseudo-classes for different form states
+///
+/// @author Joe Green
+///
+/// @param {Color} $color
+///   The colour to be used for the form input's border and box-shadow
+
+@mixin input-style($color) {
+  &:hover,
+  &:focus,
+  &:checked {
+    border-color: $color;
+  }
+
+  &:focus {
+    box-shadow: inset 0 0 0 1px $color;
+  }
+}
+
+/// Visually make disabled form inputs look like they can't be interacted with
+///
+/// @author Joe Green
+///
+/// @param {Color} $color [#ddd]
+///   Foreground placeholder and border colour
+///
+/// @param {Color} $background-color [#fafafa]
+///   Background colour of the form input
+
+@mixin input-disabled($color: #ddd, $background-color: #fafafa) {
+  @include input-style($color);
+  color: $color;
+  background-color: $background-color;
+  border-color: $color;
+  cursor: default;
+
+  @include placeholder {
+    color: $color;
+  }
+
+  &:focus {
+    box-shadow: none;
+
+    @include placeholder {
+      color: $color;
+    }
+  }
+}

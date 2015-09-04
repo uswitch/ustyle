@@ -49,7 +49,7 @@ $input-group-disabled-background-color: #fafafa !default;
   }
 
   .us-form-input {
-    @extend %us-form-input--disabled;
+    @include input-disabled;
   }
 }
 
