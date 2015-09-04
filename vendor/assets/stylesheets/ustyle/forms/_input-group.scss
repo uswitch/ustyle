@@ -17,8 +17,6 @@
 //   </div>
 
 $input-group-bg-color: #fff !default;
-$input-group-disabled-color: #ddd !default;
-$input-group-disabled-background-color: #fafafa !default;
 
 .us-input-group {
   position: relative;
@@ -39,9 +37,7 @@ $input-group-disabled-background-color: #fafafa !default;
 
 .us-input-group--disabled {
   .us-input-group__box {
-    color: #ccc;
-    background-color: $input-group-disabled-background-color;
-    border-color: $input-group-disabled-color;
+    @include input-disabled;
 
     [class^="us-icon--"] {
       opacity: .35;
