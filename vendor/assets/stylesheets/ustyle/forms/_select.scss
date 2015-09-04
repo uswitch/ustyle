@@ -10,6 +10,7 @@
 //
 // @state .us-form-select-wrap--multiple - Removes the drop down arrow and adjusts the padding of <option> elements. Useful when using <select> elements that have the size="" attribute set to anything higher than 1.
 // @state .us-form-select-wrap--blocked - Fluid style
+// @state .us-form-select-wrap--disabled - Inactive state for select boxes. You may also just add the disabled attribute to the <select> element in order to achieve the same effect.
 //
 // @markup
 //   <span class="us-form-select-wrap {$modifiers}">
@@ -105,4 +106,16 @@ $select-hover-color: $c-typecyan !default;
 
 .us-form-select-wrap--blocked {
   width: 100%;
+}
+
+.us-form-select-wrap--disabled {
+  .us-form-select,
+  .us-form-select:disabled {
+    @include input-disabled;
+  }
+
+  &:after,
+  &:hover:after {
+    border-top-color: $c-input-disabled-foreground;
+  }
 }
