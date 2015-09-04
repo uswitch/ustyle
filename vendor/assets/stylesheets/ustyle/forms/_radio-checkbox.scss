@@ -12,12 +12,14 @@
 //   * Provide a default selection to radio and checkbox groups if it's necessary and wont be changed by 90% of your users.
 //   * Try to keep the number of radio buttons and checkboxes in the same group to a maximum of 6.
 //
+// @state us-form-input--disabled - Like other types of form inputs, adding this class to the element in conjunction with the disabled attribute helps to make the element look like it can't be interacted with
+//
 // @markup
 //   <div class="us-field us-field--blocked">
 //     <label>Do you have a different billing address?</label>
 //     <div class="us-field-toggle">
 //       <label>
-//         <input checked="checked" class="us-form-input" name="null" type="radio">
+//         <input checked="checked" class="us-form-input {$modifiers}" name="null" type="radio">
 //         Yes
 //       </label>
 //
@@ -32,7 +34,7 @@
 //     <label>How would you like to be contacted?</label>
 //     <div class="us-field-toggle">
 //       <label>
-//         <input checked="checked" class="us-form-input" name="null" type="checkbox">
+//         <input checked="checked" class="us-form-input {$modifiers}" name="null" type="checkbox">
 //         Mobile
 //       </label>
 //
