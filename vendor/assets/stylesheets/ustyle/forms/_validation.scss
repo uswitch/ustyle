@@ -73,14 +73,15 @@ $success-icon: "\2713" !default;
   position: relative;
   display: block;
   padding: .25em 0 .25em ($icon-bg-size + 5);
+}
 
-  &.us-validation--error {
-    @include validation-style($error-color, $error-icon);
-  }
+.us-validation,
+.us-validation--error {
+  @include validation-style($error-color, $error-icon);
+}
 
-  &.us-validation--success {
-    @include validation-style($success-color, $success-icon);
-  }
+.us-validation--success {
+  @include validation-style($success-color, $success-icon);
 }
 
 .us-validation__message {
