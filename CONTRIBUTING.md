@@ -1,7 +1,7 @@
 # Contributing
 
 ### Code style
-Please see [uStyle](http://ustyle.uswitchinternal.com)
+Please see [uStyle](http://ustyle.guide)
 
 ## Modifying the code
 
@@ -56,7 +56,13 @@ All output of our documentation goes to `ustyle.json` in `build/`. This contains
 1. Run a `bundle config --local ustyle /PATH-TO-USTYLE` -- this will allow you to test and work off master on your local copy.
 1. Work off `master` and add in your awesome features.
 1. Test some more, ensure you've run this in a few projects.
-1. Commit your feature, but do not edit `lib/ustyle/version.rb`
-1. Following [Semver](http://semver.org/), update the `version.rb` file as necessary.
-1. Run `grunt publish`
+2. Ensure you commit `/dist` into your changes
+1. Run `grunt publish:{patch,minor,major}`
 1. Voilà! You now have successfully updated and pushed the gem version, updated the stylesheets and built the styleguide. You're now a pro.
+
+Publishing
+===
+
+Versioning gets done automatically by the `grunt:publish` command. However without specifying a type of version, if will just publish `HEAD` without a new release. 
+
+`$ grunt:publish:{patch,minor,major}`
