@@ -9,7 +9,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <meta content='width=device-width, initial-scale=1.0' name='viewport'>
-  <title>ustyle styleguide</title>
+  <title>uStyle styleguide</title>
   <link rel="stylesheet" href="/css/main.css" type="text/css" />
   <!--[if lt IE 9]>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -22,8 +22,8 @@
 </head>
 <body>
   <header class="ustyle__header">
-    <a class="logo" href="/">ustyle</a>
-    <a class="version us-tablet--block" href="https://github.com/uswitch/ustyle/releases/tag/1.0.6">v1.0.6</a>
+    <a class="logo" href="/">uStyle</a>
+    <a class="version us-tablet--block" href="https://github.com/uswitch/ustyle/releases/tag/1.1.0">v1.1.0</a>
     <div class='nav nav--header'>
       <nav>
         <a href="/brand/" class="nav__link ">Brand</a>
@@ -46,11 +46,12 @@
                   <a class="sidebar__nav-link sidebar__nav-link--sub" href="#inputs">Inputs</a>
                   <a class="sidebar__nav-link sidebar__nav-link--sub" href="#radios_and_checkboxes">Radios and checkboxes</a>
                   <a class="sidebar__nav-link sidebar__nav-link--sub" href="#selects">Selects</a>
+                  <a class="sidebar__nav-link sidebar__nav-link--sub" href="#textarea">Textarea</a>
                   <a class="sidebar__nav-link sidebar__nav-link--sub" href="#toggle">Toggle</a>
-                  <a class="sidebar__nav-link sidebar__nav-link--sub" href="#form_validation">Form validation</a>
+                  <a class="sidebar__nav-link sidebar__nav-link--sub" href="#validation_messages">Validation messages</a>
               </nav>
           <a class="sidebar__nav-link " href="components.html">Components</a>
-          <a class="sidebar__nav-link " href="javascript.html">Javascript</a>
+          <a class="sidebar__nav-link " href="javascript.html">JavaScript</a>
           <a class="sidebar__nav-link " href="installation.html">Installation</a>
           <a class="sidebar__nav-link " href="stats.html">Stats</a>
         <a class="sidebar__nav-link" href="/sass/">Sass doc</a>
@@ -65,12 +66,15 @@
               </h2>
               
               <p>   This is the basic form field, <code>.us-field</code> wrapper for any single input or select. It sets a few layout options by default (margin) and styles any labels within. You can create a fake label style with <code>.us-faux-label</code></p>
+          <h4 id="best-practices">Best practices</h4>
+          <ul>
+          <li>For text inputs that are optional, add &quot;(optional)&quot; to the <code>placeholder</code> attribute for the input. Not highlighting required fields makes the form look less intimidating.</li>
+          </ul>
           
               <h4>States</h4>
                 <ul class="styleguide__block-states us-clearfix">
-                    <li class="name"><strong>.us-field-required</strong> - Any required form field has this class to show an asterisk beside the label</li>
-                    <li class="name"><strong>.us-field-blocked</strong> - Blocked label styling</li>
-                    <li class="name"><strong>.us-field-inline</strong> - Inline label styling</li>
+                    <li class="name"><strong>.us-field--blocked</strong> - Blocked label styling</li>
+                    <li class="name"><strong>.us-field--inline</strong> - Inline label styling</li>
                 </ul>
               
             </div>
@@ -79,37 +83,30 @@
               <h3 class="styleguide__block-small-title">Example</h3>
               <div class="styleguide__block-example">
                    <div class="us-field {$modifiers}">
-               <label for='name'>Name</label>
-               <input class='us-form-input' id='name' name='name' placeholder='Please enter your name'>
+               <label for="name">Name</label>
+               <input class="us-form-input" id="name" name="name" placeholder="Please enter your name">
              </div>
               </div>
             
-                <div class="styleguide__block-example state-us-field-required">
-                     <div class="us-field us-field-required">
-               <label for='name'>Name</label>
-               <input class='us-form-input' id='name' name='name' placeholder='Please enter your name'>
+                <div class="styleguide__block-example state-us-field--blocked">
+                     <div class="us-field us-field--blocked">
+               <label for="name">Name</label>
+               <input class="us-form-input" id="name" name="name" placeholder="Please enter your name">
              </div>
-                  <div class="styleguide__block-example-class">.us-field-required</div>
+                  <div class="styleguide__block-example-class">.us-field--blocked</div>
                 </div>
-                <div class="styleguide__block-example state-us-field-blocked">
-                     <div class="us-field us-field-blocked">
-               <label for='name'>Name</label>
-               <input class='us-form-input' id='name' name='name' placeholder='Please enter your name'>
+                <div class="styleguide__block-example state-us-field--inline">
+                     <div class="us-field us-field--inline">
+               <label for="name">Name</label>
+               <input class="us-form-input" id="name" name="name" placeholder="Please enter your name">
              </div>
-                  <div class="styleguide__block-example-class">.us-field-blocked</div>
-                </div>
-                <div class="styleguide__block-example state-us-field-inline">
-                     <div class="us-field us-field-inline">
-               <label for='name'>Name</label>
-               <input class='us-form-input' id='name' name='name' placeholder='Please enter your name'>
-             </div>
-                  <div class="styleguide__block-example-class">.us-field-inline</div>
+                  <div class="styleguide__block-example-class">.us-field--inline</div>
                 </div>
           
               <pre><code class="html">
              &lt;div class="us-field"&gt;
-               &lt;label for='name'&gt;Name&lt;/label&gt;
-               &lt;input class='us-form-input' id='name' name='name' placeholder='Please enter your name'&gt;
+               &lt;label for="name"&gt;Name&lt;/label&gt;
+               &lt;input class="us-form-input" id="name" name="name" placeholder="Please enter your name"&gt;
              &lt;/div&gt;
               </code></pre>
             </div>
@@ -127,6 +124,7 @@
               <h4>States</h4>
                 <ul class="styleguide__block-states us-clearfix">
                     <li class="name"><strong>.us-input-group--disabled</strong> - Disabled state for input groups</li>
+                    <li class="name"><strong>.us-input-group--blocked</strong> - Fluid style</li>
                 </ul>
               
             </div>
@@ -134,34 +132,45 @@
             <div class="styleguide__block-examples">
               <h3 class="styleguide__block-small-title">Example</h3>
               <div class="styleguide__block-example">
-                   <div class="us-input-group {$modifiers}">
+                   <div class="us-input-group us-margin-bottom {$modifiers}">
                <span class="us-input-group__box"><span class="us-icon--small  us-icon--inputgrey us-icon--envelope us-icon--notext"></span></span>
                <input class="us-form-input" type="text" id="email" placeholder="Email" />
              </div>
-             <div class="us-input-group {$modifiers}">
+             <div class="us-input-group us-margin-bottom {$modifiers}">
                <input class="us-form-input" type="text" id="kwh" />
                <span class="us-input-group__box">kWh</span>
              </div>
               </div>
             
                 <div class="styleguide__block-example state-us-input-group--disabled">
-                     <div class="us-input-group us-input-group--disabled">
+                     <div class="us-input-group us-margin-bottom us-input-group--disabled">
                <span class="us-input-group__box"><span class="us-icon--small  us-icon--inputgrey us-icon--envelope us-icon--notext"></span></span>
                <input class="us-form-input" type="text" id="email" placeholder="Email" />
              </div>
-             <div class="us-input-group us-input-group--disabled">
+             <div class="us-input-group us-margin-bottom us-input-group--disabled">
                <input class="us-form-input" type="text" id="kwh" />
                <span class="us-input-group__box">kWh</span>
              </div>
                   <div class="styleguide__block-example-class">.us-input-group--disabled</div>
                 </div>
+                <div class="styleguide__block-example state-us-input-group--blocked">
+                     <div class="us-input-group us-margin-bottom us-input-group--blocked">
+               <span class="us-input-group__box"><span class="us-icon--small  us-icon--inputgrey us-icon--envelope us-icon--notext"></span></span>
+               <input class="us-form-input" type="text" id="email" placeholder="Email" />
+             </div>
+             <div class="us-input-group us-margin-bottom us-input-group--blocked">
+               <input class="us-form-input" type="text" id="kwh" />
+               <span class="us-input-group__box">kWh</span>
+             </div>
+                  <div class="styleguide__block-example-class">.us-input-group--blocked</div>
+                </div>
           
               <pre><code class="html">
-             &lt;div class="us-input-group"&gt;
+             &lt;div class="us-input-group us-margin-bottom"&gt;
                &lt;span class="us-input-group__box"&gt;&lt;span class="us-icon--small  us-icon--inputgrey us-icon--envelope us-icon--notext"&gt;&lt;/span&gt;&lt;/span&gt;
                &lt;input class="us-form-input" type="text" id="email" placeholder="Email" /&gt;
              &lt;/div&gt;
-             &lt;div class="us-input-group"&gt;
+             &lt;div class="us-input-group us-margin-bottom"&gt;
                &lt;input class="us-form-input" type="text" id="kwh" /&gt;
                &lt;span class="us-input-group__box"&gt;kWh&lt;/span&gt;
              &lt;/div&gt;
@@ -176,11 +185,22 @@
                 <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/forms/_input.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_input.scss</span></a>
               </h2>
               
-              <p>   Our standard input styling across the website. This is specifically for type text and textarea.</p>
+              <p>   Our standard input styling across the website. This is specifically for text, email, password, search etc. type inputs.</p>
+          <h4 id="best-practices">Best practices</h4>
+          <ul>
+          <li><p>Specifying an appropriate <a href="https://developer.mozilla.org/en/docs/Web/HTML/Element/Input#attr-type">type attribute</a> (e.g. type=&quot;tel&quot; for telephone number fields) will not only control what input is displayed, but also helps mobile devices select a keyboard layout suitable for entering that type of data.</p>
+          </li>
+          <li><p>Where appropriate use the <a href="https://developer.mozilla.org/en/docs/Web/HTML/Element/Input#attr-autocomplete">autocomplete attribute</a> to make it easier for the browser to fill in fields on the users behalf, saving them time on lengthy forms.</p>
+          </li>
+          </ul>
           
               <h4>States</h4>
                 <ul class="styleguide__block-states us-clearfix">
-                    <li class="name"><strong>.large</strong> - Larger input style</li>
+                    <li class="name"><strong>.us-form-input--large</strong> - Larger input style</li>
+                    <li class="name"><strong>.us-form-input--blocked</strong> - Fluid input style</li>
+                    <li class="name"><strong>.us-form-input--error</strong> - Visual feedback for when the input has an error</li>
+                    <li class="name"><strong>.us-form-input--success</strong> - Visual feedback for when success needs to be communicated to the user</li>
+                    <li class="name"><strong>.us-form-input--disabled</strong> - Inactive state for form inputs that can&#x27;t be interacted with</li>
                 </ul>
               
             </div>
@@ -188,16 +208,32 @@
             <div class="styleguide__block-examples">
               <h3 class="styleguide__block-small-title">Example</h3>
               <div class="styleguide__block-example">
-                <input class='us-form-input {$modifiers}' type='text'>
+                <input class="us-form-input {$modifiers}" type="text" placeholder="Placeholder">
               </div>
             
-                <div class="styleguide__block-example state-large">
-                  <input class='us-form-input large' type='text'>
-                  <div class="styleguide__block-example-class">.large</div>
+                <div class="styleguide__block-example state-us-form-input--large">
+                  <input class="us-form-input us-form-input--large" type="text" placeholder="Placeholder">
+                  <div class="styleguide__block-example-class">.us-form-input--large</div>
+                </div>
+                <div class="styleguide__block-example state-us-form-input--blocked">
+                  <input class="us-form-input us-form-input--blocked" type="text" placeholder="Placeholder">
+                  <div class="styleguide__block-example-class">.us-form-input--blocked</div>
+                </div>
+                <div class="styleguide__block-example state-us-form-input--error">
+                  <input class="us-form-input us-form-input--error" type="text" placeholder="Placeholder">
+                  <div class="styleguide__block-example-class">.us-form-input--error</div>
+                </div>
+                <div class="styleguide__block-example state-us-form-input--success">
+                  <input class="us-form-input us-form-input--success" type="text" placeholder="Placeholder">
+                  <div class="styleguide__block-example-class">.us-form-input--success</div>
+                </div>
+                <div class="styleguide__block-example state-us-form-input--disabled">
+                  <input class="us-form-input us-form-input--disabled" type="text" placeholder="Placeholder">
+                  <div class="styleguide__block-example-class">.us-form-input--disabled</div>
                 </div>
           
               <pre><code class="html">
-          &lt;input class='us-form-input' type='text'&gt;
+          &lt;input class="us-form-input" type="text" placeholder="Placeholder"&gt;
               </code></pre>
             </div>
           
@@ -209,60 +245,115 @@
                 <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/forms/_radio-checkbox.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_radio-checkbox.scss</span></a>
               </h2>
               
-              <p>   Webkit/Blink browsers display our font icon tick or a box shadow circle. Other browsers fallback to default styling.</p>
+              <p>   Browsers that support screen density media features display our font icon tick or a box shadow circle. Other browsers fallback to default styling.</p>
+          <h4 id="best-practices">Best practices</h4>
+          <ul>
+          <li><p>Like select boxes, radio buttons are good for making a selection from a mutually exclusive list of options. The main difference between the two is that with radio buttons, the user must choose exactly one of the options.</p>
+          </li>
+          <li><p>Use radio buttons when each of the choices matters to the user. Each needs to be considered before they make their choice.</p>
+          </li>
+          <li><p>Checkboxes in a group should be used for choosing zero or more options from a list of independent options. Toggling one should not change the state of others in the group.</p>
+          </li>
+          <li><p>A stand-alone checkbox is good for toggling something on/off or opting in/out.</p>
+          </li>
+          <li><p>Provide a default selection to radio and checkbox groups if it&#39;s necessary and wont be changed by 90% of your users.</p>
+          </li>
+          <li><p>Try to keep the number of radio buttons and checkboxes in the same group to a maximum of 6.</p>
+          </li>
+          </ul>
           
               <h4>States</h4>
+                <ul class="styleguide__block-states us-clearfix">
+                    <li class="name"><strong>us-form-input--disabled</strong> - Like other types of form inputs, adding this class to the element in conjunction with the disabled attribute helps to make the element look like it can&#x27;t be interacted with</li>
+                </ul>
               
             </div>
             
             <div class="styleguide__block-examples">
               <h3 class="styleguide__block-small-title">Example</h3>
               <div class="styleguide__block-example">
-                   <div class='us-field us-field-blocked'>
+                   <div class="us-field us-field--blocked">
                <label>Do you have a different billing address?</label>
-               <div class='us-field-toggle'>
+               <div class="us-field-toggle">
                  <label>
-                   <input checked='checked' class='us-form-input' name='null' type='radio'>Yes</input>
+                   <input checked="checked" class="us-form-input {$modifiers}" name="null" type="radio">
+                   Yes
                  </label>
                  <label>
-                   <input class='us-form-input' name='null' type='radio'>No</input>
+                   <input class="us-form-input" name="null" type="radio">
+                   No
                  </label>
                </div>
              </div>
-             <div class='us-field us-field-blocked'>
+             <div class="us-field us-field--blocked">
                <label>How would you like to be contacted?</label>
-               <div class='us-field-toggle'>
+               <div class="us-field-toggle">
                  <label>
-                   <input checked='checked' class='us-form-input' name='null' type='checkbox'>Mobile</input>
+                   <input checked="checked" class="us-form-input {$modifiers}" name="null" type="checkbox">
+                   Mobile
                  </label>
                  <label>
-                   <input class='us-form-input' name='null' type='checkbox'>Email</input>
+                   <input class="us-form-input" name="null" type="checkbox">
+                   Email
                  </label>
                </div>
              </div>
               </div>
             
+                <div class="styleguide__block-example state-undefined">
+                     <div class="us-field us-field--blocked">
+               <label>Do you have a different billing address?</label>
+               <div class="us-field-toggle">
+                 <label>
+                   <input checked="checked" class="us-form-input us-form-input--disabled" name="null" type="radio">
+                   Yes
+                 </label>
+                 <label>
+                   <input class="us-form-input" name="null" type="radio">
+                   No
+                 </label>
+               </div>
+             </div>
+             <div class="us-field us-field--blocked">
+               <label>How would you like to be contacted?</label>
+               <div class="us-field-toggle">
+                 <label>
+                   <input checked="checked" class="us-form-input us-form-input--disabled" name="null" type="checkbox">
+                   Mobile
+                 </label>
+                 <label>
+                   <input class="us-form-input" name="null" type="checkbox">
+                   Email
+                 </label>
+               </div>
+             </div>
+                  <div class="styleguide__block-example-class">us-form-input--disabled</div>
+                </div>
           
               <pre><code class="html">
-             &lt;div class='us-field us-field-blocked'&gt;
+             &lt;div class="us-field us-field--blocked"&gt;
                &lt;label&gt;Do you have a different billing address?&lt;/label&gt;
-               &lt;div class='us-field-toggle'&gt;
+               &lt;div class="us-field-toggle"&gt;
                  &lt;label&gt;
-                   &lt;input checked='checked' class='us-form-input' name='null' type='radio'&gt;Yes&lt;/input&gt;
+                   &lt;input checked="checked" class="us-form-input" name="null" type="radio"&gt;
+                   Yes
                  &lt;/label&gt;
                  &lt;label&gt;
-                   &lt;input class='us-form-input' name='null' type='radio'&gt;No&lt;/input&gt;
+                   &lt;input class="us-form-input" name="null" type="radio"&gt;
+                   No
                  &lt;/label&gt;
                &lt;/div&gt;
              &lt;/div&gt;
-             &lt;div class='us-field us-field-blocked'&gt;
+             &lt;div class="us-field us-field--blocked"&gt;
                &lt;label&gt;How would you like to be contacted?&lt;/label&gt;
-               &lt;div class='us-field-toggle'&gt;
+               &lt;div class="us-field-toggle"&gt;
                  &lt;label&gt;
-                   &lt;input checked='checked' class='us-form-input' name='null' type='checkbox'&gt;Mobile&lt;/input&gt;
+                   &lt;input checked="checked" class="us-form-input" name="null" type="checkbox"&gt;
+                   Mobile
                  &lt;/label&gt;
                  &lt;label&gt;
-                   &lt;input class='us-form-input' name='null' type='checkbox'&gt;Email&lt;/input&gt;
+                   &lt;input class="us-form-input" name="null" type="checkbox"&gt;
+                   Email
                  &lt;/label&gt;
                &lt;/div&gt;
              &lt;/div&gt;
@@ -277,19 +368,29 @@
                 <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/forms/_select.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_select.scss</span></a>
               </h2>
               
-              <p>   The select is built with inline background-image SVGs for Webkit/Blink browsers that allow for customisation on the hover/normal colours. </p>
-          <p>   Firefox allows for <code>.us-form-select-wrap</code> to be added on top of the select to replicate styling, whilst other browser fallback to native implementation. </p>
-          <p>   <code>$select-base-color</code>, <code>$select-hover-color</code> and <code>$select-active-color</code> allow for different colouring of the border/dropdown.</p>
+              <p>   Select boxes allow users to choose and option or options from a list of options.</p>
+          <h4 id="best-practices">Best practices</h4>
+          <ul>
+          <li><p>Use select boxes when choosing one or more options from a list of related, but mutually exclusive options e.g. profession, title, month.</p>
+          </li>
+          <li><p>It can be tempting to put many things in a select box for users to choose from. Try to keep the list of options to between 4 and 15 so the user doesn&#39;t become overwhelmed with choices.</p>
+          </li>
+          </ul>
           
               <h4>States</h4>
+                <ul class="styleguide__block-states us-clearfix">
+                    <li class="name"><strong>.us-form-select-wrap--multiple</strong> - Removes the drop down arrow and adjusts the padding of &lt;option&gt; elements. Useful when using &lt;select&gt; elements that have the size=&quot;&quot; attribute set to anything higher than 1.</li>
+                    <li class="name"><strong>.us-form-select-wrap--blocked</strong> - Fluid style</li>
+                    <li class="name"><strong>.us-form-select-wrap--disabled</strong> - Inactive state for select boxes. You may also just add the disabled attribute to the &lt;select&gt; element in order to achieve the same effect.</li>
+                </ul>
               
             </div>
             
             <div class="styleguide__block-examples">
               <h3 class="styleguide__block-small-title">Example</h3>
               <div class="styleguide__block-example">
-                   <span class='us-form-select-wrap'>
-               <select class='us-form-select'>
+                   <span class="us-form-select-wrap {$modifiers}">
+               <select class="us-form-select">
                  <option>A select menu</option>
                  <option>With lots of options</option>
                  <option>And a few more</option>
@@ -297,15 +398,83 @@
              </span>
               </div>
             
+                <div class="styleguide__block-example state-us-form-select-wrap--multiple">
+                     <span class="us-form-select-wrap us-form-select-wrap--multiple">
+               <select class="us-form-select">
+                 <option>A select menu</option>
+                 <option>With lots of options</option>
+                 <option>And a few more</option>
+               </select>
+             </span>
+                  <div class="styleguide__block-example-class">.us-form-select-wrap--multiple</div>
+                </div>
+                <div class="styleguide__block-example state-us-form-select-wrap--blocked">
+                     <span class="us-form-select-wrap us-form-select-wrap--blocked">
+               <select class="us-form-select">
+                 <option>A select menu</option>
+                 <option>With lots of options</option>
+                 <option>And a few more</option>
+               </select>
+             </span>
+                  <div class="styleguide__block-example-class">.us-form-select-wrap--blocked</div>
+                </div>
+                <div class="styleguide__block-example state-us-form-select-wrap--disabled">
+                     <span class="us-form-select-wrap us-form-select-wrap--disabled">
+               <select class="us-form-select">
+                 <option>A select menu</option>
+                 <option>With lots of options</option>
+                 <option>And a few more</option>
+               </select>
+             </span>
+                  <div class="styleguide__block-example-class">.us-form-select-wrap--disabled</div>
+                </div>
           
               <pre><code class="html">
-             &lt;span class='us-form-select-wrap'&gt;
-               &lt;select class='us-form-select'&gt;
+             &lt;span class="us-form-select-wrap"&gt;
+               &lt;select class="us-form-select"&gt;
                  &lt;option&gt;A select menu&lt;/option&gt;
                  &lt;option&gt;With lots of options&lt;/option&gt;
                  &lt;option&gt;And a few more&lt;/option&gt;
                &lt;/select&gt;
              &lt;/span&gt;
+              </code></pre>
+            </div>
+          
+          </div>
+          <div class="styleguide__block" id="textarea">
+            <div class="styleguide__block-info">
+              <h2 class="styleguide__block-title">
+                Textarea
+                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/forms/_textarea.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_textarea.scss</span></a>
+              </h2>
+              
+              <p>   Our standard textarea styling across the website.</p>
+          
+              <h4>States</h4>
+                <ul class="styleguide__block-states us-clearfix">
+                    <li class="name"><strong>.us-form-textarea--blocked</strong> - Fluid textarea style</li>
+                    <li class="name"><strong>.us-form-textarea--disabled</strong> - Inactive state for textareas that can&#x27;t be interacted with</li>
+                </ul>
+              
+            </div>
+            
+            <div class="styleguide__block-examples">
+              <h3 class="styleguide__block-small-title">Example</h3>
+              <div class="styleguide__block-example">
+                <textarea class="us-form-textarea {$modifiers}"></textarea>
+              </div>
+            
+                <div class="styleguide__block-example state-us-form-textarea--blocked">
+                  <textarea class="us-form-textarea us-form-textarea--blocked"></textarea>
+                  <div class="styleguide__block-example-class">.us-form-textarea--blocked</div>
+                </div>
+                <div class="styleguide__block-example state-us-form-textarea--disabled">
+                  <textarea class="us-form-textarea us-form-textarea--disabled"></textarea>
+                  <div class="styleguide__block-example-class">.us-form-textarea--disabled</div>
+                </div>
+          
+              <pre><code class="html">
+          &lt;textarea class="us-form-textarea"&gt;&lt;/textarea&gt;
               </code></pre>
             </div>
           
@@ -317,54 +486,86 @@
                 <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/forms/_toggle.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_toggle.scss</span></a>
               </h2>
               
-              <p>  This is a form toggle used for single select options. Best usage is for 2 - 3 options that are short answers.</p>
+              <p>  Toggle buttons provide and alternative way of displaying radio groups with a small number of options to a user.</p>
           <p>  IE8 support is included with <code>radioToggle.js</code> which sets a <code>.checked</code> class on the radio button when clicked.</p>
+          <h4 id="best-practices">Best practices</h4>
+          <ul>
+          <li><p>Use as an alternation to radio groups that have short labels for each option (Yes/No, Opt-in/Opt-out).</p>
+          </li>
+          <li><p>For forms that have many short radio group questions in them, toggle buttons provide a better experience for quickly selecting answers on both desktop and mobile due to larger visible click areas for each option.</p>
+          </li>
+          <li><p>Limit the number of options in the toggle group to 3.</p>
+          </li>
+          </ul>
           
               <h4>States</h4>
+                <ul class="styleguide__block-states us-clearfix">
+                    <li class="name"><strong>.us-toggle__btn--disabled</strong> - Visual styling for toggle buttons that can&#x27;t be interacted with</li>
+                </ul>
               
             </div>
             
             <div class="styleguide__block-examples">
               <h3 class="styleguide__block-small-title">Example</h3>
               <div class="styleguide__block-example">
-                 <div class="us-field us-field-blocked">
-             <label>Gender</label>
-             <div class="us-toggle">
-               <label class="us-toggle__label" for="gender_male">
-                 <input class='us-form-input' name='gender' type='radio' id="gender_male" />
-                 <span class="us-toggle__btn">
-                   Male
-                 </span>
-               </label>
-               <label class="us-toggle__label" for="gender_female">
-                 <input class='us-form-input' name='gender' type='radio' id="gender_female" />
-                 <span class="us-toggle__btn">
-                   Female
-                 </span>
-               </label>
-             </div>  
-           </div>
+                   <div class="us-field us-field--blocked">
+               <label>Answer truthfully</label>
+               <div class="us-toggle">
+                 <label class="us-toggle__label">
+                   <input class="us-form-input" name="choice" type="radio">
+                   <span class="us-toggle__btn {$modifiers}">
+                     Yes
+                   </span>
+                 </label>
+                 <label class="us-toggle__label">
+                   <input class="us-form-input" name="choice" type="radio">
+                   <span class="us-toggle__btn">
+                     No
+                   </span>
+                 </label>
+               </div>
+             </div>
               </div>
             
+                <div class="styleguide__block-example state-us-toggle__btn--disabled">
+                     <div class="us-field us-field--blocked">
+               <label>Answer truthfully</label>
+               <div class="us-toggle">
+                 <label class="us-toggle__label">
+                   <input class="us-form-input" name="choice" type="radio">
+                   <span class="us-toggle__btn us-toggle__btn--disabled">
+                     Yes
+                   </span>
+                 </label>
+                 <label class="us-toggle__label">
+                   <input class="us-form-input" name="choice" type="radio">
+                   <span class="us-toggle__btn">
+                     No
+                   </span>
+                 </label>
+               </div>
+             </div>
+                  <div class="styleguide__block-example-class">.us-toggle__btn--disabled</div>
+                </div>
           
               <pre><code class="html">
-           &lt;div class="us-field us-field-blocked"&gt;
-             &lt;label&gt;Gender&lt;/label&gt;
-             &lt;div class="us-toggle"&gt;
-               &lt;label class="us-toggle__label" for="gender_male"&gt;
-                 &lt;input class='us-form-input' name='gender' type='radio' id="gender_male" /&gt;
-                 &lt;span class="us-toggle__btn"&gt;
-                   Male
-                 &lt;/span&gt;
-               &lt;/label&gt;
-               &lt;label class="us-toggle__label" for="gender_female"&gt;
-                 &lt;input class='us-form-input' name='gender' type='radio' id="gender_female" /&gt;
-                 &lt;span class="us-toggle__btn"&gt;
-                   Female
-                 &lt;/span&gt;
-               &lt;/label&gt;
-             &lt;/div&gt;  
-           &lt;/div&gt;
+             &lt;div class="us-field us-field--blocked"&gt;
+               &lt;label&gt;Answer truthfully&lt;/label&gt;
+               &lt;div class="us-toggle"&gt;
+                 &lt;label class="us-toggle__label"&gt;
+                   &lt;input class="us-form-input" name="choice" type="radio"&gt;
+                   &lt;span class="us-toggle__btn"&gt;
+                     Yes
+                   &lt;/span&gt;
+                 &lt;/label&gt;
+                 &lt;label class="us-toggle__label"&gt;
+                   &lt;input class="us-form-input" name="choice" type="radio"&gt;
+                   &lt;span class="us-toggle__btn"&gt;
+                     No
+                   &lt;/span&gt;
+                 &lt;/label&gt;
+               &lt;/div&gt;
+             &lt;/div&gt;
               </code></pre>
                 <pre><code class="javascript">
              var radioToggle = new RadioToggle({
@@ -375,20 +576,26 @@
             </div>
           
           </div>
-          <div class="styleguide__block" id="form_validation">
+          <div class="styleguide__block" id="validation_messages">
             <div class="styleguide__block-info">
               <h2 class="styleguide__block-title">
-                Form validation
+                Validation messages
                 <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/forms/_validation.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_validation.scss</span></a>
               </h2>
               
-              <p>   Validation message and input styling provides a consistent look and feel to uStyle forms.</p>
+              <p>   Used to provide more detailed feedback about the data users have entered into forms.</p>
+          <h4 id="best-practices">Best practices</h4>
+          <ul>
+          <li><p>For inputs that have a label above them, place the validation message between the input and the label.</p>
+          </li>
+          <li><p>Use success validation messages only when it makes sense to contextually. For example, they can help to reassure users about the data they entered when multiple criteria need to be satisfied, e.g. password fields.</p>
+          </li>
+          </ul>
           
               <h4>States</h4>
                 <ul class="styleguide__block-states us-clearfix">
-                    <li class="name"><strong>.us-validation--bordered</strong> - use this for any singular field validation or validation on backgrounds</li>
+                    <li class="name"><strong>.us-validation--error</strong> - Error styling for incorrect data on forms</li>
                     <li class="name"><strong>.us-validation--success</strong> - Success styling for correct forms</li>
-                    <li class="name"><strong>.us-validation--error</strong> - Error styling (default) for incorrect data on forms</li>
                 </ul>
               
             </div>
@@ -396,53 +603,47 @@
             <div class="styleguide__block-examples">
               <h3 class="styleguide__block-small-title">Example</h3>
               <div class="styleguide__block-example">
-                   <div class="us-validation__input {$modifiers}">
+                   <div class="us-field">
+               <label>Email</label>
+               <div class="us-validation {$modifiers}">
+                 <div class="us-validation__icon"></div>
+                 <div class="us-validation__message">Validation message here</div>
+               </div>
                <input type="email" class="us-form-input" name="email" />
-             </div>
-             <div class="us-validation {$modifiers}">
-               <div class="us-validation__icon"></div>
-               <div class="us-validation__message">Validation message here</div>
              </div>
               </div>
             
-                <div class="styleguide__block-example state-us-validation--bordered">
-                     <div class="us-validation__input us-validation--bordered">
-               <input type="email" class="us-form-input" name="email" />
-             </div>
-             <div class="us-validation us-validation--bordered">
-               <div class="us-validation__icon"></div>
-               <div class="us-validation__message">Validation message here</div>
-             </div>
-                  <div class="styleguide__block-example-class">.us-validation--bordered</div>
-                </div>
-                <div class="styleguide__block-example state-us-validation--success">
-                     <div class="us-validation__input us-validation--success">
-               <input type="email" class="us-form-input" name="email" />
-             </div>
-             <div class="us-validation us-validation--success">
-               <div class="us-validation__icon"></div>
-               <div class="us-validation__message">Validation message here</div>
-             </div>
-                  <div class="styleguide__block-example-class">.us-validation--success</div>
-                </div>
                 <div class="styleguide__block-example state-us-validation--error">
-                     <div class="us-validation__input us-validation--error">
+                     <div class="us-field">
+               <label>Email</label>
+               <div class="us-validation us-validation--error">
+                 <div class="us-validation__icon"></div>
+                 <div class="us-validation__message">Validation message here</div>
+               </div>
                <input type="email" class="us-form-input" name="email" />
-             </div>
-             <div class="us-validation us-validation--error">
-               <div class="us-validation__icon"></div>
-               <div class="us-validation__message">Validation message here</div>
              </div>
                   <div class="styleguide__block-example-class">.us-validation--error</div>
                 </div>
+                <div class="styleguide__block-example state-us-validation--success">
+                     <div class="us-field">
+               <label>Email</label>
+               <div class="us-validation us-validation--success">
+                 <div class="us-validation__icon"></div>
+                 <div class="us-validation__message">Validation message here</div>
+               </div>
+               <input type="email" class="us-form-input" name="email" />
+             </div>
+                  <div class="styleguide__block-example-class">.us-validation--success</div>
+                </div>
           
               <pre><code class="html">
-             &lt;div class="us-validation__input"&gt;
+             &lt;div class="us-field"&gt;
+               &lt;label&gt;Email&lt;/label&gt;
+               &lt;div class="us-validation"&gt;
+                 &lt;div class="us-validation__icon"&gt;&lt;/div&gt;
+                 &lt;div class="us-validation__message"&gt;Validation message here&lt;/div&gt;
+               &lt;/div&gt;
                &lt;input type="email" class="us-form-input" name="email" /&gt;
-             &lt;/div&gt;
-             &lt;div class="us-validation"&gt;
-               &lt;div class="us-validation__icon"&gt;&lt;/div&gt;
-               &lt;div class="us-validation__message"&gt;Validation message here&lt;/div&gt;
              &lt;/div&gt;
               </code></pre>
             </div>
