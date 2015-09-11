@@ -1,16 +1,19 @@
 // @page Pattern Library/Forms
 // @name Input group
-// 
+//
 // @description
 //   Inputs groups allow you to add "boxes" to the left or right of an input. These boxes usually contain a visual icon to represent the usage of the input
-// 
+//
 // @state .us-input-group--disabled - Disabled state for input groups
+// @state .us-input-group--blocked - Fluid style
+//
 // @markup
-//   <div class="us-input-group {$modifiers}">
+//   <div class="us-input-group us-margin-bottom {$modifiers}">
 //     <span class="us-input-group__box"><span class="us-icon--small  us-icon--inputgrey us-icon--envelope us-icon--notext"></span></span>
 //     <input class="us-form-input" type="text" id="email" placeholder="Email" />
 //   </div>
-//   <div class="us-input-group {$modifiers}">
+//
+//   <div class="us-input-group us-margin-bottom {$modifiers}">
 //     <input class="us-form-input" type="text" id="kwh" />
 //     <span class="us-input-group__box">kWh</span>
 //   </div>
@@ -24,7 +27,6 @@ $input-group-bg-color: #fff !default;
 
   @include respond-to(tablet, true) {
     display: inline-table;
-    vertical-align: middle;
   }
 
   .us-form-input {
@@ -32,22 +34,28 @@ $input-group-bg-color: #fff !default;
     display: table-cell;
     float: left;
     width: 100%;
-
-    @include respond-to(tablet, true) {
-      width: auto;
-    }
   }
 }
 
 .us-input-group--disabled {
   .us-input-group__box {
-    color: lighten($input-border-color, 15%);
-    border-color: lighten($input-border-color, 15%);
+    @include input-disabled;
 
-    [class^="us-icon--"],
-    [class*=" us-icon--"] {
-      opacity: .85;  
+    [class^="us-icon--"] {
+      opacity: .35;
     }
+  }
+
+  .us-form-input {
+    @include input-disabled;
+  }
+}
+
+.us-input-group--blocked {
+  width: 100%;
+
+  .us-input-group__box {
+    width: 1%;
   }
 }
 
@@ -67,9 +75,8 @@ $input-group-bg-color: #fff !default;
   @include respond-to(tablet, true) {
     width: auto;
   }
-  
-  [class^="us-icon--"],
-  [class*=" us-icon--"] {
+
+  [class^="us-icon--"] {
     vertical-align: middle;
   }
 }

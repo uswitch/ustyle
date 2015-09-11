@@ -21,7 +21,7 @@ function drawChart() {
   simplicityOptions = {
     chart: {
       title: 'Simplicity chart',
-      subtitle: 'Evolution of rules and selectors over ustyle releases',
+      subtitle: 'Evolution of rules and selectors over uStyle releases',
       vAxis: {
         format: ''
       }
@@ -38,7 +38,7 @@ function drawChart() {
   sizeOptions = {
     chart: {
       title: 'Size chart',
-      subtitle: 'Evolution of ustyle size over releases',
+      subtitle: 'Evolution of uStyle size over releases',
       vAxis: {
         format: ''
       }

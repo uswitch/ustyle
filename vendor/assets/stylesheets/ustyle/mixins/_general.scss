@@ -8,8 +8,17 @@
     display: table;
     content: " ";
   }
-  
+
   &:after {
     clear: both;
+  }
+}
+
+@mixin hidpi($dpi: 2) {
+  @media
+  (-webkit-min-device-pixel-ratio: $dpi),
+  (min-device-pixel-ratio: $dpi),
+  (min-resolution: #{$dpi}dppx) {
+    @content;
   }
 }

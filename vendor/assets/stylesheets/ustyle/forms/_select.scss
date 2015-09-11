@@ -1,163 +1,126 @@
 // @page Pattern Library/Forms
 // @name Selects
-// 
+//
 // @description
-//   The select is built with inline background-image SVGs for Webkit/Blink browsers that allow for customisation on the hover/normal colours. 
-//   Firefox allows for `.us-form-select-wrap` to be added on top of the select to replicate styling, whilst other browser fallback to native implementation. 
-//   `$select-base-color`, `$select-hover-color` and `$select-active-color` allow for different colouring of the border/dropdown.
+//   Select boxes allow users to choose and option or options from a list of options.
+//
+//   #### Best practices
+//   * Use select boxes when choosing one or more options from a list of related, but mutually exclusive options e.g. profession, title, month.
+//   * It can be tempting to put many things in a select box for users to choose from. Try to keep the list of options to between 4 and 15 so the user doesn't become overwhelmed with choices.
+//
+// @state .us-form-select-wrap--multiple - Removes the drop down arrow and adjusts the padding of <option> elements. Useful when using <select> elements that have the size="" attribute set to anything higher than 1.
+// @state .us-form-select-wrap--blocked - Fluid style
+// @state .us-form-select-wrap--disabled - Inactive state for select boxes. You may also just add the disabled attribute to the <select> element in order to achieve the same effect.
 //
 // @markup
-//   <span class='us-form-select-wrap'>
-//     <select class='us-form-select'>
+//   <span class="us-form-select-wrap {$modifiers}">
+//     <select class="us-form-select">
 //       <option>A select menu</option>
 //       <option>With lots of options</option>
 //       <option>And a few more</option>
 //     </select>
 //   </span>
 
-$select-base-color: $c-inputgrey !default;
-$select-hover-color: $c-typecyan !default;
-$select-active-color: $c-green !default;
-$select-bg-color: #fff !default;
-
 $select-base-padding: .3em .6em !default;
 $select-base-height: $form-element-base-height !default;
+$select-border-color: $c-inputgrey !default;
+$select-hover-color: $c-typecyan !default;
 
-@mixin select-background($color) {
-  $svg-prefix: "data:image/svg+xml;charset=utf-8;base64,";
-  $arrow-svg: base64encode("<svg xmlns='http://www.w3.org/2000/svg' width='31' height='10' viewBox='-10 0 31 10'><polygon fill='#fff' points='11,0 0,0 5.5,10'/></svg>");
-  $background-svg: base64encode("<svg version='1.1' xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='31px' height='41px' ><rect x='0' y='0' fill='#{$color}' width='31' height='40'/></svg>");
-  background-image: url($svg-prefix + $arrow-svg), url($svg-prefix + $background-svg);
+.us-form-select-wrap {
+  position: relative;
+  display: inline-block;
+
+  &:after {
+    @include arrow($width: 10px, $height: 6px, $direction: 'down', $color: $select-border-color);
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    width: 0;
+    height: 0;
+    margin-top: -3px;
+    pointer-events: none;
+    content: " ";
+  }
+
+  &:hover {
+    &:after {
+      border-top-color: $select-hover-color;
+    }
+  }
+
+  .ie8 &,
+  .ie9 & {
+    .us-form-select {
+      padding: $select-base-padding;
+    }
+
+    &:after {
+      display: none;
+    }
+  }
 }
 
-@mixin select-style($height: $select-base-height, $padding: $select-base-padding, $base-color: $select-base-color, $hover-color: $select-hover-color, $active-color: $select-active-color, $color: $c-typegrey, $background-color: $select-bg-color) {
-  height: $height;
-  padding: $padding;
-  border: 1px solid $base-color;
-  background-color: $background-color;
-
-  @if $color != $c-typegrey {
-    color: $color;
+.us-form-select-wrap--multiple {
+  &:after {
+    display: none;
   }
 
-  &:hover,
-  &:focus {
-    border-color: $hover-color;
+  .us-form-select {
+    height: auto;
+    padding: $select-base-padding;
+    overflow: auto;
+    vertical-align: middle;
+    cursor: default;
   }
 
-  &.active {
-    border-color: $active-color;
-  }
-
-  &:disabled {
-    color: $base-color;
-    border-color: lighten($base-color, 10%);
-  }
-
-  @media all and (-webkit-min-device-pixel-ratio: 0) {
-    @include select-background($base-color);
-    
-    &:hover,
-    &:focus {
-      @include select-background($hover-color);
-    }
-
-    &.active {
-      @include select-background($active-color);
-    }
-
-    &:disabled {
-      @include select-background(lighten($base-color, 10%));
-    }
+  option {
+    padding: .3em 5px;
+    cursor: pointer;
   }
 }
 
 .us-form-select {
   @extend %base-form-element;
-  @include select-style;
   position: relative;
   width: 100%;
-  transition: border-color 200ms;
-  
-  @media all and (-webkit-min-device-pixel-ratio: 0) {
-    padding-right: 40px;
-    background-position: 100% 50%, 100% 0;
-    background-repeat: no-repeat;
+  padding: $select-base-padding;
+  padding-right: 40px;
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid $select-border-color;
+  outline: 0;
+
+  &:hover,
+  &:focus {
+    border-color: $select-hover-color;
   }
 
-  @include respond-to($default-grid-breakpoint, true) {
-    width: auto;
-  }
+  &:focus {
+    box-shadow: inset 0 0 0 1px $select-hover-color;
 
-  .ie8 & {
-    height: auto;
-  }
-
-  &[size] {
-    height: auto;
-    padding-right: 9px;
-    overflow: auto;
-    vertical-align: middle;
-    background-image: none;
-
-    &::-webkit-scrollbar {
-      z-index: 2;
-      width: 9px;
-      border-left: 1px solid $c-bordergrey;
-      -webkit-appearance: none;
+    &:-moz-focusring {
+      color: transparent;
+      text-shadow: 0 0 0 $c-typegrey;
     }
+  }
 
-    &::-webkit-scrollbar-thumb {
-      background-color: rgba(0, 0, 0, .5);
-    }
+  &::-ms-expand {
+    display: none;
   }
 }
 
-@-moz-document url-prefix() {
-  .us-form-select-wrap {
-    position: relative;
-    display: inline-block;
-    vertical-align: baseline;
+.us-form-select-wrap--blocked {
+  width: 100%;
+}
 
-    select {
-      padding-right: 15px;
-      background-image: none;
-    }
+.us-form-select-wrap--disabled {
+  .us-form-select,
+  .us-form-select:disabled {
+    @include input-disabled;
+  }
 
-    &:before,
-    &:after {
-      position: absolute;
-      color: #fff;
-      pointer-events: none;
-      content: "";
-    }
-
-    &:before {
-      top: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 1;
-      width: 30px;
-      background-color: $select-base-color;
-      border: 1px solid $select-base-color;
-      border-left: 0;
-      border-radius: 0 3px 3px 0;
-    }
-
-    &:after {
-      @include arrow(18px, 9px, down);
-      top: 50%;
-      right: 6px;
-      z-index: 1;
-      margin-top: -5px;
-    }
-
-    &:hover,
-    &:focus {
-      &:before {
-        background-color: $select-hover-color;
-        border-color: $select-hover-color;
-      }
-    }
+  &:after,
+  &:hover:after {
+    border-top-color: $c-input-disabled-foreground;
   }
 }

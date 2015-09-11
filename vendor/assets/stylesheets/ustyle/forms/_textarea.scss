@@ -1,0 +1,38 @@
+// @page Pattern Library/Forms
+// @name Textarea
+//
+// @description
+//   Our standard textarea styling across the website.
+//
+//
+// @state .us-form-textarea--blocked - Fluid textarea style
+// @state .us-form-textarea--disabled - Inactive state for textareas that can't be interacted with
+//
+// @markup
+//   <textarea class="us-form-textarea {$modifiers}"></textarea>
+
+.us-form-textarea {
+  @extend %base-form-element;
+  @extend %input-background--normalise;
+  @include input-style($input-hover-color);
+  padding: .35em .5em;
+  font-size: 1em;
+  color: $input-text-color;
+  border: 1px solid $input-border-color;
+  outline: 0;
+
+  &:focus {
+    @include placeholder {
+      color: darken($input-placeholder-color, 15%);
+    }
+  }
+}
+
+.us-form-textarea--blocked {
+  width: 100%;
+}
+
+.us-form-textarea:disabled,
+.us-form-textarea--disabled {
+  @include input-disabled;
+}

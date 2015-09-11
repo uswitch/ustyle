@@ -11,7 +11,7 @@
         </script>
         <div id="simplicity_chart" style="width: 100%; height: 500px;" class='us-container' ></div>
         <div id="size_chart" style="width: 100%; height: 500px;" class='us-container'></div>
-        <h2>Breakdown of stats by ustyle release</h2>
+        <h2>Breakdown of stats by uStyle release</h2>
         {{#each page.content.report}}
 
         <div class="report--entry">

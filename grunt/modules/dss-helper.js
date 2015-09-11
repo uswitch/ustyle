@@ -9,10 +9,10 @@ module.exports = {
 
     /**
      * Register DSS parsers
-     * 
+     *
      * @param {object} parsers - An object containing the declared parsers to register
      */
-    
+
     addParsers: function(parsers){
       for(var key in parsers){
         dss.parser(key, parsers[key]);
@@ -25,7 +25,7 @@ module.exports = {
      * @param {string} escaped markup - The file to extract the variable values from
      * @return {string} Escaped string without ${modifiers}
      */
-    
+
     addStateToExample: function(markup, state){
       return markup.replace(/{\$modifiers}/g, state);
     },
@@ -102,7 +102,7 @@ module.exports = {
      * @param {number} i - line number
      * @param {string} line - Line matching parser
      * @param {string} block - Entire block of text matching
-     * @return {string} Javascript code snipper
+     * @return {string} JavaScript code snipper
      */
     javascriptParser: function(i, line, block){
       var nextParserIndex = block.indexOf("@", i+1),

@@ -1,40 +1,43 @@
 // @page Pattern Library/Forms
-// @name Form validation
+// @name Validation messages
 //
 // @description
-//   Validation message and input styling provides a consistent look and feel to uStyle forms.
+//   Used to provide more detailed feedback about the data users have entered into forms.
 //
-// @state .us-validation--bordered - use this for any singular field validation or validation on backgrounds
+//   #### Best practices
+//   * For inputs that have a label above them, place the validation message between the input and the label.
+//   * Use success validation messages only when it makes sense to contextually. For example, they can help to reassure users about the data they entered when multiple criteria need to be satisfied, e.g. password fields.
+//
+// @state .us-validation--error - Error styling for incorrect data on forms
 // @state .us-validation--success - Success styling for correct forms
-// @state .us-validation--error - Error styling (default) for incorrect data on forms
 //
 // @markup
-//   <div class="us-validation__input {$modifiers}">
+//   <div class="us-field">
+//     <label>Email</label>
+//
+//     <div class="us-validation {$modifiers}">
+//       <div class="us-validation__icon"></div>
+//       <div class="us-validation__message">Validation message here</div>
+//     </div>
+//
 //     <input type="email" class="us-form-input" name="email" />
 //   </div>
-//   
-//   <div class="us-validation {$modifiers}">
-//     <div class="us-validation__icon"></div>
-//     <div class="us-validation__message">Validation message here</div>
-//   </div>
 
-$message-padding-vertical: .35em;
-$message-padding-horizontal: .5em;
-$message-padding-horizontal--bordered: 1em;
-$message-min-height: 2.4em;
-$message-triangle-size: 10px;
+$message-padding-vertical: .35em !default;
+$message-padding-horizontal: .5em !default;
+$message-min-height: 2.4em !default;
 
-$icon-bg-size: 26px;
-$icon-input-bg-size: 14px;
-$icon-text-color: #fff;
+$icon-size: 18px !default;
+$icon-bg-size: 26px !default;
+$icon-text-color: #fff !default;
 
-$error-color: $c-red;
-$error-icon: "!";
+$error-color: $c-red !default;
+$error-icon: "!" !default;
 
-$success-color: $c-green;
-$success-icon: "\2713";
+$success-color: $c-green !default;
+$success-icon: "\2713" !default;
 
-@mixin validation-style($color: $error-color, $icon: $error-icon) {
+@mixin validation-style($color, $icon) {
   .us-validation__message {
     color: $color;
     border-color: $color;
@@ -48,25 +51,13 @@ $success-icon: "\2713";
       border-right-color: #fff;
     }
   }
-  
+
   .us-validation__icon {
     background-color: $color;
 
     &:before {
       content: $icon;
     }
-  }
-}
-
-@mixin validation-input-style($color, $icon) {
-  .us-form-input,
-  .us-form-input:hover {
-    border-color: $color;
-  }
-
-  &:after {
-    background-color: $color;
-    content: $icon;
   }
 }
 
@@ -81,17 +72,16 @@ $success-icon: "\2713";
 .us-validation {
   position: relative;
   display: block;
-  padding: .25em 0 .25em $icon-bg-size + 5;
+  padding: .25em 0 .25em ($icon-bg-size + 5);
+}
 
-  &,
-  &.us-validation--error,
-  &.us-validation--bordered {
-    @include validation-style;
-  }
+.us-validation,
+.us-validation--error {
+  @include validation-style($error-color, $error-icon);
+}
 
-  &.us-validation--success {
-    @include validation-style($success-color, $success-icon);
-  }
+.us-validation--success {
+  @include validation-style($success-color, $success-icon);
 }
 
 .us-validation__message {
@@ -101,32 +91,6 @@ $success-icon: "\2713";
   padding: $message-padding-vertical $message-padding-horizontal;
   margin: 0;
   line-height: 1.5;
-
-  .us-validation--bordered & {
-    padding: $message-padding-vertical $message-padding-horizontal--bordered;
-    margin: 0 0 0 $message-triangle-size;
-    background-color: #fff;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 3px;
-
-    &:before,
-    &:after {
-      position: absolute;
-      top: 8px;
-      left: -$message-triangle-size;
-      border-top-color: transparent !important;
-      border-bottom-color: transparent !important;
-      border-style: solid;
-      border-width: $message-triangle-size;
-      border-left-width: 0;
-      content: " ";
-    }
-
-    &:after {
-      left: -$message-triangle-size + 1;
-    }
-  }
 }
 
 .us-validation__icon {
@@ -135,30 +99,6 @@ $success-icon: "\2713";
   left: 0;
   width: $icon-bg-size;
   height: $icon-bg-size;
-  font-size: ceil($icon-bg-size * .8);
+  font-size: $icon-size;
   line-height: $icon-bg-size;
-}
-
-.us-validation__input {
-  position: relative;
-  display: inline-block;
-
-  &:after {
-    @extend %validation-icon;
-    top: -$icon-input-bg-size / 2;
-    right: -$icon-input-bg-size / 2;
-    width: $icon-input-bg-size;
-    height: $icon-input-bg-size;
-    font-size: ceil($icon-input-bg-size * .8);
-    line-height: $icon-input-bg-size;
-  }
-
-  &,
-  &.us-validation--error {
-    @include validation-input-style($error-color, $error-icon);
-  }
-  
-  &.us-validation--success {
-    @include validation-input-style($success-color, $success-icon);
-  }
 }

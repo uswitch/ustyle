@@ -15,11 +15,11 @@ template: home.tpl
     <div class="us-grid-row">
       <div class="us-col-md-6">
         <h3>Design guidelines</h3>
-        <p>ustyle includes documentation and guidelines relating to our core design principles. This is our attempt at having one place to document everything that happens within our brand, UX and front-end development.</p>
+        <p>uStyle includes documentation and guidelines relating to our core design principles. This is our attempt at having one place to document everything that happens within our brand, UX and front-end development.</p>
       </div>
       <div class="us-col-md-6">
         <h3>Automated development</h3>
-        <p>Ustyle is a gem, a bower package, a npm package and static assets. This allows our team setup to choose how they wish to implement the core front-end of uSwitch. We've tried to be as accessible as possible.</p>
+        <p>uStyle is a gem, a bower package, a npm package and static assets. This allows our team setup to choose how they wish to implement the core front-end of uSwitch. We've tried to be as accessible as possible.</p>
       </div>
     </div>
   </div>
@@ -29,12 +29,12 @@ template: home.tpl
     <div class="us-grid-row">
       <div class="us-col-md-6">
         <h3>Pattern library</h3>
-        <p>At the core, ustyle is a pattern library of components and elements that make up the design and feel of uSwitch. All these components are documented in the <strong>code</strong> section.</p>
+        <p>At the core, uStyle is a pattern library of components and elements that make up the design and feel of uSwitch. All these components are documented in the <strong>code</strong> section.</p>
       </div>
       <div class="us-col-md-6">
         <h3>Designer + developer happiness</h3>
-        <p>Solving the problem for a company that has lots of small teams working independently was very important to us. Ustyle allows our designers and developers to focus on the things that matter, whilst making their lives easier when prototyping.</p>
+        <p>Solving the problem for a company that has lots of small teams working independently was very important to us. uStyle allows our designers and developers to focus on the things that matter, whilst making their lives easier when prototyping.</p>
       </div>
     </div>
-  </div>  
+  </div>
 </div>

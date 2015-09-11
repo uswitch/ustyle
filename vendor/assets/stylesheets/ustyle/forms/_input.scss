@@ -1,21 +1,33 @@
 // @page Pattern Library/Forms
 // @name Inputs
-// 
-// @description
-//   Our standard input styling across the website. This is specifically for type text and textarea.
 //
-// @state .large - Larger input style
+// @description
+//   Our standard input styling across the website. This is specifically for text, email, password, search etc. type inputs.
+//
+//   #### Best practices
+//   * Specifying an appropriate [type attribute](https://developer.mozilla.org/en/docs/Web/HTML/Element/Input#attr-type) (e.g. type="tel" for telephone number fields) will not only control what input is displayed, but also helps mobile devices select a keyboard layout suitable for entering that type of data.
+//   * Where appropriate use the [autocomplete attribute](https://developer.mozilla.org/en/docs/Web/HTML/Element/Input#attr-autocomplete) to make it easier for the browser to fill in fields on the users behalf, saving them time on lengthy forms.
+//
+// @state .us-form-input--large - Larger input style
+// @state .us-form-input--blocked - Fluid input style
+// @state .us-form-input--error - Visual feedback for when the input has an error
+// @state .us-form-input--success - Visual feedback for when success needs to be communicated to the user
+// @state .us-form-input--disabled - Inactive state for form inputs that can't be interacted with
 //
 // @markup
-//   <input class='us-form-input {$modifiers}' type='text'>
+//   <input class="us-form-input {$modifiers}" type="text" placeholder="Placeholder">
 
 $input-hover-color: $c-typecyan !default;
+$input-error-color: $c-red !default;
+$input-success-color: $c-green !default;
 $input-text-color: $c-typegrey !default;
 $input-border-color: $c-inputgrey !default;
+$input-placeholder-color: $c-inputgrey !default;
 
 .us-form-input {
   @extend %base-form-element;
   @extend %input-background--normalise;
+  @include input-style($input-hover-color);
   height: $form-element-base-height;
   padding: .35em .5em;
   font-size: 1em;
@@ -23,33 +35,15 @@ $input-border-color: $c-inputgrey !default;
   border: 1px solid $input-border-color;
   outline: 0;
   box-shadow: none;
-  transition: border-color 200ms, box-shadow 200ms;
 
-  &:hover {
-    border-color: $input-hover-color;
+  @include placeholder {
+    color: $input-placeholder-color;
   }
 
   &:focus {
-    border-color: $input-hover-color;
-    box-shadow: 0 0 3px $input-hover-color;
-
-    &::-webkit-input-placeholder,
-    &:-moz-placeholder,
-    &::-moz-placeholder,
-    &:-ms-input-placeholder {
-      color: $input-border-color;
+    @include placeholder {
+      color: darken($input-placeholder-color, 15%);
     }
-  }
-
-  &:disabled {
-    background-color: #fff;
-    border-color: lighten($input-border-color, 15%);
-  }
-
-  &.large {
-    height: 48px;
-    padding: .55em .5em;
-    font-size: 1.2em;
   }
 
   .ie8 & {
@@ -57,18 +51,28 @@ $input-border-color: $c-inputgrey !default;
   }
 }
 
-.us-form-input::-webkit-input-placeholder {
-  color: $c-bordergrey;
+.us-form-input.large,
+.us-form-input--large {
+  height: 48px;
+  padding: .55em .5em;
+  font-size: 1.2em;
 }
 
-.us-form-input:-moz-placeholder {
-  color: $c-bordergrey;
+.us-form-input--blocked {
+  width: 100%;
 }
 
-.us-form-input::-moz-placeholder {
-  color: $c-bordergrey;
+.us-form-input--error {
+  @include input-style($input-error-color);
+  border-color: $input-error-color;
 }
 
-.us-form-input:-ms-input-placeholder {
-  color: $c-bordergrey;
+.us-form-input--success {
+  @include input-style($input-success-color);
+  border-color: $input-success-color;
+}
+
+.us-form-input:disabled,
+.us-form-input--disabled {
+  @include input-disabled;
 }

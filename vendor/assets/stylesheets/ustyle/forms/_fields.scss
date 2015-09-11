@@ -1,24 +1,25 @@
 // @page Pattern Library/Forms
 // @name Fields
-// 
+//
 // @description
 //   This is the basic form field, `.us-field` wrapper for any single input or select. It sets a few layout options by default (margin) and styles any labels within. You can create a fake label style with `.us-faux-label`
 //
-// @state .us-field-required - Any required form field has this class to show an asterisk beside the label
-// @state .us-field-blocked - Blocked label styling
-// @state .us-field-inline - Inline label styling
-// 
+//   #### Best practices
+//   * For text inputs that are optional, add "(optional)" to the `placeholder` attribute for the input. Not highlighting required fields makes the form look less intimidating.
+//
+// @state .us-field--blocked - Blocked label styling
+// @state .us-field--inline - Inline label styling
+//
 // @markup
 //   <div class="us-field {$modifiers}">
-//     <label for='name'>Name</label>
-//     <input class='us-form-input' id='name' name='name' placeholder='Please enter your name'>
+//     <label for="name">Name</label>
+//     <input class="us-form-input" id="name" name="name" placeholder="Please enter your name">
 //   </div>
 
 $default-label-color: $c-typegrey !default;
 $default-label-size: 18px !default;
 $default-label-width: em(120px, $default-label-size) !default;
 $default-label-margin: .25em !default;
-$required-label-color: $c-red !default;
 $label-inline-breakpoint: tablet !default;
 
 %base-block-label {
@@ -33,53 +34,22 @@ $label-inline-breakpoint: tablet !default;
   > label,
   > .us-faux-label {
     @include heading-font-secondary;
+    margin-right: 1em;
     font-size: em($default-label-size);
     color: $default-label-color;
   }
 }
 
-.us-field-blocked {
+.us-field-blocked,
+.us-field--blocked {
   > label,
   > .us-faux-label {
     @extend %base-block-label;
   }
 }
 
-.us-field-required {
-  > label {
-    &:after {
-      display: inline-block;
-      margin-left: .25em;
-      font-size: 1.1em;
-      color: $required-label-color;
-      content: "*";
-    }
-  }
-}
-
-// The toggle field is for radios and checkboxes. It sits within the .us-field to allow
-// styling for labels of radio/checboxes
-
-.us-field-toggle {
-  label {
-    @include normal-font;
-    padding: .35em .5em;
-    font-weight: normal;
-    line-height: 1.5em;
-    cursor: pointer;
-    border: 1px solid transparent;
-    border-radius: 3px;
-    transition: border 333ms;
-
-    &:hover {
-      border-color: $c-bordergrey;
-    }
-  }
-}
-
 // This is an inline field, for quick, easy to read forms
-
-.us-field-inline {
+.us-field--inline {
   > label,
   > .us-faux-label {
     @extend %base-block-label;
@@ -89,5 +59,17 @@ $label-inline-breakpoint: tablet !default;
       min-width: $default-label-width;
       vertical-align: middle;
     }
+  }
+}
+
+// The toggle field is for radios and checkboxes. It sits within the .us-field to allow
+// styling for labels of radio/checboxes
+.us-field-toggle {
+  label {
+    @include normal-font;
+    padding: .35em .5em;
+    font-weight: normal;
+    line-height: 1.5em;
+    cursor: pointer;
   }
 }
