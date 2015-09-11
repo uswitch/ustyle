@@ -47,6 +47,17 @@ $select-hover-color: $c-typecyan !default;
       border-top-color: $select-hover-color;
     }
   }
+
+  .ie8 &,
+  .ie9 & {
+    .us-form-select {
+      padding: $select-base-padding;
+    }
+
+    &:after {
+      display: none;
+    }
+  }
 }
 
 .us-form-select-wrap--multiple {
@@ -72,14 +83,12 @@ $select-hover-color: $c-typecyan !default;
   @extend %base-form-element;
   position: relative;
   width: 100%;
-  height: $select-base-height;
   padding: $select-base-padding;
   padding-right: 40px;
   cursor: pointer;
-  background-color: #fff;
+  background: #fff;
   border: 1px solid $select-border-color;
   outline: 0;
-  -moz-appearance: none;
 
   &:hover,
   &:focus {
@@ -97,10 +106,6 @@ $select-hover-color: $c-typecyan !default;
 
   &::-ms-expand {
     display: none;
-  }
-
-  .ie8 & {
-    height: auto;
   }
 }
 
