@@ -11,6 +11,6 @@ class window.RadioToggle
 
   addEventListeners: ->
     @options.$target.on "change", "input:radio", (e) ->
-      $("input[name=#{this.name}]").removeClass("checked")
+      $("input[name='#{this.name}']").removeClass("checked")
       $(this).addClass("checked") if this.checked
       e.stopPropagation()
