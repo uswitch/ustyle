@@ -45,6 +45,7 @@
     "CONTRIBUTING.md",
     "Gemfile*",
     "Gruntfile.js",
+    "JAVASCRIPT_STANDARDS.md",
     "package.json",
     "Rakefile",
     "README.md",
