@@ -41,6 +41,7 @@ window.ClassToggler = (function() {
     if (typeof (base = this.options).onShow === "function") {
       base.onShow($togglableElement, e);
     }
+
     return $togglableElement.addClass(this.options.activeClass);
   };
 
@@ -49,6 +50,7 @@ window.ClassToggler = (function() {
     if (typeof (base = this.options).onHide === "function") {
       base.onHide($togglableElement, e);
     }
+
     return $togglableElement.removeClass(this.options.activeClass);
   };
 
