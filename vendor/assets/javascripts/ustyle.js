@@ -4,4 +4,4 @@
 //= require ustyle/tabs
 //= require ustyle/utils
 //= require ustyle/login/password-helper
-//= require ustyle/login/login 
+//= require ustyle/login/login

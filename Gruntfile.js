@@ -30,10 +30,10 @@ module.exports = function(grunt) {
       },
       build: {
         files: ['vendor/assets/**/*', 'styleguide/**/*', 'dist/ustyle.json'],
-        tasks: ['copy', 'sass', 'coffee', 'sassdoc', 'postcss', 'browserSync-inject', 'styleguide', 'builder']
+        tasks: ['copy', 'sass', 'sassdoc', 'postcss', 'browserSync-inject', 'styleguide', 'builder']
       },
       scripts: {
-        files: ['styleguide/**/*.js', 'vendor/**/*.coffee'],
+        files: ['styleguide/**/*.js', 'vendor/**/*.js'],
         tasks: ['concat']
       }
     },
@@ -87,23 +87,20 @@ module.exports = function(grunt) {
         }
       }
     },
-    coffee: {
-      compile: {
-        files: {
-          'dist/ustyle.js': [
-            'vendor/assets/javascripts/ustyle/utils.js.coffee',
-            'vendor/assets/javascripts/ustyle/anchor.js.coffee',
-            'vendor/assets/javascripts/ustyle/backdrop.js.coffee',
-            'vendor/assets/javascripts/ustyle/overlay.js.coffee',
-            'vendor/assets/javascripts/ustyle/tabs.js.coffee',
-            'vendor/assets/javascripts/ustyle/classtoggler.js.coffee',
-            'vendor/assets/javascripts/ustyle/radioToggle.js.coffee'
-          ]
-        }
-      },
-    },
     concat: {
-      dist: {
+      ustyle: {
+        src: [
+        'vendor/assets/javascripts/ustyle/utils.js',
+        'vendor/assets/javascripts/ustyle/anchor.js',
+        'vendor/assets/javascripts/ustyle/backdrop.js',
+        'vendor/assets/javascripts/ustyle/overlay.js',
+        'vendor/assets/javascripts/ustyle/tabs.js',
+        'vendor/assets/javascripts/ustyle/classtoggler.js',
+        'vendor/assets/javascripts/ustyle/radioToggle.js'
+        ],
+        dest: 'dist/ustyle.js'
+      },
+      app: {
         src: ['styleguide/assets/javascripts/vendor/*.js', 'dist/ustyle.js', 'styleguide/assets/javascripts/modules/*.js', 'styleguide/assets/javascripts/*.js'],
         dest: 'docs/js/app.js'
       }
@@ -138,9 +135,6 @@ module.exports = function(grunt) {
         ]
       }
     },
-    coffeelint: {
-      app: ['vendor/assets/**/*.coffee']
-    },
     jscs: {
       src: "vendor/assets/javascripts/ustyle/*.js",
       options: {
@@ -174,10 +168,10 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('lint', ['scsslint', 'coffeelint', 'jscs']);
+  grunt.registerTask('lint', ['scsslint', 'jscs']);
   grunt.registerTask('icons', ['newer:svgmin', 'svg2png']);
 
-  grunt.registerTask('build', ['sass', 'sassdoc', 'copy', 'coffee', 'concat', 'lint', 'postcss', 'styleguide', 'builder']);
+  grunt.registerTask('build', ['sass', 'sassdoc', 'copy', 'concat:ustyle', 'concat:app', 'lint', 'postcss', 'styleguide', 'builder']);
 
   grunt.registerTask('publish', ['env:build', 'build', 'buildcontrol:pages']);
 
