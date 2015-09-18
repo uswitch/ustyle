@@ -60,6 +60,7 @@ window.Anchor = function(options) {
 
         };
       })(this);
+
       hide = (function(_this) {
         return function(event) {
           var ref1;
@@ -84,6 +85,7 @@ window.Anchor = function(options) {
           return _this.hide(anchor);
         };
       })(this);
+
       this._on(this.target, this.options.openEvent, toggle);
       return this._on(document, this.options.openEvent, hide);
     };
@@ -118,7 +120,7 @@ window.Anchor = function(options) {
           return _this.setPosition();
         };
       })(this);
-      
+
       if (this.options.isAjax) {
         return (ref1 = this.options.onOpen) != null ? ref1.call().done(function() {
           return fire();
@@ -168,13 +170,13 @@ window.Anchor = function(options) {
       anchor = document.createElement("div");
       addClass(anchor, this.classPrefix);
       anchorCss = anchor.style;
-      anchorCss.position = 'absolute';
-      anchorCss.zIndex = '9999';
-      anchorCss.top = '0px';
-      anchorCss.left = '0px';
+      anchorCss.position = "absolute";
+      anchorCss.zIndex = "9999";
+      anchorCss.top = "0px";
+      anchorCss.left = "0px";
       anchor.appendChild(content);
       addClass(document.documentElement, this.classPrefix + "--ready");
-      
+
       return {
         anchor: anchor,
         arrow: arrow,
@@ -192,7 +194,7 @@ window.Anchor = function(options) {
 
       leftOffset = getXBounds(this.target, this.anchor, this.arrow);
       targetBounds = this.target.getBoundingClientRect();
-      
+
       if (documentYBoundary(targetBounds, this.anchor)) {
         addClass(this.anchor, this.classPrefix + "--bottom");
         removeClass(this.anchor, this.classPrefix + "--top");
@@ -208,7 +210,7 @@ window.Anchor = function(options) {
       style = "translateX(" + (Math.round(leftOffset)) + "px) ";
       style += "translateY(" + (Math.round(bottomOffset)) + "px)";
 
-      if (transformKey !== 'msTransform') {
+      if (transformKey !== "msTransform") {
         style += " translateZ(0)";
       }
 
@@ -226,7 +228,7 @@ window.Anchor = function(options) {
       targetBounds = target.getBoundingClientRect();
       centerPoint = targetBounds.left + target.offsetWidth / 2;
       calculatedWidth = targetBounds.left + (anchor.offsetWidth / 2) + (target.offsetWidth / 2);
-      
+
       if (document.body.offsetWidth < calculatedWidth) {
         return document.body.offsetWidth - anchor.offsetWidth;
       } else if (centerPoint - anchor.offsetWidth / 2 < 0) {
@@ -240,7 +242,7 @@ window.Anchor = function(options) {
     getYBounds = function(target, anchor, arrow) {
       var targetBounds;
       targetBounds = target.getBoundingClientRect();
-      
+
       if (documentYBoundary(targetBounds, anchor)) {
         return targetBounds.top - (anchor.offsetHeight - window.pageYOffset) + arrow.offsetHeight - target.offsetHeight;
       } else {
@@ -263,7 +265,7 @@ window.Anchor = function(options) {
       var len;
       var ref1;
       var results;
-      ref1 = ['resize', 'scroll', 'touchmove'];
+      ref1 = ["resize", "scroll", "touchmove"];
       results = [];
 
       for (i = 0, len = ref1.length; i < len; i++) {
@@ -275,17 +277,21 @@ window.Anchor = function(options) {
             var now;
             var throttle;
             var timer;
-            if (!_this.isOpen()) {
+
+            if(!_this.isOpen()) {
               return;
             }
+
             now = +(new Date);
             throttle = 16;
             maxWait = throttle * 3;
-            if (!timer) {
+
+            if(!timer) {
               if (now - lastFired > maxWait) {
                 _this.setPosition();
                 lastFired = now;
               }
+
               return timer = setTimeout(function(o) {
                 timer = null;
                 lastFired = +(new Date);

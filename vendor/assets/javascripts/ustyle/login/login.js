@@ -1,8 +1,10 @@
-var addClass, createContext, deleteUndefined, merge, ref, setOptions;
+var ref             = this.Utils;
+var addClass        = ref.addClass;
+var merge           = ref.merge;
+var setOptions      = ref.setOptions;
+var deleteUndefined = ref.deleteUndefined;
 
-ref = this.Utils, addClass = ref.addClass, merge = ref.merge, setOptions = ref.setOptions, deleteUndefined = ref.deleteUndefined;
-
-createContext = function(options) {
+window.Login = function(options) {
   var Login;
   return Login = (function() {
     var passwordHelp;
@@ -19,27 +21,34 @@ createContext = function(options) {
       if (this.options.target === null) {
         return;
       }
+
       if (!(this.options.target.length === void 0 || this.options.target.length)) {
         return;
       }
+
       this.target = $(this.options.target);
       this.formData = {
-        source: this.target.data('source'),
-        origin: this.target.data('origin') || this.options.origin,
-        email: this.target.data('email'),
-        opt_in: this.target.data('opt-in')
+        source: this.target.data("source"),
+        origin: this.target.data("origin") || this.options.origin,
+        email: this.target.data("email"),
+        opt_in: this.target.data("opt-in")
       };
+
       deleteUndefined(this.formData);
-      this.title = this.target.data('title') || this.options.title;
-      this.description = this.target.data('description');
-      container = document.createElement('div');
+      this.title = this.target.data("title") || this.options.title;
+      this.description = this.target.data("description");
+      container = document.createElement("div");
       addClass(container, "us-anchor__target");
       addClass(container, "us-login__target");
       this.setupAnchors(container);
     }
 
     Login.prototype.setupAnchors = function(container) {
-      var i, len, ref1, results, target;
+      var i;
+      var len;
+      var ref1;
+      var results;
+      var target;
       if (this.options.target.length >= 1) {
         ref1 = this.options.target;
         results = [];
@@ -76,10 +85,10 @@ createContext = function(options) {
         })(this),
         onClose: (function(_this) {
           return function() {
-            var ref1;
-            if ((ref1 = _this.options.onClose) != null) {
+            if (_this.options.onClose != null) {
               ref1.call(target);
             }
+
             return _this.resetForm();
           };
         })(this)
@@ -95,8 +104,7 @@ createContext = function(options) {
     };
 
     Login.prototype.setState = function() {
-      var activeState;
-      activeState = this.loginForm.filter(".us-login__form--" + this.options.state);
+      var activeState = this.loginForm.filter(".us-login__form--" + this.options.state);
       this.loginForm.removeClass("login-state--active");
       activeState.addClass("login-state--active");
       return this.toggle();
@@ -104,9 +112,8 @@ createContext = function(options) {
 
     Login.prototype.toggle = function() {
       return $(document).on("click", ".login-state__toggle", function(e) {
-        var $currentState, $nextState;
-        $currentState = $(this).parents(".us-login__form");
-        $nextState = $currentState.next().length ? $currentState.next() : $currentState.prev();
+        var $currentState = $(this).parents(".us-login__form");
+        var $nextState = $currentState.next().length ? $currentState.next() : $currentState.prev();
         $nextState.addClass("login-state--active");
         $currentState.removeClass("login-state--active");
         return e.preventDefault();
@@ -114,17 +121,23 @@ createContext = function(options) {
     };
 
     Login.prototype.setContent = function() {
-      var descriptionElm, loginTitle, selector;
+      var descriptionElm;
+      var loginTitle;
+      var selector;
+
       if (!this.title) {
         return;
       }
+
       selector = "<h2 class='us-login__title ";
       selector += this.options.removeableClass + "'>" + this.title + "</h2>";
       loginTitle = $(selector);
       this.loginContainer.prepend(loginTitle);
+
       if (!this.description) {
         return;
       }
+
       descriptionElm = "<p class='us-login__description ";
       descriptionElm += this.options.removeableClass + "'>" + this.description + "</p>";
       return loginTitle.after(descriptionElm);
@@ -146,5 +159,3 @@ createContext = function(options) {
 
   })();
 };
-
-window.Login = createContext();
