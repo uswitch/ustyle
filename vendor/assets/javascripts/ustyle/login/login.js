@@ -52,10 +52,12 @@ window.Login = function(options) {
       if (this.options.target.length >= 1) {
         ref1 = this.options.target;
         results = [];
+
         for (i = 0, len = ref1.length; i < len; i++) {
           target = ref1[i];
           results.push(this.anchorInstance(target, container));
         }
+
         return results;
       } else {
         return this.anchorInstance(this.options.target, container);
@@ -71,9 +73,11 @@ window.Login = function(options) {
           return function() {
             return _this.fetch().done(function(html) {
               var ref1;
+
               if (!$(container).find(".us-login__form").length) {
                 $(container).append(html);
               }
+
               _this.loginForm = $(container).find(".us-login__form");
               _this.loginContainer = $(container).find(".us-login");
               _this.setState();
@@ -99,7 +103,7 @@ window.Login = function(options) {
       var jqxhr;
       return jqxhr = $.ajax({
         url: (window.uSwitch.Accounts.popupUrl()) + "?" + ($.param(this.formData)),
-        dataType: 'jsonp'
+        dataType: "jsonp"
       });
     };
 
