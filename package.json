@@ -1,25 +1,39 @@
 {
   "name": "ustyle",
   "version": "1.1.3",
-  "description": "Styleguide gem for uSwitch",
-  "main": "dist/ustyle-latest.css",
-  "files": [
-    "LICENSE.txt",
-    "dist/"
+  "description": "A living styleguide and pattern library by uSwitch.",
+  "keywords": [
+    "css",
+    "sass",
+    "scss",
+    "js",
+    "javascript",
+    "front-end",
+    "styleguide",
+    "uswitch",
+    "ustyle"
   ],
-  "scripts": {
-    "test": "grunt test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/uswitch/ustyle.git"
-  },
-  "author": "uSwitch Limited.",
-  "license": "Apache-2.0",
+  "homepage": "http://ustyle.guide",
   "bugs": {
     "url": "https://github.com/uswitch/ustyle/issues"
   },
-  "homepage": "https://ustyle.guide",
+  "license": "Apache-2.0",
+  "author": "uSwitch Limited",
+  "contributors": [
+    "Joe Green <joe.green@uswitch.com>",
+    "David Annez <david.annez@uswitch.com>",
+    "Thomas Britton <thomas.britton@uswitch.com>",
+    "Ricardo Cerqueira <ricardo.cerqueira@uswitch.com>",
+    "Ivo Reis <ivo.reis@uswitch.com>"
+  ],
+  "main": "dist/ustyle-latest.css",
+  "files": [
+    "dist/"
+  ],
+  "repository": "uswitch/ustyle",
+  "scripts": {
+    "test": "grunt test"
+  },
   "devDependencies": {
     "async": "^0.9.0",
     "autoprefixer-core": "^4.0.1",
