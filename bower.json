@@ -1,11 +1,26 @@
 {
   "name": "ustyle",
+  "description": "A living styleguide and pattern library by uSwitch.",
   "main": [
     "dist/ustyle-latest.css",
     "dist/ustyle-icons.css",
     "dist/ustyle.js"
   ],
-  "homepage": "http://ustyle.guide",
+  "dependencies": {
+    "jquery": ">= 1.9.1"
+  },
+  "moduleType": "globals",
+  "keywords": [
+    "css",
+    "sass",
+    "scss",
+    "js",
+    "javascript",
+    "front-end",
+    "styleguide",
+    "uswitch",
+    "ustyle"
+  ],
   "authors": [
     "uSwitch Limited <developers@uswitch.com>",
     "Joe Green <joe.green@uswitch.com>",
@@ -14,32 +29,25 @@
     "Ricardo Cerqueira <ricardo.cerqueira@uswitch.com>",
     "Ivo Reis <ivo.reis@uswitch.com>"
   ],
-  "description": "A living styleguide and pattern library by uSwitch.",
-  "keywords": [
-    "css",
-    "sass",
-    "scss",
-    "js",
-    "javascript",
-    "front-end",
-    "uswitch",
-    "ustyle"
-  ],
+  "homepage": "http://ustyle.guide",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/uswitch/ustyle.git"
+  },
   "license": "Apache-2.0",
-  "private": true,
   "ignore": [
+    "/*.",
+    "config",
     "docs",
     "grunt",
-    "node_modules",
     "styleguide",
     "tasks",
     "CONTRIBUTING.md",
-    "Gemfile.lock",
+    "Gemfile*",
     "Gruntfile.js",
+    "package.json",
     "Rakefile",
     "README.md",
-  ],
-  "dependencies": {
-    "jquery": ">= 1.9.1"
-  }
+    "ustyle.gemspec"
+  ]
 }
