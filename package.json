@@ -56,6 +56,8 @@
     "stylestats": "^4.2.2",
     "svg-to-png": "^2.0.0",
     "svgo": "^0.5.0",
-    "underscore.string": "^3.0.2"
+    "underscore.string": "^3.0.2",
+    "grunt-jscs": "~2.0.0",
+    "jscs": "~2.1.0"
   }
 }
