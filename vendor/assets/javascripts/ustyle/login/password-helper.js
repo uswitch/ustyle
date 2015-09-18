@@ -3,18 +3,18 @@ var slice = [].slice;
 (function($, window, document) {
   var PasswordHelper;
   return PasswordHelper = (function() {
-    var createHiddenPassword, createWrapper, regMediumExp;
-
-    regMediumExp = '^(?=.*\\d)(?=.*[a-z])(?!.*\\s).{8,}$|' + '^(?=.*[a-z])(?=.*[A-Z])(?!.*\\s).{8,}$';
+    var createHiddenPassword;
+    var createWrapper;
+    var regMediumExp = "^(?=.*\\d)(?=.*[a-z])(?!.*\\s).{8,}$|" + "^(?=.*[a-z])(?=.*[A-Z])(?!.*\\s).{8,}$";
 
     PasswordHelper.prototype.defaults = {
-      classPrefix: 'pass-helper',
-      veryWeakText: 'very weak',
+      classPrefix: "pass-helper",
+      veryWeakText: "very weak",
       minLength: 6,
       tests: {
-        weak: new RegExp('^[a-zA-Z0-9]{6,}$'),
+        weak: new RegExp("^[a-zA-Z0-9]{6,}$"),
         medium: new RegExp(regMediumExp),
-        strong: new RegExp('^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\\s).{8,}$')
+        strong: new RegExp("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\\s).{8,}$")
       },
       showHide: true,
       showText: "Show",
@@ -66,7 +66,7 @@ var slice = [].slice;
         };
       })(this);
 
-      return $(document).on('keyup', "." + this.options.classPrefix + "__input", (function(_this) {
+      return $(document).on("keyup", "." + this.options.classPrefix + "__input", (function(_this) {
         return function(e) {
           var passwordValue;
           passwordValue = $(e.target).val();
@@ -91,13 +91,13 @@ var slice = [].slice;
 
           if (!_this.$el.hasClass(showClass)) {
             _this.$el.addClass(showClass);
-            _this.$el.prop('disabled', true).hide();
-            _this.hiddenPassword.prop('disabled', false).val(_this.$el.val()).show().focus();
+            _this.$el.prop("disabled", true).hide();
+            _this.hiddenPassword.prop("disabled", false).val(_this.$el.val()).show().focus();
             return $(e.target).text(_this.options.hideText);
           } else {
             _this.$el.removeClass(showClass);
-            _this.$el.prop('disabled', false).val(_this.hiddenPassword.val()).show().focus();
-            _this.hiddenPassword.prop('disabled', true).hide();
+            _this.$el.prop("disabled", false).val(_this.hiddenPassword.val()).show().focus();
+            _this.hiddenPassword.prop("disabled", true).hide();
             return $(e.target).text(_this.options.showText);
           }
         };
@@ -105,11 +105,11 @@ var slice = [].slice;
     };
 
     createHiddenPassword = function(el, classPrefix) {
-      var expression = "<input style='display: none' class='" + (el.attr('class')) + " ";
+      var expression = "<input style='display: none' class='" + (el.attr("class")) + " ";
       expression += classPrefix + "__input-hidden' type='text' ";
-      expression += "name='" + (el.attr('name')) + "' ";
-      expression += "placeholder='" + (el.attr('placeholder') || "") + "' ";
-      expression += "size='" + (el.attr('size')) + "' value='' disabled='disabled' />";
+      expression += "name='" + (el.attr("name")) + "' ";
+      expression += "placeholder='" + (el.attr("placeholder") || "") + "' ";
+      expression += "size='" + (el.attr("size")) + "' value='' disabled='disabled' />";
       var input = $(expression);
       el.after(input);
       return input;
@@ -117,9 +117,9 @@ var slice = [].slice;
 
     createWrapper = function(el, classPrefix) {
       var wrapperCss = {
-        position: 'relative',
-        height: el.css('height'),
-        display: el.css('display')
+        position: "relative",
+        height: el.css("height"),
+        display: el.css("display")
       };
 
       return el.wrap($("<div />").addClass(classPrefix + "__wrapper").css(wrapperCss));
@@ -127,19 +127,19 @@ var slice = [].slice;
 
     $.fn.extend({
       passwordHelper: function() {
-        var options = arguments[0]
+        var options = arguments[0];
         var args = 2 <= arguments.length ? slice.call(arguments, 1) : [];
         return this.each(function() {
-          var $this, data, helper;
-          $this = $(this);
-          data = $(this).data('passwordHelper');
+          var helper;
+          var $this = $(this);
+          var data = $(this).data("passwordHelper");
 
           if (!data) {
             helper = (data = new PasswordHelper(this, options));
-            $this.data('passwordHelper', helper);
+            $this.data("passwordHelper", helper);
           }
 
-          if (typeof options === 'string') {
+          if (typeof options === "string") {
             return data[options].apply(data, args);
           }
         });
