@@ -273,20 +273,17 @@ window.Anchor = function(options) {
         results.push(window.addEventListener(event, (function(_this) {
           return function(event) {
             var lastFired;
-            var maxWait;
-            var now;
-            var throttle;
             var timer;
 
-            if(!_this.isOpen()) {
+            if (!_this.isOpen()) {
               return;
             }
 
-            now = +(new Date);
-            throttle = 16;
-            maxWait = throttle * 3;
+            var now = +(new Date);
+            var throttle = 16;
+            var maxWait = throttle * 3;
 
-            if(!timer) {
+            if (!timer) {
               if (now - lastFired > maxWait) {
                 _this.setPosition();
                 lastFired = now;
