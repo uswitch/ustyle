@@ -1,3 +1,11 @@
+var addClass;
+var createContext;
+var hasClass;
+var merge;
+var ref;
+var removeClass;
+var setOptions;
+var transformKey;
 var indexOf = [].indexOf || function(item) {
   for (var i = 0, l = this.length; i < l; i++) {
     if (i in this && this[i] === item) {
@@ -6,16 +14,11 @@ var indexOf = [].indexOf || function(item) {
   } return -1;
 };
 
-var ref           = this.Utils;
-var addClass      = ref.addClass;
-var removeClass   = ref.removeClass;
-var hasClass      = ref.hasClass;
-var merge         = ref.merge;
-var setOptions    = ref.setOptions;
-var transformKey  = ref.transformKey;
+ref = this.Utils, addClass = ref.addClass, removeClass = ref.removeClass, hasClass = ref.hasClass, merge = ref.merge, setOptions = ref.setOptions, transformKey = ref.transformKey;
 
-window.Anchor = function(options) {
-  var Anchor = (function() {
+createContext = function(options) {
+  var Anchor;
+  return Anchor = (function() {
     var documentYBoundary;
     var getXBounds;
     var getYBounds;
@@ -30,7 +33,6 @@ window.Anchor = function(options) {
     function Anchor(options) {
       var ref1;
       var ref2;
-
       ref1 = this.options = setOptions(options, this.defaults), this.target = ref1.target, this.classPrefix = ref1.classPrefix;
 
       if (this.target === null) {
@@ -57,7 +59,6 @@ window.Anchor = function(options) {
           } else {
             return _this.hide(anchor);
           }
-
         };
       })(this);
 
@@ -87,6 +88,7 @@ window.Anchor = function(options) {
       })(this);
 
       this._on(this.target, this.options.openEvent, toggle);
+
       return this._on(document, this.options.openEvent, hide);
     };
 
@@ -96,6 +98,7 @@ window.Anchor = function(options) {
         event: event,
         handler: handler
       });
+
       return element.addEventListener(event, handler, false);
     };
 
@@ -103,6 +106,7 @@ window.Anchor = function(options) {
       var fire;
       var ref1;
       var ref2;
+
       fire = (function(_this) {
         return function() {
           _this.content.appendChild(_this.options.content);
@@ -112,7 +116,6 @@ window.Anchor = function(options) {
           }
 
           addClass(anchor, _this.classPrefix + "--open");
-
           setTimeout(function() {
             return addClass(anchor, _this.classPrefix + "--after-open");
           });
@@ -129,7 +132,6 @@ window.Anchor = function(options) {
         fire();
         return (ref2 = this.options.onOpen) != null ? ref2.call() : void 0;
       }
-
     };
 
     Anchor.prototype.hide = function(anchor) {
@@ -236,7 +238,6 @@ window.Anchor = function(options) {
       } else {
         return targetBounds.left - (anchor.offsetWidth / 2) + (target.offsetWidth / 2);
       }
-
     };
 
     getYBounds = function(target, anchor, arrow) {
@@ -248,7 +249,6 @@ window.Anchor = function(options) {
       } else {
         return targetBounds.top + arrow.offsetHeight + target.offsetHeight + window.pageYOffset;
       }
-
     };
 
     documentYBoundary = function(target, anchor) {
@@ -265,23 +265,26 @@ window.Anchor = function(options) {
       var len;
       var ref1;
       var results;
+
       ref1 = ["resize", "scroll", "touchmove"];
       results = [];
-
       for (i = 0, len = ref1.length; i < len; i++) {
         event = ref1[i];
         results.push(window.addEventListener(event, (function(_this) {
           return function(event) {
             var lastFired;
+            var maxWait;
+            var now;
+            var throttle;
             var timer;
 
             if (!_this.isOpen()) {
               return;
             }
 
-            var now = +(new Date);
-            var throttle = 16;
-            var maxWait = throttle * 3;
+            now = +(new Date);
+            throttle = 16;
+            maxWait = throttle * 3;
 
             if (!timer) {
               if (now - lastFired > maxWait) {
@@ -302,6 +305,11 @@ window.Anchor = function(options) {
       return results;
     };
 
+    Anchor;
+
     return Anchor;
+
   })();
 };
+
+window.Anchor = createContext();
