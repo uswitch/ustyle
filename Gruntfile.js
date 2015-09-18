@@ -13,7 +13,7 @@ module.exports = function(grunt) {
     },
     version: {
       project: {
-        src: ['package.json', 'bower.json', 'lib/ustyle/version.rb']
+        src: ['package.json', 'lib/ustyle/version.rb']
       }
     },
     postcss: {
