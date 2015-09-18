@@ -87,6 +87,7 @@ window.Login = function(options) {
             });
           };
         })(this),
+
         onClose: (function(_this) {
           return function() {
             if (_this.options.onClose != null) {
