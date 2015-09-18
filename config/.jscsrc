@@ -1,3 +1,5 @@
 {
-	"preset": "airbnb"
+	"preset": "airbnb",
+  "validateQuoteMarks": "\"",
+  "requireTrailingComma": null
 }

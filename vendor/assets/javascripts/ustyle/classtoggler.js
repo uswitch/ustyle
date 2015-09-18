@@ -6,7 +6,7 @@ window.ClassToggler = (function() {
     $target: null,
     activeClass: "active",
     inactiveClass: null,
-    toggleOn: 'click'
+    toggleOn: "click"
   };
 
   function ClassToggler(options) {
