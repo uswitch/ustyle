@@ -31,7 +31,7 @@ window.Login = function(options) {
         source: this.target.data("source"),
         origin: this.target.data("origin") || this.options.origin,
         email: this.target.data("email"),
-        opt_in: this.target.data("opt-in")
+        "opt_in": this.target.data("opt-in")
       };
 
       deleteUndefined(this.formData);
