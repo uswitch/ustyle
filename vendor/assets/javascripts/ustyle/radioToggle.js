@@ -20,10 +20,10 @@ window.RadioToggle = (function() {
       if (this.checked) {
         $(this).addClass("checked");
       }
+
       return e.stopPropagation();
     });
   };
 
   return RadioToggle;
-
 })();
