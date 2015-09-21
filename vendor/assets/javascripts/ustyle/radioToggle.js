@@ -16,7 +16,7 @@ window.RadioToggle = (function() {
 
   RadioToggle.prototype.addEventListeners = function() {
     return this.options.$target.on("change", "input:radio", function(e) {
-      $("input[name=" + this.name + "]").removeClass("checked");
+      $("input[name='" + this.name + "']").removeClass("checked");
       if (this.checked) {
         $(this).addClass("checked");
       }
@@ -26,4 +26,5 @@ window.RadioToggle = (function() {
   };
 
   return RadioToggle;
+
 })();
