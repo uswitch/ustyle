@@ -1,11 +1,12 @@
-var addClass;
 var createContext;
-var hasClass;
-var merge;
-var ref;
-var removeClass;
-var setOptions;
-var transformKey;
+var ref = this.Utils;
+var merge = ref.merge;
+var addClass = ref.addClass;
+var hasClass = ref.hasClass;
+var setOptions = ref.setOptions;
+var removeClass = ref.removeClass;
+var transformKey = ref.transformKey;
+
 var indexOf = [].indexOf || function(item) {
   for (var i = 0, l = this.length; i < l; i++) {
     if (i in this && this[i] === item) {
@@ -13,8 +14,6 @@ var indexOf = [].indexOf || function(item) {
     }
   } return -1;
 };
-
-ref = this.Utils, addClass = ref.addClass, removeClass = ref.removeClass, hasClass = ref.hasClass, merge = ref.merge, setOptions = ref.setOptions, transformKey = ref.transformKey;
 
 createContext = function(options) {
   var Anchor;
@@ -31,9 +30,10 @@ createContext = function(options) {
     };
 
     function Anchor(options) {
-      var ref1;
+      var ref1 = this.options = setOptions(options, this.defaults);
       var ref2;
-      ref1 = this.options = setOptions(options, this.defaults), this.target = ref1.target, this.classPrefix = ref1.classPrefix;
+      this.target = ref1.target;
+      this.classPrefix = ref1.classPrefix;
 
       if (this.target === null) {
         return;
@@ -41,7 +41,10 @@ createContext = function(options) {
 
       this._boundEvents = [];
       this._closeTargets = [];
-      ref2 = this.create(), this.anchor = ref2.anchor, this.arrow = ref2.arrow, this.content = ref2.content;
+      ref2 = this.create(),
+      this.anchor = ref2.anchor,
+      this.arrow = ref2.arrow,
+      this.content = ref2.content;
       this.setEvents(this.anchor);
       this.watchWindow();
     }
@@ -304,8 +307,6 @@ createContext = function(options) {
 
       return results;
     };
-
-    Anchor;
 
     return Anchor;
 
