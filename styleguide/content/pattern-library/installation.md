@@ -6,7 +6,6 @@ uStyle, aptly named, is the styleguide gem for uSwitch. Include it in your Rails
 ## Requirements
 
 - SASS
-- Coffeescript
 - Autoprefixer
 
 ## Sprockets
