@@ -1,5 +1,7 @@
 var createContext;
-var setOptions = this.Utils.setOptions;
+var setOptions;
+
+setOptions = this.Utils.setOptions;
 
 createContext = function(options) {
   var Tabs;
@@ -17,15 +19,17 @@ createContext = function(options) {
     };
 
     function Tabs(options) {
-      var ref = this.options = setOptions(options, this.defaults);
-      var tabContainer = ref.tabContainer;
-      var tabLinks = ref.tabLinks;
+      var ref;
+      var tabContainer;
+      var tabLinks;
+      ref = this.options = setOptions(options, this.defaults), tabContainer = ref.tabContainer, tabLinks = ref.tabLinks;
       this.tabs = $(tabContainer).find(tabLinks);
       this.filter = this.tabs.data("target") ? "data-target" : "href";
       this.init();
       this.tabs.on("click.ustyle.tab", (function(_this) {
         return function(e) {
-          var $target = $(e.currentTarget);
+          var $target;
+          $target = $(e.currentTarget);
           if (_this.isAccordion() && _this.options.collapsible && _this.isActive($target)) {
             _this.collapse($target);
             _this.hashClear();
@@ -41,8 +45,10 @@ createContext = function(options) {
     }
 
     Tabs.prototype.init = function() {
-      var $activeTab = this.activeTab();
-      var $initialHash = this.tabFromHash();
+      var $activeTab;
+      var $initialHash;
+      $initialHash = this.tabFromHash();
+      $activeTab = this.activeTab();
       if ($initialHash.length) {
         return this.navigateTo($initialHash);
       } else if ($activeTab.length) {
@@ -61,17 +67,20 @@ createContext = function(options) {
     };
 
     Tabs.prototype.hashClear = function() {
-      var url = window.location.pathname + window.location.search;
+      var url;
       if (!this.options.changeUrls) {
         return;
       }
 
+      url = window.location.pathname + window.location.search;
       return typeof history.replaceState === "function" ? history.replaceState("", document.title, url) : void 0;
     };
 
     Tabs.prototype.navigateTo = function(target) {
-      var $selected = $(selector);
-      var selector = getSelector(target);
+      var $selected;
+      var selector;
+      selector = getSelector(target);
+      $selected = $(selector);
       this.tabs.removeClass(this.options.activeClass).end();
       this.tabs.filter("[" + this.filter + "='" + selector + "']").addClass(this.options.activeClass);
       $selected.siblings("." + this.options.activeClass).removeClass(this.options.activeClass).end().addClass(this.options.activeClass);
@@ -79,17 +88,19 @@ createContext = function(options) {
     };
 
     Tabs.prototype.collapse = function(target) {
-      var $selected = $(getSelector(target));
+      var $selected;
+      $selected = $(getSelector(target));
       this.tabs.removeClass(this.options.activeClass).end();
       return $selected.removeClass(this.options.activeClass);
     };
 
     Tabs.prototype.scrollToTab = function(target) {
-      var $selected = $(getSelector(target));
+      var $selected;
       if (!(this.isAccordion() && this.options.autoScroll)) {
         return;
       }
 
+      $selected = $(getSelector(target));
       return $("html,body").scrollTop($selected.offset().top);
     };
 
@@ -98,7 +109,8 @@ createContext = function(options) {
     };
 
     Tabs.prototype.tabFromHash = function() {
-      var tabId = location.hash.replace("!", "");
+      var tabId;
+      tabId = location.hash.replace("!", "");
       return this.tabs.filter("[" + this.filter + "='" + tabId + "']");
     };
 
