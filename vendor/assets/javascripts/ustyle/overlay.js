@@ -44,12 +44,10 @@ window.Overlay = (function() {
       return function(e) {
         var i;
         var len;
-        var results;
         var target;
-        var targets;
+        var results = [];
+        var targets = [_this.overlay[0], _this.overlay.find(_this.options.closeButton)[0]];
 
-        targets = [_this.overlay[0], _this.overlay.find(_this.options.closeButton)[0]];
-        results = [];
         for (i = 0, len = targets.length; i < len; i++) {
           target = targets[i];
           if (e.target === target) {

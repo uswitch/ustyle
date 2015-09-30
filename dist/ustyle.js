@@ -1,11 +1,3 @@
-var addClass;
-var deleteUndefined;
-var hasClass;
-var merge;
-var removeClass;
-var requestAnimationFrame;
-var setOptions;
-var transformKey;
 var slice = [].slice;
 var hasProp = {}.hasOwnProperty;
 
@@ -15,27 +7,27 @@ if (this.Utils == null) {
   };
 }
 
-addClass = function(element, name) {
+var addClass = function(element, name) {
   removeClass(element, name);
   return element.className += " " + name + " ";
 };
 
-removeClass = function(element, name) {
+var removeClass = function(element, name) {
   var regExp = new RegExp("(\\s|^)" + name + "(\\s|$)", "gi");
   return element.className = element.className.replace(regExp, "");
 };
 
-hasClass = function(element, name) {
+var hasClass = function(element, name) {
   return new RegExp("(^| )" + name + "( |$)", "gi").test(element.className);
 };
 
-merge = function() {
+var merge = function() {
   var extension;
-  var extensions = 2 <= arguments.length ? slice.call(arguments, 1) : [];
   var i;
   var len;
   var property;
   var target = arguments[0];
+  var extensions = 2 <= arguments.length ? slice.call(arguments, 1) : [];
 
   for (i = 0, len = extensions.length; i < len; i++) {
     extension = extensions[i];
@@ -48,11 +40,11 @@ merge = function() {
   return target;
 };
 
-setOptions = function(options, defaults) {
+var setOptions = function(options, defaults) {
   return merge({}, defaults, options);
 };
 
-deleteUndefined = function(obj) {
+var deleteUndefined = function(obj) {
   var key;
   var value;
   var results = [];
@@ -68,7 +60,7 @@ deleteUndefined = function(obj) {
   return results;
 };
 
-transformKey = (function() {
+var transformKey = (function() {
   var i;
   var key;
   var len;
@@ -82,7 +74,7 @@ transformKey = (function() {
   }
 })();
 
-requestAnimationFrame = (function(window) {
+var requestAnimationFrame = (function(window) {
   var i;
   var len;
   var vendor;
@@ -165,10 +157,7 @@ createContext = function(options) {
     }
 
     Anchor.prototype.setEvents = function(anchor) {
-      var hide;
-      var toggle;
-
-      toggle = (function(_this) {
+      var toggle = (function(_this) {
         return function(event) {
           event.preventDefault();
           event.stopPropagation();
@@ -180,7 +169,7 @@ createContext = function(options) {
         };
       })(this);
 
-      hide = (function(_this) {
+      var hide = (function(_this) {
         return function(event) {
           var ref1;
           if (!_this.isOpen()) {
@@ -221,11 +210,10 @@ createContext = function(options) {
     };
 
     Anchor.prototype.show = function(anchor) {
-      var fire;
       var ref1;
       var ref2;
 
-      fire = (function(_this) {
+      var fire = (function(_this) {
         return function() {
           _this.content.appendChild(_this.options.content);
 
@@ -266,17 +254,15 @@ createContext = function(options) {
     Anchor.prototype.create = function() {
       var anchor;
       var anchorCss;
-      var arrow;
-      var arrowInner;
       var closeButton;
-      var content;
-      content = document.createElement("div");
+      var arrow = document.createElement("div");
+      var content = document.createElement("div");
+      var arrowInner = document.createElement("div");
+
       addClass(content, this.classPrefix + "__content");
-      arrow = document.createElement("div");
-      arrowInner = document.createElement("div");
-      arrow.appendChild(arrowInner);
       addClass(arrowInner, this.classPrefix + "__arrow-inner");
       addClass(arrow, this.classPrefix + "__arrow");
+      arrow.appendChild(arrowInner);
       content.appendChild(arrow);
 
       if (this.options.showClose) {
@@ -305,15 +291,12 @@ createContext = function(options) {
     };
 
     Anchor.prototype.setPosition = function() {
-      var bottomOffset;
-      var leftOffset;
       var style;
-      var targetBounds;
+      var bottomOffset;
       var transformXOrigin;
       var transformYOrigin;
-
-      leftOffset = getXBounds(this.target, this.anchor, this.arrow);
-      targetBounds = this.target.getBoundingClientRect();
+      var leftOffset = getXBounds(this.target, this.anchor, this.arrow);
+      var targetBounds = this.target.getBoundingClientRect();
 
       if (documentYBoundary(targetBounds, this.anchor)) {
         addClass(this.anchor, this.classPrefix + "--bottom");
@@ -341,13 +324,9 @@ createContext = function(options) {
     };
 
     getXBounds = function(target, anchor, arrow) {
-      var calculatedWidth;
-      var centerPoint;
-      var targetBounds;
-
-      targetBounds = target.getBoundingClientRect();
-      centerPoint = targetBounds.left + target.offsetWidth / 2;
-      calculatedWidth = targetBounds.left + (anchor.offsetWidth / 2) + (target.offsetWidth / 2);
+      var calculatedWidth = targetBounds.left + (anchor.offsetWidth / 2) + (target.offsetWidth / 2);
+      var centerPoint = targetBounds.left + target.offsetWidth / 2;
+      var targetBounds = target.getBoundingClientRect();
 
       if (document.body.offsetWidth < calculatedWidth) {
         return document.body.offsetWidth - anchor.offsetWidth;
@@ -359,8 +338,7 @@ createContext = function(options) {
     };
 
     getYBounds = function(target, anchor, arrow) {
-      var targetBounds;
-      targetBounds = target.getBoundingClientRect();
+      var targetBounds = target.getBoundingClientRect();
 
       if (documentYBoundary(targetBounds, anchor)) {
         return targetBounds.top - (anchor.offsetHeight - window.pageYOffset) + arrow.offsetHeight - target.offsetHeight;
@@ -381,11 +359,9 @@ createContext = function(options) {
       var event;
       var i;
       var len;
-      var ref1;
-      var results;
+      var ref1 = ["resize", "scroll", "touchmove"];
+      var results = [];
 
-      ref1 = ["resize", "scroll", "touchmove"];
-      results = [];
       for (i = 0, len = ref1.length; i < len; i++) {
         event = ref1[i];
         results.push(window.addEventListener(event, (function(_this) {
@@ -533,12 +509,10 @@ window.Overlay = (function() {
       return function(e) {
         var i;
         var len;
-        var results;
         var target;
-        var targets;
+        var results = [];
+        var targets = [_this.overlay[0], _this.overlay.find(_this.options.closeButton)[0]];
 
-        targets = [_this.overlay[0], _this.overlay.find(_this.options.closeButton)[0]];
-        results = [];
         for (i = 0, len = targets.length; i < len; i++) {
           target = targets[i];
           if (e.target === target) {
@@ -647,17 +621,16 @@ createContext = function(options) {
     };
 
     function Tabs(options) {
-      var ref;
-      var tabContainer;
-      var tabLinks;
-      ref = this.options = setOptions(options, this.defaults), tabContainer = ref.tabContainer, tabLinks = ref.tabLinks;
+      var ref = this.options = setOptions(options, this.defaults);
+      var tabContainer = ref.tabContainer;
+      var tabLinks = ref.tabLinks;
+
       this.tabs = $(tabContainer).find(tabLinks);
       this.filter = this.tabs.data("target") ? "data-target" : "href";
       this.init();
       this.tabs.on("click.ustyle.tab", (function(_this) {
         return function(e) {
-          var $target;
-          $target = $(e.currentTarget);
+          var $target = $(e.currentTarget);
           if (_this.isAccordion() && _this.options.collapsible && _this.isActive($target)) {
             _this.collapse($target);
             _this.hashClear();
@@ -673,10 +646,9 @@ createContext = function(options) {
     }
 
     Tabs.prototype.init = function() {
-      var $activeTab;
-      var $initialHash;
-      $initialHash = this.tabFromHash();
-      $activeTab = this.activeTab();
+      var $activeTab = this.activeTab();
+      var $initialHash = this.tabFromHash();
+
       if ($initialHash.length) {
         return this.navigateTo($initialHash);
       } else if ($activeTab.length) {
@@ -705,10 +677,8 @@ createContext = function(options) {
     };
 
     Tabs.prototype.navigateTo = function(target) {
-      var $selected;
-      var selector;
-      selector = getSelector(target);
-      $selected = $(selector);
+      var $selected = $(selector);
+      var selector = getSelector(target);
       this.tabs.removeClass(this.options.activeClass).end();
       this.tabs.filter("[" + this.filter + "='" + selector + "']").addClass(this.options.activeClass);
       $selected.siblings("." + this.options.activeClass).removeClass(this.options.activeClass).end().addClass(this.options.activeClass);
@@ -716,8 +686,7 @@ createContext = function(options) {
     };
 
     Tabs.prototype.collapse = function(target) {
-      var $selected;
-      $selected = $(getSelector(target));
+      var $selected = $(getSelector(target));
       this.tabs.removeClass(this.options.activeClass).end();
       return $selected.removeClass(this.options.activeClass);
     };
@@ -784,8 +753,7 @@ window.ClassToggler = (function() {
   ClassToggler.prototype.addEventListeners = function() {
     return this.options.$target.on(this.options.toggleOn, (function(_this) {
       return function(e) {
-        var $togglableElement;
-        $togglableElement = _this.options.containerClass ? $(e.target).closest(_this.options.containerClass) : $(e.delegateTarget);
+        var $togglableElement = _this.options.containerClass ? $(e.target).closest(_this.options.containerClass) : $(e.delegateTarget);
         if (_this.isActive($togglableElement)) {
           return _this.hide($togglableElement, e);
         } else {
@@ -822,9 +790,7 @@ window.ClassToggler = (function() {
 })();
 
 window.RadioToggle = (function() {
-  var defaults;
-
-  defaults = {
+  var defaults = {
     $target: $(".us-toggle")
   };
 

@@ -1,7 +1,5 @@
 window.RadioToggle = (function() {
-  var defaults;
-
-  defaults = {
+  var defaults = {
     $target: $(".us-toggle")
   };
 

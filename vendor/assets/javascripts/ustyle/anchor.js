@@ -50,10 +50,7 @@ createContext = function(options) {
     }
 
     Anchor.prototype.setEvents = function(anchor) {
-      var hide;
-      var toggle;
-
-      toggle = (function(_this) {
+      var toggle = (function(_this) {
         return function(event) {
           event.preventDefault();
           event.stopPropagation();
@@ -65,7 +62,7 @@ createContext = function(options) {
         };
       })(this);
 
-      hide = (function(_this) {
+      var hide = (function(_this) {
         return function(event) {
           var ref1;
           if (!_this.isOpen()) {
@@ -106,11 +103,10 @@ createContext = function(options) {
     };
 
     Anchor.prototype.show = function(anchor) {
-      var fire;
       var ref1;
       var ref2;
 
-      fire = (function(_this) {
+      var fire = (function(_this) {
         return function() {
           _this.content.appendChild(_this.options.content);
 
@@ -151,17 +147,15 @@ createContext = function(options) {
     Anchor.prototype.create = function() {
       var anchor;
       var anchorCss;
-      var arrow;
-      var arrowInner;
       var closeButton;
-      var content;
-      content = document.createElement("div");
+      var arrow = document.createElement("div");
+      var content = document.createElement("div");
+      var arrowInner = document.createElement("div");
+
       addClass(content, this.classPrefix + "__content");
-      arrow = document.createElement("div");
-      arrowInner = document.createElement("div");
-      arrow.appendChild(arrowInner);
       addClass(arrowInner, this.classPrefix + "__arrow-inner");
       addClass(arrow, this.classPrefix + "__arrow");
+      arrow.appendChild(arrowInner);
       content.appendChild(arrow);
 
       if (this.options.showClose) {
@@ -190,15 +184,12 @@ createContext = function(options) {
     };
 
     Anchor.prototype.setPosition = function() {
-      var bottomOffset;
-      var leftOffset;
       var style;
-      var targetBounds;
+      var bottomOffset;
       var transformXOrigin;
       var transformYOrigin;
-
-      leftOffset = getXBounds(this.target, this.anchor, this.arrow);
-      targetBounds = this.target.getBoundingClientRect();
+      var leftOffset = getXBounds(this.target, this.anchor, this.arrow);
+      var targetBounds = this.target.getBoundingClientRect();
 
       if (documentYBoundary(targetBounds, this.anchor)) {
         addClass(this.anchor, this.classPrefix + "--bottom");
@@ -226,13 +217,9 @@ createContext = function(options) {
     };
 
     getXBounds = function(target, anchor, arrow) {
-      var calculatedWidth;
-      var centerPoint;
-      var targetBounds;
-
-      targetBounds = target.getBoundingClientRect();
-      centerPoint = targetBounds.left + target.offsetWidth / 2;
-      calculatedWidth = targetBounds.left + (anchor.offsetWidth / 2) + (target.offsetWidth / 2);
+      var calculatedWidth = targetBounds.left + (anchor.offsetWidth / 2) + (target.offsetWidth / 2);
+      var centerPoint = targetBounds.left + target.offsetWidth / 2;
+      var targetBounds = target.getBoundingClientRect();
 
       if (document.body.offsetWidth < calculatedWidth) {
         return document.body.offsetWidth - anchor.offsetWidth;
@@ -244,8 +231,7 @@ createContext = function(options) {
     };
 
     getYBounds = function(target, anchor, arrow) {
-      var targetBounds;
-      targetBounds = target.getBoundingClientRect();
+      var targetBounds = target.getBoundingClientRect();
 
       if (documentYBoundary(targetBounds, anchor)) {
         return targetBounds.top - (anchor.offsetHeight - window.pageYOffset) + arrow.offsetHeight - target.offsetHeight;
@@ -266,11 +252,9 @@ createContext = function(options) {
       var event;
       var i;
       var len;
-      var ref1;
-      var results;
+      var ref1 = ["resize", "scroll", "touchmove"];
+      var results = [];
 
-      ref1 = ["resize", "scroll", "touchmove"];
-      results = [];
       for (i = 0, len = ref1.length; i < len; i++) {
         event = ref1[i];
         results.push(window.addEventListener(event, (function(_this) {

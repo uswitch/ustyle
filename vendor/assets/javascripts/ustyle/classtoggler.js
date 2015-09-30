@@ -21,8 +21,7 @@ window.ClassToggler = (function() {
   ClassToggler.prototype.addEventListeners = function() {
     return this.options.$target.on(this.options.toggleOn, (function(_this) {
       return function(e) {
-        var $togglableElement;
-        $togglableElement = _this.options.containerClass ? $(e.target).closest(_this.options.containerClass) : $(e.delegateTarget);
+        var $togglableElement = _this.options.containerClass ? $(e.target).closest(_this.options.containerClass) : $(e.delegateTarget);
         if (_this.isActive($togglableElement)) {
           return _this.hide($togglableElement, e);
         } else {

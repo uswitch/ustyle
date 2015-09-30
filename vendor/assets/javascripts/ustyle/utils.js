@@ -1,11 +1,3 @@
-var addClass;
-var deleteUndefined;
-var hasClass;
-var merge;
-var removeClass;
-var requestAnimationFrame;
-var setOptions;
-var transformKey;
 var slice = [].slice;
 var hasProp = {}.hasOwnProperty;
 
@@ -15,27 +7,27 @@ if (this.Utils == null) {
   };
 }
 
-addClass = function(element, name) {
+var addClass = function(element, name) {
   removeClass(element, name);
   return element.className += " " + name + " ";
 };
 
-removeClass = function(element, name) {
+var removeClass = function(element, name) {
   var regExp = new RegExp("(\\s|^)" + name + "(\\s|$)", "gi");
   return element.className = element.className.replace(regExp, "");
 };
 
-hasClass = function(element, name) {
+var hasClass = function(element, name) {
   return new RegExp("(^| )" + name + "( |$)", "gi").test(element.className);
 };
 
-merge = function() {
+var merge = function() {
   var extension;
-  var extensions = 2 <= arguments.length ? slice.call(arguments, 1) : [];
   var i;
   var len;
   var property;
   var target = arguments[0];
+  var extensions = 2 <= arguments.length ? slice.call(arguments, 1) : [];
 
   for (i = 0, len = extensions.length; i < len; i++) {
     extension = extensions[i];
@@ -48,11 +40,11 @@ merge = function() {
   return target;
 };
 
-setOptions = function(options, defaults) {
+var setOptions = function(options, defaults) {
   return merge({}, defaults, options);
 };
 
-deleteUndefined = function(obj) {
+var deleteUndefined = function(obj) {
   var key;
   var value;
   var results = [];
@@ -68,7 +60,7 @@ deleteUndefined = function(obj) {
   return results;
 };
 
-transformKey = (function() {
+var transformKey = (function() {
   var i;
   var key;
   var len;
@@ -82,7 +74,7 @@ transformKey = (function() {
   }
 })();
 
-requestAnimationFrame = (function(window) {
+var requestAnimationFrame = (function(window) {
   var i;
   var len;
   var vendor;

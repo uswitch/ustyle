@@ -19,17 +19,16 @@ createContext = function(options) {
     };
 
     function Tabs(options) {
-      var ref;
-      var tabContainer;
-      var tabLinks;
-      ref = this.options = setOptions(options, this.defaults), tabContainer = ref.tabContainer, tabLinks = ref.tabLinks;
+      var ref = this.options = setOptions(options, this.defaults);
+      var tabContainer = ref.tabContainer;
+      var tabLinks = ref.tabLinks;
+
       this.tabs = $(tabContainer).find(tabLinks);
       this.filter = this.tabs.data("target") ? "data-target" : "href";
       this.init();
       this.tabs.on("click.ustyle.tab", (function(_this) {
         return function(e) {
-          var $target;
-          $target = $(e.currentTarget);
+          var $target = $(e.currentTarget);
           if (_this.isAccordion() && _this.options.collapsible && _this.isActive($target)) {
             _this.collapse($target);
             _this.hashClear();
@@ -45,10 +44,9 @@ createContext = function(options) {
     }
 
     Tabs.prototype.init = function() {
-      var $activeTab;
-      var $initialHash;
-      $initialHash = this.tabFromHash();
-      $activeTab = this.activeTab();
+      var $activeTab = this.activeTab();
+      var $initialHash = this.tabFromHash();
+
       if ($initialHash.length) {
         return this.navigateTo($initialHash);
       } else if ($activeTab.length) {
@@ -77,10 +75,8 @@ createContext = function(options) {
     };
 
     Tabs.prototype.navigateTo = function(target) {
-      var $selected;
-      var selector;
-      selector = getSelector(target);
-      $selected = $(selector);
+      var $selected = $(selector);
+      var selector = getSelector(target);
       this.tabs.removeClass(this.options.activeClass).end();
       this.tabs.filter("[" + this.filter + "='" + selector + "']").addClass(this.options.activeClass);
       $selected.siblings("." + this.options.activeClass).removeClass(this.options.activeClass).end().addClass(this.options.activeClass);
@@ -88,8 +84,7 @@ createContext = function(options) {
     };
 
     Tabs.prototype.collapse = function(target) {
-      var $selected;
-      $selected = $(getSelector(target));
+      var $selected = $(getSelector(target));
       this.tabs.removeClass(this.options.activeClass).end();
       return $selected.removeClass(this.options.activeClass);
     };
