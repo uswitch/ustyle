@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description   = %q{uSwitch style guide}
   spec.summary       = %q{Pattern library for uSwitch}
   spec.homepage      = "http://ustyle.guide"
-  spec.license       = "Apache-2.0" 
+  spec.license       = "Apache-2.0"
   spec.platform      = Gem::Platform::RUBY
 
   spec.files         = `git ls-files`.split($/)
@@ -21,7 +21,6 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "sass"
-  spec.add_dependency "coffee-script"
   spec.add_dependency "autoprefixer-rails", "~> 4.0"
   spec.add_dependency "mime-types"
   spec.add_dependency "chunky_png",  ">= 0.8.0"
