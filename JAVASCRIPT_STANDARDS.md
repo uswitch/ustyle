@@ -6,9 +6,9 @@ We are using [JSCS](http://jscs.info/) to lint our javascript code within uStyle
 
 ### RULES
 
-Our rules are based on Airbnb base preset and extended with our own options.
+Our preset is set to use Airbnb as the base set of options.
 
-```
+```javascript
 {
   "esnext": true,
   "verbose": true,
