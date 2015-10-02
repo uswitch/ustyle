@@ -8,7 +8,7 @@ We are using [JSCS]{http://jscs.info/} to lint our javascript code within uStyle
 
 Our preset is set to use Airbnb as the base set of options.
 
-```json
+```javascript
 {
   esnext: true,
   disallowSpacesInNamedFunctionExpression: {
