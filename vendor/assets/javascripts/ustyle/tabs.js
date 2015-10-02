@@ -1,9 +1,6 @@
-var createContext;
-var setOptions;
+var setOptions = this.Utils.setOptions;
 
-setOptions = this.Utils.setOptions;
-
-createContext = function(options) {
+window.Tabs = (function(options) {
   var Tabs;
   return Tabs = (function() {
     var getSelector;
@@ -65,18 +62,17 @@ createContext = function(options) {
     };
 
     Tabs.prototype.hashClear = function() {
-      var url;
       if (!this.options.changeUrls) {
         return;
       }
 
-      url = window.location.pathname + window.location.search;
+      var url = window.location.pathname + window.location.search;
       return typeof history.replaceState === "function" ? history.replaceState("", document.title, url) : void 0;
     };
 
     Tabs.prototype.navigateTo = function(target) {
-      var $selected = $(selector);
       var selector = getSelector(target);
+      var $selected = $(selector);
       this.tabs.removeClass(this.options.activeClass).end();
       this.tabs.filter("[" + this.filter + "='" + selector + "']").addClass(this.options.activeClass);
       $selected.siblings("." + this.options.activeClass).removeClass(this.options.activeClass).end().addClass(this.options.activeClass);
@@ -90,12 +86,11 @@ createContext = function(options) {
     };
 
     Tabs.prototype.scrollToTab = function(target) {
-      var $selected;
       if (!(this.isAccordion() && this.options.autoScroll)) {
         return;
       }
 
-      $selected = $(getSelector(target));
+      var $selected = $(getSelector(target));
       return $("html,body").scrollTop($selected.offset().top);
     };
 
@@ -104,8 +99,7 @@ createContext = function(options) {
     };
 
     Tabs.prototype.tabFromHash = function() {
-      var tabId;
-      tabId = location.hash.replace("!", "");
+      var tabId = location.hash.replace("!", "");
       return this.tabs.filter("[" + this.filter + "='" + tabId + "']");
     };
 
@@ -122,8 +116,5 @@ createContext = function(options) {
     };
 
     return Tabs;
-
   })();
-};
-
-window.Tabs = createContext();
+})();
