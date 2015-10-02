@@ -217,9 +217,9 @@ createContext = function(options) {
     };
 
     getXBounds = function(target, anchor, arrow) {
+      var targetBounds = target.getBoundingClientRect();
       var calculatedWidth = targetBounds.left + (anchor.offsetWidth / 2) + (target.offsetWidth / 2);
       var centerPoint = targetBounds.left + target.offsetWidth / 2;
-      var targetBounds = target.getBoundingClientRect();
 
       if (document.body.offsetWidth < calculatedWidth) {
         return document.body.offsetWidth - anchor.offsetWidth;
