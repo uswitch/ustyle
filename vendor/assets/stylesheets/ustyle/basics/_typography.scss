@@ -35,18 +35,10 @@
   }
 
   @for $level from 1 through 6 {
-    @if $level < 4 {
-      h#{$level},
-      %heading-#{$level},
-      .us-heading--#{$level} {
-        @include heading($level);
-      }
-    } @else {
-      h#{$level},
-      %heading-#{$level},
-      .us-heading--#{$level} {
-        @include heading($level, $heading-font: false);
-      }
+    h#{$level},
+    %heading-#{$level},
+    .us-heading--#{$level} {
+      @include heading($level);
     }
   }
 
@@ -129,5 +121,3 @@
     }
   }
 }
-
-@import "ustyle/basics/typography-print";

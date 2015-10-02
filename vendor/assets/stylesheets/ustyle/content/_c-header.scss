@@ -12,7 +12,6 @@
 }
 
 .us-content__title {
-  @include heading-font-secondary;
   @include heading(3);
   position: relative;
   padding: .5em 0 1em 0;
@@ -20,12 +19,12 @@
   clear: both;
   color: $c-navy;
   background-color: #fff;
-  
+
   @include respond-to(tablet, true) {
-    @include heading(2, $extend: false, $heading-font: false);
+    @include heading(2, $extend: false);
   }
 
   @include respond-to(desktop, true) {
-    @include heading(1, $extend: false, $heading-font: false);
+    @include heading(1, $extend: false);
   }
 }

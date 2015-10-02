@@ -62,7 +62,7 @@ $success-icon: "\2713" !default;
 }
 
 %validation-icon {
-  @include heading-font-secondary;
+  @include heading-font;
   position: absolute;
   color: $icon-text-color;
   text-align: center;

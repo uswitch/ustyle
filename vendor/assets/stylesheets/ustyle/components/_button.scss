@@ -132,7 +132,7 @@ $outline-button-styles: (
 }
 
 .us-btn--stronger {
-  @include heading-font-secondary;
+  @include heading-font;
 }
 
 .us-btn--large {

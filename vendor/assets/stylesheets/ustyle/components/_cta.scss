@@ -2,8 +2,8 @@
 // @name CTAs
 //
 // @description
-//  Used within guide and news articles, these CTAs are intended to not interupt the content but to integrate in more subtle means. 
-//  
+//  Used within guide and news articles, these CTAs are intended to not interupt the content but to integrate in more subtle means.
+//
 // @markup
 //  <section class="us-cta cta cta-column">
 //    <form>
@@ -24,7 +24,7 @@
     border-bottom: 0;
     border-left: 10px solid $c-navy;
   }
-  
+
   label {
     display: block;
 
@@ -35,17 +35,17 @@
 }
 
 .us-cta__title.us-cta__title {
-  @include heading-font-secondary;
+  @include heading-font;
   margin-top: 0;
   font-size: 16px;
   font-size: rem($base-font-size);
 
   @include respond-to(tablet) {
-    @include heading(4, $extend: false, $heading-font: false);
+    @include heading(4, $extend: false);
   }
 
   @include respond-to(desktop, true) {
-    @include heading(3, $extend: false, $heading-font: false);
+    @include heading(3, $extend: false);
   }
 }
 
