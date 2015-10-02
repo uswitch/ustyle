@@ -4,7 +4,7 @@ var merge           = ref.merge;
 var setOptions      = ref.setOptions;
 var deleteUndefined = ref.deleteUndefined;
 
-window.Login = function(options) {
+window.Login = (function(options) {
   var Login;
   return Login = (function() {
     var passwordHelp;
@@ -163,4 +163,4 @@ window.Login = function(options) {
     return Login;
 
   })();
-};
+})();
