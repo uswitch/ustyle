@@ -35,14 +35,23 @@ $base-font-url: "//fonts.uswitch.com/" !default;
 /// @group fonts
 /// @type String
 
-$heading-font-primary: "FS Elliot Web Bold", Helvetica, Arial, sans-serif !default;
+$heading-font: "Open Sans", Helvetica, Arial, sans-serif !default;
 
-/// The secondary heading font stack
+/// The primary heading font stack
 ///
+/// @deprecated use `$heading-font`
 /// @group fonts
 /// @type String
 
-$heading-font-secondary: "Open Sans", Helvetica, Arial, sans-serif !default;
+$heading-font-primary: $heading-font !default;
+
+/// The secondary heading font stack
+///
+/// @deprecated use `$heading-font`
+/// @group fonts
+/// @type String
+
+$heading-font-secondary: $heading-font !default;
 
 /// The default sans-serif font stack
 ///

@@ -1,9 +1,11 @@
 @if $needs-font-ie {
   @font-face {
     font-family: "FS Elliot Web Bold";
-    font-weight: normal;
     font-style: normal;
-    src: url("#{$base-font-url}fs_elliot_web-boldWEB.eot");
+    font-weight: 700;
+    // [doc]
+    // Setting the font to OpenSans to override older legacy parts
+    src: url("#{$base-font-url}OpenSans-Bold-webfont.eot");
   }
 
   @font-face {
