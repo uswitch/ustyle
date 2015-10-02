@@ -27,23 +27,17 @@ $input-placeholder-color: $c-inputgrey !default;
 .us-form-input {
   @extend %base-form-element;
   @extend %input-background--normalise;
-  @include input-style($input-hover-color);
+  @include input-style($input-border-color, $input-hover-color);
+  @include placeholder($input-placeholder-color);
   height: $form-element-base-height;
-  padding: .35em .5em;
+  padding: $form-element-base-padding;
   font-size: 1em;
   color: $input-text-color;
-  border: 1px solid $input-border-color;
   outline: 0;
   box-shadow: none;
 
-  @include placeholder {
-    color: $input-placeholder-color;
-  }
-
   &:focus {
-    @include placeholder {
-      color: darken($input-placeholder-color, 15%);
-    }
+    @include placeholder(darken($input-placeholder-color, 15%));
   }
 
   .ie8 & {
@@ -64,12 +58,10 @@ $input-placeholder-color: $c-inputgrey !default;
 
 .us-form-input--error {
   @include input-style($input-error-color);
-  border-color: $input-error-color;
 }
 
 .us-form-input--success {
   @include input-style($input-success-color);
-  border-color: $input-success-color;
 }
 
 .us-form-input:disabled,

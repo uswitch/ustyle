@@ -1,8 +1,12 @@
 $form-element-base-height: 37px !default;
+$form-element-base-padding: .35em .5em !default;
+$form-element-base-background: #fff;
 
 %base-form-element {
   display: inline-block;
   vertical-align: middle;
+  background: $form-element-base-background;
+  border: 1px solid;
   border-radius: em(3px);
   box-sizing: border-box;
   -moz-appearance: none;
