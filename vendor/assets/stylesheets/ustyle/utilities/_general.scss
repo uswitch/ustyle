@@ -98,9 +98,9 @@ $colors: (
 }
 
 .us-font--heading-p {
-  @include heading-font-primary;
+  @include heading-font;
 }
 
 .us-font--heading-s {
-  @include heading-font-secondary;
+  @include heading-font;
 }

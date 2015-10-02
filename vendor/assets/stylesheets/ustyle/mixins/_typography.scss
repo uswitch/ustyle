@@ -15,36 +15,42 @@
   }
 }
 
-/// Returns the `$heading-font-primary` declaration either as an extend or re-declares
+/// Returns the `$heading-font` declaration either as an extend or re-declares
 ///
 /// @param {Bool} $extend [true]
-///   If set to `false` will redeclare the `$heading-font-primary` family
+///   If set to `false` will redeclare the `$heading-font` family
 
-@mixin heading-font-primary($extend: true) {
+@mixin heading-font($extend: true) {
   @if $extend {
-    @extend %heading-font-primary;
+    @extend %heading-font;
   } @else {
     font: {
-      family: $heading-font-primary;
-      weight: normal;
+      family: $heading-font;
+      weight: 700;
     };
   }
 }
 
+/// Returns the `$heading-font-primary` declaration either as an extend or re-declares
+///
+/// @deprecated Use `heading-font` instead
+/// @alias heading-font
+/// @param {Bool} $extend [true]
+///   If set to `false` will redeclare the `$heading-font-primary` family
+
+@mixin heading-font-primary($extend: true) {
+  @include heading-font($extend);
+}
+
 /// Returns the `$heading-font-secondary` declaration either as an extend or re-declares
 ///
+/// @deprecated Use `heading-font` instead
+/// @alias heading-font
 /// @param {Bool} $extend [true]
 ///   If set to `false` will redeclare the `$heading-font-secondary` family
 
 @mixin heading-font-secondary($extend: true) {
-  @if $extend {
-    @extend %heading-font-secondary;
-  } @else {
-    font: {
-      family: $heading-font-secondary;
-      weight: 700;
-    };
-  }
+  @include heading-font($extend);
 }
 
 /// Returns the `$heading-font-secondary` declaration either as an extend or re-declares
@@ -52,7 +58,7 @@
 /// @alias heading-font-secondary
 
 @mixin bold-font($extend: true) {
-  @include heading-font-secondary($extend);
+  @include heading-font($extend);
 }
 
 /// Returns the `$normal-font` declaration in italic either as an extend or re-declares
@@ -78,7 +84,7 @@
 ///   Set a heading level between 1-6
 ///
 /// @param {Bool} $heading-font [true]
-///   Choose whether to declare the font-family as heading font or not
+///   DEPRECATED
 ///
 /// @param {Bool} $extend [true]
 ///   If set to `false` will redeclare the font-family settings
@@ -86,11 +92,7 @@
 @mixin heading($level, $heading-font: true, $extend: true) {
   $font-size: nth($heading-font-sizes, $level);
   $line-height: nth($heading-line-heights, $level);
-  @if $heading-font {
-    @include heading-font-primary($extend);
-  } @else {
-    @include heading-font-secondary($extend);
-  }
+  @include heading-font($extend);
   font-size: em($font-size);
   line-height: $line-height + em;
 }

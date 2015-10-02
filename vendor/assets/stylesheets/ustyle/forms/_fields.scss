@@ -33,7 +33,7 @@ $label-inline-breakpoint: tablet !default;
 
   > label,
   > .us-faux-label {
-    @include heading-font-secondary;
+    @include heading-font;
     margin-right: 1em;
     font-size: em($default-label-size);
     color: $default-label-color;
