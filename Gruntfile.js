@@ -142,7 +142,7 @@ module.exports = function(grunt) {
       app: ['vendor/assets/**/*.coffee']
     },
     jscs: {
-      src: "vendor/assets/javascripts/**/*.js",
+      src: "vendor/assets/javascripts/ustyle/*.js",
       options: {
         config: "config/.jscsrc",
         esnext: true,
