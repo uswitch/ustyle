@@ -1,16 +1,23 @@
-$form-element-base-height: 37px !default;
-$form-element-base-padding: .35em .5em !default;
-$form-element-base-background: #fff;
-
 %base-form-element {
+  @include form-element-style($c-form-element-border, $c-form-element-border-hover);
   display: inline-block;
+  color: $c-form-element-text;
   vertical-align: middle;
-  background: $form-element-base-background;
-  border: 1px solid;
+  background: $c-form-element-background;
+  border-style: solid;
+  border-width: 1px;
   border-radius: em(3px);
   box-sizing: border-box;
   -moz-appearance: none;
   -ms-appearance: none;
   -webkit-appearance: none;
   appearance: none;
+}
+
+%base-form-element--error {
+  @include form-element-style($c-form-error);
+}
+
+%base-form-element--success {
+  @include form-element-style($c-form-success);
 }

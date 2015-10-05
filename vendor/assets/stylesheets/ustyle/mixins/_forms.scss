@@ -24,7 +24,7 @@
 /// @param {Color} $color
 ///   The colour to be used for the form input's border and box-shadow
 
-@mixin input-style($color, $color--active: false) {
+@mixin form-element-style($color, $color--active: false) {
   border-color: $color;
 
   &:hover,
@@ -48,11 +48,11 @@
 /// @param {Color} $background-color [#fafafa]
 ///   Background colour of the form input
 
-@mixin input-disabled($color: $c-input-disabled-foreground, $background: $c-input-disabled-background) {
-  @include input-style($color);
+@mixin form-element-disabled($color: $c-form-element-disabled-fg, $background: $c-form-element-disabled-bg) {
+  @include form-element-style($color);
   @include placeholder($color);
   color: $color;
-  background: $background;
+  background-color: $background;
   cursor: default;
 
   &:focus {

@@ -50,9 +50,9 @@ $toggle-active-border: $c-typecyan !default;
 }
 
 @mixin toggle-disabled-style {
-  color: $c-input-disabled-foreground;
-  background-color: $c-input-disabled-background;
-  border-color: $c-input-disabled-foreground;
+  color: $c-form-element-disabled-fg;
+  background-color: $c-form-element-disabled-bg;
+  border-color: $c-form-element-disabled-fg;
 }
 
 .us-toggle {
@@ -85,7 +85,7 @@ $toggle-active-border: $c-typecyan !default;
 .us-toggle__btn {
   display: block;
   padding: $toggle-btn-padding;
-  color: $c-typegrey;
+  color: $c-form-element-text;
   text-align: center;
   border: 1px solid $toggle-default-border;
 
@@ -96,7 +96,7 @@ $toggle-active-border: $c-typecyan !default;
   .us-toggle__label:focus &,
   .us-toggle__label .us-form-input:focus + & {
     border-color: $toggle-hover-border;
-    box-shadow: inset 0 0 0 1px $c-typecyan;
+    box-shadow: inset 0 0 0 1px $toggle-hover-border;
   }
 
   // [nodoc] Legacy, as grouping selectors will fail on pseudo-selector :checked
@@ -120,5 +120,5 @@ $toggle-active-border: $c-typecyan !default;
 }
 
 .us-toggle__btn--disabled {
-  @include input-disabled;
+  @include form-element-disabled;
 }

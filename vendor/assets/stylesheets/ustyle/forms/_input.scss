@@ -17,22 +17,15 @@
 // @markup
 //   <input class="us-form-input {$modifiers}" type="text" placeholder="Placeholder">
 
-$input-hover-color: $c-typecyan !default;
-$input-error-color: $c-red !default;
-$input-success-color: $c-green !default;
-$input-text-color: $c-typegrey !default;
-$input-border-color: $c-inputgrey !default;
 $input-placeholder-color: $c-inputgrey !default;
 
 .us-form-input {
   @extend %base-form-element;
   @extend %input-background--normalise;
-  @include input-style($input-border-color, $input-hover-color);
   @include placeholder($input-placeholder-color);
   height: $form-element-base-height;
   padding: $form-element-base-padding;
   font-size: 1em;
-  color: $input-text-color;
   outline: 0;
   box-shadow: none;
 
@@ -57,14 +50,14 @@ $input-placeholder-color: $c-inputgrey !default;
 }
 
 .us-form-input--error {
-  @include input-style($input-error-color);
+  @extend %base-form-element--error;
 }
 
 .us-form-input--success {
-  @include input-style($input-success-color);
+  @extend %base-form-element--success;
 }
 
 .us-form-input:disabled,
 .us-form-input--disabled {
-  @include input-disabled;
+  @include form-element-disabled;
 }
