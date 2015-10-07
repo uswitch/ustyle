@@ -25,10 +25,17 @@ $select-base-padding: .3em .6em !default;
 $select-default-color: $c-form-element-border !default;
 $select-hover-color: $c-form-element-border-hover !default;
 
-@mixin select-background($color) {
-  $svg-prefix: "data:image/svg+xml;charset=utf-8;base64,";
-  $arrow-svg: base64encode("<svg version='1.1' baseProfile='tiny' xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='40px' height='6px' viewBox='0 0 40 6'><polygon fill='#{$color}' points='25.3,0 20.3,6 15.3,0 '/></svg>");
-  background-image: url($svg-prefix + $arrow-svg);
+@function select-arrow($color) {
+  @return url("data:image/svg+xml;charset=utf-8;base64," + base64encode("<svg version='1.1' baseProfile='tiny' xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='40px' height='6px' viewBox='0 0 40 6'><polygon fill='#{$color}' points='25.3,0 20.3,6 15.3,0 '/></svg>"));
+}
+
+@mixin select-background($color, $color--active: false) {
+  background-image: select-arrow($color);
+
+  &:hover,
+  &:focus {
+    background-image: select-arrow(if($color--active, $color--active, $color));
+  }
 }
 
 // [deprecated]
@@ -39,7 +46,7 @@ $select-hover-color: $c-form-element-border-hover !default;
 
 .us-form-select {
   @extend %base-form-element;
-  @include select-background($select-default-color);
+  @include select-background($select-default-color, $select-hover-color);
   padding: $select-base-padding;
   padding-right: 40px;
   cursor: pointer;
@@ -51,11 +58,6 @@ $select-hover-color: $c-form-element-border-hover !default;
   @-moz-document url-prefix() {
     text-indent: .01px;
     text-overflow: "";
-  }
-
-  &:hover,
-  &:focus {
-    @include select-background($select-hover-color);
   }
 
   &:focus {
