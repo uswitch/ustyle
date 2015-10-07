@@ -23,7 +23,7 @@
 <body>
   <header class="ustyle__header">
     <a class="logo" href="/">uStyle</a>
-    <a class="version us-tablet--block" href="https://github.com/uswitch/ustyle/releases/tag/1.2.0">v1.2.0</a>
+    <a class="version us-tablet--block" href="https://github.com/uswitch/ustyle/releases/tag/1.2.1">v1.2.1</a>
     <div class='nav nav--header'>
       <nav>
         <a href="/brand/" class="nav__link ">Brand</a>
@@ -379,9 +379,11 @@
           
               <h4>States</h4>
                 <ul class="styleguide__block-states us-clearfix">
-                    <li class="name"><strong>.us-form-select-wrap--multiple</strong> - Removes the drop down arrow and adjusts the padding of &lt;option&gt; elements. Useful when using &lt;select&gt; elements that have the size=&quot;&quot; attribute set to anything higher than 1.</li>
-                    <li class="name"><strong>.us-form-select-wrap--blocked</strong> - Fluid style</li>
-                    <li class="name"><strong>.us-form-select-wrap--disabled</strong> - Inactive state for select boxes. You may also just add the disabled attribute to the &lt;select&gt; element in order to achieve the same effect.</li>
+                    <li class="name"><strong>.us-form-select--multiple</strong> - Removes the drop down arrow and adjusts the padding of &lt;option&gt; elements. Useful when using &lt;select&gt; elements that have the size=&quot;&quot; attribute set to anything higher than 1.</li>
+                    <li class="name"><strong>.us-form-select--blocked</strong> - Fluid style</li>
+                    <li class="name"><strong>.us-form-select--error</strong> - Visual feedback for when the input has an error</li>
+                    <li class="name"><strong>.us-form-select--success</strong> - Visual feedback for when success needs to be communicated to the user</li>
+                    <li class="name"><strong>.us-form-select--disabled</strong> - Inactive state for select boxes. You may also just add the disabled attribute to the &lt;select&gt; element in order to achieve the same effect.</li>
                 </ul>
               
             </div>
@@ -389,54 +391,60 @@
             <div class="styleguide__block-examples">
               <h3 class="styleguide__block-small-title">Example</h3>
               <div class="styleguide__block-example">
-                   <span class="us-form-select-wrap {$modifiers}">
-               <select class="us-form-select">
-                 <option>A select menu</option>
-                 <option>With lots of options</option>
-                 <option>And a few more</option>
-               </select>
-             </span>
+                   <select class="us-form-select {$modifiers}">
+               <option>A select menu</option>
+               <option>With lots of options</option>
+               <option>And a few more</option>
+             </select>
               </div>
             
-                <div class="styleguide__block-example state-us-form-select-wrap--multiple">
-                     <span class="us-form-select-wrap us-form-select-wrap--multiple">
-               <select class="us-form-select">
-                 <option>A select menu</option>
-                 <option>With lots of options</option>
-                 <option>And a few more</option>
-               </select>
-             </span>
-                  <div class="styleguide__block-example-class">.us-form-select-wrap--multiple</div>
+                <div class="styleguide__block-example state-us-form-select--multiple">
+                     <select class="us-form-select us-form-select--multiple">
+               <option>A select menu</option>
+               <option>With lots of options</option>
+               <option>And a few more</option>
+             </select>
+                  <div class="styleguide__block-example-class">.us-form-select--multiple</div>
                 </div>
-                <div class="styleguide__block-example state-us-form-select-wrap--blocked">
-                     <span class="us-form-select-wrap us-form-select-wrap--blocked">
-               <select class="us-form-select">
-                 <option>A select menu</option>
-                 <option>With lots of options</option>
-                 <option>And a few more</option>
-               </select>
-             </span>
-                  <div class="styleguide__block-example-class">.us-form-select-wrap--blocked</div>
+                <div class="styleguide__block-example state-us-form-select--blocked">
+                     <select class="us-form-select us-form-select--blocked">
+               <option>A select menu</option>
+               <option>With lots of options</option>
+               <option>And a few more</option>
+             </select>
+                  <div class="styleguide__block-example-class">.us-form-select--blocked</div>
                 </div>
-                <div class="styleguide__block-example state-us-form-select-wrap--disabled">
-                     <span class="us-form-select-wrap us-form-select-wrap--disabled">
-               <select class="us-form-select">
-                 <option>A select menu</option>
-                 <option>With lots of options</option>
-                 <option>And a few more</option>
-               </select>
-             </span>
-                  <div class="styleguide__block-example-class">.us-form-select-wrap--disabled</div>
+                <div class="styleguide__block-example state-us-form-select--error">
+                     <select class="us-form-select us-form-select--error">
+               <option>A select menu</option>
+               <option>With lots of options</option>
+               <option>And a few more</option>
+             </select>
+                  <div class="styleguide__block-example-class">.us-form-select--error</div>
+                </div>
+                <div class="styleguide__block-example state-us-form-select--success">
+                     <select class="us-form-select us-form-select--success">
+               <option>A select menu</option>
+               <option>With lots of options</option>
+               <option>And a few more</option>
+             </select>
+                  <div class="styleguide__block-example-class">.us-form-select--success</div>
+                </div>
+                <div class="styleguide__block-example state-us-form-select--disabled">
+                     <select class="us-form-select us-form-select--disabled">
+               <option>A select menu</option>
+               <option>With lots of options</option>
+               <option>And a few more</option>
+             </select>
+                  <div class="styleguide__block-example-class">.us-form-select--disabled</div>
                 </div>
           
               <pre><code class="html">
-             &lt;span class="us-form-select-wrap"&gt;
-               &lt;select class="us-form-select"&gt;
-                 &lt;option&gt;A select menu&lt;/option&gt;
-                 &lt;option&gt;With lots of options&lt;/option&gt;
-                 &lt;option&gt;And a few more&lt;/option&gt;
-               &lt;/select&gt;
-             &lt;/span&gt;
+             &lt;select class="us-form-select"&gt;
+               &lt;option&gt;A select menu&lt;/option&gt;
+               &lt;option&gt;With lots of options&lt;/option&gt;
+               &lt;option&gt;And a few more&lt;/option&gt;
+             &lt;/select&gt;
               </code></pre>
             </div>
           
