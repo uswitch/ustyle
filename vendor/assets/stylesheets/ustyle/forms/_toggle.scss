@@ -86,8 +86,8 @@ $toggle-active-border: $c-typecyan !default;
   display: block;
   padding: $toggle-btn-padding;
   color: $c-form-element-text;
-  background-color: $c-form-element-background;
   text-align: center;
+  background-color: $c-form-element-background;
   border: 1px solid $toggle-default-border;
 
   .us-toggle__label:hover & {
