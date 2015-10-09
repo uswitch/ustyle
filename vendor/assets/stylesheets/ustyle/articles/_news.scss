@@ -100,10 +100,10 @@ $base-item-image-size: $news-item-image-size;
   transition: opacity 333ms;
 
   &.background {
+    height: $base-item-image-size;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: $base-item-image-size;
   }
 }
 
