@@ -42,7 +42,8 @@ $article-description-color: $c-typegrey-2 !default;
 }
 
 .us-article__link,
-.us-article__link:hover {
+.us-article__link:hover,
+.us-article__link:visited, {
   color: inherit;
 }
 
