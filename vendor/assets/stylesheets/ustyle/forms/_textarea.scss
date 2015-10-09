@@ -14,17 +14,12 @@
 .us-form-textarea {
   @extend %base-form-element;
   @extend %input-background--normalise;
-  @include input-style($input-hover-color);
-  padding: .35em .5em;
+  padding: $form-element-base-padding;
   font-size: 1em;
-  color: $input-text-color;
-  border: 1px solid $input-border-color;
   outline: 0;
 
   &:focus {
-    @include placeholder {
-      color: darken($input-placeholder-color, 15%);
-    }
+    @include placeholder(darken($input-placeholder-color, 15%));
   }
 }
 
@@ -34,5 +29,5 @@
 
 .us-form-textarea:disabled,
 .us-form-textarea--disabled {
-  @include input-disabled;
+  @include form-element-disabled;
 }

@@ -17,33 +17,20 @@
 // @markup
 //   <input class="us-form-input {$modifiers}" type="text" placeholder="Placeholder">
 
-$input-hover-color: $c-typecyan !default;
-$input-error-color: $c-red !default;
-$input-success-color: $c-green !default;
-$input-text-color: $c-typegrey !default;
-$input-border-color: $c-inputgrey !default;
 $input-placeholder-color: $c-inputgrey !default;
 
 .us-form-input {
   @extend %base-form-element;
   @extend %input-background--normalise;
-  @include input-style($input-hover-color);
+  @include placeholder($input-placeholder-color);
   height: $form-element-base-height;
-  padding: .35em .5em;
+  padding: $form-element-base-padding;
   font-size: 1em;
-  color: $input-text-color;
-  border: 1px solid $input-border-color;
   outline: 0;
   box-shadow: none;
 
-  @include placeholder {
-    color: $input-placeholder-color;
-  }
-
   &:focus {
-    @include placeholder {
-      color: darken($input-placeholder-color, 15%);
-    }
+    @include placeholder(darken($input-placeholder-color, 15%));
   }
 
   .ie8 & {
@@ -63,16 +50,14 @@ $input-placeholder-color: $c-inputgrey !default;
 }
 
 .us-form-input--error {
-  @include input-style($input-error-color);
-  border-color: $input-error-color;
+  @extend %base-form-element--error;
 }
 
 .us-form-input--success {
-  @include input-style($input-success-color);
-  border-color: $input-success-color;
+  @extend %base-form-element--success;
 }
 
 .us-form-input:disabled,
 .us-form-input--disabled {
-  @include input-disabled;
+  @include form-element-disabled;
 }

@@ -18,11 +18,10 @@
 //     <span class="us-input-group__box">kWh</span>
 //   </div>
 
-$input-group-bg-color: #fff !default;
-
 .us-input-group {
   position: relative;
   display: table;
+  vertical-align: middle;
   border-collapse: separate;
 
   @include respond-to(tablet, true) {
@@ -39,7 +38,7 @@ $input-group-bg-color: #fff !default;
 
 .us-input-group--disabled {
   .us-input-group__box {
-    @include input-disabled;
+    @include form-element-disabled;
 
     [class^="us-icon--"] {
       opacity: .35;
@@ -47,7 +46,7 @@ $input-group-bg-color: #fff !default;
   }
 
   .us-form-input {
-    @include input-disabled;
+    @include form-element-disabled;
   }
 }
 
@@ -68,8 +67,8 @@ $input-group-bg-color: #fff !default;
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
-  background-color: $input-group-bg-color;
-  border: 1px solid $input-border-color;
+  background-color: $c-form-element-background;
+  border: 1px solid $c-form-element-border;
   border-radius: 3px;
 
   @include respond-to(tablet, true) {
