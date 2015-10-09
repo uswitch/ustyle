@@ -21,6 +21,7 @@
 .us-input-group {
   position: relative;
   display: table;
+  vertical-align: middle;
   border-collapse: separate;
 
   @include respond-to(tablet, true) {
