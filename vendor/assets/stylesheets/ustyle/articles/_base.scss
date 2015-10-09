@@ -1,0 +1,77 @@
+// @page Pattern Library/Articles
+// @name Base article
+//
+// @description
+//   Article listings for news are important on the landing pages.
+//
+// @markup
+//   <article class='us-article'>
+//     <a class='us-article__link' href="#">
+//       <div class='us-grid-row'>
+//         <div class='us-col-md-8'>
+//           <div class="us-article__meta">
+//             <span class="date">2 months ago</span>
+//             in
+//             <span class="category">Banking</span>
+//           </div>
+//           <h3 class='us-article__title'>Car insurance guides</h3>
+//           <p class='us-article__description'>
+//             A quarter of 18-34 year olds believe that tech companies could offer better financial services than banks
+//           </p>
+//           <span class="us-article__more">Read more</span>
+//         </div>
+//         <div class='us-col-md-4 us-tablet--block'>
+//           <img class='us-img--full us-article__image' src='http://www.uswitch.com/insurance/assets/guide-home-16141c84afd29e2063ee76803037716c.jpg' />
+//         </div>
+//       </a>
+//     </div>
+//   </article>
+
+$article-border-color: $c-keylinegrey !default;
+$article-padding: 2em !default;
+$article-description-color: $c-typegrey-2 !default;
+
+.us-article {
+  padding-top: $article-padding;
+  padding-bottom: $article-padding;
+  border-bottom: 1px solid $article-border-color;
+}
+
+.us-article__link {
+  display: block;
+}
+
+.us-article__link,
+.us-article__link:hover {
+  color: inherit;
+}
+
+.us-article__title {
+  @include heading(4);
+
+  @include respond-to(tablet, true) {
+    @include heading(3, $extend: false);
+  }
+}
+
+.us-article__meta {
+  font-size: .875em;
+  color: $article-description-color;
+}
+
+.us-article__description {
+  margin-bottom: 1em;
+  color: $article-description-color;
+
+  @include respond-to(tablet, true) {
+    font-size: 1.2em;
+  }
+}
+
+.us-article__image {
+  border: 1px solid $article-border-color;
+}
+
+.us-article__more {
+  @include link-colors($c-typecyan, $c-typecyan, $c-typecyan);
+}
