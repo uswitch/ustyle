@@ -9,16 +9,15 @@
 //     <a class='us-article__link' href="#">
 //       <div class='us-grid-row'>
 //         <div class='us-col-md-8'>
+//           <h3 class='us-article__title'>Car insurance guides</h3>
+//           <p class='us-article__description'>
+//             A quarter of 18-34 year olds believe that tech companies could offer better financial services than banks
+//           </p>
 //           <div class="us-article__meta">
 //             <span class="date">2 months ago</span>
 //             in
 //             <span class="category">Banking</span>
 //           </div>
-//           <h3 class='us-article__title'>Car insurance guides</h3>
-//           <p class='us-article__description'>
-//             A quarter of 18-34 year olds believe that tech companies could offer better financial services than banks
-//           </p>
-//           <span class="us-article__more">Read more</span>
 //         </div>
 //         <div class='us-col-md-4 us-tablet--block'>
 //           <img class='us-img--full us-article__image' src='http://www.uswitch.com/insurance/assets/guide-home-16141c84afd29e2063ee76803037716c.jpg' />
@@ -32,13 +31,25 @@ $article-padding: 2em !default;
 $article-description-color: $c-typegrey-2 !default;
 
 .us-article {
-  padding-top: $article-padding;
-  padding-bottom: $article-padding;
+  padding-top: $article-padding/2;
+  padding-bottom: $article-padding/2;
   border-bottom: 1px solid $article-border-color;
+
+  @include respond-to(tablet, true) {
+    padding-top: $article-padding;
+    padding-bottom: $article-padding;
+  }
 }
 
 .us-article__link {
   display: block;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+  &:hover {
+    .us-article__title {
+      text-decoration: underline;
+    }
+  }
 }
 
 .us-article__link,
@@ -55,24 +66,23 @@ $article-description-color: $c-typegrey-2 !default;
   }
 }
 
+.us-article__meta,
+.us-article__description {
+  color: $article-description-color;
+}
+
 .us-article__meta {
   font-size: .875em;
-  color: $article-description-color;
 }
 
 .us-article__description {
   margin-bottom: 1em;
-  color: $article-description-color;
 
   @include respond-to(tablet, true) {
-    font-size: 1.2em;
+    font-size: 1.125em;
   }
 }
 
 .us-article__image {
   border: 1px solid $article-border-color;
-}
-
-.us-article__more {
-  @include link-colors($c-typecyan, $c-typecyan, $c-typecyan);
 }
