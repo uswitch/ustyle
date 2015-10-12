@@ -510,7 +510,10 @@ window.Overlay = (function(Utils) {
         var closeTargets = _this.overlay.find(_this.options.closeButton).toArray();
         var targets = [_this.overlay[0]].concat(closeTargets);
 
+<<<<<<< HEAD
         console.log(targets);
+=======
+>>>>>>> Namespacing overlay--open, fixes #157
         for (var i = targets.length - 1; i >= 0; i--) {
           var target = targets[i];
           if (e.target === target) {
