@@ -33,7 +33,7 @@
 //             Overlay
 //           </div>
 //
-//           <button class="us-overlay__close js-close-overlay"></button>
+//           <button class="us-overlay__close us-btn us-btn--reversed us-btn--small js-close-overlay">Close</button>
 //         </div>
 //
 //         <div class="us-overlay__body">
@@ -55,7 +55,7 @@ $overlay-transition-speed: .3s !default;
 $overlay-mobile-width: calc(100% - 25px) !default;
 $overlay-tablet-width: 340px !default;
 $overlay-header-height: 55px !default;
-$overlay-close-icon-size: 32px !default;
+$overlay-close-size: 64px !default;
 
 .us-overlay--open {
   overflow: hidden;
@@ -173,34 +173,11 @@ $overlay-close-icon-size: 32px !default;
 }
 
 .us-overlay__title {
-  width: calc(100% - #{$overlay-close-icon-size});
+  width: calc(100% - #{$overlay-close-size});
 }
 
 .us-overlay__close {
   position: absolute;
-  top: 50%;
-  right: .5em;
-  z-index: 10;
-  width: $overlay-close-icon-size;
-  height: $overlay-close-icon-size;
-  margin-top: -($overlay-close-icon-size / 2);
-  text-align: center;
-  cursor: pointer;
-  background: #fff;
-  border: 0;
-  border-radius: 50%;
-  -webkit-appearance: none;
-
-  &:before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: $overlay-close-icon-size;
-    height: $overlay-close-icon-size;
-    font-size: 28px;
-    font-weight: bold;
-    line-height: $overlay-close-icon-size;
-    color: $c-navy;
-    content: "\00d7";
-  }
+  top: .75em;
+  right: 1em;
 }
