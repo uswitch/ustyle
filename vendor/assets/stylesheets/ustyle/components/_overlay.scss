@@ -7,7 +7,7 @@
 //
 // @javascript
 //   var overlay = new Overlay({
-//     bodyActiveClass: 'overlay--open',
+//     bodyActiveClass: 'us-overlay--open',
 //     activeClass:     'us-overlay-parent--active',
 //     visibleClass:    'us-overlay-parent--visible',
 //     overlay:         $('.us-overlay-parent'),
@@ -57,7 +57,7 @@ $overlay-tablet-width: 340px !default;
 $overlay-header-height: 55px !default;
 $overlay-close-icon-size: 32px !default;
 
-.overlay--open {
+.us-overlay--open {
   overflow: hidden;
 }
 

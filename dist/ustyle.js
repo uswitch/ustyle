@@ -471,7 +471,7 @@ window.Overlay = (function(Utils) {
   var requestAnimationFrame = Utils.requestAnimationFrame;
 
   var defaults = {
-    bodyActiveClass: "overlay--open",
+    bodyActiveClass: "us-overlay--open",
     activeClass: "us-overlay-parent--active",
     visibleClass: "us-overlay-parent--visible",
     overlay: $(".us-overlay-parent"),
@@ -509,7 +509,7 @@ window.Overlay = (function(Utils) {
         var results = [];
         var closeTargets = _this.overlay.find(_this.options.closeButton).toArray();
         var targets = [_this.overlay[0]].concat(closeTargets);
-        console.log(targets);
+
         for (var i = targets.length - 1; i >= 0; i--) {
           var target = targets[i];
           if (e.target === target) {

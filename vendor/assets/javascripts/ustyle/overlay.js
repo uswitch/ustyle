@@ -6,7 +6,7 @@ window.Overlay = (function(Utils) {
   var requestAnimationFrame = Utils.requestAnimationFrame;
 
   var defaults = {
-    bodyActiveClass: "overlay--open",
+    bodyActiveClass: "us-overlay--open",
     activeClass: "us-overlay-parent--active",
     visibleClass: "us-overlay-parent--visible",
     overlay: $(".us-overlay-parent"),
