@@ -463,14 +463,13 @@ window.Backdrop = (function() {
 
 })();
 
-var ref = this.Utils;
-var addClass = ref.addClass;
-var hasClass = ref.hasClass;
-var removeClass = ref.removeClass;
-var setOptions = ref.setOptions;
-var requestAnimationFrame = ref.requestAnimationFrame;
+window.Overlay = (function(Utils) {
+  var addClass = Utils.addClass;
+  var hasClass = Utils.hasClass;
+  var removeClass = Utils.removeClass;
+  var setOptions = Utils.setOptions;
+  var requestAnimationFrame = Utils.requestAnimationFrame;
 
-window.Overlay = (function() {
   var defaults = {
     bodyActiveClass: "overlay--open",
     activeClass: "us-overlay-parent--active",
@@ -507,14 +506,12 @@ window.Overlay = (function() {
 
     this.overlay.on("click.close-overlay", (function(_this) {
       return function(e) {
-        var i;
-        var len;
-        var target;
         var results = [];
-        var targets = [_this.overlay[0], _this.overlay.find(_this.options.closeButton)[0]];
-
-        for (i = 0, len = targets.length; i < len; i++) {
-          target = targets[i];
+        var closeTargets = _this.overlay.find(_this.options.closeButton).toArray();
+        var targets = [_this.overlay[0]].concat(closeTargets);
+        console.log(targets);
+        for (var i = targets.length - 1; i >= 0; i--) {
+          var target = targets[i];
           if (e.target === target) {
             if (_this.options.preventDefault) {
               e.preventDefault();
@@ -525,7 +522,7 @@ window.Overlay = (function() {
           } else {
             results.push(void 0);
           }
-        }
+        };
 
         return results;
       };
@@ -540,7 +537,6 @@ window.Overlay = (function() {
         };
       })(this);
     }
-
   };
 
   Overlay.prototype.show = function(e) {
@@ -561,7 +557,6 @@ window.Overlay = (function() {
     if (this.hasHistory()) {
       return history.pushState("open", window.document.title, this.options.historyStatus);
     }
-
   };
 
   Overlay.prototype.hide = function(e) {
@@ -579,13 +574,7 @@ window.Overlay = (function() {
     };
 
     requestAnimationFrame.call(window, onFrame);
-    if (this.hasHistory()) {
-      if (history.state === "open") {
-        return history.back();
-      }
-
-    }
-
+    if (this.hasHistory() && history.state === "open") return history.back();
   };
 
   Overlay.prototype.isOpen = function() {
@@ -598,7 +587,7 @@ window.Overlay = (function() {
 
   return Overlay;
 
-})();
+})(this.Utils);
 
 var setOptions = this.Utils.setOptions;
 
