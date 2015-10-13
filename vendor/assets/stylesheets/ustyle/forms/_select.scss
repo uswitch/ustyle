@@ -15,25 +15,6 @@
 // @state .us-form-select--disabled - Inactive state for select boxes. You may also just add the disabled attribute to the <select> element in order to achieve the same effect.
 //
 // @markup
-//   <input class='us-form-input' type='text' />
-//   <div class="us-field us-field--blocked">
-//     <label>Answer truthfully</label>
-//     <div class="us-toggle">
-//       <label class="us-toggle__label">
-//         <input class="us-form-input" name="choice" type="radio">
-//         <span class="us-toggle__btn {$modifiers}">
-//           Yes
-//         </span>
-//       </label>
-//
-//       <label class="us-toggle__label">
-//         <input class="us-form-input" name="choice" type="radio">
-//         <span class="us-toggle__btn">
-//           No
-//         </span>
-//       </label>
-//     </div>
-//   </div>
 //   <select class="us-form-select {$modifiers}">
 //     <option>A select menu</option>
 //     <option>With lots of options</option>
