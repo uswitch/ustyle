@@ -83,14 +83,15 @@ window.Login = (function(options) {
               _this.setState();
               _this.setContent();
               passwordHelp(_this.loginForm);
-              return (ref1 = _this.options.onOpen(target)) != null ? ref1.call(target) : void 0;
+              return (ref1 = _this.options.onOpen) != null ? ref1.call(target) : void 0;
             });
           };
         })(this),
 
         onClose: (function(_this) {
           return function() {
-            if (_this.options.onClose != null) {
+            var ref1;
+            if ((ref1 = _this.options.onClose) != null) {
               ref1.call(target);
             }
 
@@ -157,8 +158,6 @@ window.Login = (function(options) {
         return form.find(".password-strength").passwordHelper();
       }, 1);
     };
-
-    Login;
 
     return Login;
 
