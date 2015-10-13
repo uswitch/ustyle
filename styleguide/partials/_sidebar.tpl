@@ -1,22 +1,18 @@
 <a href="javascript:void(0);" class="nav-mobile js-toggle__link us-desktop--hidden" data-target="sidebar"><span class="nav-mobile__hamburger">Sidebar</span></a>
 <div class='sidebar'>
-  <nav class='sidebar__nav' data-gumshoe>
-    {{#pages}}
-      {{#isActive this.section "section"}}
-        <a class="sidebar__nav-link {{activeClass this.name 'name'}}" href="{{page}}">{{name}}</a>
-        {{#isActive this.name "name"}}
-          {{#if blocks}}
-            <nav class="sidebar__sub-nav" data-ghumshoe>
-              {{#blocks}}
-                <a class="sidebar__nav-link sidebar__nav-link--sub" href="#{{link}}">{{name}}</a>
-              {{/blocks}}
-            </nav>
-          {{/if}}
+  <nav class='sidebar__nav'>
+    {{#navigation}}
+      <a href="/{{this}}/" class="nav__link {{activeClass this 'section'}}">{{humanize this}}</a>
+      <nav class="sidebar__sub-nav">
+        {{#each ../pages}}
+          {{#isActive this.section ../this}}
+            <a class="sidebar__nav-link sidebar__nav-link--sub {{activeClass this.name 'name'}}" href="/{{../../this}}/{{page}}">{{name}}</a>
+          {{/isActive}}
+        {{/each}}
+        {{#isActive "pattern-library" this}}
+          <a class="sidebar__nav-link sidebar__nav-link--sub" href="/sass/">Sass doc</a>
         {{/isActive}}
-      {{/isActive}}
-    {{/pages}}
-    {{#isActive "pattern-library" "section"}}
-      <a class="sidebar__nav-link" href="/sass/">Sass doc</a>
-    {{/isActive}}
+      </nav>
+    {{/navigation}}
   </nav>
 </div>

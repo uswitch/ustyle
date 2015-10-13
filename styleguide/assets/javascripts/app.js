@@ -3,11 +3,6 @@
 
   function App(){
 
-    gumshoe.init({
-      activeClass: 'sidebar__nav-link--active',
-      offset: 190
-    });
-
     var toggleLinks = document.querySelectorAll(".js-toggle__link");
 
     for (var i = toggleLinks.length - 1; i >= 0; i--) {

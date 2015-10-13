@@ -20,7 +20,7 @@ $sidebar-padding        : 0;
   @include respond-to($sidebar-breakpoint, true) {
     position: fixed;
     top: $header-height;
-    left: auto;
+    right: auto;
     width: $sidebar-width;
     min-height: 1px;
     padding-top: $gutter-width;
@@ -33,9 +33,7 @@ $sidebar-padding        : 0;
     display: block;
 
     &--push {
-      width: 80%;
-      width: calc(100% - #{$sidebar-width});
-      padding-right: $sidebar-width/2 + $gutter-width;
+      padding-left: $sidebar-width + $gutter-width;
     }
   }
 

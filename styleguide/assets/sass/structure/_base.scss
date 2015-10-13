@@ -17,9 +17,7 @@ html {
 
 .container {
   @extend %clearfix;
-  margin-left: auto;
-  margin-right: auto;
   position: relative;
-  padding-right: $gutter-width / 2;
+  padding-right: $gutter-width;
   padding-left: $gutter-width / 2;
 }
