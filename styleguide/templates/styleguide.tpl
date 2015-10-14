@@ -10,6 +10,7 @@
       <div class="us-grid-row">
         {{#if blocks}}
           <nav class="nav--sub us-col-md-2">
+            <h4>Patterns</h4>
             {{#blocks}}
               <a class="nav__link" href="#{{link}}">{{name}}</a>
             {{/blocks}}

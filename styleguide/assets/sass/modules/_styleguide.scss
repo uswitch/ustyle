@@ -9,7 +9,6 @@ $styleguide-block-border-color: $c-bordergrey;
     background-color: $c-navy;
     color: white;
     padding: 2em $gutter-width;
-    margin-bottom: $styleguide-block-padding/2;
   }
 
   &__hero-heading {
@@ -20,7 +19,7 @@ $styleguide-block-border-color: $c-bordergrey;
     @extend %clearfix;
     position: relative;
     border-bottom: 1px solid $styleguide-separator-color;
-    padding-bottom: $styleguide-block-padding / 2;
+    padding-bottom: $styleguide-block-padding / 1.5;
   }
 
   &__block + .styleguide__block {
@@ -55,6 +54,7 @@ $styleguide-block-border-color: $c-bordergrey;
   }
 
   &__content {
+    padding-top: $gutter-width;
     border-right: 1px solid $c-bordergrey;
   }
 
@@ -88,7 +88,7 @@ $styleguide-block-border-color: $c-bordergrey;
   }
 
   &__block-small-title {
-    padding: $gutter-width/2;
+    padding: $gutter-width/2 $gutter-width/2 0 $gutter-width/2;
     margin-bottom: 0;
     font-size: 1.125em;
     color: $c-typegrey-2;
@@ -98,10 +98,6 @@ $styleguide-block-border-color: $c-bordergrey;
   &__block-examples {
     border: 1px solid $styleguide-block-border-color;
     border-radius: 3px;
-
-    @include respond-to(tablet, true) {
-      margin-bottom: $styleguide-block-padding;
-    }
   }
 
   &__block-example-class {

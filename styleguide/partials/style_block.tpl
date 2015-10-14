@@ -8,8 +8,8 @@
     {{{description}}}
   </div>
 
-  <h4>States</h4>
   {{#if state}}
+    <h4>States</h4>
     <ul class="styleguide__block-states us-clearfix">
       {{#state}}
         <li class="name"><strong>{{name}}</strong> - {{description}}</li>

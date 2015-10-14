@@ -3,7 +3,9 @@
   {{> _header}}
   {{> _sidebar}}
   <div id="wrapper" class="container header--push sidebar--push">
-    <h1 class="styleguide__title">{{page.name}}</h1>
+    <div class="styleguide__hero">
+      <h1 class="styleguide__hero-heading">{{page.name}}</h1>
+    </div>
     <div class="us-grid-row">
       <div class="us-content styleguide report us-col-md-12">
         <script>
