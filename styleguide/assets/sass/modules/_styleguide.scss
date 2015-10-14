@@ -3,18 +3,28 @@ $styleguide-separator-color: $c-bggrey;
 $styleguide-block-border-color: $c-bordergrey;
 
 .styleguide {
+  &__hero {
+    margin-left: - $gutter-width;
+    margin-right: - $gutter-width;
+    background-color: $c-navy;
+    color: white;
+    padding: 2em $gutter-width;
+    margin-bottom: $styleguide-block-padding/2;
+  }
+
+  &__hero-heading {
+    margin-bottom: 0;
+  }
 
   &__block {
     @extend %clearfix;
-    position: relative;  
+    position: relative;
     border-bottom: 1px solid $styleguide-separator-color;
+    padding-bottom: $styleguide-block-padding / 2;
+  }
 
-    &:target:before {
-      content: "";
-      display: block;
-      height: 73px;
-      margin-top: -73px;
-    }
+  &__block + .styleguide__block {
+    padding-top: $styleguide-block-padding / 2;
   }
 
   &__header {
@@ -27,10 +37,13 @@ $styleguide-block-border-color: $c-bordergrey;
   }
 
   &__title {
-    @include bold-font;
     margin-top: 1em;
     margin-bottom: 1em;
     color: $c-navy;
+  }
+
+  &__description {
+    color: $c-typegrey-2;
   }
 
   &__nav {
@@ -39,6 +52,10 @@ $styleguide-block-border-color: $c-bordergrey;
     @include respond-to(tablet, true){
       margin-left: - .75em;
     }
+  }
+
+  &__content {
+    border-right: 1px solid $c-bordergrey;
   }
 
   &__nav-link {
@@ -54,21 +71,17 @@ $styleguide-block-border-color: $c-bordergrey;
 
   &__file-link {
     @include link-colors($c-typegrey, $c-typecyan);
-    float: right;
-    padding: 5px 12px;
+    padding: 5px 8px;
     background-color: $c-bggrey;
     font-size: 14px;
     line-height: 1.25;
+    border-radius: 2px;
     font-weight: 400;
-    margin-top: 5px;
-  }
-
-  &__block-info {
-    padding-top: $styleguide-block-padding / 2;
+    display: inline-block;
+    vertical-align: middle;
   }
 
   &__block-title {
-    @include bold-font;
     position: relative;
     color: $c-navy;
     margin-bottom: $gutter-width/2;
@@ -87,7 +100,7 @@ $styleguide-block-border-color: $c-bordergrey;
     border-radius: 3px;
 
     @include respond-to(tablet, true) {
-      margin-bottom: $styleguide-block-padding;  
+      margin-bottom: $styleguide-block-padding;
     }
   }
 
@@ -119,7 +132,7 @@ $styleguide-block-border-color: $c-bordergrey;
     }
   }
 
-  &__block-example + &__block-example { 
+  &__block-example + &__block-example {
     border-top: 1px dashed darken($styleguide-separator-color, 10%);
   }
 

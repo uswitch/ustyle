@@ -6,15 +6,6 @@ html {
   }
 }
 
-%header--push,
-.header--push {
-  padding-top: $header-height / 2;
-
-  @include respond-to(tablet, true) {
-    padding-top: $header-height;
-  }
-}
-
 .container {
   @extend %clearfix;
   position: relative;

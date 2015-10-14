@@ -1,12 +1,18 @@
-$heading-font-primary: "Open Sans", Helvetica, Arial, sans-serif;
 $hero-padding-top: 1em;
 $needs-font: true;
 $load-icons: true;
 
-$header-height: 73px;
+$header-height: 110px;
 
 // Ustyle imports
 @import "ustyle/content";
+
+$sidebar-width          : 250px;
+$sidebar-bg-color       : $c-bggrey;
+$sidebar-breakpoint     : tablet;
+$sidebar-side-visibility: desktop;
+$sidebar-top-push       : $gutter-width/2;
+$sidebar-padding        : 0;
 
 @import "structure/base",
         "structure/header";
@@ -24,11 +30,8 @@ $header-height: 73px;
         "modules/stats",
         "modules/states",
         "modules/copyright",
-        "modules/typography",
         "modules/home",
         "modules/tooltip",
-        "modules/table",
-        "modules/hero",
         "modules/markdown";
 
 @import "ustyle/icons/base";

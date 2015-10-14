@@ -3,12 +3,14 @@
   @include bold-font;
   display: block;
   float: left;
-  padding: .55em;
+
+  &__icon {
+    vertical-align: middle
+  }
 
   @include respond-to(tablet, true) {
     font-size: 1.5em;
     letter-spacing: 1px;
-    padding: 1em .55em;
   }
 }
 

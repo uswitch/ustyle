@@ -1,4 +1,4 @@
-(function(document, window, cleanWhiteSpace, gumshoe, $, Overlay, ClassToggler, Tabs, Anchor, RadioToggle){
+(function(document, window, cleanWhiteSpace, $, Overlay, ClassToggler, Tabs, Anchor, RadioToggle){
   "use strict";
 
   function App(){
@@ -54,4 +54,4 @@
 
   return new App();
 
-})(document, window, cleanWhiteSpace, gumshoe, $, Overlay, ClassToggler, Tabs, Anchor, RadioToggle);
+})(document, window, cleanWhiteSpace, $, Overlay, ClassToggler, Tabs, Anchor, RadioToggle);

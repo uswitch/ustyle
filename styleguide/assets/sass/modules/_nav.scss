@@ -1,38 +1,16 @@
-.nav-container {
-  background-color: $c-navy-light;
-  overflow-x: scroll;
-  overflow-y: hidden;
-}
-
-.nav-container::-webkit-scrollbar {
-  display: none
-}
-
 .nav {
-  float: right;
-
   .sidebar--active & {
     display: block;
   }
-  
-  &__set {
-    @extend %reset-box-model;
-    list-style: none;
+
+  &--sub {
+    @include respond-to(tablet, true) {
+      float: right;
+      z-index: 100;
+    }
   }
 
   &__link {
-    @include link-colors($c-navy, $c-typecyan, $c-navy, $c-navy);
-    display: inline-block;
-    position: relative;
-    padding: .55em $gutter-width/3;
-    transition: color 200ms, background-color 200ms;
-
-    @include respond-to(tablet, true) {
-      padding: 1.5em $gutter-width;
-    }
-
-    &.active {
-      font-weight: 700;
-    }
+    display: block;
   }
 }

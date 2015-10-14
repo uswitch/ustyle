@@ -2,7 +2,7 @@
   @extend %clearfix;
   position: fixed;
   z-index: 15;
-  left: 0;
-  right: 0;
+  width: $sidebar-width;
   background-color: $c-cyan;
+  padding: 2.45em .55em;
 }

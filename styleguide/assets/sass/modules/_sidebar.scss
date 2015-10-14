@@ -1,10 +1,3 @@
-$sidebar-width          : 270px;
-$sidebar-bg-color       : $c-bggrey;
-$sidebar-breakpoint     : tablet;
-$sidebar-side-visibility: desktop;
-$sidebar-top-push       : $gutter-width/2;
-$sidebar-padding        : 0;
-
 .sidebar {
   position: fixed;
   top: 37px;
@@ -23,8 +16,8 @@ $sidebar-padding        : 0;
     right: auto;
     width: $sidebar-width;
     min-height: 1px;
-    padding-top: $gutter-width;
     padding-bottom: $gutter-width;
+    border-right: 1px solid $sidebar-bg-color;
     overflow-y: auto;
     overflow-x: hidden;
   }
@@ -43,30 +36,48 @@ $sidebar-padding        : 0;
 
   &__nav-link {
     @include link-colors($c-navy, $c-typecyan, $c-navy, $c-navy);
+    position: relative;
     display: block;
-    padding: 6px $gutter-width;
+    padding: 10px $gutter-width;
+
+    &:hover {
+      background-color: lighten($sidebar-bg-color, 5%);
+    }
 
     &.active {
-      background-color: white;
-      font-weight: 700;
+      color: $c-blue-light;
     }
 
     &--sub {
-      @include link-colors($c-typecyan, $c-navy, $c-typecyan, $c-typecyan);
       padding: 4px $gutter-width 4px $gutter-width*1.5;
-      transition: transform .3s;
-    }
+      font-size: .875em;
 
-    &--active,
-    &--active:visited {
-      font-weight: 700;
-      transform: translateX(5px);
+      &.active:before {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 5px;
+        background-color: $c-navy;
+        content: '';
+      }
     }
   }
 
-  &__toggle {
-    position: absolute;
-    top: $header-height;
-    right: $gutter-width;
+  &__nav {
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  &__nav.active {
+    background-color: lighten($sidebar-bg-color, 3%);
+
+    .sidebar__sub-nav {
+      display: block;
+    }
+  }
+
+  &__sub-nav {
+    display: none;
   }
 }
