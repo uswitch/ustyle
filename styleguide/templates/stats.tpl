@@ -12,9 +12,9 @@
       </script>
       <div id="simplicity_chart" style="width: 100%; height: 500px;"></div>
       <div id="size_chart" style="width: 100%; height: 500px;"></div>
-      <div class="us-content-group">
+      <div class="us-content-group table__container">
         <h2>Breakdown of stats by uStyle release</h2>
-        <table class="pure-table pure-table-bordered">
+        <table class="pure-table pure-table-bordered pure-table-striped">
           <thead>
             <tr>
               <th>Version</th>
