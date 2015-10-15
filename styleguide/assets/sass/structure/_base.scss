@@ -2,7 +2,7 @@ $container-width: 90%;
 
 html {
   @include respond-to(mobile) {
-    font-size: $base-font-size * .875
+    font-size: $base-font-size * .875;
   }
 }
 

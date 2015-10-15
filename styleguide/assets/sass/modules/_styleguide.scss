@@ -25,17 +25,17 @@ $styleguide-block-border-color: $c-bordergrey;
     position: relative;
     border-bottom: 1px solid $styleguide-separator-color;
     padding-bottom: $styleguide-block-padding / 1.5;
-  }
 
-  &__block + .styleguide__block {
-    padding-top: $styleguide-block-padding / 2;
+    + .styleguide__block {
+      padding-top: $styleguide-block-padding / 2;
+    }
   }
 
   &__header {
     padding-top: $styleguide-block-padding/2;
     padding-bottom: $styleguide-block-padding/2;
 
-    @include respond-to(tablet, true){
+    @include respond-to(tablet, true) {
       padding-top: $styleguide-block-padding/2;
     }
   }
@@ -95,6 +95,10 @@ $styleguide-block-border-color: $c-bordergrey;
     @extend %clearfix;
     position: relative;
     padding: $gutter-width $gutter-width/2;
+
+    + &__block-example {
+      border-top: 1px dashed darken($styleguide-separator-color, 10%);
+    }
   }
 
   &__block-example-class {
@@ -123,9 +127,5 @@ $styleguide-block-border-color: $c-bordergrey;
         color: $c-bordergrey;
       }
     }
-  }
-
-  &__block-example + &__block-example {
-    border-top: 1px dashed darken($styleguide-separator-color, 10%);
   }
 }

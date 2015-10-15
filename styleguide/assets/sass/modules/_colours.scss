@@ -2,21 +2,21 @@
   margin-bottom: $gutter-width/2;
 
   &__block {
+    text-align: center;
     border: 1px solid $c-bordergrey;
     border-radius: 3px;
-    text-align: center;
   }
 
   &__hex {
     height: 75px;
-    border-top-left-radius: 3px;
     border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
   }
 
   &__description {
+    min-height: 70px;
     padding-top: 8px;
     padding-bottom: 8px;
-    min-height: 70px;
   }
 
   &__title {

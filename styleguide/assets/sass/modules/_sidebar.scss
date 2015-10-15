@@ -1,24 +1,22 @@
 .sidebar {
-  background-color: $sidebar-bg-color;
   z-index: 10;
   display: none;
-  left: 0;
-  right: 0;
   overflow-y: auto;
   overflow-x: hidden;
+  background-color: $sidebar-bg-color;
 
   @include respond-to($sidebar-breakpoint, true) {
     position: fixed;
     top: $header-height;
     bottom: 0;
-    right: auto;
+    left: 0;
+    display: block;
     width: $sidebar-width;
     min-height: 1px;
     padding-bottom: $gutter-width;
-    border-right: 1px solid $sidebar-bg-color;
     overflow-y: auto;
     overflow-x: hidden;
-    display: block;
+    border-right: 1px solid $sidebar-bg-color;
 
     &--push {
       padding-left: $sidebar-width + $gutter-width;
@@ -36,10 +34,10 @@
     padding: 10px $gutter-width;
 
     &:after {
-      content: '\25BA';
       float: right;
       font-size: 8px;
       color: $c-bordergrey;
+      content: "\25BA";
     }
 
     &:hover {
@@ -68,7 +66,7 @@
         left: 0;
         width: 5px;
         background-color: $c-navy;
-        content: '';
+        content: "";
       }
     }
   }
@@ -76,17 +74,17 @@
   &__nav {
     padding-top: 4px;
     padding-bottom: 4px;
-  }
 
-  &__nav.active {
-    background-color: lighten($sidebar-bg-color, 3%);
+    &.active {
+      background-color: lighten($sidebar-bg-color, 3%);
 
-    .sidebar__nav-link:after {
-      content: '\25BC'
-    }
+      .sidebar__nav-link:after {
+        content: "\25BC";
+      }
 
-    .sidebar__sub-nav {
-      display: block;
+      .sidebar__sub-nav {
+        display: block;
+      }
     }
   }
 

@@ -125,13 +125,15 @@ module.exports = function(grunt) {
     scsslint: {
       allFiles: [
         "./vendor/assets/stylesheets/**/*.scss",
+        "./styleguide/assets/sass/**/*.scss"
       ],
       options: {
         bundleExec: true,
         config: "config/scss-lint.yml",
         reporterOutput: null,
         exclude: [
-          "./vendor/assets/stylesheets/ustyle/vendor/*"
+          "./vendor/assets/stylesheets/ustyle/vendor/*",
+          "./styleguide/assets/sass/vendor/*"
         ]
       }
     },

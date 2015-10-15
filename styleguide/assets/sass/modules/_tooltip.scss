@@ -1,8 +1,8 @@
 .tooltip-demo {
   position: relative;
-  border: 1px solid $c-inputgrey;
-  border-style: dashed;
   padding: 1em;
+  border: 1px dashed $c-inputgrey;
+
   @include respond-to(tablet, true) {
     width: 50%;
   }
