@@ -18,7 +18,6 @@
       var $sidebar = $(".js-sticky");
       if(!$sidebar.length) return;
       var offset = $sidebar.offset();
-      var offsetParent = $sidebar.position().top;
 
       $(window).on("scroll", function(){
         var winTop = $(window).scrollTop();
@@ -27,14 +26,9 @@
 
       function set(winTop){
         if (offset.top < winTop) {
-          $sidebar.css({
-            position: 'fixed',
-            top: offsetParent
-          });
+          $sidebar.addClass("stuck");
         } else {
-          $sidebar.css({
-            position: 'static'
-          })
+          $sidebar.removeClass("stuck");
         }
       }
     }

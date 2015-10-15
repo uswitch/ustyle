@@ -1,14 +1,13 @@
-$nav-mobile-color        : white !default;
+$nav-mobile-color        : $c-navy !default;
 $button-menu-slice-height: 3px !default;
 
 .nav-mobile {
-  position: fixed;
-  right: $gutter-width/2;
-  top: 37px;
+  position: absolute;
+  right: $gutter-width/4;
+  top: 3px;
   z-index: 15;
   height: 42px;
   width: 42px;
-  background-color: $c-navy;
 
   @include respond-to($sidebar-breakpoint, true) {
     top: $header-height;

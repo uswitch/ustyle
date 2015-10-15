@@ -9,7 +9,7 @@ html {
 .container {
   @extend %clearfix;
   position: relative;
-  padding-right: $gutter-width;
+  padding-right: $gutter-width / 2;
   padding-left: $gutter-width / 2;
 }
 
