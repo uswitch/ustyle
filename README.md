@@ -2,8 +2,9 @@
 
 uStyle, aptly named, is the styleguide gem for uSwitch. Include it in your Rails/Sinatra/Anything project as a gem and forget about those annoying additional cloudfront includes.
 
-## Requirements
+## Gem Requirements
 
+- Sprockets
 - SASS
 - Autoprefixer
 
@@ -61,13 +62,13 @@ This will import everything. If you want more granular control of what to import
 
 ## Development
 
-Development is done using [Grunt](http://gruntjs.com/), but it's just a thin wrapper around the heavy lifting done by some Node.js modules. 
+Development is done using [Grunt](http://gruntjs.com/), but it's just a thin wrapper around the heavy lifting done by some Node.js modules.
 
 To run in development, just run
 
     grunt
 
-This will open a [BrowserSync](http://www.browsersync.io/) window with an overview of our stylesheet stats and a link to the styleguide. 
+This will open a [BrowserSync](http://www.browsersync.io/) window with an overview of our stylesheet stats and a link to the styleguide.
 
 ## Documentation
 
@@ -76,3 +77,9 @@ See [JAVASCRIPT_STANDARDS.md](https://github.com/uswitch/ustyle/blob/master/JAVA
 ## Contributing
 
 See [CONTRIBUTING.md](https://github.com/uswitch/ustyle/blob/master/CONTRIBUTING.md)
+
+## Licences
+
+- Source code is licenced under Apache v2.0 licence
+- All icons, except the uSwitch icon are licenced under [CC - Attribution - No Derivatives 4.0](http://creativecommons.org/licenses/by-nd/4.0/)
+- uSwitch icon is licenced under [CC - Attribution - NonCommercial - NoDerivates 4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/)
