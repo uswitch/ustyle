@@ -45,7 +45,10 @@
 
     &--sub {
       padding: 4px $gutter-width 4px $gutter-width*1.5;
-      font-size: .875em;
+
+      @include respond-to(tablet, true) {
+        font-size: .875em;
+      }
 
       &.active:before {
         position: absolute;

@@ -4,11 +4,14 @@
   }
 
   &--sub {
+    padding-top: $gutter-width;
+    border-bottom: 1px solid $c-bordergrey;
+
     @include respond-to(desktop, true) {
-      padding-top: $gutter-width;
       float: right;
       z-index: 100;
       position: relative;
+      border-bottom: 0;
 
       .stuck {
         position: fixed;
@@ -19,6 +22,8 @@
 
   &__link {
     display: block;
+    padding-top: 5px;
+    padding-bottom: 5px;
 
     @include respond-to(desktop, true) {
       font-size: .875em;
