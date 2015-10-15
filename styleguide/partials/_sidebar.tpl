@@ -2,7 +2,7 @@
 <div class='sidebar'>
   {{#navigation}}
     <nav class="sidebar__nav {{activeClass this 'section'}}">
-      <a href="/{{this}}/" class="sidebar__nav-link {{activeClass this 'section'}}">{{humanize this}}</a>
+      <a href="/{{this}}/" class="sidebar__nav-link js-sidebar-nav-link {{activeClass this 'section'}}">{{humanize this}}</a>
       <nav class="sidebar__sub-nav">
         {{#each ../pages}}
           {{#isActive this.section ../this}}

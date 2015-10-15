@@ -10,6 +10,13 @@
       toggleLink.addEventListener("click", clickToggle, false);
     };
 
+    var sidebarNavLinks = document.querySelectorAll(".js-sidebar-nav-link");
+
+    for (var i = sidebarNavLinks.length - 1; i >= 0; i--) {
+      var sidebarNavLink = sidebarNavLinks[i];
+      sidebarNavLink.addEventListener("click", sideBarToggle, false);
+    };
+
     if(!$("html").hasClass("ie8")) {
       cleanWhiteSpace(document.querySelectorAll('pre code'));
     }
@@ -61,12 +68,18 @@
   }
 
   function clickToggle(event){
-    var toggleLink = this;
+    var toggleLink = event.currentTarget;
     var target = document.querySelector("." + toggleLink.getAttribute("data-target"));
     var targetActiveClass = getActiveClass(target);
     var activeClass = getActiveClass(toggleLink);
     toggleLink.classList.toggle(activeClass);
     target.classList.toggle(targetActiveClass);
+  }
+
+  function sideBarToggle(event){
+    event.preventDefault();
+    var sidebarSubNav = event.currentTarget.parentElement;
+    sidebarSubNav.classList.toggle("active");
   }
 
   function getActiveClass(selector){
