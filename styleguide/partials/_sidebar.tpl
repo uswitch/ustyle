@@ -10,7 +10,7 @@
           {{/isActive}}
         {{/each}}
         {{#isActive "pattern-library" this}}
-          <a class="sidebar__nav-link sidebar__nav-link--sub" href="/sass/">Sass doc</a>
+          <a class="sidebar__nav-link sidebar__nav-link--sub" href="/sass/" target="_blank">Sass doc</a>
         {{/isActive}}
       </nav>
     </nav>
