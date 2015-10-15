@@ -35,6 +35,13 @@
     display: block;
     padding: 10px $gutter-width;
 
+    &:after {
+      content: '\25BA';
+      float: right;
+      font-size: 8px;
+      color: $c-bordergrey;
+    }
+
     &:hover {
       background-color: lighten($sidebar-bg-color, 5%);
     }
@@ -48,6 +55,10 @@
 
       @include respond-to(tablet, true) {
         font-size: .875em;
+      }
+
+      &:after {
+        display: none;
       }
 
       &.active:before {
@@ -69,6 +80,10 @@
 
   &__nav.active {
     background-color: lighten($sidebar-bg-color, 3%);
+
+    .sidebar__nav-link:after {
+      content: '\25BC'
+    }
 
     .sidebar__sub-nav {
       display: block;
