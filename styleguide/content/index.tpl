@@ -1,13 +1,10 @@
 ---
 template: simple.tpl
+name: uSwitch living styleguide
 ---
-
-<div class="us-hero header--push hero--home">
-  <h1 class="us-hero-title">uSwitch living styleguide</h1>
-  <p class="us-standfirst">
-    The sum of our efforts towards style guidelines, a pattern library and automated front-end. Made with &#10084;
-  </p>
-</div>
+<p class="us-standfirst">
+  The sum of our efforts towards style guidelines, a pattern library and automated front-end. Made with &#10084;
+</p>
 <div class="us-content-group mobile-bordered">
   <div class="us-grid-row">
     <div class="us-col-md-6">

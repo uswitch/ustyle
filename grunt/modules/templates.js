@@ -44,30 +44,12 @@ module.exports = {
       return context.inverse(this);
     });
 
-    handlebars.registerHelper('isString', function(obj, context) {
-      if (typeof obj === 'string') {
-          return context.fn(this);
-      } else {
-          return context.inverse(this);
-      }
+    handlebars.registerHelper('humanFileSize', function(size, context) {
+      return new handlebars.SafeString(humanFileSize(size));
     });
 
-    handlebars.registerHelper('isNumber', function(obj, type, context) {
-      var sizeString = 'size';
-      if (typeof obj === 'number') {
-          var isDecimal = this % 1 != 0;
-          return context.fn(isDecimal ? this.toPrecision(2) : type == sizeString ? humanFileSize(this) : this);
-      } else {
-          return context.inverse(this);
-      }
-    });
-
-    handlebars.registerHelper('isArray', function(obj, context) {
-      if (obj instanceof Array) {
-          return context.fn(this);
-      } else {
-          return context.inverse(this);
-      }
+    handlebars.registerHelper('number', function(number, context) {
+      return new handlebars.SafeString(number.toPrecision(2));
     });
 
     handlebars.registerHelper('classSanitizer', function(klass){

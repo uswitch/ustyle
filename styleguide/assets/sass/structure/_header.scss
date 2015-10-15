@@ -1,8 +1,12 @@
 .ustyle__header {
   @extend %clearfix;
-  position: fixed;
   z-index: 15;
-  width: $sidebar-width;
   background-color: $c-cyan;
-  padding: 2.45em .55em;
+  padding: .55em;
+
+  @include respond-to(tablet, true) {
+    width: $sidebar-width;
+    position: fixed;
+    padding: 2.45em .55em;
+  }
 }

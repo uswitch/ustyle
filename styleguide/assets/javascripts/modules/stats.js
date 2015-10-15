@@ -4,8 +4,9 @@ function humanFileSize(size) {
   return ( size / Math.pow(1024, i) ).toFixed(2) * 1  + ['B', 'kB', 'MB', 'GB', 'TB'][i];
 };
 
+google.load('visualization', '1.1', {packages:['line']});
+
 if (typeof reportData !== 'undefined' && reportData) {
-  google.load('visualization', '1.1', {packages:['line']});
   google.setOnLoadCallback(drawChart);
 }
 
@@ -28,9 +29,6 @@ function drawChart() {
     }
   };
 
-  simplicityChart = new google.charts.Line(document.getElementById('simplicity_chart'));
-  simplicityChart.draw(simplicityTable, simplicityOptions);
-
   sizeData = reportData.map(function(e){return [e.version, e.size]});
   sizeData.unshift(['Version', 'Size (bytes)']);
   sizeTable = google.visualization.arrayToDataTable(sizeData);
@@ -45,7 +43,8 @@ function drawChart() {
     }
   };
 
+  simplicityChart = new google.charts.Line(document.getElementById('simplicity_chart'));
+  simplicityChart.draw(simplicityTable, simplicityOptions);
   sizeChart = new google.charts.Line(document.getElementById('size_chart'));
   sizeChart.draw(sizeTable, sizeOptions);
-
 };

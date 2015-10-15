@@ -1,7 +1,4 @@
 .sidebar {
-  position: fixed;
-  top: 37px;
-  bottom: 0;
   background-color: $sidebar-bg-color;
   z-index: 10;
   display: none;
@@ -13,6 +10,7 @@
   @include respond-to($sidebar-breakpoint, true) {
     position: fixed;
     top: $header-height;
+    bottom: 0;
     right: auto;
     width: $sidebar-width;
     min-height: 1px;
@@ -20,9 +18,6 @@
     border-right: 1px solid $sidebar-bg-color;
     overflow-y: auto;
     overflow-x: hidden;
-  }
-
-  @include respond-to($sidebar-side-visibility, true) {
     display: block;
 
     &--push {

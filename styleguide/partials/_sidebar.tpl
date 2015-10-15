@@ -1,4 +1,4 @@
-<a href="javascript:void(0);" class="nav-mobile js-toggle__link us-desktop--hidden" data-target="sidebar"><span class="nav-mobile__hamburger">Sidebar</span></a>
+<a href="javascript:void(0);" class="nav-mobile js-toggle__link us-tablet--hidden" data-target="sidebar"><span class="nav-mobile__hamburger">Sidebar</span></a>
 <div class='sidebar'>
   {{#navigation}}
     <nav class="sidebar__nav {{activeClass this 'section'}}">
@@ -15,5 +15,4 @@
       </nav>
     </nav>
   {{/navigation}}
-
 </div>

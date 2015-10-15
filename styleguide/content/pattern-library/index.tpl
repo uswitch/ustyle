@@ -1,7 +1,10 @@
 ---
-template: styleguide-home.tpl
+template: simple.tpl
 name: Introduction
 ---
+<p class="us-standfirst">
+  Our pattern library comes as a easily distributed package, ready to use in multiple programming environments.
+</p>
 <div class="us-content-group mobile-bordered">
   <h2 class="trailered">Distribution methods</h2>
   <div class="us-grid-row">

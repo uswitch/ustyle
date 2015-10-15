@@ -9,14 +9,16 @@
       </div>
       <div class="us-grid-row">
         {{#if blocks}}
-          <nav class="nav--sub us-col-md-2">
-            <h4>Patterns</h4>
-            {{#blocks}}
-              <a class="nav__link" href="#{{link}}">{{name}}</a>
-            {{/blocks}}
+          <nav class="nav--sub us-col-lg-2">
+            <div class="js-sticky">
+              <h4>Patterns</h4>
+              {{#blocks}}
+                <a class="nav__link" href="#{{link}}">{{name}}</a>
+              {{/blocks}}
+            </div>
           </nav>
         {{/if}}
-      <div class="us-col-md-10 styleguide__content">
+      <div class="us-col-lg-10 styleguide__content styleguide__content--w-sidebar">
         {{#blocks}}
           {{#if partial}}
             {{partial partial}}

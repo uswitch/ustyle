@@ -14,6 +14,33 @@
       cleanWhiteSpace(document.querySelectorAll('pre code'));
     }
 
+    var stickySidebar = function() {
+      var $sidebar = $(".js-sticky");
+      if(!$sidebar.length) return;
+      var offset = $sidebar.offset();
+      var offsetParent = $sidebar.position().top;
+
+      $(window).on("scroll", function(){
+        var winTop = $(window).scrollTop();
+        set(winTop);
+      });
+
+      function set(winTop){
+        if (offset.top < winTop) {
+          $sidebar.css({
+            position: 'fixed',
+            top: offsetParent
+          });
+        } else {
+          $sidebar.css({
+            position: 'static'
+          })
+        }
+      }
+    }
+
+    stickySidebar();
+
     var overlays = [];
 
     $(".js-open-overlay").each(function(e){
@@ -23,7 +50,7 @@
           overlay: $(".us-overlay-parent[modifier='"+$(this).attr('modifier')+"']")
         })
       )
-    })
+    });
 
     var tooltips = new ClassToggler({
       containerClass: '.us-tooltip',

@@ -4,7 +4,8 @@
   }
 
   &--sub {
-    @include respond-to(tablet, true) {
+    @include respond-to(desktop, true) {
+      padding-top: $gutter-width;
       float: right;
       z-index: 100;
       position: relative;
@@ -13,5 +14,6 @@
 
   &__link {
     display: block;
+    font-size: .875em;
   }
 }

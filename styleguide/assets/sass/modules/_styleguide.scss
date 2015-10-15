@@ -55,7 +55,10 @@ $styleguide-block-border-color: $c-bordergrey;
 
   &__content {
     padding-top: $gutter-width;
-    border-right: 1px solid $c-bordergrey;
+
+    &--w-sidebar {
+      border-right: 1px solid $c-keylinegrey;
+    }
   }
 
   &__nav-link {
