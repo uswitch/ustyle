@@ -3,12 +3,14 @@
   @include bold-font;
   display: block;
   float: left;
-  padding: .55em;
 
   @include respond-to(tablet, true) {
     font-size: 1.5em;
     letter-spacing: 1px;
-    padding: 1em .55em;
+  }
+
+  &__icon {
+    vertical-align: middle;
   }
 }
 
@@ -37,13 +39,13 @@
   border: 1px dashed $c-red;
 
   &:before {
-    content: 's';
     position: absolute;
-    width: 18px;
-    height: 100%;
     top: 0;
     left: 0;
-    background-color: $c-cyan-light;
+    width: 18px;
+    height: 100%;
     text-align: center;
+    background-color: $c-cyan-light;
+    content: "s";
   }
 }

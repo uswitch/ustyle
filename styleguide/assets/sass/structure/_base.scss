@@ -2,24 +2,17 @@ $container-width: 90%;
 
 html {
   @include respond-to(mobile) {
-    font-size: $base-font-size * .875
-  }
-}
-
-%header--push,
-.header--push {
-  padding-top: $header-height / 2;
-
-  @include respond-to(tablet, true) {
-    padding-top: $header-height;
+    font-size: $base-font-size * .875;
   }
 }
 
 .container {
   @extend %clearfix;
-  margin-left: auto;
-  margin-right: auto;
   position: relative;
   padding-right: $gutter-width / 2;
   padding-left: $gutter-width / 2;
+}
+
+.content {
+  padding-top: $gutter-width;
 }

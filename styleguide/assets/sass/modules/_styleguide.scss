@@ -3,17 +3,31 @@ $styleguide-separator-color: $c-bggrey;
 $styleguide-block-border-color: $c-bordergrey;
 
 .styleguide {
+  &__hero {
+    padding: 2em $gutter-width / 2;
+    margin-right: - $gutter-width / 2;
+    margin-left: - $gutter-width / 2;
+    color: #fff;
+    background-color: $c-navy;
+
+    @include respond-to(tablet, true) {
+      padding: 2em $gutter-width;
+      margin-left: - $gutter-width;
+    }
+  }
+
+  &__hero-heading {
+    margin-bottom: 0;
+  }
 
   &__block {
     @extend %clearfix;
-    position: relative;  
+    position: relative;
+    padding-bottom: $styleguide-block-padding / 1.5;
     border-bottom: 1px solid $styleguide-separator-color;
 
-    &:target:before {
-      content: "";
-      display: block;
-      height: 73px;
-      margin-top: -73px;
+    + .styleguide__block {
+      padding-top: $styleguide-block-padding / 2;
     }
   }
 
@@ -21,61 +35,51 @@ $styleguide-block-border-color: $c-bordergrey;
     padding-top: $styleguide-block-padding/2;
     padding-bottom: $styleguide-block-padding/2;
 
-    @include respond-to(tablet, true){
+    @include respond-to(tablet, true) {
       padding-top: $styleguide-block-padding/2;
     }
   }
 
   &__title {
-    @include bold-font;
     margin-top: 1em;
     margin-bottom: 1em;
     color: $c-navy;
   }
 
-  &__nav {
-    padding-top: $styleguide-block-padding/4;
-
-    @include respond-to(tablet, true){
-      margin-left: - .75em;
-    }
+  &__description {
+    color: $c-typegrey-2;
   }
 
-  &__nav-link {
-    @include link-colors($c-navy, $c-typecyan, $c-navy, $c-navy);
-    display: block;
-    margin-bottom: $gutter-width/4;
-    border-bottom: 1px dotted $c-navy;
+  &__content {
+    padding-top: $gutter-width;
 
-    &:hover {
-      border-bottom: 1px solid $c-typecyan;
+    @include respond-to(desktop, true) {
+      &--w-sidebar {
+        border-right: 1px solid $c-keylinegrey;
+      }
     }
   }
 
   &__file-link {
     @include link-colors($c-typegrey, $c-typecyan);
-    float: right;
-    padding: 5px 12px;
-    background-color: $c-bggrey;
+    display: inline-block;
+    padding: 5px 8px;
     font-size: 14px;
-    line-height: 1.25;
     font-weight: 400;
-    margin-top: 5px;
-  }
-
-  &__block-info {
-    padding-top: $styleguide-block-padding / 2;
+    line-height: 1.25;
+    vertical-align: middle;
+    background-color: $c-bggrey;
+    border-radius: 2px;
   }
 
   &__block-title {
-    @include bold-font;
     position: relative;
-    color: $c-navy;
     margin-bottom: $gutter-width/2;
+    color: $c-navy;
   }
 
   &__block-small-title {
-    padding: $gutter-width/2;
+    padding: $gutter-width/2 $gutter-width/2 0 $gutter-width/2;
     margin-bottom: 0;
     font-size: 1.125em;
     color: $c-typegrey-2;
@@ -85,9 +89,15 @@ $styleguide-block-border-color: $c-bordergrey;
   &__block-examples {
     border: 1px solid $styleguide-block-border-color;
     border-radius: 3px;
+  }
 
-    @include respond-to(tablet, true) {
-      margin-bottom: $styleguide-block-padding;  
+  &__block-example {
+    @extend %clearfix;
+    position: relative;
+    padding: $gutter-width $gutter-width/2;
+
+    + &__block-example {
+      border-top: 1px dashed darken($styleguide-separator-color, 10%);
     }
   }
 
@@ -95,38 +105,25 @@ $styleguide-block-border-color: $c-bordergrey;
     position: absolute;
     bottom: 0;
     left: 0;
-    background-color: $c-bggrey;
-    color: $c-typegrey;
     padding: 0 8px;
     font-size: .85em;
+    color: $c-typegrey;
+    background-color: $c-bggrey;
   }
 
   &__block-states {
-    color: lighten($c-typegrey, 10%);
-    margin-top: 0;
-    list-style: none;
     padding-left: 0;
+    margin-top: 0;
+    color: lighten($c-typegrey, 10%);
+    list-style: none;
 
-    li {
-      &:before {
-        display: inline-block;
-        margin: 0 .35em;
-        font-size: 1.4em;
-        font-weight: normal;
-        content: "\203A";
-        color: $c-bordergrey;
-      }
+    li:before {
+      display: inline-block;
+      margin: 0 .35em;
+      font-size: 1.4em;
+      font-weight: normal;
+      color: $c-bordergrey;
+      content: "\203A";
     }
   }
-
-  &__block-example + &__block-example { 
-    border-top: 1px dashed darken($styleguide-separator-color, 10%);
-  }
-
-  &__block-example {
-    @extend %clearfix;
-    position: relative;
-    padding: $gutter-width $gutter-width/2;
-  }
-
 }

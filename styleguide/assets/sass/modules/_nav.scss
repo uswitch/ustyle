@@ -1,38 +1,32 @@
-.nav-container {
-  background-color: $c-navy-light;
-  overflow-x: scroll;
-  overflow-y: hidden;
-}
-
-.nav-container::-webkit-scrollbar {
-  display: none
-}
-
 .nav {
-  float: right;
-
   .sidebar--active & {
     display: block;
   }
-  
-  &__set {
-    @extend %reset-box-model;
-    list-style: none;
+
+  &--sub {
+    padding-top: $gutter-width;
+    border-bottom: 1px solid $c-bordergrey;
+
+    @include respond-to(desktop, true) {
+      position: relative;
+      z-index: 100;
+      float: right;
+      border-bottom: 0;
+
+      .stuck {
+        position: fixed;
+        top: 30px;
+      }
+    }
   }
 
   &__link {
-    @include link-colors($c-navy, $c-typecyan, $c-navy, $c-navy);
-    display: inline-block;
-    position: relative;
-    padding: .55em $gutter-width/3;
-    transition: color 200ms, background-color 200ms;
+    display: block;
+    padding-top: 5px;
+    padding-bottom: 5px;
 
-    @include respond-to(tablet, true) {
-      padding: 1.5em $gutter-width;
-    }
-
-    &.active {
-      font-weight: 700;
+    @include respond-to(desktop, true) {
+      font-size: .875em;
     }
   }
 }

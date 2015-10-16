@@ -1,35 +1,41 @@
-$heading-font-primary: "Open Sans", Helvetica, Arial, sans-serif;
 $hero-padding-top: 1em;
 $needs-font: true;
 $load-icons: true;
 
-$header-height: 73px;
+$header-height: 110px;
 
 // Ustyle imports
 @import "ustyle/content";
 
-@import "structure/base",
-        "structure/header";
+$sidebar-width          : 250px;
+$sidebar-bg-color       : $c-bggrey;
+$sidebar-breakpoint     : tablet;
+$sidebar-side-visibility: desktop;
+$sidebar-top-push       : $gutter-width/2;
+$sidebar-padding        : 0;
 
-@import "modules/highlight",
-        "modules/sidebar",
-        "modules/styleguide",
-        "modules/colours",
-        "modules/nav-mobile",
-        "modules/version",
-        "modules/logo",
-        "modules/nav",
-        "modules/grid",
-        "modules/code",
-        "modules/stats",
-        "modules/states",
-        "modules/copyright",
-        "modules/typography",
-        "modules/home",
-        "modules/tooltip",
-        "modules/table",
-        "modules/hero",
-        "modules/markdown";
+@import "structure/base";
+@import "structure/header";
+
+
+@import "modules/sidebar";
+@import "modules/styleguide";
+@import "modules/colours";
+@import "modules/nav-mobile";
+@import "modules/version";
+@import "modules/logo";
+@import "modules/nav";
+@import "modules/grid";
+@import "modules/code";
+@import "modules/states";
+@import "modules/copyright";
+@import "modules/home";
+@import "modules/tooltip";
+@import "modules/table";
+@import "modules/markdown";
+
+@import "vendor/highlight";
+@import "vendor/pure-table";
 
 @import "ustyle/icons/base";
 @import "ustyle/icons/svg";

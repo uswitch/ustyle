@@ -1,73 +1,72 @@
-$nav-mobile-color        : white !default;
+$nav-mobile-color        : $c-navy !default;
 $button-menu-slice-height: 3px !default;
 
 .nav-mobile {
-  position: fixed;
-  right: $gutter-width/2;
-  top: 37px;
+  position: absolute;
+  top: 3px;
+  right: $gutter-width/4;
   z-index: 15;
-  height: 42px;
   width: 42px;
-  background-color: $c-navy;
+  height: 42px;
 
   @include respond-to($sidebar-breakpoint, true) {
     top: $header-height;
     right: $gutter-width;
   }
 
-  &__hamburger {
-    width: 20px;
-    height: $button-menu-slice-height;
-    padding: 0;
-    border: none;
-    color: transparent;
-    background-color: $nav-mobile-color;
-    transition: all .2s;
-    display: block;
-    text-indent: -999em;
-    position: absolute;
-    top: 19px;
-    left: 50%;
-    margin-left: -10px;
-    border-radius: 2px;
+  .nav-mobile--active .nav-mobile__hamburger {
+    background: transparent;
 
     &:before,
     &:after {
-      content: '';
+      top: 0;
+    }
+
+    &:before {
+      transform: translateY(-3px) translateX(1px) rotate(45deg);
+    }
+
+    &:after {
+      transform: translateY(3px) translateX(1px) rotate(-45deg);
+    }
+  }
+
+  &__hamburger {
+    position: absolute;
+    top: 19px;
+    left: 50%;
+    display: block;
+    width: 20px;
+    height: $button-menu-slice-height;
+    padding: 0;
+    margin-left: -10px;
+    color: transparent;
+    text-indent: -999em;
+    background-color: $nav-mobile-color;
+    border: 0;
+    border-radius: 2px;
+    transition: all .2s;
+
+    &:before,
+    &:after {
       position: absolute;
+      left: 0;
       width: 100%;
       height: $button-menu-slice-height;
       background-color: $nav-mobile-color;
-      transition: all .2s;
-      left: 0;
       border-radius: 2px;
+      content: "";
+      transition: all .2s;
     }
 
     &:before {
       top: -6px;
-      transform-origin: 33% 100%
+      transform-origin: 33% 100%;
     }
 
     &:after {
       top: 6px;
-      transform-origin: 33% 0
-    }
-
-    .nav-mobile--active & {
-      background: transparent;
-
-      &:before,
-      &:after {
-        top: 0
-      }
-
-      &:before {
-        transform: translateY(-3px) translateX(1px) rotate(45deg);
-      }
-
-      &:after {
-        transform: translateY(3px) translateX(1px) rotate(-45deg);
-      }
+      transform-origin: 33% 0;
     }
   }
 }

@@ -3,44 +3,45 @@
   {{> _header}}
   {{> _sidebar}}
   <div id="wrapper" class="container header--push sidebar--push">
-    <h1 class="styleguide__title">{{page.name}}</h1>
-    <div class="us-grid-row">
-      <div class="us-content styleguide report us-col-md-12">
-        <script>
-          var reportData = {{{json page.content.report}}};
-        </script>
-        <div id="simplicity_chart" style="width: 100%; height: 500px;" class='us-container' ></div>
-        <div id="size_chart" style="width: 100%; height: 500px;" class='us-container'></div>
+    <div class="styleguide__hero">
+      <h1 class="styleguide__hero-heading">{{page.name}}</h1>
+    </div>
+    <div class="styleguide report">
+      <script>
+        var reportData = {{{json page.content.report}}};
+      </script>
+      <div id="simplicity_chart" style="width: 100%; height: 500px;"></div>
+      <div id="size_chart" style="width: 100%; height: 500px;"></div>
+      <div class="us-content-group table__container">
         <h2>Breakdown of stats by uStyle release</h2>
-        {{#each page.content.report}}
-
-        <div class="report--entry">
-          {{#each this}}
-            {{#isString this}}
-              <div class="stat__entry us-col-md-4 stat--string">
-                <div class="stat__value">{{this}}</div>
-                <div class="stat__title">{{@key}}</div>
-              </div>
-            {{/isString}}
-
-            {{#isNumber this @key}}
-            <div class="stat__entry us-col-md-4 stat--number">
-              <div class="stat__value">{{this}}</div>
-              <div class="stat__title">{{@key}}</div>
-            </div>
-            {{/isNumber}}
-
-            {{#isArray this}}
-            <div class="stat__list us-col-md-4 stat--array">
-              <div class="stat__value">{{this}}</div>
-              <div class="stat__title">{{@key}}</div>
-            </div>
-            {{/isArray}}
-          {{/each}}
-
-        </div>
-
-        {{/each}}
+        <table class="pure-table pure-table-bordered pure-table-striped">
+          <thead>
+            <tr>
+              <th>Version</th>
+              <th>Selectors</th>
+              <th>Simplicity</th>
+              <th>Rules</th>
+              <th>Universal selectors</th>
+              <th>Media queries</th>
+              <th>Important keywords</th>
+              <th>Size</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each page.content.report}}
+              <tr>
+                <td><strong class="us-color--typecyan">{{this.version}}</strong></td>
+                <td>{{this.selectors}}</td>
+                <td>{{number this.simplicity}}</td>
+                <td>{{this.rules}}</td>
+                <td>{{this.universalSelectors}}</td>
+                <td>{{this.mediaQueries}}</td>
+                <td>{{this.importantKeywords}}</td>
+                <td>{{humanFileSize this.size}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

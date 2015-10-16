@@ -1,12 +1,7 @@
-(function(document, window, cleanWhiteSpace, gumshoe, $, Overlay, ClassToggler, Tabs, Anchor, RadioToggle){
+(function(document, window, cleanWhiteSpace, $, Overlay, ClassToggler, Tabs, Anchor, RadioToggle){
   "use strict";
 
   function App(){
-
-    gumshoe.init({
-      activeClass: 'sidebar__nav-link--active',
-      offset: 190
-    });
 
     var toggleLinks = document.querySelectorAll(".js-toggle__link");
 
@@ -15,9 +10,37 @@
       toggleLink.addEventListener("click", clickToggle, false);
     };
 
+    var sidebarNavLinks = document.querySelectorAll(".js-sidebar-nav-link");
+
+    for (var i = sidebarNavLinks.length - 1; i >= 0; i--) {
+      var sidebarNavLink = sidebarNavLinks[i];
+      sidebarNavLink.addEventListener("click", sideBarToggle, false);
+    };
+
     if(!$("html").hasClass("ie8")) {
       cleanWhiteSpace(document.querySelectorAll('pre code'));
     }
+
+    var stickySidebar = function() {
+      var $sidebar = $(".js-sticky");
+      if(!$sidebar.length) return;
+      var offset = $sidebar.offset();
+
+      $(window).on("scroll", function(){
+        var winTop = $(window).scrollTop();
+        set(winTop);
+      });
+
+      function set(winTop){
+        if (offset.top < winTop) {
+          $sidebar.addClass("stuck");
+        } else {
+          $sidebar.removeClass("stuck");
+        }
+      }
+    }
+
+    stickySidebar();
 
     var overlays = [];
 
@@ -28,7 +51,7 @@
           overlay: $(".us-overlay-parent[modifier='"+$(this).attr('modifier')+"']")
         })
       )
-    })
+    });
 
     var tooltips = new ClassToggler({
       containerClass: '.us-tooltip',
@@ -45,12 +68,18 @@
   }
 
   function clickToggle(event){
-    var toggleLink = this;
+    var toggleLink = event.currentTarget;
     var target = document.querySelector("." + toggleLink.getAttribute("data-target"));
     var targetActiveClass = getActiveClass(target);
     var activeClass = getActiveClass(toggleLink);
     toggleLink.classList.toggle(activeClass);
     target.classList.toggle(targetActiveClass);
+  }
+
+  function sideBarToggle(event){
+    event.preventDefault();
+    var sidebarSubNav = event.currentTarget.parentElement;
+    sidebarSubNav.classList.toggle("active");
   }
 
   function getActiveClass(selector){
@@ -59,4 +88,4 @@
 
   return new App();
 
-})(document, window, cleanWhiteSpace, gumshoe, $, Overlay, ClassToggler, Tabs, Anchor, RadioToggle);
+})(document, window, cleanWhiteSpace, $, Overlay, ClassToggler, Tabs, Anchor, RadioToggle);

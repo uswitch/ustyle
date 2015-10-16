@@ -1,27 +1,27 @@
 pre {
-  font-family: Consolas,"Liberation Mono", Menlo, Courier, monospace;
-  font-size: 0.9em;
-  line-height: 1.4;
   display: block;
   padding: 1.5em;
-  background: #fafafa;
-  color: $c-typegrey;
-  border-top: 1px solid $c-bordergrey;
-  margin-bottom: 0;
   margin-top: 0;
-}
-
-pre code {
-  display: inline;
-  background: none;
-  margin: 0;
-  padding: 0;
+  margin-bottom: 0;
+  font-family: Consolas,"Liberation Mono", Menlo, Courier, monospace;
+  font-size: .9em;
+  line-height: 1.4;
   color: $c-typegrey;
-  border: none;
-  word-wrap: normal;
-  max-width: initial;
-  overflow: initial;
-  line-height: inherit;
+  background: #fafafa;
+  border-top: 1px solid $c-bordergrey;
+
+  code {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    max-width: initial;
+    overflow: initial;
+    line-height: inherit;
+    color: $c-typegrey;
+    word-wrap: normal;
+    background: none;
+    border: 0;
+  }
 }
 
 .hljs-comment,

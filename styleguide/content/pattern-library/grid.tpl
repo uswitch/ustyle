@@ -1,5 +1,4 @@
 <div class="styleguide__block">
-  <h2 class="styleguide__block-title">Introduction</h2>
   <p>
     Our grid is a 12 column grid, with similar sizes to that of Bootstrap. We also adhere to the same naming standards for device breakpoints.
   </p>

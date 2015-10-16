@@ -1,41 +1,25 @@
-$sidebar-width          : 270px;
-$sidebar-bg-color       : $c-bggrey;
-$sidebar-breakpoint     : tablet;
-$sidebar-side-visibility: desktop;
-$sidebar-top-push       : $gutter-width/2;
-$sidebar-padding        : 0;
-
 .sidebar {
-  position: fixed;
-  top: 37px;
-  bottom: 0;
-  background-color: $sidebar-bg-color;
   z-index: 10;
   display: none;
-  left: 0;
-  right: 0;
-  overflow-y: auto;
   overflow-x: hidden;
+  overflow-y: auto;
+  background-color: $sidebar-bg-color;
 
   @include respond-to($sidebar-breakpoint, true) {
     position: fixed;
     top: $header-height;
-    left: auto;
+    bottom: 0;
+    left: 0;
+    display: block;
     width: $sidebar-width;
     min-height: 1px;
-    padding-top: $gutter-width;
     padding-bottom: $gutter-width;
-    overflow-y: auto;
     overflow-x: hidden;
-  }
-
-  @include respond-to($sidebar-side-visibility, true) {
-    display: block;
+    overflow-y: auto;
+    border-right: 1px solid $sidebar-bg-color;
 
     &--push {
-      width: 80%;
-      width: calc(100% - #{$sidebar-width});
-      padding-right: $sidebar-width/2 + $gutter-width;
+      padding-left: $sidebar-width + $gutter-width;
     }
   }
 
@@ -45,30 +29,66 @@ $sidebar-padding        : 0;
 
   &__nav-link {
     @include link-colors($c-navy, $c-typecyan, $c-navy, $c-navy);
+    position: relative;
     display: block;
-    padding: 6px $gutter-width;
+    padding: 10px $gutter-width;
+
+    &:after {
+      float: right;
+      font-size: 8px;
+      color: $c-bordergrey;
+      content: "\25BA";
+    }
+
+    &:hover {
+      background-color: lighten($sidebar-bg-color, 5%);
+    }
 
     &.active {
-      background-color: white;
-      font-weight: 700;
-    }
-
-    &--sub {
-      @include link-colors($c-typecyan, $c-navy, $c-typecyan, $c-typecyan);
-      padding: 4px $gutter-width 4px $gutter-width*1.5;
-      transition: transform .3s;
-    }
-
-    &--active,
-    &--active:visited {
-      font-weight: 700;
-      transform: translateX(5px);
+      color: $c-blue-light;
     }
   }
 
-  &__toggle {
-    position: absolute;
-    top: $header-height;
-    right: $gutter-width;
+  &__nav-link--sub {
+    padding: 4px $gutter-width 4px $gutter-width*1.5;
+
+    @include respond-to(tablet, true) {
+      font-size: .875em;
+    }
+
+    &:after {
+      display: none;
+    }
+
+    &.active:before {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 5px;
+      background-color: $c-navy;
+      content: "";
+    }
   }
+
+  &__nav {
+    padding-top: 4px;
+    padding-bottom: 4px;
+
+    &.active {
+      background-color: lighten($sidebar-bg-color, 3%);
+    }
+  }
+
+  &__sub-nav {
+    display: none;
+
+    .active & {
+      display: block;
+    }
+  }
+}
+
+.sidebar__nav.active .sidebar__nav-link:after {
+  content: "\25BC";
 }
