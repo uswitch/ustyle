@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
-<!--[if IE 7 ]> <html lang="en" class="no-js ie7"> <![endif]-->
 <!--[if IE 8 ]> <html lang="en" class="no-js ie8"> <![endif]-->
 <!--[if IE 9 ]> <html lang="en" class="no-js ie9"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]> ><! <![endif]-->
@@ -22,102 +20,118 @@
 </head>
 <body>
   <header class="ustyle__header">
-    <a class="logo" href="/">uStyle</a>
-    <a class="version us-tablet--block" href="https://github.com/uswitch/ustyle/releases/tag/1.3.4">v1.3.4</a>
-    <div class='nav nav--header'>
-      <nav>
-        <a href="/brand/" class="nav__link ">Brand</a>
-        <a href="/pattern-library/" class="nav__link active">Pattern library</a>
-        <a href="/design/" class="nav__link ">Design</a>
-      </nav>
-    </div>
+    <a class="logo" href="/">
+      <span class="logo__icon us-icon--notext us-icon--uswitch us-icon--typegrey us-icon--medium"></span>
+      uStyle
+    </a>
+    <a class="version us-tablet--block" href="https://github.com/uswitch/ustyle/releases/tag/1.3.5">v1.3.5</a>
   </header>
-  <div id="wrapper" class="header--push">
-    <div class="us-hero">
-      <div class="us-hero-container">
-        <h1 class="us-hero-title">Pattern library</h1>
+  <a href="javascript:void(0);" class="nav-mobile js-toggle__link us-tablet--hidden" data-target="sidebar"><span class="nav-mobile__hamburger">Sidebar</span></a>
+  <div class='sidebar'>
+      <nav class="sidebar__nav ">
+        <a href="/brand/" class="sidebar__nav-link js-sidebar-nav-link ">Brand</a>
+        <nav class="sidebar__sub-nav">
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/brand/index.html">Framework</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/brand/colours.html">Colours</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/brand/logo.html">Logo</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/brand/language.html">Language</a>
+        </nav>
+      </nav>
+      <nav class="sidebar__nav active">
+        <a href="/pattern-library/" class="sidebar__nav-link js-sidebar-nav-link active">Pattern library</a>
+        <nav class="sidebar__sub-nav">
+              <a class="sidebar__nav-link sidebar__nav-link--sub active" href="/pattern-library/index.html">Introduction</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/articles.html">Articles</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/utilities.html">Utilities</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/grid.html">Grid</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/forms.html">Forms</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/components.html">Components</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/javascript.html">JavaScript</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/installation.html">Installation</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/stats.html">Stats</a>
+            <a class="sidebar__nav-link sidebar__nav-link--sub" href="/sass/" target="_blank">Sass doc</a>
+        </nav>
+      </nav>
+      <nav class="sidebar__nav ">
+        <a href="/design/" class="sidebar__nav-link js-sidebar-nav-link ">Design</a>
+        <nav class="sidebar__sub-nav">
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/index.html">Imagery</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/icons.html">Icons</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/typography.html">Typography</a>
+        </nav>
+      </nav>
+  </div>
+  <div id="wrapper" class="container header--push sidebar--push">
+    <div class="styleguide__hero">
+      <h1 class="styleguide__hero-heading">Introduction</h1>
+    </div>
+    <div class="us-grid-row">
+      <div class="styleguide__content markdown styleguide us-col-lg-10">
         <p class="us-standfirst">
-          Our pattern library comes as a easily distributed package, ready to use in multiple programming environments.
-        </p>
-        <div class="us-clearfix hero__nav-container">
-              <a class="hero__nav-link" href="index.html">Index</a>
-              <a class="hero__nav-link" href="articles.html">Articles</a>
-              <a class="hero__nav-link" href="utilities.html">Utilities</a>
-              <a class="hero__nav-link" href="grid.html">Grid</a>
-              <a class="hero__nav-link" href="forms.html">Forms</a>
-              <a class="hero__nav-link" href="components.html">Components</a>
-              <a class="hero__nav-link" href="javascript.html">JavaScript</a>
-              <a class="hero__nav-link" href="installation.html">Installation</a>
-              <a class="hero__nav-link" href="stats.html">Stats</a>
-            <a class="hero__nav-link" href="/sass/">Sass doc</a>
-        </div>
-      </div>
+  Our pattern library comes as a easily distributed package, ready to use in multiple programming environments.
+</p>
+<div class="us-content-group mobile-bordered">
+  <h2 class="trailered">Distribution methods</h2>
+  <div class="us-grid-row">
+    <div class="us-col-md-6 trailered">
+      <img src="/images/ruby-logo.png" alt="Ruby logo" class="distro-image">
+      <h3>Ruby gem</h3>
+      <p>uStyle was initially created as a gem. Some of the Sass functions rely on Ruby to run. You can install it via any Gemfile and it will install the required dependencies.</p>
+      <pre><code class="ruby">gem 'ustyle', git: "git@github.com:uswitch/ustyle.git"</code></pre>
     </div>
-    <div class="us-content-group mobile-bordered">
-  <div class="us-container">
-    <h2 class="trailered">Distribution methods</h2>
-    <div class="us-grid-row">
-      <div class="us-col-md-6 trailered">
-        <img src="/images/ruby-logo.png" alt="Ruby logo" class="distro-image">
-        <h3>Ruby gem</h3>
-        <p>uStyle was initially created as a gem. Some of the Sass functions rely on Ruby to run. You can install it via any Gemfile and it will install the required dependencies.</p>
-        <pre><code class="ruby">gem 'ustyle', git: "git@github.com:uswitch/ustyle.git"</code></pre>
-      </div>
-      <div class="us-col-md-6 trailered">
-        <img src="/images/bower-logo.png" alt="Bower logo" class="distro-image">
-        <h3>Bower package</h3>
-        <p>Install is as a bower package. This will pull down the original <code>.scss</code> files and compiled static CSS + JS.</p>
-        <pre><code class="javascript">
-          "dependencies": {
-            "ustyle": "git@github.com:uswitch/ustyle.git#~0.19.1"
-          }
-        </code></pre>
-      </div>
+    <div class="us-col-md-6 trailered">
+      <img src="/images/bower-logo.png" alt="Bower logo" class="distro-image">
+      <h3>Bower package</h3>
+      <p>Install is as a bower package. This will pull down the original <code>.scss</code> files and compiled static CSS + JS.</p>
+      <pre><code class="javascript">
+        "dependencies": {
+          "ustyle": "git@github.com:uswitch/ustyle.git#~0.19.1"
+        }
+      </code></pre>
     </div>
   </div>
 </div>
 <div class="us-content-group mobile-bordered">
-  <div class="us-container">
-    <div class="us-grid-row">
-      <div class="us-col-md-6 trailered">
-        <img src="/images/cloudfront-logo.png" alt="Cloudfront logo" class="distro-image">
-        <h3>Cloudfront</h3>
-        <p>Every time uStyle gets a new version, the version gets updated across our Cloudfront distributions.
-        <pre><code class="html">
-          &lt;!-- get latest --&gt;
-          &lt;link href='//assets0.uswitch.com/s3/uswitch-assets-eu/ustyle/ustyle-latest.css' media='all' rel='stylesheet' type='text/css' /&gt;
-          &lt;!-- get versioned --&gt;
-          &lt;link href='//assets0.uswitch.com/s3/uswitch-assets-eu/ustyle/VERSION/ustyle-latest.css' media='all' rel='stylesheet' type='text/css' /&gt;
-        </code></pre>
-      </div>
-      <div class="us-col-md-6">
-        <img src="/images/npm-logo.png" alt="NPM logo" class="distro-image">
-        <h3>NPM Package</h3>
-        <p>Similar installation method to Bower</p>
-      </div>
+  <div class="us-grid-row">
+    <div class="us-col-md-6 trailered">
+      <img src="/images/cloudfront-logo.png" alt="Cloudfront logo" class="distro-image">
+      <h3>Cloudfront</h3>
+      <p>Every time uStyle gets a new version, the version gets updated across our Cloudfront distributions.
+      <pre><code class="html">
+        &lt;!-- get latest --&gt;
+        &lt;link href='//assets0.uswitch.com/s3/uswitch-assets-eu/ustyle/ustyle-latest.css' media='all' rel='stylesheet' type='text/css' /&gt;
+        &lt;!-- get versioned --&gt;
+        &lt;link href='//assets0.uswitch.com/s3/uswitch-assets-eu/ustyle/VERSION/ustyle-latest.css' media='all' rel='stylesheet' type='text/css' /&gt;
+      </code></pre>
+    </div>
+    <div class="us-col-md-6">
+      <img src="/images/npm-logo.png" alt="NPM logo" class="distro-image">
+      <h3>NPM Package</h3>
+      <p>Similar installation method to Bower</p>
     </div>
   </div>
 </div>
 <div class="us-content-group mobile-bordered">
-  <div class="us-container">
-    <h2>Browser support</h2>
-    <p>We use <a href="https://github.com/postcss/autoprefixer">Autoprefixer + Browserlist</a> to decide what vendor prefixes to apply to our <code>Sass</code> files. We have a slightly wider browser support than the default (<a href="https://github.com/ai/browserslist#browserslist-">here</a>). Currently we support all the way to IE8.</p>
-    <p>Below is what we support. Each line is the minimum version or % use based on CanIUse metrics</p>
-    <ul>
-      <li>last 5 versions (this is for Chrome, Safari and any others)</li>
-      <li>Firefox 22</li>
-      <li>Opera 12.1</li>
-      <li>> 1% (usage)</li>
-      <li>Explorer 8</li>
-    </ul>
-  </div>
+  <h2>Browser support</h2>
+  <p>We use <a href="https://github.com/postcss/autoprefixer">Autoprefixer + Browserlist</a> to decide what vendor prefixes to apply to our <code>Sass</code> files. We have a slightly wider browser support than the default (<a href="https://github.com/ai/browserslist#browserslist-">here</a>). Currently we support all the way to IE8.</p>
+  <p>Below is what we support. Each line is the minimum version or % use based on CanIUse metrics</p>
+  <ul>
+    <li>last 5 versions (this is for Chrome, Safari and any others)</li>
+    <li>Firefox 22</li>
+    <li>Opera 12.1</li>
+    <li>> 1% (usage)</li>
+    <li>Explorer 8</li>
+  </ul>
 </div>
 
+      </div>
+    </div>
   </div>
-  <div class="container">
+  <div class="container sidebar--push">
     <p class="copyright">Copyright uSwitch Limited 2015. <a href="">Github</a></p>
   </div>
-  <script src="https://www.google.com/jsapi"></script>
+   <script type="text/javascript" src='https://www.google.com/jsapi?autoload={"modules":[{"name":"visualization","version":"1.1", "packages": ["line"]}]}'>
+   </script>
   <script src="https://cdn.polyfill.io/v1/polyfill.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="/js/app.js"></script>

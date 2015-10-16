@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
-<!--[if IE 7 ]> <html lang="en" class="no-js ie7"> <![endif]-->
 <!--[if IE 8 ]> <html lang="en" class="no-js ie8"> <![endif]-->
 <!--[if IE 9 ]> <html lang="en" class="no-js ie9"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]> ><! <![endif]-->
@@ -22,58 +20,89 @@
 </head>
 <body>
   <header class="ustyle__header">
-    <a class="logo" href="/">uStyle</a>
-    <a class="version us-tablet--block" href="https://github.com/uswitch/ustyle/releases/tag/1.3.4">v1.3.4</a>
-    <div class='nav nav--header'>
-      <nav>
-        <a href="/brand/" class="nav__link ">Brand</a>
-        <a href="/pattern-library/" class="nav__link ">Pattern library</a>
-        <a href="/design/" class="nav__link ">Design</a>
-      </nav>
-    </div>
+    <a class="logo" href="/">
+      <span class="logo__icon us-icon--notext us-icon--uswitch us-icon--typegrey us-icon--medium"></span>
+      uStyle
+    </a>
+    <a class="version us-tablet--block" href="https://github.com/uswitch/ustyle/releases/tag/1.3.5">v1.3.5</a>
   </header>
-  
-<div class="us-hero header--push hero--home">
-  <div class="us-hero-container">
-    <h1 class="us-hero-title">uSwitch living styleguide</h1>
-    <p class="us-standfirst">
-      The sum of our efforts towards style guidelines, a pattern library and automated front-end. Made with &#10084;
-    </p>
+  <a href="javascript:void(0);" class="nav-mobile js-toggle__link us-tablet--hidden" data-target="sidebar"><span class="nav-mobile__hamburger">Sidebar</span></a>
+  <div class='sidebar'>
+      <nav class="sidebar__nav ">
+        <a href="/brand/" class="sidebar__nav-link js-sidebar-nav-link ">Brand</a>
+        <nav class="sidebar__sub-nav">
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/brand/index.html">Framework</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/brand/colours.html">Colours</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/brand/logo.html">Logo</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/brand/language.html">Language</a>
+        </nav>
+      </nav>
+      <nav class="sidebar__nav ">
+        <a href="/pattern-library/" class="sidebar__nav-link js-sidebar-nav-link ">Pattern library</a>
+        <nav class="sidebar__sub-nav">
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/index.html">Introduction</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/articles.html">Articles</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/utilities.html">Utilities</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/grid.html">Grid</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/forms.html">Forms</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/components.html">Components</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/javascript.html">JavaScript</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/installation.html">Installation</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/stats.html">Stats</a>
+            <a class="sidebar__nav-link sidebar__nav-link--sub" href="/sass/" target="_blank">Sass doc</a>
+        </nav>
+      </nav>
+      <nav class="sidebar__nav ">
+        <a href="/design/" class="sidebar__nav-link js-sidebar-nav-link ">Design</a>
+        <nav class="sidebar__sub-nav">
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/index.html">Imagery</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/icons.html">Icons</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/typography.html">Typography</a>
+        </nav>
+      </nav>
   </div>
-</div>
-<div class="us-content-group mobile-bordered">
-  <div class="us-container">
+  <div id="wrapper" class="container header--push sidebar--push">
+    <div class="styleguide__hero">
+      <h1 class="styleguide__hero-heading">uSwitch living styleguide</h1>
+    </div>
     <div class="us-grid-row">
-      <div class="us-col-md-6">
-        <h3>Design guidelines</h3>
-        <p>uStyle includes documentation and guidelines relating to our core design principles. This is our attempt at having one place to document everything that happens within our brand, UX and front-end development.</p>
-      </div>
-      <div class="us-col-md-6">
-        <h3>Automated development</h3>
-        <p>uStyle is a gem, a bower package, a npm package and static assets. This allows our team setup to choose how they wish to implement the core front-end of uSwitch. We've tried to be as accessible as possible.</p>
-      </div>
+      <div class="styleguide__content markdown styleguide us-col-lg-10">
+        <p class="us-standfirst">
+  The sum of our efforts towards style guidelines, a pattern library and automated front-end. Made with &#10084;
+</p>
+<div class="us-content-group mobile-bordered">
+  <div class="us-grid-row">
+    <div class="us-col-md-6">
+      <h3>Design guidelines</h3>
+      <p>uStyle includes documentation and guidelines relating to our core design principles. This is our attempt at having one place to document everything that happens within our brand, UX and front-end development.</p>
+    </div>
+    <div class="us-col-md-6">
+      <h3>Automated development</h3>
+      <p>uStyle is a gem, a bower package, a npm package and static assets. This allows our team setup to choose how they wish to implement the core front-end of uSwitch. We've tried to be as accessible as possible.</p>
     </div>
   </div>
 </div>
 <div class="us-content-group mobile-bordered">
-  <div class="us-container">
-    <div class="us-grid-row">
-      <div class="us-col-md-6">
-        <h3>Pattern library</h3>
-        <p>At the core, uStyle is a pattern library of components and elements that make up the design and feel of uSwitch. All these components are documented in the <strong>code</strong> section.</p>
-      </div>
-      <div class="us-col-md-6">
-        <h3>Designer + developer happiness</h3>
-        <p>Solving the problem for a company that has lots of small teams working independently was very important to us. uStyle allows our designers and developers to focus on the things that matter, whilst making their lives easier when prototyping.</p>
-      </div>
+  <div class="us-grid-row">
+    <div class="us-col-md-6">
+      <h3>Pattern library</h3>
+      <p>At the core, uStyle is a pattern library of components and elements that make up the design and feel of uSwitch. All these components are documented in the <strong>code</strong> section.</p>
+    </div>
+    <div class="us-col-md-6">
+      <h3>Designer + developer happiness</h3>
+      <p>Solving the problem for a company that has lots of small teams working independently was very important to us. uStyle allows our designers and developers to focus on the things that matter, whilst making their lives easier when prototyping.</p>
     </div>
   </div>
 </div>
 
-  <div class="container">
+      </div>
+    </div>
+  </div>
+  <div class="container sidebar--push">
     <p class="copyright">Copyright uSwitch Limited 2015. <a href="">Github</a></p>
   </div>
-  <script src="https://www.google.com/jsapi"></script>
+   <script type="text/javascript" src='https://www.google.com/jsapi?autoload={"modules":[{"name":"visualization","version":"1.1", "packages": ["line"]}]}'>
+   </script>
   <script src="https://cdn.polyfill.io/v1/polyfill.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="/js/app.js"></script>
