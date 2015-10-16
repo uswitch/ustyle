@@ -20,3 +20,4 @@ tmp
 docs/
 .sass-cache/
 node_modules/
+build/

@@ -1,9 +1,12 @@
 # [ustyle](http://ustyle.guide)
 
-uStyle, aptly named, is the styleguide gem for uSwitch. Include it in your Rails/Sinatra/Anything project as a gem and forget about those annoying additional cloudfront includes.
+uStyle, aptly named, is the styleguide gem for [uSwitch](http://www.uswitch.com). Include it in your Rails/Sinatra/Anything project as a gem and forget about those annoying additional cloudfront includes.
 
-## Requirements
+This project is provided as is and is aimed at building uSwitch specific projects.
 
+## Gem Requirements
+
+- Sprockets
 - SASS
 - Autoprefixer
 
@@ -21,7 +24,8 @@ gem 'sprockets-helpers'
 ```
 
 Then in your app file (usually named server.rb/app.rb etc), after declaring your `class App < Sinatra::Base`:
-``` ruby
+
+```ruby
 register Sinatra::Ustyle
 ```
 
@@ -33,21 +37,19 @@ This is only for the gem, not the styleguide within this project.
 
 Add this line to your application's Gemfile:
 
-``` ruby
+```ruby
 gem 'ustyle', git: "git@github.com:uswitch/ustyle.git"
 ```
 
-And then execute:
+And then run in your terminal:
 
     $ bundle
 
-Verion locking - if you're unsure about when you're going to have the change to upgrade again. (not recommended)
+Version locking - if you're unsure about when you're going to have the change to upgrade again.
 
 ```ruby
 gem 'ustyle', git: "git@github.com:uswitch/ustyle.git", tag: "VERSION"
 ```
-
-To run on PHP projects or non-Ruby ones, you're going to have to set up a watch file to precompile the SASS. Guard-sass is a good option for this.
 
 ## Usage
 
@@ -57,17 +59,23 @@ If using rails and SASS, just import the base uSwitch styles at the start of you
 @import "ustyle";
 ```
 
-This will import everything. If you want more granular control of what to import, please look at the source code or the styleguide. The file names are all there.
+This will import the main components. If you want more granular control of what to import, please look at the source code or the styleguide.
 
 ## Development
 
-Development is done using [Grunt](http://gruntjs.com/), but it's just a thin wrapper around the heavy lifting done by some Node.js modules. 
+Development is done using [Grunt](http://gruntjs.com/), but it's just a thin wrapper around the heavy lifting done by some Node.js modules.
+
+To install development
+
+    $ npm install -g grunt-cli
+    $ npm install
+    $ bundle
 
 To run in development, just run
 
     grunt
 
-This will open a [BrowserSync](http://www.browsersync.io/) window with an overview of our stylesheet stats and a link to the styleguide. 
+This will open a http://localhost:3000 tab with the styleguide
 
 ## Documentation
 
@@ -76,3 +84,9 @@ See [JAVASCRIPT_STANDARDS.md](https://github.com/uswitch/ustyle/blob/master/JAVA
 ## Contributing
 
 See [CONTRIBUTING.md](https://github.com/uswitch/ustyle/blob/master/CONTRIBUTING.md)
+
+## Licences
+
+- Source code is licenced under Apache v2.0 licence
+- All icons, except the uSwitch icon are licenced under [CC - Attribution - No Derivatives 4.0](http://creativecommons.org/licenses/by-nd/4.0/)
+- uSwitch icon is licenced under [CC - Attribution - NonCommercial - NoDerivates 4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/)

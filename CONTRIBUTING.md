@@ -65,4 +65,4 @@ Publishing
 
 Versioning gets done automatically by the `grunt:publish` command. However without specifying a type of version, if will just publish `HEAD` without a new release. 
 
-`$ grunt:publish:{patch,minor,major}`
+    $ grunt:publish:{patch,minor,major}
