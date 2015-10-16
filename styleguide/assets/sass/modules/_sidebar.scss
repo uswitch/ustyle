@@ -1,8 +1,8 @@
 .sidebar {
   z-index: 10;
   display: none;
-  overflow-y: auto;
   overflow-x: hidden;
+  overflow-y: auto;
   background-color: $sidebar-bg-color;
 
   @include respond-to($sidebar-breakpoint, true) {
@@ -14,8 +14,8 @@
     width: $sidebar-width;
     min-height: 1px;
     padding-bottom: $gutter-width;
-    overflow-y: auto;
     overflow-x: hidden;
+    overflow-y: auto;
     border-right: 1px solid $sidebar-bg-color;
 
     &--push {
@@ -47,27 +47,27 @@
     &.active {
       color: $c-blue-light;
     }
+  }
 
-    &--sub {
-      padding: 4px $gutter-width 4px $gutter-width*1.5;
+  &__nav-link--sub {
+    padding: 4px $gutter-width 4px $gutter-width*1.5;
 
-      @include respond-to(tablet, true) {
-        font-size: .875em;
-      }
+    @include respond-to(tablet, true) {
+      font-size: .875em;
+    }
 
-      &:after {
-        display: none;
-      }
+    &:after {
+      display: none;
+    }
 
-      &.active:before {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        width: 5px;
-        background-color: $c-navy;
-        content: "";
-      }
+    &.active:before {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 5px;
+      background-color: $c-navy;
+      content: "";
     }
   }
 
@@ -77,18 +77,18 @@
 
     &.active {
       background-color: lighten($sidebar-bg-color, 3%);
-
-      .sidebar__nav-link:after {
-        content: "\25BC";
-      }
-
-      .sidebar__sub-nav {
-        display: block;
-      }
     }
   }
 
   &__sub-nav {
     display: none;
+
+    .active & {
+      display: block;
+    }
   }
+}
+
+.sidebar__nav.active .sidebar__nav-link:after {
+  content: "\25BC";
 }

@@ -4,15 +4,15 @@ $styleguide-block-border-color: $c-bordergrey;
 
 .styleguide {
   &__hero {
-    margin-left: - $gutter-width / 2;
-    margin-right: - $gutter-width / 2;
-    background-color: $c-navy;
-    color: white;
     padding: 2em $gutter-width / 2;
+    margin-right: - $gutter-width / 2;
+    margin-left: - $gutter-width / 2;
+    color: #fff;
+    background-color: $c-navy;
 
     @include respond-to(tablet, true) {
-      margin-left: - $gutter-width;
       padding: 2em $gutter-width;
+      margin-left: - $gutter-width;
     }
   }
 
@@ -23,8 +23,8 @@ $styleguide-block-border-color: $c-bordergrey;
   &__block {
     @extend %clearfix;
     position: relative;
-    border-bottom: 1px solid $styleguide-separator-color;
     padding-bottom: $styleguide-block-padding / 1.5;
+    border-bottom: 1px solid $styleguide-separator-color;
 
     + .styleguide__block {
       padding-top: $styleguide-block-padding / 2;
@@ -62,20 +62,20 @@ $styleguide-block-border-color: $c-bordergrey;
 
   &__file-link {
     @include link-colors($c-typegrey, $c-typecyan);
-    padding: 5px 8px;
-    background-color: $c-bggrey;
-    font-size: 14px;
-    line-height: 1.25;
-    border-radius: 2px;
-    font-weight: 400;
     display: inline-block;
+    padding: 5px 8px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.25;
     vertical-align: middle;
+    background-color: $c-bggrey;
+    border-radius: 2px;
   }
 
   &__block-title {
     position: relative;
-    color: $c-navy;
     margin-bottom: $gutter-width/2;
+    color: $c-navy;
   }
 
   &__block-small-title {
@@ -105,27 +105,25 @@ $styleguide-block-border-color: $c-bordergrey;
     position: absolute;
     bottom: 0;
     left: 0;
-    background-color: $c-bggrey;
-    color: $c-typegrey;
     padding: 0 8px;
     font-size: .85em;
+    color: $c-typegrey;
+    background-color: $c-bggrey;
   }
 
   &__block-states {
-    color: lighten($c-typegrey, 10%);
-    margin-top: 0;
-    list-style: none;
     padding-left: 0;
+    margin-top: 0;
+    color: lighten($c-typegrey, 10%);
+    list-style: none;
 
-    li {
-      &:before {
-        display: inline-block;
-        margin: 0 .35em;
-        font-size: 1.4em;
-        font-weight: normal;
-        content: "\203A";
-        color: $c-bordergrey;
-      }
+    li:before {
+      display: inline-block;
+      margin: 0 .35em;
+      font-size: 1.4em;
+      font-weight: normal;
+      color: $c-bordergrey;
+      content: "\203A";
     }
   }
 }

@@ -17,7 +17,7 @@ $sidebar-padding        : 0;
 @import "structure/base";
 @import "structure/header";
 
-@import "modules/highlight";
+
 @import "modules/sidebar";
 @import "modules/styleguide";
 @import "modules/colours";
@@ -34,6 +34,7 @@ $sidebar-padding        : 0;
 @import "modules/table";
 @import "modules/markdown";
 
+@import "vendor/highlight";
 @import "vendor/pure-table";
 
 @import "ustyle/icons/base";
