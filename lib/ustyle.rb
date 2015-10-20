@@ -10,7 +10,6 @@ module Ustyle
     def load!
       require "ustyle/sass_functions"
       require "ustyle/icons"
-      register_compass_extension if compass?
 
       if defined?(::Rails)
         require "ustyle/engine"
@@ -20,10 +19,6 @@ module Ustyle
       end
 
       ::Sass.load_paths << File.join(assets_path, "stylesheets")
-    end
-
-    def compass?
-      defined?(::Compass)
     end
 
     def sprockets?
@@ -52,15 +47,6 @@ module Ustyle
       opts   = { }
       opts[:safe] = true if params.delete(:safe)
       [params, opts]
-    end
-
-    def register_compass_extension
-      ::Compass::Frameworks.register(
-          "ustyle",
-          :path => gem_path,
-          :stylesheets_directory => File.join(assets_path, "stylesheets"),
-          :template_directory => File.join(gem_path, "templates")
-        )
     end
   end
 end
