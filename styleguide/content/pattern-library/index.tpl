@@ -3,8 +3,9 @@ template: simple.tpl
 name: Introduction
 ---
 <p class="us-standfirst">
-  Our pattern library comes as a easily distributed package, ready to use in multiple programming environments.
+  Our pattern library comes as a easily distributed package, ready to use in multiple programming environments. It contains our basic CSS components and correct usage, as well as JavaScript components that are widely used across the website.
 </p>
+<a class="us-btn us-btn--small" href="http://github.com/uswitch/ustyle">View on github</a>
 <div class="us-content-group mobile-bordered">
   <h2 class="trailered">Distribution methods</h2>
   <div class="us-grid-row">
@@ -50,11 +51,38 @@ name: Introduction
   <h2>Browser support</h2>
   <p>We use <a href="https://github.com/postcss/autoprefixer">Autoprefixer + Browserlist</a> to decide what vendor prefixes to apply to our <code>Sass</code> files. We have a slightly wider browser support than the default (<a href="https://github.com/ai/browserslist#browserslist-">here</a>). Currently we support all the way to IE8.</p>
   <p>Below is what we support. Each line is the minimum version or % use based on CanIUse metrics</p>
-  <ul>
-    <li>last 5 versions (this is for Chrome, Safari and any others)</li>
-    <li>Firefox 22</li>
-    <li>Opera 12.1</li>
-    <li>> 1% (usage)</li>
-    <li>Explorer 8</li>
-  </ul>
+  <table class="pure-table pure-table-bordered">
+    <thead>
+      <tr>
+        <th>Browser</th>
+        <th>Minimum version supported</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Safari, Chrome</td>
+        <td>Last 5 versions</td>
+      </tr>
+      <tr>
+        <td>Firefox</td>
+        <td>22</td>
+      </tr>
+      <tr>
+        <td>Opera</td>
+        <td>12.1</td>
+      </tr>
+      <tr>
+        <td>Internet Explorer</td>
+        <td>8 (unless stated)</td>
+      </tr>
+      <tr>
+        <td>Global usage</td>
+        <td>> 1%</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="us-content-group mobile-bordered">
+  <h2>Installation</h2>
+  <p>See our github for documentation on installing this across applications.</p>
 </div>

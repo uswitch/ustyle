@@ -1,0 +1,14 @@
+.font-chars {
+  margin-bottom: 2em;
+  font-size: 1.75em;
+  line-height: 2;
+  color: $c-typegrey-2;
+
+  &--bold {
+    @include bold-font;
+  }
+
+  &--italic {
+    @include italic-font;
+  }
+}

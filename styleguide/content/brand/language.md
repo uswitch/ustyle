@@ -38,7 +38,7 @@ Short copy gets read. Long copy doesn’t. Get to the point as quick as possible
 
 ### Be purposeful and actionable
 Content should always be actionable. You’ve given the customer relevant information, now tell them what they can do with it.
-   
+
 ### Once is enough
 Say it once and say it well. Repetition makes copy boring and overly long, and creeps in when we’re not confident about what we’re saying.
 
@@ -51,9 +51,11 @@ Do your words trip off the tongue? There’s one way to find out. Read them out 
 ## Writing conventions
 
 ### Abbreviations
+
 For names of companies or organisations, if an abbreviation is more familiar than the full form (e.g. BBC, IBM) use that. If not, write the name in full the first time you mention it, followed by the abbreviation in brackets. The next time you refer to it, use only the abbreviation.
 
 ### Ampersands (&)
+
 For names of companies or organisations, if an abbreviation is more familiar than the full form (e.g. BBC, IBM) use that. If not, write the name in full the first time you mention it, followed by the abbreviation in brackets. The next time you refer to it, use only the abbreviation.
 
 ### Apostrophes
@@ -65,21 +67,23 @@ Avoid common misuse of apostrophes:
 - When writing decades 1990s (not 1990’s); the ’80s (not the 80’s)
 
 ### British English
+
 Use the British ‘s’ in words such as ‘realise’, and ‘specialise’, rather than the American ‘z’.
 
 ### Capital letters
+
 Never use all capital letters. Headlines follow usual sentence structure, with only the first word and proper nouns utilising capitals.
 
 ### Company names and references
-Follow punctuation and capitalisation of company names and products as they are branded.
 
-Example: E.ON, iPhone, iSaver
+Follow punctuation and capitalisation of company names and products as they are branded.
+> Example: E.ON, iPhone, iSaver
 
 When referencing a company in a news or guide, remember to always keep them in the singular.
-
-Example: BT is launching a new ... (not BT are launching a new ...)
+> Example: BT is launching a new ... (not BT are launching a new ...)
 
 ### Contractions
+
 Our tone of voice is friendly and familiar, so it’s fine to use contractions like ‘they’ll’, ‘it’ll’, ‘isn’t’.
 
 ### Dashes and hyphens
