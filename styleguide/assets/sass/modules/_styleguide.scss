@@ -6,13 +6,17 @@ $styleguide-block-border-color: $c-bordergrey;
   &__hero {
     padding: 2em $gutter-width / 2;
     margin-right: - $gutter-width / 2;
-    margin-left: - $gutter-width / 2;
+    margin-left: - $gutter-width/2;
     color: #fff;
     background-color: $c-navy;
 
-    @include respond-to(tablet, true) {
-      padding: 2em $gutter-width;
-      margin-left: - $gutter-width;
+    @include respond-to($sidebar-breakpoint, true) {
+      padding: 2em $gutter-width/2;
+    }
+
+    @include respond-to(desktop, true) {
+      padding-left: $gutter-width;
+      margin-left: - $gutter-width/2;
     }
   }
 

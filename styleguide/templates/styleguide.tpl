@@ -7,7 +7,6 @@
       <div class="styleguide__hero">
         <h1 class="styleguide__hero-heading">{{name}}</h1>
       </div>
-      <div class="us-grid-row">
         {{#if blocks}}
           <nav class="nav--sub us-col-lg-2">
             <div class="js-sticky">
@@ -26,7 +25,6 @@
             {{> style_block}}
           {{/if}}
         {{/blocks}}
-      </div>
       </div>
     </div>
   {{/page}}

@@ -3,7 +3,7 @@ template: simple.tpl
 name: uSwitch living styleguide
 ---
 <p>
-  The sum of our efforts towards style guidelines, a pattern library and automated front-end. Made with &#10084;
+  The sum of our efforts towards style guidelines, a pattern library and an automated front-end. Made with &#10084; at <a href="http://www.uswitch.com" target="_blank"><strong class="us-color--blue">uSwitch.com</strong></a>
 </p>
 <div class="us-content-group mobile-bordered">
   <div class="us-grid-row">
@@ -26,6 +26,19 @@ name: uSwitch living styleguide
     <div class="us-col-md-6">
       <h3>Designer + developer happiness</h3>
       <p>Delivering designer + developer happiness is very important to us. uStyle provides a base for all our design and development work and allows our designers and developers to focus on the things that matter, whilst making their lives easier when prototyping.</p>
+    </div>
+  </div>
+</div>
+<div class="us-content-group">
+  <h2>The logo</h2>
+  <div class="us-grid-row">
+    <div class="us-col-md-2">
+      <span class="us-icon--notext us-icon--ustyle us-icon--large logo--ustyle"></span>
+    </div>
+    <div class="us-col-md-10">
+      <p>There is no reason for this logo other than it's funny and unicorns are all the rage just now.</p>
+
+      <p><strong>Disclaimer:</strong> uSwitch is not a unicorn company.
     </div>
   </div>
 </div>

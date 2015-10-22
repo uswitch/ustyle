@@ -16,10 +16,10 @@
     padding-bottom: $gutter-width;
     overflow-x: hidden;
     overflow-y: auto;
-    border-right: 1px solid $sidebar-bg-color;
+    border-right: 1px solid $c-bordergrey;
 
     &--push {
-      padding-left: $sidebar-width + $gutter-width;
+      padding-left: $sidebar-width + $gutter-width/2;
     }
   }
 

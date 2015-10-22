@@ -14,23 +14,6 @@ $button-menu-slice-height: 3px !default;
     right: $gutter-width;
   }
 
-  .nav-mobile--active .nav-mobile__hamburger {
-    background: transparent;
-
-    &:before,
-    &:after {
-      top: 0;
-    }
-
-    &:before {
-      transform: translateY(-3px) translateX(1px) rotate(45deg);
-    }
-
-    &:after {
-      transform: translateY(3px) translateX(1px) rotate(-45deg);
-    }
-  }
-
   &__hamburger {
     position: absolute;
     top: 19px;
@@ -68,5 +51,22 @@ $button-menu-slice-height: 3px !default;
       top: 6px;
       transform-origin: 33% 0;
     }
+  }
+}
+
+.nav-mobile--active .nav-mobile__hamburger {
+  background: transparent;
+
+  &:before,
+  &:after {
+    top: 0;
+  }
+
+  &:before {
+    transform: translateY(-3px) translateX(1px) rotate(45deg);
+  }
+
+  &:after {
+    transform: translateY(3px) translateX(1px) rotate(-45deg);
   }
 }

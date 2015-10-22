@@ -1,6 +1,6 @@
-// 
+//
 // These are the default icon variables to set up the uStyle SVG/PNG icons
-// 
+//
 
 $icons: (
   alarm
@@ -118,7 +118,7 @@ $icons: (
 $load-icons: false !default;
 
 /// Default path for the icons. Is relative for sprockets, may be different for other projects
-/// 
+///
 /// @group Icons
 /// @type String
 
@@ -126,36 +126,36 @@ $base-icon-path: "icons/" !default;
 
 /// If this is set then SVGs are loaded first with the `$png-support-class` being the
 /// fallback top level HTML class for loading in the PNGs.
-/// 
+///
 /// @group Icons
 /// @type Bool
 
 $svg-first: true !default;
 
-/// Default support class fir SVG support. An SVG detection system is needed for this to 
+/// Default support class fir SVG support. An SVG detection system is needed for this to
 /// be implemented. Feature detection like modernizr will do the trick.
-/// 
+///
 /// @group Icons
 /// @type String
 
 $svg-support-class: ".svg-on" !default;
 
 /// Same as the `$svg-support-class` but applicable if `$svg-first` is set to `true`
-/// 
+///
 /// @group Icons
 /// @type String
 
 $png-support-class: ".svg-off" !default;
 
 /// List of the supported SVG sprite colours
-/// 
+///
 /// @group Icons
 /// @type List
 
 $icon-colors: "white", "typegrey", "inputgrey", "typecyan", "custom" !default;
 
 /// List of the icon sizes and their respective names
-/// 
+///
 /// @group Icons
 /// @type List
 

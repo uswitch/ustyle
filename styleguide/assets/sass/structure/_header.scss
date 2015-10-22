@@ -2,11 +2,11 @@
   @extend %clearfix;
   z-index: 15;
   padding: .55em;
-  background-color: $c-cyan;
 
   @include respond-to(tablet, true) {
     position: fixed;
     width: $sidebar-width;
-    padding: 2.45em .55em;
+    padding: 1.45em .55em;
+    border-right: 1px solid $c-bordergrey;
   }
 }

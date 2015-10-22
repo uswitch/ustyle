@@ -1,5 +1,5 @@
 .logo {
-  @include link-colors($c-navy, #fff, $c-navy, $c-navy);
+  @include link-colors($c-navy, $c-typecyan, $c-navy, $c-navy);
   @include bold-font;
   display: inline-block;
   vertical-align: middle;
@@ -12,6 +12,11 @@
   &__icon {
     vertical-align: middle;
   }
+}
+
+.logo--ustyle.logo--ustyle {
+  width: 128px;
+  height: 128px;
 }
 
 
