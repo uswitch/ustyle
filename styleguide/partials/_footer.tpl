@@ -1,5 +1,5 @@
 <div class="container sidebar--push">
-  <p class="copyright">Copyright uSwitch Limited 2015. <a href="{{project.repository.url}}">Github</a></p>
+  <p class="copyright">Copyright uSwitch Limited 2015. <a href="https://github.com/{{project.repository}}">Github</a></p>
 </div>
  <script type="text/javascript" src='https://www.google.com/jsapi?autoload={"modules":[{"name":"visualization","version":"1.1", "packages": ["line"]}]}'>
  </script>
