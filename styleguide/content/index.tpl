@@ -2,14 +2,14 @@
 template: simple.tpl
 name: uSwitch living styleguide
 ---
-<p class="us-standfirst">
+<p>
   The sum of our efforts towards style guidelines, a pattern library and automated front-end. Made with &#10084;
 </p>
 <div class="us-content-group mobile-bordered">
   <div class="us-grid-row">
     <div class="us-col-md-6">
       <h3>Design guidelines</h3>
-      <p>uStyle includes documentation and guidelines relating to our core design principles. This is our attempt at having one place to document everything that happens within our brand, UX and front-end development.</p>
+      <p>uStyle includes documentation and guidelines relating to our core design principles. It is where we document everything that happens within our brand, UX and front-end development.</p>
     </div>
     <div class="us-col-md-6">
       <h3>Automated development</h3>
@@ -21,11 +21,11 @@ name: uSwitch living styleguide
   <div class="us-grid-row">
     <div class="us-col-md-6">
       <h3>Pattern library</h3>
-      <p>At the core, uStyle is a pattern library of components and elements that make up the design and feel of uSwitch. All these components are documented in the <strong>code</strong> section.</p>
+      <p>At its core, uStyle is a pattern library. It contains all current components and elements of the uSwitch UI. These are documented in the <a href="/pattern-library/">pattern library</a> section.</p>
     </div>
     <div class="us-col-md-6">
       <h3>Designer + developer happiness</h3>
-      <p>Solving the problem for a company that has lots of small teams working independently was very important to us. uStyle allows our designers and developers to focus on the things that matter, whilst making their lives easier when prototyping.</p>
+      <p>Delivering designer + developer happiness is very important to us. uStyle provides a base for all our design and development work and allows our designers and developers to focus on the things that matter, whilst making their lives easier when prototyping.</p>
     </div>
   </div>
 </div>

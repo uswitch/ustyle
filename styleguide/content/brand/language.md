@@ -1,4 +1,6 @@
-**How does a brilliantly simple brand sound?** Think of our tone of voice as a natural extension of our values and personality. We might not mention them in our copy, but their ‘feel’ should come across in every word, sentence and paragraph.
+## How does a brilliantly simple brand sound?
+
+Think of our tone of voice as a natural extension of our values and personality. We might not mention them in our copy, but their ‘feel’ should come across in every word, sentence and paragraph.
 
 #### Table of contents
 1. [Tone of voice](#tone-of-voice)

@@ -1,8 +1,8 @@
 .logo {
   @include link-colors($c-navy, #fff, $c-navy, $c-navy);
   @include bold-font;
-  display: block;
-  float: left;
+  display: inline-block;
+  vertical-align: middle;
 
   @include respond-to(tablet, true) {
     font-size: 1.5em;

@@ -2,7 +2,7 @@
 template: simple.tpl
 name: Introduction
 ---
-<p class="us-standfirst">
+<p>
   Our pattern library comes as a easily distributed package, ready to use in multiple programming environments. It contains our basic CSS components and correct usage, as well as JavaScript components that are widely used across the website.
 </p>
 <a class="us-btn us-btn--small" href="http://github.com/uswitch/ustyle">View on github</a>
@@ -43,7 +43,11 @@ name: Introduction
     <div class="us-col-md-6">
       <img src="/images/npm-logo.png" alt="NPM logo" class="distro-image">
       <h3>NPM Package</h3>
-      <p>Similar installation method to Bower</p>
+      <pre><code class="javascript">
+        "devDependencies": {
+          "ustyle": "git@github.com:uswitch/ustyle.git#~0.19.1"
+        }
+      </code></pre>
     </div>
   </div>
 </div>

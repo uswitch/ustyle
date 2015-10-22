@@ -1,11 +1,6 @@
-<div class="us-standfirst">
-Typography makes up a large amount of uSwitch. We've recently revised our type settings and removed FS Elliot Web from our fonts to increase legibility across devices.
-</div>
+Typography is a key element of how we communicate at uSwitch. We've recently revised our type settings and removed FS Elliot Web from our fonts to increase legibility across devices.
 
-Font face
-===
-
-Our chosen font is the beautiful and open source **Open Sans** - the reason for this decision is that it looks good across devices and operating systems. Many custom web fonts aren't particularly well kerned for Windows machines, but Open Sans looks consistent across everything we care about.
+Our chosen font is the beautiful and open source Open Sans which performs exceptionally well across all of our target devices and operating systems. It is, unlike many custom webfonts, particularly well kerned for Windows machines.
 
 Open Sans
 ---

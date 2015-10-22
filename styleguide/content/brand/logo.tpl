@@ -15,9 +15,9 @@
         <div class="us-col-6">
           <h5>White logo</h5>
           <div class="logo-state logo--white">
-            <span class="us-icon--notext us-icon--uswitch us-icon--white us-icon--large"></span> 
+            <span class="us-icon--notext us-icon--uswitch us-icon--white us-icon--large"></span>
           </div>
-        </div>  
+        </div>
       </div>
     </div>
   </div>
@@ -32,7 +32,7 @@
     <div class="us-col-6">
       <p><strong>s</strong> = The width of the left stem of the U.</p>
       <div class="logo-state logo-spacer">
-        <span class="us-icon--notext us-icon--uswitch us-icon--custom us-icon--large"></span>  
+        <span class="us-icon--notext us-icon--uswitch us-icon--custom us-icon--large"></span>
       </div>
     </div>
   </div>
@@ -45,7 +45,7 @@
       <p>Our logo comes in 3 different sizes through our SVG/PNG icon system.</p>
     </div>
     <div class="us-col-6">
-      <span class="us-icon--notext us-icon--uswitch us-icon--custom us-icon--small"></span>  
+      <span class="us-icon--notext us-icon--uswitch us-icon--custom us-icon--small"></span>
       <span class="us-icon--notext us-icon--uswitch us-icon--custom us-icon--medium"></span>
       <span class="us-icon--notext us-icon--uswitch us-icon--custom us-icon--large"></span>
     </div>
@@ -76,7 +76,7 @@
       <p>Our blue logo can be placed on a white or light-coloured background, or even on simple photography. However, it should not be placed on a dark or contrasting blue, as it doesn’t stand out so well. The same goes for complex imagery and gradients.</p>
     </div>
     <div class="us-col-6"></div>
-  </div>  
+  </div>
 </div>
 
 <div class="us-content-group">
@@ -86,5 +86,17 @@
       <p>Our white logo can be placed over any of the uSwitch blues, or dark-coloured backgrounds, and even on simple photography. However, it should not be placed on a light colour or complex imagery as it doesn’t stand out so well..</p>
     </div>
     <div class="us-col-6"></div>
-  </div>  
+  </div>
+</div>
+
+<div class="us-content-group">
+  <div class="us-grid-row">
+    <div class="us-col-6">
+      <h3>Partner / Off site usage</h3>
+      <p>For off-site and partner use we have a logo variant that includes the site URL. The same usage guidelines apply</p>
+    </div>
+    <div class="us-col-6">
+      <span class="us-icon--before us-icon--uswitch--before us-icon--custom--before us-icon--large--before"><strong class="us-color--blue">uSwitch.com</strong></span>
+    </div>
+  </div>
 </div>

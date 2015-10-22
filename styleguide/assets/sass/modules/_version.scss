@@ -1,8 +1,10 @@
 .version {
-  float: left;
+  display: inline-block;
   padding: 3px;
+  margin-left: 10px;
   font-size: .75em;
   line-height: 1.4;
+  vertical-align: middle;
   color: $c-typegrey-2;
   background-color: #fff;
   border-radius: 2px;

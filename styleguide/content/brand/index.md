@@ -2,7 +2,9 @@
 name: Framework
 ---
 
-**We believe in simplicity**. And that’s why we’ve made these guidelines really simple. They inform the way we look, feel, behave and sound as a company, to ensure we remain consistent, impactful and recognisable across all of our communications.
+## We believe in simplicity.
+
+That’s why we’ve made these guidelines really simple. They inform the way we look, feel, behave and sound as a company. They help ensure we remain consistent, impactful and recognisable across all of our communications.
 
 ### Our values
 - Fairness
@@ -10,7 +12,7 @@ name: Framework
 - Clarity
 - Confidence
 - Possibilities
-      
+
 ### Our mission
 Using our expansive market knowledge and customer insight, we want to provide a simple, relevant service allowing customers to switch with minimal hassle.
 
