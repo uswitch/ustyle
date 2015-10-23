@@ -92,20 +92,17 @@ $tab-width: col-width(2) !default;
 
 .us-tabs-nav-link {
   @include normal-font;
-  // @include link-colors(#fff, $c-navy, $c-navy, #fff);
   position: relative;
   z-index: 1;
   display: table-cell;
   width: $tab-width;
-  // padding: .475em .15em 1.2em;
   padding: 8px 1em 12px;
+  color: $c-typegrey-2;
   text-align: center;
   vertical-align: middle;
-  // border-radius: 3px 3px 0 0;
-  border-radius: 0;
-  border-top: 5px solid #f4f4f4;
+  border-top: 5px solid $c-bggrey;
   border-right: 1px solid #fff;
-  color: #97999a;
+  border-radius: 0;
   transition: none;
   
   @include respond-to(tablet) {
@@ -126,17 +123,22 @@ $tab-width: col-width(2) !default;
   }
 
   &:hover {
-    // background-color: #fff;
-    border-top: 5px solid #008fe9;
-    background-color: rgba(255,255,255,0.35);
-    color: #008fe9;
+    color: $c-typecyan;
+    background-color: rgba(255,255,255,.35);
+    border-top: 5px solid $c-typecyan;
   }
 
   &.active {
     z-index: 2;
-    color: $c-navy;
+    color: $c-typecyan;
+    cursor: default;
     background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    border-top: 5px solid $c-typecyan;
+    box-shadow: none;
+
+    &:hover {
+      background-color: #fff;
+    }
   }
 }
 
@@ -185,20 +187,28 @@ $tab-width: col-width(2) !default;
   }
 
   a {
-    @include link-colors($c-navy, #fff, $c-navy);
+    @include link-colors($c-inputgrey, $c-typecyan, $c-typecyan);
     display: block;
     padding: .5em .75em;
-    background-color: $c-cyan;
-    border-bottom: 1px solid #fff;
+    background-color: $c-bggrey;
+    border-top: 4px solid $c-bggrey;
     transition: color 300ms, background-color 300ms;
 
     .active & {
-      color: #fff;
-      background-color: $c-navy;
+      color: $c-typecyan;
+      background-color: #fff;
+      border-top: 4px solid $c-typecyan;
     }
 
     .active &:before {
       transform: rotate(90deg);
+    }
+
+    &:hover {
+      color: $c-typecyan;
+      background-color: rgba(255,255,255,.35);
+      border-top: 4px solid $c-typecyan;
+      transition: transform 150ms linear;
     }
 
     &:hover:before {
@@ -206,14 +216,14 @@ $tab-width: col-width(2) !default;
       transform: rotate(90deg);
     }
 
-    &:before {
-      @include arrow(10px, 10px, right);
-      display: inline-block;
-      margin-right: .75em;
-      font-size: .75em;
-      content: "";
-      transition: all 300ms;
-    }
+    // &:before {
+    //   @include arrow(10px, 10px, right);
+    //   display: inline-block;
+    //   margin-right: .75em;
+    //   font-size: .75em;
+    //   content: "";
+    //   transition: all 300ms;
+    // }
   }
 }
 
