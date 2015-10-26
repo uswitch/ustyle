@@ -6,12 +6,12 @@
     <div class="styleguide__hero">
       <h1 class="styleguide__hero-heading">{{page.name}}</h1>
     </div>
-    <div class="styleguide report">
+    <div class="styleguide__content markdown styleguide us-col-lg-10">
       <script>
         var reportData = {{{json page.content.report}}};
       </script>
       <div id="simplicity_chart" style="width: 100%; height: 500px;"></div>
-      <div id="size_chart" style="width: 100%; height: 500px;"></div>
+      <div class="us-padding-top--large" id="size_chart" style="width: 100%; height: 500px;"></div>
       <div class="us-content-group table__container">
         <h2>Breakdown of stats by uStyle release</h2>
         <table class="pure-table pure-table-bordered pure-table-striped">
