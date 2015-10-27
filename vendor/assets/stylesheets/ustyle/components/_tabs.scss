@@ -89,7 +89,7 @@ $tab-width: col-width(2) !default;
   overflow: hidden;
   flex-flow: row;
 }
-
+//PropertySortOrder: Properties should be ordered position, position, z-index, display, width, padding, margin-right, color, text-align, vertical-align, border-top, border-right, border-radius, transition
 .us-tabs-nav-link {
   @include normal-font;
   position: relative;
@@ -97,24 +97,24 @@ $tab-width: col-width(2) !default;
   display: table-cell;
   width: $tab-width;
   padding: 8px 1em 12px;
-  position: relative;
+  margin-right: -1px;
   color: $c-inputgrey;
   text-align: center;
   vertical-align: middle;
   border-top: 5px solid $c-bggrey;
-  // border-right: 1px solid #fff;
+  border-right: 1px solid #fff;
   border-radius: 0;
   transition: none;
 
-  &:after {
-    position: absolute;
-    width: 1px;
-    height: 47px;
-    content: "";
-    right: 0;
-    top: -5px;
-    background-color: #fff;
-  }
+  // &:after {
+  //   position: absolute;
+  //   width: 1px;
+  //   height: 47px;
+  //   content: "";
+  //   right: 0;
+  //   top: -5px;
+  //   background-color: #fff;
+  // }
   
   @include respond-to(tablet) {
     font-size: em(14px);
