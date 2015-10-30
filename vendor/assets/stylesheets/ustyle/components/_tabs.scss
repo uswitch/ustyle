@@ -28,19 +28,25 @@
 //     </nav>
 //     <div class='us-tabs-container'>
 //       <div class='us-tab' id='tab1'>
-//         <h2 class='us-tab-title'><a class="us-tabs-nav-mainlink" href="#tab1">Test 1</a></h2>
+//         <h2 class='us-tab-title'>
+//           <a class="us-tabs-nav-mainlink us-icon--after us-icon--chevron-right--after us-icon--small--after us-icon--inputgrey--after" href="#tab1">Test 1</a>
+//         </h2>
 //         <div class='us-tab-content'>
 //           <p>Fatback capicola leberkas pork loin pork jowl. Meatloaf shoulder pancetta, salami prosciutto ribeye andouille chuck landjaeger short loin filet mignon sirloin. Pork chop tri-tip ham pork hamburger frankfurter leberkas short ribs biltong. Prosciutto ham hock rump, andouille tongue flank sirloin tri-tip ball tip frankfurter ham drumstick meatloaf pork loin.</p>
 //         </div>
 //       </div>
 //       <div class='us-tab' id='tab2'>
-//         <h2 class='us-tab-title'><a class="us-tabs-nav-mainlink" href="#tab2">Test 2</a></h2>
+//         <h2 class='us-tab-title'>
+//           <a class="us-tabs-nav-mainlink us-icon--after us-icon--chevron-right--after us-icon--small--after us-icon--inputgrey--after" href="#tab2">Test 2</a>
+//         </h2>
 //         <div class='us-tab-content'>
 //           <p>Kielbasa tenderloin spare ribs, andouille doner brisket chuck drumstick bresaola short loin pork t-bone ground round jowl. Ball tip pork loin doner tongue filet mignon biltong hamburger leberkas. Filet mignon kielbasa kevin short ribs, drumstick chuck shankle spare ribs tri-tip.</p>
 //         </div>
 //       </div>
 //       <div class='us-tab' id='tab3'>
-//         <h2 class='us-tab-title'><a class="us-tabs-nav-mainlink" href="#tab3">Test 3</a></h2>
+//         <h2 class='us-tab-title'>
+//           <a class="us-tabs-nav-mainlink us-icon--after us-icon--chevron-right--after us-icon--small--after us-icon--inputgrey--after" href="#tab3">Test 3</a>
+//         </h2>
 //         <div class='us-tab-content'>
 //           <p>Pig pastrami pork loin kielbasa, filet mignon meatloaf short ribs tenderloin. Pork loin leberkas kevin fatback porchetta bresaola. Cow rump shoulder pastrami. Andouille pork belly t-bone short ribs brisket. Bresaola pork belly tail salami capicola meatball. Pork belly beef ham landjaeger.</p>
 //         </div>
@@ -123,7 +129,7 @@ $tab-active-color: $tab-border-color;
   &.active {
     color: $c-typecyan;
 
-    &:after {
+    &:before {
       background-color: $c-typecyan;
     }
   }
@@ -144,7 +150,7 @@ $tab-active-color: $tab-border-color;
   background-color: $c-bggrey;
   transition: color 300ms, background-color 300ms;
 
-  &:after {
+  &:before {
     position: absolute;
     top: 0;
     right: 0;
@@ -208,18 +214,24 @@ $tab-active-color: $tab-border-color;
     display: block;
     padding: .75em .75em .5em;
 
+    &:after {
+      position: absolute;
+      right: $gutter-width/2;
+    }
+
     .us-tab.active & {
       color: $c-typecyan;
       background-color: $tab-active-color;
     }
 
-    &:hover:before,
-    .us-tab.active &:before {
+    &:hover:after,
+    .us-tab.active &:after {
+      @include icon-color("typecyan");
       transform: rotate(90deg);
     }
 
-    &:hover:after,
-    .us-tab.active &:after {
+    &:hover:before,
+    .us-tab.active &:before {
       background-color: $c-typecyan;
     }
   }
