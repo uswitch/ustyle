@@ -42,3 +42,8 @@ name: uSwitch living styleguide
     </div>
   </div>
 </div>
+<div class="us-content-group">
+  <h2>We're looking for great talent</h2>
+  <p>Want to help us build more things like uStyle? We're constantly trying to deliver a better experience for customers and developers, and we're looking for passionate people to join our team.</p>
+  <p>Fire us an email at <a href="mailto:jobs+developer@uswitch.com">jobs@uswitch.com</a> with your CV and tell us a bit about yourself.</p>
+</div>

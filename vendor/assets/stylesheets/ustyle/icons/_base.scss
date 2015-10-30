@@ -1,12 +1,12 @@
 // @page Design/Icons
 // @name Icons
 // @partial icons
-// 
+//
 // @description
-//   Icons are created by chaining classes together with `us-icon`. There are 3 sizes, 16px, 32px, 64px, these are named `us-icon--small`, `us-icon--medium` and `us-icon--large` respectively. 
+//   Icons are created by chaining classes together with `us-icon`. There are 3 sizes, 16px, 32px, 64px, these are named `us-icon--small`, `us-icon--medium` and `us-icon--large` respectively.
 //
 //   There are 5 colours for each icon, *white*, *typegrey*, *inputgrey*, *typecyan* and *custom*. Where *custom* can differ depending on what the icon represents (for logos, the custom tends to be the brand colour of that company). If you want an icon to be part of a **:pseudo** element (:before, :after) then suffix your icon name with `--before` and `--after` respectively. To have an icon standalone with text as fallback, add `us-icon--notext` to the element.
-// 
+//
 // @state us-icon--alarm
 // @state us-icon--android
 // @state us-icon--angry
@@ -23,6 +23,7 @@
 // @state us-icon--calendar
 // @state us-icon--car
 // @state us-icon--checkbox-tick
+// @state us-icon--chevron-right
 // @state us-icon--clock
 // @state us-icon--close
 // @state us-icon--cog
@@ -58,6 +59,7 @@
 // @state us-icon--message
 // @state us-icon--mobile
 // @state us-icon--monthly-dd
+// @state us-icon--network
 // @state us-icon--neutral
 // @state us-icon--no-exit
 // @state us-icon--pdf
@@ -111,7 +113,7 @@
 // @state us-icon--play
 // @state us-icon--controller
 // @state us-icon--pound-circle
-// 
+//
 // @markup
 //  <div class="us-icon us-icon--medium us-icon--custom us-icon--hover-typecyan {$modifiers}"></div>
 
@@ -121,12 +123,12 @@
 ///
 /// @group icons
 /// @author David Annez
-/// 
+///
 /// @require {Variable} icon-colors
-/// 
+///
 /// @param {String} $color
 ///   The matching colour string from the list of colours
-///   
+///
 /// @param {Bool} $parent [false]
 ///   If set to true, you can use this on a parent element and any icon within the parent
 ///   will have this icon colour. Especially useful for hover on buttons or larger elements.

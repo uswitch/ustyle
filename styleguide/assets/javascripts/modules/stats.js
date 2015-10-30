@@ -4,10 +4,10 @@ function humanFileSize(size) {
   return ( size / Math.pow(1024, i) ).toFixed(2) * 1  + ['B', 'kB', 'MB', 'GB', 'TB'][i];
 };
 
-google.load('visualization', '1.1', {packages:['line']});
+google.charts.load('43', {packages: ['line']});
 
 if (typeof reportData !== 'undefined' && reportData) {
-  google.setOnLoadCallback(drawChart);
+  google.charts.setOnLoadCallback(drawChart);
 }
 
 function drawChart() {
@@ -45,6 +45,7 @@ function drawChart() {
 
   simplicityChart = new google.charts.Line(document.getElementById('simplicity_chart'));
   simplicityChart.draw(simplicityTable, simplicityOptions);
+
   sizeChart = new google.charts.Line(document.getElementById('size_chart'));
   sizeChart.draw(sizeTable, sizeOptions);
 };
