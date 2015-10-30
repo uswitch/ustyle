@@ -89,6 +89,7 @@ $tab-width: col-width(2) !default;
   overflow: hidden;
   flex-flow: row;
 }
+
 //PropertySortOrder: Properties should be ordered position, position, z-index, display, width, padding, margin-right, color, text-align, vertical-align, border-top, border-right, border-radius, transition
 .us-tabs-nav-link {
   @include normal-font;
@@ -96,26 +97,26 @@ $tab-width: col-width(2) !default;
   z-index: 1;
   display: table-cell;
   width: $tab-width;
-  padding: 8px 1em 12px;
+  padding: 12px 1em 12px;
   margin-right: -1px;
   color: $c-inputgrey;
   text-align: center;
   vertical-align: middle;
-  border-top: 5px solid $c-bggrey;
   border-right: 1px solid #fff;
   border-radius: 0;
   transition: none;
 
-  // &:after {
-  //   position: absolute;
-  //   width: 1px;
-  //   height: 47px;
-  //   content: "";
-  //   right: 0;
-  //   top: -5px;
-  //   background-color: #fff;
-  // }
-  
+  &:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background-color: $c-bggrey;
+    transition: background-color 300ms;
+    content: "";
+  }
+
   @include respond-to(tablet) {
     font-size: em(14px);
     line-height: 1.25em;
@@ -136,7 +137,10 @@ $tab-width: col-width(2) !default;
   &:hover {
     color: $c-typecyan;
     background-color: rgba(255,255,255,.35);
-    border-top: 5px solid $c-typecyan;
+
+    &:after {
+      background-color: $c-typecyan;
+    }
   }
 
   &.active {
@@ -144,11 +148,14 @@ $tab-width: col-width(2) !default;
     color: $c-typecyan;
     cursor: default;
     background-color: #fff;
-    border-top: 5px solid $c-typecyan;
     box-shadow: none;
 
     &:hover {
       background-color: #fff;
+    }
+
+    &:after {
+      background-color: $c-typecyan;
     }
   }
 }
@@ -226,15 +233,6 @@ $tab-width: col-width(2) !default;
       color: #fff;
       transform: rotate(90deg);
     }
-
-    // &:before {
-    //   @include arrow(10px, 10px, right);
-    //   display: inline-block;
-    //   margin-right: .75em;
-    //   font-size: .75em;
-    //   content: "";
-    //   transition: all 300ms;
-    // }
   }
 }
 
