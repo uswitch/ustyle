@@ -49,6 +49,8 @@
 //   </div>
 
 $tab-width: col-width(2) !default;
+$tab-border-color: #fff;
+$tab-active-color: $tab-border-color;
 
 @keyframes tab-show {
   0% {
@@ -78,7 +80,6 @@ $tab-width: col-width(2) !default;
 
 .us-tabs-nav-wrapper {
   @extend %container;
-  // padding-top: $gutter-width / 2;
 }
 
 .us-tabs-nav-menu {
@@ -90,32 +91,16 @@ $tab-width: col-width(2) !default;
   flex-flow: row;
 }
 
-//PropertySortOrder: Properties should be ordered position, position, z-index, display, width, padding, margin-right, color, text-align, vertical-align, border-top, border-right, border-radius, transition
 .us-tabs-nav-link {
-  @include normal-font;
-  position: relative;
-  z-index: 1;
   display: table-cell;
   width: $tab-width;
-  padding: 12px 1em 12px;
+  padding: 14px 1em 12px;
   margin-right: -1px;
-  color: $c-inputgrey;
   text-align: center;
   vertical-align: middle;
-  border-right: 1px solid #fff;
+  border-right: 1px solid $tab-border-color;
   border-radius: 0;
   transition: none;
-
-  &:after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 5px;
-    background-color: $c-bggrey;
-    transition: background-color 300ms;
-    content: "";
-  }
 
   @include respond-to(tablet) {
     font-size: em(14px);
@@ -134,9 +119,9 @@ $tab-width: col-width(2) !default;
     border-right: 0;
   }
 
-  &:hover {
+  &:hover,
+  &.active {
     color: $c-typecyan;
-    background-color: rgba(255,255,255,.35);
 
     &:after {
       background-color: $c-typecyan;
@@ -144,19 +129,34 @@ $tab-width: col-width(2) !default;
   }
 
   &.active {
-    z-index: 2;
-    color: $c-typecyan;
     cursor: default;
-    background-color: #fff;
-    box-shadow: none;
+    background-color: $tab-active-color;
 
     &:hover {
-      background-color: #fff;
+      background-color: $tab-active-color;
     }
+  }
+}
 
-    &:after {
-      background-color: $c-typecyan;
-    }
+.us-tabs-nav-mainlink {
+  @include link-colors($c-inputgrey, $c-typecyan, $c-typecyan);
+  position: relative;
+  background-color: $c-bggrey;
+  transition: color 300ms, background-color 300ms;
+
+  &:after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 5px;
+    background-color: $c-bggrey;
+    content: "";
+    transition: background-color 300ms;
+  }
+
+  &:hover {
+    background-color: rgba(255,255,255,.35);
   }
 }
 
@@ -204,40 +204,28 @@ $tab-width: col-width(2) !default;
     display: none;
   }
 
-  a {
-    @include link-colors($c-inputgrey, $c-typecyan, $c-typecyan);
+  .us-tabs-nav-mainlink {
     display: block;
-    padding: .5em .75em;
-    background-color: $c-bggrey;
-    border-top: 4px solid $c-bggrey;
-    transition: color 300ms, background-color 300ms;
+    padding: .75em .75em .5em;
 
-    .active & {
+    .us-tab.active & {
       color: $c-typecyan;
-      background-color: #fff;
-      border-top: 4px solid $c-typecyan;
+      background-color: $tab-active-color;
     }
 
-    .active &:before {
+    &:hover:before,
+    .us-tab.active &:before {
       transform: rotate(90deg);
     }
 
-    &:hover {
-      color: $c-typecyan;
-      background-color: rgba(255,255,255,.35);
-      border-top: 4px solid $c-typecyan;
-      transition: transform 150ms linear;
-    }
-
-    &:hover:before {
-      color: #fff;
-      transform: rotate(90deg);
+    &:hover:after,
+    .us-tab.active &:after {
+      background-color: $c-typecyan;
     }
   }
 }
 
 .us-tab-content {
-  @extend %container;
   display: block;
   overflow: hidden;
   opacity: 1;
