@@ -53,6 +53,7 @@ $select-hover-color: $c-form-element-border-hover !default;
   background-position: 100% 50%;
   background-repeat: no-repeat;
   outline: 0;
+  max-width: 100%;
 
   // [nodoc] Fix for FF < 35 https://gist.github.com/joaocunha/6273016/
   @-moz-document url-prefix() {
