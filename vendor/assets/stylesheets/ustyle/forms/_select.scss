@@ -47,13 +47,13 @@ $select-hover-color: $c-form-element-border-hover !default;
 .us-form-select {
   @extend %base-form-element;
   @include select-background($select-default-color, $select-hover-color);
+  max-width: 100%;
   padding: $select-base-padding;
   padding-right: 40px;
   cursor: pointer;
   background-position: 100% 50%;
   background-repeat: no-repeat;
   outline: 0;
-  max-width: 100%;
 
   // [nodoc] Fix for FF < 35 https://gist.github.com/joaocunha/6273016/
   @-moz-document url-prefix() {
