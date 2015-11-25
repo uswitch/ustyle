@@ -40,6 +40,17 @@
 $positions: "top", "right", "bottom", "left";
 $spacing: "small" .5em, "large" 1.5em;
 
+.us-reset--padding {
+  padding: 0;
+}
+
+.us-reset--margin {
+  margin: 0;
+}
+
+.us-reset {
+  @extend %reset-box-model;
+}
 
 @each $position in $positions {
   .us-margin-#{$position} {
@@ -59,16 +70,4 @@ $spacing: "small" .5em, "large" 1.5em;
       padding-#{$position}: nth($space,2);
     }
   }
-}
-
-.us-reset--padding {
-  padding: 0;
-}
-
-.us-reset--margin {
-  margin: 0;
-}
-
-.us-reset {
-  @extend %reset-box-model;
 }
