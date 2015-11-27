@@ -56,10 +56,6 @@ Do your words trip off the tongue? There’s one way to find out. Read them out 
 
 For names of companies or organisations, if an abbreviation is more familiar than the full form (e.g. BBC, IBM) use that. If not, write the name in full the first time you mention it, followed by the abbreviation in brackets. The next time you refer to it, use only the abbreviation.
 
-### Ampersands (&)
-
-For names of companies or organisations, if an abbreviation is more familiar than the full form (e.g. BBC, IBM) use that. If not, write the name in full the first time you mention it, followed by the abbreviation in brackets. The next time you refer to it, use only the abbreviation.
-
 ### Apostrophes
 Avoid common misuse of apostrophes:
 

@@ -47,6 +47,7 @@ $select-hover-color: $c-form-element-border-hover !default;
 .us-form-select {
   @extend %base-form-element;
   @include select-background($select-default-color, $select-hover-color);
+  max-width: 100%;
   padding: $select-base-padding;
   padding-right: 40px;
   cursor: pointer;
