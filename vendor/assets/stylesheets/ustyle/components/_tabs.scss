@@ -28,19 +28,25 @@
 //     </nav>
 //     <div class='us-tabs-container'>
 //       <div class='us-tab' id='tab1'>
-//         <h2 class='us-tab-title'><a class="us-tabs-nav-mainlink" href="#tab1">Test 1</a></h2>
+//         <h2 class='us-tab-title'>
+//           <a class="us-tabs-nav-mainlink us-icon--after us-icon--chevron-right--after us-icon--small--after us-icon--inputgrey--after" href="#tab1">Test 1</a>
+//         </h2>
 //         <div class='us-tab-content'>
 //           <p>Fatback capicola leberkas pork loin pork jowl. Meatloaf shoulder pancetta, salami prosciutto ribeye andouille chuck landjaeger short loin filet mignon sirloin. Pork chop tri-tip ham pork hamburger frankfurter leberkas short ribs biltong. Prosciutto ham hock rump, andouille tongue flank sirloin tri-tip ball tip frankfurter ham drumstick meatloaf pork loin.</p>
 //         </div>
 //       </div>
 //       <div class='us-tab' id='tab2'>
-//         <h2 class='us-tab-title'><a class="us-tabs-nav-mainlink" href="#tab2">Test 2</a></h2>
+//         <h2 class='us-tab-title'>
+//           <a class="us-tabs-nav-mainlink us-icon--after us-icon--chevron-right--after us-icon--small--after us-icon--inputgrey--after" href="#tab2">Test 2</a>
+//         </h2>
 //         <div class='us-tab-content'>
 //           <p>Kielbasa tenderloin spare ribs, andouille doner brisket chuck drumstick bresaola short loin pork t-bone ground round jowl. Ball tip pork loin doner tongue filet mignon biltong hamburger leberkas. Filet mignon kielbasa kevin short ribs, drumstick chuck shankle spare ribs tri-tip.</p>
 //         </div>
 //       </div>
 //       <div class='us-tab' id='tab3'>
-//         <h2 class='us-tab-title'><a class="us-tabs-nav-mainlink" href="#tab3">Test 3</a></h2>
+//         <h2 class='us-tab-title'>
+//           <a class="us-tabs-nav-mainlink us-icon--after us-icon--chevron-right--after us-icon--small--after us-icon--inputgrey--after" href="#tab3">Test 3</a>
+//         </h2>
 //         <div class='us-tab-content'>
 //           <p>Pig pastrami pork loin kielbasa, filet mignon meatloaf short ribs tenderloin. Pork loin leberkas kevin fatback porchetta bresaola. Cow rump shoulder pastrami. Andouille pork belly t-bone short ribs brisket. Bresaola pork belly tail salami capicola meatball. Pork belly beef ham landjaeger.</p>
 //         </div>
@@ -49,6 +55,8 @@
 //   </div>
 
 $tab-width: col-width(2) !default;
+$tab-border-color: #fff;
+$tab-active-color: $tab-border-color;
 
 @keyframes tab-show {
   0% {
@@ -63,7 +71,7 @@ $tab-width: col-width(2) !default;
 // Tab nav
 .us-tabs-nav {
   display: none;
-  background-color: $c-navy;
+  background-color: $c-bggrey;
 
   @include respond-to(tablet) {
     .js & {
@@ -78,7 +86,6 @@ $tab-width: col-width(2) !default;
 
 .us-tabs-nav-wrapper {
   @extend %container;
-  padding-top: $gutter-width / 2;
 }
 
 .us-tabs-nav-menu {
@@ -91,18 +98,16 @@ $tab-width: col-width(2) !default;
 }
 
 .us-tabs-nav-link {
-  @include normal-font;
-  @include link-colors(#fff, $c-navy, $c-navy, #fff);
-  position: relative;
-  z-index: 1;
   display: table-cell;
   width: $tab-width;
-  padding: .475em .15em 1.2em;
+  padding: 14px 1em 12px;
+  margin-right: -1px;
   text-align: center;
   vertical-align: middle;
-  border-radius: 3px 3px 0 0;
+  border-right: 1px solid $tab-border-color;
+  border-radius: 0;
   transition: none;
-  
+
   @include respond-to(tablet) {
     font-size: em(14px);
     line-height: 1.25em;
@@ -116,15 +121,48 @@ $tab-width: col-width(2) !default;
     font-size: em(18px);
   }
 
-  &:hover {
-    background-color: #fff;
+  &:last-child {
+    border-right: 0;
+  }
+
+  &:hover,
+  &.active {
+    color: $c-typecyan;
+
+    &:before {
+      background-color: $c-typecyan;
+    }
   }
 
   &.active {
-    z-index: 2;
-    color: $c-navy;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    cursor: default;
+    background-color: $tab-active-color;
+
+    &:hover {
+      background-color: $tab-active-color;
+    }
+  }
+}
+
+.us-tabs-nav-mainlink {
+  @include link-colors($c-inputgrey, $c-typecyan, $c-typecyan);
+  position: relative;
+  background-color: $c-bggrey;
+  transition: color 300ms, background-color 300ms;
+
+  &:before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 5px;
+    background-color: $c-bggrey;
+    content: "";
+    transition: background-color 300ms;
+  }
+
+  &:hover {
+    background-color: rgba(255,255,255,.35);
   }
 }
 
@@ -172,41 +210,34 @@ $tab-width: col-width(2) !default;
     display: none;
   }
 
-  a {
-    @include link-colors($c-navy, #fff, $c-navy);
+  .us-tabs-nav-mainlink {
     display: block;
-    padding: .5em .75em;
-    background-color: $c-cyan;
-    border-bottom: 1px solid #fff;
-    transition: color 300ms, background-color 300ms;
+    padding: .75em .75em .5em;
 
-    .active & {
-      color: #fff;
-      background-color: $c-navy;
+    &:after {
+      position: absolute;
+      right: $gutter-width/2;
     }
 
-    .active &:before {
+    .us-tab.active & {
+      color: $c-typecyan;
+      background-color: $tab-active-color;
+    }
+
+    &:hover:after,
+    .us-tab.active &:after {
+      @include icon-color("typecyan");
       transform: rotate(90deg);
     }
 
-    &:hover:before {
-      color: #fff;
-      transform: rotate(90deg);
-    }
-
-    &:before {
-      @include arrow(10px, 10px, right);
-      display: inline-block;
-      margin-right: .75em;
-      font-size: .75em;
-      content: "";
-      transition: all 300ms;
+    &:hover:before,
+    .us-tab.active &:before {
+      background-color: $c-typecyan;
     }
   }
 }
 
 .us-tab-content {
-  @extend %container;
   display: block;
   overflow: hidden;
   opacity: 1;
