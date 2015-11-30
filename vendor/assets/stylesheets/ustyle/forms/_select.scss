@@ -80,7 +80,8 @@ $select-hover-color: $c-form-element-border-hover !default;
 
 .us-form-select-wrap--multiple, // [deprecated]
 .us-form-select--multiple,
-.us-form-select[multiple] {
+.us-form-select[multiple],
+.us-form-select[size] {
   &,
   .us-form-select {
     height: auto;
@@ -99,6 +100,17 @@ $select-hover-color: $c-form-element-border-hover !default;
   option {
     padding: .3em 5px;
     cursor: pointer;
+  }
+
+  &::-webkit-scrollbar {
+    z-index: 2;
+    width: 9px;
+    border-left: 1px solid $c-bordergrey;
+    -webkit-appearance: none;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, .5);
   }
 }
 
