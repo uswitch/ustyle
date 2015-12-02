@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]> <html lang="en" class="no-js ie7"> <![endif]-->
 <!--[if IE 8 ]> <html lang="en" class="no-js ie8"> <![endif]-->
 <!--[if IE 9 ]> <html lang="en" class="no-js ie9"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]> ><! <![endif]-->
@@ -7,7 +9,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <meta content='width=device-width, initial-scale=1.0' name='viewport'>
-  <title>uStyle styleguide</title>
+  <title>ustyle styleguide</title>
   <link rel="stylesheet" href="/css/main.css" type="text/css" />
   <!--[if lt IE 9]>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -20,64 +22,34 @@
 </head>
 <body>
   <header class="ustyle__header">
-    <a class="logo" href="/">
-      <span class="logo__icon us-icon--notext us-icon--ustyle us-icon--typegrey us-icon--medium--mobile us-icon--large"></span>
-      uStyle
-    </a>
-    <a class="version" href="https://github.com/uswitch/ustyle/releases/tag/1.3.12">v1.3.12</a>
+    <a class="logo" href="/">ustyle</a>
+    <a class="version us-tablet--block" href="https://github.com/uswitch/ustyle/releases/tag/0.18.2">v0.18.2</a>
+    <div class='nav nav--header'>
+      <nav>
+        <a href="/brand/" class="nav__link ">Brand</a>
+        <a href="/design/" class="nav__link active">Design</a>
+        <a href="/code/" class="nav__link ">Code</a>
+      </nav>
+    </nav>
   </header>
-  <a href="javascript:void(0);" class="nav-mobile js-toggle__link us-tablet--hidden" data-target="sidebar"><span class="nav-mobile__hamburger">Sidebar</span></a>
+  <a href="javascript:void(0);" class="nav-mobile js-toggle__link us-desktop--hidden" data-target="sidebar"><span class="nav-mobile__hamburger">Sidebar</span></a>
   <div class='sidebar'>
-      <nav class="sidebar__nav active">
-        <a href="/brand/" class="sidebar__nav-link js-sidebar-nav-link active">Brand</a>
-        <nav class="sidebar__sub-nav">
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/brand/index.html">Framework</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub active" href="/brand/colours.html">Colours</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/brand/logo.html">Logo</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/brand/language.html">Language</a>
-        </nav>
-      </nav>
-      <nav class="sidebar__nav ">
-        <a href="/pattern-library/" class="sidebar__nav-link js-sidebar-nav-link ">Pattern library</a>
-        <nav class="sidebar__sub-nav">
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/index.html">Introduction</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/articles.html">Articles</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/utilities.html">Utilities</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/forms.html">Forms</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/components.html">Components</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/javascript.html">JavaScript</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/typography.html">Typography</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/grid.html">Grid</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/stats.html">Stats</a>
-            <a class="sidebar__nav-link sidebar__nav-link--sub" href="/sass/" target="_blank">Sass doc</a>
-        </nav>
-      </nav>
-      <nav class="sidebar__nav ">
-        <a href="/design/" class="sidebar__nav-link js-sidebar-nav-link ">Design</a>
-        <nav class="sidebar__sub-nav">
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/index.html">Imagery</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/typography.html">Typography</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/icons.html">Icons</a>
-        </nav>
-      </nav>
-  
-    <div class="made-at">
-      <a href="http://www.uswitch.com/vacancies/" target="_blank" class="us-icon--before us-icon--uswitch--before us-icon--custom--before us-icon--small--before--mobile us-icon--medium--before"><span class="us-color--blue">uSwitch is hiring.</span></a>
-    </div>
+    <nav class='sidebar__nav' data-gumshoe>
+          <a class="sidebar__nav-link " href="index.html">Design</a>
+          <a class="sidebar__nav-link " href="typography.html">Typography</a>
+          <a class="sidebar__nav-link " href="icons.html">Icons</a>
+          <a class="sidebar__nav-link active" href="colours.html">Colours</a>
+              <nav class="sidebar__sub-nav" data-ghumshoe>
+                  <a class="sidebar__nav-link sidebar__nav-link--sub" href="#primary_palette">Primary palette</a>
+                  <a class="sidebar__nav-link sidebar__nav-link--sub" href="#secondary_palette">Secondary palette</a>
+                  <a class="sidebar__nav-link sidebar__nav-link--sub" href="#tertiary_palette">Tertiary palette</a>
+              </nav>
+          <a class="sidebar__nav-link " href="imagery.html">Imagery</a>
+    </nav>
   </div>
-    <div id="wrapper" class="container sidebar--push header--push nav--push">
-      <div class="styleguide__hero">
-        <h1 class="styleguide__hero-heading">Colours</h1>
-      </div>
-          <nav class="nav--sub us-col-lg-2">
-            <div class="js-sticky">
-              <h4>Patterns</h4>
-                <a class="nav__link" href="#primary_palette">Primary palette</a>
-                <a class="nav__link" href="#secondary_palette">Secondary palette</a>
-                <a class="nav__link" href="#tertiary_palette">Tertiary palette</a>
-            </div>
-          </nav>
-      <div class="us-col-lg-10 styleguide__content styleguide__content--w-sidebar">
+  <div id="wrapper" class="container sidebar--push header--push">
+    <h1 class="styleguide__title">Colours</h1>
+    <div class="styleguide">
             <div class="styleguide__block" id="primary_palette">
   <div class="styleguide__block-info">
     <h2 class="styleguide__block-title">
@@ -85,8 +57,7 @@
       <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/basics/variables/_colors.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> _colors.scss</a>
     </h2>
     
-    <p> Our colours (with a “u”, we’re a UK company) are divided into primary, secondary and tertiary palettes. The primary and secondary are core to all our design work and supported by the tertiary which we use in infographics, graphs and the like. CMYK equivalents are available for print work.</p>
-
+    
     <div class="us-grid-row">
         <div class="colour us-col-md-4">
           <div class="colour__block">
@@ -458,14 +429,13 @@
   </div>
 </div>
 
-      </div>
     </div>
-  <div class="container sidebar--push">
-    <p class="copyright">Copyright uSwitch Limited 2015. <a href="https://github.com/uswitch/ustyle">Github</a></p>
   </div>
-   <script type="text/javascript" src='https://www.gstatic.com/charts/loader.js'>
-   </script>
-  <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+  <div class="container">
+    <p class="copyright">Copyright uSwitch Limited 2015. <a href="https://github.com/uswitch/ustyle.git">Github</a></p>
+  </div>
+  <script src="https://www.google.com/jsapi"></script>
+  <script src="https://cdn.polyfill.io/v1/polyfill.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="/js/app.js"></script>
 </body>
