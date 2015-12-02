@@ -109,11 +109,15 @@
     list-style: none;
     border-top: 1px solid $c-blue;
 
-    li {
+    > li {
       padding-top: .5em;
       padding-bottom: .5em;
       margin: 0;
       border-bottom: 1px solid $c-blue;
+    }
+
+    ul {
+      list-style: disc;
     }
 
     .row {
