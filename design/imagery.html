@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]> <html lang="en" class="no-js ie7"> <![endif]-->
 <!--[if IE 8 ]> <html lang="en" class="no-js ie8"> <![endif]-->
 <!--[if IE 9 ]> <html lang="en" class="no-js ie9"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]> ><! <![endif]-->
@@ -6,12 +8,12 @@
   <!-- <![endif] -->
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <meta content='width=device-width, initial-scale=1.0' name='viewport' />
-  <title>uStyle styleguide</title>
+  <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+  <title>ustyle styleguide</title>
   <link rel="stylesheet" href="/css/main.css" type="text/css" />
   <!--[if lt IE 9]>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <![endif]-->
+  <![endif] -->
   <script>
     (function(html){
       html.className=html.className.replace(/\bno-js\b/,'js');
@@ -20,58 +22,29 @@
 </head>
 <body>
   <header class="ustyle__header">
-    <a class="logo" href="/">
-      <span class="logo__icon us-icon--notext us-icon--ustyle us-icon--typegrey us-icon--medium--mobile us-icon--large"></span>
-      uStyle
-    </a>
-    <a class="version" href="https://github.com/uswitch/ustyle/releases/tag/1.3.14">v1.3.14</a>
+    <a class="logo" href="/">ustyle</a>
+    <a class="version us-tablet--block" href="https://github.com/uswitch/ustyle/releases/tag/0.19.1">v0.19.1</a>
+    <div class='nav nav--header'>
+      <nav>
+        <a href="/brand/" class="nav__link ">Brand</a>
+        <a href="/pattern-library/" class="nav__link ">Pattern library</a>
+        <a href="/design/" class="nav__link active">Design</a>
+      </nav>
+    </nav>
   </header>
-  <a href="javascript:void(0);" class="nav-mobile js-toggle__link us-tablet--hidden" data-target="sidebar"><span class="nav-mobile__hamburger">Sidebar</span></a>
+  <a href="javascript:void(0);" class="nav-mobile js-toggle__link us-desktop--hidden" data-target="sidebar"><span class="nav-mobile__hamburger">Sidebar</span></a>
   <div class='sidebar'>
-      <nav class="sidebar__nav ">
-        <a href="/brand/" class="sidebar__nav-link js-sidebar-nav-link ">Brand</a>
-        <nav class="sidebar__sub-nav">
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/brand/index.html">Framework</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/brand/colours.html">Colours</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/brand/logo.html">Logo</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/brand/language.html">Language</a>
-        </nav>
-      </nav>
-      <nav class="sidebar__nav ">
-        <a href="/pattern-library/" class="sidebar__nav-link js-sidebar-nav-link ">Pattern library</a>
-        <nav class="sidebar__sub-nav">
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/index.html">Introduction</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/articles.html">Articles</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/utilities.html">Utilities</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/forms.html">Forms</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/components.html">Components</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/javascript.html">JavaScript</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/typography.html">Typography</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/grid.html">Grid</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/stats.html">Stats</a>
-            <a class="sidebar__nav-link sidebar__nav-link--sub" href="/sass/" target="_blank">Sass doc</a>
-        </nav>
-      </nav>
-      <nav class="sidebar__nav active">
-        <a href="/design/" class="sidebar__nav-link js-sidebar-nav-link active">Design</a>
-        <nav class="sidebar__sub-nav">
-              <a class="sidebar__nav-link sidebar__nav-link--sub active" href="/design/index.html">Imagery</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/typography.html">Typography</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/icons.html">Icons</a>
-        </nav>
-      </nav>
-  
-    <div class="made-at">
-      <a href="http://www.uswitch.com/vacancies/" target="_blank" class="us-icon--before us-icon--uswitch--before us-icon--custom--before us-icon--small--before--mobile us-icon--medium--before"><span class="us-color--blue">uSwitch is hiring.</span></a>
-    </div>
+    <nav class='sidebar__nav' data-gumshoe>
+          <a class="sidebar__nav-link " href="index.html">Design</a>
+          <a class="sidebar__nav-link " href="icons.html">Icons</a>
+          <a class="sidebar__nav-link active" href="imagery.html">Imagery</a>
+          <a class="sidebar__nav-link " href="typography.html">Typography</a>
+    </nav>
   </div>
   <div id="wrapper" class="container header--push sidebar--push">
-    <div class="styleguide__hero">
-      <h1 class="styleguide__hero-heading">Imagery</h1>
-    </div>
-    <div class="styleguide__content markdown styleguide us-col-lg-10">
-      
-<p>Our brand imagery is made up of <strong>lifestyle photography, product and object images, illustrations,</strong>  and <strong>infographics.</strong>  All of our imagery types should reassert our brand values of fairness, clarity and confidence.</p>
+    <h1 class="styleguide__title">Imagery</h1>
+    <div class="styleguide markdown">
+      <p>Our brand imagery is made up of <strong>lifestyle photography, product and object images, illustrations,</strong>  and <strong>infographics.</strong>  All of our imagery types should reassert our brand values of fairness, clarity and confidence.</p>
 <p>It’s important to remember that imagery is an extension of the uSwitch brand. It's use is to support or convey a message, not drive it.</p>
 <div class="us-content-group">
   <h2>Lifestyle photography</h2>
@@ -149,12 +122,11 @@
 
     </div>
   </div>
-  <div class="container sidebar--push">
-    <p class="copyright">Copyright uSwitch Limited 2015. <a href="https://github.com/uswitch/ustyle">Github</a></p>
+  <div class="container">
+    <p class="copyright">Copyright uSwitch Limited 2015. <a href="https://github.com/uswitch/ustyle.git">Github</a></p>
   </div>
-   <script type="text/javascript" src='https://www.gstatic.com/charts/loader.js'>
-   </script>
-  <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+  <script src="https://www.google.com/jsapi"></script>
+  <script src="https://cdn.polyfill.io/v1/polyfill.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="/js/app.js"></script>
 </body>
