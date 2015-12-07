@@ -144,7 +144,7 @@ $tab-active-color: $tab-border-color;
 }
 
 .us-tabs-nav-mainlink {
-  @include link-colors($c-inputgrey, $c-typecyan, $c-typecyan);
+  @include link-colors($c-inputgrey, $c-typecyan, $c-typecyan, $c-inputgrey);
   position: relative;
   background-color: $c-bggrey;
   transition: color 300ms, background-color 300ms;
