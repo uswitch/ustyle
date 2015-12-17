@@ -89,6 +89,10 @@ $colors: (
   .us-color--#{nth($color, 1)} {
     color: nth($color, 2);
   }
+
+  .us-background--#{nth($color, 1)} {
+    background: nth($color, 2);
+  }
 }
 
 // Fonts
