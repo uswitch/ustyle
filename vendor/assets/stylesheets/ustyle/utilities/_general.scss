@@ -90,7 +90,7 @@ $colors: (
     color: nth($color, 2);
   }
 
-  .us-background--#{nth($color, 1)} {
+  .us-background-color--#{nth($color, 1)} {
     background: nth($color, 2);
   }
 }
