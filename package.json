@@ -50,6 +50,7 @@
     "grunt-contrib-uglify": "^0.9.2",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-env": "^0.4.2",
+    "grunt-jscs": "~2.0.0",
     "grunt-newer": "^1.1.0",
     "grunt-postcss": "^0.2.0",
     "grunt-sassdoc": "^2.0.0",
@@ -58,6 +59,7 @@
     "grunt-svgmin": "^2.0.0",
     "grunt-version": "^1.0.0",
     "handlebars": "^2.0.0",
+    "jscs": "~2.1.0",
     "load-grunt-tasks": "~3.1.0",
     "lodash": "^2.4.1",
     "marked": "^0.3.2",
@@ -67,8 +69,6 @@
     "stylestats": "^4.2.2",
     "svg-to-png": "^2.0.0",
     "svgo": "^0.5.0",
-    "underscore.string": "^3.0.2",
-    "grunt-jscs": "~2.0.0",
-    "jscs": "~2.1.0"
+    "underscore.string": "^3.0.2"
   }
 }

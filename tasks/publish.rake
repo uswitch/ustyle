@@ -40,6 +40,7 @@ namespace :deploy do
 
     Ustyle.invalidate([
       "/s3/#{Ustyle::BUCKET}/ustyle/ustyle-latest.css",
+      "/s3/#{Ustyle::BUCKET}/ustyle/ustyle.min.js",
       "/s3/#{Ustyle::BUCKET}/ustyle/ustyle-content.css",
       "/s3/#{Ustyle::BUCKET}/ustyle/ustyle-icons.css"
     ])

@@ -105,6 +105,13 @@ module.exports = function(grunt) {
         dest: "docs/js/app.js"
       }
     },
+    uglify: {
+      ustyle: {
+        files: {
+          "dist/ustyle.min.js": ["dist/ustyle.js"]
+        }
+      }
+    },
     copy: {
       main: {
         files: [
@@ -173,7 +180,7 @@ module.exports = function(grunt) {
   grunt.registerTask("lint", ["scsslint", "jscs"]);
   grunt.registerTask("icons", ["newer:svgmin", "svg2png"]);
 
-  grunt.registerTask("build", ["sass", "sassdoc", "copy", "concat:ustyle", "concat:app", "lint", "postcss", "styleguide", "builder"]);
+  grunt.registerTask("build", ["sass", "sassdoc", "copy", "concat:ustyle", "uglify:ustyle", "concat:app", "lint", "postcss", "styleguide", "builder"]);
 
   grunt.registerTask("publish", ["env:build", "build", "buildcontrol:pages"]);
 
