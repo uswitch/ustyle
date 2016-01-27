@@ -194,7 +194,7 @@ $tab-active-color: $tab-border-color;
 }
 
 .us-tab-title {
-  @extend %heading-4;
+  @include heading(4);
   position: relative;
   margin: 0;
   font-weight: normal;
