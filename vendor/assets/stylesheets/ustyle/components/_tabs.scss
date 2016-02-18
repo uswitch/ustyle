@@ -212,11 +212,11 @@ $tab-active-color: $tab-border-color;
 
   .us-tabs-nav-mainlink {
     display: block;
-    padding: .75em .75em .5em;
+    padding: .75em ($gutter-width / 2) .5em;
 
     &:after {
       position: absolute;
-      right: $gutter-width/2;
+      right: ($gutter-width / 2);
     }
 
     .us-tab.active & {
@@ -241,6 +241,11 @@ $tab-active-color: $tab-border-color;
   display: block;
   overflow: hidden;
   opacity: 1;
+
+  @include respond-to(to-tablet) {
+    padding-right: ($gutter-width / 2);
+    padding-left: ($gutter-width / 2);
+  }
 
   .js & {
     max-height: 0;
