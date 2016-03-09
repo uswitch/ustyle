@@ -21,3 +21,4 @@ docs/
 .sass-cache/
 node_modules/
 build/
+npm-debug.log
