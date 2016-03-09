@@ -1,0 +1,1986 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]> <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]> <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]> <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]> ><! <![endif]-->
+<html class='no-js svg' lang='en'>
+  <!-- <![endif] -->
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+  <title>ustyle styleguide</title>
+  <link rel="stylesheet" href="/css/main.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <![endif] -->
+  <script>
+    (function(html){
+      html.className=html.className.replace(/\bno-js\b/,'js');
+    })(document.documentElement);
+  </script>
+</head>
+<body>
+  <header class="ustyle__header">
+    <a class="logo" href="/">ustyle</a>
+    <a class="version us-tablet--block" href="https://github.com/uswitch/ustyle/releases/tag/0.18.2">v0.18.2</a>
+    <div class='nav nav--header'>
+      <nav>
+        <a href="/brand/" class="nav__link ">Brand</a>
+        <a href="/design/" class="nav__link ">Design</a>
+        <a href="/code/" class="nav__link active">Code</a>
+      </nav>
+    </nav>
+  </header>
+  <a href="javascript:void(0);" class="nav-mobile js-toggle__link us-desktop--hidden" data-target="sidebar"><span class="nav-mobile__hamburger">Sidebar</span></a>
+  <div class='sidebar'>
+    <nav class='sidebar__nav' data-gumshoe>
+          <a class="sidebar__nav-link " href="index.html">Introduction</a>
+          <a class="sidebar__nav-link " href="utilities.html">Utilities</a>
+          <a class="sidebar__nav-link " href="forms.html">Forms</a>
+          <a class="sidebar__nav-link " href="components.html">Components</a>
+          <a class="sidebar__nav-link " href="js-components.html">JS components</a>
+          <a class="sidebar__nav-link " href="grid.html">Grid</a>
+          <a class="sidebar__nav-link active" href="stats.html">Stats</a>
+        <a class="sidebar__nav-link" href="/sass/">Sass doc</a>
+    </nav>
+  </div>
+  <div id="wrapper" class="container header--push sidebar--push">
+    <h1 class="styleguide__title">Stats</h1>
+    <div class="us-grid-row">
+      <div class="us-content styleguide report us-col-md-12">
+        <script>
+          var reportData = [{"stylesheets":1,"size":69240,"rules":720,"selectors":1018,"simplicity":0.7072691552062869,"idSelectors":0,"universalSelectors":3,"javascriptSpecificSelectors":0,"importantKeywords":6,"mediaQueries":99,"version":"0.18.2"},{"stylesheets":1,"size":70447,"rules":731,"selectors":1035,"simplicity":0.706280193236715,"idSelectors":0,"universalSelectors":2,"javascriptSpecificSelectors":0,"importantKeywords":6,"mediaQueries":104,"version":"0.17.2"},{"stylesheets":1,"size":70451,"rules":731,"selectors":1035,"simplicity":0.706280193236715,"idSelectors":0,"universalSelectors":2,"javascriptSpecificSelectors":0,"importantKeywords":6,"mediaQueries":104,"version":"0.17.1"},{"stylesheets":1,"size":70461,"rules":731,"selectors":1035,"simplicity":0.706280193236715,"idSelectors":0,"universalSelectors":2,"javascriptSpecificSelectors":0,"importantKeywords":6,"mediaQueries":104,"version":"0.17.0"},{"stylesheets":1,"size":73656,"rules":711,"selectors":1018,"simplicity":0.6984282907662083,"idSelectors":0,"universalSelectors":1,"javascriptSpecificSelectors":0,"importantKeywords":17,"mediaQueries":98,"version":"0.16.0"},{"stylesheets":1,"size":66536,"rules":639,"selectors":917,"simplicity":0.6968375136314068,"idSelectors":0,"universalSelectors":1,"javascriptSpecificSelectors":0,"importantKeywords":17,"mediaQueries":87,"version":"0.15.2"},{"stylesheets":1,"size":66200,"rules":639,"selectors":917,"simplicity":0.6968375136314068,"idSelectors":0,"universalSelectors":1,"javascriptSpecificSelectors":0,"importantKeywords":17,"mediaQueries":87,"version":"0.15.1"},{"stylesheets":1,"size":66536,"rules":639,"selectors":917,"simplicity":0.6968375136314068,"idSelectors":0,"universalSelectors":1,"javascriptSpecificSelectors":0,"importantKeywords":17,"mediaQueries":87,"version":"0.15.0"},{"stylesheets":1,"size":67418,"rules":637,"selectors":912,"simplicity":0.6984649122807017,"idSelectors":0,"universalSelectors":1,"javascriptSpecificSelectors":0,"importantKeywords":17,"mediaQueries":87,"version":"0.14.4"},{"stylesheets":1,"size":67445,"rules":637,"selectors":912,"simplicity":0.6984649122807017,"idSelectors":0,"universalSelectors":1,"javascriptSpecificSelectors":0,"importantKeywords":17,"mediaQueries":87,"version":"0.14.3"},{"stylesheets":1,"size":67445,"rules":637,"selectors":912,"simplicity":0.6984649122807017,"idSelectors":0,"universalSelectors":1,"javascriptSpecificSelectors":0,"importantKeywords":17,"mediaQueries":87,"version":"0.14.2"},{"stylesheets":1,"size":67406,"rules":637,"selectors":912,"simplicity":0.6984649122807017,"idSelectors":0,"universalSelectors":1,"javascriptSpecificSelectors":0,"importantKeywords":17,"mediaQueries":87,"version":"0.14.1"},{"stylesheets":1,"size":67406,"rules":637,"selectors":912,"simplicity":0.6984649122807017,"idSelectors":0,"universalSelectors":1,"javascriptSpecificSelectors":0,"importantKeywords":17,"mediaQueries":87,"version":"0.14.0"},{"stylesheets":1,"size":88578,"rules":883,"selectors":1256,"simplicity":0.7030254777070064,"idSelectors":47,"universalSelectors":3,"javascriptSpecificSelectors":0,"importantKeywords":25,"mediaQueries":122,"version":"0.13.0"},{"stylesheets":1,"size":88440,"rules":870,"selectors":1243,"simplicity":0.6999195494770716,"idSelectors":47,"universalSelectors":3,"javascriptSpecificSelectors":0,"importantKeywords":25,"mediaQueries":122,"version":"0.12.0"},{"stylesheets":1,"size":59825,"rules":511,"selectors":808,"simplicity":0.6324257425742574,"idSelectors":0,"universalSelectors":1,"javascriptSpecificSelectors":0,"importantKeywords":18,"mediaQueries":50,"version":"0.11.0"},{"stylesheets":1,"size":54633,"rules":494,"selectors":748,"simplicity":0.660427807486631,"idSelectors":0,"universalSelectors":1,"javascriptSpecificSelectors":0,"importantKeywords":20,"mediaQueries":44,"version":"0.10.0"},{"stylesheets":1,"size":54633,"rules":494,"selectors":748,"simplicity":0.660427807486631,"idSelectors":0,"universalSelectors":1,"javascriptSpecificSelectors":0,"importantKeywords":20,"mediaQueries":44,"version":"0.9.21"},{"stylesheets":1,"size":54570,"rules":493,"selectors":747,"simplicity":0.6599732262382865,"idSelectors":0,"universalSelectors":1,"javascriptSpecificSelectors":0,"importantKeywords":20,"mediaQueries":44,"version":"0.9.20"},{"stylesheets":1,"size":54718,"rules":493,"selectors":747,"simplicity":0.6599732262382865,"idSelectors":0,"universalSelectors":1,"javascriptSpecificSelectors":0,"importantKeywords":20,"mediaQueries":44,"version":"0.9.19"},{"stylesheets":1,"size":51858,"rules":469,"selectors":703,"simplicity":0.6671408250355618,"idSelectors":0,"universalSelectors":1,"javascriptSpecificSelectors":0,"importantKeywords":18,"mediaQueries":44,"version":"0.9.18"},{"stylesheets":1,"size":51858,"rules":469,"selectors":703,"simplicity":0.6671408250355618,"idSelectors":0,"universalSelectors":1,"javascriptSpecificSelectors":0,"importantKeywords":18,"mediaQueries":44,"version":"0.9.17"},{"stylesheets":1,"size":51259,"rules":463,"selectors":687,"simplicity":0.6739446870451238,"idSelectors":0,"universalSelectors":1,"javascriptSpecificSelectors":0,"importantKeywords":14,"mediaQueries":43,"version":"0.9.15"},{"stylesheets":1,"size":53483,"rules":464,"selectors":676,"simplicity":0.6863905325443787,"idSelectors":0,"universalSelectors":2,"javascriptSpecificSelectors":0,"importantKeywords":14,"mediaQueries":43,"version":"0.9.13"},{"stylesheets":1,"size":53483,"rules":464,"selectors":676,"simplicity":0.6863905325443787,"idSelectors":0,"universalSelectors":2,"javascriptSpecificSelectors":0,"importantKeywords":14,"mediaQueries":43,"version":"0.9.12"},{"stylesheets":1,"size":47186,"rules":383,"selectors":588,"simplicity":0.6513605442176871,"idSelectors":0,"universalSelectors":2,"javascriptSpecificSelectors":0,"importantKeywords":14,"mediaQueries":41,"version":"0.9.11"},{"stylesheets":1,"size":47184,"rules":383,"selectors":588,"simplicity":0.6513605442176871,"idSelectors":0,"universalSelectors":2,"javascriptSpecificSelectors":0,"importantKeywords":14,"mediaQueries":41,"version":"0.9.10"}];
+        </script>
+        <div id="simplicity_chart" style="width: 100%; height: 500px;" class='us-container' ></div>
+        <div id="size_chart" style="width: 100%; height: 500px;" class='us-container'></div>
+        <h2>Breakdown of stats by ustyle release</h2>
+
+        <div class="report--entry">
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">stylesheets</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">67.62<span> kB</span></div>
+              <div class="stat__title">size</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">720</div>
+              <div class="stat__title">rules</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1018</div>
+              <div class="stat__title">selectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0.71</div>
+              <div class="stat__title">simplicity</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">idSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">3</div>
+              <div class="stat__title">universalSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">javascriptSpecificSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">6</div>
+              <div class="stat__title">importantKeywords</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">99</div>
+              <div class="stat__title">mediaQueries</div>
+            </div>
+
+              <div class="stat__entry us-col-md-4 stat--string">
+                <div class="stat__value">0.18.2</div>
+                <div class="stat__title">version</div>
+              </div>
+
+
+
+        </div>
+
+
+        <div class="report--entry">
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">stylesheets</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">68.8<span> kB</span></div>
+              <div class="stat__title">size</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">731</div>
+              <div class="stat__title">rules</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1035</div>
+              <div class="stat__title">selectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0.71</div>
+              <div class="stat__title">simplicity</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">idSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">2</div>
+              <div class="stat__title">universalSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">javascriptSpecificSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">6</div>
+              <div class="stat__title">importantKeywords</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">104</div>
+              <div class="stat__title">mediaQueries</div>
+            </div>
+
+              <div class="stat__entry us-col-md-4 stat--string">
+                <div class="stat__value">0.17.2</div>
+                <div class="stat__title">version</div>
+              </div>
+
+
+
+        </div>
+
+
+        <div class="report--entry">
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">stylesheets</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">68.8<span> kB</span></div>
+              <div class="stat__title">size</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">731</div>
+              <div class="stat__title">rules</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1035</div>
+              <div class="stat__title">selectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0.71</div>
+              <div class="stat__title">simplicity</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">idSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">2</div>
+              <div class="stat__title">universalSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">javascriptSpecificSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">6</div>
+              <div class="stat__title">importantKeywords</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">104</div>
+              <div class="stat__title">mediaQueries</div>
+            </div>
+
+              <div class="stat__entry us-col-md-4 stat--string">
+                <div class="stat__value">0.17.1</div>
+                <div class="stat__title">version</div>
+              </div>
+
+
+
+        </div>
+
+
+        <div class="report--entry">
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">stylesheets</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">68.81<span> kB</span></div>
+              <div class="stat__title">size</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">731</div>
+              <div class="stat__title">rules</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1035</div>
+              <div class="stat__title">selectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0.71</div>
+              <div class="stat__title">simplicity</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">idSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">2</div>
+              <div class="stat__title">universalSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">javascriptSpecificSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">6</div>
+              <div class="stat__title">importantKeywords</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">104</div>
+              <div class="stat__title">mediaQueries</div>
+            </div>
+
+              <div class="stat__entry us-col-md-4 stat--string">
+                <div class="stat__value">0.17.0</div>
+                <div class="stat__title">version</div>
+              </div>
+
+
+
+        </div>
+
+
+        <div class="report--entry">
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">stylesheets</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">71.93<span> kB</span></div>
+              <div class="stat__title">size</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">711</div>
+              <div class="stat__title">rules</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1018</div>
+              <div class="stat__title">selectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0.70</div>
+              <div class="stat__title">simplicity</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">idSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">universalSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">javascriptSpecificSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">17</div>
+              <div class="stat__title">importantKeywords</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">98</div>
+              <div class="stat__title">mediaQueries</div>
+            </div>
+
+              <div class="stat__entry us-col-md-4 stat--string">
+                <div class="stat__value">0.16.0</div>
+                <div class="stat__title">version</div>
+              </div>
+
+
+
+        </div>
+
+
+        <div class="report--entry">
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">stylesheets</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">64.98<span> kB</span></div>
+              <div class="stat__title">size</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">639</div>
+              <div class="stat__title">rules</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">917</div>
+              <div class="stat__title">selectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0.70</div>
+              <div class="stat__title">simplicity</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">idSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">universalSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">javascriptSpecificSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">17</div>
+              <div class="stat__title">importantKeywords</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">87</div>
+              <div class="stat__title">mediaQueries</div>
+            </div>
+
+              <div class="stat__entry us-col-md-4 stat--string">
+                <div class="stat__value">0.15.2</div>
+                <div class="stat__title">version</div>
+              </div>
+
+
+
+        </div>
+
+
+        <div class="report--entry">
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">stylesheets</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">64.65<span> kB</span></div>
+              <div class="stat__title">size</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">639</div>
+              <div class="stat__title">rules</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">917</div>
+              <div class="stat__title">selectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0.70</div>
+              <div class="stat__title">simplicity</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">idSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">universalSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">javascriptSpecificSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">17</div>
+              <div class="stat__title">importantKeywords</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">87</div>
+              <div class="stat__title">mediaQueries</div>
+            </div>
+
+              <div class="stat__entry us-col-md-4 stat--string">
+                <div class="stat__value">0.15.1</div>
+                <div class="stat__title">version</div>
+              </div>
+
+
+
+        </div>
+
+
+        <div class="report--entry">
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">stylesheets</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">64.98<span> kB</span></div>
+              <div class="stat__title">size</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">639</div>
+              <div class="stat__title">rules</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">917</div>
+              <div class="stat__title">selectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0.70</div>
+              <div class="stat__title">simplicity</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">idSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">universalSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">javascriptSpecificSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">17</div>
+              <div class="stat__title">importantKeywords</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">87</div>
+              <div class="stat__title">mediaQueries</div>
+            </div>
+
+              <div class="stat__entry us-col-md-4 stat--string">
+                <div class="stat__value">0.15.0</div>
+                <div class="stat__title">version</div>
+              </div>
+
+
+
+        </div>
+
+
+        <div class="report--entry">
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">stylesheets</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">65.84<span> kB</span></div>
+              <div class="stat__title">size</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">637</div>
+              <div class="stat__title">rules</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">912</div>
+              <div class="stat__title">selectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0.70</div>
+              <div class="stat__title">simplicity</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">idSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">universalSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">javascriptSpecificSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">17</div>
+              <div class="stat__title">importantKeywords</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">87</div>
+              <div class="stat__title">mediaQueries</div>
+            </div>
+
+              <div class="stat__entry us-col-md-4 stat--string">
+                <div class="stat__value">0.14.4</div>
+                <div class="stat__title">version</div>
+              </div>
+
+
+
+        </div>
+
+
+        <div class="report--entry">
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">stylesheets</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">65.86<span> kB</span></div>
+              <div class="stat__title">size</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">637</div>
+              <div class="stat__title">rules</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">912</div>
+              <div class="stat__title">selectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0.70</div>
+              <div class="stat__title">simplicity</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">idSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">universalSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">javascriptSpecificSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">17</div>
+              <div class="stat__title">importantKeywords</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">87</div>
+              <div class="stat__title">mediaQueries</div>
+            </div>
+
+              <div class="stat__entry us-col-md-4 stat--string">
+                <div class="stat__value">0.14.3</div>
+                <div class="stat__title">version</div>
+              </div>
+
+
+
+        </div>
+
+
+        <div class="report--entry">
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">stylesheets</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">65.86<span> kB</span></div>
+              <div class="stat__title">size</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">637</div>
+              <div class="stat__title">rules</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">912</div>
+              <div class="stat__title">selectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0.70</div>
+              <div class="stat__title">simplicity</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">idSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">universalSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">javascriptSpecificSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">17</div>
+              <div class="stat__title">importantKeywords</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">87</div>
+              <div class="stat__title">mediaQueries</div>
+            </div>
+
+              <div class="stat__entry us-col-md-4 stat--string">
+                <div class="stat__value">0.14.2</div>
+                <div class="stat__title">version</div>
+              </div>
+
+
+
+        </div>
+
+
+        <div class="report--entry">
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">stylesheets</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">65.83<span> kB</span></div>
+              <div class="stat__title">size</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">637</div>
+              <div class="stat__title">rules</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">912</div>
+              <div class="stat__title">selectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0.70</div>
+              <div class="stat__title">simplicity</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">idSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">universalSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">javascriptSpecificSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">17</div>
+              <div class="stat__title">importantKeywords</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">87</div>
+              <div class="stat__title">mediaQueries</div>
+            </div>
+
+              <div class="stat__entry us-col-md-4 stat--string">
+                <div class="stat__value">0.14.1</div>
+                <div class="stat__title">version</div>
+              </div>
+
+
+
+        </div>
+
+
+        <div class="report--entry">
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">stylesheets</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">65.83<span> kB</span></div>
+              <div class="stat__title">size</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">637</div>
+              <div class="stat__title">rules</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">912</div>
+              <div class="stat__title">selectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0.70</div>
+              <div class="stat__title">simplicity</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">idSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">universalSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">javascriptSpecificSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">17</div>
+              <div class="stat__title">importantKeywords</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">87</div>
+              <div class="stat__title">mediaQueries</div>
+            </div>
+
+              <div class="stat__entry us-col-md-4 stat--string">
+                <div class="stat__value">0.14.0</div>
+                <div class="stat__title">version</div>
+              </div>
+
+
+
+        </div>
+
+
+        <div class="report--entry">
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">stylesheets</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">86.5<span> kB</span></div>
+              <div class="stat__title">size</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">883</div>
+              <div class="stat__title">rules</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1256</div>
+              <div class="stat__title">selectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0.70</div>
+              <div class="stat__title">simplicity</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">47</div>
+              <div class="stat__title">idSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">3</div>
+              <div class="stat__title">universalSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">javascriptSpecificSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">25</div>
+              <div class="stat__title">importantKeywords</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">122</div>
+              <div class="stat__title">mediaQueries</div>
+            </div>
+
+              <div class="stat__entry us-col-md-4 stat--string">
+                <div class="stat__value">0.13.0</div>
+                <div class="stat__title">version</div>
+              </div>
+
+
+
+        </div>
+
+
+        <div class="report--entry">
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">stylesheets</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">86.37<span> kB</span></div>
+              <div class="stat__title">size</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">870</div>
+              <div class="stat__title">rules</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1243</div>
+              <div class="stat__title">selectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0.70</div>
+              <div class="stat__title">simplicity</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">47</div>
+              <div class="stat__title">idSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">3</div>
+              <div class="stat__title">universalSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">javascriptSpecificSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">25</div>
+              <div class="stat__title">importantKeywords</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">122</div>
+              <div class="stat__title">mediaQueries</div>
+            </div>
+
+              <div class="stat__entry us-col-md-4 stat--string">
+                <div class="stat__value">0.12.0</div>
+                <div class="stat__title">version</div>
+              </div>
+
+
+
+        </div>
+
+
+        <div class="report--entry">
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">stylesheets</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">58.42<span> kB</span></div>
+              <div class="stat__title">size</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">511</div>
+              <div class="stat__title">rules</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">808</div>
+              <div class="stat__title">selectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0.63</div>
+              <div class="stat__title">simplicity</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">idSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">universalSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">javascriptSpecificSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">18</div>
+              <div class="stat__title">importantKeywords</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">50</div>
+              <div class="stat__title">mediaQueries</div>
+            </div>
+
+              <div class="stat__entry us-col-md-4 stat--string">
+                <div class="stat__value">0.11.0</div>
+                <div class="stat__title">version</div>
+              </div>
+
+
+
+        </div>
+
+
+        <div class="report--entry">
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">stylesheets</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">53.35<span> kB</span></div>
+              <div class="stat__title">size</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">494</div>
+              <div class="stat__title">rules</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">748</div>
+              <div class="stat__title">selectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0.66</div>
+              <div class="stat__title">simplicity</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">idSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">universalSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">javascriptSpecificSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">20</div>
+              <div class="stat__title">importantKeywords</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">44</div>
+              <div class="stat__title">mediaQueries</div>
+            </div>
+
+              <div class="stat__entry us-col-md-4 stat--string">
+                <div class="stat__value">0.10.0</div>
+                <div class="stat__title">version</div>
+              </div>
+
+
+
+        </div>
+
+
+        <div class="report--entry">
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">stylesheets</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">53.35<span> kB</span></div>
+              <div class="stat__title">size</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">494</div>
+              <div class="stat__title">rules</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">748</div>
+              <div class="stat__title">selectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0.66</div>
+              <div class="stat__title">simplicity</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">idSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">universalSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">javascriptSpecificSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">20</div>
+              <div class="stat__title">importantKeywords</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">44</div>
+              <div class="stat__title">mediaQueries</div>
+            </div>
+
+              <div class="stat__entry us-col-md-4 stat--string">
+                <div class="stat__value">0.9.21</div>
+                <div class="stat__title">version</div>
+              </div>
+
+
+
+        </div>
+
+
+        <div class="report--entry">
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">stylesheets</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">53.29<span> kB</span></div>
+              <div class="stat__title">size</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">493</div>
+              <div class="stat__title">rules</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">747</div>
+              <div class="stat__title">selectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0.66</div>
+              <div class="stat__title">simplicity</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">idSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">universalSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">javascriptSpecificSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">20</div>
+              <div class="stat__title">importantKeywords</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">44</div>
+              <div class="stat__title">mediaQueries</div>
+            </div>
+
+              <div class="stat__entry us-col-md-4 stat--string">
+                <div class="stat__value">0.9.20</div>
+                <div class="stat__title">version</div>
+              </div>
+
+
+
+        </div>
+
+
+        <div class="report--entry">
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">stylesheets</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">53.44<span> kB</span></div>
+              <div class="stat__title">size</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">493</div>
+              <div class="stat__title">rules</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">747</div>
+              <div class="stat__title">selectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0.66</div>
+              <div class="stat__title">simplicity</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">idSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">universalSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">javascriptSpecificSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">20</div>
+              <div class="stat__title">importantKeywords</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">44</div>
+              <div class="stat__title">mediaQueries</div>
+            </div>
+
+              <div class="stat__entry us-col-md-4 stat--string">
+                <div class="stat__value">0.9.19</div>
+                <div class="stat__title">version</div>
+              </div>
+
+
+
+        </div>
+
+
+        <div class="report--entry">
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">stylesheets</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">50.64<span> kB</span></div>
+              <div class="stat__title">size</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">469</div>
+              <div class="stat__title">rules</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">703</div>
+              <div class="stat__title">selectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0.67</div>
+              <div class="stat__title">simplicity</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">idSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">universalSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">javascriptSpecificSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">18</div>
+              <div class="stat__title">importantKeywords</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">44</div>
+              <div class="stat__title">mediaQueries</div>
+            </div>
+
+              <div class="stat__entry us-col-md-4 stat--string">
+                <div class="stat__value">0.9.18</div>
+                <div class="stat__title">version</div>
+              </div>
+
+
+
+        </div>
+
+
+        <div class="report--entry">
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">stylesheets</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">50.64<span> kB</span></div>
+              <div class="stat__title">size</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">469</div>
+              <div class="stat__title">rules</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">703</div>
+              <div class="stat__title">selectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0.67</div>
+              <div class="stat__title">simplicity</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">idSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">universalSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">javascriptSpecificSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">18</div>
+              <div class="stat__title">importantKeywords</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">44</div>
+              <div class="stat__title">mediaQueries</div>
+            </div>
+
+              <div class="stat__entry us-col-md-4 stat--string">
+                <div class="stat__value">0.9.17</div>
+                <div class="stat__title">version</div>
+              </div>
+
+
+
+        </div>
+
+
+        <div class="report--entry">
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">stylesheets</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">50.06<span> kB</span></div>
+              <div class="stat__title">size</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">463</div>
+              <div class="stat__title">rules</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">687</div>
+              <div class="stat__title">selectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0.67</div>
+              <div class="stat__title">simplicity</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">idSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">universalSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">javascriptSpecificSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">14</div>
+              <div class="stat__title">importantKeywords</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">43</div>
+              <div class="stat__title">mediaQueries</div>
+            </div>
+
+              <div class="stat__entry us-col-md-4 stat--string">
+                <div class="stat__value">0.9.15</div>
+                <div class="stat__title">version</div>
+              </div>
+
+
+
+        </div>
+
+
+        <div class="report--entry">
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">stylesheets</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">52.23<span> kB</span></div>
+              <div class="stat__title">size</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">464</div>
+              <div class="stat__title">rules</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">676</div>
+              <div class="stat__title">selectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0.69</div>
+              <div class="stat__title">simplicity</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">idSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">2</div>
+              <div class="stat__title">universalSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">javascriptSpecificSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">14</div>
+              <div class="stat__title">importantKeywords</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">43</div>
+              <div class="stat__title">mediaQueries</div>
+            </div>
+
+              <div class="stat__entry us-col-md-4 stat--string">
+                <div class="stat__value">0.9.13</div>
+                <div class="stat__title">version</div>
+              </div>
+
+
+
+        </div>
+
+
+        <div class="report--entry">
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">stylesheets</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">52.23<span> kB</span></div>
+              <div class="stat__title">size</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">464</div>
+              <div class="stat__title">rules</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">676</div>
+              <div class="stat__title">selectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0.69</div>
+              <div class="stat__title">simplicity</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">idSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">2</div>
+              <div class="stat__title">universalSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">javascriptSpecificSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">14</div>
+              <div class="stat__title">importantKeywords</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">43</div>
+              <div class="stat__title">mediaQueries</div>
+            </div>
+
+              <div class="stat__entry us-col-md-4 stat--string">
+                <div class="stat__value">0.9.12</div>
+                <div class="stat__title">version</div>
+              </div>
+
+
+
+        </div>
+
+
+        <div class="report--entry">
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">stylesheets</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">46.08<span> kB</span></div>
+              <div class="stat__title">size</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">383</div>
+              <div class="stat__title">rules</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">588</div>
+              <div class="stat__title">selectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0.65</div>
+              <div class="stat__title">simplicity</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">idSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">2</div>
+              <div class="stat__title">universalSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">javascriptSpecificSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">14</div>
+              <div class="stat__title">importantKeywords</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">41</div>
+              <div class="stat__title">mediaQueries</div>
+            </div>
+
+              <div class="stat__entry us-col-md-4 stat--string">
+                <div class="stat__value">0.9.11</div>
+                <div class="stat__title">version</div>
+              </div>
+
+
+
+        </div>
+
+
+        <div class="report--entry">
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">1</div>
+              <div class="stat__title">stylesheets</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">46.08<span> kB</span></div>
+              <div class="stat__title">size</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">383</div>
+              <div class="stat__title">rules</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">588</div>
+              <div class="stat__title">selectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0.65</div>
+              <div class="stat__title">simplicity</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">idSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">2</div>
+              <div class="stat__title">universalSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">0</div>
+              <div class="stat__title">javascriptSpecificSelectors</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">14</div>
+              <div class="stat__title">importantKeywords</div>
+            </div>
+
+
+            <div class="stat__entry us-col-md-4 stat--number">
+              <div class="stat__value">41</div>
+              <div class="stat__title">mediaQueries</div>
+            </div>
+
+              <div class="stat__entry us-col-md-4 stat--string">
+                <div class="stat__value">0.9.10</div>
+                <div class="stat__title">version</div>
+              </div>
+
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <p class="copyright">Copyright uSwitch Limited 2015. <a href="https://github.com/uswitch/ustyle.git">Github</a></p>
+  </div>
+  <script src="https://www.google.com/jsapi"></script>
+  <script src="https://cdn.polyfill.io/v1/polyfill.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
