@@ -17,6 +17,6 @@
   {{/navigation}}
 
   <div class="made-at">
-    <a href="http://www.uswitch.com/vacancies/" target="_blank" class="us-icon--before us-icon--uswitch--before us-icon--custom--before us-icon--small--before--mobile us-icon--medium--before"><span class="us-color--blue">uSwitch is hiring.</span></a>
+    <a href="//www.uswitch.com/vacancies/" target="_blank" class="us-icon--before us-icon--uswitch--before us-icon--custom--before us-icon--small--before--mobile us-icon--medium--before"><span class="us-color--blue">uSwitch is hiring.</span></a>
   </div>
 </div>
