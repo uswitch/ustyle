@@ -81,7 +81,9 @@ name: Usability testing
 
 <ol>    
   
-  <li>Visibility of system status - Keep users informed about what is going on through appropriate feedback within reasonable time.In the example below the user cannot see what impact selecting a dropdown option has:</li>
+  <li><strong>Visibility of system status</strong> - Keep users informed about what is going on through appropriate feedback within reasonable time.
+
+  In the example below the user cannot see what impact selecting a dropdown option has because the overlay covers the results table:</li>
     <p>
       <div class="us-grid-row">
         <div class="us-col-md-8">
@@ -93,7 +95,7 @@ name: Usability testing
       </div>
     </p>
 
-  <li>Match between system and the real world - Speak the users' language with words, phrases and concepts familiar to the user, rather than system-oriented terms. Follow real-world conventions, making information appear in a natural and logical order.</li>
+  <li><strong>Match between system and the real world</strong> - Speak the users' language with words, phrases and concepts familiar to the user, rather than system-oriented terms. Follow real-world conventions, making information appear in a natural and logical order.</li>
     <p>
       <div class="us-grid-row">
         <div class="us-col-md-4">
@@ -105,7 +107,7 @@ name: Usability testing
       </div>
     </p>  
   
-  <li>User control and freedom – If a user makes a mistake, let them undo, redo, go back, etc...</li>
+  <li><strong>User control and freedom</strong> – If a user makes a mistake, let them undo, redo, go back, etc...</li>
     <p>
       <div class="us-grid-row">
         <div class="us-col-md-10">
@@ -117,7 +119,7 @@ name: Usability testing
       </div>
     </p>  
 
-  <li>Consistency and standards - Users should not have to wonder whether different words, situations, or actions mean the same thing.</li>
+  <li><strong>Consistency and standards</strong> - Users should not have to wonder whether different words, situations, or actions mean the same thing.</li>
     <p>
       <div class="us-grid-row">
         <div class="us-col-md-8">
@@ -129,7 +131,7 @@ name: Usability testing
       </div>
     </p>  
 
-  <li>Error prevention - Even better than good error messages is a careful design which prevents a problem from occurring in the first place.</li>
+  <li><strong>Error prevention</strong> - Even better than good error messages is a careful design which prevents a problem from occurring in the first place.</li>
     <p>
       <div class="us-grid-row">
         <div class="us-col-md-8">
@@ -141,7 +143,7 @@ name: Usability testing
       </div>
     </p>  
 
-  <li>Recognition rather than recall - Minimise the user's memory load by making objects, actions, and options visible. The user should not have to remember information from one part to another.</li>
+  <li><strong>Recognition rather than recall</strong> - Minimise the user's memory load by making objects, actions, and options visible. The user should not have to remember information from one part to another.</li>
     <p>
       <div class="us-grid-row">
         <div class="us-col-md-4">
@@ -153,7 +155,7 @@ name: Usability testing
       </div>
     </p>  
 
- <li>Flexibility and efficiency of use - Allow users to tailor frequent actions. 1-button checkout via Amazon, or Add to my wishlist via Airbnb.</li>
+ <li><strong>Flexibility and efficiency of use</strong> - Allow users to tailor frequent actions. 1-button checkout via Amazon, or Add to my wishlist via Airbnb.</li>
     <p>
       <div class="us-grid-row">
         <div class="us-col-md-8">
@@ -165,7 +167,7 @@ name: Usability testing
       </div>
     </p>  
 
- <li>Aesthetic and minimalist design - Every extra unit of information in a dialogue competes with the relevant units of information and diminishes their relative visibility.</li> 
+ <li><strong>Aesthetic and minimalist design</strong> - Every extra unit of information in a dialogue competes with the relevant units of information and diminishes their relative visibility.</li> 
     <p>
       <div class="us-grid-row">
         <div class="us-col-md-6">
@@ -177,7 +179,7 @@ name: Usability testing
       </div>
     </p>  
 
-   <li>Help users recognise, diagnose, and recover from errors - Error messages should be expressed in plain language, precisely indicate the problem, and constructively suggest a solution.</li> 
+   <li><strong>Help users recognise, diagnose, and recover from errors</strong> - Error messages should be expressed in plain language, precisely indicate the problem, and constructively suggest a solution.</li> 
     <p>
       <div class="us-grid-row">
         <div class="us-col-md-6">
@@ -189,8 +191,8 @@ name: Usability testing
       </div>
     </p>  
 
-  <li>Help and documentation - Any such help information should be easy to find, focused on the user's task, list concrete steps to be carried out, and not be too wordy.<li>
-
+  <li><strong>Help and documentation</strong> - Any such help information should be easy to find, focused on the user's task, list concrete steps to be carried out, and not be too wordy.</li>
+</ol>
 <div class="us-content-group">
 <a name="External-requirements"></a>
   <h2>External requirements</h2>
@@ -205,25 +207,24 @@ name: Usability testing
                   <i>"The brand red clashes with this provider's red."</i>
                 </p>
             </div>
-           </div>
-          </p>  
+           </div> 
 
 <div class="us-content-group">
 
   <h2>When do we need validation?</h2>
     <p>If our change isn’t down to one of the above then it’s problem solving, so we need to structure our approach to design differently:</p>
      <ul>
-      <li><a href="#what-is-a-probem">What is a 'problem' and what isn't</a></li>
+      <li><a href="#what-is-a-problem">What is a 'problem' and what isn't</a></li>
       <li><a href="#defining-the-problem">Defining the problem</a></li>
     </ul>
 
+<a name="what-is-a-problem"></a>
 <div class="us-content-group">
-  <a name="what-is-a-problem"></a>
     <h2>What is a problem?</h2>
 
       <p>A problem statement is the design brief, but first we need a good problem.</p>
       
-    <h6>Symptoms</h6>
+    <h6>Symptoms, not problems</h6>
       <p>Data tells us about results, not causes. It tells us that it looks like there is a problem, but now what the problem is. Data comes from:</p>
         <ul>
           <li>GA</li>
@@ -246,8 +247,8 @@ name: Usability testing
     <h6>Real problems</h6>
       <p>Something we’ve observed a significant number of occasions.</p> 
 
+<a name="defining-the-problem"></a>
 <div class="us-content-group">
-  <a name="defining-the=-problem"></a>
     <h2>Defining the problem</h2>
       <h6>Start by testing</h6> 
         <p>This is ‘formative’ testing. It’s open-ended, and the tasks are simply to run a comparison, or to go through a journey start to finish.</p>
@@ -255,15 +256,17 @@ name: Usability testing
 
       <h6>Digest outcomes</h6>
         <p>Define the problems encountered.</p>
-        <p>Pick one problem to tackle first as we need to learn from our changes.</p>
-        <p>Then frame the problem with a problem statement.</p>
-  
+        <p>Pick one problem to tackle first, otherwise it is impossible to learn which changes are helpful, and which aren't.</p>
+        <p>Then frame the problem with a problem statement. A problem statement is:</p>
+        
+          <blockquote>A concise description of the issues that need to be addressed - it is specific, measurable and explains what it impacts. There are no assumptions or solutions.</blockquote>
+
       <h6>Design a solution</h6> 
-        <p>Start with wireframes and paper prototypes, and then validate the solution with as soon as possible.</p>
+        <p>Once the problem is clearly defined, start trying to solve it (one problem at a time) with wireframes and paper prototypes. Then validate the solutions as soon as possible.</p>
 
-        <p>'Summative' usability testing can work, but it requires a product/prototype.Summative  testing gives the user a particular task to complete that tests the solution against the problem.</p>
+        <p>'Summative' usability testing can help validate your solution, but it requires a product/prototype. Summative testing gives the user a particular task to complete that tests the solution against the problem.</p>
 
-        <p>Again 'guerilla' testing will produce a quicker/cheaper outcome, but a lower fidelity of result owing to the lack of user specification.</p>
+        <p>'Guerilla' testing will produce a quicker/cheaper outcome, but a lower fidelity of result owing to the lack of user specification.</p>
 
         <p>In-house testing is great for bugs/devices etc… along with device lab.</p>
 
