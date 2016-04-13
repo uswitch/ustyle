@@ -131,7 +131,7 @@ name: Usability testing
   <li><p><strong>Error prevention</strong> - Even better than good error messages is a careful design which prevents a problem from occurring in the first place.</p>
       <div class="us-grid-row">
         <div class="us-col-md-8">
-          <img alt="image" class="us-img--full trailered" src="/images/ux-conventions-ERROR.png">
+          <img alt="image" class="us-img--full trailered" src="/images/ux-conventions-error.png">
             <p>
               <i>"No deals, why did you present it as an option?"</i>
             </p>
@@ -142,7 +142,7 @@ name: Usability testing
   <li><p><strong>Recognition rather than recall</strong> - Minimise the user's memory load by making objects, actions, and options visible. The user should not have to remember information from one part to another.</p>
       <div class="us-grid-row">
         <div class="us-col-md-4">
-          <img alt="image" class="us-img--full trailered" src="/images/ux-conventions-RECOGNITION.png">
+          <img alt="image" class="us-img--full trailered" src="/images/ux-conventions-recognition.png">
             <p>
               <i>"I’ve filtered these results, but by what?"</i>
             </p>
@@ -153,7 +153,7 @@ name: Usability testing
  <li><p><strong>Flexibility and efficiency of use</strong> - Allow users to tailor frequent actions. 1-button checkout via Amazon, or Add to my wishlist via Airbnb.</p>
       <div class="us-grid-row">
         <div class="us-col-md-8">
-          <img alt="image" class="us-img--full trailered" src="/images/ux-conventions-FLEXIBILITY.png">
+          <img alt="image" class="us-img--full trailered" src="/images/ux-conventions-flexibility.png">
             <p>
               <i>"I personalised all these details yesterday, why has it just reverted?"</i>
             </p>
