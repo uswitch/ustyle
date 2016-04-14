@@ -12,7 +12,7 @@ name: Usability testing
 
 <div class="us-content-group">
   <h2>When don’t we need validation of our designs?</h2>
-  <p>Plenty of design changes don’t require upfront hypothesis validation</p> 
+  <p>Plenty of design changes don’t require upfront hypothesis validation</p>
     <ul>
       <li><a href="#Site-consistency">Site consistency</a></li>
       <li><a href="#Design-conventions">Design conventions</a></li>
@@ -24,12 +24,12 @@ name: Usability testing
 <div class="us-content-group">
 <a id="Site-consistency"></a>
   <h2>Site consistency</h2>
-      <p>Colour, font, shading, button types, and anything in uStyle is a given. We want to achieve site consistency for brand reasons.</p> 
-      <p>Functionality, UI, hierarchy are not 'look and feel' consistency.</p> 
+      <p>Colour, font, shading, button types, and anything in uStyle is a given. We want to achieve site consistency for brand reasons.</p>
+      <p>Functionality, UI, hierarchy are not 'look and feel' consistency.</p>
 <h4>Example</h4>
-<p>Moving the first two Broadband designs ('Oldest stlye' and 'Old style') to be more ‘in line’ with the third design ('New style') is an on-going project of consistency.</p> 
+<p>Moving the first two Broadband designs ('Oldest stlye' and 'Old style') to be more ‘in line’ with the third design ('New style') is an on-going project of consistency.</p>
 
-<p>Changing the colours of the first design or moving to a consistent layout would not require testing.</p> 
+<p>Changing the colours of the first design or moving to a consistent layout would not require testing.</p>
 
 <p>Similarly, changing the row-data presentation in the second example to be more consistent with the third example would not require testing.</p>
 
@@ -40,7 +40,7 @@ name: Usability testing
   </div>
   <div class="us-col-md-6">
     <i>Old style</i><img alt="image" class="us-img--full trailered" src="/images/site-consistency02.png">
-  </div> 
+  </div>
 </div>
 </div>
 
@@ -63,7 +63,7 @@ name: Usability testing
    <h4>Example</h4>
 <p>A basic UI convention is the distinction between active elements and inactive elements, with inactive elements being 'greyed out'.</p>
 
-<p>The below car insurance has an overlay that must be interacted with to continue with the page below, but only part of the page is greyed out.</p> 
+<p>The below car insurance has an overlay that must be interacted with to continue with the page below, but only part of the page is greyed out.</p>
 
 <p>Five clickable elements on this page aren’t greyed out, despite not being clickable:</p>
 
@@ -81,9 +81,9 @@ name: Usability testing
 
 <p>The <a href="https://www.nngroup.com/articles/ten-usability-heuristics/">ten basic usability heurisitcs</a>, like basic design rules, give us a number of usability principles that must be sense-checked against. Designs that do not meet these requirements give us a clear problem to be solved without the requirement of validation. </p>
 
-<ol>    
-  
-  <li><p><strong>Visibility of system status</strong> - Keep users informed about what is going on through appropriate feedback within reasonable time. In the example below the user cannot see what impact selecting a dropdown option has because the overlay covers the results table:</p>  
+<ol>
+
+  <li><p><strong>Visibility of system status</strong> - Keep users informed about what is going on through appropriate feedback within reasonable time. In the example below the user cannot see what impact selecting a dropdown option has because the overlay covers the results table:</p>
       <div class="us-grid-row">
         <div class="us-col-md-8">
          <img alt="image" class="us-img--full trailered" src="/images/ux-conventions-visibility.png">
@@ -104,9 +104,9 @@ name: Usability testing
         </div>
       </div>
     </li>
-  
+
   <li><p><strong>User control and freedom</strong> – If a user makes a mistake, let them undo, redo, go back, etc...</p>
-    
+
       <div class="us-grid-row">
         <div class="us-col-md-10">
           <img alt="image" class="us-img--full trailered" src="/images/ux-conventions-freedom.png">
@@ -115,18 +115,18 @@ name: Usability testing
             </p>
         </div>
       </div>
-    </li>  
+    </li>
 
   <li><p><strong>Consistency and standards</strong> - Users should not have to wonder whether different words, situations, or actions mean the same thing.</p>
       <div class="us-grid-row">
         <div class="us-col-md-8">
-          <img alt="image" class="us-img--full trailered" src="/images/ux-conventions-CONSISTENCY.png">
+          <img alt="image" class="us-img--full trailered" src="/images/ux-conventions-consistency.png">
             <p>
               <i>"Is a plan and a tariff the same thing?”</i>
             </p>
         </div>
       </div>
-    </li>  
+    </li>
 
   <li><p><strong>Error prevention</strong> - Even better than good error messages is a careful design which prevents a problem from occurring in the first place.</p>
       <div class="us-grid-row">
@@ -137,7 +137,7 @@ name: Usability testing
             </p>
         </div>
       </div>
-    </li>  
+    </li>
 
   <li><p><strong>Recognition rather than recall</strong> - Minimise the user's memory load by making objects, actions, and options visible. The user should not have to remember information from one part to another.</p>
       <div class="us-grid-row">
@@ -148,7 +148,7 @@ name: Usability testing
             </p>
         </div>
       </div>
-    </li>  
+    </li>
 
  <li><p><strong>Flexibility and efficiency of use</strong> - Allow users to tailor frequent actions. 1-button checkout via Amazon, or Add to my wishlist via Airbnb.</p>
       <div class="us-grid-row">
@@ -159,9 +159,9 @@ name: Usability testing
             </p>
         </div>
       </div>
-    </li>  
+    </li>
 
- <li><p><strong>Aesthetic and minimalist design</strong> - Every extra unit of information in a dialogue competes with the relevant units of information and diminishes their relative visibility.</p> 
+ <li><p><strong>Aesthetic and minimalist design</strong> - Every extra unit of information in a dialogue competes with the relevant units of information and diminishes their relative visibility.</p>
       <div class="us-grid-row">
         <div class="us-col-md-6">
           <img alt="image" class="us-img--full trailered" src="/images/ux-conventions-minimalist.png">
@@ -170,9 +170,9 @@ name: Usability testing
             </p>
         </div>
       </div>
-    </li>  
+    </li>
 
-   <li><p><strong>Help users recognise, diagnose, and recover from errors</strong> - Error messages should be expressed in plain language, precisely indicate the problem, and constructively suggest a solution.</p> 
+   <li><p><strong>Help users recognise, diagnose, and recover from errors</strong> - Error messages should be expressed in plain language, precisely indicate the problem, and constructively suggest a solution.</p>
       <div class="us-grid-row">
         <div class="us-col-md-6">
           <img alt="image" class="us-img--full trailered" src="/images/ux-conventions-errors.png">
@@ -181,7 +181,7 @@ name: Usability testing
             </p>
         </div>
       </div>
-    </li>  
+    </li>
 
   <li><p><strong>Help and documentation</strong> - Any such help information should be easy to find, focused on the user's task, list concrete steps to be carried out, and not be too wordy.</p>
 </li>
@@ -200,7 +200,7 @@ name: Usability testing
                   <i>"The brand red clashes with this provider's red."</i>
                 </p>
             </div>
-           </div> 
+           </div>
 </div>
 
 <div class="us-content-group">
@@ -237,16 +237,16 @@ name: Usability testing
     <li>Get people to click on…</li>
   </ul>
 
-<p>These tell us there is a problem, but we don’t know what it is.</p> 
+<p>These tell us there is a problem, but we don’t know what it is.</p>
 
     <h6>Real problems</h6>
-      <p>Something we’ve observed a significant number of occasions.</p> 
+      <p>Something we’ve observed a significant number of occasions.</p>
 </div>
 
 <a id="defining-the-problem"></a>
 <div class="us-content-group">
   <h2>Defining the problem</h2>
-  <h6>Start by testing</h6> 
+  <h6>Start by testing</h6>
   <p>This is ‘formative’ testing. It’s open-ended, and the tasks are simply to run a comparison, or to go through a journey start to finish.</p>
   <p>'Guerilla' testing will produce a quicker/cheaper outcome, but a lower fidelity of result owing to the lack of user specification.</p>
 
@@ -254,10 +254,10 @@ name: Usability testing
   <p>Define the problems encountered.</p>
   <p>Pick one problem to tackle first, otherwise it is impossible to learn which changes are helpful, and which aren't.</p>
   <p>Then frame the problem with a problem statement. A problem statement is:</p>
-  
+
     <blockquote>A concise description of the issues that need to be addressed - it is specific, measurable and explains what it impacts. There are no assumptions or solutions.</blockquote>
 
-  <h6>Design a solution</h6> 
+  <h6>Design a solution</h6>
   <p>Once the problem is clearly defined, start trying to solve it (one problem at a time) with wireframes and paper prototypes. Then validate the solutions as soon as possible.</p>
 
   <p>'Summative' usability testing can help validate your solution, but it requires a product/prototype. Summative testing gives the user a particular task to complete that tests the solution against the problem.</p>
