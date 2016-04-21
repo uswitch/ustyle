@@ -11,6 +11,7 @@ module.exports = function(grunt){
         fs              = require('fs'),
         dssHelper       = require('../modules/dss-helper'),
         fileHelper      = require('../modules/file'),
+        parser          = require('../modules/html-parser'),
         humanize        = require("underscore.string/humanize"),
         underscored     = require("underscore.string/underscored"),
         slugify         = require("underscore.string/slugify"),
@@ -50,7 +51,7 @@ module.exports = function(grunt){
       groupDSS,
       generateStaticContent,
       generateStyleguide,
-      generateStats,
+      // generateStats,
       writeFile
     ], completeTask);
 
@@ -135,16 +136,21 @@ module.exports = function(grunt){
           })
           .map(function(file){
             var data = matter.read(file),
+                html = parser.removeSubNav(data.content),
                 extension = path.extname(file),
+                subNavData = parser.extractSubNav(data.content),
                 section = path.dirname(file).replace((new RegExp(contentPath + "\/?", "g")), ""),
                 filename = path.basename(file, extension);
+
+            console.log(subNavData);
 
             return {
               name: data.data.name || humanize(filename),
               page: filename + '.html',
               template: _getTemplate(data.data.template || options.contentTemplate),
               section: section,
-              content: (fileHelper.isMarkdown(extension) ? marked(data.content) : data.content)
+              content: (fileHelper.isMarkdown(extension) ? marked(html) : html),
+              subNav: subNavData
             }
           });
 

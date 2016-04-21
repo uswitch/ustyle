@@ -39,6 +39,7 @@
     "autoprefixer-core": "^4.0.1",
     "bluebird": "^2.9.7",
     "browser-sync": "^1.8.2",
+    "cheerio": "^0.20.0",
     "cssstats": "^1.0.1",
     "dss": "^1.0.4",
     "gray-matter": "^2.0.0",
