@@ -51,7 +51,7 @@ module.exports = function(grunt){
       groupDSS,
       generateStaticContent,
       generateStyleguide,
-      // generateStats,
+      generateStats,
       writeFile
     ], completeTask);
 
@@ -141,8 +141,6 @@ module.exports = function(grunt){
                 subNavData = parser.extractSubNav(data.content),
                 section = path.dirname(file).replace((new RegExp(contentPath + "\/?", "g")), ""),
                 filename = path.basename(file, extension);
-
-            console.log(subNavData);
 
             return {
               name: data.data.name || humanize(filename),
