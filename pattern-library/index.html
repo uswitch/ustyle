@@ -24,7 +24,7 @@
       <span class="logo__icon us-icon--notext us-icon--ustyle us-icon--typegrey us-icon--medium--mobile us-icon--large"></span>
       uStyle
     </a>
-    <a class="version" href="https://github.com/uswitch/ustyle/releases/tag/v1.5.2">v1.5.2</a>
+    <a class="version" href="https://github.com/uswitch/ustyle/releases/tag/v1.5.3">v1.5.3</a>
   </header>
   <a href="javascript:void(0);" class="nav-mobile js-toggle__link us-tablet--hidden" data-target="sidebar"><span class="nav-mobile__hamburger">Sidebar</span></a>
   <div class='sidebar'>
@@ -56,7 +56,7 @@
         <a href="/design/" class="sidebar__nav-link js-sidebar-nav-link ">Design</a>
         <nav class="sidebar__sub-nav">
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/index.html">Imagery</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/usability-testing.html">Usability testing</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/validating-designs.html">Usability testing</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/icons.html">Icons</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/typography.html">Typography</a>
         </nav>
@@ -70,7 +70,7 @@
     <div class="styleguide__hero">
       <h1 class="styleguide__hero-heading">Introduction</h1>
     </div>
-    <div class="styleguide__content markdown styleguide us-col-lg-10">
+    <div class="styleguide__content markdown styleguide us-col-lg-10 ">
       <p>
   Our pattern library comes as a easily distributed package, ready to use in multiple programming environments. It contains our basic CSS components and correct usage, as well as JavaScript components that are widely used across the website.
 </p>
@@ -82,15 +82,15 @@
       <img src="/images/ruby-logo.png" alt="Ruby logo" class="distro-image">
       <h3>Ruby gem</h3>
       <p>uStyle was initially created as a gem. Some of the Sass functions rely on Ruby to run. You can install it via any Gemfile and it will install the required dependencies.</p>
-      <pre><code class="ruby">gem 'ustyle', git: "git@github.com:uswitch/ustyle.git"</code></pre>
+      <pre><code class="ruby">gem &apos;ustyle&apos;, git: &quot;git@github.com:uswitch/ustyle.git&quot;</code></pre>
     </div>
     <div class="us-col-md-6 trailered">
       <img src="/images/bower-logo.png" alt="Bower logo" class="distro-image">
       <h3>Bower package</h3>
       <p>Install is as a bower package. This will pull down the original <code>.scss</code> files and compiled static CSS + JS.</p>
       <pre><code class="javascript">
-        "dependencies": {
-          "ustyle": "git@github.com:uswitch/ustyle.git#~0.19.1"
+        &quot;dependencies&quot;: {
+          &quot;ustyle&quot;: &quot;git@github.com:uswitch/ustyle.git#~0.19.1&quot;
         }
       </code></pre>
     </div>
@@ -104,17 +104,17 @@
       <p>Every time uStyle gets a new version, the version gets updated across our Cloudfront distributions.
       <pre><code class="html">
         &lt;!-- get latest --&gt;
-        &lt;link href='//assets0.uswitch.com/s3/uswitch-assets-eu/ustyle/ustyle-latest.css' media='all' rel='stylesheet' type='text/css' /&gt;
+        &lt;link href=&apos;//assets0.uswitch.com/s3/uswitch-assets-eu/ustyle/ustyle-latest.css&apos; media=&apos;all&apos; rel=&apos;stylesheet&apos; type=&apos;text/css&apos; /&gt;
         &lt;!-- get versioned --&gt;
-        &lt;link href='//assets0.uswitch.com/s3/uswitch-assets-eu/ustyle/VERSION/ustyle-latest.css' media='all' rel='stylesheet' type='text/css' /&gt;
+        &lt;link href=&apos;//assets0.uswitch.com/s3/uswitch-assets-eu/ustyle/VERSION/ustyle-latest.css&apos; media=&apos;all&apos; rel=&apos;stylesheet&apos; type=&apos;text/css&apos; /&gt;
       </code></pre>
-    </div>
+    </p></div>
     <div class="us-col-md-6">
       <img src="/images/npm-logo.png" alt="NPM logo" class="distro-image">
       <h3>NPM Package</h3>
       <pre><code class="javascript">
-        "devDependencies": {
-          "ustyle": "git@github.com:uswitch/ustyle.git#~0.19.1"
+        &quot;devDependencies&quot;: {
+          &quot;ustyle&quot;: &quot;git@github.com:uswitch/ustyle.git#~0.19.1&quot;
         }
       </code></pre>
     </div>
@@ -150,7 +150,7 @@
       </tr>
       <tr>
         <td>Global usage</td>
-        <td>> 1%</td>
+        <td>&gt; 1%</td>
       </tr>
     </tbody>
   </table>
