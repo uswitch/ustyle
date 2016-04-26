@@ -175,7 +175,7 @@ name: Imagery
 <div class="us-content-group" id="our-image-sizes">
   <h2>Our image sizes</h2>
   <p>Below are the minimum required sizes for our images in various materials. If an image does not meet this size, it can’t be used and an alternate image will need to be sourced. An image must not be scaled up in order to meet the minimum required size.</p>
-  
+
   <h3>Emails</h3>
 
   <h4>Insights</h4>
@@ -235,7 +235,6 @@ name: Imagery
   </ul>
 </div>
 
-
 <div class="us-content-group" id="alt-text">
   <h2>Alt text</h2>
   <p>Alt text is an important aspect of web accessibility. All images on our site should include meaningful alt text. <a href="http://webaim.org/techniques/alttext/">See here</a> for best practices.</p>
@@ -243,32 +242,124 @@ name: Imagery
 
 <div class="us-content-group" id="examples">
   <h2>Examples</h2>
-  <p>TO DO</p>
+  <div>
+    <div class="us-col-xsm-6 image-examples">
+      <img class="us-img--full" src="/images/natural-1.jpg">
+      <img class="us-img--full" src="/images/natural-2.jpg">
+      <img class="us-img--full" src="/images/natural-3.jpg">
+      <p class="image-example-reason">
+        <strong class="us-color--green">Do</strong><br />
+        Images feel natural and authentic.
+      </p>
+    </div>
+    <div class="us-col-xsm-6 image-examples">
+      <img class="us-img--full" src="/images/unnatural-1.jpg">
+      <img class="us-img--full" src="/images/unnatural-2.jpg">
+      <img class="us-img--full" src="/images/unnatural-3.jpg">
+      <p class="image-example-reason">
+        <strong class="us-color--red">Don't</strong><br />
+        Images appear staged.
+      </p>
+    </div>
+    <div class="us-col-xsm-6 image-examples">
+      <img class="us-img--full" src="/images/good-subject.jpg">
+      <p class="image-example-reason">
+        <strong class="us-color--green">Do</strong></br />
+        Subject is contextualised.
+      </p>
+    </div>
+    <div class="us-col-xsm-6 image-examples">
+      <img class="us-img--full" src="/images/bad-subject.jpg">
+      <p class="image-example-reason">
+        <strong class="us-color--red">Don't</strong><br />
+        Image is too closely cropped.
+      </p>
+    </div>
+    <div class="us-col-xsm-6 image-examples">
+      <img class="us-img--full" src="/images/accurate-housing.jpg">
+      <p class="image-example-reason">
+        <strong class="us-color--green">Do</strong><br />
+        Houses are a typical UK style.
+      </p>
+    </div>
+    <div class="us-col-xsm-6 image-examples">
+      <img class="us-img--full" src="/images/innaccurate-housing.jpg">
+      <p class="image-example-reason">
+        <strong class="us-color--red">Don't</strong><br />
+        Houses feel american style.
+      </p>
+    </div>
+    <div class="us-col-xsm-6 image-examples">
+      <img class="us-img--full" src="/images/warm.jpg">
+      <p class="image-example-reason">
+        <strong class="us-color--green">Do</strong><br />
+        Image has warm tones.
+      </p>
+    </div>
+    <div class="us-col-xsm-6 image-examples">
+      <img class="us-img--full" src="/images/cold.jpg">
+      <p class="image-example-reason">
+        <strong class="us-color--red">Don't</strong><br />
+        Image is too cool.
+      </p>
+    </div>
+    <div class="us-col-xsm-6 image-examples">
+      <img class="us-img--full" src="/images/unaltered.jpg">
+      <p class="image-example-reason">
+        <strong class="us-color--green">Do</strong><br />
+        Image does not appear altered.
+      </p>
+    </div>
+    <div class="us-col-xsm-6 image-examples">
+      <img class="us-img--full" src="/images/altered.jpg">
+      <p class="image-example-reason">
+        <strong class="us-color--red">Don't</strong><br />
+        Image is noticeably manipulated.
+      </p>
+    </div>
+    <div class="us-col-xsm-6 image-examples">
+      <img class="us-img--full" src="/images/realistic.jpg">
+      <p class="image-example-reason">
+        <strong class="us-color--green">Do</strong><br />
+        Image is realistic and relatable.
+      </p>
+    </div>
+    <div class="us-col-xsm-6 image-examples">
+      <img class="us-img--full" src="/images/cliche.jpg">
+      <p class="image-example-reason">
+        <strong class="us-color--red">Don't</strong><br />
+        Image is cliché and metaphor based.
+      </p>
+    </div>
+    <div class="us-col-xsm-6 image-tip">
+      <img class="us-img--full" src="/images/not-centered.jpg">
+    </div>
+    <div class="us-col-xsm-6 image-tip">
+      <img class="us-img--full" src="/images/centered.jpg">
+    </div>
+    <div class="image-tip image-tip__reason us-col-xsm-12">
+      <p class="image-example-reason">
+        <strong class="us-color--green">Tip</strong><br />
+        Images where subjects are placed to the left/right and top/bottom are more interesting than those placed centrally.
+      </p>
+    </div>
+    <div>
+      <div class="us-col-xsm-6 image-tip">
+        <img class="us-img--full" src="/images/illustrations_1.png">
+        <img class="us-img--full" src="/images/illustrations_2.png">
+        <img class="us-img--full" src="/images/illustrations_3.png">
+      </div>
+      <div class="us-col-xsm-6 image-tip">
+        <img class="us-img--full" src="/images/illustrations_4.png">
+        <img class="us-img--full" src="/images/illustrations_5.png">
+        <img class="us-img--full" src="/images/illustrations_6.png">
+      </div>
+      <div class="image-tip image-tip__reason us-col-xsm-12">
+        <p class="image-example-reason">
+          <strong class="us-color--green">Do</strong><br />
+          Illustrations are simple, geometric and consist primarily of brand colours (or shade/tones of brand colours).
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

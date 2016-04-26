@@ -1,0 +1,24 @@
+.image {
+  &-tip,
+  &-examples {
+    border: 1px solid $c-bordergrey;
+
+    img {
+      margin-bottom: $gutter-width/2;
+    }
+
+    &:nth-child(2n+1) {
+      clear: left;
+    }
+  }
+
+  &-tip {
+    &__reason {
+      margin-bottom: $gutter-width;
+    }
+  }
+}
+
+.image-examples {
+  margin-bottom: $gutter-width;
+}
