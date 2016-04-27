@@ -74,6 +74,14 @@
 
         // scss-lint:disable NestingDepth
         &:after {
+          opacity: 0;
+        }
+      }
+
+      &.us-form-input--disabled {
+
+        // scss-lint:disable NestingDepth
+        &:checked:after {
           background-position: 0 50%;
           opacity: .35;
         }
@@ -99,8 +107,7 @@
         box-shadow: inset 0 0 0 1px $c-form-element-border-hover, inset 0 0 0 .35em #fff;
       }
 
-      &.us-form-input--disabled:checked,
-      &:disabled:checked {
+      &.us-form-input--disabled:checked {
         background: $c-form-element-disabled-fg;
         box-shadow: inset 0 0 0 .35em $c-form-element-disabled-bg;
       }
