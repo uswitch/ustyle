@@ -32,11 +32,11 @@ Very short text (1-4 words max) to distinguish products from one another and hig
 
 Should be written in sentence case, not upper case. The label should be 1-4 words, while descriptive lines should be as concise as possible without wrapping on any device.
 
-Must be quantifiable facts about a product, deal or plan - be honest and as descriptive as possible. No exclamation points.
+Must be quantifiable facts about a product, deal or plan  be honest and as descriptive as possible. No exclamation points.
 
 **Product info**
 
-Summary of product features relevant to users. Must be concise, relevant and quantifiable facts about a product, deal or plan - be honest and as descriptive as possible
+Summary of product features relevant to users. Must be concise, relevant and quantifiable facts about a product, deal or plan – be honest and as descriptive as possible
 
 Be consistent in the way and the order information is presented and the types of information shown. Second person is ok (e.g. “More people in your region switched to this plan than any other”)
 
@@ -56,7 +56,7 @@ As long as any compliance rules are taken into account, you should treat this co
 
 <div class="us-grid-row">
     <div class="us-col-md-6">
-      <img alt="image" class="us-img--full trailered" src="/images/caveats.png">
+      <img alt="image" class="us-img--full trailered" src="/images/caveat.png">
     </div>
   </div>
 
@@ -66,8 +66,8 @@ Examples of when caveats are required...
 
 <blockquote>
 <ul>
-	<li>Get the best iphone deal with uSwitch</li>
-	<li>Get the cheapest iphone deal with uSwitch</li>
+	<li>Get the best iPhone deal with uSwitch</li>
+	<li>Get the cheapest iPhone deal with uSwitch</li>
 </ul>
 </blockquote>
 
@@ -105,7 +105,7 @@ Should not be more than two lines, usually made up of a title and copy.
 
 **Form text, form labels** 
 
-Description of what information is required from the user. Always aim for clarity and be consistent - if using questions ('Where do you live?') or statements ('Address')
+Description of what information is required from the user. Always aim for clarity and be consistent – if using questions ('Where do you live?') or statements ('Address')
 
 Second person is acceptable, and use tool tips to explain any terms that may be unfamiliar
 
@@ -137,7 +137,7 @@ Symbols can be used (e.g. £ ).
 
 <div class="us-grid-row">
   <div class="us-col-md-6">
-    <img alt="image" class="us-img--full trailered" src="/images/error-text.png">
+    <img alt="image" class="us-img--full trailered" src="/images/error-texts.png">
   </div>
 </div>
 

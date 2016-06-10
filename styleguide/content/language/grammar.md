@@ -62,7 +62,7 @@ Our tone of voice is friendly and familiar, so it’s fine to use contractions l
 
 **Dashes and hyphens**
 
-If you use a dash within a sentence to create emphasis, then use a long em dash – rather than a hyphen.
+If you use a dash within a sentence to create emphasis, then use a long em dash – rather than a hyphen (-).
 Compound adjectives before a noun generally use a hyphen (e.g. ‘the well-organised energy provider’). After a noun, they should be separated (e.g. ‘the energy provider was well organised’).
 
 **Dates**
