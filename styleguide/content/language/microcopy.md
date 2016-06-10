@@ -8,11 +8,7 @@ name: Microcopy
 
 **Help text/tool tips** 
 
-<div class="us-grid-row">
-    <div class="us-col-md-6">
-      <img alt="image" class="us-img--full trailered" src="/images/tooltip.png">
-    </div>
-  </div>
+<img alt="image" class="us-img--full trailered" src="/images/tooltip.png">
 
 Tooltips are an interruption, use them sparingly (or not at all).  
 
@@ -22,11 +18,7 @@ Tooltip text must be informative. Don't make it obvious or just repeat what is a
 
 **Badge/label/USP**
 
-<div class="us-grid-row">
-    <div class="us-col-md-6">
-      <img alt="image" class="us-img--full trailered" src="/images/badge-label-usp.png">
-    </div>
-  </div>
+<img alt="image" class="us-img--full trailered" src="/images/badge-label-usp.png">
 
 Very short text (1-4 words max) to distinguish products from one another and highlight features of a product that are otherwise not included on the results table. Annotated versions are paired with a descriptive line.
 
@@ -42,11 +34,7 @@ Be consistent in the way and the order information is presented and the types of
 
 **Small print**
 
-<div class="us-grid-row">
-    <div class="us-col-md-6">
-      <img alt="image" class="us-img--full trailered" src="/images/tsandcs.png">
-    </div>
-  </div>
+<img alt="image" class="us-img--full trailered" src="/images/tsandcs.png">
 
 Small print reassures users and is vital for transparency.  
 
@@ -54,11 +42,7 @@ As long as any compliance rules are taken into account, you should treat this co
 
 **Caveats** 
 
-<div class="us-grid-row">
-    <div class="us-col-md-6">
-      <img alt="image" class="us-img--full trailered" src="/images/caveat.png">
-    </div>
-  </div>
+<img alt="image" class="us-img--full trailered" src="/images/caveat.png">
 
 Small print text to back up any absolute claims (i.e. savings figures), denoted with an asterisk. The caveat must appear on the same page as the asterisk
 
@@ -92,7 +76,7 @@ First person can be used (e.g. “Tell me more”).
 **CTAs** 
 
 <div class="us-grid-row">
-  <div class="us-col-md-6">
+  <div class="us-col-md-10">
     <img alt="image" class="us-img--full trailered" src="/images/CTAs.png">
   </div>
 </div>
@@ -109,22 +93,23 @@ Description of what information is required from the user. Always aim for clarit
 
 Second person is acceptable, and use tool tips to explain any terms that may be unfamiliar
 
-Form label conventions:
-- first name 
-- last name
-- date of birth 
-- email 
-- postcode 
-- address 
-- main account holder’s name
-- driver’s name
-- employment status
-- annual income (before tax)
+Form label naming conventions:
+- First name 
+- Last name
+- Date of birth 
+- Email 
+- Password
+- Postcode 
+- Address 
+- Main account holder’s name
+- Driver’s name
+- Employment status
+- Annual income (before tax)
 
 **Placeholder text for fields** 
 
 <div class="us-grid-row">
-  <div class="us-col-md-6">
+  <div class="us-col-md-8">
     <img alt="image" class="us-img--full trailered" src="/images/placeholder-text.png">
   </div>
 </div>
@@ -135,11 +120,7 @@ Symbols can be used (e.g. £ ).
 
 **Error text**
 
-<div class="us-grid-row">
-  <div class="us-col-md-6">
-    <img alt="image" class="us-img--full trailered" src="/images/error-texts.png">
-  </div>
-</div>
+<img alt="image" class="us-img--full trailered" src="/images/error-texts.png">
 
 Text that is triggered by a user trying to move forward without providing requested info.
 
