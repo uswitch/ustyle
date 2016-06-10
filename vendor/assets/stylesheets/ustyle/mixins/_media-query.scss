@@ -7,6 +7,12 @@
 //// @group media-queries
 ////
 
+/// Breakpoint for extra large desktops
+///
+/// @type Number (unit)
+
+$extra-large-desktop-width: 1600px !default;
+
 /// Breakpoint for large desktops
 ///
 /// @type Number (unit)
@@ -62,7 +68,7 @@ $tablet-end-width: $desktop-width - 1;
 ///
 /// @type List
 
-$min-breakpoints: (small-tablet, $small-tablet-width), (tablet, $tablet-width), (desktop, $desktop-width), (large-desktop, $large-desktop-width) !default;
+$min-breakpoints: (small-tablet, $small-tablet-width), (tablet, $tablet-width), (desktop, $desktop-width), (large-desktop, $large-desktop-width), (extra-large-desktop, $extra-large-desktop-width) !default;
 
 /// A list containing the devices for `max-width` media-query breakpoints
 ///
