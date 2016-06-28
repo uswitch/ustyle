@@ -14,6 +14,27 @@ $form-element-base-height: 37px !default;
 
 $form-element-base-padding: .35em .5em !default;
 
+/// The base height for any large elements
+///
+/// @type Number (pixels)
+
+$form-element-base-height--large: 48px !default;
+
+/// Padding that is shared across large form elements
+///
+/// @type Number (em)
+
+$form-element-base-padding--large: .55em .5em !default;
+
+/// Form sizing map for inputs
+///
+/// @type List
+
+$form-element-sizes: (
+  (base, $form-element-base-height, $form-element-base-padding, 1em),
+  (large, $form-element-base-height--large, $form-element-base-padding--large, 1.2em)
+) !default;
+
 /// Background color for our form elements
 ///
 /// @type String (hex)

@@ -19,13 +19,34 @@
 
 $input-placeholder-color: $c-inputgrey !default;
 
+/// Creates a larger version of a form input, allows us to set the styles
+/// in a responsive manner
+///
+/// @author David Annez
+/// @group Forms
+///
+/// @param {String} $input-size [base]
+///   Name of the size used in the form element list
+///
+/// @param {List} $input-sizes [$form-element-sizes]
+///   List of sizes to pass through. Should contain 4 values per item,
+///   `(size-name, height, padding, font-size)`
+
+@mixin input-sizing($input-size: base, $input-sizes: $form-element-sizes) {
+  @each $size in $input-sizes {
+    @if nth($size, 1) == $input-size {
+      height: nth($size, 2);
+      padding: nth($size, 3);
+      font-size: nth($size, 4);
+    }
+  }
+}
+
 .us-form-input {
   @extend %base-form-element;
   @extend %input-background--normalise;
   @include placeholder($input-placeholder-color);
-  height: $form-element-base-height;
-  padding: $form-element-base-padding;
-  font-size: 1em;
+  @include input-sizing();
   outline: 0;
   box-shadow: none;
 
@@ -40,9 +61,7 @@ $input-placeholder-color: $c-inputgrey !default;
 
 .us-form-input.large,
 .us-form-input--large {
-  height: 48px;
-  padding: .55em .5em;
-  font-size: 1.2em;
+  @include input-sizing(large);
 }
 
 .us-form-input--blocked {
