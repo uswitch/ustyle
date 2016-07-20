@@ -16,9 +16,4 @@ module Ustyle
     initializer "ustyle.update_asset_paths", group: :assets, &add_paths_block
   end
 
-  class Railtie < ::Rails::Railtie
-    initializer :setup_autoprefixer, group: :all do |app|
-      AutoprefixerRails.install(app.assets, *Ustyle.autoprefixer_config(app))
-    end
-  end
 end
