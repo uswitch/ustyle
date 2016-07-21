@@ -41,7 +41,7 @@ module Ustyle
       @sprockets_env ||= ::Sprockets::Environment.new
     end
 
-    def autoprefixer_config app
+    def autoprefixer_config
       file   = File.join Ustyle.gem_path, 'config/autoprefixer.yml'
       params = YAML.load_file(file).symbolize_keys
       opts   = { }

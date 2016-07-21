@@ -24,7 +24,7 @@ if defined?(::Sinatra)
         end
 
         require 'autoprefixer-rails'
-        AutoprefixerRails.install(app.sprockets, *::Ustyle.autoprefixer_config(app))
+        AutoprefixerRails.install(app.sprockets, ::Ustyle.autoprefixer_config)
 
         app.helpers Sprockets::Helpers
       end
