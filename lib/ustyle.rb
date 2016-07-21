@@ -44,9 +44,7 @@ module Ustyle
     def autoprefixer_config
       file   = File.join Ustyle.gem_path, 'config/autoprefixer.yml'
       params = YAML.load_file(file).symbolize_keys
-      opts   = { }
-      opts[:safe] = true if params.delete(:safe)
-      [params, opts]
+      params
     end
   end
 end
