@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "sass"
-  spec.add_dependency "autoprefixer-rails", "~> 4.0"
+  spec.add_dependency "autoprefixer-rails"
   spec.add_dependency "mime-types"
   spec.add_dependency "chunky_png",  ">= 0.8.0"
 
