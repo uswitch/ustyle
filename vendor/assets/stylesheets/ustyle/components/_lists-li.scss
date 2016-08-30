@@ -2,11 +2,12 @@
 // @name Numbered list
 //
 // @description
-//   Our default numbered list styling
-//   `.us-custom-list-alt` allows us to use the lists on hero/blue backgrounds.
+//   Our default numbered list styling.
+//
+// @state .us-custom-list-alt - allows us to use the lists on hero/blue backgrounds.
 //
 // @markup
-//   <ul class='us-numbered-list'>
+//   <ul class='us-numbered-list {$modifiers}'>
 //     <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin iaculis bibendum.</li>
 //     <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin iaculis bibendum.</li>
 //   </ul>
@@ -47,13 +48,13 @@
       content: counter(number-counter);
       box-sizing: border-box;
     }
+  }
 
-    .us-hero &:before,
-    .us-custom-list-alt &:before {
-      color: $c-navy;
-      background: #fff;
-      background: rgba(255, 255, 255, .7);
-    }
+  .us-hero & li:before,
+  &.us-custom-list-alt li:before {
+    color: $c-navy;
+    background: #fff;
+    background: rgba(255, 255, 255, .7);
   }
 }
 
