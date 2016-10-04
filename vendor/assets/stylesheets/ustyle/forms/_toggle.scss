@@ -38,15 +38,12 @@
 //   </div>
 
 $toggle-btn-padding: 5px 30px !default;
-$toggle-default-bg: #fff !default;
-$toggle-default-border: $c-bordergrey !default;
-$toggle-hover-border: $c-typecyan !default;
 $toggle-active-bg: $c-cyan-light !default;
-$toggle-active-border: $c-typecyan !default;
 
 @mixin toggle-active-style {
   background: $toggle-active-bg;
-  border-color: $toggle-active-border;
+  border-color: $c-form-element-border-hover;
+  font-weight: bold;
 }
 
 @mixin toggle-disabled-style {
@@ -88,16 +85,16 @@ $toggle-active-border: $c-typecyan !default;
   color: $c-form-element-text;
   text-align: center;
   background-color: $c-form-element-background;
-  border: 1px solid $toggle-default-border;
+  border: 1px solid $c-form-element-border;
 
   .us-toggle__label:hover & {
-    border-color: $toggle-hover-border;
+    border-color: $c-form-element-border-hover;
   }
 
   .us-toggle__label:focus &,
   .us-toggle__label .us-form-input:focus + & {
-    border-color: $toggle-hover-border;
-    box-shadow: inset 0 0 0 1px $toggle-hover-border;
+    border-color: $c-form-element-border-hover;
+    box-shadow: inset 0 0 0 1px $c-form-element-border-hover;
   }
 
   // [nodoc] Legacy, as grouping selectors will fail on pseudo-selector :checked
