@@ -43,7 +43,7 @@ $toggle-active-bg: $c-cyan-light !default;
 @mixin toggle-active-style {
   background: $toggle-active-bg;
   border-color: $c-form-element-border-hover;
-  font-weight: bold;
+  text-shadow: 1px 0 0 $c-form-element-text;
 }
 
 @mixin toggle-disabled-style {
