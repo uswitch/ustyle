@@ -1,9 +1,6 @@
 lib_path = File.join(File.dirname(__FILE__), 'lib')
 $:.unshift(lib_path) unless $:.include?(lib_path)
 
-require 'botoenv'
-Botoenv.load
-
 require 'ustyle'
 require 'ustyle/deploy'
 require 'fileutils'
