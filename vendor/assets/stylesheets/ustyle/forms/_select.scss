@@ -58,6 +58,7 @@ $select-hover-color: $c-form-element-border-hover !default;
   @-moz-document url-prefix() {
     text-indent: .01px;
     text-overflow: "";
+    -moz-appearance: none;
   }
 
   &:focus {
