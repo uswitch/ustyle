@@ -29,6 +29,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake"
   spec.add_development_dependency "aws-sdk", "~> 2.0"
   spec.add_development_dependency "rb-fsevent"
-  spec.add_development_dependency "botoenv"
   spec.add_development_dependency "scss-lint", "0.35.0"
 end
