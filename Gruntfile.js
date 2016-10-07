@@ -1,7 +1,5 @@
-var autoprefixer = require("autoprefixer-core");
-
 module.exports = function(grunt) {
-
+  grunt.loadNpmTasks("grunt-postcss");
   require("load-grunt-tasks")(grunt);
   grunt.loadTasks("grunt/tasks");
 
@@ -18,8 +16,11 @@ module.exports = function(grunt) {
     },
     postcss: {
       options: {
+        map: false,
         processors: [
-          autoprefixer({ browsers: ["last 5 versions", "Firefox 22", "Explorer 8", "> 1%", "Opera 12.1"] }).postcss
+            require("autoprefixer")({
+              browsers: ["last 5 versions", "Firefox ESR", "not Explorer < 9", "> 1%", "Opera > 18"]
+            })
         ]
       },
       dist: { src: ["docs/**/*.css", "dist/**/*.css"] }

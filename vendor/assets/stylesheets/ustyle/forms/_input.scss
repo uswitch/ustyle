@@ -31,8 +31,10 @@ $input-placeholder-color: $c-inputgrey !default;
     @include placeholder(darken($input-placeholder-color, 15%));
   }
 
-  .ie8 & {
-    height: auto;
+  @if $media-query-legacy-support {
+    .ie8 & {
+      height: auto;
+    }
   }
 }
 

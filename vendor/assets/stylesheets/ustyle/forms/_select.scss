@@ -72,7 +72,12 @@ $select-hover-color: $c-form-element-border-hover !default;
     display: none;
   }
 
-  .ie8 &,
+  @if $media-query-legacy-support {
+    .ie8 & {
+      padding: $form-element-base-padding;
+    }
+  }
+
   .ie9 & {
     padding: $form-element-base-padding;
   }

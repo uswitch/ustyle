@@ -53,7 +53,7 @@ name: Introduction
 </div>
 <div class="us-content-group mobile-bordered">
   <h2>Browser support</h2>
-  <p>We use <a href="https://github.com/postcss/autoprefixer">Autoprefixer + Browserlist</a> to decide what vendor prefixes to apply to our <code>Sass</code> files. We have a slightly wider browser support than the default (<a href="https://github.com/ai/browserslist#browserslist-">here</a>). Currently we support all the way to IE8.</p>
+  <p>We use <a href="https://github.com/postcss/autoprefixer">Autoprefixer + Browserlist</a> to decide what vendor prefixes to apply to our <code>Sass</code> files. We have a slightly wider browser support than the default (<a href="https://github.com/ai/browserslist#browserslist-">here</a>). Currently we support all the way to IE9.</p>
   <p>Below is what we support. Each line is the minimum version or % use based on CanIUse metrics</p>
   <table class="pure-table pure-table-bordered">
     <thead>
@@ -69,15 +69,15 @@ name: Introduction
       </tr>
       <tr>
         <td>Firefox</td>
-        <td>22</td>
+        <td>ESR</td>
       </tr>
       <tr>
         <td>Opera</td>
-        <td>12.1</td>
+        <td>18</td>
       </tr>
       <tr>
         <td>Internet Explorer</td>
-        <td>8 (unless stated)</td>
+        <td>9</td>
       </tr>
       <tr>
         <td>Global usage</td>
