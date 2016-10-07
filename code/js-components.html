@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]> <html lang="en" class="no-js ie7"> <![endif]-->
 <!--[if IE 8 ]> <html lang="en" class="no-js ie8"> <![endif]-->
 <!--[if IE 9 ]> <html lang="en" class="no-js ie9"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]> ><! <![endif]-->
@@ -6,12 +8,12 @@
   <!-- <![endif] -->
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <meta content='width=device-width, initial-scale=1.0' name='viewport' />
-  <title>uStyle styleguide</title>
+  <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+  <title>ustyle styleguide</title>
   <link rel="stylesheet" href="/css/main.css" type="text/css" />
   <!--[if lt IE 9]>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <![endif]-->
+  <![endif] -->
   <script>
     (function(html){
       html.className=html.className.replace(/\bno-js\b/,'js');
@@ -20,86 +22,51 @@
 </head>
 <body>
   <header class="ustyle__header">
-    <a class="logo" href="/">
-      <span class="logo__icon us-icon--notext us-icon--ustyle us-icon--typegrey us-icon--medium--mobile us-icon--large"></span>
-      uStyle
-    </a>
-    <a class="version" href="https://github.com/uswitch/ustyle/releases/tag/v1.7.1">v1.7.1</a>
+    <a class="logo" href="/">ustyle</a>
+    <a class="version us-tablet--block" href="https://github.com/uswitch/ustyle/releases/tag/0.18.2">v0.18.2</a>
+    <div class='nav nav--header'>
+      <nav>
+        <a href="/brand/" class="nav__link ">Brand</a>
+        <a href="/design/" class="nav__link ">Design</a>
+        <a href="/code/" class="nav__link active">Code</a>
+      </nav>
+    </nav>
   </header>
-  <a href="javascript:void(0);" class="nav-mobile js-toggle__link us-tablet--hidden" data-target="sidebar"><span class="nav-mobile__hamburger">Sidebar</span></a>
+  <a href="javascript:void(0);" class="nav-mobile js-toggle__link us-desktop--hidden" data-target="sidebar"><span class="nav-mobile__hamburger">Sidebar</span></a>
   <div class='sidebar'>
-      <nav class="sidebar__nav ">
-        <a href="/brand/" class="sidebar__nav-link js-sidebar-nav-link ">Brand</a>
-        <nav class="sidebar__sub-nav">
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/brand/index.html">Framework</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/brand/colours.html">Colours</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/brand/logo.html">Logo</a>
-        </nav>
-      </nav>
-      <nav class="sidebar__nav active">
-        <a href="/pattern-library/" class="sidebar__nav-link js-sidebar-nav-link active">Pattern library</a>
-        <nav class="sidebar__sub-nav">
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/index.html">Introduction</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/typography.html">Typography</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/utilities.html">Utilities</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/forms.html">Forms</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/components.html">Components</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub active" href="/pattern-library/javascript.html">JavaScript</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/articles.html">Articles</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/grid.html">Grid</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/stats.html">Stats</a>
-            <a class="sidebar__nav-link sidebar__nav-link--sub" href="/sass/" target="_blank">Sass doc</a>
-        </nav>
-      </nav>
-      <nav class="sidebar__nav ">
-        <a href="/design/" class="sidebar__nav-link js-sidebar-nav-link ">Design</a>
-        <nav class="sidebar__sub-nav">
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/index.html">Imagery</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/validating-designs.html">Usability testing</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/icons.html">Icons</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/typography.html">Typography</a>
-        </nav>
-      </nav>
-      <nav class="sidebar__nav ">
-        <a href="/language/" class="sidebar__nav-link js-sidebar-nav-link ">Language</a>
-        <nav class="sidebar__sub-nav">
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/language/tone.html">Tone</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/language/grammar.html">Grammar</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/language/microcopy.html">Microcopy</a>
-        </nav>
-      </nav>
-  
-    <div class="made-at">
-      <a href="http://www.uswitch.com/vacancies/" target="_blank" class="us-icon--before us-icon--uswitch--before us-icon--custom--before us-icon--small--before--mobile us-icon--medium--before"><span class="us-color--blue">uSwitch is hiring.</span></a>
-    </div>
+    <nav class='sidebar__nav' data-gumshoe>
+          <a class="sidebar__nav-link " href="index.html">Introduction</a>
+          <a class="sidebar__nav-link " href="utilities.html">Utilities</a>
+          <a class="sidebar__nav-link " href="forms.html">Forms</a>
+          <a class="sidebar__nav-link " href="components.html">Components</a>
+          <a class="sidebar__nav-link active" href="js-components.html">JS components</a>
+              <nav class="sidebar__sub-nav" data-ghumshoe>
+                  <a class="sidebar__nav-link sidebar__nav-link--sub" href="#anchor">Anchor</a>
+                  <a class="sidebar__nav-link sidebar__nav-link--sub" href="#overlay">Overlay</a>
+                  <a class="sidebar__nav-link sidebar__nav-link--sub" href="#tabs">Tabs</a>
+                  <a class="sidebar__nav-link sidebar__nav-link--sub" href="#tooltip">Tooltip</a>
+              </nav>
+          <a class="sidebar__nav-link " href="grid.html">Grid</a>
+          <a class="sidebar__nav-link " href="stats.html">Stats</a>
+        <a class="sidebar__nav-link" href="/sass/">Sass doc</a>
+    </nav>
   </div>
-    <div id="wrapper" class="container sidebar--push header--push nav--push">
-      <div class="styleguide__hero">
-        <h1 class="styleguide__hero-heading">JavaScript</h1>
-      </div>
-          <nav class="nav--sub us-col-lg-2">
-            <div class="js-sticky">
-              <h4>Patterns</h4>
-                <a class="nav__link" href="#anchor">Anchor</a>
-                <a class="nav__link" href="#overlay">Overlay</a>
-                <a class="nav__link" href="#tabs">Tabs</a>
-                <a class="nav__link" href="#tooltip">Tooltip</a>
-            </div>
-          </nav>
-      <div class="us-col-lg-10 styleguide__content styleguide__content--w-sidebar">
+  <div id="wrapper" class="container sidebar--push header--push">
+    <h1 class="styleguide__title">JS components</h1>
+    <div class="styleguide">
             <div class="styleguide__block" id="anchor">
-              <h2 class="styleguide__block-title">
-                Anchor
-                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_anchor.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_anchor.scss</span></a>
-              </h2>
-            
-              <div class="styleguide__description">
+              <div class="styleguide__block-info">
+                <h2 class="styleguide__block-title">
+                  Anchor
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_anchor.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_anchor.scss</span></a>
+                </h2>
+                
                 <p>  Anchor is a naive implementation of Tether by HubSpot. It creates an independent dropdown that is &quot;anchored&quot; to the bottom of the target element.</p>
             <p>  We&#39;ve decided to only support IE9+, as the uses of Anchor throughout uSwitch are for progressive enhancement.</p>
             
+                
               </div>
-            
-            
+              
               <div class="styleguide__block-examples">
                 <h3 class="styleguide__block-small-title">Example</h3>
                 <div class="styleguide__block-example">
@@ -108,7 +75,7 @@
                  <p>Kielbasa tenderloin spare ribs, andouille doner brisket chuck drumstick bresaola short loin pork t-bone ground round jowl. Ball tip pork loin doner tongue filet mignon biltong hamburger leberkas. Filet mignon kielbasa kevin short ribs, drumstick chuck shankle spare ribs tri-tip.</p>
                </div>
                 </div>
-            
+              
             
                 <pre><code class="html">
                &lt;span class='us-btn js-example-anchor'&gt;Click me!&lt;/span&gt;
@@ -126,37 +93,37 @@
              
                   </code></pre>
               </div>
+            
             </div>
             <div class="styleguide__block" id="overlay">
-              <h2 class="styleguide__block-title">
-                Overlay
-                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_overlay.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_overlay.scss</span></a>
-              </h2>
-            
-              <div class="styleguide__description">
+              <div class="styleguide__block-info">
+                <h2 class="styleguide__block-title">
+                  Overlay
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_overlay.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_overlay.scss</span></a>
+                </h2>
+                
                 <p>  <code>.us-overlay</code> slides in from either side of the viewport, or can be shown as a modal window.</p>
             
+                  <ul class="styleguide__block-states">
+                      <li class="name"><strong>.us-overlay--modal</strong> - Overlay appears as a modal window.</li>
+                      <li class="name"><strong>.us-overlay--right</strong> - Overlay appears on the right side of the viewport (not applicable when used in conjunction with .us-overlay--modal).</li>
+                      <li class="name"><strong>.us-overlay--above</strong> - Overlay appears over the top of another open overlay.</li>
+                  </ul>
+                
               </div>
-            
-                <h4>States</h4>
-                <ul class="styleguide__block-states us-clearfix">
-                    <li class="name"><strong>.us-overlay--modal</strong> - Overlay appears as a modal window.</li>
-                    <li class="name"><strong>.us-overlay--right</strong> - Overlay appears on the right side of the viewport (not applicable when used in conjunction with .us-overlay--modal).</li>
-                    <li class="name"><strong>.us-overlay--above</strong> - Overlay appears over the top of another open overlay.</li>
-                </ul>
-            
+              
               <div class="styleguide__block-examples">
                 <h3 class="styleguide__block-small-title">Example</h3>
                 <div class="styleguide__block-example">
                      <button class="us-btn js-open-overlay" modifier="{$modifiers}">Open</button>
                <div class="us-overlay-parent" modifier="{$modifiers}">
-                 <div class="us-overlay {$modifiers}">
+                 <div class="us-overlay {$modifiers}" modifier="{$modifiers}">
                    <div class="us-overlay__container">
                      <div class="us-overlay__header">
                        <div class="us-overlay__title">
                          Overlay
                        </div>
-                       <button class="us-overlay__close us-btn us-btn--reversed us-btn--small js-close-overlay">Close</button>
+                       <button class="us-overlay__close js-close-overlay"></button>
                      </div>
                      <div class="us-overlay__body">
                        Bacon ipsum dolor amet exercitation ground round voluptate, fatback qui cupidatat sunt consectetur. Dolore strip steak pancetta ground round, venison rump tenderloin fatback frankfurter prosciutto deserunt do ex. In cupim ullamco bresaola, beef meatball aliqua laborum landjaeger consectetur tail cupidatat pariatur meatloaf ball tip. Anim cupim dolore, filet mignon kielbasa tri-tip short ribs esse porchetta landjaeger qui pork loin.
@@ -169,17 +136,17 @@
                  </div>
                </div>
                 </div>
-            
+              
                   <div class="styleguide__block-example state-us-overlay--modal">
                        <button class="us-btn js-open-overlay" modifier="us-overlay--modal">Open</button>
                <div class="us-overlay-parent" modifier="us-overlay--modal">
-                 <div class="us-overlay us-overlay--modal">
+                 <div class="us-overlay us-overlay--modal" modifier="us-overlay--modal">
                    <div class="us-overlay__container">
                      <div class="us-overlay__header">
                        <div class="us-overlay__title">
                          Overlay
                        </div>
-                       <button class="us-overlay__close us-btn us-btn--reversed us-btn--small js-close-overlay">Close</button>
+                       <button class="us-overlay__close js-close-overlay"></button>
                      </div>
                      <div class="us-overlay__body">
                        Bacon ipsum dolor amet exercitation ground round voluptate, fatback qui cupidatat sunt consectetur. Dolore strip steak pancetta ground round, venison rump tenderloin fatback frankfurter prosciutto deserunt do ex. In cupim ullamco bresaola, beef meatball aliqua laborum landjaeger consectetur tail cupidatat pariatur meatloaf ball tip. Anim cupim dolore, filet mignon kielbasa tri-tip short ribs esse porchetta landjaeger qui pork loin.
@@ -196,13 +163,13 @@
                   <div class="styleguide__block-example state-us-overlay--right">
                        <button class="us-btn js-open-overlay" modifier="us-overlay--right">Open</button>
                <div class="us-overlay-parent" modifier="us-overlay--right">
-                 <div class="us-overlay us-overlay--right">
+                 <div class="us-overlay us-overlay--right" modifier="us-overlay--right">
                    <div class="us-overlay__container">
                      <div class="us-overlay__header">
                        <div class="us-overlay__title">
                          Overlay
                        </div>
-                       <button class="us-overlay__close us-btn us-btn--reversed us-btn--small js-close-overlay">Close</button>
+                       <button class="us-overlay__close js-close-overlay"></button>
                      </div>
                      <div class="us-overlay__body">
                        Bacon ipsum dolor amet exercitation ground round voluptate, fatback qui cupidatat sunt consectetur. Dolore strip steak pancetta ground round, venison rump tenderloin fatback frankfurter prosciutto deserunt do ex. In cupim ullamco bresaola, beef meatball aliqua laborum landjaeger consectetur tail cupidatat pariatur meatloaf ball tip. Anim cupim dolore, filet mignon kielbasa tri-tip short ribs esse porchetta landjaeger qui pork loin.
@@ -219,13 +186,13 @@
                   <div class="styleguide__block-example state-us-overlay--above">
                        <button class="us-btn js-open-overlay" modifier="us-overlay--above">Open</button>
                <div class="us-overlay-parent" modifier="us-overlay--above">
-                 <div class="us-overlay us-overlay--above">
+                 <div class="us-overlay us-overlay--above" modifier="us-overlay--above">
                    <div class="us-overlay__container">
                      <div class="us-overlay__header">
                        <div class="us-overlay__title">
                          Overlay
                        </div>
-                       <button class="us-overlay__close us-btn us-btn--reversed us-btn--small js-close-overlay">Close</button>
+                       <button class="us-overlay__close js-close-overlay"></button>
                      </div>
                      <div class="us-overlay__body">
                        Bacon ipsum dolor amet exercitation ground round voluptate, fatback qui cupidatat sunt consectetur. Dolore strip steak pancetta ground round, venison rump tenderloin fatback frankfurter prosciutto deserunt do ex. In cupim ullamco bresaola, beef meatball aliqua laborum landjaeger consectetur tail cupidatat pariatur meatloaf ball tip. Anim cupim dolore, filet mignon kielbasa tri-tip short ribs esse porchetta landjaeger qui pork loin.
@@ -243,13 +210,13 @@
                 <pre><code class="html">
                &lt;button class="us-btn js-open-overlay" modifier="{$modifiers}"&gt;Open&lt;/button&gt;
                &lt;div class="us-overlay-parent" modifier="{$modifiers}"&gt;
-                 &lt;div class="us-overlay"&gt;
+                 &lt;div class="us-overlay" modifier="{$modifiers}"&gt;
                    &lt;div class="us-overlay__container"&gt;
                      &lt;div class="us-overlay__header"&gt;
                        &lt;div class="us-overlay__title"&gt;
                          Overlay
                        &lt;/div&gt;
-                       &lt;button class="us-overlay__close us-btn us-btn--reversed us-btn--small js-close-overlay"&gt;Close&lt;/button&gt;
+                       &lt;button class="us-overlay__close js-close-overlay"&gt;&lt;/button&gt;
                      &lt;/div&gt;
                      &lt;div class="us-overlay__body"&gt;
                        Bacon ipsum dolor amet exercitation ground round voluptate, fatback qui cupidatat sunt consectetur. Dolore strip steak pancetta ground round, venison rump tenderloin fatback frankfurter prosciutto deserunt do ex. In cupim ullamco bresaola, beef meatball aliqua laborum landjaeger consectetur tail cupidatat pariatur meatloaf ball tip. Anim cupim dolore, filet mignon kielbasa tri-tip short ribs esse porchetta landjaeger qui pork loin.
@@ -264,32 +231,34 @@
                 </code></pre>
                   <pre><code class="javascript">
                var overlay = new Overlay({
-                 bodyActiveClass: &#39;us-overlay--open&#39;,
+                 bodyActiveClass: &#39;overlay--open&#39;,
                  activeClass:     &#39;us-overlay-parent--active&#39;,
                  visibleClass:    &#39;us-overlay-parent--visible&#39;,
                  overlay:         $(&#39;.us-overlay-parent&#39;),
                  openButton:      &#39;.js-open-overlay&#39;,
                  closeButton:     &#39;.js-close-overlay&#39;,
                  historyStatus:   &#39;#seedeal&#39;,
-                 history:         false,
+                 history:         true,
                  preventDefault:  true
                });
              
                   </code></pre>
               </div>
+            
             </div>
             <div class="styleguide__block" id="tabs">
-              <h2 class="styleguide__block-title">
-                Tabs
-                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_tabs.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_tabs.scss</span></a>
-              </h2>
+              <div class="styleguide__block-info">
+                <h2 class="styleguide__block-title">
+                  Tabs
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_tabs.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_tabs.scss</span></a>
+                </h2>
+                
+                <p>   These are the basic tabs used for landing pages. You can either reference a data-target for the urls or href for the target tabs. </p>
+            <p>   They have a non-js fallback and fold over to accordion when in small tablet view. They are initialised on page load if the tabs classes exist.</p>
             
-              <div class="styleguide__description">
-                <p>   These are the basic tabs used for landing pages. You can either reference a data-target for the urls or href for the target tabs. They have a non-js fallback and fold over to accordion when in small tablet view. They are initialised on page load if the tabs classes exist.</p>
-            
+                
               </div>
-            
-            
+              
               <div class="styleguide__block-examples">
                 <h3 class="styleguide__block-small-title">Example</h3>
                 <div class="styleguide__block-example">
@@ -305,25 +274,19 @@
                  </nav>
                  <div class='us-tabs-container'>
                    <div class='us-tab' id='tab1'>
-                     <h2 class='us-tab-title'>
-                       <a class="us-tabs-nav-mainlink us-icon--after us-icon--chevron-right--after us-icon--small--after us-icon--inputgrey--after" href="#tab1">Test 1</a>
-                     </h2>
+                     <h2 class='us-tab-title'><a class="us-tabs-nav-mainlink" href="#tab1">Test 1</a></h2>
                      <div class='us-tab-content'>
                        <p>Fatback capicola leberkas pork loin pork jowl. Meatloaf shoulder pancetta, salami prosciutto ribeye andouille chuck landjaeger short loin filet mignon sirloin. Pork chop tri-tip ham pork hamburger frankfurter leberkas short ribs biltong. Prosciutto ham hock rump, andouille tongue flank sirloin tri-tip ball tip frankfurter ham drumstick meatloaf pork loin.</p>
                      </div>
                    </div>
                    <div class='us-tab' id='tab2'>
-                     <h2 class='us-tab-title'>
-                       <a class="us-tabs-nav-mainlink us-icon--after us-icon--chevron-right--after us-icon--small--after us-icon--inputgrey--after" href="#tab2">Test 2</a>
-                     </h2>
+                     <h2 class='us-tab-title'><a class="us-tabs-nav-mainlink" href="#tab2">Test 2</a></h2>
                      <div class='us-tab-content'>
                        <p>Kielbasa tenderloin spare ribs, andouille doner brisket chuck drumstick bresaola short loin pork t-bone ground round jowl. Ball tip pork loin doner tongue filet mignon biltong hamburger leberkas. Filet mignon kielbasa kevin short ribs, drumstick chuck shankle spare ribs tri-tip.</p>
                      </div>
                    </div>
                    <div class='us-tab' id='tab3'>
-                     <h2 class='us-tab-title'>
-                       <a class="us-tabs-nav-mainlink us-icon--after us-icon--chevron-right--after us-icon--small--after us-icon--inputgrey--after" href="#tab3">Test 3</a>
-                     </h2>
+                     <h2 class='us-tab-title'><a class="us-tabs-nav-mainlink" href="#tab3">Test 3</a></h2>
                      <div class='us-tab-content'>
                        <p>Pig pastrami pork loin kielbasa, filet mignon meatloaf short ribs tenderloin. Pork loin leberkas kevin fatback porchetta bresaola. Cow rump shoulder pastrami. Andouille pork belly t-bone short ribs brisket. Bresaola pork belly tail salami capicola meatball. Pork belly beef ham landjaeger.</p>
                      </div>
@@ -331,7 +294,7 @@
                  </div>
                </div>
                 </div>
-            
+              
             
                 <pre><code class="html">
                &lt;div class='us-tabs'&gt;
@@ -346,25 +309,19 @@
                  &lt;/nav&gt;
                  &lt;div class='us-tabs-container'&gt;
                    &lt;div class='us-tab' id='tab1'&gt;
-                     &lt;h2 class='us-tab-title'&gt;
-                       &lt;a class="us-tabs-nav-mainlink us-icon--after us-icon--chevron-right--after us-icon--small--after us-icon--inputgrey--after" href="#tab1"&gt;Test 1&lt;/a&gt;
-                     &lt;/h2&gt;
+                     &lt;h2 class='us-tab-title'&gt;&lt;a class="us-tabs-nav-mainlink" href="#tab1"&gt;Test 1&lt;/a&gt;&lt;/h2&gt;
                      &lt;div class='us-tab-content'&gt;
                        &lt;p&gt;Fatback capicola leberkas pork loin pork jowl. Meatloaf shoulder pancetta, salami prosciutto ribeye andouille chuck landjaeger short loin filet mignon sirloin. Pork chop tri-tip ham pork hamburger frankfurter leberkas short ribs biltong. Prosciutto ham hock rump, andouille tongue flank sirloin tri-tip ball tip frankfurter ham drumstick meatloaf pork loin.&lt;/p&gt;
                      &lt;/div&gt;
                    &lt;/div&gt;
                    &lt;div class='us-tab' id='tab2'&gt;
-                     &lt;h2 class='us-tab-title'&gt;
-                       &lt;a class="us-tabs-nav-mainlink us-icon--after us-icon--chevron-right--after us-icon--small--after us-icon--inputgrey--after" href="#tab2"&gt;Test 2&lt;/a&gt;
-                     &lt;/h2&gt;
+                     &lt;h2 class='us-tab-title'&gt;&lt;a class="us-tabs-nav-mainlink" href="#tab2"&gt;Test 2&lt;/a&gt;&lt;/h2&gt;
                      &lt;div class='us-tab-content'&gt;
                        &lt;p&gt;Kielbasa tenderloin spare ribs, andouille doner brisket chuck drumstick bresaola short loin pork t-bone ground round jowl. Ball tip pork loin doner tongue filet mignon biltong hamburger leberkas. Filet mignon kielbasa kevin short ribs, drumstick chuck shankle spare ribs tri-tip.&lt;/p&gt;
                      &lt;/div&gt;
                    &lt;/div&gt;
                    &lt;div class='us-tab' id='tab3'&gt;
-                     &lt;h2 class='us-tab-title'&gt;
-                       &lt;a class="us-tabs-nav-mainlink us-icon--after us-icon--chevron-right--after us-icon--small--after us-icon--inputgrey--after" href="#tab3"&gt;Test 3&lt;/a&gt;
-                     &lt;/h2&gt;
+                     &lt;h2 class='us-tab-title'&gt;&lt;a class="us-tabs-nav-mainlink" href="#tab3"&gt;Test 3&lt;/a&gt;&lt;/h2&gt;
                      &lt;div class='us-tab-content'&gt;
                        &lt;p&gt;Pig pastrami pork loin kielbasa, filet mignon meatloaf short ribs tenderloin. Pork loin leberkas kevin fatback porchetta bresaola. Cow rump shoulder pastrami. Andouille pork belly t-bone short ribs brisket. Bresaola pork belly tail salami capicola meatball. Pork belly beef ham landjaeger.&lt;/p&gt;
                      &lt;/div&gt;
@@ -374,38 +331,37 @@
                 </code></pre>
                   <pre><code class="javascript">
                var tabs = new Tabs({
-                 tabContainer: &quot;.us-tabs&quot;,
-                 tabLinks: &quot;.us-tabs-nav-mainlink&quot;,
-                 tabTitle: &quot;us-tab-title&quot;,
-                 activeClass: &quot;active&quot;,
-                 changeUrls: true,
-                 collapsible: true,
-                 autoScroll: false
+                 tabContainer: &quot;.us-tabs&quot;
+                 tabLinks: &quot;.us-tabs-nav-mainlink&quot;
+                 tabTitle: &quot;us-tab-title&quot;
+                 changeUrls: true
+                 activeClass: &quot;active&quot;
                });
              
                   </code></pre>
               </div>
+            
             </div>
             <div class="styleguide__block" id="tooltip">
-              <h2 class="styleguide__block-title">
-                Tooltip
-                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_tooltip.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_tooltip.scss</span></a>
-              </h2>
+              <div class="styleguide__block-info">
+                <h2 class="styleguide__block-title">
+                  Tooltip
+                  <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_tooltip.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_tooltip.scss</span></a>
+                </h2>
+                
+                <p>  <code>.us-tooltip</code> can be applied to any parent, and by hovering it, it will toggle the visibility of <code>.us-tooltip__note</code></p>
+            <p>  Please note that on mobile viewports, the tooltip will appeat underneath the element that is aligned with the tooltip icon.</p>
             
-              <div class="styleguide__description">
-                <p>  <code>.us-tooltip</code> can be applied to any parent, and by hovering it, it will toggle the visibility of <code>.us-tooltip__note</code>. Please note that on mobile viewports, the tooltip will appeat underneath the element that is aligned with the tooltip icon.</p>
-            
+                  <ul class="styleguide__block-states">
+                      <li class="name"><strong>.us-tooltip--top</strong> - </li>
+                      <li class="name"><strong>.us-tooltip--bottom</strong> - </li>
+                      <li class="name"><strong>.us-tooltip--left</strong> - </li>
+                      <li class="name"><strong>.us-tooltip--right</strong> - </li>
+                      <li class="name"><strong>.us-tooltip--small</strong> - </li>
+                  </ul>
+                
               </div>
-            
-                <h4>States</h4>
-                <ul class="styleguide__block-states us-clearfix">
-                    <li class="name"><strong>.us-tooltip--top</strong> - </li>
-                    <li class="name"><strong>.us-tooltip--bottom</strong> - </li>
-                    <li class="name"><strong>.us-tooltip--left</strong> - </li>
-                    <li class="name"><strong>.us-tooltip--right</strong> - </li>
-                    <li class="name"><strong>.us-tooltip--small</strong> - </li>
-                </ul>
-            
+              
               <div class="styleguide__block-examples">
                 <h3 class="styleguide__block-small-title">Example</h3>
                 <div class="styleguide__block-example">
@@ -416,14 +372,11 @@
                  </div>
                  <div class="us-tooltip__wrapper">
                    <div class="us-tooltip__icon"></div>
-                   <div class="us-tooltip__note">
-                     <div class="us-tooltip__arrow"></div>
-                     <strong>Tooltip</strong> message content
-                   </div>
+                   <div class="us-tooltip__note"><strong>Tooltip</strong> message content</div>
                  </div>
                </div>
                 </div>
-            
+              
                   <div class="styleguide__block-example state-us-tooltip--top">
                        <div class="tooltip-demo us-tooltip us-tooltip--top">
                  <div class="us-field">
@@ -432,10 +385,7 @@
                  </div>
                  <div class="us-tooltip__wrapper">
                    <div class="us-tooltip__icon"></div>
-                   <div class="us-tooltip__note">
-                     <div class="us-tooltip__arrow"></div>
-                     <strong>Tooltip</strong> message content
-                   </div>
+                   <div class="us-tooltip__note"><strong>Tooltip</strong> message content</div>
                  </div>
                </div>
                     <div class="styleguide__block-example-class">.us-tooltip--top</div>
@@ -448,10 +398,7 @@
                  </div>
                  <div class="us-tooltip__wrapper">
                    <div class="us-tooltip__icon"></div>
-                   <div class="us-tooltip__note">
-                     <div class="us-tooltip__arrow"></div>
-                     <strong>Tooltip</strong> message content
-                   </div>
+                   <div class="us-tooltip__note"><strong>Tooltip</strong> message content</div>
                  </div>
                </div>
                     <div class="styleguide__block-example-class">.us-tooltip--bottom</div>
@@ -464,10 +411,7 @@
                  </div>
                  <div class="us-tooltip__wrapper">
                    <div class="us-tooltip__icon"></div>
-                   <div class="us-tooltip__note">
-                     <div class="us-tooltip__arrow"></div>
-                     <strong>Tooltip</strong> message content
-                   </div>
+                   <div class="us-tooltip__note"><strong>Tooltip</strong> message content</div>
                  </div>
                </div>
                     <div class="styleguide__block-example-class">.us-tooltip--left</div>
@@ -480,10 +424,7 @@
                  </div>
                  <div class="us-tooltip__wrapper">
                    <div class="us-tooltip__icon"></div>
-                   <div class="us-tooltip__note">
-                     <div class="us-tooltip__arrow"></div>
-                     <strong>Tooltip</strong> message content
-                   </div>
+                   <div class="us-tooltip__note"><strong>Tooltip</strong> message content</div>
                  </div>
                </div>
                     <div class="styleguide__block-example-class">.us-tooltip--right</div>
@@ -496,10 +437,7 @@
                  </div>
                  <div class="us-tooltip__wrapper">
                    <div class="us-tooltip__icon"></div>
-                   <div class="us-tooltip__note">
-                     <div class="us-tooltip__arrow"></div>
-                     <strong>Tooltip</strong> message content
-                   </div>
+                   <div class="us-tooltip__note"><strong>Tooltip</strong> message content</div>
                  </div>
                </div>
                     <div class="styleguide__block-example-class">.us-tooltip--small</div>
@@ -513,10 +451,7 @@
                  &lt;/div&gt;
                  &lt;div class="us-tooltip__wrapper"&gt;
                    &lt;div class="us-tooltip__icon"&gt;&lt;/div&gt;
-                   &lt;div class="us-tooltip__note"&gt;
-                     &lt;div class="us-tooltip__arrow"&gt;&lt;/div&gt;
-                     &lt;strong&gt;Tooltip&lt;/strong&gt; message content
-                   &lt;/div&gt;
+                   &lt;div class="us-tooltip__note"&gt;&lt;strong&gt;Tooltip&lt;/strong&gt; message content&lt;/div&gt;
                  &lt;/div&gt;
                &lt;/div&gt;
                 </code></pre>
@@ -529,15 +464,15 @@
              
                   </code></pre>
               </div>
+            
             </div>
-      </div>
     </div>
-  <div class="container sidebar--push">
-    <p class="copyright">Copyright uSwitch Limited 2016. <a href="https://github.com/uswitch/ustyle">Github</a></p>
   </div>
-  <script type="text/javascript" src='https://www.gstatic.com/charts/loader.js'>
-  </script>
-  <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+  <div class="container">
+    <p class="copyright">Copyright uSwitch Limited 2015. <a href="https://github.com/uswitch/ustyle.git">Github</a></p>
+  </div>
+  <script src="https://www.google.com/jsapi"></script>
+  <script src="https://cdn.polyfill.io/v1/polyfill.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="/js/app.js"></script>
 </body>
