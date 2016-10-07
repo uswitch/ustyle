@@ -79,8 +79,10 @@ $tab-active-color: $tab-border-color;
     }
   }
 
-  .js.ie8 & {
-    display: block;
+  @if $media-query-legacy-support {
+    .js.ie8 & {
+      display: block;
+    }
   }
 }
 
@@ -206,8 +208,10 @@ $tab-active-color: $tab-border-color;
     }
   }
 
-  .js.ie8 & {
-    display: none;
+  @if $media-query-legacy-support {
+    .js.ie8 & {
+      display: none;
+    }
   }
 
   .us-tabs-nav-mainlink {
@@ -256,9 +260,11 @@ $tab-active-color: $tab-border-color;
     }
   }
 
-  .ie8.js & {
-    display: none;
-    max-height: none;
+  @if $media-query-legacy-support {
+    .ie8.js & {
+      display: none;
+      max-height: none;
+    }
   }
 
   .us-tab.active & {
