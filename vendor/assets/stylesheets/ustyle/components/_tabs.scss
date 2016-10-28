@@ -221,8 +221,8 @@ $tab-active-color: $tab-border-color;
     &:after {
       position: absolute;
       right: ($gutter-width / 2);
-      transition: transform .2s ease;
       transform: rotate(90deg);
+      transition: transform .2s ease;
     }
 
     .us-tab.active & {
