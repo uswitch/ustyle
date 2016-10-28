@@ -191,7 +191,7 @@ $tab-active-color: $tab-border-color;
   @extend %container;
 
   @include respond-to(to-tablet) {
-    padding: 0 !important;
+    padding: 0;
   }
 }
 

@@ -3,9 +3,14 @@
 // @partial icons
 //
 // @description
-//   Icons are created by chaining classes together with `us-icon`. There are 3 sizes, 16px, 32px, 64px, these are named `us-icon--small`, `us-icon--medium` and `us-icon--large` respectively.
+//   Icons are created by chaining classes together with `us-icon`.
 //
-//   There are 5 colours for each icon, *white*, *typegrey*, *inputgrey*, *typecyan* and *custom*. Where *custom* can differ depending on what the icon represents (for logos, the custom tends to be the brand colour of that company). If you want an icon to be part of a **:pseudo** element (:before, :after) then suffix your icon name with `--before` and `--after` respectively. To have an icon standalone with text as fallback, add `us-icon--notext` to the element.
+//   ### Usage
+//   * Suffixing with `--{size}` where size is one of *small*, *medium* or *large* will change the size of the icon from 16px, 32px and 64px respectively.
+//   * `.us-icon--{size}--sm-tablet` and `.us-icon--{size}--mobile` will override icon sizes for those screen size
+//   * `.us-icon--notext` allows you to set any element with no content to an icon
+//   * `.us-icon--before` and `.us-icon--after` allow you to set the icon on the *:pseudo* elements of that element.
+//   * blue, typegrey, inputgrey, typecyan and custom are colors that can be set on the icon with `.us-icon--{color}`
 //
 // @state us-icon--alarm
 // @state us-icon--android
@@ -216,19 +221,12 @@
     $width: nth($size, 2);
     $height: nth($size, 3);
 
-    .us-icon--#{$size-name},
-    .us-icon--#{$size-name}--after:after,
-    .us-icon--#{$size-name}--before:before {
-      width: $width;
-      height: $height;
-    }
-
     @include respond-to(to-small-tablet) {
       .us-icon--#{$size-name}--sm-tablet,
       .us-icon--#{$size-name}--after--sm-tablet:after,
       .us-icon--#{$size-name}--before--sm-tablet:before {
-        width: $width !important;
-        height: $height !important;
+        width: $width;
+        height: $height;
       }
     }
 
@@ -236,9 +234,16 @@
       .us-icon--#{$size-name}--mobile,
       .us-icon--#{$size-name}--after--mobile:after,
       .us-icon--#{$size-name}--before--mobile:before {
-        width: $width !important;
-        height: $height !important;
+        width: $width;
+        height: $height;
       }
+    }
+
+    .us-icon--#{$size-name},
+    .us-icon--#{$size-name}--after:after,
+    .us-icon--#{$size-name}--before:before {
+      width: $width;
+      height: $height;
     }
   }
 }
