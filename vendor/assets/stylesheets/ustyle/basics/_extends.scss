@@ -3,6 +3,11 @@
 // repetition and keep everything compartmentalised in CSS
 // -------------------------
 
+%small-font {
+  font-size: em(14px);
+  line-height: 1.15em;
+}
+
 %float-left {
   float: left;
 }
