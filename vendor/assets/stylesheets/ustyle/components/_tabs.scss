@@ -221,6 +221,8 @@ $tab-active-color: $tab-border-color;
     &:after {
       position: absolute;
       right: ($gutter-width / 2);
+      transition: transform .2s ease;
+      transform: rotate(90deg);
     }
 
     .us-tab.active & {
@@ -231,7 +233,7 @@ $tab-active-color: $tab-border-color;
     &:hover:after,
     .us-tab.active &:after {
       @include icon-color("typecyan");
-      transform: rotate(90deg);
+      transform: rotate(-90deg);
     }
 
     &:hover:before,
