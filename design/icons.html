@@ -24,7 +24,7 @@
       <span class="logo__icon us-icon--notext us-icon--ustyle us-icon--typegrey us-icon--medium--mobile us-icon--large"></span>
       uStyle
     </a>
-    <a class="version" href="https://github.com/uswitch/ustyle/releases/tag/v1.8.1">v1.8.1</a>
+    <a class="version" href="https://github.com/uswitch/ustyle/releases/tag/v1.8.2">v1.8.2</a>
   </header>
   <a href="javascript:void(0);" class="nav-mobile js-toggle__link us-tablet--hidden" data-target="sidebar"><span class="nav-mobile__hamburger">Sidebar</span></a>
   <div class='sidebar'>
@@ -91,8 +91,20 @@
   </h2>
 
   <div class="styleguide__description">
-    <p>   Icons are created by chaining classes together with <code>us-icon</code>. There are 3 sizes, 16px, 32px, 64px, these are named <code>us-icon--small</code>, <code>us-icon--medium</code> and <code>us-icon--large</code> respectively.</p>
-<p>   There are 5 colours for each icon, <em>white</em>, <em>typegrey</em>, <em>inputgrey</em>, <em>typecyan</em> and <em>custom</em>. Where <em>custom</em> can differ depending on what the icon represents (for logos, the custom tends to be the brand colour of that company). If you want an icon to be part of a <strong>:pseudo</strong> element (:before, :after) then suffix your icon name with <code>--before</code> and <code>--after</code> respectively. To have an icon standalone with text as fallback, add <code>us-icon--notext</code> to the element.</p>
+    <p>   Icons are created by chaining classes together with <code>us-icon</code>.</p>
+<h3 id="usage">Usage</h3>
+<ul>
+<li><p>Suffixing with <code>--{size}</code> where size is one of <em>small</em>, <em>medium</em> or <em>large</em> will change the size of the icon from 16px, 32px and 64px respectively.</p>
+</li>
+<li><p><code>.us-icon--{size}--sm-tablet</code> and <code>.us-icon--{size}--mobile</code> will override icon sizes for those screen size</p>
+</li>
+<li><p><code>.us-icon--notext</code> allows you to set any element with no content to an icon</p>
+</li>
+<li><p><code>.us-icon--before</code> and <code>.us-icon--after</code> allow you to set the icon on the <em>:pseudo</em> elements of that element.</p>
+</li>
+<li><p>blue, typegrey, inputgrey, typecyan and custom are colors that can be set on the icon with <code>.us-icon--{color}</code></p>
+</li>
+</ul>
 
   </div>
 
