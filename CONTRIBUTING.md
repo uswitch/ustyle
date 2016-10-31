@@ -57,7 +57,7 @@ All output of our documentation goes to `ustyle.json` in `build/`. This contains
 1. Work off `master` and add in your awesome features.
 1. Test some more, ensure you've run this in a few projects.
 2. Ensure you commit `/dist` into your changes
-1. Run `grunt publish:{patch,minor,major}`
+1. Run `grunt publish:version:{patch,minor,major}`
 1. Voilà! You now have successfully updated and pushed the gem version, updated the stylesheets and built the styleguide. You're now a pro.
 
 Publishing
@@ -65,4 +65,4 @@ Publishing
 
 Versioning gets done automatically by the `grunt:publish` command. However without specifying a type of version, if will just publish `HEAD` without a new release. 
 
-    $ grunt:publish:{patch,minor,major}
+    $ grunt publish:version:{patch,minor,major}
