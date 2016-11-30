@@ -7,10 +7,10 @@
 //
 //   ### Usage
 //   * Suffixing with `--{size}` where size is one of *small*, *medium* or *large* will change the size of the icon from 16px, 32px and 64px respectively.
-//   * `.us-icon--{size}--sm-tablet` and `.us-icon--{size}--mobile` will override icon sizes for those screen size
-//   * `.us-icon--notext` allows you to set any element with no content to an icon
+//   * `.us-icon--{size}--sm-tablet` and `.us-icon--{size}--mobile` will override icon sizes for those screen size.
+//   * `.us-icon--notext` allows you to set any element with no content to an icon.
 //   * `.us-icon--before` and `.us-icon--after` allow you to set the icon on the *:pseudo* elements of that element.
-//   * blue, typegrey, inputgrey, typecyan and custom are colors that can be set on the icon with `.us-icon--{color}`
+//   * blue, typegrey, inputgrey, typecyan and custom are colors that can be set on the icon with `.us-icon--{color}`.
 //
 // @state us-icon--alarm
 // @state us-icon--android
@@ -259,4 +259,3 @@
     }
   }
 }
-
