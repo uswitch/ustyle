@@ -27,7 +27,7 @@
   <div class="us-grid-row">
     <div class="us-col-6">
       <h3>Spacing</h3>
-      <p>Every time our logo appears, there should always be minimum clear space around it.This can be worked out by taking the width of the left stem (see ‘S’ in the diagram), and applying it around the logo. This area should always be kept clear.</p>
+      <p>Every time our logo appears, there should always be minimum clear space around it. This can be worked out by taking the width of the left stem (see ‘S’ in the diagram), and applying it around the logo. This area should always be kept clear.</p>
     </div>
     <div class="us-col-6">
       <p><strong>s</strong> = The width of the left stem of the U.</p>
@@ -83,7 +83,7 @@
   <div class="us-grid-row">
     <div class="us-col-6">
       <h3>White logo placement</h3>
-      <p>Our white logo can be placed over any of the uSwitch blues, or dark-coloured backgrounds, and even on simple photography. However, it should not be placed on a light colour or complex imagery as it doesn’t stand out so well..</p>
+      <p>Our white logo can be placed over any of the uSwitch blues, or dark-coloured backgrounds, and even on simple photography. However, it should not be placed on a light colour or complex imagery as it doesn’t stand out so well.</p>
     </div>
     <div class="us-col-6"></div>
   </div>
@@ -93,7 +93,7 @@
   <div class="us-grid-row">
     <div class="us-col-6">
       <h3>Partner / Off site usage</h3>
-      <p>For off-site and partner use we have a logo variant that includes the site URL. The same usage guidelines apply</p>
+      <p>For off-site and partner use we have a logo variant that includes the site URL. The same usage guidelines apply.</p>
     </div>
     <div class="us-col-6">
       <span class="us-icon--before us-icon--uswitch--before us-icon--custom--before us-icon--large--before"><strong class="us-color--blue">uSwitch.com</strong></span>
