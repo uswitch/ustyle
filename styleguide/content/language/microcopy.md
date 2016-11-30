@@ -4,7 +4,7 @@ name: Microcopy
 
 ## Microcopy
 
-*Anything shorter than a paragraph is classified as microcopy. Think anything from tooltips to button text.* 
+*Anything shorter than a paragraph is classified as microcopy. Think anything from tooltips to button text.*
 
 <ul class='table-of-contents'>
 <li><a href="#Help text/tool tips">Help text/tool tips</a></li>
@@ -13,14 +13,14 @@ name: Microcopy
 <li><a href="#Small print">Small print</a></li>
 <li><a href="#Caveats">Caveats</a></li>
 <li><a href="#Button text">Button text</a></li>
-<li><a href="#CTAs">CTAs</a></li>
+<li><a href="#CTAs">Calls to Action</a></li>
 <li><a href="#Form text, form labels">Form text, form labels</a></li>
 <li><a href="#Placeholder text for fields">Placeholder text for fields</a></li>
 <li><a href="#Error text">Error text</a></li>
 </ul>
 
 <span id="Help text/tool tips"></span>
-**Help text/tool tips** 
+**Help text/tool tips**
 
 <img alt="image" class="us-img--full trailered" src="/images/tooltip.png">
 
@@ -58,35 +58,35 @@ Small print reassures users and is vital for transparency.
 As long as any compliance rules are taken into account, you should treat this copy like any other, and have a responsibility to make this text as comprehensible as possible to a user
 
 <span id="Caveats"></span>
-**Caveats** 
+**Caveats**
 
 <img alt="image" class="us-img--full trailered" src="/images/caveat.png">
 
-Small print text to back up any absolute claims (i.e. savings figures), denoted with an asterisk, followed by an anchor and double-anchor for further caveats. The caveat must appear on the same page as the symbol. 
+Small print text to back up any absolute claims (i.e. savings figures), denoted with an asterisk, followed by an anchor and double-anchor for further caveats. The caveat must appear on the same page as the symbol.
 
 <ul>
-<li>For the first caveat on a page use \*</li>
-<li>For the second use &#8224;</li>
-<li>And for the third, use &#8225;</li>
+<li>For the first caveat on a page use \*.</li>
+<li>For the second use &#8224;.</li>
+<li>And for the third, use &#8225;.</li>
 </ul>
 
 Examples of when caveats are required...
 
 <ul>
-	<li>Get the best iPhone deal with uSwitch*</li>
-	<li>Get the cheapest iPhone deal with uSwitch&#8224;</li>
+	<li>Get the best iPhone deal with uSwitch*.</li>
+	<li>Get the cheapest iPhone deal with uSwitch&#8224;.</li>
 </ul>
 
 And when they're not required...
 <ul>
-	<li>Find a better energy deal</li>
-	<li>How to find the best iphone deal</li>
+	<li>Find a better energy deal.</li>
+	<li>How to find the best iphone deal.</li>
 </ul>
 
 <span id="Button text"></span>
 **Button text**
 
-Very short (1-3 words) actionable description of what happens when the button clicked, namely, what's on the next page. 
+Very short (1-3 words) actionable description of what happens when the button clicked, namely, what's on the next page.
 
 Button text should “keep its promise” and properly set up expectations of what comes next
 
@@ -95,7 +95,7 @@ It should be concise (1-3 words), should not contain exclamation points, should 
 First person can be used (e.g. “Tell me more”).
 
 <span id="CTAs"></span>
-**CTAs** 
+**Calls to Action**
 
 <div class="us-grid-row">
   <div class="us-col-md-10">
@@ -103,38 +103,38 @@ First person can be used (e.g. “Tell me more”).
   </div>
 </div>
 
-An introduction to button text, usually one to two lines, that provides a reason to click the accompanying button
+An introduction to button text, usually one to two lines, that provides a reason to click the accompanying button.
 
 This is only used on editorial pages. Sentence case should be used, no exclamation points, and the text must relate to the button and its action. A CTA should not end with punctuation (unlike a standard paragraph).
 
 Should not be more than two lines, usually made up of a title and copy.
 
 <span id="Form text, form labels"></span>
-**Form text, form labels** 
+**Form text, form labels**
 
 Description of what information is required from the user. Always aim for clarity and be consistent – if using questions ('Where do you live?') or statements ('Address')
 
 Second person is acceptable, and use tool tips to explain any terms that may be unfamiliar
 
 Form label naming conventions:
-- First name 
+- First name
 - Last name
-- Date of birth 
-- Email 
+- Date of birth
+- Email
 - Password
-- Postcode 
-- Address 
+- Postcode
+- Address
 - Main account holder’s name
 - Driver’s name
 - Employment status
 - Annual income (before tax)
 
 <span id="Placeholder text for fields"></span>
-**Placeholder text for fields** 
+**Placeholder text for fields**
 
-Pre-populated text in a field that is supposed to serve as an example or a necessary instruction. 
+Pre-populated text in a field that is supposed to serve as an example or a necessary instruction.
 
-We only use placeholder text for instructions, as a last resort, when we have no space for labels, or for email/password. 
+We only use placeholder text for instructions, as a last resort, when we have no space for labels, or for email/password.
 
 Symbols can be used (e.g. £ ) and we use sentence case. Our standard placeholder text is:
 
@@ -153,18 +153,18 @@ Text that is triggered by a user trying to move forward without providing reques
 
 Error text should be as specific and as useful/helpful as possible, but should also be short; sentence fragments are acceptable.
 
-Never be alarming, technical, or condescending (in life, but especially when it comes to error text)
+Never be alarming, technical, or condescending (in life, but especially when it comes to error text).
 
 <span id="H1"></span>
-**H1** 
+**H1**
 
-Short description of the page, at a glance. 
+Short description of the page, at a glance.
 
 This text should be genuinely helpful, in sentence case, and should be kept as short as possible.
 
 <span id="H1"></span>
 **Introductory text**
 
-A short (two lines at most) introduction that follows on from the H1. Describes the following content and encourages the user to read on, and provides as much relevant information as possible. 
+A short (two lines at most) introduction that follows on from the H1. Describes the following content and encourages the user to read on, and provides as much relevant information as possible.
 
-This text should be genuinely helpful, sentence case, and should tell the user whether they are in the right place. 
+This text should be genuinely helpful, sentence case, and should tell the user whether they are in the right place.
