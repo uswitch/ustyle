@@ -41,7 +41,7 @@ We are connected to the individual needs of our customers. In fact, we work to u
 We know what we’re talking about because we’re experts in what we do. We can demonstrate an unparalleled in-depth and connected understanding of our customers, the economy, household finances and the industries in which we operate. We’re always frank. We fight for what we believe is fair. And we do what we believe is right to build respect and trust.
 
 ### Personal and engaging
-We are a human brand that talks to our customers, not preaches. We treat them like knowledgeable peers. Always consistent in our tone, look and customer experience across all touch points. To make things easy to understand, information is visualised and bought to life, enabling our customers to see how they can save money or get better value for money.
+We are a human brand that talks to our customers, not preaches. We treat them like knowledgeable peers. Always consistent in our tone, look and customer experience across all touch points. To make things easy to understand, information is visualised and brought to life, enabling our customers to see how they can save money or get better value for money.
 
 ### Experimental and bold
 We are pro-active, always adapting and pre-empting changes in customer mood and wider markets in which we exist. It lets our customers connect and interact with us with confidence.And we are proud of our BETA mindset. We stay agile, but we never look unpredictably experimental. Rather, we are open, current, honest, committed and consistent with our advice
