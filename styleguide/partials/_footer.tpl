@@ -1,5 +1,5 @@
 <div class="container sidebar--push">
-  <p class="copyright">Copyright uSwitch Limited 2016. <a href="https://github.com/{{project.repository}}">Github</a></p>
+  <p class="copyright">Copyright uSwitch Limited 2016. <a href="https://github.com/{{project.repository}}">GitHub</a></p>
 </div>
 <script type="text/javascript" src='https://www.gstatic.com/charts/loader.js'>
 </script>
