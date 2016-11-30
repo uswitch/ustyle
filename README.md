@@ -46,7 +46,7 @@ And then run in your terminal:
 
     $ bundle
 
-Version locking - if you're unsure about when you're going to have the change to upgrade again.
+Version locking - if you're unsure about when you're going to have the chance to upgrade again.
 
 ```ruby
 gem 'ustyle', git: "git@github.com:uswitch/ustyle.git", tag: "VERSION"
@@ -88,6 +88,6 @@ See [CONTRIBUTING.md](https://github.com/uswitch/ustyle/blob/master/CONTRIBUTING
 
 ## Licences
 
-- Source code is licenced under Apache v2.0 licence
+- Source code is licenced under the Apache v2.0 licence
 - All icons, except the uSwitch icon are licenced under [CC - Attribution - No Derivatives 4.0](http://creativecommons.org/licenses/by-nd/4.0/)
 - uSwitch icon is licenced under [CC - Attribution - NonCommercial - NoDerivates 4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/)
