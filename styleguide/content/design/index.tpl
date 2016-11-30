@@ -24,7 +24,7 @@ name: Imagery
   <p>Images are more interesting when they have a point of focus.</p>
 
   <h4>Contextual</h4>
-  <p>People and objects should be properly contextualised. Avoid cropping an image so severely that it’s setting is lost.</p>
+  <p>People and objects should be properly contextualised. Avoid cropping an image so severely that its setting is lost.</p>
 
   <h4>Local</h4>
   <p>Make sure clothing, architectural features, light and style have a UK feel.</p>
@@ -39,7 +39,7 @@ name: Imagery
   <p>Lifestyle shots should be reportage in style, documenting people in their day-to-day lives. Subjects should be unposed, and within their natural environment. People should never be cut out or appear over solid backgrounds. Images should be relatable and feature real, everyday people. Avoid fake or forced emotions as it can seem ingenuine. A range of gender, race, and age should be represented.</p>
 
   <h4>Products and objects</h4>
-  <p>Object focused imagery may be cut out and appear over our brand colours or on white. When cut out, the whole object must be appear – edges must never be cut off.</p>
+  <p>Object focused imagery may be cut out and appear over our brand colours or on white. When cut out, the whole object must appear – edges must never be cut off.</p>
 
   <p>When objects aren’t cut out, they should be realistic in their setting and not appear staged. Images should be straightforward, not overly metaphor based, and should not appear noticeably manipulated.</p>
 
@@ -70,10 +70,10 @@ name: Imagery
 
   <ol>
   <li><a href="http://www.shutterstock.com">www.shutterstock.com</a></li>
-  <p>Monthly subscription which allows us to download 750 images per month</p>
+  <p>Monthly subscription which allows us to download 750 images per month.</p>
 
   <li><a href="http://www.istock.com">www.istock.com</a></li>
-  <p>Monthly subscription which allows us to download 10 signature images per month</p>
+  <p>Monthly subscription which allows us to download 10 signature images per month.</p>
 
   <li><a href="http://www.500px.com">www.500px.com</a></li>
   <p>Images are purchased individually.</p>
@@ -101,10 +101,10 @@ name: Imagery
   <p>Rights-managed images often have limitations in regards to the following:</p>
 
   <ul>
-  <li>How many times you can use them</li>
-  <li>Regions you can use them in</li>
-  <li>Type of media you can use them on</li>
-  <li>Length of time you can use them for</li>
+  <li>How many times you can use them.</li>
+  <li>Regions you can use them in.</li>
+  <li>Type of media you can use them on.</li>
+  <li>Length of time you can use them for.</li>
   </ul>
 
   <h3>2. Royalty-free</h3>
@@ -113,9 +113,9 @@ name: Imagery
   <p>We prefer royalty-free images as there’s fewer restrictions around using them. However even with this type of licence, there may be some usage restrictions, so it’s important to read the licence agreements and act accordingly.</p>
 
   <ul>
-  <li><a href="http://www.shutterstock.com/license">Shutterstock licensing</a></li>
-  <li><a href="http://www.istockphoto.com/legal/license-agreement">iStock licensing</a></li>
-  <li><a href="http://static.500px.net/docs/commercial_licensing_agreement.pdf">500px licensing</a></li>
+  <li><a href="http://www.shutterstock.com/license">Shutterstock licensing</a>.</li>
+  <li><a href="http://www.istockphoto.com/legal/license-agreement">iStock licensing</a>.</li>
+  <li><a href="http://static.500px.net/docs/commercial_licensing_agreement.pdf">500px licensing</a>.</li>
   </ul>
 
   <h3>3. Creative Commons</h3>
@@ -129,18 +129,18 @@ name: Imagery
   <h3>How do you know if you can use an image?</h3>
   <h4>Only use an image if:</h4>
   <ol type="a">
-   <li>You’ve purchased it</li>
-   <li>You’ve taken it yourself or hired a photographer to take it for you</li>
-   <li>You have written permission from the owner of the image</li>
-   <li>It’s Creative Commons and you’ve complied with any usage conditions</li>
-   <li>It’s Public Domain</li>
+   <li>You’ve purchased it.</li>
+   <li>You’ve taken it yourself or hired a photographer to take it for you.</li>
+   <li>You have written permission from the owner of the image.</li>
+   <li>It’s Creative Commons and you’ve complied with any usage conditions.</li>
+   <li>It’s Public Domain.</li>
   </ol>
 
  <h4>Never take images directly from:</h4>
   <ul>
-   <li>Search engines (Google images etc.)</li>
-   <li>Other people’s or organisation’s social media (embedding a tweet is ok if you ask the owner’s permission)</li>
-   <li>News outlets</li>
+   <li>Search engines (Google images etc.).</li>
+   <li>Other people’s or organisation’s social media (embedding a tweet is ok if you ask the owner’s permission).</li>
+   <li>News outlets.</li>
   </ul>
 
   <p>Keep in mind that manipulating an image that isn’t yours (adding a filter, cropping etc) doesn’t give you the right to use it.</p>
@@ -182,56 +182,56 @@ name: Imagery
 
   <strong>Hero article</strong>
   <ul>
-  <li>Display size: 130w x 147h</li>
-  <li>Minimum required size: 260w x 294h</li>
+  <li>Display size: 130w x 147h.</li>
+  <li>Minimum required size: 260w x 294h.</li>
   </ul>
 
   <strong>Article</strong>
   <ul>
-  <li>Display size: 150w x 170h</li>
-  <li>Minimum required size: 300w x 340h</li>
+  <li>Display size: 150w x 170h.</li>
+  <li>Minimum required size: 300w x 340h.</li>
   </ul>
 
   <strong>Mobile phones</strong>
   <ul>
-  <li>Display size: 75w x 125h</li>
-  <li>Minimum required size: 150w x 250h</li>
+  <li>Display size: 75w x 125h.</li>
+  <li>Minimum required size: 150w x 250h.</li>
   </ul>
 
   <strong>Provider logos</strong>
   <ul>
-  <li>Display size: 100w x 35h</li>
-  <li>Minimum required size: 200w x 70h</li>
+  <li>Display size: 100w x 35h.</li>
+  <li>Minimum required size: 200w x 70h.</li>
   </ul>
 
   <h4>Tacticals</h4>
 
   <strong>Hero article</strong>
   <ul>
-  <li>Display size: 250w x 200h</li>
-  <li>Minimum required size: 500w x 400h</li>
+  <li>Display size: 250w x 200h.</li>
+  <li>Minimum required size: 500w x 400h.</li>
   </ul>
 
   <h4>Guides</h4>
 
   <strong>Top banner</strong>
   <ul>
-  <li>Display size: 1170hw x 168h</li>
-  <li>Minimum required size: Not currently Retina</li>
+  <li>Display size: 1170hw x 168h.</li>
+  <li>Minimum required size: Not currently Retina.</li>
   </ul>
 
   <strong>Content</strong>
   <ul>
-  <li>Display size: 770w x flexible height</li>
-  <li>Minimum required size: Not currently Retina</li>
+  <li>Display size: 770w x flexible height.</li>
+  <li>Minimum required size: Not currently Retina.</li>
   </ul>
 
   <h4>News</h4>
 
   <strong>Content</strong>
   <ul>
-  <li>Display size: 800w x flexible height</li>
-  <li>Minimum required size: Not currently Retina</li>
+  <li>Display size: 800w x flexible height.</li>
+  <li>Minimum required size: Not currently Retina.</li>
   </ul>
 </div>
 
