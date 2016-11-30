@@ -8,8 +8,8 @@
 //   * For inputs that have a label above them, place the validation message between the input and the label.
 //   * Use success validation messages only when it makes sense to contextually. For example, they can help to reassure users about the data they entered when multiple criteria need to be satisfied, e.g. password fields.
 //
-// @state .us-validation--error - Error styling for incorrect data on forms
-// @state .us-validation--success - Success styling for correct forms
+// @state .us-validation--error - Error styling for incorrect data on forms.
+// @state .us-validation--success - Success styling for correct forms.
 //
 // @markup
 //   <div class="us-field">
