@@ -3,9 +3,9 @@ template: simple.tpl
 name: Introduction
 ---
 <p>
-  Our pattern library comes as an easily distributed package, ready to use in multiple programming environments. It contains our basic CSS components and correct usage, as well as JavaScript components that are widely used across the website.
+  Our pattern library comes as a easily distributed package, ready to use in multiple programming environments. It contains our basic CSS components and correct usage, as well as JavaScript components that are widely used across the website.
 </p>
-<a class="us-btn us-btn--small" href="https://github.com/uswitch/ustyle">View on GitHub</a>
+<a class="us-btn us-btn--small" href="http://github.com/uswitch/ustyle">View on github</a>
 <div class="us-content-group mobile-bordered">
   <h2 class="trailered">Distribution methods</h2>
   <div class="us-grid-row">
@@ -18,7 +18,7 @@ name: Introduction
     <div class="us-col-md-6 trailered">
       <img src="/images/bower-logo.png" alt="Bower logo" class="distro-image">
       <h3>Bower package</h3>
-      <p>Install it as a bower package. This will pull down the original <code>.scss</code> files and compiled static CSS + JS.</p>
+      <p>Install is as a bower package. This will pull down the original <code>.scss</code> files and compiled static CSS + JS.</p>
       <pre><code class="javascript">
         "dependencies": {
           "ustyle": "git@github.com:uswitch/ustyle.git#~0.19.1"
@@ -88,5 +88,5 @@ name: Introduction
 </div>
 <div class="us-content-group mobile-bordered">
   <h2>Installation</h2>
-  <p>See our <a href="https://github.com/uswitch/ustyle">GitHub</a> for documentation on installing this across applications.</p>
+  <p>See our github for documentation on installing this across applications.</p>
 </div>

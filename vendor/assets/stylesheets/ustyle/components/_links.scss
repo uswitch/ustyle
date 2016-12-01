@@ -1,11 +1,11 @@
 // @page Pattern Library/Components
 // @name Anchor links
+// 
+// @description 
+//   Anchor tag styling, with and without a border
 //
-// @description
-//   Anchor tag styling, with and without a border.
-//
-// @state .us-link - Adds a border bottom to the link.
-// @state .us-link--light - Changes the link colours to white for when links are placed on dark backgrounds.
+// @state .us-link - Adds a border bottom to the link
+// @state .us-link--light - Changes the link colors to white for when links are placed on dark backgrounds
 //
 // @markup
 //   <a href="#" class="{$modifiers}">Link</a>

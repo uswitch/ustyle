@@ -3,15 +3,15 @@
     Our grid is a 12 column grid, with similar sizes to that of Bootstrap. We also adhere to the same naming standards for device breakpoints.
   </p>
   <ul>
-    <li>Default gutter width: <strong>15px either side</strong>.</li>
-    <li>Large container width: <strong>1170px</strong>.</li>
-    <li>Desktop container width: <strong>970px</strong>.</li>
-    <li>Tablet container width: <strong>770px</strong>.</li>
+    <li>Default gutter width: <strong>15px either side</strong></li>
+    <li>Large container width: <strong>1170px</strong></li>
+    <li>Desktop container width: <strong>970px</strong></li>
+    <li>Tablet container width: <strong>770px</strong></li>
   </ul>
   <ul>
     <li>The parent container is <code>.us-container</code>, you must have this to start building the uSwitch layouts.</li>
-    <li><code>.us-grid-row</code> is then used when you are building rows of columns (gives a negative margin to the container so they align correctly).</li>
-    <li>All grid class names are prefixed with <code>.us-col-</code>.</li>
+    <li><code>.us-grid-row</code> is then used when you are building rows of columns (gives a negative margin to the container so they align correctly)</li>
+    <li>All grid class names are prefixed with <code>.us-col-</code></li>
   </ul>
 </div>
 <div class="styleguide__block">

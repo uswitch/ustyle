@@ -1,20 +1,20 @@
 // @page Pattern Library/Components
 // @name USPs
 //
-// @description
+// @description 
 // USPs (Unique Selling Points) are used within tables and on splash pages to highlight offers within a deal, and also to differentiate deals.
 // General guidelines; There should only be one USP per deal. Text within USPs should be written in sentence case (not uppercase).
 //
-// @state .us-usp--blue - uSwitch related.
-// @state .us-usp--orange - Rewards (money/points).
-// @state .us-usp--purple - Gifts eg. free TV.
-// @state .us-usp--yellow - Vouchers.
-// @state .us-usp--typecyan - Micro persuasions eg. most popular, half price.
-// @state .us-usp--green - Renewable and environmentally friendly.
-// @state .us-usp--navy - Generic vertical specific USP.
-// @state .us-usp--cyan - Generic vertical specific USP.
-// @state .us-usp--typegrey - Generic vertical specific USP.
-// @state .us-usp--red - Generic vertical specific USP.
+// @state .us-usp--blue - uSwitch related
+// @state .us-usp--orange - Rewards (money/points)
+// @state .us-usp--purple - Gifts eg. free TV
+// @state .us-usp--yellow - Vouchers
+// @state .us-usp--typecyan - Micro persuasions eg. most popular, half price
+// @state .us-usp--green - Renewable and environmentally friendly
+// @state .us-usp--navy - Generic vertical specific USP
+// @state .us-usp--cyan - Generic vertical specific USP
+// @state .us-usp--typegrey - Generic vertical specific USP
+// @state .us-usp--red - Generic vertical specific USP
 //
 // @markup
 //   <div class='us-usp {$modifiers}'>Shortened USP</div>

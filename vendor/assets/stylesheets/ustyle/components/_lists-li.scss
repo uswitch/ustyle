@@ -4,7 +4,7 @@
 // @description
 //   Our default numbered list styling.
 //
-// @state .us-custom-list-alt - Allows us to use the lists on hero/blue backgrounds.
+// @state .us-custom-list-alt - allows us to use the lists on hero/blue backgrounds.
 //
 // @markup
 //   <ul class='us-numbered-list {$modifiers}'>
@@ -62,9 +62,7 @@
 // @name Ticked list
 //
 // @description
-//   Our default ticked list styling.
-//
-// @state .us-custom-list-alt - Allows us to use the lists on hero/blue backgrounds.
+//   Our default ticked list styling. `.us-custom-list-alt` allows us to use the lists on hero/blue backgrounds.
 //
 // @markup
 //   <ul class='us-ticked-list'>

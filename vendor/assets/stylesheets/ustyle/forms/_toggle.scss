@@ -2,15 +2,15 @@
 // @name Toggle
 //
 // @description
-//  Toggle buttons provide an alternative way of displaying radio groups with a small number of options to a user.
+//  Toggle buttons provide and alternative way of displaying radio groups with a small number of options to a user.
 //  IE8 support is included with `radioToggle.js` which sets a `.checked` class on the radio button when clicked.
 //
 //  #### Best practices
-//  * Use as an alternative to radio groups that have short labels for each option (Yes/No, Opt-in/Opt-out).
+//  * Use as an alternation to radio groups that have short labels for each option (Yes/No, Opt-in/Opt-out).
 //  * For forms that have many short radio group questions in them, toggle buttons provide a better experience for quickly selecting answers on both desktop and mobile due to larger visible click areas for each option.
 //  * Limit the number of options in the toggle group to 3.
 //
-// @state .us-toggle__btn--disabled - Visual styling for toggle buttons that can't be interacted with.
+// @state .us-toggle__btn--disabled - Visual styling for toggle buttons that can't be interacted with
 //
 // @javascript
 //   var radioToggle = new RadioToggle({
