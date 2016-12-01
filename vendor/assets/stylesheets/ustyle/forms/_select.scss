@@ -2,16 +2,16 @@
 // @name Selects
 //
 // @description
-//   Select boxes allow users to choose and option or options from a list of options.
+//   Select boxes allow users to choose an option or options from a list of options.
 //
 //   #### Best practices
 //   * Use select boxes when choosing one or more options from a list of related, but mutually exclusive options e.g. profession, title, month.
 //   * It can be tempting to put many things in a select box for users to choose from. Try to keep the list of options to between 4 and 15 so the user doesn't become overwhelmed with choices.
 //
 // @state .us-form-select--multiple - Removes the drop down arrow and adjusts the padding of <option> elements. Useful when using <select> elements that have the size="" attribute set to anything higher than 1.
-// @state .us-form-select--blocked - Fluid style
-// @state .us-form-select--error - Visual feedback for when the input has an error
-// @state .us-form-select--success - Visual feedback for when success needs to be communicated to the user
+// @state .us-form-select--blocked - Fluid style.
+// @state .us-form-select--error - Visual feedback for when the input has an error.
+// @state .us-form-select--success - Visual feedback for when success needs to be communicated to the user.
 // @state .us-form-select--disabled - Inactive state for select boxes. You may also just add the disabled attribute to the <select> element in order to achieve the same effect.
 //
 // @markup

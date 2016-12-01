@@ -2,19 +2,19 @@
 // @name Buttons
 //
 // @description
-//   Our buttons used across the site. The states give different use cases. Both `<a>` and `<button>` tags are supported. Please use `role='button'` when using in a `<a>` tag.
+//   Our buttons used across the site. The states give different use cases. Both `<a>` and `<button>` tags are supported. Please use `role='button'` when using an `<a>` tag.
 //
-// @state .us-btn--primary - Used a save/update button
-// @state .us-btn--action - Navigational button
-// @state .us-btn--secondary - Secondary
-// @state .us-btn--hero - Navy outline used for buttons on hero banners
-// @state .us-btn--reversed - White outline for dark backgrounds
-// @state .us-btn--large - Larger button for heros
-// @state .us-btn--small - Smaller button for mobile tables
-// @state .us-btn--blocked - Full width button
-// @state .us-btn--link - link style button
-// @state .us-btn--stronger - Emphasis button
-// @state .us-btn--disabled - Disabled styling (can also be styled with :disabled)
+// @state .us-btn--primary - Used as a save/update button.
+// @state .us-btn--action - Navigational button.
+// @state .us-btn--secondary - Secondary.
+// @state .us-btn--hero - Navy outline used for buttons on hero banners.
+// @state .us-btn--reversed - White outline for dark backgrounds.
+// @state .us-btn--large - Larger button for heros.
+// @state .us-btn--small - Smaller button for mobile tables.
+// @state .us-btn--blocked - Full width button.
+// @state .us-btn--link - link style button.
+// @state .us-btn--stronger - Emphasis button.
+// @state .us-btn--disabled - Disabled styling (can also be styled with :disabled).
 //
 // @markup
 //  <a href="#" class="us-btn {$modifiers}" role="button">Link Button</a>

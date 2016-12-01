@@ -7,8 +7,8 @@
 //   #### Best practices
 //   * For text inputs that are optional, add "(optional)" to the `placeholder` attribute for the input. Not highlighting required fields makes the form look less intimidating.
 //
-// @state .us-field--blocked - Blocked label styling
-// @state .us-field--inline - Inline label styling
+// @state .us-field--blocked - Blocked label styling.
+// @state .us-field--inline - Inline label styling.
 //
 // @markup
 //   <div class="us-field {$modifiers}">
@@ -63,7 +63,7 @@ $label-inline-breakpoint: tablet !default;
 }
 
 // The toggle field is for radios and checkboxes. It sits within the .us-field to allow
-// styling for labels of radio/checboxes
+// styling for labels of radio/checkboxes
 .us-field-toggle {
   label {
     @include normal-font;

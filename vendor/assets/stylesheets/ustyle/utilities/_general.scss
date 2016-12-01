@@ -4,15 +4,15 @@
 // @description
 //   These utility classes allow for some basic CSS properties to be applied across elements. The classname applies to the property that is getting set, with the value as the modifier.
 //
-// @state .us-clearfix - Clear floats
-// @state .us-float--left - Float element to the left
-// @state .us-float--right - Float element to the right
-// @state .us-align--left - Align content of the element to the left
-// @state .us-align--center - Align content of the element to the center
-// @state .us-align--right - Align content of the element to the right
-// @state .us-block - Display element as a block
-// @state .us-color--cyan - Change content color to blue, navy, typecyan, cyan, red, green
-// @state .us-list--reset - Reset list style
+// @state .us-clearfix - Clear floats.
+// @state .us-float--left - Float element to the left.
+// @state .us-float--right - Float element to the right.
+// @state .us-align--left - Align content of the element to the left.
+// @state .us-align--center - Align content of the element to the center.
+// @state .us-align--right - Align content of the element to the right.
+// @state .us-block - Display element as a block.
+// @state .us-color--cyan - Change content color to blue, navy, typecyan, cyan, red, green.
+// @state .us-list--reset - Reset list style.
 //
 // @markup
 //   <div class='{$modifiers}'>
