@@ -11,19 +11,23 @@
   .us-icon--#{$icon-name},
   .us-icon--#{$icon-name}--after:after,
   .us-icon--#{$icon-name}--before:before {
-    background-image: inline-svg("#{$base-icon-path}#{$icon-name}.svg");
+    $icon-path: "#{$base-icon-path}#{$icon-name}.svg";
+    @if $svg-inline {
+      background-image: inline-svg($icon-path);
+    } @else {
+      background-image: url(ustyle-image-path($icon-path));
+    }
   }
 }
 
 @if $load-icons {
   @each $icon in $icons {
     @if $svg-first {
-      @include svg-bg-icon($icon);  
-    }
-    @else {
+      @include svg-bg-icon($icon);
+    } @else {
       #{$svg-support-class} {
         @include svg-bg-icon($icon);
       }
     }
-  }  
+  }
 }

@@ -137,6 +137,14 @@ $base-icon-path: "icons/" !default;
 
 $svg-first: true !default;
 
+/// Sets if we inline the icons (HTTP/1.1 performance recommended) or load in the URLs of them
+/// for HTTP/2
+///
+/// @group Icons
+/// @type Bool
+
+$svg-inline: true !default;
+
 /// Default support class fir SVG support. An SVG detection system is needed for this to
 /// be implemented. Feature detection like modernizr will do the trick.
 ///
