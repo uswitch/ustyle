@@ -38,11 +38,17 @@ module.exports = function(grunt) {
         tasks: ["concat"]
       }
     },
-    svg2png: {
-      dist: {
-        src: "vendor/assets/images/icons/",
-        sizes: ["16 144", "32 288", "64 576"]
-      }
+    svgstore: {
+      options: {
+        prefix: "icon-"
+      },
+      default: {
+        files: {
+          "vendor/assets/images/icons/icons.svg": ["vendor/assets/images/icons/*.svg"],
+          "dist/icons.svg": ["vendor/assets/images/icons/*.svg"],
+          "styleguide/assets/images/icons.svg": ["vendor/assets/images/icons/*.svg"],
+        },
+      },
     },
     svgmin: {
       dist: {
@@ -179,7 +185,7 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask("lint", ["scsslint", "jscs"]);
-  grunt.registerTask("icons", ["newer:svgmin", "svg2png"]);
+  grunt.registerTask("icons", ["newer:svgmin", "svgstore"]);
 
   grunt.registerTask("build", ["sass", "sassdoc", "copy", "concat:ustyle", "uglify:ustyle", "concat:app", "lint", "postcss", "styleguide", "builder"]);
 

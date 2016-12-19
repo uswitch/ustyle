@@ -58,6 +58,7 @@
     "grunt-scss-lint": "~0.3.4",
     "grunt-shell": "^1.1.1",
     "grunt-svgmin": "^2.0.0",
+    "grunt-svgstore": "^1.0.0",
     "grunt-version": "^1.0.0",
     "handlebars": "^2.0.0",
     "jscs": "~2.1.0",
