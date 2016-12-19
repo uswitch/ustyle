@@ -2,14 +2,9 @@ $hero-padding-top: 1em;
 $icons: (
   alarm
   android
-  angry
-  apple
   arrow-circle
-  arrow-up-left
   arrow-up
   arrow-down
-  barchart
-  blackberry
   book
   bookmark
   breadcrumb
@@ -23,8 +18,6 @@ $icons: (
   cog
   credit-card
   cross
-  desktop
-  doc
   dual-fuel
   electric-light
   envelope
@@ -39,23 +32,19 @@ $icons: (
   google
   google-brand
   graph-up
-  happy
   home
   hot
   info
   kettle
   key
-  laptop
   lock
   magnify-in
-  magnify-out
   magnify
   menu
   message
   mobile
   monthly-dd
   network
-  neutral
   no-exit
   pdf
   pencil
@@ -65,18 +54,15 @@ $icons: (
   piggy-bank
   pin
   pound-note
-  power
   present
   print
   quarterly-dd
   question-circle
-  question
   quote
   recycle
   remove
   renewable
   results
-  sad
   save
   share
   sim
@@ -89,7 +75,6 @@ $icons: (
   star
   starline-half
   starline
-  tablet
   talk
   tick-circle
   tick
@@ -99,18 +84,13 @@ $icons: (
   uswitch
   variable
   warning-circle
-  warning
   wifi
   wiki
-  windows
-  wondering
-  world
   xml
   play
-  controller
   pound-circle
   ustyle
-) !default;
+);
 
 $needs-font: true;
 $load-icons: true;
