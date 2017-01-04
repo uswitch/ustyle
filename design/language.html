@@ -9,55 +9,53 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <meta content='width=device-width, initial-scale=1.0' name='viewport'>
-  <title>uStyle styleguide</title>
+  <title>ustyle styleguide</title>
   <link rel="stylesheet" href="/css/main.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <![endif] -->
   <script>
     (function(html){
-      html.className=html.className.replace(/\bno-js\b/,'js');
+      html.className=html.className.replace(/\bno-js\b/,'js')
     })(document.documentElement);
   </script>
 </head>
 <body>
   <header class="ustyle__header">
-    <a class="logo" href="/">uStyle</a>
-    <a class="version us-tablet--block" href="https://github.com/uswitch/ustyle/releases/tag/1.3.4">v1.3.4</a>
+    <a class="logo" href="/">ustyle</a>
+    <a class="version us-tablet--block" href="https://github.com/uswitch/ustyle/releases/tag/0.18.2">v0.18.2</a>
     <div class='nav nav--header'>
       <nav>
         <a href="/brand/" class="nav__link ">Brand</a>
-        <a href="/pattern-library/" class="nav__link ">Pattern library</a>
-        <a href="/design/" class="nav__link ">Design</a>
+        <a href="/design/" class="nav__link active">Design</a>
+        <a href="/code/" class="nav__link ">Code</a>
       </nav>
-    </div>
+    </nav>
   </header>
   <a href="javascript:void(0);" class="nav-mobile js-toggle__link us-desktop--hidden" data-target="sidebar"><span class="nav-mobile__hamburger">Sidebar</span></a>
   <div class='sidebar'>
-    <nav class='sidebar__nav'>
-          <a class="sidebar__nav-link " href="index.html">Index</a>
+    <nav class='sidebar__nav' data-gumshoe>
+          <a class="sidebar__nav-link " href="index.html">Design</a>
+          <a class="sidebar__nav-link " href="typography.html">Typography</a>
+          <a class="sidebar__nav-link " href="icons.html">Icons</a>
+          <a class="sidebar__nav-link " href="colours.html">Colours</a>
           <a class="sidebar__nav-link active" href="language.html">Language</a>
+          <a class="sidebar__nav-link " href="imagery.html">Imagery</a>
     </nav>
   </div>
   <div id="wrapper" class="container header--push sidebar--push">
     <h1 class="styleguide__title">Language</h1>
-    <div class="styleguide markdown">
+    <div class="styleguide">
       <p><strong>How does a brilliantly simple brand sound?</strong> Think of our tone of voice as a natural extension of our values and personality. We might not mention them in our copy, but their ‘feel’ should come across in every word, sentence and paragraph.</p>
-<h4 id="table-of-contents">Table of contents</h4>
-<ol>
-<li><a href="#tone-of-voice">Tone of voice</a></li>
-<li><a href="#writing-tips">Writing tips</a></li>
-<li><a href="#writing-conventions">Writing conventions</a></li>
-</ol>
 <h2 id="tone-of-voice">Tone of voice</h2>
-<ol>
-<li><strong>Expert</strong> - We have a deep understanding of people, household finances and the industries in which we operate. Be confident and authoritative.</li>
-<li><strong>Human</strong> - We always talk on the same level as our customers. Be friendly and conversational, never patronising.</li>
-<li><strong>Connected</strong> - We are seamlessly synchronised with the wider world and financial one. Be timely, knowledgeable and accurate.</li>
-<li><strong>Frank</strong> - We speak truthfully and with insight. Be honest and transparent.</li>
-<li><strong>Advisory</strong> - We make a positive impact on the lives of our customers. Be empowering and informative.</li>
-</ol>
-<h2 id="writing-tips">Writing tips</h2>
+<h3 id="expert">Expert</h3>
+<p>We have a deep understanding of people, household finances and the industries in which we operate. Be confident and authoritative.</p>
+<h3 id="human">Human</h3>
+<p>We always talk on the same level as our customers. Be friendly and conversational, never patronising.</p>
+<h3 id="connected">Connected</h3>
+<p>We are seamlessly synchronised with the wider world and financial one. Be timely, knowledgeable and accurate.</p>
+<h3 id="frank">Frank</h3>
+<p>We speak truthfully and with insight. Be honest and transparent.</p>
+<h3 id="advisory">Advisory</h3>
+<p>We make a positive impact on the lives of our customers. Be empowering and informative.</p>
+<h2 id="some-writing-tips">Some writing tips</h2>
 <h3 id="write-like-you-speak">Write like you speak</h3>
 <p>Write as if the reader is in front of you. It’ll make your words sound more natural and believable.</p>
 <h3 id="jargon-free-zone">Jargon-free zone</h3>
@@ -117,7 +115,7 @@ Compound adjectives before a noun generally use a hyphen (e.g. ‘the well-organ
     </div>
   </div>
   <div class="container">
-    <p class="copyright">Copyright uSwitch Limited 2015. <a href="">Github</a></p>
+    <p class="copyright">Copyright uSwitch Limited 2015. <a href="https://github.com/uswitch/ustyle.git">Github</a></p>
   </div>
   <script src="https://www.google.com/jsapi"></script>
   <script src="https://cdn.polyfill.io/v1/polyfill.min.js"></script>

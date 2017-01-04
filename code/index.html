@@ -9,7 +9,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <meta content='width=device-width, initial-scale=1.0' name='viewport'>
-  <title>uStyle styleguide</title>
+  <title>ustyle styleguide</title>
   <link rel="stylesheet" href="/css/main.css" type="text/css" />
   <!--[if lt IE 9]>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -22,38 +22,37 @@
 </head>
 <body>
   <header class="ustyle__header">
-    <a class="logo" href="/">uStyle</a>
-    <a class="version us-tablet--block" href="https://github.com/uswitch/ustyle/releases/tag/1.1.3">v1.1.3</a>
+    <a class="logo" href="/">ustyle</a>
+    <a class="version us-tablet--block" href="https://github.com/uswitch/ustyle/releases/tag/0.18.2">v0.18.2</a>
     <div class='nav nav--header'>
       <nav>
         <a href="/brand/" class="nav__link ">Brand</a>
-        <a href="/pattern-library/" class="nav__link active">Pattern library</a>
         <a href="/design/" class="nav__link ">Design</a>
+        <a href="/code/" class="nav__link active">Code</a>
       </nav>
-    </div>
+    </nav>
   </header>
   <a href="javascript:void(0);" class="nav-mobile js-toggle__link us-desktop--hidden" data-target="sidebar"><span class="nav-mobile__hamburger">Sidebar</span></a>
   <div class='sidebar'>
     <nav class='sidebar__nav' data-gumshoe>
-          <a class="sidebar__nav-link " href="index.html">Index</a>
-          <a class="sidebar__nav-link " href="articles.html">Articles</a>
+          <a class="sidebar__nav-link active" href="index.html">Introduction</a>
           <a class="sidebar__nav-link " href="utilities.html">Utilities</a>
-          <a class="sidebar__nav-link " href="grid.html">Grid</a>
           <a class="sidebar__nav-link " href="forms.html">Forms</a>
           <a class="sidebar__nav-link " href="components.html">Components</a>
-          <a class="sidebar__nav-link " href="javascript.html">JavaScript</a>
-          <a class="sidebar__nav-link active" href="installation.html">Installation</a>
+          <a class="sidebar__nav-link " href="js-components.html">JS components</a>
+          <a class="sidebar__nav-link " href="grid.html">Grid</a>
           <a class="sidebar__nav-link " href="stats.html">Stats</a>
         <a class="sidebar__nav-link" href="/sass/">Sass doc</a>
     </nav>
   </div>
   <div id="wrapper" class="container header--push sidebar--push">
-    <h1 class="styleguide__title">Installation</h1>
-    <div class="styleguide markdown">
+    <h1 class="styleguide__title">Introduction</h1>
+    <div class="styleguide">
       <p>uStyle, aptly named, is the styleguide gem for uSwitch. Include it in your Rails/Sinatra/Anything project as a gem and forget about those annoying additional cloudfront includes.</p>
 <h2 id="requirements">Requirements</h2>
 <ul>
 <li>SASS</li>
+<li>Coffeescript</li>
 <li>Autoprefixer</li>
 </ul>
 <h2 id="sprockets">Sprockets</h2>
@@ -97,7 +96,7 @@ gem &#39;sprockets-helpers&#39;
     </div>
   </div>
   <div class="container">
-    <p class="copyright">Copyright uSwitch Limited 2015. <a href="">Github</a></p>
+    <p class="copyright">Copyright uSwitch Limited 2015. <a href="https://github.com/uswitch/ustyle.git">Github</a></p>
   </div>
   <script src="https://www.google.com/jsapi"></script>
   <script src="https://cdn.polyfill.io/v1/polyfill.min.js"></script>
