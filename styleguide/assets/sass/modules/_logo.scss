@@ -19,12 +19,53 @@
   height: 128px;
 }
 
-
 // Logo states
 
 .logo__state {
+  position: relative;
   display: inline-block;
   padding: 18px;
+  margin-bottom: 10px;
+
+  + p {
+    color: $c-typegrey-2;
+  }
+}
+
+.logo__sizing {
+  position: absolute;
+  top: 50%;
+  right: -60px;
+  margin-top: -16px;
+
+  &:before {
+    position: absolute;
+    top: 50%;
+    left: -10px;
+    width: 2px;
+    background-color: $c-red;
+    content: "";
+  }
+
+  &.h92:before {
+    height: 92px;
+    margin-top: -45px;
+  }
+
+  &.h64:before {
+    height: 64px;
+    margin-top: -32px;
+  }
+
+  &.h70:before {
+    height: 70px;
+    margin-top: -35px;
+  }
+
+  &.h35:before {
+    height: 35px;
+    margin-top: -17px;
+  }
 }
 
 .logo__vertical {
@@ -41,6 +82,12 @@
       max-height: 92px;
     }
   }
+
+  &--alternate-min {
+    svg {
+      max-height: 70px;
+    }
+  }
 }
 
 .logo__horizontal {
@@ -55,8 +102,13 @@
 
   &--alternate {
     svg {
-      max-width: 160px;
-      max-height: 100px;
+      max-height: 64px;
+    }
+  }
+
+  &--alternate-min {
+    svg {
+      max-height: 35px;
     }
   }
 }
@@ -117,4 +169,12 @@
 
 .logo__svg--hidden {
   display: none;
+}
+
+.logo__icon-standalone {
+  display: inline-block;
+  padding: $gutter-width/2.5;
+  line-height: 1;
+  background-color: $c-blue;
+  border-radius: 22px;
 }

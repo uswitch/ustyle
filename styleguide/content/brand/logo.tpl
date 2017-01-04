@@ -1,7 +1,16 @@
+<ul class='table-of-contents'>
+  <li><a href="#orientation">Orientation</a></li>
+  <li><a href="#colour">Colour</a></li>
+  <li><a href="#exclusion-zone">Exclusion zone</a></li>
+  <li><a href="#alternate-logo">Alternate logo (small)</a></li>
+  <li><a href="#minimum-sizes">Minimum sizes</a></li>
+  <li><a href="#icon-only">Icon only</a></li>
+  <li><a href="#usage-rules">Usage rules</a></li>
+</ul>
 <div class="us-content-group">
   <div class="us-grid-row">
     <div class="us-col-12">
-      <h3>Orientation</h3>
+      <h3 id="orientation">Orientation</h3>
       <p>
         We've made our logo available in vertical and horizontal formats to
         allow for flexibility in various layouts. Choose the format that best
@@ -9,7 +18,6 @@
       </p>
     </div>
   </div>
-
   <div class="us-grid-row">
     <div class="us-col-12">
       <div class="us-grid-row">
@@ -37,7 +45,7 @@
 <div class="us-content-group">
   <div class="us-grid-row">
     <div class="us-col-12">
-      <h3>Colour</h3>
+      <h3 id="colour">Colour</h3>
       <p>
         Our logo should only appear in our approved colours. The brand blue logo
         is the preferred version. It can also be displayed on a cyan background.
@@ -115,7 +123,7 @@
 <div class="us-content-group">
   <div class="us-grid-row">
     <div class="us-col-12">
-      <h3>Exclusion Zone</h3>
+      <h3 id="exclusion-zone">Exclusion Zone</h3>
       <p>
         Always leave plenty of room around the logo. This will enable it to
         feature prominently without clutter.
@@ -148,7 +156,7 @@
 <div class="us-content-group">
   <div class="us-grid-row">
     <div class="us-col-12">
-      <h3>Alternate logo for use at smaller sizes</h3>
+      <h3 id="alternate-logo">Alternate logo for use at smaller sizes</h3>
       <p>
         An alternative version of our logo must be used when it's being displayed
         at smaller sizes. It ensures that the arrowhead, a key element of our
@@ -156,13 +164,13 @@
       </p>
     </div>
   </div>
-
   <div class="us-grid-row">
     <div class="us-col-12">
       <div class="us-grid-row">
         <div class="us-col-6">
           <div class="logo__state logo__vertical--alternate logo--blue">
-            <svg><use xlink:href="#uicon-logo-vertical-small"/></svg>
+            <svg><use xlink:href="#uicon-logo-vertical-small"/>
+            <div class="logo__sizing h92">92px</div>
           </div>
           <p>
             Use the alternative version of the vertical logo when using at a
@@ -172,6 +180,7 @@
         <div class="us-col-6">
           <div class="logo__state logo__horizontal--alternate logo--white">
             <svg><use xlink:href="#uicon-logo-small"/></svg>
+            <div class="logo__sizing h64">64px</div>
           </div>
           <p>
             Use the alternate version of the horizontal logo when using at a
@@ -186,31 +195,50 @@
 <div class="us-content-group">
   <div class="us-grid-row">
     <div class="us-col-12">
-      <h3>Minimum Size</h3>
-      <p>
-        To ensure legibility of our logo, it must not be used below the
-        minimum size. The minimum height that the vertical logo may be used at,
-        is 70px. The minimum height that the horizontal logo may be used at
-        is 35px.
-      </p>
+      <h3 id="minimum-sizes">Minimum Size</h3>
+      <p>To ensure legibility of our logo, it must not be used below the
+        minimum size.</p>
+      <div class="us-col-6">
+          <div class="logo__state logo__vertical--alternate-min logo--blue">
+            <svg><use xlink:href="#uicon-logo-vertical-small"/>
+            <div class="logo__sizing h70">70px</div>
+          </div>
+          <p>
+            The minimum height that the vertical logo may be used at is 70px.
+          </p>
+        </div>
+        <div class="us-col-6">
+          <div class="logo__state logo__horizontal--alternate-min logo--white">
+            <svg><use xlink:href="#uicon-logo-small"/></svg>
+            <div class="logo__sizing h35">35px</div>
+          </div>
+          <p>
+            The minimum height that the horizontal logo may be used at is 35px.
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- TODO: Replace images when we have the us-icon sorted. -->
 <div class="us-content-group">
   <div class="us-grid-row">
     <div class="us-col-12">
-      <h3>Icon only</h3>
+      <h3 id="icon-only">Icon only</h3>
       <p>
         Our icon and wordmark must always be used together. The only
         exceptions are our app icon, website favicon and awards logos. Do not
         separate the icon and wordmark in any other instances.
       </p>
+      <div class="logo__icon-standalone us-margin-bottom">
+        <div class="us-icon--uswitch us-icon--large us-icon--white us-icon--notext"></div>
+      </div>
       <p>
         The icon may only be used separately from the wordmark in approved
-        situations, such as our app icon. Do not separate the elements in any other situations.
+        situations, such as our app icon.
       </p>
+
+      <p><strong>Do not separate the elements in any other situations.</strong></p>
     </div>
   </div>
 </div>
@@ -218,7 +246,7 @@
 <div class="us-content-group">
   <div class="us-grid-row">
     <div class="us-col-12">
-      <h3>Usage rules</h3>
+      <h3 id="usage-rules">Usage rules</h3>
       <p>Please make sure you’re not tempted to do any of the following to the logo:</p>
       <ul>
         <li>Change elements of it</li>
