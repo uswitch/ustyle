@@ -24,7 +24,8 @@
     "David Annez <david.annez@uswitch.com>",
     "Thomas Britton <thomas.britton@uswitch.com>",
     "Ricardo Cerqueira <ricardo.cerqueira@uswitch.com>",
-    "Ivo Reis <ivo.reis@uswitch.com>"
+    "Ivo Reis <ivo.reis@uswitch.com>",
+    "Charlotte Spencer <charlotte.spencer@uswitch.com>"
   ],
   "main": "dist/ustyle-latest.css",
   "files": [
