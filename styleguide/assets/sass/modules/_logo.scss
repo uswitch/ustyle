@@ -47,9 +47,9 @@
     content: "";
   }
 
-  &.h92:before {
-    height: 92px;
-    margin-top: -45px;
+  &.h98:before {
+    height: 98px;
+    margin-top: -47px;
   }
 
   &.h64:before {
@@ -57,14 +57,14 @@
     margin-top: -32px;
   }
 
-  &.h70:before {
-    height: 70px;
-    margin-top: -35px;
+  &.h50:before {
+    height: 50px;
+    margin-top: -25px;
   }
 
-  &.h35:before {
-    height: 35px;
-    margin-top: -17px;
+  &.h25:before {
+    height: 25px;
+    margin-top: -12.5px;
   }
 }
 
@@ -79,13 +79,14 @@
   &--alternate {
     svg {
       max-width: 100px;
-      max-height: 92px;
+      max-height: 98px;
     }
   }
 
   &--alternate-min {
     svg {
-      max-height: 70px;
+      max-width: 100px;
+      max-height: 50px;
     }
   }
 }
@@ -108,7 +109,7 @@
 
   &--alternate-min {
     svg {
-      max-height: 35px;
+      max-height: 25px;
     }
   }
 }

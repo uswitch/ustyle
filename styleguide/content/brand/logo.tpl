@@ -171,11 +171,11 @@
         <div class="us-col-6">
           <div class="logo__state logo__vertical--alternate logo--blue">
             <svg><use xlink:href="#uicon-logo-vertical-small"/>
-            <div class="logo__sizing h92">92px</div>
+            <div class="logo__sizing h98">98px</div>
           </div>
           <p>
             Use the alternative version of the vertical logo when using at a
-            height of 92px or less.
+            height of 98px or less.
           </p>
         </div>
         <div class="us-col-6">
@@ -202,19 +202,19 @@
       <div class="us-col-6">
           <div class="logo__state logo__vertical--alternate-min logo--blue">
             <svg><use xlink:href="#uicon-logo-vertical-small"/>
-            <div class="logo__sizing h70">70px</div>
+            <div class="logo__sizing h50">50px</div>
           </div>
           <p>
-            The minimum height that the vertical logo may be used at is 70px.
+            The minimum height that the vertical logo may be used at is 50px.
           </p>
         </div>
         <div class="us-col-6">
           <div class="logo__state logo__horizontal--alternate-min logo--white">
             <svg><use xlink:href="#uicon-logo-small"/></svg>
-            <div class="logo__sizing h35">35px</div>
+            <div class="logo__sizing h25">25px</div>
           </div>
           <p>
-            The minimum height that the horizontal logo may be used at is 35px.
+            The minimum height that the horizontal logo may be used at is 25px.
           </p>
         </div>
       </div>
