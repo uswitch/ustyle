@@ -6,6 +6,7 @@
   <li><a href="#minimum-sizes">Minimum sizes</a></li>
   <li><a href="#icon-only">Icon only</a></li>
   <li><a href="#usage-rules">Usage rules</a></li>
+  <li><a href="#logo-downloads">Logo Downloads</a></li>
 </ul>
 <div class="us-content-group">
   <div class="us-grid-row">
@@ -254,6 +255,22 @@
         <li>Use a different blue</li>
         <li>Use a gradient or tint</li>
         <li>Rotate the logo</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="us-content-group">
+  <div class="us-grid-row">
+    <div class="us-col-12">
+      <h3 id="logo-downloads">Logo Downloads</h3>
+      <p>
+        Here you can download the standard and smaller versions of the uSwitch
+        logo. Each .zip file comes with .eps, .svg and .svg versions of the logo.
+      </p>
+      <ul>
+        <li><a href='https://s3-eu-west-1.amazonaws.com/uswitch-assets-eu/ustyle-assets/logo/Standard+logo+assets.zip'>Standard Logo</a></li>
+        <li><a href='https://s3-eu-west-1.amazonaws.com/uswitch-assets-eu/ustyle-assets/logo/Small+logo+assets.zip'>Logo for smaller sizes</a></li>
       </ul>
     </div>
   </div>
