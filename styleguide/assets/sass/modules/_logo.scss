@@ -149,12 +149,13 @@
 .logo__spacer--vertical,
 .logo__spacer--horizontal {
   position: relative;
+  padding: 40px;
 
   &:before {
     position: absolute;
     top: 0;
     left: 0;
-    width: 25px;
+    width: 40px;
     height: 100%;
     text-align: center;
     background-color: $c-cyan-light;
