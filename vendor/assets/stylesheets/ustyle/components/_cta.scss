@@ -37,8 +37,8 @@
 .us-cta__title.us-cta__title {
   @include heading-font;
   margin-top: 0;
-  font-size: 16px;
-  font-size: rem($base-font-size);
+  font-size: 18px;
+  font-size: rem($base-font-size + 2px);
 
   @include respond-to(tablet) {
     @include heading(4, $extend: false);

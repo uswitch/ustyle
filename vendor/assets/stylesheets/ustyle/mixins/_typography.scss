@@ -89,9 +89,9 @@
 /// @param {Bool} $extend [true]
 ///   If set to `false` will redeclare the font-family settings
 
-@mixin heading($level, $heading-font: true, $extend: true) {
-  $font-size: nth($heading-font-sizes, $level);
-  $line-height: nth($heading-line-heights, $level);
+@mixin heading($level, $heading-font: true, $extend: true, $font-sizes: $heading-font-sizes, $line-heights: $heading-line-heights) {
+  $font-size: nth($font-sizes, $level);
+  $line-height: nth($line-heights, $level);
   @include heading-font($extend);
   font-size: em($font-size);
   line-height: $line-height + em;
