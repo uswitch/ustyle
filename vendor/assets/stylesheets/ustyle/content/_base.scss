@@ -1,15 +1,44 @@
 @import "ustyle/content/c-header";
 @import "ustyle/content/c-social";
 
+$content-heading-font-sizes: 30px, 24px, 20px, 18px, 16px, 16px;
+
 .us-content {
+  // scss-lint:disable all
+
   margin-bottom: $gutter-width;
+
+  @include baseline($base-font-size, $root: true);
+
+  @include respond-to(tablet) {
+    @include baseline(18px, $root: true);
+  }
+
+  @include respond-to(desktop) {
+    @include baseline(20px, $root: true);
+    text-rendering: optimizeSpeed;
+  }
+
+  @for $level from 1 through 6 {
+    h#{$level},
+    .us-heading--#{$level} {
+      @include heading($level, $font-sizes: $content-heading-font-sizes);
+    }
+  }
+
+  // scss-lint:enable all
 
   h2,
   h3,
   h4,
   h5,
   h6 {
-    margin-top: 50px;
+    margin-top: 30px;
+    margin-bottom: .5em;
+
+    @include respond-to(tablet) {
+      margin-top: 50px;
+    }
   }
   //
   // Default typography styling
@@ -17,17 +46,6 @@
   p,
   ul,
   blockquote {
-    @include baseline($base-font-size);
-
-    @include respond-to(tablet) {
-      @include baseline(18px);
-    }
-
-    @include respond-to(desktop, true) {
-      @include baseline(20px);
-      text-rendering: optimizeSpeed;
-    }
-
     a {
       @extend %anchor-link;
     }
@@ -46,6 +64,7 @@
   //
   table {
     width: 100%;
+    font-size: 16px;
     border-collapse: separate;
 
     img,
@@ -60,6 +79,7 @@
     td,
     th {
       padding: $gutter-width / 4;
+      text-align: left;
       vertical-align: middle;
       border-bottom: 1px solid $c-bordergrey;
     }
@@ -94,8 +114,16 @@
   }
 
   .strap {
-    font-weight: 700;
-    color: $c-navy;
+    @include baseline(18px);
+
+    @include respond-to(tablet) {
+      @include baseline(22px);
+      margin-bottom: 2em;
+    }
+  }
+
+  .us-cta {
+    font-size: 16px;
   }
 
   .internal-menu {

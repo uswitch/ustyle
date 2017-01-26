@@ -19,7 +19,7 @@
 ///   The cap height of the font being used on the element
 ///
 
-@mixin baseline($font-size: $base-font-size, $line-height: $base-line-ratio, $scale: $base-scale, $cap-height: $base-cap-height) {
+@mixin baseline($font-size: $base-font-size, $line-height: $base-line-ratio, $scale: $base-scale, $cap-height: $base-cap-height, $root: false) {
   // rhythm unit
   $rhythm: $line-height * $font-size / $scale;
   // number of rhythm units that can fit the font-size
@@ -34,8 +34,10 @@
   // if you use this mixin only on elements that have one direction margins
   // http://csswizardry.com/2012/06/single-direction-margin-declarations/
   // you can use this method with no worries.
-  padding-top: $baseline-distance * $base-font-size;
-  padding-top: $baseline-distance + rem;
-  margin-bottom: ($line-height - $baseline-distance) * $base-font-size;
-  margin-bottom: $line-height - $baseline-distance + rem;
+  @if $root != true {
+    padding-top: $baseline-distance * $base-font-size;
+    padding-top: $baseline-distance + rem;
+    margin-bottom: ($line-height - $baseline-distance) * $base-font-size;
+    margin-bottom: $line-height - $baseline-distance + rem;
+  }
 }
