@@ -10,6 +10,7 @@ module Ustyle
     def load!
       require "ustyle/sass_functions"
       require "ustyle/icons"
+      require "ustyle/helpers/icon_helper"
 
       if defined?(::Rails)
         require "ustyle/engine"

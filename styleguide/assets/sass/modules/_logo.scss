@@ -14,43 +14,169 @@
   }
 }
 
-.logo--ustyle.logo--ustyle {
-  width: 128px;
-  height: 128px;
-}
-
-
 // Logo states
 
-.logo-state {
+.logo__state {
+  position: relative;
   display: inline-block;
   padding: 18px;
+  margin-bottom: 10px;
 
-  .us-icon--uswitch {
-    vertical-align: middle;
+  + p {
+    color: $c-typegrey-2;
   }
 }
 
-.logo--blue {
-  border: 2px dotted $c-blue;
+.logo__sizing {
+  position: absolute;
+  top: 50%;
+  right: -60px;
+  margin-top: -16px;
+
+  &:before {
+    position: absolute;
+    top: 50%;
+    left: -10px;
+    width: 2px;
+    background-color: $c-red;
+    content: "";
+  }
+
+  &.h98:before {
+    height: 98px;
+    margin-top: -47px;
+  }
+
+  &.h64:before {
+    height: 64px;
+    margin-top: -32px;
+  }
+
+  &.h50:before {
+    height: 50px;
+    margin-top: -25px;
+  }
+
+  &.h25:before {
+    height: 25px;
+    margin-top: -12.5px;
+  }
+}
+
+.logo__vertical {
+  svg {
+    width: 100%;
+    height: 100%;
+    max-width: 150px;
+    max-height: 150px;
+  }
+
+  &--alternate {
+    svg {
+      max-width: 100px;
+      max-height: 98px;
+    }
+  }
+
+  &--alternate-min {
+    svg {
+      max-width: 100px;
+      max-height: 50px;
+    }
+  }
+}
+
+.logo__horizontal {
+  padding: 18px 40px;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    max-width: 250px;
+    max-height: 100px;
+  }
+
+  &--alternate {
+    svg {
+      max-height: 64px;
+    }
+  }
+
+  &--alternate-min {
+    svg {
+      max-height: 25px;
+    }
+  }
+}
+
+.logo--blue,
+.logo--cyan {
+  fill: $c-blue;
+}
+
+.logo-white,
+.logo--bwblack {
+  fill: #fff;
+}
+
+.logo--blue,
+.logo--bwwhite {
+  border: 1px solid $c-typegrey-2;
 }
 
 .logo--white {
   background-color: $c-blue;
+  fill: #fff;
 }
 
-.logo-spacer {
+.logo--cyan {
+  background-color: $c-cyan;
+}
+
+.logo--bwwhite {
+  fill: #000;
+}
+
+.logo--bwblack {
+  background-color: #000;
+}
+
+.logo__spacer--vertical,
+.logo__spacer--horizontal {
   position: relative;
-  border: 1px dashed $c-red;
+  padding: 40px;
 
   &:before {
     position: absolute;
     top: 0;
     left: 0;
-    width: 18px;
+    width: 40px;
     height: 100%;
     text-align: center;
     background-color: $c-cyan-light;
     content: "s";
+  }
+}
+
+.logo__spacer--horizontal {
+  &:before {
+    width: 40px;
+  }
+}
+
+.logo__svg--hidden {
+  display: none;
+}
+
+.logo__icon-standalone {
+  display: inline-block;
+  padding: $gutter-width/2.5;
+  line-height: 1;
+  background-color: $c-blue;
+  border-radius: 22px;
+
+  .us-icon--uswitch {
+    position: relative;
+    right: -2px;
   }
 }

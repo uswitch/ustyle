@@ -33,7 +33,9 @@ name: uSwitch living styleguide
   <h2>The logo</h2>
   <div class="us-grid-row">
     <div class="us-col-md-2">
-      <span class="us-icon--notext us-icon--ustyle us-icon--large logo--ustyle"></span>
+      <svg class="us-icon--large us-icon--ustyle" role="img">
+        <use xlink:href="/images/icons.svg#icon-ustyle"></use>
+      </svg>
     </div>
     <div class="us-col-md-10">
       <p>There is no reason for this logo other than it's funny and unicorns are all the rage just now.</p>

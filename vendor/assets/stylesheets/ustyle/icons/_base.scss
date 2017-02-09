@@ -12,98 +12,98 @@
 //   * `.us-icon--before` and `.us-icon--after` allow you to set the icon on the *:pseudo* elements of that element.
 //   * blue, typegrey, inputgrey, typecyan and custom are colors that can be set on the icon with `.us-icon--{color}`
 //
-// @state icon-alarm
-// @state icon-android
-// @state icon-arrow-circle
-// @state icon-arrow-up
-// @state icon-arrow-down
-// @state icon-book
-// @state icon-bookmark
-// @state icon-breadcrumb
-// @state icon-calculator
-// @state icon-calendar
-// @state icon-car
-// @state icon-checkbox-tick
-// @state icon-chevron-right
-// @state icon-clock
-// @state icon-close
-// @state icon-cog
-// @state icon-credit-card
-// @state icon-cross
-// @state icon-dual-fuel
-// @state icon-electric-light
-// @state icon-envelope
-// @state icon-exit-noexit
-// @state icon-facebook
-// @state icon-facebook-brand
-// @state icon-filter
-// @state icon-fixed-variable
-// @state icon-gas
-// @state icon-gauge
-// @state icon-github
-// @state icon-google
-// @state icon-google-brand
-// @state icon-graph-up
-// @state icon-home
-// @state icon-hot
-// @state icon-info
-// @state icon-kettle
-// @state icon-key
-// @state icon-lock
-// @state icon-magnify-in
-// @state icon-magnify
-// @state icon-menu
-// @state icon-message
-// @state icon-mobile
-// @state icon-monthly-dd
-// @state icon-network
-// @state icon-no-exit
-// @state icon-pdf
-// @state icon-pencil
-// @state icon-person-add
-// @state icon-person
-// @state icon-phone
-// @state icon-piggy-bank
-// @state icon-pin
-// @state icon-pound-note
-// @state icon-present
-// @state icon-print
-// @state icon-quarterly-dd
-// @state icon-question-circle
-// @state icon-quote
-// @state icon-recycle
-// @state icon-remove
-// @state icon-renewable
-// @state icon-results
-// @state icon-save
-// @state icon-share
-// @state icon-sim
-// @state icon-smiley
-// @state icon-sort
-// @state icon-speech-circle
-// @state icon-speech
-// @state icon-spinner
-// @state icon-star-half
-// @state icon-star
-// @state icon-starline-half
-// @state icon-starline
-// @state icon-talk
-// @state icon-tick-circle
-// @state icon-tick
-// @state icon-tv
-// @state icon-twitter
-// @state icon-twitter-brand
-// @state icon-uswitch
-// @state icon-variable
-// @state icon-warning-circle
-// @state icon-wifi
-// @state icon-wiki
-// @state icon-xml
-// @state icon-play
-// @state icon-pound-circle
+// @state alarm
+// @state android
+// @state arrow-circle
+// @state arrow-up
+// @state arrow-down
+// @state book
+// @state bookmark
+// @state breadcrumb
+// @state calculator
+// @state calendar
+// @state car
+// @state checkbox-tick
+// @state chevron-right
+// @state clock
+// @state close
+// @state cog
+// @state credit-card
+// @state cross
+// @state dual-fuel
+// @state electric-light
+// @state envelope
+// @state exit-noexit
+// @state facebook
+// @state facebook-brand
+// @state filter
+// @state fixed-variable
+// @state gas
+// @state gauge
+// @state github
+// @state google
+// @state google-brand
+// @state graph-up
+// @state home
+// @state hot
+// @state info
+// @state kettle
+// @state key
+// @state lock
+// @state magnify-in
+// @state magnify
+// @state menu
+// @state message
+// @state mobile
+// @state monthly-dd
+// @state network
+// @state no-exit
+// @state pdf
+// @state pencil
+// @state person-add
+// @state person
+// @state phone
+// @state piggy-bank
+// @state pin
+// @state pound-note
+// @state present
+// @state print
+// @state quarterly-dd
+// @state question-circle
+// @state quote
+// @state recycle
+// @state remove
+// @state renewable
+// @state results
+// @state save
+// @state share
+// @state sim
+// @state smiley
+// @state sort
+// @state speech-circle
+// @state speech
+// @state spinner
+// @state star-half
+// @state star
+// @state starline-half
+// @state starline
+// @state talk
+// @state tick-circle
+// @state tick
+// @state tv
+// @state twitter
+// @state twitter-brand
+// @state uswitch
+// @state variable
+// @state warning-circle
+// @state wifi
+// @state wiki
+// @state xml
+// @state play
+// @state pound-circle
 //
 // @markup
-//  <svg role="img" class="us-icon us-icon--medium" title="{$modifiers}"><use xlink:href="/images/icons.svg#{$modifiers}"/></svg>
+//  <svg role="img" class="us-icon--medium us-icon--custom us-icon--{$modifiers}"><use xlink:href="/images/icons.svg#icon-{$modifiers}"/></svg>
 
 @import "ustyle/basics/variables/icons";
 
@@ -112,7 +112,8 @@
 /// @group icons
 /// @author David Annez
 ///
-/// @require {Variable} icon-colors
+/// @require {Variable} icon-colors--svg
+/// @require {Variable} icon-colors--svg--custom
 ///
 /// @param {String} $color
 ///   The matching colour string from the list of colours
@@ -121,126 +122,103 @@
 ///   If set to true, you can use this on a parent element and any icon within the parent
 ///   will have this icon colour. Especially useful for hover on buttons or larger elements.
 
-@mixin icon-color($color, $parent: false) {
-  $position: 0 (index($icon-colors, $color) - 1) * 25%;
+// scss-lint:disable QualifyingElement
 
-  @if $parent {
-    [class^="us-icon--"],
-    [class*=" us-icon--"] {
-      background-position: $position;
-    }
-  } @else {
-    background-position: $position;
+svg.us-icon--before,
+svg.us-icon--after {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+svg.us-icon--before {
+  margin-right: $gutter-width/4;
+}
+
+svg.us-icon--after {
+  margin-left: $gutter-width/4;
+}
+
+.us-icon--centered {
+  position: relative;
+  top: 50%;
+  margin: 0 auto;
+  transform: translateY(-50%);
+}
+
+.us-icon--notext {
+  display: inline-block;
+  text-indent: -999em;
+}
+
+//
+// ICON COLOURS
+//
+
+@each $icon-color in $icon-colors--svg {
+  $color-name: nth($icon-color, 1);
+  $color-hex: nth($icon-color, 2);
+
+  svg.us-icon--#{$color-name} {
+    fill: $color-hex;
+  }
+
+  svg.us-icon--hover--#{$color-name}:hover {
+    fill: $color-hex;
   }
 }
 
-@if $load-icons {
-  [class^="us-icon--"],
-  [class*=" us-icon--"] {
-    background-repeat: no-repeat;
-    background-size: cover;
+// SVG icon coloring for custom classes
+
+@each $icon-colors-svg in $icon-colors--svg--custom {
+  $icon-name: nth($icon-colors-svg, 1);
+  $icon-fill: nth($icon-colors-svg, 2);
+
+  svg.us-icon--#{$icon-name} {
+    fill: $icon-fill;
   }
+}
 
-  [class^="us-icon--before"]:before,
-  [class*=" us-icon--before"]:before,
-  [class^="us-icon--after"]:after,
-  [class*=" us-icon--after"]:after {
-    display: inline-block;
-    vertical-align: middle;
-    pointer-events: none;
-    background-size: cover;
-    content: " ";
+// scss-lint:enable QualifyingElement
+
+//
+// ICON SIZING
+//
+
+@each $size in $icon-sizes {
+  $size-name: nth($size, 1);
+  $width: nth($size, 2);
+  $height: nth($size, 3);
+
+  .us-icon--#{$size-name} {
+    width: $width;
+    height: $height;
   }
+}
 
-  [class^="us-icon--before"]:before,
-  [class*=" us-icon--before"]:before {
-    margin-right: $gutter-width/4;
-  }
-
-  [class^="us-icon--after"]:after,
-  [class*=" us-icon--after"]:after {
-    margin-left: $gutter-width/4;
-  }
-
-  .us-icon--centered {
-    position: relative;
-    top: 50%;
-    margin: 0 auto;
-    transform: translateY(-50%);
-  }
-
-  .us-icon--notext {
-    display: inline-block;
-    text-indent: -999em;
-  }
-
-  //
-  // ICON COLOURS
-  //
-
-  .us-icon {
-    fill: $c-navy;
-  }
-
-  @each $color in $icon-colors {
-    .us-icon--#{$color},
-    .us-icon--#{$color}--after:after,
-    .us-icon--#{$color}--before:before {
-      @include icon-color($color);
-    }
-
-    .us-icon--hover-#{$color}:hover,
-    .us-icon--hover-#{$color}--after:hover:after,
-    .us-icon--hover-#{$color}--before:hover:before {
-      @include icon-color($color);
-    }
-  }
-
-  //
-  // ICON SIZING
-  //
-
+@include respond-to(to-small-tablet) {
   @each $size in $icon-sizes {
     $size-name: nth($size, 1);
     $width: nth($size, 2);
     $height: nth($size, 3);
 
-    .us-icon--#{$size-name},
-    .us-icon--#{$size-name}--after:after,
-    .us-icon--#{$size-name}--before:before {
+    .us-icon--#{$size-name}--sm-tablet {
       width: $width;
       height: $height;
     }
   }
+}
 
-  @include respond-to(to-small-tablet) {
-    @each $size in $icon-sizes {
-      $size-name: nth($size, 1);
-      $width: nth($size, 2);
-      $height: nth($size, 3);
+@include respond-to(mobile) {
+  @each $size in $icon-sizes {
+    $size-name: nth($size, 1);
+    $width: nth($size, 2);
+    $height: nth($size, 3);
 
-      .us-icon--#{$size-name}--sm-tablet,
-      .us-icon--#{$size-name}--after--sm-tablet:after,
-      .us-icon--#{$size-name}--before--sm-tablet:before {
-        width: $width;
-        height: $height;
-      }
-    }
-  }
-
-  @include respond-to(mobile) {
-    @each $size in $icon-sizes {
-      $size-name: nth($size, 1);
-      $width: nth($size, 2);
-      $height: nth($size, 3);
-
-      .us-icon--#{$size-name}--mobile,
-      .us-icon--#{$size-name}--after--mobile:after,
-      .us-icon--#{$size-name}--before--mobile:before {
-        width: $width;
-        height: $height;
-      }
+    .us-icon--#{$size-name}--mobile {
+      width: $width;
+      height: $height;
     }
   }
 }
+
 
