@@ -89,7 +89,6 @@ module.exports = function(grunt) {
         files: {
           "dist/ustyle-latest.css": "vendor/assets/stylesheets/ustyle.scss",
           "dist/ustyle-content.css": "vendor/assets/stylesheets/ustyle-content.scss",
-          "dist/ustyle-icons.css": "vendor/assets/stylesheets/ustyle-icons.scss",
           "docs/css/main.css": "styleguide/assets/sass/main.scss"
         }
       }
