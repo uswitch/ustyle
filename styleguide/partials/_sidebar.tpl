@@ -17,6 +17,11 @@
   {{/navigation}}
 
   <div class="made-at">
-    <a href="http://www.uswitch.com/vacancies/" target="_blank" class="us-icon--before us-icon--uswitch--before us-icon--custom--before us-icon--small--before--mobile us-icon--medium--before"><span class="us-color--blue">uSwitch is hiring.</span></a>
+    <a href="https://www.uswitch.com/vacancies/" target="_blank">
+      <svg role="img" class="us-icon--before us-icon--uswitch us-icon--custom us-icon--small--mobile us-icon--medium">
+      <use xlink:href="/images/icons.svg#icon-uswitch"></use>
+      </svg>
+      <span class="us-color--blue">uSwitch is hiring.</span>
+    </a>
   </div>
 </div>

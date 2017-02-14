@@ -1,6 +1,6 @@
 <header class="ustyle__header">
   <a class="logo" href="/">
-    <svg class="us-icon--large us-icon--ustyle logo__icon" role="img">
+    <svg class="us-icon--large us-icon--ustyle us-icon--medium--mobile logo__icon" role="img">
       <use xlink:href="/images/icons.svg#icon-ustyle"></use>
     </svg>
     uStyle

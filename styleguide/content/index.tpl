@@ -3,7 +3,7 @@ template: simple.tpl
 name: uSwitch living styleguide
 ---
 <p>
-  The sum of our efforts towards style guidelines, a pattern library and an automated front-end. Made with &#10084; at <a href="http://www.uswitch.com" target="_blank"><strong class="us-color--blue">uSwitch.com</strong></a>
+  The sum of our efforts towards style guidelines, a pattern library and an automated front-end. Made with &#10084; at <a href="https://www.uswitch.com" target="_blank"><strong class="us-color--blue">uSwitch.com</strong></a>
 </p>
 <div class="us-content-group mobile-bordered">
   <div class="us-grid-row">
