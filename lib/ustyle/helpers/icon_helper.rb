@@ -6,7 +6,7 @@ module Ustyle
       def self.icon(name, size, pseudo = false)
         "
           <svg class='us-icon--#{name} us-icon--#{size} #{pseudo ? "us-icon-#{pseudo}" : ""}' role='img'>
-            <use xlink:href='#{Ustyle.cloudfront_url("icons/icons.svg", :image)}#icon-#{name}'
+            <use xlink:href='/icons.svg#icon-#{name}'
           </svg>
         "
       end
