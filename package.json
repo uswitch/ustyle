@@ -29,7 +29,8 @@
   ],
   "main": "dist/ustyle-latest.css",
   "files": [
-    "dist/"
+    "dist",
+    "vendor/assets/stylesheets"
   ],
   "repository": "uswitch/ustyle",
   "scripts": {
