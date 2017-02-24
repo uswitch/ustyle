@@ -162,10 +162,6 @@ svg.us-icon--after {
   svg.us-icon--#{$color-name} {
     fill: $color-hex;
   }
-
-  svg.us-icon--hover--#{$color-name}:hover {
-    fill: $color-hex;
-  }
 }
 
 // SVG icon coloring for custom classes
@@ -176,6 +172,17 @@ svg.us-icon--after {
 
   svg.us-icon--#{$icon-name} {
     fill: $icon-fill;
+  }
+}
+
+// SVG icon coloring
+
+@each $icon-color in $icon-colors--svg {
+  $color-name: nth($icon-color, 1);
+  $color-hex: nth($icon-color, 2);
+
+  svg.us-icon--hover--#{$color-name}:hover {
+    fill: $color-hex;
   }
 }
 

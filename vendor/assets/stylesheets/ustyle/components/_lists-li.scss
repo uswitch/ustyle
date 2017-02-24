@@ -82,6 +82,8 @@
   @extend %base-custom-list;
 
   li {
+    padding-left: 0;
+
     &:before {
       top: 50%;
       margin-top: - 8px;
