@@ -769,8 +769,8 @@ window.ClassToggler = (function() {
 
 })();
 
-window.RadioToggle = function () {
-  var message = 'RadioToggle is now depricated';
+window.RadioToggle = function() {
+  var message = "RadioToggle is now deprecated";
   if (window.Raven) window.Raven.captureMessage(message);
   console.warn(message);
 };
