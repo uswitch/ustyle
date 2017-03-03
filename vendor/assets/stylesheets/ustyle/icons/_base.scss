@@ -3,18 +3,16 @@
 // @partial icons
 //
 // @description
-//   Our icons are displayed via `xlink:href` in the `<use>` tags. This allows us to directly embed SVGs in a flexible manner
-//   and be able to apply transformations and any sort of colours onto them.
-//
-//   We use an SVG sprite called `icons.svg` that is versioned just like ustyle. As per the examples, the icons are referenced
-//   via the ID, like this: `icons.svg#icon-bookmark`
+//   Our icons are displayed via `xlink:href` in the `<use>` tags. This allows us to directly embed SVGs in a flexible manner and be able to apply transformations and any sort of colours onto them.
+//   We use an SVG sprite called `icons.svg` that is versioned just like ustyle. As per the examples, the icons are referenced via the ID, like this: `icons.svg#icon-bookmark`
 //
 //   ### Usage
 //   * Suffixing with `--{size}` where size is one of *small*, *medium* or *large* will change the size of the icon from 16px, 32px and 64px respectively.
 //   * `.us-icon--{size}--sm-tablet` and `.us-icon--{size}--mobile` will override icon sizes for those screen size
 //   * `.us-icon--notext` allows you to set any element with no content to an icon
 //   * blue, typegrey, inputgrey, typecyan and custom are colors that can be set on the icon with `.us-icon--{color}`
-//.  * Colors can be changed by adding your own `fill:` style to the SVG.
+//   * Colors can be changed by adding your own `fill:` style to the SVG.
+//   * [svg4everybody.js](https://github.com/jonathantneal/svg4everybody) is needed for Internet Explorer browsers
 //
 // @state alarm
 // @state android
