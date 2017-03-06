@@ -22,7 +22,7 @@
 //     </div>
 //   </div>
 //   <div class="us-desktop--hidden us-padding-top us-col-xsm-4 us-mobile-block">
-//     <img class="us-img--full" src="http://uswitch-wp-cms-assets.s3-website-eu-west-1.amazonaws.com/money/guides/wp-content/uploads/2014/11/DB2011AU01018_SMALL.jpg" width="200">
+//     <img class="us-img--full" src="https://assets0.uswitch.com/s3/uswitch-wp-cms-assets/money/guides/wp-content/uploads/2014/11/DB2011AU01018_SMALL.jpg" width="200">
 //   </div>
 //   <div class="us-col-xsm-7 us-col-lg-8 us-col-sm-5">
 //     <ul>
@@ -50,13 +50,20 @@
 //     </div>
 //   </div>
 //   <div class="us-col-xsm-3 us-col-lg-4 us-tablet--block">
-//     <img class="us-img--full us-desktop--block" src="http://uswitch-wp-cms-assets.s3-website-eu-west-1.amazonaws.com/money/guides/wp-content/uploads/2014/11/DB2011AU01018_SMALL.jpg" width="200">
+//     <img class="us-img--full us-desktop--block" src="https://assets0.uswitch.com/s3/uswitch-wp-cms-assets/money/guides/wp-content/uploads/2014/11/DB2011AU01018_SMALL.jpg" width="200">
 //     <button class="margin-top margin-bottom us-btn us-btn--primary us-btn us-btn--blocked">See deal</button>
-//     <div class="us-icon--before us-icon--small--before us-icon--typegrey--before us-icon--clock--before us-align--center">
+//     <div>
+//       <svg role="presentation" aria-hidden="true" class="us-icon--typegrey us-icon--before us-icon--small us-align--center">
+//         <use xlink:href="/images/icons.svg#icon-clock"></use>
+//       </svg>
 //       <strong>3 days left</strong>
 //     </div>
 //   </div>
-//   <div class="us-featured__mobile-icon  us-tablet--hidden us-col-xsm-3 us-icon us-icon--medium us-icon--typegrey us-icon--breadcrumb"></div>
+//   <div class="us-featured__mobile-icon us-tablet--hidden">
+//     <svg class="us-icon--medium us-icon--typegrey" role="presentation" aria-hidden="true">
+//       <use xlink:href="/images/icons.svg#icon-breadcrumb"></use>
+//     </svg>
+//   </div>
 // </div>
 // <div class="us-featured__footer us-grid-row us-padding-top us-padding-bottom us-desktop--block">
 //   <div class="us-col-xsm-12">

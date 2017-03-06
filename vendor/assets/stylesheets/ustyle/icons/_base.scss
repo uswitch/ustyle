@@ -6,7 +6,9 @@
 //   Our icons are displayed via `xlink:href` in the `<use>` tags. This allows us to directly embed SVGs in a flexible manner and be able to apply transformations and any sort of colours onto them.
 //   We use an SVG sprite called `icons.svg` that is versioned just like ustyle. As per the examples, the icons are referenced via the ID, like this: `icons.svg#icon-bookmark`
 //
-//   ### Usage
+//   **Accessibility**: In most cases, icons are purely presentational elements. In this scenario, you want to add: `aria-hidden="true"` and `role="presentation"` to your code.
+//
+//   #### Usage
 //   * Suffixing with `--{size}` where size is one of *small*, *medium* or *large* will change the size of the icon from 16px, 32px and 64px respectively.
 //   * `.us-icon--{size}--sm-tablet` and `.us-icon--{size}--mobile` will override icon sizes for those screen size
 //   * `.us-icon--notext` allows you to set any element with no content to an icon
@@ -105,7 +107,7 @@
 // @state pound-circle
 //
 // @markup
-//  <svg role="img" class="us-icon--medium us-icon--custom us-icon--{$modifiers}">
+//  <svg role="image" class="us-icon--medium us-icon--custom us-icon--{$modifiers}">
 //    <use xlink:href="/images/icons.svg#icon-{$modifiers}"></use>
 //  </svg>
 
