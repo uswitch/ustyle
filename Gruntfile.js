@@ -44,7 +44,7 @@ module.exports = function(grunt) {
       },
       default: {
         files: {
-          "vendor/assets/images/icons/icons.svg": ["vendor/assets/images/icons/*.svg"],
+          "vendor/assets/images/icons.svg": ["vendor/assets/images/icons/*.svg"],
           "dist/icons.svg": ["vendor/assets/images/icons/*.svg"],
           "styleguide/assets/images/icons.svg": ["vendor/assets/images/icons/*.svg"],
         },

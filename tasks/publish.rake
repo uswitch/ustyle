@@ -28,7 +28,7 @@ end
 namespace :deploy do
   desc "Deploy stylesheets to S3"
   task :stylesheets do
-    Dir["dist/*.{css,json,js}"].each do |file|
+    Dir["dist/*.{css,json,js,svg}"].each do |file|
       file_name = File.basename(file)
       content_type = Ustyle.mime_type_for(file_name)
       Ustyle.s3_upload( Ustyle.versioned_path(file_name), file, content_type )
@@ -39,6 +39,7 @@ namespace :deploy do
       "/s3/#{Ustyle::BUCKET}/ustyle/ustyle-latest.css",
       "/s3/#{Ustyle::BUCKET}/ustyle/ustyle.min.js",
       "/s3/#{Ustyle::BUCKET}/ustyle/ustyle-content.css"
+      "/s3/#{Ustyle::BUCKET}/ustyle/icons.svg"
     ])
   end
 

@@ -36,5 +36,4 @@ module Ustyle
     else ""
     end
   end
-
 end

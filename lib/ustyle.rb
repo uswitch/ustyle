@@ -12,7 +12,7 @@ module Ustyle
       require "ustyle/icons"
       require "ustyle/helpers/icon_helper"
 
-      if defined?(::Rails)
+      if rails?
         require "ustyle/engine"
       elsif sprockets?
         require "ustyle/sprockets"
@@ -24,6 +24,10 @@ module Ustyle
 
     def sprockets?
       defined?(::Sprockets)
+    end
+
+    def rails?
+      defined?(::Rails)
     end
 
     def gem_path
