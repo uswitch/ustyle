@@ -7,8 +7,11 @@ module Ustyle
     ENV['RACK_ENV'] == 'production' || ENV['RAILS_ENV'] == 'production' || ENV['NODE_ENV'] == 'production' || false
   end
 
-  def self.cloudfront_url path, type
-    File.join "https://assets0.uswitch.com/s3/uswitch-assets-eu/ustyle/", Ustyle::VERSION, folder_by_type(type), asset_digest(path)
+  def self.cloudfront_url path, type, versioned = true, digest = true
+    File.join "https://assets0.uswitch.com/s3/uswitch-assets-eu/ustyle/",
+              (versioned ? Ustyle::VERSION : ""),
+              folder_by_type(type),
+              (digest ? asset_digest(path) : path)
   end
 
   def self.asset_digest path

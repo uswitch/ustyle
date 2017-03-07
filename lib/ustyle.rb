@@ -4,6 +4,7 @@ $LOAD_PATH.unshift dir unless $LOAD_PATH.include?(dir)
 require "ustyle/version"
 require "ustyle/utils"
 require "ustyle/hash"
+require "ustyle/middleware/icon_middleware"
 
 module Ustyle
   class << self
