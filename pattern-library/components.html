@@ -21,10 +21,12 @@
 <body>
   <header class="ustyle__header">
     <a class="logo" href="/">
-      <span class="logo__icon us-icon--notext us-icon--ustyle us-icon--typegrey us-icon--medium--mobile us-icon--large"></span>
+      <svg class="us-icon--large us-icon--ustyle us-icon--medium--mobile logo__icon" role="img">
+        <use xlink:href="/images/icons.svg#icon-ustyle"></use>
+      </svg>
       uStyle
     </a>
-    <a class="version" href="https://github.com/uswitch/ustyle/releases/tag/v1.11.2">v1.11.2</a>
+    <a class="version" href="https://github.com/uswitch/ustyle/releases/tag/v1.12.0">v1.12.0</a>
     <svg class="logo__svg--hidden" xmlns="http://www.w3.org/2000/svg">
       <symbol viewBox="0 0 100 100" id="uicon-logo-icon">
       <title>logo-icon</title><path d="M26.9 51.662V12.174H.9v38.771c0 24.61 20.095 46.167 44.695 46.896 13.28.393 25.36-4.881 34.012-13.584C55.435 96.47 26.9 78.67 26.9 51.662z"/><path d="M80.9 2.138L62.733 22.174H67.9v29.378c0 13.905-13.365 24.176-26.722 19.468C58.871 92.463 93.9 79.992
@@ -68,13 +70,13 @@
         <a href="/pattern-library/" class="sidebar__nav-link js-sidebar-nav-link active">Pattern library</a>
         <nav class="sidebar__sub-nav">
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/index.html">Introduction</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/typography.html">Typography</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/articles.html">Articles</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/utilities.html">Utilities</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/typography.html">Typography</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/grid.html">Grid</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/forms.html">Forms</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub active" href="/pattern-library/components.html">Components</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/javascript.html">JavaScript</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/articles.html">Articles</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/grid.html">Grid</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/stats.html">Stats</a>
             <a class="sidebar__nav-link sidebar__nav-link--sub" href="/sass/" target="_blank">Sass doc</a>
         </nav>
@@ -83,22 +85,28 @@
         <a href="/design/" class="sidebar__nav-link js-sidebar-nav-link ">Design</a>
         <nav class="sidebar__sub-nav">
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/index.html">Imagery</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/validating-designs.html">Usability testing</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/icons.html">Icons</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/typography.html">Typography</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/icons.html">Icons</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/validating-designs.html">Usability testing</a>
         </nav>
       </nav>
       <nav class="sidebar__nav ">
         <a href="/language/" class="sidebar__nav-link js-sidebar-nav-link ">Language</a>
         <nav class="sidebar__sub-nav">
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/language/tone.html">Tone</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/language/things_to_avoid.html">Things to avoid</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/language/grammar.html">Grammar</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/language/microcopy.html">Microcopy</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/language/tone.html">Tone</a>
         </nav>
       </nav>
   
     <div class="made-at">
-      <a href="http://www.uswitch.com/vacancies/" target="_blank" class="us-icon--before us-icon--uswitch--before us-icon--custom--before us-icon--small--before--mobile us-icon--medium--before"><span class="us-color--blue">uSwitch is hiring.</span></a>
+      <a href="https://www.uswitch.com/vacancies/" target="_blank">
+        <svg role="img" class="us-icon--before us-icon--uswitch us-icon--custom us-icon--small--mobile us-icon--medium">
+        <use xlink:href="/images/icons.svg#icon-uswitch"></use>
+        </svg>
+        <span class="us-color--blue">uSwitch is hiring.</span>
+      </a>
     </div>
   </div>
     <div id="wrapper" class="container sidebar--push header--push nav--push">
@@ -112,7 +120,6 @@
                 <a class="nav__link" href="#buttons">Buttons</a>
                 <a class="nav__link" href="#content_group">Content group</a>
                 <a class="nav__link" href="#ctas">CTAs</a>
-                <a class="nav__link" href="#featured_deal">Featured deal</a>
                 <a class="nav__link" href="#hero">Hero</a>
                 <a class="nav__link" href="#anchor_links">Anchor links</a>
                 <a class="nav__link" href="#link_lists">Link lists</a>
@@ -125,7 +132,7 @@
             <div class="styleguide__block" id="breadcrumbs">
               <h2 class="styleguide__block-title">
                 Breadcrumbs
-                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_breadcrumbs.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_breadcrumbs.scss</span></a>
+                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_breadcrumbs.scss" class="styleguide__file-link"><svg class="us-icon--small us-icon--github"><use xlink:href="/images/icons.svg#icon-github">Github:</use></svg> <span class="us-tablet--inline">_breadcrumbs.scss</span></a>
               </h2>
             
               <div class="styleguide__description">
@@ -159,7 +166,7 @@
             <div class="styleguide__block" id="buttons">
               <h2 class="styleguide__block-title">
                 Buttons
-                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_button.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_button.scss</span></a>
+                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_button.scss" class="styleguide__file-link"><svg class="us-icon--small us-icon--github"><use xlink:href="/images/icons.svg#icon-github">Github:</use></svg> <span class="us-tablet--inline">_button.scss</span></a>
               </h2>
             
               <div class="styleguide__description">
@@ -254,7 +261,7 @@
             <div class="styleguide__block" id="content_group">
               <h2 class="styleguide__block-title">
                 Content group
-                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_content-group.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_content-group.scss</span></a>
+                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_content-group.scss" class="styleguide__file-link"><svg class="us-icon--small us-icon--github"><use xlink:href="/images/icons.svg#icon-github">Github:</use></svg> <span class="us-tablet--inline">_content-group.scss</span></a>
               </h2>
             
               <div class="styleguide__description">
@@ -298,7 +305,7 @@
             <div class="styleguide__block" id="ctas">
               <h2 class="styleguide__block-title">
                 CTAs
-                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_cta.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_cta.scss</span></a>
+                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_cta.scss" class="styleguide__file-link"><svg class="us-icon--small us-icon--github"><use xlink:href="/images/icons.svg#icon-github">Github:</use></svg> <span class="us-tablet--inline">_cta.scss</span></a>
               </h2>
             
               <div class="styleguide__description">
@@ -331,149 +338,10 @@
                 </code></pre>
               </div>
             </div>
-            <div class="styleguide__block" id="featured_deal">
-              <h2 class="styleguide__block-title">
-                Featured deal
-                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_featured.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_featured.scss</span></a>
-              </h2>
-            
-              <div class="styleguide__description">
-                <p>   The <code>.us-featured</code> is mostly composed of smaller components, the components can be shuffled around inside of a grid to create the needed variants.</p>
-            <p>   This featured deal won&#39;t make any assumptions around the media queries, it&#39;s up to you to deal with it.</p>
-            
-              </div>
-            
-            
-              <div class="styleguide__block-examples">
-                <h3 class="styleguide__block-small-title">Example</h3>
-                <div class="styleguide__block-example">
-                  <div class="us-container">
-             <div class="us-featured__header us-grid-row us-padding-top us-padding-bottom">
-               <div class="us-featured__header-title us-col-xsm-9 us-align--left">
-                 Title goes here
-               </div>
-               <div class="us-featured__header-subtitle us-col-xsm-3 us-align--right">
-                 Promotion
-               </div>
-             </div>
-             <div class="us-featured__content us-grid-row us-padding-top us-padding-bottom">
-               <div class="us-col-xsm-12">
-                 <div class='us-usp us-usp--blue'>
-                   Awesome deal usp
-                 </div>
-               </div>
-               <div class="us-desktop--hidden us-padding-top us-col-xsm-4 us-mobile-block">
-                 <img class="us-img--full" src="http://uswitch-wp-cms-assets.s3-website-eu-west-1.amazonaws.com/money/guides/wp-content/uploads/2014/11/DB2011AU01018_SMALL.jpg" width="200">
-               </div>
-               <div class="us-col-xsm-7 us-col-lg-8 us-col-sm-5">
-                 <ul>
-                   <li>List item 1</li>
-                   <li>List item 2</li>
-                   <li>List item 3</li>
-                 </ul>
-                 <div class="us-col-xsm-6 us-desktop--block">
-                   <div class="us-featured-highlight">
-                     <strong class="us-featured-highlight__title">
-                       &pound;99.99
-                     </strong>
-                     monthly cost
-                   </div>
-                 </div>
-                 <div class="us-col-xsm-6 us-desktop--block">
-                   <div class="us-featured-highlight">
-                     <strong class="us-featured-highlight__title">
-                       &pound;99.99
-                     </strong>
-                     monthly cost
-                     <br>
-                     <a class="us-featured-highlight__link us-link" href="#">Link</a>
-                   </div>
-                 </div>
-               </div>
-               <div class="us-col-xsm-3 us-col-lg-4 us-tablet--block">
-                 <img class="us-img--full us-desktop--block" src="http://uswitch-wp-cms-assets.s3-website-eu-west-1.amazonaws.com/money/guides/wp-content/uploads/2014/11/DB2011AU01018_SMALL.jpg" width="200">
-                 <button class="margin-top margin-bottom us-btn us-btn--primary us-btn us-btn--blocked">See deal</button>
-                 <div class="us-icon--before us-icon--small--before us-icon--typegrey--before us-icon--clock--before us-align--center">
-                   <strong>3 days left</strong>
-                 </div>
-               </div>
-               <div class="us-featured__mobile-icon  us-tablet--hidden us-col-xsm-3 us-icon us-icon--medium us-icon--typegrey us-icon--breadcrumb"></div>
-             </div>
-             <div class="us-featured__footer us-grid-row us-padding-top us-padding-bottom us-desktop--block">
-               <div class="us-col-xsm-12">
-                 Legal stuff goes here
-               </div>
-             </div>
-            </div>
-                </div>
-            
-            
-                <pre><code class="html">
-            &lt;div class="us-container"&gt;
-             &lt;div class="us-featured__header us-grid-row us-padding-top us-padding-bottom"&gt;
-               &lt;div class="us-featured__header-title us-col-xsm-9 us-align--left"&gt;
-                 Title goes here
-               &lt;/div&gt;
-               &lt;div class="us-featured__header-subtitle us-col-xsm-3 us-align--right"&gt;
-                 Promotion
-               &lt;/div&gt;
-             &lt;/div&gt;
-             &lt;div class="us-featured__content us-grid-row us-padding-top us-padding-bottom"&gt;
-               &lt;div class="us-col-xsm-12"&gt;
-                 &lt;div class='us-usp us-usp--blue'&gt;
-                   Awesome deal usp
-                 &lt;/div&gt;
-               &lt;/div&gt;
-               &lt;div class="us-desktop--hidden us-padding-top us-col-xsm-4 us-mobile-block"&gt;
-                 &lt;img class="us-img--full" src="http://uswitch-wp-cms-assets.s3-website-eu-west-1.amazonaws.com/money/guides/wp-content/uploads/2014/11/DB2011AU01018_SMALL.jpg" width="200"&gt;
-               &lt;/div&gt;
-               &lt;div class="us-col-xsm-7 us-col-lg-8 us-col-sm-5"&gt;
-                 &lt;ul&gt;
-                   &lt;li&gt;List item 1&lt;/li&gt;
-                   &lt;li&gt;List item 2&lt;/li&gt;
-                   &lt;li&gt;List item 3&lt;/li&gt;
-                 &lt;/ul&gt;
-                 &lt;div class="us-col-xsm-6 us-desktop--block"&gt;
-                   &lt;div class="us-featured-highlight"&gt;
-                     &lt;strong class="us-featured-highlight__title"&gt;
-                       &pound;99.99
-                     &lt;/strong&gt;
-                     monthly cost
-                   &lt;/div&gt;
-                 &lt;/div&gt;
-                 &lt;div class="us-col-xsm-6 us-desktop--block"&gt;
-                   &lt;div class="us-featured-highlight"&gt;
-                     &lt;strong class="us-featured-highlight__title"&gt;
-                       &pound;99.99
-                     &lt;/strong&gt;
-                     monthly cost
-                     &lt;br&gt;
-                     &lt;a class="us-featured-highlight__link us-link" href="#"&gt;Link&lt;/a&gt;
-                   &lt;/div&gt;
-                 &lt;/div&gt;
-               &lt;/div&gt;
-               &lt;div class="us-col-xsm-3 us-col-lg-4 us-tablet--block"&gt;
-                 &lt;img class="us-img--full us-desktop--block" src="http://uswitch-wp-cms-assets.s3-website-eu-west-1.amazonaws.com/money/guides/wp-content/uploads/2014/11/DB2011AU01018_SMALL.jpg" width="200"&gt;
-                 &lt;button class="margin-top margin-bottom us-btn us-btn--primary us-btn us-btn--blocked"&gt;See deal&lt;/button&gt;
-                 &lt;div class="us-icon--before us-icon--small--before us-icon--typegrey--before us-icon--clock--before us-align--center"&gt;
-                   &lt;strong&gt;3 days left&lt;/strong&gt;
-                 &lt;/div&gt;
-               &lt;/div&gt;
-               &lt;div class="us-featured__mobile-icon  us-tablet--hidden us-col-xsm-3 us-icon us-icon--medium us-icon--typegrey us-icon--breadcrumb"&gt;&lt;/div&gt;
-             &lt;/div&gt;
-             &lt;div class="us-featured__footer us-grid-row us-padding-top us-padding-bottom us-desktop--block"&gt;
-               &lt;div class="us-col-xsm-12"&gt;
-                 Legal stuff goes here
-               &lt;/div&gt;
-             &lt;/div&gt;
-            &lt;/div&gt;
-                </code></pre>
-              </div>
-            </div>
             <div class="styleguide__block" id="hero">
               <h2 class="styleguide__block-title">
                 Hero
-                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_hero.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_hero.scss</span></a>
+                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_hero.scss" class="styleguide__file-link"><svg class="us-icon--small us-icon--github"><use xlink:href="/images/icons.svg#icon-github">Github:</use></svg> <span class="us-tablet--inline">_hero.scss</span></a>
               </h2>
             
               <div class="styleguide__description">
@@ -508,7 +376,7 @@
             <div class="styleguide__block" id="anchor_links">
               <h2 class="styleguide__block-title">
                 Anchor links
-                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_links.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_links.scss</span></a>
+                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_links.scss" class="styleguide__file-link"><svg class="us-icon--small us-icon--github"><use xlink:href="/images/icons.svg#icon-github">Github:</use></svg> <span class="us-tablet--inline">_links.scss</span></a>
               </h2>
             
               <div class="styleguide__description">
@@ -545,7 +413,7 @@
             <div class="styleguide__block" id="link_lists">
               <h2 class="styleguide__block-title">
                 Link lists
-                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_lists.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_lists.scss</span></a>
+                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_lists.scss" class="styleguide__file-link"><svg class="us-icon--small us-icon--github"><use xlink:href="/images/icons.svg#icon-github">Github:</use></svg> <span class="us-tablet--inline">_lists.scss</span></a>
               </h2>
             
               <div class="styleguide__description">
@@ -577,7 +445,7 @@
             <div class="styleguide__block" id="loader">
               <h2 class="styleguide__block-title">
                 Loader
-                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_loader.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_loader.scss</span></a>
+                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_loader.scss" class="styleguide__file-link"><svg class="us-icon--small us-icon--github"><use xlink:href="/images/icons.svg#icon-github">Github:</use></svg> <span class="us-tablet--inline">_loader.scss</span></a>
               </h2>
             
               <div class="styleguide__description">
@@ -638,7 +506,7 @@
             <div class="styleguide__block" id="progress_navigation">
               <h2 class="styleguide__block-title">
                 Progress navigation
-                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_progress.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_progress.scss</span></a>
+                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_progress.scss" class="styleguide__file-link"><svg class="us-icon--small us-icon--github"><use xlink:href="/images/icons.svg#icon-github">Github:</use></svg> <span class="us-tablet--inline">_progress.scss</span></a>
               </h2>
             
               <div class="styleguide__description">
@@ -723,7 +591,7 @@
             <div class="styleguide__block" id="usps">
               <h2 class="styleguide__block-title">
                 USPs
-                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_usp.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_usp.scss</span></a>
+                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_usp.scss" class="styleguide__file-link"><svg class="us-icon--small us-icon--github"><use xlink:href="/images/icons.svg#icon-github">Github:</use></svg> <span class="us-tablet--inline">_usp.scss</span></a>
               </h2>
             
               <div class="styleguide__description">
@@ -856,5 +724,8 @@
   <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="/js/app.js"></script>
+  <script type="text/javascript">
+    !function(a,b){"function"==typeof define&&define.amd?define([],function(){return a.svg4everybody=b()}):"object"==typeof exports?module.exports=b():a.svg4everybody=b()}(this,function(){function a(a,b){if(b){var c=document.createDocumentFragment(),d=!a.getAttribute("viewBox")&&b.getAttribute("viewBox");d&&a.setAttribute("viewBox",d);for(var e=b.cloneNode(!0);e.childNodes.length;)c.appendChild(e.firstChild);a.appendChild(c)}}function b(b){b.onreadystatechange=function(){if(4===b.readyState){var c=b._cachedDocument;c||(c=b._cachedDocument=document.implementation.createHTMLDocument(""),c.body.innerHTML=b.responseText,b._cachedTarget={}),b._embeds.splice(0).map(function(d){var e=b._cachedTarget[d.id];e||(e=b._cachedTarget[d.id]=c.getElementById(d.id)),a(d.svg,e)})}},b.onreadystatechange()}function c(c){function d(){for(var c=0;c<l.length;){var g=l[c],h=g.parentNode;if(h&&/svg/i.test(h.nodeName)){var i=g.getAttribute("xlink:href")||g.getAttribute("href");if(e&&(!f.validate||f.validate(i,h,g))){h.removeChild(g);var m=i.split("#"),n=m.shift(),o=m.join("#");if(n.length){var p=j[n];p||(p=j[n]=new XMLHttpRequest,p.open("GET",n),p.send(),p._embeds=[]),p._embeds.push({svg:h,id:o}),b(p)}else a(h,document.getElementById(o))}}else++c}k(d,67)}var e,f=Object(c),g=/\bTrident\/[567]\b|\bMSIE (?:9|10)\.0\b/,h=/\bAppleWebKit\/(\d+)\b/,i=/\bEdge\/12\.(\d+)\b/;e="polyfill"in f?f.polyfill:g.test(navigator.userAgent)||(navigator.userAgent.match(i)||[])[1]<10547||(navigator.userAgent.match(h)||[])[1]<537;var j={},k=window.requestAnimationFrame||setTimeout,l=document.getElementsByTagName("use");e&&d()}return c});
+  </script>
 </body>
 </html>

@@ -21,10 +21,12 @@
 <body>
   <header class="ustyle__header">
     <a class="logo" href="/">
-      <span class="logo__icon us-icon--notext us-icon--ustyle us-icon--typegrey us-icon--medium--mobile us-icon--large"></span>
+      <svg class="us-icon--large us-icon--ustyle us-icon--medium--mobile logo__icon" role="img">
+        <use xlink:href="/images/icons.svg#icon-ustyle"></use>
+      </svg>
       uStyle
     </a>
-    <a class="version" href="https://github.com/uswitch/ustyle/releases/tag/v1.11.2">v1.11.2</a>
+    <a class="version" href="https://github.com/uswitch/ustyle/releases/tag/v1.12.0">v1.12.0</a>
     <svg class="logo__svg--hidden" xmlns="http://www.w3.org/2000/svg">
       <symbol viewBox="0 0 100 100" id="uicon-logo-icon">
       <title>logo-icon</title><path d="M26.9 51.662V12.174H.9v38.771c0 24.61 20.095 46.167 44.695 46.896 13.28.393 25.36-4.881 34.012-13.584C55.435 96.47 26.9 78.67 26.9 51.662z"/><path d="M80.9 2.138L62.733 22.174H67.9v29.378c0 13.905-13.365 24.176-26.722 19.468C58.871 92.463 93.9 79.992
@@ -68,13 +70,13 @@
         <a href="/pattern-library/" class="sidebar__nav-link js-sidebar-nav-link active">Pattern library</a>
         <nav class="sidebar__sub-nav">
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/index.html">Introduction</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/typography.html">Typography</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/articles.html">Articles</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/utilities.html">Utilities</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/typography.html">Typography</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/grid.html">Grid</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/forms.html">Forms</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/components.html">Components</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub active" href="/pattern-library/javascript.html">JavaScript</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/articles.html">Articles</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/grid.html">Grid</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/stats.html">Stats</a>
             <a class="sidebar__nav-link sidebar__nav-link--sub" href="/sass/" target="_blank">Sass doc</a>
         </nav>
@@ -83,22 +85,28 @@
         <a href="/design/" class="sidebar__nav-link js-sidebar-nav-link ">Design</a>
         <nav class="sidebar__sub-nav">
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/index.html">Imagery</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/validating-designs.html">Usability testing</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/icons.html">Icons</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/typography.html">Typography</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/icons.html">Icons</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/validating-designs.html">Usability testing</a>
         </nav>
       </nav>
       <nav class="sidebar__nav ">
         <a href="/language/" class="sidebar__nav-link js-sidebar-nav-link ">Language</a>
         <nav class="sidebar__sub-nav">
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/language/tone.html">Tone</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/language/things_to_avoid.html">Things to avoid</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/language/grammar.html">Grammar</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/language/microcopy.html">Microcopy</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/language/tone.html">Tone</a>
         </nav>
       </nav>
   
     <div class="made-at">
-      <a href="http://www.uswitch.com/vacancies/" target="_blank" class="us-icon--before us-icon--uswitch--before us-icon--custom--before us-icon--small--before--mobile us-icon--medium--before"><span class="us-color--blue">uSwitch is hiring.</span></a>
+      <a href="https://www.uswitch.com/vacancies/" target="_blank">
+        <svg role="img" class="us-icon--before us-icon--uswitch us-icon--custom us-icon--small--mobile us-icon--medium">
+        <use xlink:href="/images/icons.svg#icon-uswitch"></use>
+        </svg>
+        <span class="us-color--blue">uSwitch is hiring.</span>
+      </a>
     </div>
   </div>
     <div id="wrapper" class="container sidebar--push header--push nav--push">
@@ -118,7 +126,7 @@
             <div class="styleguide__block" id="anchor">
               <h2 class="styleguide__block-title">
                 Anchor
-                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_anchor.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_anchor.scss</span></a>
+                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_anchor.scss" class="styleguide__file-link"><svg class="us-icon--small us-icon--github"><use xlink:href="/images/icons.svg#icon-github">Github:</use></svg> <span class="us-tablet--inline">_anchor.scss</span></a>
               </h2>
             
               <div class="styleguide__description">
@@ -158,7 +166,7 @@
             <div class="styleguide__block" id="overlay">
               <h2 class="styleguide__block-title">
                 Overlay
-                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_overlay.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_overlay.scss</span></a>
+                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_overlay.scss" class="styleguide__file-link"><svg class="us-icon--small us-icon--github"><use xlink:href="/images/icons.svg#icon-github">Github:</use></svg> <span class="us-tablet--inline">_overlay.scss</span></a>
               </h2>
             
               <div class="styleguide__description">
@@ -309,7 +317,7 @@
             <div class="styleguide__block" id="tabs">
               <h2 class="styleguide__block-title">
                 Tabs
-                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_tabs.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_tabs.scss</span></a>
+                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_tabs.scss" class="styleguide__file-link"><svg class="us-icon--small us-icon--github"><use xlink:href="/images/icons.svg#icon-github">Github:</use></svg> <span class="us-tablet--inline">_tabs.scss</span></a>
               </h2>
             
               <div class="styleguide__description">
@@ -334,7 +342,10 @@
                  <div class='us-tabs-container'>
                    <div class='us-tab' id='tab1'>
                      <h2 class='us-tab-title'>
-                       <a class="us-tabs-nav-mainlink us-icon--after us-icon--chevron-right--after us-icon--small--after us-icon--inputgrey--after" href="#tab1">Test 1</a>
+                       <a class="us-tabs-nav-mainlink" href="#tab1">
+                         Test 1
+                         <svg role="presentation" aria-hidden="true" class="us-tabs-nav-chevron us-icon us-icon--small us-icon--after us-icon--inputgrey"><use xlink:href="/images/icons.svg#icon-chevron-right"/></svg>
+                       </a>
                      </h2>
                      <div class='us-tab-content'>
                        <p>Fatback capicola leberkas pork loin pork jowl. Meatloaf shoulder pancetta, salami prosciutto ribeye andouille chuck landjaeger short loin filet mignon sirloin. Pork chop tri-tip ham pork hamburger frankfurter leberkas short ribs biltong. Prosciutto ham hock rump, andouille tongue flank sirloin tri-tip ball tip frankfurter ham drumstick meatloaf pork loin.</p>
@@ -342,7 +353,10 @@
                    </div>
                    <div class='us-tab' id='tab2'>
                      <h2 class='us-tab-title'>
-                       <a class="us-tabs-nav-mainlink us-icon--after us-icon--chevron-right--after us-icon--small--after us-icon--inputgrey--after" href="#tab2">Test 2</a>
+                       <a class="us-tabs-nav-mainlink" href="#tab2">
+                         Test 2
+                         <svg role="presentation" aria-hidden="true" class="us-tabs-nav-chevron us-icon us-icon--small us-icon--after us-icon--inputgrey"><use xlink:href="/images/icons.svg#icon-chevron-right"/></svg>
+                       </a>
                      </h2>
                      <div class='us-tab-content'>
                        <p>Kielbasa tenderloin spare ribs, andouille doner brisket chuck drumstick bresaola short loin pork t-bone ground round jowl. Ball tip pork loin doner tongue filet mignon biltong hamburger leberkas. Filet mignon kielbasa kevin short ribs, drumstick chuck shankle spare ribs tri-tip.</p>
@@ -350,7 +364,10 @@
                    </div>
                    <div class='us-tab' id='tab3'>
                      <h2 class='us-tab-title'>
-                       <a class="us-tabs-nav-mainlink us-icon--after us-icon--chevron-right--after us-icon--small--after us-icon--inputgrey--after" href="#tab3">Test 3</a>
+                       <a class="us-tabs-nav-mainlink" href="#tab3">
+                         Test 3
+                         <svg role="presentation" aria-hidden="true" class="us-tabs-nav-chevron us-icon us-icon--small us-icon--after us-icon--inputgrey"><use xlink:href="/images/icons.svg#icon-chevron-right"/></svg>
+                       </a>
                      </h2>
                      <div class='us-tab-content'>
                        <p>Pig pastrami pork loin kielbasa, filet mignon meatloaf short ribs tenderloin. Pork loin leberkas kevin fatback porchetta bresaola. Cow rump shoulder pastrami. Andouille pork belly t-bone short ribs brisket. Bresaola pork belly tail salami capicola meatball. Pork belly beef ham landjaeger.</p>
@@ -375,7 +392,10 @@
                  &lt;div class='us-tabs-container'&gt;
                    &lt;div class='us-tab' id='tab1'&gt;
                      &lt;h2 class='us-tab-title'&gt;
-                       &lt;a class="us-tabs-nav-mainlink us-icon--after us-icon--chevron-right--after us-icon--small--after us-icon--inputgrey--after" href="#tab1"&gt;Test 1&lt;/a&gt;
+                       &lt;a class="us-tabs-nav-mainlink" href="#tab1"&gt;
+                         Test 1
+                         &lt;svg role="presentation" aria-hidden="true" class="us-tabs-nav-chevron us-icon us-icon--small us-icon--after us-icon--inputgrey"&gt;&lt;use xlink:href="/images/icons.svg#icon-chevron-right"/&gt;&lt;/svg&gt;
+                       &lt;/a&gt;
                      &lt;/h2&gt;
                      &lt;div class='us-tab-content'&gt;
                        &lt;p&gt;Fatback capicola leberkas pork loin pork jowl. Meatloaf shoulder pancetta, salami prosciutto ribeye andouille chuck landjaeger short loin filet mignon sirloin. Pork chop tri-tip ham pork hamburger frankfurter leberkas short ribs biltong. Prosciutto ham hock rump, andouille tongue flank sirloin tri-tip ball tip frankfurter ham drumstick meatloaf pork loin.&lt;/p&gt;
@@ -383,7 +403,10 @@
                    &lt;/div&gt;
                    &lt;div class='us-tab' id='tab2'&gt;
                      &lt;h2 class='us-tab-title'&gt;
-                       &lt;a class="us-tabs-nav-mainlink us-icon--after us-icon--chevron-right--after us-icon--small--after us-icon--inputgrey--after" href="#tab2"&gt;Test 2&lt;/a&gt;
+                       &lt;a class="us-tabs-nav-mainlink" href="#tab2"&gt;
+                         Test 2
+                         &lt;svg role="presentation" aria-hidden="true" class="us-tabs-nav-chevron us-icon us-icon--small us-icon--after us-icon--inputgrey"&gt;&lt;use xlink:href="/images/icons.svg#icon-chevron-right"/&gt;&lt;/svg&gt;
+                       &lt;/a&gt;
                      &lt;/h2&gt;
                      &lt;div class='us-tab-content'&gt;
                        &lt;p&gt;Kielbasa tenderloin spare ribs, andouille doner brisket chuck drumstick bresaola short loin pork t-bone ground round jowl. Ball tip pork loin doner tongue filet mignon biltong hamburger leberkas. Filet mignon kielbasa kevin short ribs, drumstick chuck shankle spare ribs tri-tip.&lt;/p&gt;
@@ -391,7 +414,10 @@
                    &lt;/div&gt;
                    &lt;div class='us-tab' id='tab3'&gt;
                      &lt;h2 class='us-tab-title'&gt;
-                       &lt;a class="us-tabs-nav-mainlink us-icon--after us-icon--chevron-right--after us-icon--small--after us-icon--inputgrey--after" href="#tab3"&gt;Test 3&lt;/a&gt;
+                       &lt;a class="us-tabs-nav-mainlink" href="#tab3"&gt;
+                         Test 3
+                         &lt;svg role="presentation" aria-hidden="true" class="us-tabs-nav-chevron us-icon us-icon--small us-icon--after us-icon--inputgrey"&gt;&lt;use xlink:href="/images/icons.svg#icon-chevron-right"/&gt;&lt;/svg&gt;
+                       &lt;/a&gt;
                      &lt;/h2&gt;
                      &lt;div class='us-tab-content'&gt;
                        &lt;p&gt;Pig pastrami pork loin kielbasa, filet mignon meatloaf short ribs tenderloin. Pork loin leberkas kevin fatback porchetta bresaola. Cow rump shoulder pastrami. Andouille pork belly t-bone short ribs brisket. Bresaola pork belly tail salami capicola meatball. Pork belly beef ham landjaeger.&lt;/p&gt;
@@ -417,7 +443,7 @@
             <div class="styleguide__block" id="tooltip">
               <h2 class="styleguide__block-title">
                 Tooltip
-                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_tooltip.scss" class="styleguide__file-link"><span class="us-icon--small us-icon--github us-icon--notext us-icon--custom">Github:</span> <span class="us-tablet--inline">_tooltip.scss</span></a>
+                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_tooltip.scss" class="styleguide__file-link"><svg class="us-icon--small us-icon--github"><use xlink:href="/images/icons.svg#icon-github">Github:</use></svg> <span class="us-tablet--inline">_tooltip.scss</span></a>
               </h2>
             
               <div class="styleguide__description">
@@ -568,5 +594,8 @@
   <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="/js/app.js"></script>
+  <script type="text/javascript">
+    !function(a,b){"function"==typeof define&&define.amd?define([],function(){return a.svg4everybody=b()}):"object"==typeof exports?module.exports=b():a.svg4everybody=b()}(this,function(){function a(a,b){if(b){var c=document.createDocumentFragment(),d=!a.getAttribute("viewBox")&&b.getAttribute("viewBox");d&&a.setAttribute("viewBox",d);for(var e=b.cloneNode(!0);e.childNodes.length;)c.appendChild(e.firstChild);a.appendChild(c)}}function b(b){b.onreadystatechange=function(){if(4===b.readyState){var c=b._cachedDocument;c||(c=b._cachedDocument=document.implementation.createHTMLDocument(""),c.body.innerHTML=b.responseText,b._cachedTarget={}),b._embeds.splice(0).map(function(d){var e=b._cachedTarget[d.id];e||(e=b._cachedTarget[d.id]=c.getElementById(d.id)),a(d.svg,e)})}},b.onreadystatechange()}function c(c){function d(){for(var c=0;c<l.length;){var g=l[c],h=g.parentNode;if(h&&/svg/i.test(h.nodeName)){var i=g.getAttribute("xlink:href")||g.getAttribute("href");if(e&&(!f.validate||f.validate(i,h,g))){h.removeChild(g);var m=i.split("#"),n=m.shift(),o=m.join("#");if(n.length){var p=j[n];p||(p=j[n]=new XMLHttpRequest,p.open("GET",n),p.send(),p._embeds=[]),p._embeds.push({svg:h,id:o}),b(p)}else a(h,document.getElementById(o))}}else++c}k(d,67)}var e,f=Object(c),g=/\bTrident\/[567]\b|\bMSIE (?:9|10)\.0\b/,h=/\bAppleWebKit\/(\d+)\b/,i=/\bEdge\/12\.(\d+)\b/;e="polyfill"in f?f.polyfill:g.test(navigator.userAgent)||(navigator.userAgent.match(i)||[])[1]<10547||(navigator.userAgent.match(h)||[])[1]<537;var j={},k=window.requestAnimationFrame||setTimeout,l=document.getElementsByTagName("use");e&&d()}return c});
+  </script>
 </body>
 </html>

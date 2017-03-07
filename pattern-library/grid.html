@@ -21,10 +21,12 @@
 <body>
   <header class="ustyle__header">
     <a class="logo" href="/">
-      <span class="logo__icon us-icon--notext us-icon--ustyle us-icon--typegrey us-icon--medium--mobile us-icon--large"></span>
+      <svg class="us-icon--large us-icon--ustyle us-icon--medium--mobile logo__icon" role="img">
+        <use xlink:href="/images/icons.svg#icon-ustyle"></use>
+      </svg>
       uStyle
     </a>
-    <a class="version" href="https://github.com/uswitch/ustyle/releases/tag/v1.11.2">v1.11.2</a>
+    <a class="version" href="https://github.com/uswitch/ustyle/releases/tag/v1.12.0">v1.12.0</a>
     <svg class="logo__svg--hidden" xmlns="http://www.w3.org/2000/svg">
       <symbol viewBox="0 0 100 100" id="uicon-logo-icon">
       <title>logo-icon</title><path d="M26.9 51.662V12.174H.9v38.771c0 24.61 20.095 46.167 44.695 46.896 13.28.393 25.36-4.881 34.012-13.584C55.435 96.47 26.9 78.67 26.9 51.662z"/><path d="M80.9 2.138L62.733 22.174H67.9v29.378c0 13.905-13.365 24.176-26.722 19.468C58.871 92.463 93.9 79.992
@@ -68,13 +70,13 @@
         <a href="/pattern-library/" class="sidebar__nav-link js-sidebar-nav-link active">Pattern library</a>
         <nav class="sidebar__sub-nav">
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/index.html">Introduction</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/typography.html">Typography</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/articles.html">Articles</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/utilities.html">Utilities</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/typography.html">Typography</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub active" href="/pattern-library/grid.html">Grid</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/forms.html">Forms</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/components.html">Components</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/javascript.html">JavaScript</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/articles.html">Articles</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub active" href="/pattern-library/grid.html">Grid</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/stats.html">Stats</a>
             <a class="sidebar__nav-link sidebar__nav-link--sub" href="/sass/" target="_blank">Sass doc</a>
         </nav>
@@ -83,22 +85,28 @@
         <a href="/design/" class="sidebar__nav-link js-sidebar-nav-link ">Design</a>
         <nav class="sidebar__sub-nav">
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/index.html">Imagery</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/validating-designs.html">Usability testing</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/icons.html">Icons</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/typography.html">Typography</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/icons.html">Icons</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/validating-designs.html">Usability testing</a>
         </nav>
       </nav>
       <nav class="sidebar__nav ">
         <a href="/language/" class="sidebar__nav-link js-sidebar-nav-link ">Language</a>
         <nav class="sidebar__sub-nav">
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/language/tone.html">Tone</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/language/things_to_avoid.html">Things to avoid</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/language/grammar.html">Grammar</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/language/microcopy.html">Microcopy</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/language/tone.html">Tone</a>
         </nav>
       </nav>
   
     <div class="made-at">
-      <a href="http://www.uswitch.com/vacancies/" target="_blank" class="us-icon--before us-icon--uswitch--before us-icon--custom--before us-icon--small--before--mobile us-icon--medium--before"><span class="us-color--blue">uSwitch is hiring.</span></a>
+      <a href="https://www.uswitch.com/vacancies/" target="_blank">
+        <svg role="img" class="us-icon--before us-icon--uswitch us-icon--custom us-icon--small--mobile us-icon--medium">
+        <use xlink:href="/images/icons.svg#icon-uswitch"></use>
+        </svg>
+        <span class="us-color--blue">uSwitch is hiring.</span>
+      </a>
     </div>
   </div>
   <div id="wrapper" class="container header--push sidebar--push">
