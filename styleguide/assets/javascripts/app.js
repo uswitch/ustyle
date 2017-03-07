@@ -41,6 +41,7 @@
     }
 
     stickySidebar();
+    svg4everybody();
 
     var overlays = [];
 

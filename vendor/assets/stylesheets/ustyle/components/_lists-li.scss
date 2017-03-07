@@ -68,10 +68,12 @@
 //
 // @markup
 //   <ul class='us-ticked-list'>
-//     <li class='us-icon--before us-icon--tick--before us-icon--small--before us-icon--typegrey--before'>
+//     <li>
+//       <svg role="presentation" aria-hidden="true" class="us-icon us-icon--small us-icon--before us-icon--typegrey"><use xlink:href="/images/icons.svg#icon-tick"/></svg>
 //       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 //     </li>
-//     <li class='us-icon--before us-icon--tick--before us-icon--small--before us-icon--typegrey--before'>
+//     <li>
+//       <svg role="presentation" aria-hidden="true" class="us-icon us-icon--small us-icon--before us-icon--typegrey"><use xlink:href="/images/icons.svg#icon-tick"/></svg>
 //       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 //     </li>
 //   </ul>
@@ -80,13 +82,11 @@
   @extend %base-custom-list;
 
   li {
+    padding-left: 0;
+
     &:before {
       top: 50%;
       margin-top: - 8px;
-    }
-
-    .us-custom-list-alt &:before {
-      @include icon-color("white");
     }
   }
 }

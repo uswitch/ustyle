@@ -3,7 +3,7 @@ template: simple.tpl
 name: uSwitch living styleguide
 ---
 <p>
-  The sum of our efforts towards style guidelines, a pattern library and an automated front-end. Made with &#10084; at <a href="http://www.uswitch.com" target="_blank"><strong class="us-color--blue">uSwitch.com</strong></a>
+  The sum of our efforts towards style guidelines, a pattern library and an automated front-end. Made with &#10084; at <a href="https://www.uswitch.com" target="_blank"><strong class="us-color--blue">uSwitch.com</strong></a>
 </p>
 <div class="us-content-group mobile-bordered">
   <div class="us-grid-row">
@@ -33,7 +33,9 @@ name: uSwitch living styleguide
   <h2>The logo</h2>
   <div class="us-grid-row">
     <div class="us-col-md-2">
-      <span class="us-icon--notext us-icon--ustyle us-icon--large logo--ustyle"></span>
+      <svg class="us-icon--large us-icon--ustyle" role="img">
+        <use xlink:href="/images/icons.svg#icon-ustyle"></use>
+      </svg>
     </div>
     <div class="us-col-md-10">
       <p>There is no reason for this logo other than it's funny and unicorns are all the rage just now.</p>

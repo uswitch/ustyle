@@ -4,14 +4,16 @@ $LOAD_PATH.unshift dir unless $LOAD_PATH.include?(dir)
 require "ustyle/version"
 require "ustyle/utils"
 require "ustyle/hash"
+require "ustyle/middleware/icon_middleware"
 
 module Ustyle
   class << self
     def load!
       require "ustyle/sass_functions"
       require "ustyle/icons"
+      require "ustyle/helpers/icon_helper"
 
-      if defined?(::Rails)
+      if rails?
         require "ustyle/engine"
       elsif sprockets?
         require "ustyle/sprockets"
@@ -23,6 +25,10 @@ module Ustyle
 
     def sprockets?
       defined?(::Sprockets)
+    end
+
+    def rails?
+      defined?(::Rails)
     end
 
     def gem_path

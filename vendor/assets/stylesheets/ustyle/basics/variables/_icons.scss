@@ -1,151 +1,34 @@
-//
-// These are the default icon variables to set up the uStyle SVG/PNG icons
-//
-
-$icons: (
-  alarm
-  android
-  arrow-circle
-  arrow-up
-  arrow-down
-  book
-  bookmark
-  breadcrumb
-  calculator
-  calendar
-  car
-  checkbox-tick
-  chevron-right
-  clock
-  close
-  cog
-  credit-card
-  cross
-  dual-fuel
-  electric-light
-  envelope
-  exit-noexit
-  facebook
-  facebook-brand
-  filter
-  fixed-variable
-  gas
-  gauge
-  github
-  google
-  google-brand
-  graph-up
-  home
-  hot
-  info
-  kettle
-  key
-  lock
-  magnify-in
-  magnify
-  menu
-  message
-  mobile
-  monthly-dd
-  network
-  no-exit
-  pdf
-  pencil
-  person-add
-  person
-  phone
-  piggy-bank
-  pin
-  pound-note
-  present
-  print
-  quarterly-dd
-  question-circle
-  quote
-  recycle
-  remove
-  renewable
-  results
-  save
-  share
-  sim
-  smiley
-  sort
-  speech-circle
-  speech
-  spinner
-  star-half
-  star
-  starline-half
-  starline
-  talk
-  tick-circle
-  tick
-  tv
-  twitter
-  twitter-brand
-  uswitch
-  variable
-  warning-circle
-  wifi
-  wiki
-  xml
-  play
-  pound-circle
-) !default;
-
-/// If set to `true` it will load **all** the icons within the uStyle repository. Use with care unless
-/// you're modifying the icon set
-///
-/// @group Icons
-/// @type Boolean
-
-$load-icons: false !default;
-
-/// Default path for the icons. Is relative for sprockets, may be different for other projects
-///
-/// @group Icons
-/// @type String
-
-$base-icon-path: "icons/" !default;
-
-/// If this is set then SVGs are loaded first with the `$png-support-class` being the
-/// fallback top level HTML class for loading in the PNGs.
-///
-/// @group Icons
-/// @type Bool
-
-$svg-first: true !default;
-
-/// Sets if we inline the icons (HTTP/1.1 performance recommended) or load in the URLs of them
-/// for HTTP/2
-///
-/// @group Icons
-/// @type Bool
-
-$svg-inline: true !default;
-
-/// Default support class fir SVG support. An SVG detection system is needed for this to
-/// be implemented. Feature detection like modernizr will do the trick.
-///
-/// @group Icons
-/// @type String
-
-$svg-support-class: ".svg-on" !default;
-
-/// Same as the `$svg-support-class` but applicable if `$svg-first` is set to `true`
-///
-/// @group Icons
-/// @type String
-
-$png-support-class: ".svg-off" !default;
-
 /// List of the supported SVG sprite colours
 ///
 /// @group Icons
 /// @type List
 
 $icon-colors: "white", "typegrey", "inputgrey", "typecyan", "custom" !default;
+
+/// Legacy support for icon coloring on SVGs
+///
+/// @group Icons
+/// @type List
+$icon-colors--svg: (
+  ("white", #fff),
+  ("typegrey", $c-typegrey),
+  ("inputgrey", $c-inputgrey),
+  ("typecyan", $c-typecyan),
+  ("custom", $c-navy)
+) !default;
+
+$icon-colors--svg--custom: (
+  ("uswitch", $c-blue),
+  ("cross", $c-red),
+  ("facebook", #3c5a99),
+  ("google", #dc4e41),
+  ("renewable", $c-green),
+  ("star-half", $c-yellow),
+  ("starline-half", $c-yellow),
+  ("star", $c-yellow),
+  ("starline", $c-yellow),
+  ("twitter", #00aced)
+) !default;
 
 /// List of the icon sizes and their respective names
 ///

@@ -1,6 +1,8 @@
 <header class="ustyle__header">
   <a class="logo" href="/">
-    <span class="logo__icon us-icon--notext us-icon--ustyle us-icon--typegrey us-icon--medium--mobile us-icon--large"></span>
+    <svg class="us-icon--large us-icon--ustyle us-icon--medium--mobile logo__icon" role="img">
+      <use xlink:href="/images/icons.svg#icon-ustyle"></use>
+    </svg>
     uStyle
   </a>
   <a class="version" href="https://github.com/uswitch/ustyle/releases/tag/v{{project.version}}">v{{project.version}}</a>

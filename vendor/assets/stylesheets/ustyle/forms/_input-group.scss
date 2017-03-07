@@ -9,7 +9,7 @@
 //
 // @markup
 //   <div class="us-input-group us-margin-bottom {$modifiers}">
-//     <span class="us-input-group__box"><span class="us-icon--small  us-icon--inputgrey us-icon--envelope us-icon--notext"></span></span>
+//     <span class="us-input-group__box"><svg role="presentation" aria-hidden="true" class="us-icon--small us-icon--inputgrey"><use xlink:href="/images/icons.svg#icon-envelope"></use></svg></span>
 //     <input class="us-form-input" type="text" id="email" placeholder="Email" />
 //   </div>
 //
