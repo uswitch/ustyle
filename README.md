@@ -1,21 +1,60 @@
 # [ustyle](http://ustyle.guide)
+
 ![ustyle unicorn](https://assets0.uswitch.com/s3/uswitch-assets-eu/ustyle/ustyle-unicorn.png)
 
-uStyle, aptly named, is the styleguide gem for [uSwitch](http://www.uswitch.com). Include it in your Rails/Sinatra/Anything project as a gem and forget about those annoying additional cloudfront includes.
+uStyle, aptly named, is the styleguide gem for [uSwitch](http://www.uswitch.com). Include it in your Rails/Sinatra/Anything project as a gem to apply consistent styles according the uSwitch styleguide.
 
 This project is provided as is and is aimed at building uSwitch specific projects.
 
-## Gem Requirements
+* [Features](#features)
+* [Infrastructure](#infrastructure)
+* [Installation](#installation)
+  * [Sinatra](#sinatra)
+* [Usage](#usage)
+  * [Mixins/Varibales](#mixins-variables)
+* [Development](#development)
+* [Contributing](#contributing)
 
-- Sprockets
-- SASS
-- Autoprefixer
+## Features
 
-## Sprockets
+uStyle is a fully fledged living styleguide that delivers both CSS and JavaScript components for technical implementations as well as documentation for how these things should be applied across uSwitch.
+
+* [Pattern library](https://ustyle.guide/pattern-library/index.html)
+* [Design guidelines](https://ustyle.guide/design/index.html)
+* [Brand guidelines](https://ustyle.guide/brand/index.html)
+
+## Infrastructure
+
+uStyle is compiled and uploaded to S3. Consequently it is served from Cloudfront via our nginx load balancers.
+
+uStyle within applications is usually served within their asset pipeline on compilation.
+
+## Installation
+
+Pre-requisites:
+
+If you want to use as a gem
+
+* Ruby (1.9+)
+* Sinatra / Rails applications with sprockets
+
+This can also be used as a node package just like you would install any other package.
 
 uStyle automagically sets itself up in a sprockets context where found. That means both Sinatra and Rails apps get configured correctly. However there are a few gotchas, as we don't want to add gem dependencies that are only required for certain set ups.
 
-### Sinatra applications
+Add this line to your application's Gemfile:
+
+```ruby
+gem 'ustyle'
+```
+
+And then run in your terminal:
+
+    $ bundle
+
+
+### Sinatra
+
 
 Add to your Gemfile:
 ``` ruby
@@ -34,22 +73,42 @@ register Sinatra::Ustyle
 
 This is only for the gem, not the styleguide within this project.
 
-## Installation
+### Icons
 
-Add this line to your application's Gemfile:
+uStyle serves it's icons via `<use xlink:href></use>` tags within an SVG. We have decided to not embed our SVGs, but rather serve them from a URL. See here for a better explanation: https://css-tricks.com/svg-use-with-external-reference-take-2/
 
+Due to this, you need to have the `icons.svg` symbol map on the same domain, protocol and port as your application. To facilite this without serving a sprockets asset, ustyle comes with some `Rack Middleware`
+
+For rails apps, in your `development.rb` file (you do not want this in production)
 ```ruby
-gem 'ustyle', git: "git@github.com:uswitch/ustyle.git"
+config.middleware.use Ustyle::IconMiddleware
 ```
 
-And then run in your terminal:
-
-    $ bundle
-
-Version locking - if you're unsure about when you're going to have the chance to upgrade again.
-
+For rack apps (including Sinatra)
 ```ruby
-gem 'ustyle', git: "git@github.com:uswitch/ustyle.git", tag: "VERSION"
+configure :development do
+  use Ustyle::IconMiddleware
+end
+```
+
+Currently there is no middleware to support node apps, but can be written easily.
+
+Alternatively, you can serve your application in a docker container with nginx (or another supporting proxy server) that has a route to /icons.svg so you can proxy pass to our icons for the app. Ports, domains and protocols **must** match when testing the icons.
+
+An example nginx configuration:
+```nginx
+location = /icons.svg {
+  set $upstream "https://assets0.uswitch.com/s3/uswitch-assets-eu/ustyle";
+  proxy_pass $upstream$request_uri;
+}
+```
+
+You can then successfully reference your icon like so:
+
+```html
+<svg role="img" class="us-icon--medium us-icon--custom us-icon--{$NAME}">
+  <use xlink:href="/images/icons.svg#icon-{$NAME}"></use>
+</svg>
 ```
 
 ## Usage
@@ -62,9 +121,15 @@ If using rails and SASS, just import the base uSwitch styles at the start of you
 
 This will import the main components. If you want more granular control of what to import, please look at the source code or the styleguide.
 
+### Mixins / Variables
+
+Ustyle comes bundled with a good set of Sass variables and mixins to use in your project.
+
+For Sass documentation on mixins/variables available to you, please see: https://ustyle.guide/sass/
+
 ## Development
 
-Development is done using [Grunt](http://gruntjs.com/), but it's just a thin wrapper around the heavy lifting done by some Node.js modules.
+Development is done using [Grunt](http://gruntjs.com/), but it's just a thin wrapper around the heavy lifting done by some Node modules.
 
 To install development
 
@@ -77,10 +142,6 @@ To run in development, just run
     grunt
 
 This will open a http://localhost:3000 tab with the styleguide
-
-## Documentation
-
-See [JAVASCRIPT_STANDARDS.md](https://github.com/uswitch/ustyle/blob/master/JAVASCRIPT_STANDARDS.md)
 
 ## Contributing
 
