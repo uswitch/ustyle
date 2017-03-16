@@ -232,7 +232,9 @@
         separate the icon and wordmark in any other instances.
       </p>
       <div class="logo__icon-standalone us-margin-bottom">
-        <div class="us-icon--uswitch us-icon--large us-icon--white us-icon--notext"></div>
+        <svg role="image" class="us-icon--large us-icon--white us-icon--notext">
+          <use xlink:href="/images/icons.svg#icon-uswitch"></use>
+        </svg>
       </div>
       <p>
         The icon may only be used separately from the wordmark in approved
