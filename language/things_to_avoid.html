@@ -7,12 +7,6 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <meta content='width=device-width, initial-scale=1.0' name='viewport' />
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-  <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-  <link rel="manifest" href="/images//manifest.json">
-  <link rel="mask-icon" href="/images//safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="theme-color" content="#ffffff">
   <title>uStyle styleguide</title>
   <link rel="stylesheet" href="/css/main.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -32,7 +26,7 @@
       </svg>
       uStyle
     </a>
-    <a class="version" href="https://github.com/uswitch/ustyle/releases/tag/v1.12.6">v1.12.6</a>
+    <a class="version" href="https://github.com/uswitch/ustyle/releases/tag/v1.12.0">v1.12.0</a>
     <svg class="logo__svg--hidden" xmlns="http://www.w3.org/2000/svg">
       <symbol viewBox="0 0 100 100" id="uicon-logo-icon">
       <title>logo-icon</title><path d="M26.9 51.662V12.174H.9v38.771c0 24.61 20.095 46.167 44.695 46.896 13.28.393 25.36-4.881 34.012-13.584C55.435 96.47 26.9 78.67 26.9 51.662z"/><path d="M80.9 2.138L62.733 22.174H67.9v29.378c0 13.905-13.365 24.176-26.722 19.468C58.871 92.463 93.9 79.992
@@ -64,25 +58,25 @@
   </header>
   <a href="javascript:void(0);" class="nav-mobile js-toggle__link us-tablet--hidden" data-target="sidebar"><span class="nav-mobile__hamburger">Sidebar</span></a>
   <div class='sidebar'>
-      <nav class="sidebar__nav active">
-        <a href="/brand/" class="sidebar__nav-link js-sidebar-nav-link active">Brand</a>
+      <nav class="sidebar__nav ">
+        <a href="/brand/" class="sidebar__nav-link js-sidebar-nav-link ">Brand</a>
         <nav class="sidebar__sub-nav">
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/brand/index.html">Framework</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/brand/colours.html">Colours</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub active" href="/brand/logo.html">Logo</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/brand/logo.html">Logo</a>
         </nav>
       </nav>
       <nav class="sidebar__nav ">
         <a href="/pattern-library/" class="sidebar__nav-link js-sidebar-nav-link ">Pattern library</a>
         <nav class="sidebar__sub-nav">
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/index.html">Introduction</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/typography.html">Typography</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/articles.html">Articles</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/utilities.html">Utilities</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/typography.html">Typography</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/grid.html">Grid</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/forms.html">Forms</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/components.html">Components</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/javascript.html">JavaScript</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/articles.html">Articles</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/grid.html">Grid</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/stats.html">Stats</a>
             <a class="sidebar__nav-link sidebar__nav-link--sub" href="/sass/" target="_blank">Sass doc</a>
         </nav>
@@ -91,17 +85,18 @@
         <a href="/design/" class="sidebar__nav-link js-sidebar-nav-link ">Design</a>
         <nav class="sidebar__sub-nav">
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/index.html">Imagery</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/validating-designs.html">Usability testing</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/icons.html">Icons</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/typography.html">Typography</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/icons.html">Icons</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/validating-designs.html">Usability testing</a>
         </nav>
       </nav>
-      <nav class="sidebar__nav ">
-        <a href="/language/" class="sidebar__nav-link js-sidebar-nav-link ">Language</a>
+      <nav class="sidebar__nav active">
+        <a href="/language/" class="sidebar__nav-link js-sidebar-nav-link active">Language</a>
         <nav class="sidebar__sub-nav">
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/language/tone.html">Tone</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub active" href="/language/things_to_avoid.html">Things to avoid</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/language/grammar.html">Grammar</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/language/microcopy.html">Microcopy</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/language/tone.html">Tone</a>
         </nav>
       </nav>
   
@@ -116,297 +111,55 @@
   </div>
   <div id="wrapper" class="container header--push sidebar--push">
     <div class="styleguide__hero">
-      <h1 class="styleguide__hero-heading">Logo</h1>
+      <h1 class="styleguide__hero-heading">Things to avoid</h1>
     </div>
       <nav class="nav--sub us-col-lg-2">
         <div class="js-sticky">
           <h4>Table of contents</h4>
-            <a class="nav__link" href="#orientation">Orientation</a>
-            <a class="nav__link" href="#colour">Colour</a>
-            <a class="nav__link" href="#exclusion-zone">Exclusion zone</a>
-            <a class="nav__link" href="#alternate-logo">Alternate logo (small)</a>
-            <a class="nav__link" href="#minimum-sizes">Minimum sizes</a>
-            <a class="nav__link" href="#icon-only">Icon only</a>
-            <a class="nav__link" href="#usage-rules">Usage rules</a>
-            <a class="nav__link" href="#logo-downloads">Logo Downloads</a>
+            <a class="nav__link" href="#Gendered language">Gendered language</a>
+            <a class="nav__link" href="#Ableist language">Ableist language</a>
+            <a class="nav__link" href="#Swearing">Swearing</a>
         </div>
       </nav>
     <div class="styleguide__content markdown styleguide us-col-lg-10 styleguide__content--w-sidebar">
-      
-<div class="us-content-group">
-  <div class="us-grid-row">
-    <div class="us-col-12">
-      <h3 id="orientation">Orientation</h3>
-      <p>
-        We&apos;ve made our logo available in vertical and horizontal formats to
-        allow for flexibility in various layouts. Choose the format that best
-        suits the usage.
-      </p>
-    </div>
-  </div>
-  <div class="us-grid-row">
-    <div class="us-col-12">
-      <div class="us-grid-row">
-        <div class="us-col-6">
-          <div class="logo__state logo__vertical logo--blue">
-            <svg><use xlink:href="#uicon-logo-vertical"/></svg>
-          </div>
-          <p>
-            Vertical orientation
-          </p>
-        </div>
-        <div class="us-col-6">
-          <div class="logo__state logo__horizontal logo--blue">
-            <svg><use xlink:href="#uicon-logo"/></svg>
-          </div>
-          <p>
-            Horizontal orientation
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+      <h2 id="things-to-avoid">Things to avoid</h2>
+<p><em>At uSwitch, we want to be as inclusive as possible with our language. On that
+note, here are some things to avoid.</em></p>
+<p><span id="Gendered language"></span></p>
+<h3 id="gendered-language">Gendered language</h3>
+<p>If you&apos;re writing about a person and they have not explicitly informed of you
+what pronouns they go by, use &quot;they/them&quot;. If you&apos;re writing about imaginary
+people, say, in the context of giving an example; using gender neutral pronouns
+will also reach a larger audience.</p>
+<p>Our audience includes people with many different gender identities. Instead of
+saying &quot;you guys&quot;, use &quot;you all&quot;, &quot;everyone&quot; or other nondescript language.</p>
+<p><span id="Ableist language"></span></p>
+<h3 id="ableist-language">Ableist language</h3>
+<p>Word like &quot;insane&quot; and &quot;crazy&quot; are poor choices for general-purpose emphasis of
+a statement in a world where so many face mental health issues. Words like
+&quot;shocking&quot; and &quot;ridiculous&quot; are good alternatives.</p>
+<blockquote>7 Crazy Car Insurance Plans</blockquote>
 
-<div class="us-content-group">
-  <div class="us-grid-row">
-    <div class="us-col-12">
-      <h3 id="colour">Colour</h3>
-      <p>
-        Our logo should only appear in our approved colours. The brand blue logo
-        is the preferred version. It can also be displayed on a cyan background.
-      </p>
-    </div>
-  </div>
+<p>Can be changed to:</p>
+<blockquote>7 Phenomenal Car Insurance Plans</blockquote>
 
-  <div class="us-grid-row">
-    <div class="us-col-12">
-      <div class="us-grid-row">
-        <div class="us-col-4">
-          <div class="logo__state logo__vertical logo--blue">
-            <svg><use xlink:href="#uicon-logo-vertical"/></svg>
-          </div>
-          <p>
-            Brand blue is the preferred version of the logo.
-          </p>
-        </div>
-        <div class="us-col-4">
-          <div class="logo__state logo__vertical logo--white">
-            <svg><use xlink:href="#uicon-logo-vertical"/></svg>
-          </div>
-          <p>
-            Alternatively it can also be used in white on dark backgrounds.
-          </p>
-        </div>
-        <div class="us-col-4">
-          <div class="logo__state logo__vertical logo--cyan">
-            <svg><use xlink:href="#uicon-logo-vertical"/></svg>
-          </div>
-          <p>
-            It can also be used on a cyan background.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
+<p>Describing things as &quot;stupid&quot; or &quot;dumb&quot; is a bad choice of descriptor, due to
+their use around people with learning difficulties. &quot;Unwise&quot; or &quot;ill-advised&quot;
+are suitable replacements.</p>
+<blockquote>Company unveils stupid energy contract</blockquote>
 
-  <div class="us-grid-row">
-    <div class="us-col-12">
-      <p>
-        The black and white versions of our logo should only be used when colour
-        reproduction is not available. Choose the option that will provide the
-        most contrast with the background.
-      </p>
-    </div>
-  </div>
+<p>Can be changed to:</p>
+<blockquote>Company unveils ill-advised energy contract</blockquote>
 
-  <div class="us-grid-row">
-    <div class="us-col-12">
-      <div class="us-grid-row">
-        <div class="us-col-6">
-          <div class="logo__state logo__horizontal logo--bwwhite">
-            <svg><use xlink:href="#uicon-logo"/></svg>
-          </div>
-          <p>
-            The black logo is for use on light backgrounds where colour
-            reproduction is not available.
-          </p>
-        </div>
-        <div class="us-col-6">
-          <div class="logo__state logo__horizontal logo--bwblack">
-            <svg><use xlink:href="#uicon-logo"/></svg>
-          </div>
-          <p>
-            The white logo is for use on dark backgrounds where colour
-            reproduction is not available.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="us-content-group">
-  <div class="us-grid-row">
-    <div class="us-col-12">
-      <h3 id="exclusion-zone">Exclusion Zone</h3>
-      <p>
-        Always leave plenty of room around the logo. This will enable it to
-        feature prominently without clutter.
-      </p>
-    </div>
-  </div>
-
-  <div class="us-grid-row">
-    <div class="us-col-12">
-      <div class="us-grid-row">
-        <div class="us-col-6">
-          <div class="logo__state logo__vertical logo__spacer--vertical logo--blue">
-            <svg><use xlink:href="#uicon-logo-vertical"/></svg>
-          </div>
-        </div>
-        <br>
-        <div class="us-col-6">
-          <div class="logo__state logo__horizontal logo__spacer--horizontal logo--white">
-            <svg><use xlink:href="#uicon-logo"/></svg>
-          </div>
-        </div>
-      </div>
-      <p>
-        The &apos;S&apos; from our wordmark can be used to measure out the exclusion zone.
-      </p>
-    </div>
-  </div>
-</div>
-
-<div class="us-content-group">
-  <div class="us-grid-row">
-    <div class="us-col-12">
-      <h3 id="alternate-logo">Alternate logo for use at smaller sizes</h3>
-      <p>
-        An alternative version of our logo must be used when it&apos;s being displayed
-        at smaller sizes. It ensures that the arrowhead, a key element of our
-        brand, remains clear and prominent.
-      </p>
-    </div>
-  </div>
-  <div class="us-grid-row">
-    <div class="us-col-12">
-      <div class="us-grid-row">
-        <div class="us-col-6">
-          <div class="logo__state logo__vertical--alternate logo--blue">
-            <svg><use xlink:href="#uicon-logo-vertical-small"/>
-            <div class="logo__sizing h98">98px</div>
-          </svg></div>
-          <p>
-            Use the alternative version of the vertical logo when using at a
-            height of 98px or less.
-          </p>
-        </div>
-        <div class="us-col-6">
-          <div class="logo__state logo__horizontal--alternate logo--white">
-            <svg><use xlink:href="#uicon-logo-small"/></svg>
-            <div class="logo__sizing h64">64px</div>
-          </div>
-          <p>
-            Use the alternate version of the horizontal logo when using at a
-            height of 64px or less.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="us-content-group">
-  <div class="us-grid-row">
-    <div class="us-col-12">
-      <h3 id="minimum-sizes">Minimum Size</h3>
-      <p>To ensure legibility of our logo, it must not be used below the
-        minimum size.</p>
-      <div class="us-col-6">
-          <div class="logo__state logo__vertical--alternate-min logo--blue">
-            <svg><use xlink:href="#uicon-logo-vertical-small"/>
-            <div class="logo__sizing h50">50px</div>
-          </svg></div>
-          <p>
-            The minimum height that the vertical logo may be used at is 50px.
-          </p>
-        </div>
-        <div class="us-col-6">
-          <div class="logo__state logo__horizontal--alternate-min logo--white">
-            <svg><use xlink:href="#uicon-logo-small"/></svg>
-            <div class="logo__sizing h25">25px</div>
-          </div>
-          <p>
-            The minimum height that the horizontal logo may be used at is 25px.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-<div class="us-content-group">
-  <div class="us-grid-row">
-    <div class="us-col-12">
-      <h3 id="icon-only">Icon only</h3>
-      <p>
-        Our icon and wordmark must always be used together. The only
-        exceptions are our app icon, website favicon and awards logos. Do not
-        separate the icon and wordmark in any other instances.
-      </p>
-      <div class="logo__icon-standalone us-margin-bottom">
-        <svg role="image" class="us-icon--large us-icon--white us-icon--notext">
-          <use xlink:href="/images/icons.svg#icon-uswitch"/>
-        </svg>
-      </div>
-      <p>
-        The icon may only be used separately from the wordmark in approved
-        situations, such as our app icon.
-      </p>
-
-      <p><strong>Do not separate the elements in any other situations.</strong></p>
-    </div>
-  </div>
-</div>
-
-<div class="us-content-group">
-  <div class="us-grid-row">
-    <div class="us-col-12">
-      <h3 id="usage-rules">Usage rules</h3>
-      <p>Please make sure you&#x2019;re not tempted to do any of the following to the logo:</p>
-      <ul>
-        <li>Change elements of it</li>
-        <li>Outline or put a keyline around it</li>
-        <li>Use a different blue</li>
-        <li>Use a gradient or tint</li>
-        <li>Rotate the logo</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<div class="us-content-group">
-  <div class="us-grid-row">
-    <div class="us-col-12">
-      <h3 id="logo-downloads">Logo Downloads</h3>
-      <p>
-        Here you can download the standard and smaller versions of the uSwitch
-        logo. Each .zip file comes with .eps, .svg and .svg versions of the logo.
-      </p>
-      <ul>
-        <li><a href="https://s3-eu-west-1.amazonaws.com/uswitch-assets-eu/ustyle-assets/logo/Standard+logo+assets.zip">Standard Logo</a></li>
-        <li><a href="https://s3-eu-west-1.amazonaws.com/uswitch-assets-eu/ustyle-assets/logo/Small+logo+assets.zip">Logo for smaller sizes</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
+<p><span id="Swearing"></span></p>
+<h3 id="swearing">Swearing</h3>
+<p>Swearing is a poor way of reaching people. If you feel intensely about
+a topic, there are a multitude of other ways you can describe how you feel.</p>
 
     </div>
   </div>
   <div class="container sidebar--push">
-    <p class="copyright">Copyright uSwitch Limited 2016 - 2017. <a href="https://github.com/uswitch/ustyle">Github</a></p>
+    <p class="copyright">Copyright uSwitch Limited 2016. <a href="https://github.com/uswitch/ustyle">Github</a></p>
   </div>
   <script type="text/javascript" src='https://www.gstatic.com/charts/loader.js'>
   </script>
