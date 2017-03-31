@@ -12,34 +12,12 @@
 // Fonts
 // ----------
 
-/// If using a uStyle project outside of www.uswitch.com domain or one that lacks the power the includes, then
-/// set this to `true` to import the correct `@font-face` declarations.
-///
-/// @group fonts
-/// @type Bool
-
-$needs-font: false !default;
-
-/// Same as `$needs-font` but also imports the EOT's so that fonts work in < IE8
-///
-/// @group fonts
-/// @type Bool
-
-$needs-font-ie: false !default;
-
-/// Set this to wherever you are serving the uSwitch fonts from.
-///
-/// @group fonts
-/// @type String
-
-$base-font-url: "//fonts.uswitch.com/" !default;
-
 /// The primary heading font stack
 ///
 /// @group fonts
 /// @type String
 
-$heading-font: "Open Sans", Helvetica, Arial, sans-serif !default;
+$heading-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif !default;
 
 /// The primary heading font stack
 ///
@@ -62,7 +40,7 @@ $heading-font-secondary: $heading-font !default;
 /// @group fonts
 /// @type String
 
-$normal-font: "Open Sans", Helvetica, Arial, sans-serif !default;
+$normal-font: $heading-font;
 
 // ----------
 // Icons
