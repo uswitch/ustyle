@@ -1,30 +1,68 @@
-Typography is a key element of how we communicate at uSwitch. We've recently revised our type settings and removed FS Elliot Web from our fonts to increase legibility across devices.
+Typography is a key element of how we communicate at uSwitch. We've recently revised our type settings and removed Open Sans from our fonts to increase legibility across devices.
 
-Our chosen font is the beautiful and open source Open Sans which performs exceptionally well across all of our target devices and operating systems. It is, unlike many custom webfonts, particularly well kerned for Windows machines.
+We have chosen to use system fonts across the website for multiple reasons:
 
-Open Sans
----
+* Improved legibility in operating systems
+* No performance overhead in loading custom fonts
+* Users are accustomed to their operating system fonts
 
-<div class="font-chars">
-A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z
-<br>a  b  c  d  e  f  g  h  i  j  k  l  m  n  o  p  q  r  s  t  u  v  w  x  y  z
-<br>0  1  2  3  4  5  6  7  8  9  10
-</div>
+Depending on the operating system you are on, you will get one of the following fonts:
 
-Open Sans Bold
----
-
-<div class="font-chars font-chars--bold">
-A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z
-<br>a  b  c  d  e  f  g  h  i  j  k  l  m  n  o  p  q  r  s  t  u  v  w  x  y  z
-<br>0  1  2  3  4  5  6  7  8  9  10
-</div>
-
-Open Sans Italic
----
-
-<div class="font-chars font-chars--italic">
-A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z
-<br>a  b  c  d  e  f  g  h  i  j  k  l  m  n  o  p  q  r  s  t  u  v  w  x  y  z
-<br>0  1  2  3  4  5  6  7  8  9  10
-</div>
+<table class="pure-table pure-table-bordered">
+<thead>
+<tr class="header">
+<th>Font</th>
+<th>Device Targeted</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-apple-system (San Francisco)</td>
+<td>iOS Safari, macOS Safari, macOS Firefox</td>
+</tr>
+<tr class="even">
+<td>BlinkMacSystemFont (San Francisco)</td>
+<td>macOS Chrome</td>
+</tr>
+<tr class="odd">
+<td>Segoe UI</td>
+<td>Windows</td>
+</tr>
+<tr class="even">
+<td>Roboto</td>
+<td>Android, Chrome OS</td>
+</tr>
+<tr class="odd">
+<td>Oxygen / Oxygen-Sans</td>
+<td>KDE</td>
+</tr>
+<tr class="even">
+<td>Fira Sans</td>
+<td>Firefox OS</td>
+</tr>
+<tr class="odd">
+<td>Droid Sans</td>
+<td>Older versions of Android</td>
+</tr>
+<tr class="even">
+<td>Ubuntu</td>
+<td>Ubuntu</td>
+</tr>
+<tr class="odd">
+<td>Cantarell</td>
+<td>GNOME</td>
+</tr>
+<tr class="even">
+<td>Helvetica Neue</td>
+<td>macOS versions &lt; 10.11</td>
+</tr>
+<tr class="odd">
+<td>Arial</td>
+<td>Any</td>
+</tr>
+<tr class="even">
+<td>sans-serif</td>
+<td>Any</td>
+</tr>
+</tbody>
+</table>
