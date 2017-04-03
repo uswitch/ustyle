@@ -32,7 +32,7 @@
       </svg>
       uStyle
     </a>
-    <a class="version" href="https://github.com/uswitch/ustyle/releases/tag/v1.13.0">v1.13.0</a>
+    <a class="version" href="https://github.com/uswitch/ustyle/releases/tag/v1.14.0">v1.14.0</a>
     <svg class="logo__svg--hidden" xmlns="http://www.w3.org/2000/svg">
       <symbol viewBox="0 0 100 100" id="uicon-logo-icon">
       <title>logo-icon</title><path d="M26.9 51.662V12.174H.9v38.771c0 24.61 20.095 46.167 44.695 46.896 13.28.393 25.36-4.881 34.012-13.584C55.435 96.47 26.9 78.67 26.9 51.662z"/><path d="M80.9 2.138L62.733 22.174H67.9v29.378c0 13.905-13.365 24.176-26.722 19.468C58.871 92.463 93.9 79.992
@@ -119,29 +119,72 @@
       <h1 class="styleguide__hero-heading">Typography</h1>
     </div>
     <div class="styleguide__content markdown styleguide us-col-lg-10 ">
-      <p>Typography is a key element of how we communicate at uSwitch. We&apos;ve recently revised our type settings and removed FS Elliot Web from our fonts to increase legibility across devices.</p>
-<p>Our chosen font is the beautiful and open source Open Sans which performs exceptionally well across all of our target devices and operating systems. It is, unlike many custom webfonts, particularly well kerned for Windows machines.</p>
-<h2 id="open-sans">Open Sans</h2>
-<div class="font-chars">
-A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z
-<br>a  b  c  d  e  f  g  h  i  j  k  l  m  n  o  p  q  r  s  t  u  v  w  x  y  z
-<br>0  1  2  3  4  5  6  7  8  9  10
-</div>
-
-<h2 id="open-sans-bold">Open Sans Bold</h2>
-<div class="font-chars font-chars--bold">
-A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z
-<br>a  b  c  d  e  f  g  h  i  j  k  l  m  n  o  p  q  r  s  t  u  v  w  x  y  z
-<br>0  1  2  3  4  5  6  7  8  9  10
-</div>
-
-<h2 id="open-sans-italic">Open Sans Italic</h2>
-<div class="font-chars font-chars--italic">
-A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z
-<br>a  b  c  d  e  f  g  h  i  j  k  l  m  n  o  p  q  r  s  t  u  v  w  x  y  z
-<br>0  1  2  3  4  5  6  7  8  9  10
-</div>
-
+      <p>Typography is a key element of how we communicate at uSwitch. We&apos;ve recently revised our type settings and removed Open Sans from our fonts to increase legibility across devices.</p>
+<p>We have chosen to use system fonts across the website for multiple reasons:</p>
+<ul>
+<li>Improved legibility in operating systems</li>
+<li>No performance overhead in loading custom fonts</li>
+<li>Users are accustomed to their operating system fonts</li>
+</ul>
+<p>Depending on the operating system you are on, you will get one of the following fonts:</p>
+<table class="pure-table pure-table-bordered">
+<thead>
+<tr class="header">
+<th>Font</th>
+<th>Device Targeted</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-apple-system (San Francisco)</td>
+<td>iOS Safari, macOS Safari, macOS Firefox</td>
+</tr>
+<tr class="even">
+<td>BlinkMacSystemFont (San Francisco)</td>
+<td>macOS Chrome</td>
+</tr>
+<tr class="odd">
+<td>Segoe UI</td>
+<td>Windows</td>
+</tr>
+<tr class="even">
+<td>Roboto</td>
+<td>Android, Chrome OS</td>
+</tr>
+<tr class="odd">
+<td>Oxygen / Oxygen-Sans</td>
+<td>KDE</td>
+</tr>
+<tr class="even">
+<td>Fira Sans</td>
+<td>Firefox OS</td>
+</tr>
+<tr class="odd">
+<td>Droid Sans</td>
+<td>Older versions of Android</td>
+</tr>
+<tr class="even">
+<td>Ubuntu</td>
+<td>Ubuntu</td>
+</tr>
+<tr class="odd">
+<td>Cantarell</td>
+<td>GNOME</td>
+</tr>
+<tr class="even">
+<td>Helvetica Neue</td>
+<td>macOS versions &lt; 10.11</td>
+</tr>
+<tr class="odd">
+<td>Arial</td>
+<td>Any</td>
+</tr>
+<tr class="even">
+<td>sans-serif</td>
+<td>Any</td>
+</tr>
+</tbody>
+</table>
     </div>
   </div>
   <div class="container sidebar--push">
