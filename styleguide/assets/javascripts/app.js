@@ -1,4 +1,4 @@
-(function(document, window, cleanWhiteSpace, $, Overlay, ClassToggler, Tabs, Anchor, RadioToggle){
+(function(document, window, cleanWhiteSpace, $, Overlay, ClassToggler, Tabs, RadioToggle){
   "use strict";
 
   function App(){
@@ -62,10 +62,6 @@
 
     var tabs = new Tabs({collapsible: true, autoScroll: false});
     var radio = new RadioToggle();
-    var anchor = new Anchor({
-      target: document.querySelector(".js-example-anchor"),
-      content: document.querySelector(".js-example-anchor__target")
-    });
   }
 
   function clickToggle(event){
@@ -89,4 +85,4 @@
 
   return new App();
 
-})(document, window, cleanWhiteSpace, $, Overlay, ClassToggler, Tabs, Anchor, RadioToggle);
+})(document, window, cleanWhiteSpace, $, Overlay, ClassToggler, Tabs, RadioToggle);
