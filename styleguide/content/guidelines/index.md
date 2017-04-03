@@ -1,5 +1,5 @@
 ---
-name: Framework
+name: Overview
 ---
 
 ## We believe in simplicity.

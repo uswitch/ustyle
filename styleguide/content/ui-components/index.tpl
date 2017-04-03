@@ -1,6 +1,6 @@
 ---
 template: simple.tpl
-name: Introduction
+name: How to use
 ---
 <p>
   Our pattern library comes as an easily distributed package, ready to use in multiple programming environments. It contains our basic CSS components and correct usage, as well as JavaScript components that are widely used across the website.

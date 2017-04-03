@@ -9,7 +9,8 @@
             <a class="sidebar__nav-link sidebar__nav-link--sub {{activeClass this.name 'name'}}" href="/{{../../this}}/{{page}}">{{name}}</a>
           {{/isActive}}
         {{/each}}
-        {{#isActive "pattern-library" this}}
+
+        {{#isActive "ui-components" this}}
           <a class="sidebar__nav-link sidebar__nav-link--sub" href="/sass/" target="_blank">Sass doc</a>
         {{/isActive}}
       </nav>
