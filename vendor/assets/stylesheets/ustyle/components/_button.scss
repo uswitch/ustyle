@@ -65,7 +65,7 @@ $outline-button-styles: (
       color: nth($name, 2);
       border-color: nth($name, 2);
       @if nth($name, 2) == #fff {
-        @include rgba-inline(transparentize(nth($name, 2), .8));
+        background-color: transparentize(nth($name, 2), .8);
       } @else {
         background-color: tint(nth($name, 2), 90%);
       }
