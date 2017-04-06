@@ -1,7 +1,6 @@
 require "sass"
 require "cgi"
 require "base64"
-require "chunky_png"
 
 module Sass::Script::Functions
 
@@ -56,15 +55,6 @@ module Sass::Script::Functions
     Sass::Script::String.new(url, :string)
   end
   declare :ustyle_asset_path, :args => [:source, :type]
-
-  def rgba_inline(c, px = 5)
-    color = ChunkyPNG::Color.rgba(c.red, c.green, c.blue, (c.alpha * 100 * 2.55).round)
-    image = ChunkyPNG::Image.new(px.to_i, px.to_i, color)
-    data  = Base64.encode64(image.to_blob).gsub("\n", "")
-
-    Sass::Script::String.new("url('data:image/png;base64,#{data}')")
-  end
-  declare :rgba_inline, :args => [:c, :px]
 
   protected
 
