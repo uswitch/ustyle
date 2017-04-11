@@ -9,17 +9,6 @@ module Sass::Script::Functions
   end
   declare :ustyle_version, []
 
-  def inline_asset(source)
-    assert_type source, :String
-    if Ustyle.sprockets?
-      ::Sass::Script::String.new "url(#{sprockets_context.asset_data_uri(source.value)})"
-    else
-      path = File.join(::Ustyle.assets_path, "images", source.value)
-      asset_data_uri(path)
-    end
-  end
-  declare :inline_asset, :args => [:source]
-
   def inline_svg(source)
     assert_type source, :String
     if Ustyle.sprockets?
@@ -37,24 +26,6 @@ module Sass::Script::Functions
     Sass::Script::String.new(Base64.strict_encode64(string.value))
   end
   declare :base64encode, :args => [:string]
-
-  def ustyle_image_path(source)
-    ustyle_asset_path source, :image
-  end
-  declare :ustyle_image_path, :args => [:source]
-
-  def ustyle_asset_path(source, type)
-    url = if Ustyle.sprockets?
-      sprockets_context.send(:"#{type}_path", source.value)
-    else
-      Ustyle.cloudfront_url(source.value, type)
-    end
-
-    # sass-only
-    url ||= source.value.gsub('"', '')
-    Sass::Script::String.new(url, :string)
-  end
-  declare :ustyle_asset_path, :args => [:source, :type]
 
   protected
 
