@@ -40,7 +40,8 @@
   .us-input-group__box {
     @include form-element-disabled;
 
-    [class^="us-icon--"] {
+    [class^="us-icon--"],
+    .us-icon {
       opacity: .35;
     }
   }
@@ -75,7 +76,8 @@
     width: auto;
   }
 
-  [class^="us-icon--"] {
+  [class^="us-icon--"],
+  .us-icon {
     vertical-align: middle;
   }
 }
