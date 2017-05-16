@@ -10,6 +10,10 @@
   visibility: hidden;
 }
 
+.us-backdrop--animated {
+  transition: opacity 0.5s;
+}
+
 .us-backdrop--visible {
   visibility: visible;
 }
