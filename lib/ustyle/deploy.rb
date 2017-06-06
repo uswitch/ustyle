@@ -15,7 +15,7 @@ module Ustyle
     object.put(
       body: open(from),
       content_type: content_type,
-      acl: 'public-read'
+      acl: 'public-read',
       cache_control: "max-age=#{TEN_YEARS_FROM_NOW}",
       expires: TEN_YEARS_FROM_NOW.httpdate
     )
