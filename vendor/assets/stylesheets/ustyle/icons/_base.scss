@@ -125,6 +125,12 @@
 
 // scss-lint:disable QualifyingElement
 
+// Overrides normalize.css
+// Stops icon clipping in Firefox
+svg:not(:root) {
+  overflow: visible;
+}
+
 svg.us-icon--before,
 svg.us-icon--after {
   display: inline-block;
