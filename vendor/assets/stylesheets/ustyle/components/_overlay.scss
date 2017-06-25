@@ -52,7 +52,7 @@ $overlay-modal-width: 60% !default;
 $overlay-max-modal-width: 700px !default;
 $overlay-z-index: 1003 !default;
 $overlay-transition-speed: .3s !default;
-$overlay-mobile-width: calc(100% - 25px) !default;
+$overlay-mobile-width: 100% !default;
 $overlay-tablet-width: 340px !default;
 $overlay-header-height: 55px !default;
 $overlay-close-size: 64px !default;
