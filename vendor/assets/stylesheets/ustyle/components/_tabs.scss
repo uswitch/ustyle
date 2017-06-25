@@ -176,7 +176,9 @@ $tab-active-color: $tab-border-color;
   }
 
   &:hover .us-tabs-nav-chevron,
-  .us-tab.active & .us-tabs-nav-chevron {
+  &:hover .us-tabs-nav-chevron-wrapper .us-icon,
+  .us-tab.active & .us-tabs-nav-chevron,
+  .us-tab.active & .us-tabs-nav-chevron-wrapper .us-icon {
     transform: rotate(-90deg);
     fill: $c-typecyan;
   }
@@ -247,7 +249,8 @@ $tab-active-color: $tab-border-color;
     }
   }
 
-  .us-tabs-nav-chevron {
+  .us-tabs-nav-chevron,
+  .us-tabs-nav-chevron-wrapper .us-icon {
     position: absolute;
     right: ($gutter-width / 2);
     transform: rotate(90deg);

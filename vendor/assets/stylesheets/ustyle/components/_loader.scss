@@ -32,8 +32,6 @@ $spinner-vertical-margin: 1em !default;
 $spinner-animation-time: 500ms !default;
 $spinner-file: "icons/spinner.svg" !default;
 $spinner-size: 60px !default;
-$spinner-file-fallback: ustyle-image-path("icons/spinner_fallback.gif") !default;
-$spinner-load-fallback: true !default;
 
 @keyframes loader-intro {
   from {
@@ -73,7 +71,7 @@ $spinner-load-fallback: true !default;
 }
 
 %spinner-icon {
-  background: transparent inline-asset($spinner-file) no-repeat center center;
+  background: transparent inline-svg($spinner-file) no-repeat center center;
   animation: spin $spinner-animation-time infinite linear;
 }
 

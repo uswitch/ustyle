@@ -21,7 +21,7 @@ namespace :git do
 
   desc "Push version #{Ustyle::VERSION} to github"
   task :push do
-    `git push && git push --tags`
+    `git push && git push -f --tags`
   end
 end
 
