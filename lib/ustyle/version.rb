@@ -1,4 +1,4 @@
 module Ustyle
-  version = "1.14.7"
+  version = "1.14.8"
   VERSION = version
 end
