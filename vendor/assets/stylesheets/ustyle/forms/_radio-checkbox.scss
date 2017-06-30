@@ -46,7 +46,7 @@
 //   </div>
 
 .us-form-input {
-  @include hidpi(1) {
+  @include hidpi(0.1) {
     &[type="checkbox"] {
       &:after {
         position: absolute;
