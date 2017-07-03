@@ -2,7 +2,7 @@
 
 ### INTRODUCTION
 
-We are using [JSCS](http://jscs.info/) to lint our javascript code within uStyle.
+We are using [ESLint](http://eslint.org/) to lint our javascript code within uStyle.
 
 ### RULES
 
