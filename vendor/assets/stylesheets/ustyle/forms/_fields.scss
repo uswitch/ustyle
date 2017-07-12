@@ -7,7 +7,8 @@
 //   #### Best practices
 //   * All form inputs must have a corresponding label, linked to the input
 //   * The label should be visible; placeholders should not be relied on as not every browser can see them, nor can all screenreaders. A visible permanent label provides continuous context
-//   * For text inputs that are required, add "*" to the input label and `aria-required` to the input field
+//   * For text inputs that are optional, add "(optional)" to the input label
+//   * Add `aria-required` to any input field that must to be filled in
 //   * See our best practices for [writing form labels](../language/microcopy.html#Form text, form labels)
 //
 // @state .us-field--blocked - Blocked label styling.
