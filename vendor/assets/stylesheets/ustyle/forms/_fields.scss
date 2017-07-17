@@ -5,7 +5,11 @@
 //   This is the basic form field, `.us-field` wrapper for any single input or select. It sets a few layout options by default (margin) and styles any labels within. You can create a fake label style with `.us-faux-label`
 //
 //   #### Best practices
-//   * For text inputs that are optional, add "(optional)" to the `placeholder` attribute for the input. Not highlighting required fields makes the form look less intimidating.
+//   * All form inputs must have a corresponding label, linked to the input
+//   * The label should be visible; placeholders should not be relied on as not every browser can see them, nor can all screenreaders. A visible permanent label provides continuous context
+//   * For text inputs that are optional, add "(optional)" to the input label
+//   * Add `aria-required` to any input field that must to be filled in
+//   * See our best practices for [writing form labels](../language/microcopy.html#Form text, form labels)
 //
 // @state .us-field--blocked - Blocked label styling.
 // @state .us-field--inline - Inline label styling.
