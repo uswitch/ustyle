@@ -9,18 +9,19 @@ The web is for everyone, and it is our job to make sure that everyone can access
 
 ## Recommended (Free) Tools
 
-* [Pa11y Dashboard](https://github.com/pa11y/dashboard)
-* [aXe Chrome Extension](https://chrome.google.com/webstore/detail/axe/lhdoppojpmngadmnindnejefpokejbdd)
-* [Tota11y](https://khan.github.io/tota11y/)
-* [Lighthouse](https://github.com/GoogleChrome/lighthouse)
-* [a11y npm package](https://www.npmjs.com/package/a11y)
+* [Pa11y Dashboard]
+* [aXe Chrome Extension]
+* [tota11y]
+* [Lighthouse]
+* [a11y]
 
 ## How to test
 
 ### Using automated tools
 
 There are a lot of options, both free and paid for, to automatically test the
-accessibility of our products. From the most basic like _tota11y_ and _a11y_, to
+accessibility of our products. From the most basic like [tota11y] and [a11y]
+, to
 the more involved like Chrome’s Accessibility Audit tool and aXe. These tools can
 provide a great overview of where we might be going wrong, and even suggest ways
 to improve.
@@ -28,7 +29,7 @@ to improve.
 But with great power, comes great responsibility. We cannot rely on automated tool
 to help us find and fix all the issues.
 [GDS discovered](https://accessibility.blog.gov.uk/2017/02/24/what-we-found-when-we-tested-tools-on-the-worlds-least-accessible-webpage)
-that even a tool like Chromes Accessibility auditor only surface 17% of accessibility issues.
+that even a tool like Chrome's Accessibility auditor only surface 17% of accessibility issues.
 
 Just because a tool says something is broken, we should still manually test to
 prove it is. These automated tools provide solutions, but they are neither the
@@ -73,3 +74,9 @@ our blog posts on [quick wins](https://labs.uswitch.com/four-accessibility-wins/
 and [how to perform an accessibility audit](https://labs.uswitch.com/how-to-do-an-accessibility-audit/).
 
 Check out our tips on [usability testing](../design/validating-designs.html), too.
+
+[Pa11y Dashboard]: https://github.com/pa11y/dashboard
+[aXe Chrome Extension]: https://chrome.google.com/webstore/detail/axe/lhdoppojpmngadmnindnejefpokejbdd)
+[tota11y]: https://khan.github.io/tota11y/
+[Lighthouse]: https://github.com/GoogleChrome/lighthouse
+[a11y]: https://www.npmjs.com/package/a11y
