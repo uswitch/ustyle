@@ -7,12 +7,6 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <meta content='width=device-width, initial-scale=1.0' name='viewport' />
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-  <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-  <link rel="manifest" href="/images//manifest.json">
-  <link rel="mask-icon" href="/images//safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="theme-color" content="#ffffff">
   <title>uStyle styleguide</title>
   <link rel="stylesheet" href="/css/main.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -32,7 +26,7 @@
       </svg>
       uStyle
     </a>
-    <a class="version" href="https://github.com/uswitch/ustyle/releases/tag/v1.15.0">v1.15.0</a>
+    <a class="version" href="https://github.com/uswitch/ustyle/releases/tag/v1.12.0">v1.12.0</a>
     <svg class="logo__svg--hidden" xmlns="http://www.w3.org/2000/svg">
       <symbol viewBox="0 0 100 100" id="uicon-logo-icon">
       <title>logo-icon</title><path d="M26.9 51.662V12.174H.9v38.771c0 24.61 20.095 46.167 44.695 46.896 13.28.393 25.36-4.881 34.012-13.584C55.435 96.47 26.9 78.67 26.9 51.662z"/><path d="M80.9 2.138L62.733 22.174H67.9v29.378c0 13.905-13.365 24.176-26.722 19.468C58.871 92.463 93.9 79.992
@@ -79,10 +73,10 @@
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/articles.html">Articles</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/utilities.html">Utilities</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/typography.html">Typography</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/forms.html">Forms</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/javascript.html">JavaScript</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/components.html">Components</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/grid.html">Grid</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/forms.html">Forms</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/components.html">Components</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/javascript.html">JavaScript</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/stats.html">Stats</a>
             <a class="sidebar__nav-link sidebar__nav-link--sub" href="/sass/" target="_blank">Sass doc</a>
         </nav>
@@ -92,17 +86,17 @@
         <nav class="sidebar__sub-nav">
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/index.html">Imagery</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/typography.html">Typography</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/validating-designs.html">Usability testing</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/icons.html">Icons</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/accessibility-testing.html">Accessibility testing</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/design/validating-designs.html">Usability testing</a>
         </nav>
       </nav>
       <nav class="sidebar__nav active">
         <a href="/language/" class="sidebar__nav-link js-sidebar-nav-link active">Language</a>
         <nav class="sidebar__sub-nav">
-              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/language/tone.html">Tone</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub active" href="/language/things_to_avoid.html">Things to avoid</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/language/grammar.html">Grammar</a>
-              <a class="sidebar__nav-link sidebar__nav-link--sub active" href="/language/microcopy.html">Microcopy</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/language/microcopy.html">Microcopy</a>
+              <a class="sidebar__nav-link sidebar__nav-link--sub " href="/language/tone.html">Tone</a>
         </nav>
       </nav>
   
@@ -117,135 +111,55 @@
   </div>
   <div id="wrapper" class="container header--push sidebar--push">
     <div class="styleguide__hero">
-      <h1 class="styleguide__hero-heading">Microcopy</h1>
+      <h1 class="styleguide__hero-heading">Things to avoid</h1>
     </div>
       <nav class="nav--sub us-col-lg-2">
         <div class="js-sticky">
           <h4>Table of contents</h4>
-            <a class="nav__link" href="#Help text/tool tips">Help text/tool tips</a>
-            <a class="nav__link" href="#Badge/label/USP">Badge/label/USP</a>
-            <a class="nav__link" href="#Product info">Product info</a>
-            <a class="nav__link" href="#Small print">Small print</a>
-            <a class="nav__link" href="#Caveats">Caveats</a>
-            <a class="nav__link" href="#Button text">Button text</a>
-            <a class="nav__link" href="#CTAs">CTAs</a>
-            <a class="nav__link" href="#Form text, form labels">Form text, form labels</a>
-            <a class="nav__link" href="#Placeholder text for fields">Placeholder text for fields</a>
-            <a class="nav__link" href="#Error text">Error text</a>
+            <a class="nav__link" href="#Gendered language">Gendered language</a>
+            <a class="nav__link" href="#Ableist language">Ableist language</a>
+            <a class="nav__link" href="#Swearing">Swearing</a>
         </div>
       </nav>
     <div class="styleguide__content markdown styleguide us-col-lg-10 styleguide__content--w-sidebar">
-      <h2 id="microcopy">Microcopy</h2>
-<p><em>Anything shorter than a paragraph is classified as microcopy. Think anything from tooltips to button text.</em> </p>
-<p><span id="Help text/tool tips"></span>
-<strong>Help text/tool tips</strong> </p>
-<p><img alt="image" class="us-img--full trailered" src="/images/tooltip.png"></p>
-<p>Tooltips are an interruption, use them sparingly (or not at all).  </p>
-<p>Keep the tooltip text concise. Tooltips are perfect for short sentences and sentence fragments; large blocks of text can be overwhelming and should be avoided.</p>
-<p>Tooltip text must be informative. Don&apos;t make it obvious or just repeat what is already on the screen. Because tooltip text isn&apos;t always visible, it should be supplemental info that users don&apos;t have to read.  </p>
-<p><span id="Badge/label/USP"></span>
-<strong>Badge/label/USP</strong></p>
-<p><img alt="image" class="us-img--full trailered" src="/images/badge-label-usp.png"></p>
-<p>Very short text (1-4 words max) to distinguish products from one another and highlight features of a product that are otherwise not included on the results table. Annotated versions are paired with a descriptive line.</p>
-<p>Should be written in sentence case, not upper case. The label should be 1-4 words, while descriptive lines should be as concise as possible without wrapping on any device.</p>
-<p>Must be quantifiable facts about a product, deal or plan  be honest and as descriptive as possible. No exclamation points.</p>
-<p><span id="Product info"></span>
-<strong>Product info</strong></p>
-<p>Summary of product features relevant to users. Must be concise, relevant and quantifiable facts about a product, deal or plan &#x2013; be honest and as descriptive as possible</p>
-<p>Be consistent in the way and the order information is presented and the types of information shown. Second person is ok (e.g. &#x201C;More people in your region switched to this plan than any other&#x201D;)</p>
-<p><span id="Small print"></span>
-<strong>Small print</strong></p>
-<p><img alt="image" class="us-img--full trailered" src="/images/tsandcs.png"></p>
-<p>Small print reassures users and is vital for transparency.  </p>
-<p>As long as any compliance rules are taken into account, you should treat this copy like any other, and have a responsibility to make this text as comprehensible as possible to a user</p>
-<p><span id="Caveats"></span>
-<strong>Caveats</strong> </p>
-<p><img alt="image" class="us-img--full trailered" src="/images/caveat.png"></p>
-<p>Small print text to back up any absolute claims (i.e. savings figures), denoted with an asterisk, followed by an anchor and double-anchor for further caveats. The caveat must appear on the same page as the symbol. </p>
-<ul>
-<li>For the first caveat on a page use *</li>
-<li>For the second use &#x2020;</li>
-<li>And for the third, use &#x2021;</li>
-</ul>
+      <h2 id="things-to-avoid">Things to avoid</h2>
+<p><em>At uSwitch, we want to be as inclusive as possible with our language. On that
+note, here are some things to avoid.</em></p>
+<p><span id="Gendered language"></span></p>
+<h3 id="gendered-language">Gendered language</h3>
+<p>If you&apos;re writing about a person and they have not explicitly informed of you
+what pronouns they go by, use &quot;they/them&quot;. If you&apos;re writing about imaginary
+people, say, in the context of giving an example; using gender neutral pronouns
+will also reach a larger audience.</p>
+<p>Our audience includes people with many different gender identities. Instead of
+saying &quot;you guys&quot;, use &quot;you all&quot;, &quot;everyone&quot; or other nondescript language.</p>
+<p><span id="Ableist language"></span></p>
+<h3 id="ableist-language">Ableist language</h3>
+<p>Word like &quot;insane&quot; and &quot;crazy&quot; are poor choices for general-purpose emphasis of
+a statement in a world where so many face mental health issues. Words like
+&quot;shocking&quot; and &quot;ridiculous&quot; are good alternatives.</p>
+<blockquote>7 Crazy Car Insurance Plans</blockquote>
 
-<p>Examples of when caveats are required...</p>
-<ul>
-    <li>Get the best iPhone deal with uSwitch*</li>
-    <li>Get the cheapest iPhone deal with uSwitch&#x2020;</li>
-</ul>
+<p>Can be changed to:</p>
+<blockquote>7 Phenomenal Car Insurance Plans</blockquote>
 
-<p>And when they&apos;re not required...</p>
-<ul>
-    <li>Find a better energy deal</li>
-    <li>How to find the best iphone deal</li>
-</ul>
+<p>Describing things as &quot;stupid&quot; or &quot;dumb&quot; is a bad choice of descriptor, due to
+their use around people with learning difficulties. &quot;Unwise&quot; or &quot;ill-advised&quot;
+are suitable replacements.</p>
+<blockquote>Company unveils stupid energy contract</blockquote>
 
-<p><span id="Button text"></span>
-<strong>Button text</strong></p>
-<p>Very short (1-3 words) actionable description of what happens when the button clicked, namely, what&apos;s on the next page. </p>
-<p>Button text should &#x201C;keep its promise&#x201D; and properly set up expectations of what comes next</p>
-<p>It should be concise (1-3 words), should not contain exclamation points, should feel actionable (e.g. &#x201C;buy&#x201D; &#x201C;switch&#x201D; &#x201C;get&#x201D; &#x201C;apply&#x201D; &#x201C;compare&#x201D;), and can make use of urgency (e.g. &#x201C;today&#x201D; &#x201C;now&#x201D;)</p>
-<p>First person can be used (e.g. &#x201C;Tell me more&#x201D;).</p>
-<p><span id="CTAs"></span>
-<strong>CTAs</strong> </p>
-<div class="us-grid-row">
-  <div class="us-col-md-10">
-    <img alt="image" class="us-img--full trailered" src="/images/CTAs.png">
-  </div>
-</div>
+<p>Can be changed to:</p>
+<blockquote>Company unveils ill-advised energy contract</blockquote>
 
-<p>An introduction to button text, usually one to two lines, that provides a reason to click the accompanying button</p>
-<p>This is only used on editorial pages. Sentence case should be used, no exclamation points, and the text must relate to the button and its action. A CTA should not end with punctuation (unlike a standard paragraph).</p>
-<p>Should not be more than two lines, usually made up of a title and copy.</p>
-<p><span id="Form text, form labels"></span>
-<strong>Form text, form labels</strong> </p>
-<p>Description of what information is required from the user. Always aim for clarity and be consistent &#x2013; if using questions (&apos;Where do you live?&apos;) or statements (&apos;Address&apos;)</p>
-<p>Second person is acceptable, and use tool tips to explain any terms that may be unfamiliar</p>
-<p>Form label naming conventions:</p>
-<ul>
-<li>First name </li>
-<li>Last name</li>
-<li>Date of birth </li>
-<li>Email </li>
-<li>Password</li>
-<li>Postcode </li>
-<li>Address </li>
-<li>Main account holder&#x2019;s name</li>
-<li>Driver&#x2019;s name</li>
-<li>Employment status</li>
-<li>Annual income (before tax)</li>
-</ul>
-<p><span id="Placeholder text for fields"></span>
-<strong>Placeholder text for fields</strong> </p>
-<p>Pre-populated text in a field that is supposed to serve as an example or a necessary instruction. </p>
-<p>We only use placeholder text for instructions, as a last resort, when we have no space for labels, or for email/password. </p>
-<p>Symbols can be used (e.g. &#xA3; ) and we use sentence case. Our standard placeholder text is:</p>
-<ul>
-<li>Please select</li>
-<li>Enter postcode</li>
-<li>DD/MM/YYYY</li>
-<li>Email address</li>
-<li>Password</li>
-</ul>
-<p><span id="Error text"></span>
-<strong>Error text</strong></p>
-<p><img alt="image" class="us-img--full trailered" src="/images/error-texts.png"></p>
-<p>Text that is triggered by a user trying to move forward without providing requested info.</p>
-<p>Error text should be as specific and as useful/helpful as possible, but should also be short; sentence fragments are acceptable.</p>
-<p>Never be alarming, technical, or condescending (in life, but especially when it comes to error text)</p>
-<p><span id="H1"></span>
-<strong>H1</strong> </p>
-<p>Short description of the page, at a glance. </p>
-<p>This text should be genuinely helpful, in sentence case, and should be kept as short as possible.</p>
-<p><span id="H1"></span>
-<strong>Introductory text</strong></p>
-<p>A short (two lines at most) introduction that follows on from the H1. Describes the following content and encourages the user to read on, and provides as much relevant information as possible. </p>
-<p>This text should be genuinely helpful, sentence case, and should tell the user whether they are in the right place. </p>
+<p><span id="Swearing"></span></p>
+<h3 id="swearing">Swearing</h3>
+<p>Swearing is a poor way of reaching people. If you feel intensely about
+a topic, there are a multitude of other ways you can describe how you feel.</p>
 
     </div>
   </div>
   <div class="container sidebar--push">
-    <p class="copyright">Copyright uSwitch Limited 2016 - 2017. <a href="https://github.com/uswitch/ustyle">Github</a></p>
+    <p class="copyright">Copyright uSwitch Limited 2016. <a href="https://github.com/uswitch/ustyle">Github</a></p>
   </div>
   <script type="text/javascript" src='https://www.gstatic.com/charts/loader.js'>
   </script>
