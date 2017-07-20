@@ -63,7 +63,6 @@
     "grunt-svgstore": "^1.0.0",
     "grunt-version": "^1.0.0",
     "handlebars": "^2.0.0",
-    "jscs": "~2.1.0",
     "load-grunt-tasks": "~3.1.0",
     "lodash": "^2.4.1",
     "marked": "^0.3.2",
