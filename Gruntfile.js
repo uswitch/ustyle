@@ -18,9 +18,9 @@ module.exports = function(grunt) {
       options: {
         map: false,
         processors: [
-            require("autoprefixer")({
-              browsers: ["last 5 versions", "Firefox ESR", "not Explorer < 9", "> 1%", "Opera > 18"]
-            })
+          require("autoprefixer")({
+            browsers: ["last 5 versions", "Firefox ESR", "not Explorer < 9", "> 1%", "Opera > 18"]
+          })
         ]
       },
       dist: { src: ["docs/**/*.css", "dist/**/*.css"] }
