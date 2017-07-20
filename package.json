@@ -34,7 +34,7 @@
   ],
   "repository": "uswitch/ustyle",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "grunt"
   },
   "devDependencies": {
     "async": "^0.9.0",
@@ -47,6 +47,7 @@
     "gray-matter": "^2.0.0",
     "grunt": "^0.4.5",
     "grunt-build-control": "^0.3.0",
+    "grunt-cli": "^1.2.0",
     "grunt-contrib-concat": "^0.5.0",
     "grunt-contrib-copy": "^0.8.0",
     "grunt-contrib-sass": "^0.9.2",
