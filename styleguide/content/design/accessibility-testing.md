@@ -76,7 +76,7 @@ and [how to perform an accessibility audit](https://labs.uswitch.com/how-to-do-a
 Check out our tips on [usability testing](../design/validating-designs.html), too.
 
 [Pa11y Dashboard]: https://github.com/pa11y/dashboard
-[aXe Chrome Extension]: https://chrome.google.com/webstore/detail/axe/lhdoppojpmngadmnindnejefpokejbdd)
+[aXe Chrome Extension]: https://chrome.google.com/webstore/detail/axe/lhdoppojpmngadmnindnejefpokejbdd
 [tota11y]: https://khan.github.io/tota11y/
 [Lighthouse]: https://github.com/GoogleChrome/lighthouse
 [a11y]: https://www.npmjs.com/package/a11y
