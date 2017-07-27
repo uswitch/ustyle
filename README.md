@@ -77,12 +77,12 @@ uStyle serves it's icons via `<use xlink:href></use>` tags within an SVG. We hav
 
 Due to this, you need to have the `icons.svg` symbol map on the same domain, protocol and port as your application. To facilite this without serving a sprockets asset, ustyle comes with some `Rack Middleware`
 
-For rails apps, in your `development.rb` file (you do not want this in production)
+For Rails apps, in your `development.rb` file (you do not want this in production)
 ```ruby
 config.middleware.use Ustyle::IconMiddleware
 ```
 
-For rack apps (including Sinatra)
+For Rack apps (including Sinatra)
 ```ruby
 configure :development do
   use Ustyle::IconMiddleware
@@ -111,7 +111,7 @@ You can then successfully reference your icon like so:
 
 ## Usage
 
-If using rails and SASS, just import the base uSwitch styles at the start of your file
+If using Rails and Sass, just import the base uSwitch styles at the start of your file
 
 ```scss
 @import "ustyle";
