@@ -52,9 +52,7 @@ And then run in your terminal:
 
     $ bundle
 
-
 ### Sinatra
-
 
 Add to your Gemfile:
 ``` ruby
@@ -123,25 +121,17 @@ This will import the main components. If you want more granular control of what 
 
 ### Mixins / Variables
 
-Ustyle comes bundled with a good set of Sass variables and mixins to use in your project.
+uStyle comes bundled with a good set of Sass variables and mixins to use in your project.
 
 For Sass documentation on mixins/variables available to you, please see: https://ustyle.guide/sass/
 
 ## Development
 
-Development is done using [Grunt](http://gruntjs.com/), but it's just a thin wrapper around the heavy lifting done by some Node modules.
+To preview changes that you make to uStyle's components and documentation, just run
 
-To install development
+    $ npm install && npm start
 
-    $ npm install -g grunt-cli
-    $ npm install
-    $ bundle
-
-To run in development, just run
-
-    grunt
-
-This will open a http://localhost:3000 tab with the styleguide
+This will run the [Grunt](http://gruntjs.com/) default task that builds uStyle, then starts a [Browsersync](https://www.browsersync.io/) server at http://localhost:3000. Changes that you make are live-reloaded in your browser.
 
 ## Contributing
 
