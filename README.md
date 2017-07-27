@@ -127,9 +127,9 @@ For Sass documentation on mixins/variables available to you, please see: https:/
 
 ## Development
 
-To preview changes that you make to uStyle's components and documentation, just run
+To preview changes that you make to uStyle's components and documentation, run:
 
-    $ npm install && npm start
+    $ npm start
 
 This will run the [Grunt](http://gruntjs.com/) default task that builds uStyle, then starts a [Browsersync](https://www.browsersync.io/) server at http://localhost:3000. Changes that you make are live-reloaded in your browser.
 
