@@ -113,13 +113,45 @@ You can then successfully reference your icon like so:
 
 ## Usage
 
-If using rails and SASS, just import the base uSwitch styles at the start of your file
+### Rails/Sprockets apps
+
+If using Rails and Sass, just import the base uSwitch styles at the start of your file
 
 ```scss
 @import "ustyle";
 ```
 
 This will import the main components. If you want more granular control of what to import, please look at the source code or the styleguide.
+
+### Node apps
+
+uStyle comes with JavaScript implementations of the custom Sass Ruby functions used by Sprockets. To use uStyle's mixins and variables within your own Sass, you'll need to add these functions to the compiler you're using. For example, using [node-sass](https://github.com/sass/node-sass) in a project that also has [Webpack](https://webpack.js.org/), you can do the following:
+
+```javascript
+// In your webpack.config.js
+
+import { SassHelpers } from 'ustyle';
+
+module.exports = {
+  // ...
+  module: {
+    rules: [
+      // ...
+      {
+        test: /.scss$/,
+        use: [{
+          loader: 'sass-loader',
+          options: {
+            functions: SassHelpers
+          }
+        }]
+      }
+      // ...
+    ]
+  }
+  // ...
+};
+```
 
 ### Mixins / Variables
 
