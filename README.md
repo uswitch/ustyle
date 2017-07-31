@@ -11,7 +11,9 @@ This project is provided as is and is aimed at building uSwitch specific project
 * [Installation](#installation)
   * [Sinatra](#sinatra)
 * [Usage](#usage)
-  * [Mixins/Variables](#mixins-variables)
+  * [Rails / Sprockets apps](#rails--sprockets-apps)
+  * [Node apps](#node-apps)
+  * [Mixins/Variables](#mixins--variables)
 * [Development](#development)
 * [Contributing](#contributing)
 
@@ -111,7 +113,7 @@ You can then successfully reference your icon like so:
 
 ## Usage
 
-### Rails/Sprockets apps
+### Rails / Sprockets apps
 
 If using Rails and Sass, just import the base uSwitch styles at the start of your file
 
