@@ -102,8 +102,8 @@ $devices: ();
 /// @require {Variable} devices
 ///
 /// @param {String} $device
-///   The device to match up the media query with. Can be one from the list of `$min-breakpoints`
-///   or `$max-breakpoints`
+///   The device to match up the media query with. Can be one from the list of `$min-breakpoints` (`small-tablet`, `tablet`, `desktop` etc.)
+///   or `$max-breakpoints` (`mobile`, `to-small-tablet`, `to-tablet`)
 ///
 /// @param {Bool} $ie-fallback [false]
 ///   If set to `true` will return a `.ie8` {content} fallback to ensure IE8 gets the supporting styling
