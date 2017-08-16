@@ -23,9 +23,6 @@ if defined?(::Sinatra)
           config.public_path = app.public_folder
         end
 
-        require 'autoprefixer-rails'
-        AutoprefixerRails.install(app.sprockets, ::Ustyle.autoprefixer_config)
-
         app.helpers Sprockets::Helpers
       end
     end
