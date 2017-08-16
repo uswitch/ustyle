@@ -28,7 +28,7 @@ module Ustyle
     end
 
     def rails?
-      defined?(::Rails)
+      defined?(::Rails) && defined?(::Rails::Engine) && defined?(::Rails::Railtie)
     end
 
     def gem_path
