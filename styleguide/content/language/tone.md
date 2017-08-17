@@ -1,8 +1,14 @@
 ---
-name: Tone
+name: uSwitch Tone of Voice Guidelines
 ---
 
-At uSwitch we deliver a simple, helpful and reassuring comparison site. The way we speak to our users reflects that. 
+Here at uSwitch, we offer everyone ‘Supportive Switching’.
+
+That means we’re not just passively comparing prices, we’re actively enabling and supporting the decision to switch.
+
+What we write, the way we speak to customers and every conversation we have must give people clear, timely and relevant information. And we should communicate that information in a simple but attractive way.
+
+With the right tone of voice, our words create a decisive moment: we take people from passively knowing they should switch to actively having the confidence to make the right switch
 
 <img alt="image" class="us-img--full trailered" src="/images/tone.png">
 
