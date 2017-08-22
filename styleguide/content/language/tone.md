@@ -1,5 +1,5 @@
 ---
-name: uSwitch Tone of Voice Guidelines
+name: Tone of Voice 
 ---
 
 Here at uSwitch, we offer everyone ‘Supportive Switching’.
