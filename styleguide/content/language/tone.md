@@ -12,19 +12,43 @@ With the right tone of voice, our words create a decisive moment: we take people
 
 <img alt="image" class="us-img--full trailered" src="/images/tone.png">
 
-## Tone of voice
+<ul class='table-of-contents'>
+<li><a href="#Three core principles">Three core principles</a></li>
+<li><a href="#Framework"> Tone framework</a></li>
+<li><a href="#Empathetic">Principle 1: Empathetic</a></li>
+<li><a href="#Expert">Principle 2: Expert</a></li>
+<li><a href="#Empowering">Principle 3: Empowering</a></li>
 
-*Please consider these general principles when writing copy.* 
+</ul>
 
-**Expert** 
+<span id="Three core principles"></span>
+## The Three core principles
 
-We have a deep understanding of people, household finances and the industries in which we operate. 
+**- Empathetic**  
+**- Expert**  
+**- Empowering**  
 
-Be confident and authoritative. We know what we’re talking about and we’re not afraid to be out in front of the news and industry happenings. 
+To give people the support they need to switch, we need to be able to deliver the right kind of message at the right time. That means our voice needs to be able to flex from simply informative – for example when we’re describing features of a product – to inspirational, when people are at the decisive moment and need extra encouragement to switch.  
 
-<span class="us-icon--tick us-icon us-icon--small us-icon--custom us-icon--before us-icon--notext"></span><i> Why the smartphone world needs a stronger Nokia OS</i>
+The trick is to strike the right balance. Our three core principles will help us do this, guiding our communications and making sure that we deliver each message in the most appropriate way.  
 
-<span class="us-icon--cross us-icon us-icon--small us-icon--custom us-icon--before us-icon--notext"></span><i> Why we feel the smartphone world could benefit from a stronger Nokia OS</i>
+Everything we say should always carry some elements of our core principles in varying degrees. The following framework is designed to make sure we get the balance right.  
+
+
+<span id="Framework"></span>
+## Tone framework  
+
+Our three principles work together, and we adjust the emphasis and balance depending on who we’re talking to, why and when.  
+
+One voice principle doesn’t exclude another; it’s how we mix them that gives uSwitch a rounded and distinctive voice.   
+
+And, as with people, we’re not one thing all the time, or everything at once — but we have a consistent basis that’s us. For uSwitch, that means we’re always Empathetic. We dial up and down the Expert and Empowering qualities of our voice as needed.   
+
+The key thing is to think about the main reason(s) to communicate – and use the principles accordingly.  
+
+<img alt="image" class="us-img--full trailered" src="/images/tone-framework.png">
+
+
 
 **Human** 
 
