@@ -1,5 +1,5 @@
 ---
-name: Tone of Voice 
+name: uSwitch tone of voice 
 ---
 
 Here at uSwitch, we offer everyone ‘Supportive Switching’.
@@ -10,7 +10,7 @@ What we write, the way we speak to customers and every conversation we have must
 
 With the right tone of voice, our words create a decisive moment: we take people from passively knowing they should switch to actively having the confidence to make the right switch
 
-<img alt="image" class="us-img--full trailered" src="/images/tone.png">
+
 
 <ul class='table-of-contents'>
 <li><a href="#Three core principles">Three core principles</a></li>
@@ -22,7 +22,7 @@ With the right tone of voice, our words create a decisive moment: we take people
 </ul>
 
 <span id="Three core principles"></span>
-## The Three core principles
+## 3 core principles of the uSwitch tone of voice
 
 **- Empathetic**  
 **- Expert**  
@@ -48,34 +48,88 @@ The key thing is to think about the main reason(s) to communicate – and use th
 
 <img alt="image" class="us-img--full trailered" src="/images/tone-framework.png">
 
+<span id="Empathetic"></span>
+## Principle 1: Empathetic 
+
+**Being empathetic means being:**  
+- Positive  
+- Encouraging  
+- Relevant  
+
+Our experience gives us insight and understanding, so being Empathetic means our writing is practical, good humoured and down to earth.  
+
+Being empathetic also means we don’t make assumptions about what people know and don’t know. 
+We shouldn’t assume confidence either. We show people that we understand what’s important to them and talk about topics and issues that are directly relevant to them.  
+
+When we write or speak, our language is outgoing and conversational, positive but never over the top.  
+
+We want people to know they can rely on us to find the switch that’s right for them -  and support them through it.  
+
+**How we show empathy in our writing**  
+
+1.  Use active, direct and positive language.  
+2. Companies don’t show empathy, people do. We should always sound like a person – if you wouldn’t say it like that, don’t write it like that.  
+3. Whether verbal or written, we should build a dialogue with customers, using relevant questions and topics of interest to engage people.  
+4. Focus on answers not problems (but don’t gloss over issues and concerns).  
+5. Make it personal by using ‘you’ as much as ‘we’.  
+6. Don’t use the passive voice unless it’s absolutely necessary to make your point. 
+Using slang that’s accepted and understood can help connect. But be careful; we don’t want to alienate audiences by using jargon or patronising language – nor by trying to ‘talk cool’ to younger audiences.  
+7. Put yourself in your customer’s shoes (and be honest). Would that headline you’re writing entice you to click on it? Is that error text going to provide support or only create more questions?   
+
+<span id="Expert"></span>
+## Principle 2: Expert  
+
+**Being expert means being:**  
+- Trusted  
+- Clear  
+- Accessible  
+
+It’s our responsibility to direct people to the information or product that’s relevant for them. So we make information quick and easy to find, and ensure the pros and cons for switching are obvious and understandable.  
+
+We don’t blind with science and we don’t dumb down. We give information succinctly and simply — but never rush the conversation.  
+
+At all times we are scrupulously balanced, accurate and honest, and this reassures people by clearly showing that we know what we’re talking about.  
+
+**How we show expertise in our writing**  
+
+1.  Be relevant and accurate with facts and figures, and get the punctuation and spelling right. Even small mistakes undermine what you’re saying.  
+2. Write succinctly and use simple sentence structures. Our prime objective is always that our audience understands us. In that way, we make complex topics simple, concise and accessible. Remember: simple isn’t simplistic; it’s just the easiest way to ensure we’re understood.  
+3. Too many facts at once can be counterproductive. Don’t overload people with unnecessary detail. Get to the point, avoiding verbal padding and meaningless phrases.  
+4. Don’t close down conversations – always have alternative options.  
+5. Avoid marketing speak and sales patter.   
+6. Don’t hide important facts. Start with what’s most relevant and individually important to your customer or audience.  
+
+<span id="Empowering"></span>
+## Principle 3: Empowering  
+
+**Being empowering means being:**
+- Inspiring  
+- Energetic  
+- Credible  
+
+We write and speak to inform and change minds, giving people the straightforward facts and, in turn, the confidence they need to switch.  
+
+Our explanations and opinions should challenge, involve, entertain, pleasantly surprise and convince  – we’re good company.   
+
+The facts and figures are important, and we know them inside and out. But we make them more compelling by putting them in context, helping people see what switching could mean for them — whether that’s finally feeling in control of their household bills or that much closer to their dream holiday savings goal.  
+
+We know who we are and what we’re about. So we believe wholeheartedly in what we do, knowing that it benefits everyone. So we’re never afraid to show our enthusiasm and commitment in our writing.  
+
+**How we empower with our writing:**  
+
+1. Wherever possible, lead with emotional benefits that customers will be able to identify with – particularly at headline level. Look for familiar or universal situations related to our subject matter.   
+2. Use real-life examples and stories wherever possible – they’re more convincing than anything you could invent.  
+3. Don’t overpromise or over-exaggerate; there’s no need.   
+4. Refresh your vocabulary and thinking; don’t keeping saying the same things in the same way
+Have an opinion and be prepared to defend it.  
+5. Don’t be afraid to (politely and tactfully) challenge or say no. The customer is not always right but our advice should be.  
+6. Be direct and positive but not flippant. Never forget that switching is a big step for many
+Bring a sense of humour where it’s appropriate –  wit is a great connector.  
+7. Focus on wants and needs, not just prices.  
 
 
-**Human** 
 
-We always talk on the same level as our customers. Be friendly and conversational, never patronising.
 
-We want to make sure customers realise there are real, live people at uSwitch. So, we speak in a familiar language and in a colloquial manner, and we’re always friendly and inclusive. 
 
-<span class="us-icon--tick us-icon us-icon--small us-icon--custom us-icon--before us-icon--notext"></span><i> Having snagged voice recognition company Ivona back in January, it’s not too much of a leap to imagine that Amazon is prepping its own smartphone.</i>
 
-<span class="us-icon--cross us-icon us-icon--small us-icon--custom us-icon--before us-icon--notext"></span><i> In January, Amazon acquired Ivona, a voice-recognition company. It would seem the next logical step for the company is to create a smartphone using this technology.</i>
 
-**Connected** 
-
-We are seamlessly synchronised with the wider world and financial one. Be timely, knowledgeable and accurate.
-
-We’re experts because we listen (but not just to the industry leaders) and are involved in the industry. But we don’t just listen — we also look out for consumers, who are most impacted by any changes (or lack of).
-
-<span class="us-icon--tick us-icon us-icon--small us-icon--custom us-icon--before us-icon--notext"></span><i> What Ofgem’s big announcement means for you</i>
-
-<span class="us-icon--cross us-icon us-icon--small us-icon--custom us-icon--before us-icon--notext"></span><i> Ofgem ‘opening up the market’ to boost energy competition</i>
-
-**Advisory** 
-
-We make a positive impact on the lives of our customers. Be empowering and informative.
-
-We don’t just tell people what to do. We guide them into the best decision for them, and we do that by providing accurate, easy-to-understand and relevant information. We make it clear that they are in the driving seat, and we’re just here to support them when they’re unsure. 
-
-**Frank** 
-
-We speak truthfully and with insight. Be honest and transparent. We’re open and direct. We don’t hide relevant info or intentionally mislead our customers.
