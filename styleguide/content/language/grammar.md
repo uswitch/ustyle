@@ -1,8 +1,8 @@
 ---
-name: Grammar
+name: Style
 ---
 
-*The rules of the game. Consistent grammar and punctuation make good copy easier to read and understand.* 
+The smallest mistake can undermine the biggest (and most important) of messages. Those writing for uSwitch should ensure they follow these style rules that cover everything from headlines to hyphens, and numbers to names.
 
 <ul class='table-of-contents'>
 <li><a href="#Abbreviations">Abbreviations</a></li>
