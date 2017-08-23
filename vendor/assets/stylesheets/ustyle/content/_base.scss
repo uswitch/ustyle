@@ -3,6 +3,16 @@
 
 $content-heading-font-sizes: 30px, 24px, 20px, 18px, 16px, 16px;
 
+.guide {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.us-content__main {
+  max-width: 800px;
+  width: 100%;
+}
+
 .us-content {
   // scss-lint:disable all
 
@@ -224,4 +234,8 @@ $content-heading-font-sizes: 30px, 24px, 20px, 18px, 16px, 16px;
     }
   }
   // scss-lint:enable NestingDepth, SelectorDepth
+}
+
+.us-content__sidebar {
+  display: none;
 }

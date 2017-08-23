@@ -1,13 +1,6 @@
 .us-content__header {
   img {
     display: none;
-    height: auto;
-    max-width: 100%;
-    min-width: 100%;
-
-    @include respond-to(tablet, true) {
-      display: block;
-    }
   }
 }
 
