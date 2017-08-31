@@ -10,7 +10,7 @@
   margin: 0;
   clear: both;
   font-size: 1.6785em; // 26px
-  color: $c-navy;
+  color: $c-typegrey;
   background-color: #fff;
 
   @include respond-to(desktop, true) {
