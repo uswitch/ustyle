@@ -264,5 +264,13 @@ $content-heading-font-sizes: 36px, 27px, 22px, 18px, 16px, 16px;
 }
 
 .us-content__sidebar {
-  display: none;
+  @extend %center;
+  display: block;
+  padding-left: 15px!important;
+  float: none;
+
+  // hide cta
+  > div {
+    display: none;
+  }
 }
