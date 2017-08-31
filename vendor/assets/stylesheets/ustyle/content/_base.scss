@@ -1,16 +1,43 @@
 @import "ustyle/content/c-header";
 @import "ustyle/content/c-social";
 
-$content-heading-font-sizes: 30px, 24px, 20px, 18px, 16px, 16px;
+$content-heading-font-sizes: 36px, 27px, 22px, 18px, 16px, 16px;
 
-.guide {
+%center {
+  width: 100%;
   max-width: 800px;
   margin: 0 auto;
 }
 
+.us-content__header,
+.us-content__author,
 .us-content__main {
-  max-width: 800px;
-  width: 100%;
+  @extend %center;
+  float: none;
+}
+
+.us-content__header {
+  // scss-lint:disable all
+
+  margin-bottom: $gutter-width;
+
+  @include baseline($base-font-size, $root: true);
+
+  @include respond-to(tablet) {
+    @include baseline(18px, $root: true);
+  }
+
+  @include respond-to(desktop) {
+    @include baseline(20px, $root: true);
+    text-rendering: optimizeSpeed;
+  }
+
+  @for $level from 1 through 6 {
+    h#{$level},
+    .us-heading--#{$level} {
+      @include heading($level, $font-sizes: $content-heading-font-sizes);
+    }
+  }
 }
 
 .us-content {
@@ -124,10 +151,10 @@ $content-heading-font-sizes: 30px, 24px, 20px, 18px, 16px, 16px;
   }
 
   .strap {
-    @include baseline(18px);
+    @include baseline(20px);
 
     @include respond-to(tablet) {
-      @include baseline(22px);
+      @include baseline(24px);
       margin-bottom: 2em;
     }
   }
