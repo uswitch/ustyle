@@ -6,7 +6,8 @@ $content-heading-font-sizes: 36px, 27px, 22px, 18px, 16px, 16px;
 %center {
   width: 100%;
   max-width: 800px;
-  margin: 0 auto;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .us-content__header,
@@ -148,6 +149,15 @@ $content-heading-font-sizes: 36px, 27px, 22px, 18px, 16px, 16px;
         margin-left: $gutter-width;
       }
     }
+  }
+
+  .full-width {
+    position: relative;
+    right: 50%;
+    left: 50%;
+    width: 100vw;
+    padding: 0;
+    margin-left: -50vw;
   }
 
   .strap {

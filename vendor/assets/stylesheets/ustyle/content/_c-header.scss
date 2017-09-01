@@ -1,4 +1,9 @@
 .us-content__header {
+  @include respond-to(desktop, true) {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
   img,
   .us-content__social {
     display: none;
@@ -18,4 +23,38 @@
     @include heading(1, $extend: false);
     padding: .5em 0 1em 0;
   }
+}
+
+.us-content__author {
+  margin-bottom: 15px;
+
+  @include respond-to(desktop, true) {
+    position: relative;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-top: -2.25em;
+    margin-bottom: 1.5em;
+  }
+}
+
+.us-content__author-image-wrapper,
+.us-content__post-meta {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.us-content__post-author {
+  font-size: 1em;
+  font-weight: normal;
+  margin-bottom: 0;
+}
+
+.us-content__post-date {
+  margin-bottom: 0;
+  font-size: 0.875em;
+}
+
+.us-content__author-image {
+  margin-right: 15px;
+  border-radius: 50%;
 }
