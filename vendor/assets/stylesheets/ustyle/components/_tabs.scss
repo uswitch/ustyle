@@ -176,7 +176,6 @@ $tab-active-color: $tab-border-color;
   }
 
   &:hover .us-tabs-nav-chevron,
-  &:hover .us-tabs-nav-chevron-wrapper .us-icon,
   .us-tab.active & .us-tabs-nav-chevron,
   .us-tab.active & .us-tabs-nav-chevron-wrapper .us-icon {
     transform: rotate(-90deg);
