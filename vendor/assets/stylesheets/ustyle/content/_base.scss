@@ -277,7 +277,15 @@ $content-heading-font-sizes: 36px, 27px, 22px, 18px, 16px, 16px;
   @extend %center;
   display: block;
   float: none;
-  padding-left: 15px !important;
+  padding-left: 0;
+
+  &.us-grid-lg--push-1 {
+    padding-left: 0;
+
+    @include respond-to(tablet) {
+      padding-left: 15px;
+    }
+  }
 
   // hide cta
   > div {
