@@ -1,21 +1,20 @@
 .us-social {
-  border-top: 1px solid $c-keylinegrey;
-  border-bottom: 1px solid $c-keylinegrey;
   padding-top: 1.5em;
   padding-bottom: 1em;
   margin-bottom: 2.5em;
   text-align: left;
+  border-top: 1px solid $c-keylinegrey;
+  border-bottom: 1px solid $c-keylinegrey;
 
   a {
-    margin-right: 0.5em;
+    margin-right: .5em;
 
     &:first-of-type:before {
-      content: "Share:";
-      display: inline-block;
       position: relative;
       top: -9px;
-      margin-right: 10px;
+      display: inline-block;
       color: $c-typegrey;
+      content: "Share:";
     }
 
     &:last-of-type {
