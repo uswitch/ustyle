@@ -39,8 +39,7 @@
 
 .us-content__author-image-wrapper,
 .us-content__post-meta {
-  display: table-cell;
-  vertical-align: middle;
+  display: inline-block;
 }
 
 .us-content__post-author {
@@ -50,11 +49,9 @@
 }
 
 .us-content__post-date {
-  margin-bottom: 0;
   font-size: .875em;
 }
 
 .us-content__author-image {
-  margin-right: 15px;
   border-radius: 50%;
 }

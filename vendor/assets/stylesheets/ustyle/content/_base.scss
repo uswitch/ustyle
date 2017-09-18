@@ -273,22 +273,5 @@ $content-heading-font-sizes: 36px, 27px, 22px, 18px, 16px, 16px;
   // scss-lint:enable NestingDepth, SelectorDepth
 }
 
-.us-content__sidebar {
-  @extend %center;
-  display: block;
-  float: none;
-  padding-left: 0;
-
-  &.us-grid-lg--push-1 {
-    padding-left: 0;
-
-    @include respond-to(tablet) {
-      padding-left: 15px;
-    }
-  }
-
-  // hide cta
-  > div {
-    display: none;
-  }
-}
+@import "ustyle/content/c-sidebar";
+@import "ustyle/content/c-experiment-overrides";
