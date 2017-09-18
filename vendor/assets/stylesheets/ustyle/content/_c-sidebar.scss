@@ -16,8 +16,36 @@
   > div {
     display: none;
   }
-}
 
-.latest-news {
-  display: none;
+  .us-related {
+    background-color: $c-bggrey;
+    margin-bottom: 2.5em;
+    padding: 15px 15px 0;
+  }
+
+  .us-related__item {
+    &:nth-of-type(-n+2) {
+      display: none;
+    }
+
+    &:last-of-type .us-related__item-link:last-of-type {
+      border-bottom: 0;
+    }
+  }
+
+  .us-related__item-link {
+    @include link-colors($c-typegrey, $c-typecyan, $c-typegrey-2, $c-typegrey);
+    padding-top: 1.250em;
+    padding-bottom: 1.250em;
+  }
+
+  .us-related__item-title {
+    margin-bottom: 0;
+    margin-left: 0;
+    font-size: 1.313em; // 21px
+  }
+
+  .us-related__item-image {
+    display: none;
+  }
 }
