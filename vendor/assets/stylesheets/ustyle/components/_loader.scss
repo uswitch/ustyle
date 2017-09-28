@@ -90,6 +90,7 @@ $spinner-size: 60px !default;
   @extend %snap-to-parent;
   display: none;
   text-align: center;
+  z-index: 1;
 }
 
 .us-loader__container {
