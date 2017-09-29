@@ -88,9 +88,9 @@ $spinner-size: 60px !default;
 
 .us-loader {
   @extend %snap-to-parent;
+  z-index: 1;
   display: none;
   text-align: center;
-  z-index: 1;
 }
 
 .us-loader__container {
