@@ -11,7 +11,7 @@ This project is provided as is and is aimed at building uSwitch specific project
 * [Installation](#installation)
   * [Sinatra](#sinatra)
 * [Usage](#usage)
-  * [Mixins/Varibales](#mixins-variables)
+  * [Mixins/Variables](#mixins-variables)
 * [Development](#development)
 * [Contributing](#contributing)
 
