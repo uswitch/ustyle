@@ -114,6 +114,7 @@
 //  <svg role="image" class="us-icon--medium us-icon--custom us-icon--{$modifiers}">
 //    <use xlink:href="/images/icons.svg#icon-{$modifiers}"></use>
 //  </svg>
+//
 
 @import "ustyle/basics/variables/icons";
 
@@ -169,8 +170,12 @@ svg.us-icon--after {
   $color-name: nth($icon-color, 1);
   $color-hex: nth($icon-color, 2);
 
-  svg.us-icon--#{$color-name} {
+  svg.us-icon--#{$color-name}:not(.us-icon--stroke) {
     fill: $color-hex;
+  }
+
+  svg.us-icon--#{$color-name}.us-icon--stroke {
+    stroke: $color-hex;
   }
 }
 
@@ -180,8 +185,12 @@ svg.us-icon--after {
   $icon-name: nth($icon-colors-svg, 1);
   $icon-fill: nth($icon-colors-svg, 2);
 
-  svg.us-icon--#{$icon-name} {
+  svg.us-icon--#{$icon-name}:not(.us-icon--stroke) {
     fill: $icon-fill;
+  }
+
+  svg.us-icon--#{$icon-name}.us-icon--stroke {
+    stroke: $icon-fill;
   }
 }
 
@@ -237,4 +246,22 @@ svg.us-icon--after {
       height: $height;
     }
   }
+}
+
+// @page Design/Icons
+// @name Stroked icons
+// @partial icons
+//
+// @description
+//   We have certain icons that are strokes instead of paths so we can animated them. As strokes are a bit problematic, we have left the decision as to how to animate them up to the apps.
+//
+// @state tick-path
+//
+// @markup
+//  <svg role="image" class="us-icon--medium us-icon--{$modifiers} us-icon--stroke us-icon--animated">
+//    <use xlink:href="/images/icons.svg#icon-{$modifiers}"></use>
+//  </svg>
+
+.us-icon--stroke {
+  fill: none;
 }
