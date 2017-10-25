@@ -150,15 +150,6 @@ module.exports = function(grunt) {
         ]
       }
     },
-    jscs: {
-      src: [
-        "Gruntfile.js",
-        "vendor/assets/javascripts/**/*.js"
-      ],
-      options: {
-        config: "config/.jscsrc"
-      }
-    },
     env: {
       dev: {
         NODE_ENV: "development"
@@ -183,7 +174,7 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask("lint", ["scsslint", "jscs"]);
+  grunt.registerTask("lint", ["scsslint"]);
   grunt.registerTask("icons", ["newer:svgmin", "svgstore"]);
 
   grunt.registerTask("build", ["sass", "sassdoc", "copy", "concat:ustyle", "uglify:ustyle", "concat:app", "lint", "postcss", "styleguide", "builder"]);
