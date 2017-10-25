@@ -173,6 +173,6 @@ See [CONTRIBUTING.md](https://github.com/uswitch/ustyle/blob/master/CONTRIBUTING
 
 ## Licences
 
-- Source code is licenced under the Apache v2.0 licence
-- All icons, except the uSwitch icon are licenced under [CC - Attribution - No Derivatives 4.0](http://creativecommons.org/licenses/by-nd/4.0/)
-- uSwitch icon is licenced under [CC - Attribution - NonCommercial - NoDerivates 4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/)
+- Source code is licensed under the Apache v2.0 licence
+- All icons, except the uSwitch icon are licensed under [CC - Attribution - No Derivatives 4.0](http://creativecommons.org/licenses/by-nd/4.0/)
+- uSwitch icon is licensed under [CC - Attribution - NonCommercial - NoDerivates 4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/)
