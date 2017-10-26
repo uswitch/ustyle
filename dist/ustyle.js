@@ -193,7 +193,7 @@ window.Overlay = (function(Utils) {
   }
 
   Overlay.prototype.addEventListeners = function() {
-    $(this.options.openButton).on("click.open-overlay", (function(_this) {
+    $(document.body).on("click.open-overlay", this.options.openButton, (function(_this) {
       return function(e) {
         if (_this.options.preventDefault) {
           e.preventDefault();
