@@ -155,6 +155,31 @@ module.exports = function (grunt) {
         ]
       }
     },
+    standard: {
+      options: {
+        fix: true,
+        globals: [
+          'google',
+          '$',
+          'cleanWhiteSpace',
+          'svg4everybody',
+          'hljs',
+          'Overlay',
+          'ClassToggler',
+          'Tabs',
+          'RadioToggle',
+          'reportData'
+        ]
+      },
+      ustyle: {
+        src: [
+          './grunt/**/*.js',
+          './styleguide/**/!(vendor)/*.js',
+          './vendor/**/*.js',
+          '*.js'
+        ]
+      }
+    },
     env: {
       dev: {
         NODE_ENV: 'development'
@@ -179,7 +204,7 @@ module.exports = function (grunt) {
     }
   })
 
-  grunt.registerTask('lint', ['scsslint'])
+  grunt.registerTask('lint', ['scsslint', 'standard'])
   grunt.registerTask('icons', ['newer:svgmin', 'svgstore'])
 
   grunt.registerTask('build', ['sass', 'sassdoc', 'copy', 'concat:ustyle', 'uglify:ustyle', 'concat:app', 'lint', 'postcss', 'styleguide', 'builder'])

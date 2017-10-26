@@ -37,30 +37,15 @@
   "repository": "uswitch/ustyle",
   "scripts": {
     "start": "grunt",
-    "depcheck": "depcheck --specials=grunt",
+    "depcheck": "depcheck --specials=grunt --ignores=depcheck,grunt-*",
     "test": "standard \"grunt/**/*.js\" \"styleguide/**/!(vendor)/*.js\" \"vendor/**/*.js\" \"*.js\"",
     "test:fix": "standard --fix \"grunt/**/*.js\" \"styleguide/**/!(vendor)/*.js\" \"vendor/**/*.js\" \"*.js\""
-  },
-  "standard": {
-    "globals": [
-      "google",
-      "$",
-      "cleanWhiteSpace",
-      "svg4everybody",
-      "hljs",
-      "Overlay",
-      "ClassToggler",
-      "Tabs",
-      "RadioToggle",
-      "reportData"
-    ]
   },
   "devDependencies": {
     "async": "^0.9.0",
     "autoprefixer": "^6.5.0",
     "browser-sync": "^1.8.2",
     "cheerio": "^0.20.0",
-    "cssstats": "^1.0.1",
     "depcheck": "^0.6.7",
     "dss": "^1.0.4",
     "gray-matter": "^2.0.0",
@@ -78,6 +63,7 @@
     "grunt-sassdoc": "^2.0.0",
     "grunt-scss-lint": "~0.3.4",
     "grunt-shell": "^1.1.1",
+    "grunt-standard": "^3.1.0",
     "grunt-svgmin": "^2.0.0",
     "grunt-svgstore": "^1.0.0",
     "grunt-version": "^1.0.0",
@@ -86,10 +72,8 @@
     "lodash": "^2.4.1",
     "marked": "^0.3.2",
     "node-sass": "^4.5.3",
-    "path": "^0.11.14",
     "semver": "^4.3.3",
     "simple-git": "^1.3.0",
-    "standard": "^10.0.3",
     "stylestats": "^4.2.2",
     "underscore.string": "^3.0.2"
   }
