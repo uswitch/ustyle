@@ -35,9 +35,7 @@
   },
   "scripts": {
     "start": "grunt",
-    "depcheck": "depcheck --specials=grunt --ignores=depcheck,grunt-*",
-    "test": "standard \"grunt/**/*.js\" \"styleguide/**/!(vendor)/*.js\" \"vendor/**/*.js\" \"*.js\"",
-    "test:fix": "standard --fix \"grunt/**/*.js\" \"styleguide/**/!(vendor)/*.js\" \"vendor/**/*.js\" \"*.js\""
+    "depcheck": "depcheck --specials=grunt --ignores=depcheck,grunt-*"
   },
   "devDependencies": {
     "async": "^0.9.0",
