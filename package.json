@@ -30,6 +30,9 @@
     "index.js"
   ],
   "repository": "uswitch/ustyle",
+  "engines": {
+    "npm": "^5.4.2"
+  },
   "scripts": {
     "start": "grunt",
     "depcheck": "depcheck --specials=grunt --ignores=depcheck,grunt-*",
