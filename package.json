@@ -41,6 +41,20 @@
     "test": "standard \"grunt/**/*.js\" \"styleguide/**/!(vendor)/*.js\" \"vendor/**/*.js\" \"*.js\"",
     "test:fix": "standard --fix \"grunt/**/*.js\" \"styleguide/**/!(vendor)/*.js\" \"vendor/**/*.js\" \"*.js\""
   },
+  "standard": {
+    "globals": [
+      "google",
+      "$",
+      "cleanWhiteSpace",
+      "svg4everybody",
+      "hljs",
+      "Overlay",
+      "ClassToggler",
+      "Tabs",
+      "RadioToggle",
+      "reportData"
+    ]
+  },
   "devDependencies": {
     "async": "^0.9.0",
     "autoprefixer": "^6.5.0",
