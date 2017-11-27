@@ -17,6 +17,7 @@
 // @state .us-usp--red - Generic vertical specific USP.
 //
 // @markup
+//   <div class='us-usp us-usp--subtle {$modifiers}'>Subtle USP</div>
 //   <div class='us-usp {$modifiers}'>Shortened USP</div>
 //   <div class='us-usp us-usp--annotated'>
 //     <div class='us-usp {$modifiers}'>Annotated USP</div>
@@ -54,6 +55,10 @@ $variants: (
       color: #{nth($colour, 3)};
     }
   }
+
+  .us-usp--subtle.us-usp--#{nth($colour, 1)} {
+    color: #{nth($colour, 2)};
+  }
 }
 
 .us-usp--annotated {
@@ -65,5 +70,34 @@ $variants: (
   .us-usp {
     margin-right: 10px;
     margin-left: -10px;
+  }
+}
+
+.us-usp--subtle {
+  width: 100%;
+  padding: 0;
+  background-color: transparent;
+  color: $c-typecyan;
+  font-size: 1em;
+
+  @include respond-to(tablet) {
+    width: auto;
+  }
+
+  &:after {
+    @include respond-to(tablet) {
+      content: " | ";
+      position: relative;
+      right: 0;
+      line-height: 0;
+      top: -1px;
+      color: $c-bordergrey;
+      font-weight: normal;
+      margin-right: 3px;
+    }
+  }
+
+  &:last-child:after {
+    display: none;
   }
 }
