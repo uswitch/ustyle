@@ -76,9 +76,9 @@ $variants: (
 .us-usp--subtle {
   width: 100%;
   padding: 0;
-  background-color: transparent;
-  color: $c-typecyan;
   font-size: 1em;
+  color: $c-typecyan;
+  background-color: transparent;
 
   @include respond-to(tablet) {
     width: auto;
@@ -86,14 +86,14 @@ $variants: (
 
   &:after {
     @include respond-to(tablet) {
-      content: " | ";
       position: relative;
-      right: 0;
-      line-height: 0;
       top: -1px;
-      color: $c-bordergrey;
-      font-weight: normal;
+      right: 0;
       margin-right: 3px;
+      font-weight: normal;
+      line-height: 0;
+      color: $c-bordergrey;
+      content: " | ";
     }
   }
 
