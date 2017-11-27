@@ -202,11 +202,11 @@ $tab-active-color: $tab-border-color;
   display: flex;
   -webkit-box-align: center;
   -webkit-box-pack: center;
+  -webkit-align-items: center;
   -webkit-justify-content: center;
   justify-content: center;
   -ms-flex-align: center;
   -ms-flex-pack: center;
-  -webkit-align-items: center;
   align-items: center;
 }
 // scss-lint:enable Comment, MergeableSelector
