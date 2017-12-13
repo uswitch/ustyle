@@ -75,31 +75,21 @@
     stickySidebar()
     svg4everybody()
 
-    var overlays = []
-
+    /* eslint-disable no-new */
     $('.js-open-overlay').each(function (e) {
-      overlays.push(
-        new Overlay({
-          openButton: $(".js-open-overlay[modifier='" + $(this).attr('modifier') + "']"),
-          overlay: $(".us-overlay-parent[modifier='" + $(this).attr('modifier') + "']")
-        })
-      )
+      new Overlay({
+        openButton: $(".js-open-overlay[modifier='" + $(this).attr('modifier') + "']"),
+        overlay: $(".us-overlay-parent[modifier='" + $(this).attr('modifier') + "']")
+      })
     })
 
-    var tooltips = new ClassToggler({
+    new ClassToggler({
       containerClass: '.us-tooltip',
       $target: $('.us-tooltip__icon'),
       activeClass: 'us-tooltip--active'
     })
 
-    var tabs = new Tabs({collapsible: true, autoScroll: false})
-    var radio = new RadioToggle()
-
-    return {
-      tooltips: tooltips,
-      tabs: tabs,
-      radio: radio
-    }
+    new Tabs({collapsible: true, autoScroll: false})
   }
 
   function clickToggle (event) {
@@ -122,4 +112,4 @@
   }
 
   return new App()
-})(document, window, $, Overlay, ClassToggler, Tabs, RadioToggle)
+})(document, window, $, Overlay, ClassToggler, Tabs)
