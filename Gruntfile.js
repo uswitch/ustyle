@@ -119,7 +119,8 @@ module.exports = function (grunt) {
     uglify: {
       ustyle: {
         files: {
-          'dist/ustyle.min.js': ['dist/ustyle.js']
+          'dist/ustyle.min.js': ['dist/ustyle.js'],
+          'docs/js/app.min.js': ['docs/js/app.js']
         }
       }
     },

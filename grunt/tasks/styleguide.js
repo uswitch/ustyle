@@ -131,7 +131,7 @@ module.exports = function (grunt) {
             const html = parser.removeSubNav(data.content)
             const extension = path.extname(file)
             const subNavData = parser.extractSubNav(data.content)
-            const section = path.dirname(file).replace((new RegExp(contentPath, 'g')), '')
+            const section = path.dirname(file).replace((new RegExp(contentPath + '/', 'g')), '')
             const filename = path.basename(file, extension)
 
             return {
