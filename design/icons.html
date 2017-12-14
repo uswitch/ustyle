@@ -32,7 +32,7 @@
       </svg>
       uStyle
     </a>
-    <a class="version" href="https://github.com/uswitch/ustyle/releases/tag/v1.15.3">v1.15.3</a>
+    <a class="version" href="https://github.com/uswitch/ustyle/releases/tag/v1.16.0">v1.16.0</a>
     <svg class="logo__svg--hidden" xmlns="http://www.w3.org/2000/svg">
       <symbol viewBox="0 0 100 100" id="uicon-logo-icon">
       <title>logo-icon</title><path d="M26.9 51.662V12.174H.9v38.771c0 24.61 20.095 46.167 44.695 46.896 13.28.393 25.36-4.881 34.012-13.584C55.435 96.47 26.9 78.67 26.9 51.662z"/><path d="M80.9 2.138L62.733 22.174H67.9v29.378c0 13.905-13.365 24.176-26.722 19.468C58.871 92.463 93.9 79.992
@@ -85,6 +85,11 @@
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/grid.html">Grid</a>
               <a class="sidebar__nav-link sidebar__nav-link--sub " href="/pattern-library/stats.html">Stats</a>
             <a class="sidebar__nav-link sidebar__nav-link--sub" href="/sass/" target="_blank">Sass doc</a>
+        </nav>
+      </nav>
+      <nav class="sidebar__nav ">
+        <a href="/styleguide-content/" class="sidebar__nav-link js-sidebar-nav-link ">Styleguide content</a>
+        <nav class="sidebar__sub-nav">
         </nav>
       </nav>
       <nav class="sidebar__nav active">
@@ -734,7 +739,7 @@
   </script>
   <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="/js/app.js"></script>
+  <script src="/js/app.min.js"></script>
   <script type="text/javascript">
     !function(a,b){"function"==typeof define&&define.amd?define([],function(){return a.svg4everybody=b()}):"object"==typeof exports?module.exports=b():a.svg4everybody=b()}(this,function(){function a(a,b){if(b){var c=document.createDocumentFragment(),d=!a.getAttribute("viewBox")&&b.getAttribute("viewBox");d&&a.setAttribute("viewBox",d);for(var e=b.cloneNode(!0);e.childNodes.length;)c.appendChild(e.firstChild);a.appendChild(c)}}function b(b){b.onreadystatechange=function(){if(4===b.readyState){var c=b._cachedDocument;c||(c=b._cachedDocument=document.implementation.createHTMLDocument(""),c.body.innerHTML=b.responseText,b._cachedTarget={}),b._embeds.splice(0).map(function(d){var e=b._cachedTarget[d.id];e||(e=b._cachedTarget[d.id]=c.getElementById(d.id)),a(d.svg,e)})}},b.onreadystatechange()}function c(c){function d(){for(var c=0;c<l.length;){var g=l[c],h=g.parentNode;if(h&&/svg/i.test(h.nodeName)){var i=g.getAttribute("xlink:href")||g.getAttribute("href");if(e&&(!f.validate||f.validate(i,h,g))){h.removeChild(g);var m=i.split("#"),n=m.shift(),o=m.join("#");if(n.length){var p=j[n];p||(p=j[n]=new XMLHttpRequest,p.open("GET",n),p.send(),p._embeds=[]),p._embeds.push({svg:h,id:o}),b(p)}else a(h,document.getElementById(o))}}else++c}k(d,67)}var e,f=Object(c),g=/\bTrident\/[567]\b|\bMSIE (?:9|10)\.0\b/,h=/\bAppleWebKit\/(\d+)\b/,i=/\bEdge\/12\.(\d+)\b/;e="polyfill"in f?f.polyfill:g.test(navigator.userAgent)||(navigator.userAgent.match(i)||[])[1]<10547||(navigator.userAgent.match(h)||[])[1]<537;var j={},k=window.requestAnimationFrame||setTimeout,l=document.getElementsByTagName("use");e&&d()}return c});
   </script>
