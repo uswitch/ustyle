@@ -11,7 +11,9 @@ This project is provided as is and is aimed at building uSwitch specific project
 * [Installation](#installation)
   * [Sinatra](#sinatra)
 * [Usage](#usage)
-  * [Mixins/Variables](#mixins-variables)
+  * [Rails / Sprockets apps](#rails--sprockets-apps)
+  * [Node apps](#node-apps)
+  * [Mixins/Variables](#mixins--variables)
 * [Development](#development)
 * [Contributing](#contributing)
 
@@ -52,9 +54,7 @@ And then run in your terminal:
 
     $ bundle
 
-
 ### Sinatra
-
 
 Add to your Gemfile:
 ``` ruby
@@ -79,12 +79,12 @@ uStyle serves it's icons via `<use xlink:href></use>` tags within an SVG. We hav
 
 Due to this, you need to have the `icons.svg` symbol map on the same domain, protocol and port as your application. To facilite this without serving a sprockets asset, ustyle comes with some `Rack Middleware`
 
-For rails apps, in your `development.rb` file (you do not want this in production)
+For Rails apps, in your `development.rb` file (you do not want this in production)
 ```ruby
 config.middleware.use Ustyle::IconMiddleware
 ```
 
-For rack apps (including Sinatra)
+For Rack apps (including Sinatra)
 ```ruby
 configure :development do
   use Ustyle::IconMiddleware
@@ -113,7 +113,9 @@ You can then successfully reference your icon like so:
 
 ## Usage
 
-If using rails and SASS, just import the base uSwitch styles at the start of your file
+### Rails / Sprockets apps
+
+If using Rails and Sass, just import the base uSwitch styles at the start of your file
 
 ```scss
 @import "ustyle";
@@ -121,27 +123,49 @@ If using rails and SASS, just import the base uSwitch styles at the start of you
 
 This will import the main components. If you want more granular control of what to import, please look at the source code or the styleguide.
 
+### Node apps
+
+uStyle comes with JavaScript implementations of the custom Sass Ruby functions used by Sprockets. To use uStyle's mixins and variables within your own Sass, you'll need to add these functions to the compiler you're using. For example, using [node-sass](https://github.com/sass/node-sass) in a project that also has [Webpack](https://webpack.js.org/), you can do the following:
+
+```javascript
+// In your webpack.config.js
+
+import { SassHelpers } from 'ustyle';
+
+module.exports = {
+  // ...
+  module: {
+    rules: [
+      // ...
+      {
+        test: /.scss$/,
+        use: [{
+          loader: 'sass-loader',
+          options: {
+            functions: SassHelpers
+          }
+        }]
+      }
+      // ...
+    ]
+  }
+  // ...
+};
+```
+
 ### Mixins / Variables
 
-Ustyle comes bundled with a good set of Sass variables and mixins to use in your project.
+uStyle comes bundled with a good set of Sass variables and mixins to use in your project.
 
 For Sass documentation on mixins/variables available to you, please see: https://ustyle.guide/sass/
 
 ## Development
 
-Development is done using [Grunt](http://gruntjs.com/), but it's just a thin wrapper around the heavy lifting done by some Node modules.
+To preview changes that you make to uStyle's components and documentation, run:
 
-To install development
+    $ npm start
 
-    $ npm install -g grunt-cli
-    $ npm install
-    $ bundle
-
-To run in development, just run
-
-    grunt
-
-This will open a http://localhost:3000 tab with the styleguide
+This will run the [Grunt](http://gruntjs.com/) default task that builds uStyle, then starts a [Browsersync](https://www.browsersync.io/) server at http://localhost:3000. Changes that you make are live-reloaded in your browser.
 
 ## Contributing
 
@@ -149,6 +173,6 @@ See [CONTRIBUTING.md](https://github.com/uswitch/ustyle/blob/master/CONTRIBUTING
 
 ## Licences
 
-- Source code is licenced under the Apache v2.0 licence
-- All icons, except the uSwitch icon are licenced under [CC - Attribution - No Derivatives 4.0](http://creativecommons.org/licenses/by-nd/4.0/)
-- uSwitch icon is licenced under [CC - Attribution - NonCommercial - NoDerivates 4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/)
+- Source code is licensed under the Apache v2.0 licence
+- All icons, except the uSwitch icon are licensed under [CC - Attribution - No Derivatives 4.0](http://creativecommons.org/licenses/by-nd/4.0/)
+- uSwitch icon is licensed under [CC - Attribution - NonCommercial - NoDerivates 4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/)

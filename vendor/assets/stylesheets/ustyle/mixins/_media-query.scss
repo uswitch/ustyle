@@ -99,8 +99,6 @@ $devices: ();
 
 /// Output a media query block for the targeted device and a potential internet explorer fallback
 ///
-/// @require {Variable} devices
-///
 /// @param {String} $device
 ///   The device to match up the media query with. Can be one from the list of `$min-breakpoints` (`small-tablet`, `tablet`, `desktop` etc.)
 ///   or `$max-breakpoints` (`mobile`, `to-small-tablet`, `to-tablet`)
