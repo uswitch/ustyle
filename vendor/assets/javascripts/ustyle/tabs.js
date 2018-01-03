@@ -20,36 +20,42 @@ window.Tabs = (function(options) {
       var tabContainer = ref.tabContainer;
       var tabLinks = ref.tabLinks;
 
-      this.tabs = $(tabContainer).find(tabLinks);
-      this.filter = this.tabs.data("target") ? "data-target" : "href";
+      this.activeTabEvent = new CustomEvent('ustyle.tab.active');
+      this.tabs = document.querySelectorAll(tabContainer + ' ' + tabLinks);
+      this.filter = this.tabs.item(0).getAttribute("data-target") ? "data-target" : "href";
       this.init();
-      this.tabs.on("click.ustyle.tab", (function(_this) {
-        return function(e) {
-          var $target = $(e.currentTarget);
-          if (_this.isAccordion() && _this.options.collapsible && _this.isActive($target)) {
-            _this.collapse($target);
+
+      var handleClick = (function (_this) {
+        return function (e) {
+          var target = e.currentTarget;
+          if (_this.isAccordion() && _this.options.collapsible && _this.isActive(target)) {
+            _this.collapse(target);
             _this.hashClear();
           } else {
-            _this.navigateTo($target);
-            _this.scrollToTab($target);
-            _this.hashChange($target);
+            _this.navigateTo(target);
+            _this.scrollToTab(target);
+            _this.hashChange(target);
           }
 
           return e.preventDefault();
-        };
-      })(this));
+        }
+      })(this);
+
+      [].forEach.call(this.tabs, function (tab) {
+        tab.addEventListener('click', handleClick);
+      });
     }
 
     Tabs.prototype.init = function() {
-      var $activeTab = this.activeTab();
-      var $initialHash = this.tabFromHash();
+      var activeTab = this.activeTab();
+      var initialHash = this.tabFromHash();
 
-      if ($initialHash.length) {
-        return this.navigateTo($initialHash);
-      } else if ($activeTab.length) {
-        return this.navigateTo($activeTab);
+      if (initialHash) {
+        return this.navigateTo(initialHash);
+      } else if (activeTab) {
+        return this.navigateTo(activeTab);
       } else if (!this.options.collapsible || !this.isAccordion()) {
-        return this.navigateTo(this.tabs.first());
+        return this.navigateTo(this.tabs.item(0));
       }
     };
 
@@ -58,7 +64,7 @@ window.Tabs = (function(options) {
         return;
       }
 
-      return location.replace("#!" + (getSelector(target).replace(/#/, "")));
+      return window.location.replace("#!" + (getSelector(target).replace(/#/, "")));
     };
 
     Tabs.prototype.hashClear = function() {
@@ -72,17 +78,40 @@ window.Tabs = (function(options) {
 
     Tabs.prototype.navigateTo = function(target) {
       var selector = getSelector(target);
-      var $selected = $(selector);
-      this.tabs.removeClass(this.options.activeClass).end();
-      this.tabs.filter("[" + this.filter + "='" + selector + "']").addClass(this.options.activeClass);
-      $selected.siblings("." + this.options.activeClass).removeClass(this.options.activeClass).end().addClass(this.options.activeClass);
-      return $selected.trigger("ustyle.tab.active");
+      var selected = document.querySelector(selector);
+      var activeClass = this.options.activeClass;
+      var filter = this.filter;
+
+      [].forEach.call(this.tabs, function (tab) {
+        tab.classList.remove(activeClass);
+      });
+
+      [].forEach.call(this.tabs, function (tab) {
+        if (tab.getAttribute(filter) === selector) {
+          tab.classList.add(activeClass);
+        }
+      });
+
+      [].filter.call(selected.parentNode.children, function (child) {
+        if (child !== selected) {
+          child.classList.remove(activeClass);
+        }
+      });
+
+      selected.classList.add(activeClass);
+
+      return selected.dispatchEvent(this.activeTabEvent);
     };
 
     Tabs.prototype.collapse = function(target) {
-      var $selected = $(getSelector(target));
-      this.tabs.removeClass(this.options.activeClass).end();
-      return $selected.removeClass(this.options.activeClass);
+      var selected = document.querySelector(getSelector(target));
+      var activeClass = this.options.activeClass;
+
+      [].forEach.call(this.tabs, function (tab) {
+        tab.classList.remove(activeClass);
+      });
+
+      return selected.classList.remove(activeClass);
     };
 
     Tabs.prototype.scrollToTab = function(target) {
@@ -90,17 +119,36 @@ window.Tabs = (function(options) {
         return;
       }
 
-      var $selected = $(getSelector(target));
-      return $("html,body").scrollTop($selected.offset().top);
+      var selected = document.querySelector(getSelector(target));
+
+      return selected.scrollIntoView();
     };
 
     Tabs.prototype.activeTab = function() {
-      return this.tabs.filter("." + this.options.activeClass);
+      var activeTab = null;
+      var activeClass = this.options.activeClass;
+
+      [].forEach.call(this.tabs, function (tab) {
+        if (tab.classList.contains(activeClass)) {
+          activeTab = tab;
+        }
+      });
+
+      return activeTab;
     };
 
     Tabs.prototype.tabFromHash = function() {
-      var tabId = location.hash.replace("!", "");
-      return this.tabs.filter("[" + this.filter + "='" + tabId + "']");
+      var tabId = window.location.hash.replace("!", "");
+      var matchingTab = null;
+      var filter = this.filter;
+
+      [].forEach.call(this.tabs, function (tab) {
+        if (tab.getAttribute(filter) === tabId) {
+          matchingTab = tab;
+        }
+      });
+
+      return matchingTab;
     };
 
     Tabs.prototype.isActive = function(target) {
@@ -108,11 +156,13 @@ window.Tabs = (function(options) {
     };
 
     Tabs.prototype.isAccordion = function() {
-      return !$(this.options.tabNav).is(":visible");
+      var tabNav = document.querySelector(this.options.tabNav);
+
+      return !(tabNav.offsetWidth > 0 || tabNav.offsetHeight > 0);
     };
 
     getSelector = function(clicked) {
-      return clicked.data("target") || clicked.attr("href");
+      return clicked.getAttribute("data-target") || clicked.getAttribute("href");
     };
 
     return Tabs;
