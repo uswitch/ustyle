@@ -6,7 +6,7 @@
       <nav class="sidebar__sub-nav">
         {{#each ../pages}}
           {{#isActive this.section ../this}}
-            <a class="sidebar__nav-link sidebar__nav-link--sub {{activeClass this.name 'name'}}" href="/{{../../this}}/{{page}}">{{name}}</a>
+            <a class="sidebar__nav-link sidebar__nav-link--sub {{activeClass this.name 'name'}}" href="/{{../this}}/{{page}}">{{name}}</a>
           {{/isActive}}
         {{/each}}
         {{#isActive "pattern-library" this}}
