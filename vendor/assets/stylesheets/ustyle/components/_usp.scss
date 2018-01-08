@@ -17,12 +17,7 @@
 // @state .us-usp--red - Generic vertical specific USP.
 //
 // @markup
-//   <div class='us-usp us-usp--subtle {$modifiers}'>Subtle USP</div>
-//   <div class='us-usp {$modifiers}'>Shortened USP</div>
-//   <div class='us-usp us-usp--annotated'>
-//     <div class='us-usp {$modifiers}'>Annotated USP</div>
-//     More information about USP goes here
-//   </div>
+//   <div class='us-usp {$modifiers}'>Subtle USP</div>
 
 $variants: (
   ('cyan', $c-cyan, $c-navy),
@@ -39,46 +34,13 @@ $variants: (
 
 .us-usp {
   display: inline-block;
-  padding: 0 10px;
-  font-weight: bold;
-  line-height: $base-line-ratio;
-  color: #fff;
-  text-align: center;
-  background-color: $c-typecyan;
-}
-
-@each $colour in $variants {
-  .us-usp--#{nth($colour, 1)} {
-    background-color: #{nth($colour, 2)};
-
-    @if length($colour) == 3 {
-      color: #{nth($colour, 3)};
-    }
-  }
-
-  .us-usp--subtle.us-usp--#{nth($colour, 1)} {
-    color: #{nth($colour, 2)};
-  }
-}
-
-.us-usp--annotated {
-  font-weight: normal;
-  color: $c-typegrey;
-  text-align: left;
-  background-color: $c-bggrey;
-
-  .us-usp {
-    margin-right: 10px;
-    margin-left: -10px;
-  }
-}
-
-.us-usp--subtle {
   width: 100%;
   padding: 0;
   font-size: 1em;
+  font-weight: bold;
+  line-height: $base-line-ratio;
   color: $c-typecyan;
-  background-color: transparent;
+  text-align: center;
 
   @include respond-to(tablet) {
     width: auto;
@@ -99,5 +61,11 @@ $variants: (
 
   &:last-child:after {
     display: none;
+  }
+}
+
+@each $colour in $variants {
+  .us-usp--#{nth($colour, 1)} {
+    color: #{nth($colour, 2)};
   }
 }
