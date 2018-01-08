@@ -292,126 +292,177 @@ window.Overlay = (function(Utils) {
 
 })(this.Utils);
 
-var setOptions = this.Utils.setOptions;
+window.Tabs = (function(Utils) {
 
-window.Tabs = (function(options) {
-  var Tabs;
-  return Tabs = (function() {
-    var getSelector;
+  var addClass = Utils.addClass;
+  var hasClass = Utils.hasClass;
+  var removeClass = Utils.removeClass;
+  var setOptions = Utils.setOptions;
 
-    Tabs.prototype.defaults = {
-      tabContainer: ".us-tabs",
-      tabLinks: ".us-tabs-nav-mainlink",
-      tabNav: ".us-tabs-nav",
-      changeUrls: true,
-      activeClass: "active",
-      collapsible: false,
-      autoScroll: true
-    };
+  Tabs.prototype.defaults = {
+    tabContainer: ".us-tabs",
+    tabLinks: ".us-tabs-nav-mainlink",
+    tabNav: ".us-tabs-nav",
+    changeUrls: true,
+    activeClass: "active",
+    collapsible: false,
+    autoScroll: true
+  };
 
-    function Tabs(options) {
-      var ref = this.options = setOptions(options, this.defaults);
-      var tabContainer = ref.tabContainer;
-      var tabLinks = ref.tabLinks;
+  function Tabs(options) {
+    var ref = this.options = setOptions(options, this.defaults);
+    var tabContainer = ref.tabContainer;
+    var tabLinks = ref.tabLinks;
 
-      this.tabs = $(tabContainer).find(tabLinks);
-      this.filter = this.tabs.data("target") ? "data-target" : "href";
-      this.init();
-      this.tabs.on("click.ustyle.tab", (function(_this) {
-        return function(e) {
-          var $target = $(e.currentTarget);
-          if (_this.isAccordion() && _this.options.collapsible && _this.isActive($target)) {
-            _this.collapse($target);
-            _this.hashClear();
-          } else {
-            _this.navigateTo($target);
-            _this.scrollToTab($target);
-            _this.hashChange($target);
-          }
+    this.activeTabEvent = new CustomEvent('ustyle.tab.active');
+    this.tabs = document.querySelectorAll(tabContainer + ' ' + tabLinks);
+    if(!this.tabs.length) return;
+    this.filter = this.tabs.item(0).getAttribute("data-target") ? "data-target" : "href";
+    this.init();
 
-          return e.preventDefault();
-        };
-      })(this));
+    var handleClick = (function (_this) {
+      return function (e) {
+        var target = e.currentTarget;
+        if (_this.isAccordion() && _this.options.collapsible && _this.isActive(target)) {
+          _this.collapse(target);
+          _this.hashClear();
+        } else {
+          _this.navigateTo(target);
+          _this.scrollToTab(target);
+          _this.hashChange(target);
+        }
+
+        return e.preventDefault();
+      }
+    })(this);
+
+    forEach(this.tabs, function (index, tab) {
+      tab.addEventListener('click', handleClick);
+    });
+  }
+
+  Tabs.prototype.init = function() {
+    var activeTab = this.activeTab();
+    var initialHash = this.tabFromHash();
+
+    if (initialHash) {
+      return this.navigateTo(initialHash);
+    } else if (activeTab) {
+      return this.navigateTo(activeTab);
+    } else if (!this.options.collapsible || !this.isAccordion()) {
+      return this.navigateTo(this.tabs.item(0));
+    }
+  };
+
+  Tabs.prototype.hashChange = function(target) {
+    if (!this.options.changeUrls) return;
+
+    return window.location.replace("#!" + (getSelector(target).replace(/#/, "")));
+  };
+
+  Tabs.prototype.hashClear = function() {
+    if (!this.options.changeUrls) return;
+
+    var url = window.location.pathname + window.location.search;
+    return typeof history.replaceState === "function" ? history.replaceState("", document.title, url) : void 0;
+  };
+
+  Tabs.prototype.navigateTo = function(target) {
+    var selector = getSelector(target);
+    var selected = document.querySelector(selector);
+    var activeClass = this.options.activeClass;
+    var filter = this.filter;
+
+    forEach(this.tabs, function (index, tab) {
+      removeClass(tab, activeClass);
+    });
+
+    forEach(this.tabs, function (index, tab) {
+      if (tab.getAttribute(filter) === selector) {
+        return addClass(tab, activeClass);
+      }
+    });
+
+    forEach(selected.parentNode.children, function (index, child) {
+      if (child !== selected) {
+        removeClass(child, activeClass);
+      }
+    });
+
+    addClass(selected, activeClass);
+    return selected.dispatchEvent(this.activeTabEvent);
+  };
+
+  Tabs.prototype.collapse = function(target) {
+    var selected = document.querySelector(getSelector(target));
+    var activeClass = this.options.activeClass;
+
+    forEach(this.tabs, function (index, tab) {
+      removeClass(tab, activeClass);
+    });
+
+    return removeClass(selected, activeClass);
+  };
+
+  Tabs.prototype.scrollToTab = function(target) {
+    if (!(this.isAccordion() && this.options.autoScroll)) {
+      return;
     }
 
-    Tabs.prototype.init = function() {
-      var $activeTab = this.activeTab();
-      var $initialHash = this.tabFromHash();
+    var selected = document.querySelector(getSelector(target));
+    return selected.scrollIntoView();
+  };
 
-      if ($initialHash.length) {
-        return this.navigateTo($initialHash);
-      } else if ($activeTab.length) {
-        return this.navigateTo($activeTab);
-      } else if (!this.options.collapsible || !this.isAccordion()) {
-        return this.navigateTo(this.tabs.first());
+  Tabs.prototype.activeTab = function() {
+    var activeTab = null;
+    var activeClass = this.options.activeClass;
+    var matchingTab = null;
+
+    forEach(this.tabs, function (index, tab) {
+      if (hasClass(tab, activeClass)) {
+        return matchingTab = tab;
       }
-    };
+    });
 
-    Tabs.prototype.hashChange = function(target) {
-      if (!this.options.changeUrls) {
-        return;
+    return matchingTab;
+  };
+
+  Tabs.prototype.tabFromHash = function() {
+    var tabId = window.location.hash.replace("!", "");
+    var filter = this.filter;
+    var matchingTab = null;
+
+    forEach(this.tabs, function (index, tab) {
+      if (tab.getAttribute(filter) === tabId) {
+        return matchingTab = tab;
       }
+    });
 
-      return location.replace("#!" + (getSelector(target).replace(/#/, "")));
-    };
+    return matchingTab;
+  };
 
-    Tabs.prototype.hashClear = function() {
-      if (!this.options.changeUrls) {
-        return;
-      }
+  Tabs.prototype.isActive = function(target) {
+    return getSelector(target) === getSelector(this.activeTab());
+  };
 
-      var url = window.location.pathname + window.location.search;
-      return typeof history.replaceState === "function" ? history.replaceState("", document.title, url) : void 0;
-    };
+  Tabs.prototype.isAccordion = function() {
+    var tabNav = document.querySelector(this.options.tabNav);
 
-    Tabs.prototype.navigateTo = function(target) {
-      var selector = getSelector(target);
-      var $selected = $(selector);
-      this.tabs.removeClass(this.options.activeClass).end();
-      this.tabs.filter("[" + this.filter + "='" + selector + "']").addClass(this.options.activeClass);
-      $selected.siblings("." + this.options.activeClass).removeClass(this.options.activeClass).end().addClass(this.options.activeClass);
-      return $selected.trigger("ustyle.tab.active");
-    };
+    return !(tabNav.offsetWidth > 0 || tabNav.offsetHeight > 0);
+  };
 
-    Tabs.prototype.collapse = function(target) {
-      var $selected = $(getSelector(target));
-      this.tabs.removeClass(this.options.activeClass).end();
-      return $selected.removeClass(this.options.activeClass);
-    };
+  var getSelector = function(clicked) {
+    return clicked.getAttribute("data-target") || clicked.getAttribute("href");
+  };
 
-    Tabs.prototype.scrollToTab = function(target) {
-      if (!(this.isAccordion() && this.options.autoScroll)) {
-        return;
-      }
+  var forEach = function (array, callback, scope) {
+    for (var i = array.length - 1; i >= 0; i--) {
+      callback.call(scope, i, array[i]);
+    }
+  };
 
-      var $selected = $(getSelector(target));
-      return $("html,body").scrollTop($selected.offset().top);
-    };
-
-    Tabs.prototype.activeTab = function() {
-      return this.tabs.filter("." + this.options.activeClass);
-    };
-
-    Tabs.prototype.tabFromHash = function() {
-      var tabId = location.hash.replace("!", "");
-      return this.tabs.filter("[" + this.filter + "='" + tabId + "']");
-    };
-
-    Tabs.prototype.isActive = function(target) {
-      return getSelector(target) === getSelector(this.activeTab());
-    };
-
-    Tabs.prototype.isAccordion = function() {
-      return !$(this.options.tabNav).is(":visible");
-    };
-
-    getSelector = function(clicked) {
-      return clicked.data("target") || clicked.attr("href");
-    };
-
-    return Tabs;
-  })();
-})();
+  return Tabs;
+})(this.Utils);
 
 window.ClassToggler = (function() {
   var defaults;
