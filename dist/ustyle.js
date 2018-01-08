@@ -304,6 +304,7 @@ window.Tabs = (function(options) {
     };
 
     function Tabs(options) {
+      console.log('hekki')
       var ref = this.options = setOptions(options, this.defaults);
       var tabContainer = ref.tabContainer;
       var tabLinks = ref.tabLinks;
@@ -383,7 +384,6 @@ window.Tabs = (function(options) {
       });
 
       selected.classList.add(activeClass);
-
       return selected.dispatchEvent(this.activeTabEvent);
     };
 
@@ -404,30 +404,35 @@ window.Tabs = (function(options) {
       }
 
       var selected = document.querySelector(getSelector(target));
-
       return selected.scrollIntoView();
     };
 
     Tabs.prototype.activeTab = function() {
       var activeTab = null;
       var activeClass = this.options.activeClass;
+      var matchingTab = null;
 
       forEach(this.tabs, function (index, tab) {
         if (tab.classList.contains(activeClass)) {
-          return tab;
+          return matchingTab = tab;
         }
       });
+
+      return matchingTab;
     };
 
     Tabs.prototype.tabFromHash = function() {
       var tabId = window.location.hash.replace("!", "");
       var filter = this.filter;
+      var matchingTab = null;
 
       forEach(this.tabs, function (index, tab) {
         if (tab.getAttribute(filter) === tabId) {
-          return tab;
+          return matchingTab = tab;
         }
       });
+
+      return matchingTab;
     };
 
     Tabs.prototype.isActive = function(target) {
@@ -445,8 +450,8 @@ window.Tabs = (function(options) {
     };
 
     var forEach = function (array, callback, scope) {
-      for (var i = 0; i < array.length; i++) {
-        callback.call(scope, i, array[i]); // passes back stuff we need
+      for (var i = array.length - 1; i >= 0; i--) {
+        callback.call(scope, i, array[i]);
       }
     };
 
