@@ -293,8 +293,6 @@ var setOptions = this.Utils.setOptions;
 window.Tabs = (function(options) {
   var Tabs;
   return Tabs = (function() {
-    var getSelector;
-
     Tabs.prototype.defaults = {
       tabContainer: ".us-tabs",
       tabLinks: ".us-tabs-nav-mainlink",
@@ -331,7 +329,7 @@ window.Tabs = (function(options) {
         }
       })(this);
 
-      [].forEach.call(this.tabs, function (tab) {
+      forEach(this.tabs, function (index, tab) {
         tab.addEventListener('click', handleClick);
       });
     }
@@ -350,17 +348,13 @@ window.Tabs = (function(options) {
     };
 
     Tabs.prototype.hashChange = function(target) {
-      if (!this.options.changeUrls) {
-        return;
-      }
+      if (!this.options.changeUrls) return;
 
       return window.location.replace("#!" + (getSelector(target).replace(/#/, "")));
     };
 
     Tabs.prototype.hashClear = function() {
-      if (!this.options.changeUrls) {
-        return;
-      }
+      if (!this.options.changeUrls) return;
 
       var url = window.location.pathname + window.location.search;
       return typeof history.replaceState === "function" ? history.replaceState("", document.title, url) : void 0;
@@ -372,11 +366,11 @@ window.Tabs = (function(options) {
       var activeClass = this.options.activeClass;
       var filter = this.filter;
 
-      [].forEach.call(this.tabs, function (tab) {
+      forEach(this.tabs, function (index, tab) {
         tab.classList.remove(activeClass);
       });
 
-      [].forEach.call(this.tabs, function (tab) {
+      forEach(this.tabs, function (index, tab) {
         if (tab.getAttribute(filter) === selector) {
           tab.classList.add(activeClass);
         }
@@ -397,7 +391,7 @@ window.Tabs = (function(options) {
       var selected = document.querySelector(getSelector(target));
       var activeClass = this.options.activeClass;
 
-      [].forEach.call(this.tabs, function (tab) {
+      forEach(this.tabs, function (index, tab) {
         tab.classList.remove(activeClass);
       });
 
@@ -418,27 +412,22 @@ window.Tabs = (function(options) {
       var activeTab = null;
       var activeClass = this.options.activeClass;
 
-      [].forEach.call(this.tabs, function (tab) {
+      forEach(this.tabs, function (index, tab) {
         if (tab.classList.contains(activeClass)) {
-          activeTab = tab;
+          return tab;
         }
       });
-
-      return activeTab;
     };
 
     Tabs.prototype.tabFromHash = function() {
       var tabId = window.location.hash.replace("!", "");
-      var matchingTab = null;
       var filter = this.filter;
 
-      [].forEach.call(this.tabs, function (tab) {
+      forEach(this.tabs, function (index, tab) {
         if (tab.getAttribute(filter) === tabId) {
-          matchingTab = tab;
+          return tab;
         }
       });
-
-      return matchingTab;
     };
 
     Tabs.prototype.isActive = function(target) {
@@ -451,8 +440,14 @@ window.Tabs = (function(options) {
       return !(tabNav.offsetWidth > 0 || tabNav.offsetHeight > 0);
     };
 
-    getSelector = function(clicked) {
+    var getSelector = function(clicked) {
       return clicked.getAttribute("data-target") || clicked.getAttribute("href");
+    };
+
+    var forEach = function (array, callback, scope) {
+      for (var i = 0; i < array.length; i++) {
+        callback.call(scope, i, array[i]); // passes back stuff we need
+      }
     };
 
     return Tabs;
