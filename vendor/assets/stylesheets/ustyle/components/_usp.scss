@@ -34,14 +34,13 @@ $variants: (
 
 .us-usp {
   display: inline-block;
+  width: 100%;
   padding: 0;
+  font-size: 1em;
   font-weight: bold;
   line-height: $base-line-ratio;
-  color: #fff;
-  text-align: center;
-  width: 100%;
-  font-size: 1em;
   color: $c-typecyan;
+  text-align: center;
 
   @include respond-to(tablet) {
     width: auto;
