@@ -94,6 +94,12 @@ var requestAnimationFrame = (function(window) {
   });
 })(window);
 
+var forEach = function (array, callback, scope) {
+  for (var i = array.length - 1; i >= 0; i--) {
+    callback.call(scope, i, array[i]);
+  }
+};
+
 this.Utils = {
   addClass: addClass,
   removeClass: removeClass,
@@ -102,7 +108,8 @@ this.Utils = {
   setOptions: setOptions,
   deleteUndefined: deleteUndefined,
   transformKey: transformKey,
-  requestAnimationFrame: requestAnimationFrame
+  requestAnimationFrame: requestAnimationFrame,
+  forEach: forEach
 };
 
 window.Backdrop = (function() {
@@ -173,7 +180,7 @@ window.Overlay = (function(Utils) {
     bodyActiveClass: "us-overlay--open",
     activeClass: "us-overlay-parent--active",
     visibleClass: "us-overlay-parent--visible",
-    overlay: $(".us-overlay-parent"),
+    overlay: document.querySelector('.us-overlay-parent'),
     openButton: ".js-open-overlay",
     closeButton: ".js-close-overlay",
     historyStatus: "#seedeal",
@@ -184,6 +191,15 @@ window.Overlay = (function(Utils) {
 
   function Overlay(options) {
     this.overlay = (this.options = setOptions(options, defaults)).overlay;
+
+    if (this.overlay instanceof jQuery) {
+      this.overlay = document.querySelector(this.overlay.selector);
+    }
+
+    if (this.options.openButton instanceof jQuery) {
+      this.options.openButton = document.querySelector(this.options.openButton.selector);
+    }
+
     if ((this.overlay != null) && (typeof Backdrop !== "undefined" && Backdrop !== null)) {
       this.backdrop = new Backdrop();
       this.addEventListeners();
@@ -192,22 +208,32 @@ window.Overlay = (function(Utils) {
     }
   }
 
-  Overlay.prototype.addEventListeners = function() {
-    $(this.options.openButton).on("click.open-overlay", (function(_this) {
-      return function(e) {
+  Overlay.prototype.addEventListeners = function () {
+    var openOverlayEvent = new CustomEvent('click.open-overlay');
+    var closeOverlayEvent = new CustomEvent('click.close-overlay');
+    var openButton = typeof this.options.openButton === 'string' ? document.querySelector(this.options.openButton) : this.options.openButton;
+
+    var onOpenButtonClick = (function (_this) {
+      return function (e) {
         if (_this.options.preventDefault) {
           e.preventDefault();
         }
 
-        return _this.show(e);
-      };
-    })(this));
+        openButton.dispatchEvent(openOverlayEvent);
 
-    this.overlay.on("click.close-overlay", (function(_this) {
-      return function(e) {
+        return _this.show(e);
+      }
+    })(this);
+
+    if (openButton) {
+      openButton.addEventListener('click', onOpenButtonClick);
+    }
+
+    var onCloseOverlay = (function (_this) {
+      return function (e) {
         var results = [];
-        var closeTargets = _this.overlay.find(_this.options.closeButton).toArray();
-        var targets = [_this.overlay[0]].concat(closeTargets);
+        var closeTargets = _this.overlay.querySelectorAll(_this.options.closeButton);
+        var targets = [_this.overlay].concat(Array.prototype.slice.call(closeTargets));
 
         for (var i = targets.length - 1; i >= 0; i--) {
           var target = targets[i];
@@ -223,9 +249,13 @@ window.Overlay = (function(Utils) {
           }
         };
 
+        _this.overlay.dispatchEvent(closeOverlayEvent);
+
         return results;
       };
-    })(this));
+    })(this);
+
+    this.overlay.addEventListener('click', onCloseOverlay);
 
     if (this.hasHistory()) {
       return window.onpopstate = (function(_this) {
@@ -238,14 +268,16 @@ window.Overlay = (function(Utils) {
     }
   };
 
-  Overlay.prototype.show = function(e) {
+  Overlay.prototype.show = function (e) {
     var onFrame;
     var _this = this;
-    $(document.body).addClass(this.options.bodyActiveClass);
+
+    addClass(document.body, this.options.bodyActiveClass);
     this.backdrop.retain();
-    addClass(this.overlay[0], this.options.visibleClass);
+    addClass(this.overlay, this.options.visibleClass);
+
     onFrame = function() {
-      addClass(_this.overlay[0], _this.options.activeClass);
+      addClass(_this.overlay, _this.options.activeClass);
       return setTimeout(function() {
         var base;
         return typeof (base = _this.options).onOpen === "function" ? base.onOpen(e) : void 0;
@@ -261,13 +293,15 @@ window.Overlay = (function(Utils) {
   Overlay.prototype.hide = function(e) {
     var onFrame;
     var _this = this;
-    $(document.body).removeClass(this.options.bodyActiveClass);
+
+    removeClass(document.body, this.options.bodyActiveClass);
     this.backdrop.release();
+
     onFrame = function() {
-      removeClass(_this.overlay[0], _this.options.activeClass);
+      removeClass(_this.overlay, _this.options.activeClass);
       return setTimeout(function() {
         var base;
-        removeClass(_this.overlay[0], _this.options.visibleClass);
+        removeClass(_this.overlay, _this.options.visibleClass);
         return typeof (base = _this.options).onClose === "function" ? base.onClose(e) : void 0;
       }, _this.options.animationSpeed);
     };
@@ -277,7 +311,7 @@ window.Overlay = (function(Utils) {
   };
 
   Overlay.prototype.isOpen = function() {
-    return hasClass(this.overlay[0], this.options.activeClass);
+    return hasClass(this.overlay, this.options.activeClass);
   };
 
   Overlay.prototype.hasHistory = function() {
@@ -294,6 +328,7 @@ window.Tabs = (function(Utils) {
   var hasClass = Utils.hasClass;
   var removeClass = Utils.removeClass;
   var setOptions = Utils.setOptions;
+  var forEach = Utils.forEach;
 
   Tabs.prototype.defaults = {
     tabContainer: ".us-tabs",
@@ -451,29 +486,36 @@ window.Tabs = (function(Utils) {
     return clicked.getAttribute("data-target") || clicked.getAttribute("href");
   };
 
-  var forEach = function (array, callback, scope) {
-    for (var i = array.length - 1; i >= 0; i--) {
-      callback.call(scope, i, array[i]);
-    }
-  };
-
   return Tabs;
 })(this.Utils);
 
-window.ClassToggler = (function() {
-  var defaults;
+window.ClassToggler = (function(Utils) {
+  var addClass = Utils.addClass;
+  var hasClass = Utils.hasClass;
+  var removeClass = Utils.removeClass;
+  var forEach = Utils.forEach;
 
-  defaults = {
+  var defaults = {
     containerClass: null,
-    $target: null,
+    target: null,
     activeClass: "active",
     inactiveClass: null,
     toggleOn: "click"
   };
 
+  var findAncestor = function (el, cls) {
+    while ((el = el.parentElement) && ! hasClass(el, cls));
+    return el;
+  }
+
   function ClassToggler(options) {
     this.options = Utils.setOptions(options, defaults);
-    if (this.options.$target) {
+
+    if (!this.options.target && this.options.$target && this.options.$target instanceof jQuery) {
+      this.options.target = document.querySelectorAll(this.options.$target.selector);
+    }
+
+    if (this.options.target) {
       this.addEventListeners();
     } else {
       console.trace("ClassToggle", this.options);
@@ -481,43 +523,48 @@ window.ClassToggler = (function() {
   }
 
   ClassToggler.prototype.addEventListeners = function() {
-    return this.options.$target.on(this.options.toggleOn, (function(_this) {
+    var toggleEvent = this.options.toggleOn;
+    var onToggle = (function (_this) {
       return function(e) {
-        var $togglableElement = _this.options.containerClass ? $(e.target).closest(_this.options.containerClass) : $(e.delegateTarget);
-        if (_this.isActive($togglableElement)) {
-          return _this.hide($togglableElement, e);
+        var togglableElement = _this.options.containerClass ? findAncestor(e.target, _this.options.containerClass) : (e.delegateTarget);
+        if (_this.isActive(togglableElement)) {
+          return _this.hide(togglableElement, e);
         } else {
-          return _this.show($togglableElement, e);
+          return _this.show(togglableElement, e);
         }
       };
-    })(this));
+    })(this);
+
+    forEach(this.options.target, function (i, t) {
+      t.addEventListener(toggleEvent, onToggle);
+    });
   };
 
-  ClassToggler.prototype.isActive = function($togglableElement) {
-    return $togglableElement.hasClass(this.options.activeClass);
+  ClassToggler.prototype.isActive = function(togglableElement) {
+    return hasClass(togglableElement, this.options.activeClass);
   };
 
-  ClassToggler.prototype.show = function($togglableElement, e) {
+  ClassToggler.prototype.show = function(togglableElement, e) {
     var base;
     if (typeof (base = this.options).onShow === "function") {
-      base.onShow($togglableElement, e);
+      base.onShow(togglableElement, e);
     }
 
-    return $togglableElement.addClass(this.options.activeClass);
+    return togglableElement.addClass(this.options.activeClass);
   };
 
-  ClassToggler.prototype.hide = function($togglableElement, e) {
+  ClassToggler.prototype.hide = function(togglableElement, e) {
     var base;
     if (typeof (base = this.options).onHide === "function") {
-      base.onHide($togglableElement, e);
+      base.onHide(togglableElement, e);
     }
 
-    return $togglableElement.removeClass(this.options.activeClass);
+    return removeClass(togglableElement, this.options.activeClass);
   };
 
   return ClassToggler;
 
-})();
+})(this.Utils);
 
 window.RadioToggle = function() {
   var message = "RadioToggle is now deprecated";

@@ -4,6 +4,7 @@ window.Tabs = (function(Utils) {
   var hasClass = Utils.hasClass;
   var removeClass = Utils.removeClass;
   var setOptions = Utils.setOptions;
+  var forEach = Utils.forEach;
 
   Tabs.prototype.defaults = {
     tabContainer: ".us-tabs",
@@ -159,12 +160,6 @@ window.Tabs = (function(Utils) {
 
   var getSelector = function(clicked) {
     return clicked.getAttribute("data-target") || clicked.getAttribute("href");
-  };
-
-  var forEach = function (array, callback, scope) {
-    for (var i = array.length - 1; i >= 0; i--) {
-      callback.call(scope, i, array[i]);
-    }
   };
 
   return Tabs;
