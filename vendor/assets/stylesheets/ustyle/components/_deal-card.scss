@@ -1,0 +1,137 @@
+// @page Pattern Library/Components
+// @name Deal Card
+//
+// @description
+//  `.us-deal-card` WRITE STUFFFFFF
+//
+//
+//
+// @markup
+// <a href="#" class="deal-card deal-card--anchor">
+//   <section class="deal-card__section">
+//     <div class="deal-card__cell">
+//       <div>Awesome deal</div>
+//     </div>
+//   </section>
+//   <section class="deal-card__section">
+//     <div class="deal-card__cell">
+//       <div class="deal-card__cell-main-text">5000</div>
+//       <div class="deal-card__cell-secondary-text">texts</div>
+//     </div>
+//     <div class="deal-card__cell">
+//       <div class="deal-card__cell-main-text">5000</div>
+//       <div class="deal-card__cell-secondary-text">minutes</div>
+//     </div>
+//     <div class="deal-card__cell">
+//       <div class="deal-card__cell-main-text">Unlimited</div>
+//       <div class="deal-card__cell-secondary-text">data</div>
+//     </div>
+//     <div class="deal-card__cell">
+//       <div class="deal-card__cell-main-text">£10.00</div>
+//       <div class="deal-card__cell-secondary-text">per month</div>
+//     </div>
+//   </section>
+//   <section class="deal-card__section">
+//     <div class="deal-card__cell">
+//       <div class='us-usp'>Shortened USP</div>
+//     </div>
+//   </section>
+// </a>
+
+
+.deal-card {
+  position: relative;
+  margin: 0 .5em .5em .5em;
+  background: #fff;
+  border: 1px solid $c-bordergrey;
+  border-bottom: 0;
+
+  @include respond-to(tablet) {
+    margin: 0 0 .5em 0;
+  }
+
+  &--anchor {
+    display: block;
+    color: $c-typegrey;
+
+    &:hover,
+    &:focus,
+    &:visited {
+      color: $c-typegrey;
+    }
+  }
+}
+
+
+/////////////
+
+
+.deal-card__section {
+  position: relative;
+  display: inline-block;
+  display: flex;
+  border-bottom: 1px solid $c-keylinegrey;
+  flex-wrap: wrap;
+
+  &:last-child {
+    border-bottom: 1px solid $c-bordergrey;
+  }
+
+  &--cells {
+    display: inline-block;
+    display: flex;
+    width: 100%;
+    border-bottom: 0;
+
+    @include respond-to(tablet) {
+      border-bottom: 1px solid $c-keylinegrey;
+    }
+  }
+}
+
+
+/////////////
+
+
+.deal-card__cell {
+  display: inline-block;
+  display: flex;
+  width: 50%;
+  padding: 1em .8em;
+  line-height: 1em;
+  border-right: 1px solid $c-keylinegrey;
+  border-bottom: 1px solid $c-keylinegrey;
+  flex-direction: column;
+  flex: 2 2 auto;
+
+  @include respond-to(tablet) {
+    display: inline-block;
+    display: flex;
+    width: 16.5%;
+    padding: 1em;
+    border-bottom: 0;
+    flex: 1;
+
+    &:last-child {
+      border-right: 0;
+    }
+  }
+
+  &--vertical-center {
+    justify-content: center;
+  }
+}
+
+
+///////////////
+
+
+.deal-card__cell-main-text {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: .25em;
+}
+
+.deal-card__cell-secondary-text {
+  font-size: .95em;
+}
