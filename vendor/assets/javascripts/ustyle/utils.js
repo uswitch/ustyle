@@ -94,6 +94,12 @@ var requestAnimationFrame = (function(window) {
   });
 })(window);
 
+var forEach = function (array, callback, scope) {
+  for (var i = array.length - 1; i >= 0; i--) {
+    callback.call(scope, i, array[i]);
+  }
+};
+
 this.Utils = {
   addClass: addClass,
   removeClass: removeClass,
@@ -102,5 +108,6 @@ this.Utils = {
   setOptions: setOptions,
   deleteUndefined: deleteUndefined,
   transformKey: transformKey,
-  requestAnimationFrame: requestAnimationFrame
+  requestAnimationFrame: requestAnimationFrame,
+  forEach: forEach
 };
