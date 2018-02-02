@@ -108,6 +108,10 @@ $styleguide-block-border-color: $c-bordergrey;
     + &__block-example {
       border-top: 1px dashed darken($styleguide-separator-color, 10%);
     }
+
+    .us-usp:after {
+      display: none;
+    }
   }
 
   &__block-example-class {
