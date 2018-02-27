@@ -111,6 +111,18 @@ You can then successfully reference your icon like so:
 </svg>
 ```
 
+#### Adding a new Icon
+
+To add a new Icon, add the SVG file to `/vendor/assets/images/icons`,
+then add your new icon name as `@state icon` to [this
+file](https://github.com/uswitch/ustyle/blob/new-shield-icon/vendor/assets/stylesheets/ustyle/icons/_base.scss#L19-L112).
+
+Finally, build the optimised icons using
+
+```sh
+grunt icons
+```
+
 ## Usage
 
 ### Rails / Sprockets apps
