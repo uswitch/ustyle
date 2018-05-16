@@ -1,0 +1,16 @@
+pipeline:
+  deploy:
+    when:
+      event: deployment
+      environment: [minor, patch, major]
+    image: starefossen/ruby-node
+    secrets:
+      - aws_access_key_id
+      - aws_secret_access_key
+    commands:
+      - npm install --silent
+      - bundle install --binstubs
+      - npx grunt deploy
+    environment:
+      - LC_ALL=C.UTF-8
+      - LANG=C.UTF-8

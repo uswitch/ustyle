@@ -1,6 +1,7 @@
 const types = require('node-sass').types
 const path = require('path')
 const fs = require('fs')
+const packageVersion = require('./package.json')['version']
 
 const base64encode = string => {
   const stringBuffer = Buffer.from(string.getValue())
@@ -21,9 +22,14 @@ const inlineSVG = source => {
   return types.String(dataUrl)
 }
 
+const version = function () {
+  return types.String(packageVersion)
+}
+
 const SassHelpers = {
   'base64encode($string)': base64encode,
-  'inline-svg($source)': inlineSVG
+  'inline-svg($source)': inlineSVG,
+  'version': version
 }
 
 module.exports = {

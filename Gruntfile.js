@@ -1,10 +1,16 @@
+var browsersList = require('./package.json')['browserslist']
+
 module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-postcss')
   require('load-grunt-tasks')(grunt)
   grunt.loadTasks('grunt/tasks')
 
   grunt.initConfig({
+    clean: ['dist', 'docs'],
     shell: {
+      upgrade: {
+        command: 'bundle exec rake ustyle:upgrade'
+      },
       publish: {
         command: 'bundle exec rake ustyle:publish'
       }
@@ -19,7 +25,7 @@ module.exports = function (grunt) {
         map: false,
         processors: [
           require('autoprefixer')({
-            browsers: ['last 5 versions', 'Firefox ESR', 'not Explorer < 9', '> 1%', 'Opera > 18']
+            browsers: browsersList
           })
         ]
       },
@@ -101,8 +107,7 @@ module.exports = function (grunt) {
           'vendor/assets/javascripts/ustyle/backdrop.js',
           'vendor/assets/javascripts/ustyle/overlay.js',
           'vendor/assets/javascripts/ustyle/tabs.js',
-          'vendor/assets/javascripts/ustyle/classtoggler.js',
-          'vendor/assets/javascripts/ustyle/radioToggle.js'
+          'vendor/assets/javascripts/ustyle/classtoggler.js'
         ],
         dest: 'dist/ustyle.js'
       },
@@ -168,7 +173,6 @@ module.exports = function (grunt) {
           'Overlay',
           'ClassToggler',
           'Tabs',
-          'RadioToggle',
           'reportData'
         ]
       },
@@ -208,7 +212,7 @@ module.exports = function (grunt) {
   grunt.registerTask('lint', ['scsslint', 'standard'])
   grunt.registerTask('icons', ['newer:svgmin', 'svgstore'])
 
-  grunt.registerTask('build', ['sass', 'sassdoc', 'copy', 'concat:ustyle', 'uglify:ustyle', 'concat:app', 'lint', 'postcss', 'styleguide', 'builder'])
+  grunt.registerTask('build', ['clean', 'sass', 'sassdoc', 'copy', 'concat:ustyle', 'concat:app', 'uglify:ustyle', 'lint', 'postcss', 'styleguide', 'builder', 'icons'])
 
   grunt.registerTask('publish', ['env:build', 'build', 'buildcontrol:pages'])
 
@@ -217,8 +221,10 @@ module.exports = function (grunt) {
       grunt.warn('Version must be specified when publishing ustyle')
     }
 
-    grunt.task.run('env:build', 'version::' + version, 'build', 'shell:publish', 'buildcontrol:pages')
+    grunt.task.run('env:build', 'version::' + version, 'build', 'shell:upgrade', 'buildcontrol:pages')
   })
+
+  grunt.registerTask('deploy', ['shell:publish'])
 
   grunt.registerTask('default', ['env:dev', 'build', 'browserSync-init', 'watch'])
 }

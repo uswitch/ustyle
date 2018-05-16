@@ -1,6 +1,6 @@
 browsers:
+  - "> 1%",
   - "last 5 versions"
   - "Firefox ESR"
-  - "Opera > 18"
-  - "> 1%"
-  - "not Explorer < 9"
+  - "IE 10"
+  - "not Explorer < 10"

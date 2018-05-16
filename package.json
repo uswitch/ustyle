@@ -1,6 +1,6 @@
 {
   "name": "ustyle",
-  "version": "1.17.0",
+  "version": "1.18.0",
   "description": "A living styleguide and pattern library by uSwitch.",
   "keywords": [
     "css",
@@ -72,5 +72,15 @@
     "simple-git": "^1.3.0",
     "stylestats": "^4.2.2",
     "underscore.string": "^3.0.2"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 5 versions",
+    "Firefox ESR",
+    "IE 10",
+    "not Explorer < 10"
+  ],
+  "dependencies": {
+    "grunt-contrib-clean": "^1.1.0"
   }
 }

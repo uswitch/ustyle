@@ -64,7 +64,7 @@ name: Introduction
     </thead>
     <tbody>
       <tr>
-        <td>Safari, Chrome</td>
+        <td>Safari, Chrome, Opera</td>
         <td>Last 5 versions</td>
       </tr>
       <tr>
@@ -72,12 +72,8 @@ name: Introduction
         <td>ESR</td>
       </tr>
       <tr>
-        <td>Opera</td>
-        <td>18</td>
-      </tr>
-      <tr>
         <td>Internet Explorer</td>
-        <td>9</td>
+        <td>10</td>
       </tr>
       <tr>
         <td>Global usage</td>
