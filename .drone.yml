@@ -10,7 +10,7 @@ pipeline:
     commands:
       - npm install --silent
       - bundle install --binstubs
-      - npx grunt publish:version:${DRONE_DEPLOY_TO}
+      - npx grunt deploy
     environment:
       - LC_ALL=C.UTF-8
       - LANG=C.UTF-8

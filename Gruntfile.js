@@ -8,6 +8,9 @@ module.exports = function (grunt) {
   grunt.initConfig({
     clean: ['dist', 'docs'],
     shell: {
+      upgrade: {
+        command: 'bundle exec rake ustyle:upgrade'
+      },
       publish: {
         command: 'bundle exec rake ustyle:publish'
       }
@@ -218,8 +221,10 @@ module.exports = function (grunt) {
       grunt.warn('Version must be specified when publishing ustyle')
     }
 
-    grunt.task.run('env:build', 'version::' + version, 'build', 'shell:publish', 'buildcontrol:pages')
+    grunt.task.run('env:build', 'version::' + version, 'build', 'shell:upgrade', 'buildcontrol:pages')
   })
+
+  grunt.registerTask('deploy', ['shell:publish'])
 
   grunt.registerTask('default', ['env:dev', 'build', 'browserSync-init', 'watch'])
 }
