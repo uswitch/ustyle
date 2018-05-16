@@ -10,7 +10,7 @@
   .us-grid-row {
     @include us-row;
   }
-  
+
   @include respond-to($default-grid-breakpoint, false, true) {
     @for $column from 1 through $grid-columns {
       .us-col-#{$column} {
