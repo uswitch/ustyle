@@ -16,45 +16,53 @@
 //     </div>
 //   </header>
 //   <section class="us-card__section us-card__section--cells">
-//     <div class="us-card__cell us-card__cell--center us-card__cell--burnt-orange">
-//       <div class="us-card__cell__label">texts</div>
+//     <div class="us-card__cell">
 //       <div class="us-card__cell__value">Main</div>
+//       <div class="us-card__cell__label">texts</div>
 //     </div>
-//     <div class="us-card__cell us-card__cell--center us-card__cell--jaffa-orange">
-//       <div class="us-card__cell__label">minutes</div>
+//     <div class="us-card__cell">
 //       <div class="us-card__cell__value">5000</div>
+//       <div class="us-card__cell__label">minutes</div>
 //     </div>
-//     <div class="us-card__cell us-card__cell--center us-card__cell--fuchsia">
-//       <div class="us-card__cell__label">data</div>
+//     <div class="us-card__cell">
 //       <div class="us-card__cell__value">Unlimited</div>
+//       <div class="us-card__cell__label">data</div>
 //     </div>
-//     <div class="us-card__cell us-card__cell--center us-card__cell--plum">
-//       <div class="us-card__cell__label">per month</div>
+//     <div class="us-card__cell">
 //       <div class="us-card__cell__value">£10.00</div>
+//       <div class="us-card__cell__label">per month</div>
 //     </div>
-//     <div class="us-card__cell us-card__cell--center us-card__cell--cta">
-//       <a href="#clickout-url" class="us-btn us-card__cta">See deal</a>
+//     <div class="us-card__cell us-card__cell--center">
+//       <a href="#clickout-url" class="us-btn us-btn--primary us-card__cta">See deal</a>
 //     </div>
 //   </section>
 //   <section class="us-card__section us-card__section--cells us-card__section--usps">
 //     <div class="us-card__cell us-card__cell--usps">
-//       <div class="us-usp">Exclusive deal</div><div class="us-usp">Exclusive deal</div>
+//       <div class="us-usp">Exclusive deal</div><div class="us-usp us-usp--green">Exclusive deal</div>
 //     </div>
 //   </section>
 //   <a href="#clickout-url" class="us-card__anchor">TalkTalk Fixed Price Unlimited Fast Broadband</a>
 // </div>
 
-$card-border:  1px solid $c-keylinegrey;
+$card-border: 1px solid $c-keylinegrey;
+$card-border--outer: 1px solid $c-bordergrey;
+$card-border--hover: 1px solid $c-typecyan;
 
 .us-card {
   position: relative;
   margin: 0 .5em .5em .5em;
+  font-size: em(14px);
   background: #fff;
-  border: $card-border;
-  border-radius: 5px;
+  border: $card-border--outer;
+  transition: border 300ms;
 
   @include respond-to(tablet) {
     margin: 0 0 .5em 0;
+    font-size: em(16px);
+  }
+
+  &:hover {
+    border: $card-border--hover;
   }
 
   &__anchor {
@@ -70,6 +78,7 @@ $card-border:  1px solid $c-keylinegrey;
     position: relative;
     display: flex;
     flex-wrap: wrap;
+    border-bottom: $card-border;
 
     &--cells {
       width: 100%;
@@ -113,12 +122,7 @@ $card-border:  1px solid $c-keylinegrey;
 
   &__heading {
     margin-bottom: 0;
-    font-size: em(18px);
-    font-weight: 400;
-
-    .us-card:hover & {
-      text-decoration: underline;
-    }
+    font-size: em(16px);
   }
 
   &__image {
@@ -144,14 +148,18 @@ $card-border:  1px solid $c-keylinegrey;
         flex: 1;
         margin-right: 3px;
         margin-left: 3px;
-        border-radius: 5px;
       }
     }
 
-    &--usps {
+    &:nth-child(1n) {
+      border-left: $card-border;
+    }
+
+    &:nth-child(1n+3) {
+      border-top: $card-border;
+
       @include respond-to(tablet) {
-        padding-right: .8em;
-        padding-left: .8em;
+        border-top: 0;
       }
     }
 
@@ -167,13 +175,29 @@ $card-border:  1px solid $c-keylinegrey;
       text-align: center;
     }
 
-    &__label {
+    &__value {
       margin-bottom: $gutter-width / 4;
-      font-size: em(12px);
+      font-size: em(18px);
+      font-weight: bold;
     }
 
-    &__value {
-      font-weight: bold;
+    &--usps {
+      text-align: center;
+
+      @include respond-to(tablet) {
+        padding-right: .8em;
+        padding-left: .8em;
+        text-align: left;
+      }
+    }
+
+    .us-usp {
+      margin-bottom: 5px;
+
+      @include respond-to(tablet) {
+        margin-right: $gutter-width / 4;
+        margin-bottom: 0;
+      }
     }
   }
 }
