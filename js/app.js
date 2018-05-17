@@ -570,12 +570,6 @@ window.ClassToggler = (function(Utils) {
 
 })(this.Utils);
 
-window.RadioToggle = function() {
-  var message = "RadioToggle is now deprecated";
-  if (window.Raven) window.Raven.captureMessage(message);
-  console.warn(message);
-};
-
 google.charts.load('43', {packages: ['line']})
 
 if (typeof reportData !== 'undefined' && reportData) {
