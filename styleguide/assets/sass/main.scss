@@ -6,12 +6,12 @@ $header-height: 110px;
 // Ustyle imports
 @import "ustyle/content";
 
-$sidebar-width          : 250px;
-$sidebar-bg-color       : $c-bggrey;
-$sidebar-breakpoint     : tablet;
+$sidebar-width: 250px;
+$sidebar-bg-color: $c-bggrey;
+$sidebar-breakpoint: tablet;
 $sidebar-side-visibility: desktop;
-$sidebar-top-push       : $gutter-width/2;
-$sidebar-padding        : 0;
+$sidebar-top-push: $gutter-width / 2;
+$sidebar-padding: 0;
 
 @import "structure/base";
 @import "structure/header";

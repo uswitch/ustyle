@@ -7,7 +7,7 @@
       position: relative;
       margin-right: .4em;
 
-      &:after {
+      &::after {
         position: absolute;
         top: 50%;
         right: -1.2em;
@@ -45,7 +45,7 @@
       .js .js-sortable & {
         cursor: pointer;
 
-        &:after {
+        &::after {
           display: block;
         }
 
@@ -53,7 +53,7 @@
           color: $table-c-head-text;
         }
 
-        &:hover:after {
+        &:hover::after {
           color: $table-c-head-text;
         }
       }
@@ -63,7 +63,7 @@
   .us-table-head-sorted {
     .us-table-sort-button,
     .us-table-head-text {
-      &:after {
+      &::after {
         display: block;
         color: $table-c-head-text;
       }

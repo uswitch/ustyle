@@ -26,7 +26,7 @@
   margin-bottom: 0;
   color: $c-typegrey;
 
-  &:before {
+  &::before {
     display: inline-block;
     margin: 0 .35em;
     font-size: 1.4em;
@@ -34,7 +34,7 @@
     content: "\203A";
   }
 
-  &:first-child:before {
+  &:first-child::before {
     width: 0;
     margin: 0;
     color: transparent;
@@ -47,7 +47,7 @@
 
 .us-crumbs__link {
   color: $c-typegrey;
-  
+
   &:visited {
     color: $c-typegrey;
   }

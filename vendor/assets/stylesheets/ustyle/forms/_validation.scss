@@ -42,12 +42,12 @@ $success-icon: "\2713" !default;
     color: $color;
     border-color: $color;
 
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       border-color: $color;
     }
 
-    &:after {
+    &::after {
       border-right-color: #fff;
     }
   }
@@ -55,7 +55,7 @@ $success-icon: "\2713" !default;
   .us-validation__icon {
     background-color: $color;
 
-    &:before {
+    &::before {
       content: $icon;
     }
   }

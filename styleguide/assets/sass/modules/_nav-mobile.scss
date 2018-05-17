@@ -1,10 +1,10 @@
-$nav-mobile-color        : $c-navy !default;
+$nav-mobile-color: $c-navy !default;
 $button-menu-slice-height: 3px !default;
 
 .nav-mobile {
   position: absolute;
   top: 3px;
-  right: $gutter-width/4;
+  right: $gutter-width / 4;
   z-index: 15;
   width: 42px;
   height: 42px;
@@ -30,8 +30,8 @@ $button-menu-slice-height: 3px !default;
     border-radius: 2px;
     transition: all .2s;
 
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       position: absolute;
       left: 0;
       width: 100%;
@@ -42,12 +42,12 @@ $button-menu-slice-height: 3px !default;
       transition: all .2s;
     }
 
-    &:before {
+    &::before {
       top: -6px;
       transform-origin: 33% 100%;
     }
 
-    &:after {
+    &::after {
       top: 6px;
       transform-origin: 33% 0;
     }
@@ -57,16 +57,16 @@ $button-menu-slice-height: 3px !default;
 .nav-mobile--active .nav-mobile__hamburger {
   background: transparent;
 
-  &:before,
-  &:after {
+  &::before,
+  &::after {
     top: 0;
   }
 
-  &:before {
+  &::before {
     transform: translateY(-3px) translateX(1px) rotate(45deg);
   }
 
-  &:after {
+  &::after {
     transform: translateY(3px) translateX(1px) rotate(-45deg);
   }
 }
