@@ -27,6 +27,7 @@
     "dist",
     "vendor/assets/stylesheets",
     "vendor/assets/images/forms",
+    "vendor/assets/images/icons/spinner.svg",
     "index.js"
   ],
   "repository": "uswitch/ustyle",
