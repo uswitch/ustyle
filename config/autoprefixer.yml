@@ -1,5 +1,5 @@
 browsers:
-  - "> 1%",
+  - "> 1%"
   - "last 5 versions"
   - "Firefox ESR"
   - "IE 10"
