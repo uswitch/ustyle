@@ -99,14 +99,16 @@ $tab-active-color: $tab-border-color;
   @extend %container;
 }
 
+// scss-lint:disable PropertySortOrder
 .us-tabs-nav-menu {
   display: table;
   display: -webkit-flex;
   display: flex;
+  flex-flow: row;
   width: 100%;
   overflow: hidden;
-  flex-flow: row;
 }
+// scss-lint:enable PropertySortOrder
 
 .us-tabs-nav-link {
   display: table-cell;
@@ -139,7 +141,7 @@ $tab-active-color: $tab-border-color;
   &.active {
     color: $c-typecyan;
 
-    &:before {
+    &::before {
       background-color: $c-typecyan;
     }
   }
@@ -160,7 +162,7 @@ $tab-active-color: $tab-border-color;
   background-color: $c-bggrey;
   transition: color 300ms, background-color 300ms;
 
-  &:before {
+  &::before {
     position: absolute;
     top: 0;
     right: 0;
@@ -175,6 +177,7 @@ $tab-active-color: $tab-border-color;
     background-color: rgba(255,255,255,.35);
   }
 
+  // scss-lint:disable SelectorDepth
   &:hover .us-tabs-nav-chevron,
   &:hover .us-tabs-nav-chevron-wrapper .us-icon,
   .us-tab.active & .us-tabs-nav-chevron,
@@ -182,19 +185,20 @@ $tab-active-color: $tab-border-color;
     transform: rotate(-90deg);
     fill: $c-typecyan;
   }
+  // scss-lint:enable SelectorDepth
 
-  &:hover:before {
+  &:hover::before {
     background-color: $c-typecyan;
   }
 }
 
 .us-tab.active {
-  .us-tabs-nav-mainlink:before {
+  .us-tabs-nav-mainlink::before {
     background-color: $c-typecyan;
   }
 }
 
-// scss-lint:disable Comment, MergeableSelector
+// scss-lint:disable Comment, MergeableSelector, PropertySortOrder
 .us-tabs-nav-link {
   /* autoprefixer: off */
   display: -webkit-box;

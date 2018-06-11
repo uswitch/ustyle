@@ -61,7 +61,7 @@ $tooltip-v-positions: "left", "right";
       @include arrow($arrow-width, $arrow-height, $arrow-type, $tooltip-note-border-color);
       #{$arrow-position}: $bottom-position;
 
-      &:after {
+      &::after {
         @include arrow($arrow-width, $arrow-height, $arrow-type, $tooltip-note-bg-color);
         #{$arrow-position}: 1px;
       }
@@ -77,7 +77,7 @@ $tooltip-v-positions: "left", "right";
       top: $tooltip-note-padding-vertical;
     }
 
-    .us-tooltip__arrow:after {
+    .us-tooltip__arrow::after {
       top: -$tooltip-arrow-width;
     }
   }
@@ -89,9 +89,9 @@ $tooltip-v-positions: "left", "right";
     margin-left: - ($tooltip-note-width / 2);
 
     .us-tooltip__arrow,
-    .us-tooltip__arrow:after {
+    .us-tooltip__arrow::after {
       left: 50%;
-      margin-left: -$tooltip-arrow-height/2;
+      margin-left: -$tooltip-arrow-height / 2;
     }
   }
 }
@@ -180,7 +180,7 @@ $tooltip-v-positions: "left", "right";
     position: static;
   }
 
-  &:before {
+  &::before {
     content: "?";
   }
 }
@@ -212,7 +212,7 @@ $tooltip-v-positions: "left", "right";
 .us-tooltip__arrow {
   position: absolute;
 
-  &:after {
+  &::after {
     position: absolute;
     content: "";
   }

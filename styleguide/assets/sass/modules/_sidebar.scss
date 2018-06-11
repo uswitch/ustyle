@@ -19,7 +19,7 @@
     border-right: 1px solid $c-bordergrey;
 
     &--push {
-      padding-left: $sidebar-width + $gutter-width/2;
+      padding-left: $sidebar-width + $gutter-width / 2;
     }
   }
 
@@ -33,7 +33,7 @@
     display: block;
     padding: 10px $gutter-width;
 
-    &:after {
+    &::after {
       float: right;
       font-size: 8px;
       color: $c-bordergrey;
@@ -50,17 +50,17 @@
   }
 
   &__nav-link--sub {
-    padding: 4px $gutter-width 4px $gutter-width*1.5;
+    padding: 4px $gutter-width 4px $gutter-width * 1.5;
 
     @include respond-to(tablet, true) {
       font-size: .875em;
     }
 
-    &:after {
+    &::after {
       display: none;
     }
 
-    &.active:before {
+    &.active::before {
       position: absolute;
       top: 0;
       bottom: 0;
@@ -89,6 +89,6 @@
   }
 }
 
-.sidebar__nav.active .sidebar__nav-link:after {
+.sidebar__nav.active .sidebar__nav-link::after {
   content: "\25BC";
 }

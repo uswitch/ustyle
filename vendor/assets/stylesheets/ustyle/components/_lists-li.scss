@@ -22,7 +22,7 @@
     padding-left: 2em;
     margin: .5em 0;
 
-    &:before {
+    &::before {
       position: absolute;
       left: 0;
     }
@@ -36,7 +36,7 @@
   li {
     counter-increment: number-counter;
 
-    &:before {
+    &::before {
       top: 0;
       width: 1.5em;
       height: 1.5em;
@@ -50,8 +50,8 @@
     }
   }
 
-  .us-hero & li:before,
-  &.us-custom-list-alt li:before {
+  .us-hero & li::before,
+  &.us-custom-list-alt li::before {
     color: $c-navy;
     background: #fff;
     background: rgba(255, 255, 255, .7);
@@ -84,7 +84,7 @@
   li {
     padding-left: 0;
 
-    &:before {
+    &::before {
       top: 50%;
       margin-top: - 8px;
     }

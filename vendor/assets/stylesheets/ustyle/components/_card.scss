@@ -1,0 +1,203 @@
+// @page Pattern Library/Components
+// @name Card
+//
+// @description
+//  This is the default deal card for table listings
+//
+//
+// @markup
+// <div class="us-card us-card--anchor">
+//   <header class="us-card__header us-card__section">
+//     <div class="us-card__cell">
+//       <img class="us-card__image" src="https://uswitch0.imgix.net/broadband/images/providers/talktalk.png?w=92&h=40&auto=format&q=100&dpr=3" alt="Talk Talk">
+//     </div>
+//     <div class="us-card__cell">
+//       <h3 class="us-card__heading">Awesome deal</h3>
+//     </div>
+//   </header>
+//   <section class="us-card__section us-card__section--cells">
+//     <div class="us-card__cell">
+//       <div class="us-card__cell__value">Main</div>
+//       <div class="us-card__cell__label">texts</div>
+//     </div>
+//     <div class="us-card__cell">
+//       <div class="us-card__cell__value">5000</div>
+//       <div class="us-card__cell__label">minutes</div>
+//     </div>
+//     <div class="us-card__cell">
+//       <div class="us-card__cell__value">Unlimited</div>
+//       <div class="us-card__cell__label">data</div>
+//     </div>
+//     <div class="us-card__cell">
+//       <div class="us-card__cell__value">£10.00</div>
+//       <div class="us-card__cell__label">per month</div>
+//     </div>
+//     <div class="us-card__cell us-card__cell--center">
+//       <a href="#clickout-url" class="us-btn us-btn--primary us-card__cta">See deal</a>
+//     </div>
+//   </section>
+//   <section class="us-card__section us-card__section--cells us-card__section--usps">
+//     <div class="us-card__cell us-card__cell--usps">
+//       <div class="us-usp">Exclusive deal</div><div class="us-usp us-usp--green">Exclusive deal</div>
+//     </div>
+//   </section>
+//   <a href="#clickout-url" class="us-card__anchor">TalkTalk Fixed Price Unlimited Fast Broadband</a>
+// </div>
+
+$card-border: 1px solid $c-keylinegrey;
+$card-border--outer: 1px solid $c-bordergrey;
+$card-border--hover: 1px solid $c-typecyan;
+
+.us-card {
+  position: relative;
+  margin: 0 .5em .5em .5em;
+  font-size: em(14px);
+  background: #fff;
+  border: $card-border--outer;
+  transition: border 300ms;
+
+  @include respond-to(tablet) {
+    margin: 0 0 .5em 0;
+    font-size: em(16px);
+  }
+
+  &:hover {
+    border: $card-border--hover;
+  }
+
+  &__anchor {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-indent: -9999em;
+  }
+
+  &__section {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: $card-border;
+
+    &--cells {
+      width: 100%;
+    }
+  }
+
+  &__section--cells:not(.us-card__section--usps):last-of-type {
+    padding-bottom: $gutter-width / 2;
+  }
+
+  &__section--usps {
+    .us-card__cell {
+      padding-top: .5em;
+      padding-bottom: .5em;
+    }
+  }
+
+  &__header {
+    display: block;
+    align-items: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+
+    @include respond-to(tablet) {
+      display: flex;
+    }
+
+    .us-card__cell {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    .us-card__cell:first-child {
+      padding-bottom: .5em;
+
+      @include respond-to(tablet) {
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  &__heading {
+    margin-bottom: 0;
+    font-size: em(16px);
+  }
+
+  &__image {
+    height: auto;
+    max-width: 94px;
+  }
+
+  &__cta {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__cell {
+    padding: 1em .8em;
+    line-height: 1em;
+
+    .us-card__section--cells & {
+      flex: 2 2 auto;
+      flex-direction: column;
+      width: 50%;
+
+      @include respond-to(tablet) {
+        flex: 1;
+        margin-right: 3px;
+        margin-left: 3px;
+      }
+    }
+
+    &:nth-child(1n) {
+      border-left: $card-border;
+    }
+
+    &:nth-child(1n+3) {
+      border-top: $card-border;
+
+      @include respond-to(tablet) {
+        border-top: 0;
+      }
+    }
+
+    &:first-child {
+      border-left: 0;
+    }
+
+    &--vertical-center {
+      justify-content: center;
+    }
+
+    &--center {
+      text-align: center;
+    }
+
+    &__value {
+      margin-bottom: $gutter-width / 4;
+      font-size: em(18px);
+      font-weight: bold;
+    }
+
+    &--usps {
+      text-align: center;
+
+      @include respond-to(tablet) {
+        padding-right: .8em;
+        padding-left: .8em;
+        text-align: left;
+      }
+    }
+
+    .us-usp {
+      margin-bottom: 5px;
+
+      @include respond-to(tablet) {
+        margin-right: $gutter-width / 4;
+        margin-bottom: 0;
+      }
+    }
+  }
+}

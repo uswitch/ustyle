@@ -20,13 +20,13 @@
 //  <a href="#" class="us-btn {$modifiers}" role="button">Link Button</a>
 //  <button class="us-btn {$modifiers}">Button Element</button>
 
-$button-bg--base      : $c-keylinegrey !default;
+$button-bg--base: $c-keylinegrey !default;
 $button-bg--base-hover: $c-typecyan !default;
-$button-bg--primary   : $c-red !default;
-$button-bg--secondary : $c-typecyan !default;
-$button-bg--action    : $c-green !default;
-$button-bg--hero      : $c-navy !default;
-$button-bg--reversed  : #fff !default;
+$button-bg--primary: $c-red !default;
+$button-bg--secondary: $c-typecyan !default;
+$button-bg--action: $c-green !default;
+$button-bg--hero: $c-navy !default;
+$button-bg--reversed: #fff !default;
 
 $button-text--light: #fff !default;
 $button-text--dark: $c-typegrey !default;

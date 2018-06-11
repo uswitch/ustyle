@@ -33,7 +33,7 @@
   right: -60px;
   margin-top: -16px;
 
-  &:before {
+  &::before {
     position: absolute;
     top: 50%;
     left: -10px;
@@ -42,22 +42,22 @@
     content: "";
   }
 
-  &.h98:before {
+  &.h98::before {
     height: 98px;
     margin-top: -47px;
   }
 
-  &.h64:before {
+  &.h64::before {
     height: 64px;
     margin-top: -32px;
   }
 
-  &.h50:before {
+  &.h50::before {
     height: 50px;
     margin-top: -25px;
   }
 
-  &.h25:before {
+  &.h25::before {
     height: 25px;
     margin-top: -12.5px;
   }
@@ -146,7 +146,7 @@
   position: relative;
   padding: 40px;
 
-  &:before {
+  &::before {
     position: absolute;
     top: 0;
     left: 0;
@@ -159,7 +159,7 @@
 }
 
 .logo__spacer--horizontal {
-  &:before {
+  &::before {
     width: 40px;
   }
 }
@@ -170,7 +170,7 @@
 
 .logo__icon-standalone {
   display: inline-block;
-  padding: $gutter-width/2.5;
+  padding: $gutter-width / 2.5;
   line-height: 1;
   background-color: $c-blue;
   border-radius: 22px;

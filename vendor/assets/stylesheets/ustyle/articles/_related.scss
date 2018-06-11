@@ -44,7 +44,7 @@
   text-align: right;
   background-color: $c-cyan-light;
 
-  &:after {
+  &::after {
     @extend %link-triangle;
   }
 }

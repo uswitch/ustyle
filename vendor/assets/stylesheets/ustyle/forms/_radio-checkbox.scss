@@ -48,7 +48,7 @@
 .us-form-input {
   @include hidpi(.1) {
     &[type="checkbox"] {
-      &:after {
+      &::after {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -64,7 +64,7 @@
         opacity: 0;
       }
 
-      &:checked:after {
+      &:checked::after {
         opacity: 1;
       }
 
@@ -73,7 +73,7 @@
         background: $c-form-element-disabled-bg;
 
         // scss-lint:disable NestingDepth
-        &:after {
+        &::after {
           opacity: 0;
         }
       }
@@ -81,7 +81,7 @@
       &.us-form-input--disabled {
 
         // scss-lint:disable NestingDepth
-        &:checked:after {
+        &:checked::after {
           background-position: 0 50%;
           opacity: .35;
         }

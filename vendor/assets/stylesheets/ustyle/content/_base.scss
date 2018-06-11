@@ -155,7 +155,7 @@ $content-heading-font-sizes: 30px, 24px, 20px, 18px, 16px, 16px;
       cursor: pointer;
       transition: color .3s;
 
-      &:after {
+      &::after {
         position: absolute;
         top: 50%;
         right: 1em;

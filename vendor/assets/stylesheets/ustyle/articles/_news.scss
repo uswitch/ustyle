@@ -36,7 +36,7 @@ $base-item-image-size: $news-item-image-size;
       opacity: .8;
     }
 
-    %readmore:after {
+    %readmore::after {
       left: .5em;
     }
   }
@@ -125,7 +125,7 @@ $base-item-image-size: $news-item-image-size;
     display: block;
   }
 
-  &:after {
+  &::after {
     @extend %link-triangle;
   }
 }
