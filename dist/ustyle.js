@@ -483,7 +483,7 @@ window.Tabs = (function(Utils) {
   };
 
   var getSelector = function(clicked) {
-    return clicked.getAttribute("data-target") || clicked.getAttribute("href");
+    if(clicked) return clicked.getAttribute("data-target") || clicked.getAttribute("href");
   };
 
   return Tabs;
