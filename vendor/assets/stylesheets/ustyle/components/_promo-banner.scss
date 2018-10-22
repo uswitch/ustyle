@@ -103,6 +103,7 @@
 @include respond-to(desktop) {
   .us-promo-banner {
     &__inner {
+      max-width: 1200px;
       flex-direction: row;
       flex-wrap: wrap;
     }
