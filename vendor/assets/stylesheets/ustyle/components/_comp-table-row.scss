@@ -1,0 +1,34 @@
+// @page Pattern Library/Components
+// @name Comp table row
+//
+// @description
+//   The `.us-ct__row` appears in the comparison tables, and contains a single product.
+//
+// @markup
+<a href="#" class="us-ct-row">
+  <div class="us-ct-row__title">
+    <p><strong>aqua Reward With Cashback</strong></p>
+    <div class="us-ct-row__title-offer">£20 Amazon voucher</div>
+  </div>
+  <div class="us-ct-row__product">
+    <img src="https://uswitch-cms.imgix.net/uswitch-assets-eu/banking/credit-cards/cards/aqua-2017-large.png?w=170&h=107&fit=auto&bg=0fff&fm=png8" class="us-ct-row__image" />
+    <div class="us-ct-row__product-repex">
+      <p><strong>34.9% APR</strong></p><p>Representative (variable)</p>
+    </div>
+    <div class="us-ct-row__product-min-credit">
+      <p><strong>£250</strong></p><p>Minimum credit limit</p>
+    </div>
+    <div class="us-ct-row__product-max-credit">
+      <p><strong>£1250</strong></p><p>Maximum credit limit</p>
+    </div>
+    <div class="us-ct-row__product-apply">
+    </div>
+  </div>
+  <div class="us-ct-row__rep-ex">
+  </div>
+  <div class="us-ct-row__more">
+    <button class="us-ct-row__more-expander">View key details</button>
+    <div class="us-ct-row__more-info">
+    </div>
+  </div>
+</a>
