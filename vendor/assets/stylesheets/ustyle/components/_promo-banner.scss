@@ -1,0 +1,123 @@
+// @page Pattern Library/Components
+// @name Promo banner
+//
+// @description
+//  Promotional banner
+//
+// @markup
+// <div class="us-promo-banner">
+//   <div class="us-promo-banner__inner">
+//     <h3 class="us-promo-banner__title">Title block here</h3>
+//     <ul class="us-promo-banner__list">
+//       <li class="us-promo-banner__list-item">
+//         <span class="us-promo-banner__circle">1</span>
+//         <span class="us-promo-banner__text">Text here</span>
+//       </li>
+//       <li class="us-promo-banner__list-item">
+//         <span class="us-promo-banner__circle">2</span>
+//         <span class="us-promo-banner__text">Text here</span>
+//       </li>
+//       <li class="us-promo-banner__list-item">
+//         <span class="us-promo-banner__circle">3</span>
+//         <span class="us-promo-banner__text">Text here</span>
+//       </li>
+//     </ul>
+//     <div class="us-promo-banner__button"><a class="us-btn us-btn--action us-btn--large" href="#">Click me</a></div>
+//   </div>
+// </div>
+
+.us-promo-banner {
+  width: 100%;
+  padding: 1.5em;
+  background-color: $c-navy;
+
+  &__inner {
+    display: flex;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__list {
+    display: flex;
+    width: 100%;
+    padding: 0;
+    margin: .5em 0 1.2em 0;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__list-item {
+    display: flex;
+    width: 100%;
+    margin: 15px 0 0 0;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    &:first-child {
+      margin: 0;
+    }
+  }
+
+  &__title {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  &__circle {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    margin-right: 10px;
+    line-height: 30px;
+    color: #fff;
+    text-align: center;
+    background: #2aaa5b;
+    border: solid 3px #fff;
+    border-radius: 50%;
+  }
+
+  &__text {
+    color: #fff;
+    flex-grow: 1;
+  }
+
+  &__button {
+    width: 100%;
+
+    a { width: 100%; }
+  }
+}
+
+@include respond-to(desktop) {
+  .us-promo-banner {
+    &__inner {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    &__list {
+      width: 80%;
+      flex-direction: row;
+      flex-grow: 1;
+    }
+
+    &__list-item {
+      margin: 0;
+    }
+
+    &__title {
+      width: 100%;
+    }
+
+    &__button {
+      width: 20%;
+    }
+  }
+}
