@@ -5,30 +5,63 @@
 //   The `.us-ct__row` appears in the comparison tables, and contains a single product.
 //
 // @markup
-<a href="#" class="us-ct-row">
-  <div class="us-ct-row__title">
-    <p><strong>aqua Reward With Cashback</strong></p>
-    <div class="us-ct-row__title-offer">£20 Amazon voucher</div>
-  </div>
-  <div class="us-ct-row__product">
-    <img src="https://uswitch-cms.imgix.net/uswitch-assets-eu/banking/credit-cards/cards/aqua-2017-large.png?w=170&h=107&fit=auto&bg=0fff&fm=png8" class="us-ct-row__image" />
-    <div class="us-ct-row__product-repex">
-      <p><strong>34.9% APR</strong></p><p>Representative (variable)</p>
-    </div>
-    <div class="us-ct-row__product-min-credit">
-      <p><strong>£250</strong></p><p>Minimum credit limit</p>
-    </div>
-    <div class="us-ct-row__product-max-credit">
-      <p><strong>£1250</strong></p><p>Maximum credit limit</p>
-    </div>
-    <div class="us-ct-row__product-apply">
-    </div>
-  </div>
-  <div class="us-ct-row__rep-ex">
-  </div>
-  <div class="us-ct-row__more">
-    <button class="us-ct-row__more-expander">View key details</button>
-    <div class="us-ct-row__more-info">
-    </div>
-  </div>
-</a>
+//   <a href="#" class="us-ct-row">
+//     <div class="us-ct-row__title">
+//       <p><strong>aqua Reward With Cashback</strong></p>
+//       <div class="us-ct-row__title-offer">£20 Amazon voucher</div>
+//     </div>
+//     <div class="us-ct-row__product">
+//       <img src="https://uswitch-cms.imgix.net/uswitch-assets-eu/banking/credit-cards/cards/aqua-2017-large.png?w=170&h=107&fit=auto&bg=0fff&fm=png8" class="us-ct-row__image" />
+//       <div class="us-ct-row__product-repex">
+//         <p><strong>34.9% APR</p><p>Representative (variable)</strong></p>
+//       </div>
+//       <div class="us-ct-row__product-min-credit">
+//         <p><strong>£250</p><p>Minimum credit limit</strong></p>
+//       </div>
+//       <div class="us-ct-row__product-max-credit">
+//         <p><strong>£1250</p><p>Maximum credit limit</strong></p>
+//       </div>
+//       <div class="us-ct-row__product-apply">
+//         <a href="#" class="us-ct-row__apply-btn">Apply</a>
+//         <a href="#" class="us-ct-row__more-info">More info</a>
+//       </div>
+//     </div>
+//     <div class="us-ct-row__rep-ex">
+//       <p><strong>Representative example: When you spend £1,200 at a rate of 34.91% (variable) per annum, your representative APR is 34.9% APR (variable)</strong></p>
+//     </div>
+//     <div class="us-ct-row__key-details">
+//       <button class="us-ct-row__key-details-toggle">View key details</button>
+//       <div class="us-ct-row__key-details-info">
+//         <div>
+//           <p><strong>Card details</strong></p>
+//           <ul>
+//             <li>£20 Amazon gift certificate exclusively through uSwitch (terms apply)</li>
+//             <li>0.5% cashback and no foreign transaction fees</li>
+//             <li>Credit limit increase possible after four months</li>
+//           </ul>
+//         </div>
+//         <div>
+//           <p><strong>To get this card you must at least:</strong></p>
+//           <ul class="us-ct-row__criteria">
+//             <li>be 18 or older</li>
+//             <li>have a permanent UK address</li>
+//             <li>have a UK current bank or building society account</li>
+//             <li>not be registered bankrupt in past 18 months or have proceedings</li>
+//             <li>have no CCJs (past 12 months)</li>
+//           </ul>
+//           <p>Additional criteria for acceptance from the lender may apply.</p>
+//         </div>
+//       </div>
+//     </div>
+//   </a>
+
+.us-ct-row {
+  position: relative;
+  border-radius: 5px;
+  border-bottom-width: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #e9ebed;
+  background: #fff;
+  display: block;
+  color: #1c1f4e;
+}
