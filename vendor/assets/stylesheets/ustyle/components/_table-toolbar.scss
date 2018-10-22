@@ -31,8 +31,8 @@
 
   &__sort-select {
     outline: 0;
-    border: 1px solid #84909a;
-    color: #2f353a;
+    border: 1px solid $c-inputgrey;
+    color: $c-typegrey;
     background: #fff;
     border-radius: .1875em;
     appearance: none;
@@ -48,11 +48,11 @@
 
     &:hover {
       background-image: url("data:image/svg+xml;charset=utf-8;base64,PHN2ZyB2ZXJzaW9uPScxLjEnIGJhc2VQcm9maWxlPSd0aW55JyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHg9JzBweCcgeT0nMHB4JyB3aWR0aD0nNDBweCcgaGVpZ2h0PSc2cHgnIHZpZXdCb3g9JzAgMCA0MCA2Jz48cG9seWdvbiBmaWxsPScjMDA4ZmU5JyBwb2ludHM9JzI1LjMsMCAyMC4zLDYgMTUuMywwICcvPjwvc3ZnPg==");
-      border-color: #008fe9;
+      border-color: $c-typecyan;
     }
 
     &:focus {
-      box-shadow: inset 0 0 0 1px #008fe9;
+      box-shadow: inset 0 0 0 1px $c-typecyan;
     }
   }
 }
