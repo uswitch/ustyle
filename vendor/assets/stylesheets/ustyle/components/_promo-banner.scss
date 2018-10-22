@@ -22,13 +22,13 @@
 //         <span class="us-promo-banner__text">Text here</span>
 //       </li>
 //     </ul>
-//     <div class="us-promo-banner__button"><a class="us-btn us-btn--action us-btn--large" href="#">Click me</a></div>
+//     <div class="us-promo-banner__button"><a class="us-btn us-btn--action us-btn--large" href="#">Promo CTA text</a></div>
 //   </div>
 // </div>
 
 .us-promo-banner {
   width: 100%;
-  padding: 1.5em;
+  padding: 1.7em;
   background-color: $c-navy;
 
   &__inner {
@@ -45,7 +45,7 @@
     display: flex;
     width: 100%;
     padding: 0;
-    margin: .5em 0 1.2em 0;
+    margin: 1em 0 1.2em 0;
     align-items: flex-start;
     flex-direction: column;
     justify-content: center;
@@ -65,7 +65,7 @@
   }
 
   &__title {
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: 700;
     color: #fff;
   }
@@ -74,6 +74,8 @@
     display: inline-block;
     width: 36px;
     height: 36px;
+    min-width: 36px;
+    min-height: 36px;
     margin-right: 10px;
     line-height: 30px;
     color: #fff;
@@ -81,15 +83,18 @@
     background: #2aaa5b;
     border: solid 3px #fff;
     border-radius: 50%;
+    align-self: flex-start;
   }
 
   &__text {
+    padding: 5px 10px 0 10px;
     color: #fff;
     flex-grow: 1;
+    align-self: flex-start;
   }
 
   &__button {
-    width: 100%;
+    margin: 0 auto;
 
     a { width: 100%; }
   }
@@ -103,7 +108,7 @@
     }
 
     &__list {
-      width: 80%;
+      width: 70%;
       flex-direction: row;
       flex-grow: 1;
     }
@@ -114,10 +119,12 @@
 
     &__title {
       width: 100%;
+      font-size: 1.5em;
     }
 
     &__button {
-      width: 20%;
+      width: auto;
+      flex-grow: 1;
     }
   }
 }
