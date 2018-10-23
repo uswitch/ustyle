@@ -156,6 +156,7 @@
     cursor: pointer;
     background: none;
     border: 0;
+    outline: 0;
   }
 
   &__key-details-chevron {
@@ -221,9 +222,7 @@
 
 @include respond-to(tablet) {
   .us-ct-row {
-
     &__col {
-
       &--apply {
         max-width: 250px;
       }
@@ -277,7 +276,6 @@
 
 @include respond-to(small-tablet) {
   .us-ct-row {
-
     &__rep-ex {
       padding: 10px 80px;
     }
@@ -286,9 +284,7 @@
 
 @include respond-to(desktop) {
   .us-ct-row {
-
     &__col {
-
       &--image {
         flex: 0 0 150px;
       }
