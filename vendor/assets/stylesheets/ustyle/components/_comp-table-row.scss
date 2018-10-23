@@ -5,63 +5,297 @@
 //   The `.us-ct__row` appears in the comparison tables, and contains a single product.
 //
 // @markup
-//   <a href="#" class="us-ct-row">
+//   <div class="us-ct-row">
 //     <div class="us-ct-row__title">
-//       <p><strong>aqua Reward With Cashback</strong></p>
-//       <div class="us-ct-row__title-offer">£20 Amazon voucher</div>
+//       <p class="us-ct-row__title-text">aqua Reward With Cashback</p>
+//       <div class="us-usp us-usp--orange">£20 Amazon voucher</div>
+//       <div class="us-usp us-usp--green">Cashback</div>
 //     </div>
 //     <div class="us-ct-row__product">
-//       <img src="https://uswitch-cms.imgix.net/uswitch-assets-eu/banking/credit-cards/cards/aqua-2017-large.png?w=170&h=107&fit=auto&bg=0fff&fm=png8" class="us-ct-row__image" />
-//       <div class="us-ct-row__product-repex">
-//         <p><strong>34.9% APR</p><p>Representative (variable)</strong></p>
+//       <div class="us-ct-row__col us-ct-row__col--image">
+//         <img src="https://uswitch-cms.imgix.net/uswitch-assets-eu/banking/credit-cards/cards/aqua-2017-large.png?w=170&h=107&fit=auto&bg=0fff&fm=png8" class="us-ct-row__image" />
+//         <div class="us-ct-row__title--mobile"><strong>aqua Reward With Cashback</strong></div>
+//         <div class="us-ct-row__usp--mobile">
+//           <div class="us-usp us-usp--orange">£20 Amazon voucher</div>
+//           <div class="us-usp us-usp--green">Cashback</div>
+//         </div>
 //       </div>
-//       <div class="us-ct-row__product-min-credit">
-//         <p><strong>£250</p><p>Minimum credit limit</strong></p>
+//       <div class="us-ct-row__col us-ct-row__col--stretch">
+//         <div class="us-ct-row__name"><strong>34.9% APR</strong></div><div class="us-ct-row__value">Representative (variable)</div>
 //       </div>
-//       <div class="us-ct-row__product-max-credit">
-//         <p><strong>£1250</p><p>Maximum credit limit</strong></p>
+//       <div class="us-ct-row__col us-ct-row__col--stretch">
+//         <div class="us-ct-row__name"><strong>£250</strong></div><div class="us-ct-row__value">Minimum credit limit</div>
 //       </div>
-//       <div class="us-ct-row__product-apply">
-//         <a href="#" class="us-ct-row__apply-btn">Apply</a>
+//       <div class="us-ct-row__col us-ct-row__col--stretch">
+//         <div class="us-ct-row__name"><strong>£1250</strong></div><div class="us-ct-row__value">Maximum credit limit</div>
+//       </div>
+//       <div class="us-ct-row__col us-ct-row__col--apply">
+//         <a class="us-btn us-btn--primary us-btn--blocked" href="#" role="button">Apply</a>
 //         <a href="#" class="us-ct-row__more-info">More info</a>
 //       </div>
 //     </div>
 //     <div class="us-ct-row__rep-ex">
-//       <p><strong>Representative example: When you spend £1,200 at a rate of 34.91% (variable) per annum, your representative APR is 34.9% APR (variable)</strong></p>
+//       <strong>Representative example: When you spend £1,200 at a rate of 34.91% (variable) per annum, your representative APR is 34.9% APR (variable)</strong>
 //     </div>
 //     <div class="us-ct-row__key-details">
-//       <button class="us-ct-row__key-details-toggle">View key details</button>
+//       <button class="us-ct-row__key-details-toggle us-ct-row__key-details-toggle-open">View key details <svg role="presentation" class="us-ct-row__key-details-chevron"><use xlink:href="/images/icons.svg#icon-chevron-right"></use></svg></button>
 //       <div class="us-ct-row__key-details-info">
-//         <div>
+//         <div class="us-ct-row__key-details-col">
 //           <p><strong>Card details</strong></p>
-//           <ul>
+//           <ul class="us-ct-row__key-details-ul">
 //             <li>£20 Amazon gift certificate exclusively through uSwitch (terms apply)</li>
 //             <li>0.5% cashback and no foreign transaction fees</li>
 //             <li>Credit limit increase possible after four months</li>
 //           </ul>
 //         </div>
-//         <div>
+//         <div class="us-ct-row__key-details-col">
 //           <p><strong>To get this card you must at least:</strong></p>
-//           <ul class="us-ct-row__criteria">
-//             <li>be 18 or older</li>
-//             <li>have a permanent UK address</li>
-//             <li>have a UK current bank or building society account</li>
-//             <li>not be registered bankrupt in past 18 months or have proceedings</li>
-//             <li>have no CCJs (past 12 months)</li>
+//           <ul class="us-ct-row__criteria us-ct-row__key-details-ul">
+//             <li class="us-ct-row__criteria-li"><svg role="presentation" class="us-icon us-icon--small us-icon--tick us-ct-row__criteria-tick"><use xlink:href="/images/icons.svg#icon-tick"></use></svg>be 18 or older</li>
+//             <li class="us-ct-row__criteria-li"><svg role="presentation" class="us-icon us-icon--small us-icon--tick us-ct-row__criteria-tick"><use xlink:href="/images/icons.svg#icon-tick"></use></svg>have a permanent UK address</li>
+//             <li class="us-ct-row__criteria-li"><svg role="presentation" class="us-icon us-icon--small us-icon--tick us-ct-row__criteria-tick"><use xlink:href="/images/icons.svg#icon-tick"></use></svg>have a UK current bank or building society account</li>
+//             <li class="us-ct-row__criteria-li"><svg role="presentation" class="us-icon us-icon--small us-icon--tick us-ct-row__criteria-tick"><use xlink:href="/images/icons.svg#icon-tick"></use></svg>not be registered bankrupt in past 18 months or have proceedings</li>
+//             <li class="us-ct-row__criteria-li"><svg role="presentation" class="us-icon us-icon--small us-icon--tick us-ct-row__criteria-tick"><use xlink:href="/images/icons.svg#icon-tick"></use></svg>have no CCJs (past 12 months)</li>
 //           </ul>
-//           <p>Additional criteria for acceptance from the lender may apply.</p>
+//           <p class="us-ct-row__criteria-additional">Additional criteria for acceptance from the lender may apply.</p>
 //         </div>
 //       </div>
 //     </div>
-//   </a>
+//   </div>
 
 .us-ct-row {
   position: relative;
-  border-radius: 5px;
-  border-bottom-width: 5px;
-  margin-bottom: 15px;
-  border: 1px solid #e9ebed;
-  background: #fff;
   display: block;
-  color: #1c1f4e;
+  margin-bottom: 15px;
+  color: $c-navy;
+  background: #fff;
+  border: 1px solid $c-keylinegrey;
+  border-bottom-width: 5px;
+  border-radius: 5px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &__title {
+    display: none;
+    width: 100%;
+    padding: 15px;
+    border-bottom: 1px solid $c-keylinegrey;
+  }
+
+  &__title-text {
+    margin: 0 15px 0 0;
+    font-weight: bold;
+  }
+
+  &__product {
+    position: relative;
+    border-bottom: 1px solid $c-keylinegrey;
+  }
+
+  &__image {
+    max-width: 150px;
+  }
+
+  &__title--mobile {
+    margin-top: 10px;
+  }
+
+  &__usp--mobile {
+    display: flex;
+    margin-top: 10px;
+  }
+
+  &__col {
+    padding: 15px;
+    border-top: 1px solid $c-keylinegrey;
+    border-right: 1px solid $c-keylinegrey;
+
+    &--stretch {
+      display: flex;
+      align-self: stretch;
+      justify-content: space-between;
+    }
+
+    &--apply {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: calc(100% - 165px);
+      max-width: 200px;
+      text-align: center;
+    }
+  }
+
+  &__more-info {
+    display: inline-block;
+    margin-top: 10px;
+    color: #008fe9;
+    text-decoration: underline;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+
+  &__rep-ex {
+    display: flex;
+    text-align: center;
+    border-bottom: 1px solid $c-keylinegrey;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__key-details-toggle {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0c72bf;
+    text-align: center;
+    cursor: pointer;
+    background: none;
+    border: 0;
+  }
+
+  &__key-details-chevron {
+    width: 20px;
+    height: 20px;
+    padding: 3px;
+    margin-left: 4px;
+    border: 1px solid;
+    border-radius: 5px;
+    transform: translateY(5px) rotate(90deg);
+    stroke-width: 10px;
+    transform-origin: center;
+    fill: #0c72bf;
+
+    .us-ct-row__key-details-toggle-open & {
+      transform: translateY(5px) rotate(-90deg);
+    }
+  }
+
+  &__key-details-info {
+    padding: 0 15px;
+    margin-top: 20px;
+    justify-content: space-evenly;
+  }
+
+  &__key-details-col {
+    padding: 0 15px;
+  }
+
+  &__key-details-ul {
+    padding: 0 15px 0 20px;
+  }
+
+  &__criteria {
+    padding: 0;
+    list-style-type: none;
+  }
+
+  &__criteria-li {
+    position: relative;
+    padding-left: 30px;
+  }
+
+  &__criteria-tick {
+    position: absolute;
+    top: 4px;
+    left: 0;
+  }
+
+  &__criteria-additional {
+    font-size: 14px;
+  }
+
+  &__name {
+    order: 2;
+  }
+
+  &__value {
+    font-size: 14px;
+    order: 1;
+  }
+}
+
+@include respond-to(tablet) {
+  .us-ct-row {
+
+    &__col {
+
+      &--apply {
+        max-width: 250px;
+      }
+    }
+  }
+}
+
+@include respond-to(desktop) {
+  .us-ct-row {
+
+    &__image {
+      max-width: 100%;
+      min-width: 100%;
+    }
+
+    &__product {
+      display: flex;
+    }
+
+    &__col {
+      text-align: center;
+      border-top: 0;
+
+      &--stretch {
+        display: block;
+        flex: 1 1;
+      }
+
+      &--apply {
+        position: relative;
+      }
+    }
+
+    &__key-details-info {
+      display: flex;
+    }
+
+    &__title {
+      display: flex;
+    }
+
+    &__title--mobile {
+      display: none;
+    }
+
+    &__usp--mobile {
+      display: none;
+    }
+  }
+}
+
+@include respond-to(small-tablet) {
+  .us-ct-row {
+
+    &__rep-ex {
+      padding: 10px 80px;
+    }
+  }
+}
+
+@include respond-to(desktop) {
+  .us-ct-row {
+
+    &__col {
+
+      &--image {
+        flex: 0 0 150px;
+      }
+
+      &--apply {
+        flex: 0 0 160px;
+      }
+    }
+  }
 }
