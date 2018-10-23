@@ -82,6 +82,10 @@
     width: 100%;
     padding: 15px;
     border-bottom: 1px solid $c-keylinegrey;
+
+    @include respond-to(desktop) {
+      display: flex;
+    }
   }
 
   &__title-text {
@@ -92,19 +96,36 @@
   &__product {
     position: relative;
     border-bottom: 1px solid $c-keylinegrey;
+
+    @include respond-to(desktop) {
+      display: flex;
+    }
   }
 
   &__image {
     max-width: 150px;
+
+    @include respond-to(desktop) {
+      max-width: 100%;
+      min-width: 100%;
+    }
   }
 
   &__title--mobile {
     margin-top: 10px;
+
+    @include respond-to(desktop) {
+      display: none;
+    }
   }
 
   &__usp--mobile {
     display: flex;
     margin-top: 10px;
+
+    @include respond-to(desktop) {
+      display: none;
+    }
   }
 
   &__col {
@@ -112,10 +133,20 @@
     border-top: 1px solid $c-keylinegrey;
     border-right: 1px solid $c-keylinegrey;
 
+    @include respond-to(desktop) {
+      text-align: center;
+      border-top: 0;
+    }
+
     &--stretch {
       display: flex;
       align-self: stretch;
       justify-content: space-between;
+
+      @include respond-to(desktop) {
+        display: block;
+        flex: 1 1;
+      }
     }
 
     &--apply {
@@ -125,6 +156,21 @@
       width: calc(100% - 165px);
       max-width: 200px;
       text-align: center;
+
+      @include respond-to(tablet) {
+        max-width: 250px;
+      }
+
+      @include respond-to(desktop) {
+        position: relative;
+        flex: 0 0 160px;
+      }
+    }
+
+    &--image {
+      @include respond-to(desktop) {
+        flex: 0 0 150px;
+      }
     }
   }
 
@@ -143,6 +189,10 @@
     border-bottom: 1px solid $c-keylinegrey;
     justify-content: center;
     align-items: center;
+
+    @include respond-to(small-tablet) {
+      padding: 10px 80px;
+    }
   }
 
   &__key-details-toggle {
@@ -180,6 +230,10 @@
     padding: 0 15px;
     margin-top: 20px;
     justify-content: space-evenly;
+
+    @include respond-to(desktop) {
+      display: flex;
+    }
   }
 
   &__key-details-col {
@@ -217,81 +271,5 @@
   &__value {
     font-size: 14px;
     order: 1;
-  }
-}
-
-@include respond-to(tablet) {
-  .us-ct-row {
-    &__col {
-      &--apply {
-        max-width: 250px;
-      }
-    }
-  }
-}
-
-@include respond-to(desktop) {
-  .us-ct-row {
-
-    &__image {
-      max-width: 100%;
-      min-width: 100%;
-    }
-
-    &__product {
-      display: flex;
-    }
-
-    &__col {
-      text-align: center;
-      border-top: 0;
-
-      &--stretch {
-        display: block;
-        flex: 1 1;
-      }
-
-      &--apply {
-        position: relative;
-      }
-    }
-
-    &__key-details-info {
-      display: flex;
-    }
-
-    &__title {
-      display: flex;
-    }
-
-    &__title--mobile {
-      display: none;
-    }
-
-    &__usp--mobile {
-      display: none;
-    }
-  }
-}
-
-@include respond-to(small-tablet) {
-  .us-ct-row {
-    &__rep-ex {
-      padding: 10px 80px;
-    }
-  }
-}
-
-@include respond-to(desktop) {
-  .us-ct-row {
-    &__col {
-      &--image {
-        flex: 0 0 150px;
-      }
-
-      &--apply {
-        flex: 0 0 160px;
-      }
-    }
   }
 }
