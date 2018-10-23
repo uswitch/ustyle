@@ -22,6 +22,7 @@ $hero-text-color: $c-navy !default;
 
 .us-hero-container {
   @extend %container;
+  max-width: 800px;
   padding: 2.5em 15px;
 }
 
