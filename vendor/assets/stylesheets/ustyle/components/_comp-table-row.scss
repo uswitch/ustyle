@@ -80,7 +80,7 @@
   &__title {
     display: none;
     width: 100%;
-    padding: 15px;
+    padding: $gutter-width / 2;
     border-bottom: 1px solid $c-keylinegrey;
 
     @include respond-to(desktop) {
@@ -129,7 +129,7 @@
   }
 
   &__col {
-    padding: 15px;
+    padding: $gutter-width / 2;
     border-top: 1px solid $c-keylinegrey;
     border-right: 1px solid $c-keylinegrey;
 
@@ -177,7 +177,7 @@
   &__more-info {
     display: inline-block;
     margin-top: 10px;
-    color: #008fe9;
+    color: $c-typecyan;
     text-decoration: underline;
     white-space: nowrap;
     cursor: pointer;
@@ -201,7 +201,7 @@
     padding: 10px;
     font-size: 16px;
     font-weight: 700;
-    color: #0c72bf;
+    color: $c-blue-light;
     text-align: center;
     cursor: pointer;
     background: none;
@@ -219,7 +219,7 @@
     transform: translateY(5px) rotate(90deg);
     stroke-width: 10px;
     transform-origin: center;
-    fill: #0c72bf;
+    fill: $c-blue-light;
 
     .us-ct-row__key-details-toggle-open & {
       transform: translateY(5px) rotate(-90deg);
@@ -237,11 +237,11 @@
   }
 
   &__key-details-col {
-    padding: 0 15px;
+    padding: 0 $gutter-width / 2;
   }
 
   &__key-details-ul {
-    padding: 0 15px 0 20px;
+    padding: 0 $gutter-width / 2 0 20px;
   }
 
   &__criteria {
