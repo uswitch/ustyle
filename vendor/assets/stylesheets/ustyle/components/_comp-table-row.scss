@@ -113,16 +113,15 @@
 
   &__title--mobile {
     margin-top: 10px;
-
-    @include respond-to(desktop) {
-      display: none;
-    }
   }
 
   &__usp--mobile {
     display: flex;
     margin-top: 10px;
+  }
 
+  &__title--mobile,
+  &__usp--mobile {
     @include respond-to(desktop) {
       display: none;
     }
