@@ -17,6 +17,11 @@
   @extend %reset-box-model;
   list-style: none;
 
+  li {
+    font-size: 16px;
+    margin: 0; 
+  }
+
   a {
     @extend %anchor-link;
     display: block;
@@ -39,8 +44,15 @@
     margin-top: 1em;
 
     a {
-      font-size: em(18px);
       color: $c-navy;
+    }
+  }
+}
+
+@include respond-to(mobile) {
+  .us-list {
+    li {
+      font-size: 16px;
     }
   }
 }
