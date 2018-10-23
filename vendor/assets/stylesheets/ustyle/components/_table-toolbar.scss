@@ -8,8 +8,8 @@
 //   <div class="us-table-toolbar">
 //    <div class="us-table-toolbar__wrapper">
 //     <div class="us-table-toolbar__sort">
-//       <h3 class="us-table-toolbar__sort-heading">Sort by:</h3>
-//       <select class="us-table-toolbar__sort-select name="sort"">
+//       <h3 class="us-table-toolbar__heading">Sort by:</h3>
+//       <select class="us-table-toolbar__select name="sort"">
 //         <option value="popularity">Popularity</option>
 //         <option value="apr">Lowest APR</option>
 //         <option value="min-credit-limit">Minimum credit limit</option>
@@ -25,11 +25,11 @@
     display: flex;
   }
 
-  &__sort-heading {
+  &__heading {
     font-size: 18px;
   }
 
-  &__sort-select {
+  &__select {
     height: 37px;
     max-width: 100%;
     padding: .35em .5em;
@@ -89,7 +89,7 @@
     background: #f4f5f6;
 
     &__sort,
-    &__sort-select {
+    &__select {
       width: 100%;
     }
   }
