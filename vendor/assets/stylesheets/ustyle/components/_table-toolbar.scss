@@ -9,7 +9,7 @@
 //    <div class="us-table-toolbar__wrapper">
 //     <div class="us-table-toolbar__sort">
 //       <h3 class="us-table-toolbar__sort-heading">Sort by:</h3>
-//       <select name="sort" class="us-table-toolbar__sort-select">
+//       <select class="us-table-toolbar__sort-select name="sort"">
 //         <option value="popularity">Popularity</option>
 //         <option value="apr">Lowest APR</option>
 //         <option value="min-credit-limit">Minimum credit limit</option>
@@ -30,21 +30,21 @@
   }
 
   &__sort-select {
-    outline: 0;
-    border: 1px solid $c-inputgrey;
-    color: $c-typegrey;
-    background: #fff;
-    border-radius: .1875em;
-    appearance: none;
-    background-image: url("data:image/svg+xml;charset=utf-8;base64,PHN2ZyB2ZXJzaW9uPScxLjEnIGJhc2VQcm9maWxlPSd0aW55JyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHg9JzBweCcgeT0nMHB4JyB3aWR0aD0nNDBweCcgaGVpZ2h0PSc2cHgnIHZpZXdCb3g9JzAgMCA0MCA2Jz48cG9seWdvbiBmaWxsPScjODQ5MDlhJyBwb2ludHM9JzI1LjMsMCAyMC4zLDYgMTUuMywwICcvPjwvc3ZnPg==");
     height: 37px;
-    padding: .35em .5em;
-    font-size: 1em;
     max-width: 100%;
+    padding: .35em .5em;
     padding-right: 40px;
+    font-size: 1em;
+    color: $c-typegrey;
     cursor: pointer;
+    background: #fff;
+    background-image: url("data:image/svg+xml;charset=utf-8;base64,PHN2ZyB2ZXJzaW9uPScxLjEnIGJhc2VQcm9maWxlPSd0aW55JyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHg9JzBweCcgeT0nMHB4JyB3aWR0aD0nNDBweCcgaGVpZ2h0PSc2cHgnIHZpZXdCb3g9JzAgMCA0MCA2Jz48cG9seWdvbiBmaWxsPScjODQ5MDlhJyBwb2ludHM9JzI1LjMsMCAyMC4zLDYgMTUuMywwICcvPjwvc3ZnPg==");
     background-position: 100% 50%;
     background-repeat: no-repeat;
+    border: 1px solid $c-inputgrey;
+    border-radius: .1875em;
+    outline: 0;
+    appearance: none;
 
     &:hover {
       background-image: url("data:image/svg+xml;charset=utf-8;base64,PHN2ZyB2ZXJzaW9uPScxLjEnIGJhc2VQcm9maWxlPSd0aW55JyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHg9JzBweCcgeT0nMHB4JyB3aWR0aD0nNDBweCcgaGVpZ2h0PSc2cHgnIHZpZXdCb3g9JzAgMCA0MCA2Jz48cG9seWdvbiBmaWxsPScjMDA4ZmU5JyBwb2ludHM9JzI1LjMsMCAyMC4zLDYgMTUuMywwICcvPjwvc3ZnPg==");
@@ -61,6 +61,7 @@
   .us-table-toolbar {
     &__wrapper {
       max-width: 800px;
+      margin: 0 auto;
       align-items: center;
       justify-content: flex-end;
     }
@@ -87,7 +88,8 @@
   .us-table-toolbar {
     background: #f4f5f6;
 
-    &__sort, &__sort-select {
+    &__sort,
+    &__sort-select {
       width: 100%;
     }
   }
