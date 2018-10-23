@@ -124,6 +124,8 @@
               <h4>Patterns</h4>
                 <a class="nav__link" href="#breadcrumbs">Breadcrumbs</a>
                 <a class="nav__link" href="#buttons">Buttons</a>
+                <a class="nav__link" href="#comp_table_row">Comp table row</a>
+                <a class="nav__link" href="#compliance_banner">Compliance banner</a>
                 <a class="nav__link" href="#content_group">Content group</a>
                 <a class="nav__link" href="#ctas">CTAs</a>
                 <a class="nav__link" href="#hero">Hero</a>
@@ -131,6 +133,9 @@
                 <a class="nav__link" href="#link_lists">Link lists</a>
                 <a class="nav__link" href="#loader">Loader</a>
                 <a class="nav__link" href="#progress_navigation">Progress navigation</a>
+                <a class="nav__link" href="#promo_banner">Promo banner</a>
+                <a class="nav__link" href="#tab_navigation">Tab navigation</a>
+                <a class="nav__link" href="#table_toolbar">Table toolbar</a>
                 <a class="nav__link" href="#usps">USPs</a>
             </div>
           </nav>
@@ -261,6 +266,176 @@
                 <pre><code class="html">
               &lt;a href="#" class="us-btn" role="button"&gt;Link Button&lt;/a&gt;
               &lt;button class="us-btn"&gt;Button Element&lt;/button&gt;
+                </code></pre>
+              </div>
+            </div>
+            <div class="styleguide__block" id="comp_table_row">
+              <h2 class="styleguide__block-title">
+                Comp table row
+                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_comp-table-row.scss" class="styleguide__file-link"><svg class="us-icon--small us-icon--github"><use xlink:href="/images/icons.svg#icon-github">Github:</use></svg> <span class="us-tablet--inline">_comp-table-row.scss</span></a>
+              </h2>
+            
+              <div class="styleguide__description">
+                <p>   The <code>.us-ct__row</code> appears in the comparison tables, and contains a single product.</p>
+            
+              </div>
+            
+            
+              <div class="styleguide__block-examples">
+                <h3 class="styleguide__block-small-title">Example</h3>
+                <div class="styleguide__block-example">
+                     <div class="us-ct-row">
+                 <div class="us-ct-row__title">
+                   <p class="us-ct-row__title-text">aqua Reward With Cashback</p>
+                   <div class="us-usp us-usp--orange">£20 Amazon voucher</div>
+                   <div class="us-usp us-usp--green">Cashback</div>
+                 </div>
+                 <div class="us-ct-row__product">
+                   <div class="us-ct-row__col us-ct-row__col--image">
+                     <img src="https://uswitch-cms.imgix.net/uswitch-assets-eu/banking/credit-cards/cards/aqua-2017-large.png?w=170&h=107&fit=auto&bg=0fff&fm=png8" class="us-ct-row__image" />
+                     <div class="us-ct-row__title--mobile"><strong>aqua Reward With Cashback</strong></div>
+                     <div class="us-ct-row__usp--mobile">
+                       <div class="us-usp us-usp--orange">£20 Amazon voucher</div>
+                       <div class="us-usp us-usp--green">Cashback</div>
+                     </div>
+                   </div>
+                   <div class="us-ct-row__col us-ct-row__col--stretch">
+                     <div class="us-ct-row__name"><strong>34.9% APR</strong></div><div class="us-ct-row__value">Representative (variable)</div>
+                   </div>
+                   <div class="us-ct-row__col us-ct-row__col--stretch">
+                     <div class="us-ct-row__name"><strong>£250</strong></div><div class="us-ct-row__value">Minimum credit limit</div>
+                   </div>
+                   <div class="us-ct-row__col us-ct-row__col--stretch">
+                     <div class="us-ct-row__name"><strong>£1250</strong></div><div class="us-ct-row__value">Maximum credit limit</div>
+                   </div>
+                   <div class="us-ct-row__col us-ct-row__col--apply">
+                     <a class="us-btn us-btn--primary us-btn--blocked" href="#" role="button">Apply</a>
+                     <a href="#" class="us-ct-row__more-info">More info</a>
+                   </div>
+                 </div>
+                 <div class="us-ct-row__rep-ex">
+                   <strong>Representative example: When you spend £1,200 at a rate of 34.91% (variable) per annum, your representative APR is 34.9% APR (variable)</strong>
+                 </div>
+                 <div class="us-ct-row__key-details">
+                   <button class="us-ct-row__key-details-toggle us-ct-row__key-details-toggle-open">View key details <svg role="presentation" class="us-ct-row__key-details-chevron"><use xlink:href="/images/icons.svg#icon-chevron-right"></use></svg></button>
+                   <div class="us-ct-row__key-details-info">
+                     <div class="us-ct-row__key-details-col">
+                       <strong>Card details</strong>
+                       <ul class="us-ct-row__key-details-ul">
+                         <li>£20 Amazon gift certificate exclusively through uSwitch (terms apply)</li>
+                         <li>0.5% cashback and no foreign transaction fees</li>
+                         <li>Credit limit increase possible after four months</li>
+                       </ul>
+                     </div>
+                     <div class="us-ct-row__key-details-col">
+                       <strong>To get this card you must at least:</strong>
+                       <ul class="us-ct-row__criteria us-ct-row__key-details-ul">
+                         <li class="us-ct-row__criteria-li"><svg role="presentation" class="us-icon us-icon--small us-icon--tick us-ct-row__criteria-tick"><use xlink:href="/images/icons.svg#icon-tick"></use></svg>be 18 or older</li>
+                         <li class="us-ct-row__criteria-li"><svg role="presentation" class="us-icon us-icon--small us-icon--tick us-ct-row__criteria-tick"><use xlink:href="/images/icons.svg#icon-tick"></use></svg>have a permanent UK address</li>
+                         <li class="us-ct-row__criteria-li"><svg role="presentation" class="us-icon us-icon--small us-icon--tick us-ct-row__criteria-tick"><use xlink:href="/images/icons.svg#icon-tick"></use></svg>have a UK current bank or building society account</li>
+                         <li class="us-ct-row__criteria-li"><svg role="presentation" class="us-icon us-icon--small us-icon--tick us-ct-row__criteria-tick"><use xlink:href="/images/icons.svg#icon-tick"></use></svg>not be registered bankrupt in past 18 months or have proceedings</li>
+                         <li class="us-ct-row__criteria-li"><svg role="presentation" class="us-icon us-icon--small us-icon--tick us-ct-row__criteria-tick"><use xlink:href="/images/icons.svg#icon-tick"></use></svg>have no CCJs (past 12 months)</li>
+                       </ul>
+                       <p class="us-ct-row__criteria-additional">Additional criteria for acceptance from the lender may apply.</p>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+                </div>
+            
+            
+                <pre><code class="html">
+               &lt;div class="us-ct-row"&gt;
+                 &lt;div class="us-ct-row__title"&gt;
+                   &lt;p class="us-ct-row__title-text"&gt;aqua Reward With Cashback&lt;/p&gt;
+                   &lt;div class="us-usp us-usp--orange"&gt;£20 Amazon voucher&lt;/div&gt;
+                   &lt;div class="us-usp us-usp--green"&gt;Cashback&lt;/div&gt;
+                 &lt;/div&gt;
+                 &lt;div class="us-ct-row__product"&gt;
+                   &lt;div class="us-ct-row__col us-ct-row__col--image"&gt;
+                     &lt;img src="https://uswitch-cms.imgix.net/uswitch-assets-eu/banking/credit-cards/cards/aqua-2017-large.png?w=170&h=107&fit=auto&bg=0fff&fm=png8" class="us-ct-row__image" /&gt;
+                     &lt;div class="us-ct-row__title--mobile"&gt;&lt;strong&gt;aqua Reward With Cashback&lt;/strong&gt;&lt;/div&gt;
+                     &lt;div class="us-ct-row__usp--mobile"&gt;
+                       &lt;div class="us-usp us-usp--orange"&gt;£20 Amazon voucher&lt;/div&gt;
+                       &lt;div class="us-usp us-usp--green"&gt;Cashback&lt;/div&gt;
+                     &lt;/div&gt;
+                   &lt;/div&gt;
+                   &lt;div class="us-ct-row__col us-ct-row__col--stretch"&gt;
+                     &lt;div class="us-ct-row__name"&gt;&lt;strong&gt;34.9% APR&lt;/strong&gt;&lt;/div&gt;&lt;div class="us-ct-row__value"&gt;Representative (variable)&lt;/div&gt;
+                   &lt;/div&gt;
+                   &lt;div class="us-ct-row__col us-ct-row__col--stretch"&gt;
+                     &lt;div class="us-ct-row__name"&gt;&lt;strong&gt;£250&lt;/strong&gt;&lt;/div&gt;&lt;div class="us-ct-row__value"&gt;Minimum credit limit&lt;/div&gt;
+                   &lt;/div&gt;
+                   &lt;div class="us-ct-row__col us-ct-row__col--stretch"&gt;
+                     &lt;div class="us-ct-row__name"&gt;&lt;strong&gt;£1250&lt;/strong&gt;&lt;/div&gt;&lt;div class="us-ct-row__value"&gt;Maximum credit limit&lt;/div&gt;
+                   &lt;/div&gt;
+                   &lt;div class="us-ct-row__col us-ct-row__col--apply"&gt;
+                     &lt;a class="us-btn us-btn--primary us-btn--blocked" href="#" role="button"&gt;Apply&lt;/a&gt;
+                     &lt;a href="#" class="us-ct-row__more-info"&gt;More info&lt;/a&gt;
+                   &lt;/div&gt;
+                 &lt;/div&gt;
+                 &lt;div class="us-ct-row__rep-ex"&gt;
+                   &lt;strong&gt;Representative example: When you spend £1,200 at a rate of 34.91% (variable) per annum, your representative APR is 34.9% APR (variable)&lt;/strong&gt;
+                 &lt;/div&gt;
+                 &lt;div class="us-ct-row__key-details"&gt;
+                   &lt;button class="us-ct-row__key-details-toggle us-ct-row__key-details-toggle-open"&gt;View key details &lt;svg role="presentation" class="us-ct-row__key-details-chevron"&gt;&lt;use xlink:href="/images/icons.svg#icon-chevron-right"&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/button&gt;
+                   &lt;div class="us-ct-row__key-details-info"&gt;
+                     &lt;div class="us-ct-row__key-details-col"&gt;
+                       &lt;strong&gt;Card details&lt;/strong&gt;
+                       &lt;ul class="us-ct-row__key-details-ul"&gt;
+                         &lt;li&gt;£20 Amazon gift certificate exclusively through uSwitch (terms apply)&lt;/li&gt;
+                         &lt;li&gt;0.5% cashback and no foreign transaction fees&lt;/li&gt;
+                         &lt;li&gt;Credit limit increase possible after four months&lt;/li&gt;
+                       &lt;/ul&gt;
+                     &lt;/div&gt;
+                     &lt;div class="us-ct-row__key-details-col"&gt;
+                       &lt;strong&gt;To get this card you must at least:&lt;/strong&gt;
+                       &lt;ul class="us-ct-row__criteria us-ct-row__key-details-ul"&gt;
+                         &lt;li class="us-ct-row__criteria-li"&gt;&lt;svg role="presentation" class="us-icon us-icon--small us-icon--tick us-ct-row__criteria-tick"&gt;&lt;use xlink:href="/images/icons.svg#icon-tick"&gt;&lt;/use&gt;&lt;/svg&gt;be 18 or older&lt;/li&gt;
+                         &lt;li class="us-ct-row__criteria-li"&gt;&lt;svg role="presentation" class="us-icon us-icon--small us-icon--tick us-ct-row__criteria-tick"&gt;&lt;use xlink:href="/images/icons.svg#icon-tick"&gt;&lt;/use&gt;&lt;/svg&gt;have a permanent UK address&lt;/li&gt;
+                         &lt;li class="us-ct-row__criteria-li"&gt;&lt;svg role="presentation" class="us-icon us-icon--small us-icon--tick us-ct-row__criteria-tick"&gt;&lt;use xlink:href="/images/icons.svg#icon-tick"&gt;&lt;/use&gt;&lt;/svg&gt;have a UK current bank or building society account&lt;/li&gt;
+                         &lt;li class="us-ct-row__criteria-li"&gt;&lt;svg role="presentation" class="us-icon us-icon--small us-icon--tick us-ct-row__criteria-tick"&gt;&lt;use xlink:href="/images/icons.svg#icon-tick"&gt;&lt;/use&gt;&lt;/svg&gt;not be registered bankrupt in past 18 months or have proceedings&lt;/li&gt;
+                         &lt;li class="us-ct-row__criteria-li"&gt;&lt;svg role="presentation" class="us-icon us-icon--small us-icon--tick us-ct-row__criteria-tick"&gt;&lt;use xlink:href="/images/icons.svg#icon-tick"&gt;&lt;/use&gt;&lt;/svg&gt;have no CCJs (past 12 months)&lt;/li&gt;
+                       &lt;/ul&gt;
+                       &lt;p class="us-ct-row__criteria-additional"&gt;Additional criteria for acceptance from the lender may apply.&lt;/p&gt;
+                     &lt;/div&gt;
+                   &lt;/div&gt;
+                 &lt;/div&gt;
+               &lt;/div&gt;
+                </code></pre>
+              </div>
+            </div>
+            <div class="styleguide__block" id="compliance_banner">
+              <h2 class="styleguide__block-title">
+                Compliance banner
+                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_compliance-banner.scss" class="styleguide__file-link"><svg class="us-icon--small us-icon--github"><use xlink:href="/images/icons.svg#icon-github">Github:</use></svg> <span class="us-tablet--inline">_compliance-banner.scss</span></a>
+              </h2>
+            
+              <div class="styleguide__description">
+                <p>  Compliance banner and disclaimer below the comparison table</p>
+            
+              </div>
+            
+            
+              <div class="styleguide__block-examples">
+                <h3 class="styleguide__block-small-title">Example</h3>
+                <div class="styleguide__block-example">
+                   <div class="us-comp-banner">
+               <div class="us-comp-banner__inner">
+                 <p class="us-comp-banner__text">uSwitch Limited is a credit broker, not a lender, for consumer credit products.</p>
+                 <p class="us-comp-banner__text">uSwitch services are provided at no cost to you, but we may receive a commission from the companies we refer you to.</p>
+               </div>
+             </div>
+                </div>
+            
+            
+                <pre><code class="html">
+             &lt;div class="us-comp-banner"&gt;
+               &lt;div class="us-comp-banner__inner"&gt;
+                 &lt;p class="us-comp-banner__text"&gt;uSwitch Limited is a credit broker, not a lender, for consumer credit products.&lt;/p&gt;
+                 &lt;p class="us-comp-banner__text"&gt;uSwitch services are provided at no cost to you, but we may receive a commission from the companies we refer you to.&lt;/p&gt;
+               &lt;/div&gt;
+             &lt;/div&gt;
                 </code></pre>
               </div>
             </div>
@@ -590,6 +765,172 @@
                      &lt;/li&gt;
                    &lt;/ul&gt;
                  &lt;/nav&gt;
+               &lt;/div&gt;
+                </code></pre>
+              </div>
+            </div>
+            <div class="styleguide__block" id="promo_banner">
+              <h2 class="styleguide__block-title">
+                Promo banner
+                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_promo-banner.scss" class="styleguide__file-link"><svg class="us-icon--small us-icon--github"><use xlink:href="/images/icons.svg#icon-github">Github:</use></svg> <span class="us-tablet--inline">_promo-banner.scss</span></a>
+              </h2>
+            
+              <div class="styleguide__description">
+                <p>  Promotional banner</p>
+            
+              </div>
+            
+            
+              <div class="styleguide__block-examples">
+                <h3 class="styleguide__block-small-title">Example</h3>
+                <div class="styleguide__block-example">
+                   <div class="us-promo-banner">
+               <div class="us-promo-banner__inner">
+                 <h3 class="us-promo-banner__title">Title block here</h3>
+                 <ul class="us-promo-banner__list">
+                   <li class="us-promo-banner__list-item">
+                     <span class="us-promo-banner__circle">1</span>
+                     <span class="us-promo-banner__text">Text here</span>
+                   </li>
+                   <li class="us-promo-banner__list-item">
+                     <span class="us-promo-banner__circle">2</span>
+                     <span class="us-promo-banner__text">Text here</span>
+                   </li>
+                   <li class="us-promo-banner__list-item">
+                     <span class="us-promo-banner__circle">3</span>
+                     <span class="us-promo-banner__text">Text here</span>
+                   </li>
+                 </ul>
+                 <div class="us-promo-banner__button"><a class="us-btn us-btn--action us-btn--large" href="#">Promo CTA text</a></div>
+               </div>
+             </div>
+                </div>
+            
+            
+                <pre><code class="html">
+             &lt;div class="us-promo-banner"&gt;
+               &lt;div class="us-promo-banner__inner"&gt;
+                 &lt;h3 class="us-promo-banner__title"&gt;Title block here&lt;/h3&gt;
+                 &lt;ul class="us-promo-banner__list"&gt;
+                   &lt;li class="us-promo-banner__list-item"&gt;
+                     &lt;span class="us-promo-banner__circle"&gt;1&lt;/span&gt;
+                     &lt;span class="us-promo-banner__text"&gt;Text here&lt;/span&gt;
+                   &lt;/li&gt;
+                   &lt;li class="us-promo-banner__list-item"&gt;
+                     &lt;span class="us-promo-banner__circle"&gt;2&lt;/span&gt;
+                     &lt;span class="us-promo-banner__text"&gt;Text here&lt;/span&gt;
+                   &lt;/li&gt;
+                   &lt;li class="us-promo-banner__list-item"&gt;
+                     &lt;span class="us-promo-banner__circle"&gt;3&lt;/span&gt;
+                     &lt;span class="us-promo-banner__text"&gt;Text here&lt;/span&gt;
+                   &lt;/li&gt;
+                 &lt;/ul&gt;
+                 &lt;div class="us-promo-banner__button"&gt;&lt;a class="us-btn us-btn--action us-btn--large" href="#"&gt;Promo CTA text&lt;/a&gt;&lt;/div&gt;
+               &lt;/div&gt;
+             &lt;/div&gt;
+                </code></pre>
+              </div>
+            </div>
+            <div class="styleguide__block" id="tab_navigation">
+              <h2 class="styleguide__block-title">
+                Tab navigation
+                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_tab-navigation.scss" class="styleguide__file-link"><svg class="us-icon--small us-icon--github"><use xlink:href="/images/icons.svg#icon-github">Github:</use></svg> <span class="us-tablet--inline">_tab-navigation.scss</span></a>
+              </h2>
+            
+              <div class="styleguide__description">
+                <p>   Above table, tab-style navigation</p>
+            
+              </div>
+            
+            
+              <div class="styleguide__block-examples">
+                <h3 class="styleguide__block-small-title">Example</h3>
+                <div class="styleguide__block-example">
+                   <div class="us-tabs">
+               <div class="us-tabs__inner">
+                 <ul class="us-tabs__links">
+                   <li class="us-tabs__links-item us-tabs__links-item--active"><a href="#">Link here</a></li>
+                   <li class="us-tabs__links-item"><a>Link here</a></li>
+                   <li class="us-tabs__links-item"><a>Link here</a></li>
+                   <li class="us-tabs__links-item"><a>Link here</a></li>
+                   <li class="us-tabs__links-item"><a>Link here</a></li>
+                   <li class="us-tabs__links-item"><a>Link here</a></li>
+                   <li class="us-tabs__links-item"><a>Link here</a></li>
+                   <li class="us-tabs__links-item"><a>Link here</a></li>
+                   <li class="us-tabs__links-item"><a>Link here</a></li>
+                   <li class="us-tabs__links-item"><a>Link here</a></li>
+                   <li class="us-tabs__links-item"><a>Link here</a></li>
+                 </ul>
+               </div>
+             </div>
+                </div>
+            
+            
+                <pre><code class="html">
+             &lt;div class="us-tabs"&gt;
+               &lt;div class="us-tabs__inner"&gt;
+                 &lt;ul class="us-tabs__links"&gt;
+                   &lt;li class="us-tabs__links-item us-tabs__links-item--active"&gt;&lt;a href="#"&gt;Link here&lt;/a&gt;&lt;/li&gt;
+                   &lt;li class="us-tabs__links-item"&gt;&lt;a&gt;Link here&lt;/a&gt;&lt;/li&gt;
+                   &lt;li class="us-tabs__links-item"&gt;&lt;a&gt;Link here&lt;/a&gt;&lt;/li&gt;
+                   &lt;li class="us-tabs__links-item"&gt;&lt;a&gt;Link here&lt;/a&gt;&lt;/li&gt;
+                   &lt;li class="us-tabs__links-item"&gt;&lt;a&gt;Link here&lt;/a&gt;&lt;/li&gt;
+                   &lt;li class="us-tabs__links-item"&gt;&lt;a&gt;Link here&lt;/a&gt;&lt;/li&gt;
+                   &lt;li class="us-tabs__links-item"&gt;&lt;a&gt;Link here&lt;/a&gt;&lt;/li&gt;
+                   &lt;li class="us-tabs__links-item"&gt;&lt;a&gt;Link here&lt;/a&gt;&lt;/li&gt;
+                   &lt;li class="us-tabs__links-item"&gt;&lt;a&gt;Link here&lt;/a&gt;&lt;/li&gt;
+                   &lt;li class="us-tabs__links-item"&gt;&lt;a&gt;Link here&lt;/a&gt;&lt;/li&gt;
+                   &lt;li class="us-tabs__links-item"&gt;&lt;a&gt;Link here&lt;/a&gt;&lt;/li&gt;
+                 &lt;/ul&gt;
+               &lt;/div&gt;
+             &lt;/div&gt;
+                </code></pre>
+              </div>
+            </div>
+            <div class="styleguide__block" id="table_toolbar">
+              <h2 class="styleguide__block-title">
+                Table toolbar
+                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_table-toolbar.scss" class="styleguide__file-link"><svg class="us-icon--small us-icon--github"><use xlink:href="/images/icons.svg#icon-github">Github:</use></svg> <span class="us-tablet--inline">_table-toolbar.scss</span></a>
+              </h2>
+            
+              <div class="styleguide__description">
+                <p>   The table toolbar sits above comparison tables and holds search refinement and filtering tools.</p>
+            
+              </div>
+            
+            
+              <div class="styleguide__block-examples">
+                <h3 class="styleguide__block-small-title">Example</h3>
+                <div class="styleguide__block-example">
+                     <div class="us-table-toolbar">
+                <div class="us-table-toolbar__wrapper">
+                 <div class="us-table-toolbar__sort">
+                   <h3 class="us-table-toolbar__heading">Sort by:</h3>
+                   <select class="us-table-toolbar__select name="sort"">
+                     <option value="popularity">Popularity</option>
+                     <option value="apr">Lowest APR</option>
+                     <option value="min-credit-limit">Minimum credit limit</option>
+                     <option value="max-credit-limit">Maximum credit limit</option>
+                   </select>
+                 </div>
+                </div>
+               </div>
+                </div>
+            
+            
+                <pre><code class="html">
+               &lt;div class="us-table-toolbar"&gt;
+                &lt;div class="us-table-toolbar__wrapper"&gt;
+                 &lt;div class="us-table-toolbar__sort"&gt;
+                   &lt;h3 class="us-table-toolbar__heading"&gt;Sort by:&lt;/h3&gt;
+                   &lt;select class="us-table-toolbar__select name="sort""&gt;
+                     &lt;option value="popularity"&gt;Popularity&lt;/option&gt;
+                     &lt;option value="apr"&gt;Lowest APR&lt;/option&gt;
+                     &lt;option value="min-credit-limit"&gt;Minimum credit limit&lt;/option&gt;
+                     &lt;option value="max-credit-limit"&gt;Maximum credit limit&lt;/option&gt;
+                   &lt;/select&gt;
+                 &lt;/div&gt;
+                &lt;/div&gt;
                &lt;/div&gt;
                 </code></pre>
               </div>
