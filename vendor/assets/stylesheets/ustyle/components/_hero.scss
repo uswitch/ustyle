@@ -29,6 +29,11 @@ $hero-text-color: $c-navy !default;
 .us-hero-title {
   margin-top: 0;
   font-size: 20px;
+
+  @include respond-to(tablet) {
+    margin-top: 0;
+    font-size: 2.25em;
+  }
 }
 
 .us-hero-title,
@@ -39,15 +44,8 @@ $hero-text-color: $c-navy !default;
 .us-hero-description {
   @extend %reset-box-model;
   display: none;
-}
 
-@include respond-to(tablet) {
-  .us-hero-title {
-    margin-top: 0;
-    font-size: 2.25em;
-  }
-
-  .us-hero-description {
+  @include respond-to(tablet) {
     display: block;
   }
 }
