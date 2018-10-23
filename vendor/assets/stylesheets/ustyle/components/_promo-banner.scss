@@ -1,0 +1,131 @@
+// @page Pattern Library/Components
+// @name Promo banner
+//
+// @description
+//  Promotional banner
+//
+// @markup
+// <div class="us-promo-banner">
+//   <div class="us-promo-banner__inner">
+//     <h3 class="us-promo-banner__title">Title block here</h3>
+//     <ul class="us-promo-banner__list">
+//       <li class="us-promo-banner__list-item">
+//         <span class="us-promo-banner__circle">1</span>
+//         <span class="us-promo-banner__text">Text here</span>
+//       </li>
+//       <li class="us-promo-banner__list-item">
+//         <span class="us-promo-banner__circle">2</span>
+//         <span class="us-promo-banner__text">Text here</span>
+//       </li>
+//       <li class="us-promo-banner__list-item">
+//         <span class="us-promo-banner__circle">3</span>
+//         <span class="us-promo-banner__text">Text here</span>
+//       </li>
+//     </ul>
+//     <div class="us-promo-banner__button"><a class="us-btn us-btn--action us-btn--large" href="#">Promo CTA text</a></div>
+//   </div>
+// </div>
+
+.us-promo-banner {
+  width: 100%;
+  padding: 1.7em;
+  background-color: $c-navy;
+
+  &__inner {
+    display: flex;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__list {
+    display: flex;
+    width: 100%;
+    padding: 0;
+    margin: 1em 0 1.2em 0;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__list-item {
+    display: flex;
+    width: 100%;
+    margin: 15px 0 0 0;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    &:first-child {
+      margin: 0;
+    }
+  }
+
+  &__title {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  &__circle {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    min-height: 36px;
+    margin-right: 10px;
+    line-height: 30px;
+    color: #fff;
+    text-align: center;
+    background: #2aaa5b;
+    border: solid 3px #fff;
+    border-radius: 50%;
+    align-self: flex-start;
+  }
+
+  &__text {
+    padding: 5px 10px 0 10px;
+    color: #fff;
+    flex-grow: 1;
+    align-self: flex-start;
+  }
+
+  &__button {
+    margin: 0 auto;
+
+    a { width: 100%; }
+  }
+}
+
+@include respond-to(desktop) {
+  .us-promo-banner {
+    &__inner {
+      max-width: 1200px;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    &__list {
+      width: 70%;
+      flex-direction: row;
+      flex-grow: 1;
+    }
+
+    &__list-item {
+      margin: 0;
+    }
+
+    &__title {
+      width: 100%;
+      font-size: 1.5em;
+    }
+
+    &__button {
+      width: auto;
+      flex-grow: 1;
+    }
+  }
+}
