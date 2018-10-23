@@ -39,6 +39,12 @@
     align-items: flex-start;
     flex-direction: column;
     justify-content: center;
+
+    @include respond-to(desktop) {
+      max-width: 1200px;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
   }
 
   &__list {
@@ -49,6 +55,12 @@
     align-items: flex-start;
     flex-direction: column;
     justify-content: center;
+
+    @include respond-to(desktop) {
+      width: 70%;
+      flex-direction: row;
+      flex-grow: 1;
+    }
   }
 
   &__list-item {
@@ -59,15 +71,24 @@
     flex-direction: row;
     justify-content: flex-start;
 
-    &:first-child {
+    @include respond-to(desktop) {
       margin: 0;
     }
+
+    &:first-child {
+      margin: 0;
+    }   
   }
 
   &__title {
     font-size: 1.2em;
     font-weight: 700;
     color: #fff;
+
+    @include respond-to(desktop) {
+      width: 100%;
+      font-size: 1.5em;
+    }
   }
 
   &__circle {
@@ -96,36 +117,11 @@
   &__button {
     margin: 0 auto;
 
-    a { width: 100%; }
-  }
-}
-
-@include respond-to(desktop) {
-  .us-promo-banner {
-    &__inner {
-      max-width: 1200px;
-      flex-direction: row;
-      flex-wrap: wrap;
-    }
-
-    &__list {
-      width: 70%;
-      flex-direction: row;
-      flex-grow: 1;
-    }
-
-    &__list-item {
-      margin: 0;
-    }
-
-    &__title {
-      width: 100%;
-      font-size: 1.5em;
-    }
-
-    &__button {
+    @include respond-to(desktop) {
       width: auto;
       flex-grow: 1;
     }
+
+    a { width: 100%; }
   }
 }

@@ -24,11 +24,20 @@ $hero-text-color: $c-navy !default;
   @extend %container;
   max-width: 800px;
   padding: 2.5em 15px;
+
+  @include respond-to(desktop) {
+    max-width: 1200px;
+  }
 }
 
 .us-hero-title {
   margin-top: 0;
   font-size: 20px;
+
+  @include respond-to(tablet) {
+    margin-top: 0;
+    font-size: 2.37em;
+  }
 }
 
 .us-hero-title,
@@ -39,15 +48,10 @@ $hero-text-color: $c-navy !default;
 .us-hero-description {
   @extend %reset-box-model;
   display: none;
-}
+  padding-top: 5px;
+  color: $c-typegrey;
 
-@include respond-to(tablet) {
-  .us-hero-title {
-    margin-top: 0;
-    font-size: 2.25em;
-  }
-
-  .us-hero-description {
+  @include respond-to(tablet) {
     display: block;
   }
 }
