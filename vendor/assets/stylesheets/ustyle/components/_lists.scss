@@ -48,11 +48,3 @@
     }
   }
 }
-
-@include respond-to(mobile) {
-  .us-list {
-    li {
-      font-size: 16px;
-    }
-  }
-}
