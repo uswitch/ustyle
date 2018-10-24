@@ -22,7 +22,6 @@ $hero-text-color: $c-navy !default;
 
 .us-hero-container {
   @extend %container;
-  max-width: 800px;
   padding: 2.5em 15px;
 }
 
@@ -44,6 +43,8 @@ $hero-text-color: $c-navy !default;
 .us-hero-description {
   @extend %reset-box-model;
   display: none;
+  padding-top: 5px;
+  color: $c-typegrey;
 
   @include respond-to(tablet) {
     display: block;
