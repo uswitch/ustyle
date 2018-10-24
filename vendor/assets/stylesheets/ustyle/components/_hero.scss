@@ -22,12 +22,7 @@ $hero-text-color: $c-navy !default;
 
 .us-hero-container {
   @extend %container;
-  max-width: 800px;
   padding: 2.5em 15px;
-
-  @include respond-to(desktop) {
-    max-width: 1200px;
-  }
 }
 
 .us-hero-title {
@@ -36,7 +31,7 @@ $hero-text-color: $c-navy !default;
 
   @include respond-to(tablet) {
     margin-top: 0;
-    font-size: 2.37em;
+    font-size: 2.25em;
   }
 }
 

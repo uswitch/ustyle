@@ -5,6 +5,7 @@
 //   Related lists used for content sidebars.
 //
 // @markup
+//  <h2 class="us-related__title">Title here</h2>
 //   <ul class="us-related us-list--reset">
 //     <li class="us-related__item">
 //       <a class="us-related__item-link" href="#">Car accident claims — How to make a car insurance claim</a>
@@ -15,9 +16,6 @@
 //     <li class="us-related__item">
 //       <a class="us-related__item-link" href="#">No claims bonus explained: how to protect a no claims discount</a>
 //     </li>
-//     <li class="us-related__item">
-//       <a class="us-related__item-link us-related__item-link--more" href="#">See more guides</a>
-//     </li>
 //   </ul>
 
 .us-related {
@@ -26,6 +24,10 @@
 
 .us-related__item {
   margin-bottom: 0;
+}
+
+.us-related__title {
+  font-size: 1.125em;
 }
 
 .us-related__item-link {
