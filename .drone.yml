@@ -1,16 +1,17 @@
 pipeline:
-  deploy:
+  build:
     when:
-      event: deployment
-      environment: [minor, patch, major]
-    image: starefossen/ruby-node
-    secrets:
-      - aws_access_key_id
-      - aws_secret_access_key
+      event: push
+      branch: master
+    image: starefossen/ruby-node:2-8
     commands:
       - npm install --silent
       - bundle install --binstubs
-      - npx grunt deploy
-    environment:
-      - LC_ALL=C.UTF-8
-      - LANG=C.UTF-8
+      - npm run publish
+
+  publish:
+    when:
+      event: push
+      branch: master
+    image: plugins/gh-pages
+    secrets: [ github_username, github_password ]
