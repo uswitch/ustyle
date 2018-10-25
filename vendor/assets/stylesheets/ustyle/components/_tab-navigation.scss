@@ -27,6 +27,10 @@
   display: none;
   background-color: $c-bggrey;
 
+  @include respond-to(desktop) {
+    display: block;
+  }
+
   &__inner {
     width: 100%;
     max-width: 1200px;
@@ -95,10 +99,4 @@
 
     &::before { opacity: 1; }
   }
-}
-
-@include respond-to(desktop) {
-  .us-tabs {
-    display: block;
-  } 
 }

@@ -36,6 +36,8 @@
   },
   "scripts": {
     "start": "grunt",
+    "build": "grunt build",
+    "publish": "grunt publish",
     "depcheck": "depcheck --specials=grunt --ignores=depcheck,grunt-*"
   },
   "devDependencies": {

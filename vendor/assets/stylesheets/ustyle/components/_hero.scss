@@ -15,8 +15,6 @@
 
 $hero-background-color: $c-cyan !default;
 $hero-text-color: $c-navy !default;
-$hero-padding-top: 2.5em !default;
-$hero-padding-bottom: $hero-padding-top !default;
 
 .us-hero {
   background-color: $hero-background-color;
@@ -24,12 +22,17 @@ $hero-padding-bottom: $hero-padding-top !default;
 
 .us-hero-container {
   @extend %container;
-  padding-top: $hero-padding-top;
-  padding-bottom: $hero-padding-bottom;
+  padding: 2.5em 15px;
 }
 
 .us-hero-title {
   margin-top: 0;
+  font-size: 20px;
+
+  @include respond-to(tablet) {
+    margin-top: 0;
+    font-size: 2.25em;
+  }
 }
 
 .us-hero-title,
@@ -39,4 +42,11 @@ $hero-padding-bottom: $hero-padding-top !default;
 
 .us-hero-description {
   @extend %reset-box-model;
+  display: none;
+  padding-top: 5px;
+  color: $c-typegrey;
+
+  @include respond-to(tablet) {
+    display: block;
+  }
 }
