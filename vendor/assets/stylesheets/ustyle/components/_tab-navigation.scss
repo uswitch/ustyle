@@ -5,7 +5,7 @@
 //   Above table, tab-style navigation
 //
 // @markup
-// <div class="us-tabs">
+// <div class="us-tabs us-tabs--page-nav">
 //   <div class="us-tabs__inner">
 //     <ul class="us-tabs__links">
 //       <li class="us-tabs__links-item us-tabs__links-item--active"><a href="#">Link here</a></li>
@@ -24,11 +24,14 @@
 // </div>
 
 .us-tabs {
-  display: none;
   background-color: $c-bggrey;
 
-  @include respond-to(desktop) {
-    display: block;
+  &--page-nav {
+    display: none;
+
+    @include respond-to(desktop) {
+      display: block;
+    }
   }
 
   &__inner {
@@ -45,7 +48,7 @@
     align-items: center;
     flex-direction: row;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: stretch;
   }
 
