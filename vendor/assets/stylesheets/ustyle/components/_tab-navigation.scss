@@ -24,10 +24,9 @@
 // </div>
 
 .us-tabs {
-  background-color: $c-bggrey;
-
   &--page-nav {
     display: none;
+    background-color: $c-bggrey;
 
     @include respond-to(tablet) {
       display: block;
