@@ -31,7 +31,7 @@
 
   &__wrapper {
     display: flex;
-    padding: 15px;
+    padding: 15px 0 15px 15px;
 
     @include respond-to(tablet) { 
       max-width: 800px;
