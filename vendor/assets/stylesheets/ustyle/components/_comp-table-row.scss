@@ -148,10 +148,6 @@
       }
     }
 
-    &--image{
-      border-top: 0;
-    }
-
     &--apply {
       position: absolute;
       top: 0;
@@ -173,6 +169,7 @@
     }
 
     &--image {
+      border-top: 0;
       @include respond-to(desktop) {
         flex: 0 0 150px;
       }
