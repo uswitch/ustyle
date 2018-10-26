@@ -130,9 +130,9 @@
   &__col {
     padding: $gutter-width / 2;
     border-top: 1px solid $c-keylinegrey;
-    border-right: 1px solid $c-keylinegrey;
 
     @include respond-to(desktop) {
+      border-right: 1px solid $c-keylinegrey;
       text-align: center;
       border-top: 0;
     }
@@ -148,10 +148,15 @@
       }
     }
 
+    &--image{
+      border-top: 0;
+    }
+
     &--apply {
       position: absolute;
       top: 0;
       right: 0;
+      border-top: 0;
       width: calc(100% - 165px);
       max-width: 200px;
       text-align: center;
@@ -161,6 +166,7 @@
       }
 
       @include respond-to(desktop) {
+        border-right: 0;
         position: relative;
         flex: 0 0 160px;
       }
@@ -188,6 +194,7 @@
     border-bottom: 1px solid $c-keylinegrey;
     justify-content: center;
     align-items: center;
+    padding: 10px;
 
     @include respond-to(small-tablet) {
       padding: 10px 80px;
