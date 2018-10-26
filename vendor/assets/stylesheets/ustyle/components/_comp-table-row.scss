@@ -170,6 +170,7 @@
 
     &--image {
       border-top: 0;
+
       @include respond-to(desktop) {
         flex: 0 0 150px;
       }
