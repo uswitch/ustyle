@@ -34,6 +34,7 @@
   &__wrapper {
     display: flex;
     padding: 15px;
+    margin: 0 auto;
 
     @include respond-to(tablet) {
       padding: $gutter-width $gutter-width / 2;
