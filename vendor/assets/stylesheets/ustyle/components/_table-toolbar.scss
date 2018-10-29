@@ -23,6 +23,7 @@
   @include respond-to(to-small-tablet) {
     background: #f4f5f6;
     border-bottom: 1px solid $c-keylinegrey;
+    margin: 0 auto $gutter-width / 2;
 
     &__sort,
     &__select {
@@ -35,14 +36,14 @@
     padding: 15px;
 
     @include respond-to(tablet) {
-      padding: 15px 0;
-      margin: 15px auto;
+      padding: $gutter-width $gutter-width / 2;
       align-items: center;
       justify-content: flex-end;
       border-bottom: 0;
     }
 
     @include respond-to(desktop) {
+      padding: $gutter-width 0;
       max-width: 950px;
     }
   }
