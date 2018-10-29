@@ -22,6 +22,7 @@
 .us-table-toolbar {
   @include respond-to(to-small-tablet) {
     background: #f4f5f6;
+    border-bottom: 1px solid $c-keylinegrey;
 
     &__sort,
     &__select {
@@ -31,21 +32,18 @@
 
   &__wrapper {
     display: flex;
-    padding: 15px 0;
+    padding: 15px;
 
-    @include respond-to(tablet) { 
-      max-width: 800px;
-      margin: 0 auto;
+    @include respond-to(tablet) {
+      padding: 15px 0;
+      margin: 15px auto;
       align-items: center;
       justify-content: flex-end;
+      border-bottom: none;
     }
 
     @include respond-to(desktop) {
-      max-width: 980px;
-    }
-
-    @include respond-to(large-desktop) {
-      max-width: 1200px;
+      max-width: 950px;
     }
   }
 
