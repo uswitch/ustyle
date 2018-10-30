@@ -24,7 +24,6 @@ $input-placeholder-color: $c-inputgrey !default;
   @extend %input-background--normalise;
   @include placeholder($input-placeholder-color);
   @include input-sizing();
-  outline: 0;
   box-shadow: none;
 
   &:focus {

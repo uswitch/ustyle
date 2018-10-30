@@ -1,6 +1,6 @@
 {
   "name": "ustyle",
-  "version": "1.18.1",
+  "version": "1.19.0",
   "description": "A living styleguide and pattern library by uSwitch.",
   "keywords": [
     "css",
@@ -36,6 +36,8 @@
   },
   "scripts": {
     "start": "grunt",
+    "build": "grunt build",
+    "publish": "grunt publish",
     "depcheck": "depcheck --specials=grunt --ignores=depcheck,grunt-*"
   },
   "devDependencies": {

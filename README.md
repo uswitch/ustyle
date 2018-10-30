@@ -173,7 +173,13 @@ For Sass documentation on mixins/variables available to you, please see: https:/
 
 ## Development
 
-To preview changes that you make to uStyle's components and documentation, run:
+To preview changes that you make to uStyle's components and documentation, install dependencies with
+
+    $ npm install
+    
+    $ bundle install
+
+then run:
 
     $ npm start
 

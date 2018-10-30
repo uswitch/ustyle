@@ -210,18 +210,18 @@ module.exports = function (grunt) {
   })
 
   grunt.registerTask('lint', ['scsslint', 'standard'])
-  grunt.registerTask('icons', ['newer:svgmin', 'svgstore'])
+  grunt.registerTask('icons', ['svgstore'])
 
   grunt.registerTask('build', ['clean', 'sass', 'sassdoc', 'copy', 'concat:ustyle', 'concat:app', 'uglify:ustyle', 'lint', 'postcss', 'styleguide', 'builder', 'icons'])
 
-  grunt.registerTask('publish', ['env:build', 'build', 'buildcontrol:pages'])
+  grunt.registerTask('publish', ['env:build', 'build'])
 
   grunt.registerTask('publish:version', 'Build and publish ustyle version', function (version) {
     if (version === null) {
       grunt.warn('Version must be specified when publishing ustyle')
     }
 
-    grunt.task.run('env:build', 'version::' + version, 'build', 'shell:upgrade', 'buildcontrol:pages')
+    grunt.task.run('env:build', 'version::' + version, 'build', 'shell:upgrade')
   })
 
   grunt.registerTask('deploy', ['shell:publish'])
