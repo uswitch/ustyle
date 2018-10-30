@@ -73,11 +73,6 @@
   border-bottom-width: 5px;
   border-radius: 5px;
 
-  @include respond-to(desktop) {
-    max-width: 950px;
-    margin: auto;
-  }
-
   &:hover {
     cursor: pointer;
   }
