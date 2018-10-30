@@ -34,9 +34,7 @@
 //         <a href="#" class="us-ct-row__more-info">More info</a>
 //       </div>
 //     </div>
-//     <div class="us-ct-row__rep-ex">
-//       <strong>Representative example: When you spend £1,200 at a rate of 34.91% (variable) per annum, your representative APR is 34.9% APR (variable)</strong>
-//     </div>
+//     <span class="us-ct-row__rep-ex">Representative example: When you spend £1,200 at a rate of 34.91% (variable) per annum, your representative APR is 34.9% APR (variable)</span>
 //     <div class="us-ct-row__key-details">
 //       <button class="us-ct-row__key-details-toggle us-ct-row__key-details-toggle-open">View key details <svg role="presentation" class="us-ct-row__key-details-chevron"><use xlink:href="/images/icons.svg#icon-chevron-right"></use></svg></button>
 //       <div class="us-ct-row__key-details-info">
@@ -187,12 +185,12 @@
   }
 
   &__rep-ex {
-    display: flex;
+    display: block;
     text-align: center;
     border-bottom: 1px solid $c-keylinegrey;
-    justify-content: center;
-    align-items: center;
     padding: 10px;
+    font-weight: bold;
+    width: 100%;
 
     @include respond-to(small-tablet) {
       padding: 10px 80px;
