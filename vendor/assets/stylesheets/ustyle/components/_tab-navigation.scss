@@ -64,9 +64,11 @@
     align-items: center;
     justify-content: center;
     font-size: .875em;
+    line-height: 1.25em;
 
     @include respond-to(desktop) {
       font-size: 1em;
+      line-height: 1.6em;
     }
 
     a {
