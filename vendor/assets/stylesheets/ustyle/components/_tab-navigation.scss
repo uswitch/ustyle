@@ -68,6 +68,7 @@
 
     @include respond-to(desktop) {
       font-size: 1em;
+      line-height: 1.6em;
     }
 
     a {
