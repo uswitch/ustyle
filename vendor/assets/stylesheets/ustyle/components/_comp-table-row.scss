@@ -4,8 +4,10 @@
 // @description
 //   The `.us-ct__row` appears in the comparison tables, and contains a single product.
 //
+// @state .us-ct-row--details-toggle - Used for a thicker bottom border when the toggle is showing.
+//
 // @markup
-//   <div class="us-ct-row">
+//   <div class="us-ct-row {$modifiers}">
 //     <div class="us-ct-row__title">
 //       <p class="us-ct-row__title-text">aqua Reward With Cashback</p>
 //       <div class="us-usp us-usp--orange">£20 Amazon voucher</div>
@@ -68,8 +70,11 @@
   color: $c-navy;
   background: #fff;
   border: 1px solid $c-keylinegrey;
-  border-bottom-width: 5px;
   border-radius: 5px;
+
+  &--details-toggle {
+    border-bottom-width: 5px;
+  }
 
   &:hover {
     cursor: pointer;
@@ -172,12 +177,12 @@
       @include respond-to(desktop) {
         flex: 0 0 150px;
       }
-    }
 
-    &--image img {
-      @include respond-to(desktop) {
-        width: 120px;
-        height: auto;
+      img {
+        @include respond-to(desktop) {
+          width: 120px;
+          height: auto;
+        }
       }
     }
   }
