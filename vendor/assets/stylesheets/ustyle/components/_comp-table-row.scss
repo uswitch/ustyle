@@ -172,12 +172,12 @@
       @include respond-to(desktop) {
         flex: 0 0 150px;
       }
-    }
 
-    &--image img {
-      @include respond-to(desktop) {
-        width: 120px;
-        height: auto;
+      img {
+        @include respond-to(desktop) {
+          width: 120px;
+          height: auto;
+        }
       }
     }
   }
@@ -281,5 +281,25 @@
   &__value {
     font-size: 14px;
     order: 1;
+  }
+
+  &__eligibility {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0 10px 0;
+  }
+
+  &__eligibility-score {
+    font-weight: 700;
+  }
+  
+  &__eligibility-link {
+    white-space: nowrap;
+    cursor: pointer;
+    color: #008fe9;
+    border-bottom: 1px solid #008fe9;
   }
 }
