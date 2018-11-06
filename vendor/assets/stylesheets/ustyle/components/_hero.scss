@@ -77,8 +77,13 @@ $hero-padding-bottom: $hero-padding-top !default;
 }
 
 .us-hero__block {
-  @include respond-to(tablet) {
+  @include respond-to(mobile) {
+    &:nth-child(2) {
+      display: none;
+    }
+  }
 
+  @include respond-to(tablet) {
     &:nth-child(1) {
       width: 60%;
       max-width: 60%;
@@ -105,9 +110,5 @@ $hero-padding-bottom: $hero-padding-top !default;
       width: 50%;
       max-width: 50%;
     }
-  }
-
-  &:nth-child(2) {
-    display: none;
   }
 }
