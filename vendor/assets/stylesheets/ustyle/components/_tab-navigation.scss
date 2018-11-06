@@ -68,14 +68,14 @@
 
     @include respond-to(desktop) {
       font-size: 1em;
-      line-height: 1.6em;
+      line-height: 1.25em;
     }
 
     a {
       display: block;
       color: $c-inputgrey;
       transition: color .2s;
-      padding: 20px 1em 18px;
+      padding: 14px 1em 12px;
     }
 
     &:last-child {
