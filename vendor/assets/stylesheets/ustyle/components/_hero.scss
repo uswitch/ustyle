@@ -12,6 +12,14 @@
 //       <p class='us-hero-description us-standfirst us-mobile--hidden'>Swat at dog intrigued by the shower missing until dinner time.</p>
 //     </div>
 //   </div>
+//   <div class='us-hero us-hero--double'>
+//   <div class='us-hero-container'>
+//    <div class="us-hero__block">
+//     <h1 class='us-hero-title'>Hero title</h1>
+//     <p class='us-hero-description us-standfirst us-mobile--hidden'>Swat at dog intrigued by the shower missing until dinner time.</p>
+//   </div>
+//   <div class="us-hero__block"></div>
+// </div>
 
 $hero-background-color: $c-cyan !default;
 $hero-text-color: $c-navy !default;
@@ -51,4 +59,55 @@ $hero-padding-bottom: $hero-padding-top !default;
   @extend %reset-box-model;
   margin-bottom: 0;
   padding-top: 5px;
+}
+
+.us-hero--double .us-hero-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  @include respond-to(tablet) {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  @include respond-to(desktop) {
+    align-items: flex-start;
+  }
+}
+
+.us-hero__block {
+  @include respond-to(tablet) {
+
+    &:nth-child(1) {
+      width: 60%;
+      max-width: 60%;
+      flex-grow: 1;
+      margin: 0 100px 0 0;
+    }
+
+    &:nth-child(2) {
+      width: 40%;
+      margin: 0 100px 0 0;
+      display: block;
+    }
+  }
+
+  @include respond-to(desktop) {
+    &:nth-child(1) {
+      width: auto;
+      max-width: 100%;
+      flex-grow: 1;
+      margin: 0 100px 0 0;
+    }
+
+    &:nth-child(2) {
+      width: 50%;
+      max-width: 50%;
+    }
+  }
+
+  &:nth-child(2) {
+    display: none;
+  }
 }
