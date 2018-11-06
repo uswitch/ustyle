@@ -172,12 +172,12 @@
       @include respond-to(desktop) {
         flex: 0 0 150px;
       }
-    }
-
-    &--image img {
-      @include respond-to(desktop) {
-        width: 120px;
-        height: auto;
+  
+      img {
+        @include respond-to(desktop) {
+          width: 120px;
+          height: auto;
+        }
       }
     }
   }
