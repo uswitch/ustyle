@@ -300,11 +300,26 @@
   &__eligibility-score {
     font-weight: 700;
   }
-  
+
   &__eligibility-link {
     white-space: nowrap;
     cursor: pointer;
     color: #008fe9;
     border-bottom: 1px solid #008fe9;
+  }
+
+  &__eligibility-progress {
+    height: 15px;
+    width: 100%;
+    background: #e9ebed;
+    margin: 0 0 5px 0;
+    position: relative;
+  }
+
+  &__eligibility-bar {
+    height: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 }
