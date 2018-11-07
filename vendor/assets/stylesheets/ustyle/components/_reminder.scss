@@ -1,0 +1,43 @@
+// @page Pattern Library/Components
+// @name Reminder
+//
+// @description
+//   Placed underneath some tables to enable reminders
+//
+// @markup
+//   <div class="us-container us-reminder">
+//     <div class="us-grid-row us-reminder-title">Got a balance transfer card?</div>
+//     <div class="us-grid-row us-reminder-content">
+//       <div class="us-col-xsm-9">
+//         <p>Create a reminder and we'll let you know when you're nearing the end of your 0% period</p>
+//         <a class="us-btn us-btn--action" data-widget-creative="banner" data-widget-name="reminder-credit-cards" data-widget-position="table" data-event="" data-event-category="reminders" data-event-action="banner-click" data-event-label="credit-cards" href="/account/signin?origin=https://www.uswitch.com/account/reminders#credit-cards&amp;source=credit-cards.reminders" data-overlay-title="Sign up to create a reminder" data-source="credit-cards.reminders" data-origin="https://www.uswitch.com/account/reminders#credit-cards" onclick="uSwitch.openSignin(event)">
+//           Create a reminder
+//         </a>
+//       </div>
+//       <div class="us-col-xsm-3">
+//         <svg class="us-icon--large us-icon--notext us-icon--inputgrey us-float--right" role="presentation">
+//           <use xlink:href="/icons.svg#icon-calendar"></use>
+//         </svg>
+//       </div>
+//     </div>
+//   </div>
+
+.us-reminder {
+  background-color: $c-cyan-light;
+  border: 1px solid $c-typecyan;
+  max-width: 950px;
+
+  &-title {
+    background-color: white;
+    padding: $gutter-width / 2;
+    font-weight: bold;
+  }
+
+  &-content {
+    padding: $gutter-width / 2 0;
+
+    p {
+      margin-bottom: $gutter-width / 2;
+    }
+  }
+}
