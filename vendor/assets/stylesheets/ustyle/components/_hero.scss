@@ -1,6 +1,6 @@
 // @page Pattern Library/Components
 // @name Hero
-// 
+//
 // @description
 //   The `.us-hero` is used for the upper part of most pages, where the calls to action are usually kept.
 //   It is intended to draw attention with `$c-cyan` as it's background color, and should be used across all landing pages.
@@ -9,12 +9,22 @@
 //   <div class='us-hero'>
 //     <div class='us-hero-container'>
 //       <h1 class='us-hero-title'>Hero title</h1>
-//       <p class='us-hero-description us-standfirst'>Swat at dog intrigued by the shower missing until dinner time.</p>
+//       <p class='us-hero-description us-standfirst us-mobile--hidden'>Swat at dog intrigued by the shower missing until dinner time.</p>
 //     </div>
 //   </div>
+//   <div class='us-hero us-hero--double'>
+//   <div class='us-hero-container'>
+//    <div class="us-hero__block">
+//     <h1 class='us-hero-title'>Hero title</h1>
+//     <p class='us-hero-description us-standfirst us-mobile--hidden'>Swat at dog intrigued by the shower missing until dinner time.</p>
+//   </div>
+//   <div class="us-hero__block"></div>
+// </div>
 
 $hero-background-color: $c-cyan !default;
 $hero-text-color: $c-navy !default;
+$hero-padding-top: 2.5em !default;
+$hero-padding-bottom: $hero-padding-top !default;
 
 .us-hero {
   background-color: $hero-background-color;
@@ -22,15 +32,20 @@ $hero-text-color: $c-navy !default;
 
 .us-hero-container {
   @extend %container;
-  padding: 2.5em 15px;
+  padding-top: $hero-padding-top / 2;
+  padding-bottom: $hero-padding-bottom / 2;
+
+  @include respond-to(tablet) {
+    padding-top: $hero-padding-top;
+    padding-bottom: $hero-padding-bottom;
+  }
 }
 
 .us-hero-title {
-  margin-top: 0;
-  font-size: 20px;
+  margin-bottom: 0;
+  font-size: 1.25em;
 
   @include respond-to(tablet) {
-    margin-top: 0;
     font-size: 2.25em;
   }
 }
@@ -42,11 +57,58 @@ $hero-text-color: $c-navy !default;
 
 .us-hero-description {
   @extend %reset-box-model;
-  display: none;
+  margin-bottom: 0;
   padding-top: 5px;
-  color: $c-typegrey;
+}
+
+.us-hero--double .us-hero-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 
   @include respond-to(tablet) {
-    display: block;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  @include respond-to(desktop) {
+    align-items: flex-start;
+  }
+}
+
+.us-hero__block {
+  @include respond-to(mobile) {
+    &:nth-child(2) {
+      display: none;
+    }
+  }
+
+  @include respond-to(tablet) {
+    &:nth-child(1) {
+      width: 60%;
+      max-width: 60%;
+      flex-grow: 1;
+      margin: 0 100px 0 0;
+    }
+
+    &:nth-child(2) {
+      width: 40%;
+      margin: 0 100px 0 0;
+      display: block;
+    }
+  }
+
+  @include respond-to(desktop) {
+    &:nth-child(1) {
+      width: auto;
+      max-width: 100%;
+      flex-grow: 1;
+      margin: 0 100px 0 0;
+    }
+
+    &:nth-child(2) {
+      width: 50%;
+      max-width: 50%;
+    }
   }
 }

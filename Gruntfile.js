@@ -221,7 +221,7 @@ module.exports = function (grunt) {
       grunt.warn('Version must be specified when publishing ustyle')
     }
 
-    grunt.task.run('env:build', 'version::' + version, 'build', 'shell:upgrade', 'buildcontrol:pages')
+    grunt.task.run('env:build', 'version::' + version, 'build', 'shell:upgrade')
   })
 
   grunt.registerTask('deploy', ['shell:publish'])

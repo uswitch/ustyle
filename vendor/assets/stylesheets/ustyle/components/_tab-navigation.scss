@@ -55,7 +55,6 @@
     position: relative;
     display: flex;
     max-width: 180px;
-    padding: 20px 1em 15px 1em;
     margin: 0;
     text-align: center;
     cursor: pointer;
@@ -65,14 +64,18 @@
     align-items: center;
     justify-content: center;
     font-size: .875em;
+    line-height: 1.25em;
 
     @include respond-to(desktop) {
       font-size: 1em;
+      line-height: 1.25em;
     }
 
     a {
+      display: block;
       color: $c-inputgrey;
       transition: color .2s;
+      padding: 14px 1em 12px;
     }
 
     &:last-child {
