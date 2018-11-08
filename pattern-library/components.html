@@ -135,6 +135,7 @@
                 <a class="nav__link" href="#loader">Loader</a>
                 <a class="nav__link" href="#progress_navigation">Progress navigation</a>
                 <a class="nav__link" href="#promo_banner">Promo banner</a>
+                <a class="nav__link" href="#reminder">Reminder</a>
                 <a class="nav__link" href="#tab_navigation">Tab navigation</a>
                 <a class="nav__link" href="#table_toolbar">Table toolbar</a>
                 <a class="nav__link" href="#usps">USPs</a>
@@ -657,13 +658,14 @@
                  </div>
                </div>
                <div class='us-hero us-hero--double'>
-               <div class='us-hero-container'>
-                <div class="us-hero__block">
-                 <h1 class='us-hero-title'>Hero title</h1>
-                 <p class='us-hero-description us-standfirst us-mobile--hidden'>Swat at dog intrigued by the shower missing until dinner time.</p>
+                 <div class='us-hero-container'>
+                   <div class="us-hero__block">
+                     <h1 class='us-hero-title'>Hero title</h1>
+                     <p class='us-hero-description us-standfirst us-mobile--hidden'>Swat at dog intrigued by the shower missing until dinner time.</p>
+                   </div>
+                   <div class="us-hero__block"></div>
+                 </div>
                </div>
-               <div class="us-hero__block"></div>
-             </div>
                 </div>
             
             
@@ -675,13 +677,14 @@
                  &lt;/div&gt;
                &lt;/div&gt;
                &lt;div class='us-hero us-hero--double'&gt;
-               &lt;div class='us-hero-container'&gt;
-                &lt;div class="us-hero__block"&gt;
-                 &lt;h1 class='us-hero-title'&gt;Hero title&lt;/h1&gt;
-                 &lt;p class='us-hero-description us-standfirst us-mobile--hidden'&gt;Swat at dog intrigued by the shower missing until dinner time.&lt;/p&gt;
+                 &lt;div class='us-hero-container'&gt;
+                   &lt;div class="us-hero__block"&gt;
+                     &lt;h1 class='us-hero-title'&gt;Hero title&lt;/h1&gt;
+                     &lt;p class='us-hero-description us-standfirst us-mobile--hidden'&gt;Swat at dog intrigued by the shower missing until dinner time.&lt;/p&gt;
+                   &lt;/div&gt;
+                   &lt;div class="us-hero__block"&gt;&lt;/div&gt;
+                 &lt;/div&gt;
                &lt;/div&gt;
-               &lt;div class="us-hero__block"&gt;&lt;/div&gt;
-             &lt;/div&gt;
                 </code></pre>
               </div>
             </div>
@@ -959,6 +962,60 @@
                  &lt;div class="us-promo-banner__button"&gt;&lt;a class="us-btn us-btn--action us-btn--large" href="#"&gt;Promo CTA text&lt;/a&gt;&lt;/div&gt;
                &lt;/div&gt;
              &lt;/div&gt;
+                </code></pre>
+              </div>
+            </div>
+            <div class="styleguide__block" id="reminder">
+              <h2 class="styleguide__block-title">
+                Reminder
+                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_reminder.scss" class="styleguide__file-link"><svg class="us-icon--small us-icon--github"><use xlink:href="/images/icons.svg#icon-github">Github:</use></svg> <span class="us-tablet--inline">_reminder.scss</span></a>
+              </h2>
+            
+              <div class="styleguide__description">
+                <p>   Placed underneath some tables to enable reminders</p>
+            
+              </div>
+            
+            
+              <div class="styleguide__block-examples">
+                <h3 class="styleguide__block-small-title">Example</h3>
+                <div class="styleguide__block-example">
+                     <div class="us-container us-reminder">
+                 <div class="us-grid-row us-reminder-title">Got a balance transfer card?</div>
+                 <div class="us-grid-row us-reminder-content">
+                   <div class="us-col-xsm-9">
+                     <p>Create a reminder and we'll let you know when you're nearing the end of your 0% period</p>
+                     <a class="us-btn us-btn--action" data-widget-creative="banner" data-widget-name="reminder-credit-cards" data-widget-position="table" data-event="" data-event-category="reminders" data-event-action="banner-click" data-event-label="credit-cards" href="/account/signin?origin=https://www.uswitch.com/account/reminders#credit-cards&amp;source=credit-cards.reminders" data-overlay-title="Sign up to create a reminder" data-source="credit-cards.reminders" data-origin="https://www.uswitch.com/account/reminders#credit-cards" onclick="uSwitch.openSignin(event)">
+                       Create a reminder
+                     </a>
+                   </div>
+                   <div class="us-col-xsm-3">
+                     <svg class="us-icon--large us-icon--notext us-icon--inputgrey us-float--right" role="presentation">
+                       <use xlink:href="/images/icons.svg#icon-calendar"></use>
+                     </svg>
+                   </div>
+                 </div>
+               </div>
+                </div>
+            
+            
+                <pre><code class="html">
+               &lt;div class="us-container us-reminder"&gt;
+                 &lt;div class="us-grid-row us-reminder-title"&gt;Got a balance transfer card?&lt;/div&gt;
+                 &lt;div class="us-grid-row us-reminder-content"&gt;
+                   &lt;div class="us-col-xsm-9"&gt;
+                     &lt;p&gt;Create a reminder and we'll let you know when you're nearing the end of your 0% period&lt;/p&gt;
+                     &lt;a class="us-btn us-btn--action" data-widget-creative="banner" data-widget-name="reminder-credit-cards" data-widget-position="table" data-event="" data-event-category="reminders" data-event-action="banner-click" data-event-label="credit-cards" href="/account/signin?origin=https://www.uswitch.com/account/reminders#credit-cards&amp;source=credit-cards.reminders" data-overlay-title="Sign up to create a reminder" data-source="credit-cards.reminders" data-origin="https://www.uswitch.com/account/reminders#credit-cards" onclick="uSwitch.openSignin(event)"&gt;
+                       Create a reminder
+                     &lt;/a&gt;
+                   &lt;/div&gt;
+                   &lt;div class="us-col-xsm-3"&gt;
+                     &lt;svg class="us-icon--large us-icon--notext us-icon--inputgrey us-float--right" role="presentation"&gt;
+                       &lt;use xlink:href="/images/icons.svg#icon-calendar"&gt;&lt;/use&gt;
+                     &lt;/svg&gt;
+                   &lt;/div&gt;
+                 &lt;/div&gt;
+               &lt;/div&gt;
                 </code></pre>
               </div>
             </div>
