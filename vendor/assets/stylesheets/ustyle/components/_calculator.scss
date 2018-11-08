@@ -1,0 +1,83 @@
+// @page Pattern Library/Components
+// @name Calculator
+//
+// @description
+//   The calculator tends to sit in the table toolbar component and is used to refine results from comparison tables, and give estimated info about products based on the input.
+//
+// @markup
+//   <div class='us-calculator'>
+//     <h2 class='us-calculator__heading'>How much would you like to transfer?</h2>
+//     <div class='us-calculator__input-group'>
+//       <div class='us-calculator__text--prepend'>£</div>
+//       <input type='text' class='us-calculator__text' pattern='[0-9]*' name='amount' id='amount' value='3000' />
+//     </div>
+//     <button class='us-btn us-btn--primary'>Update results</button>
+//     <div class='us-tooltip us-tooltip--right'>
+//       <div class='us-tooltip__wrapper'>
+//         <div class='us-tooltip__icon'></div>
+//         <div class='us-tooltip__note'>
+//           <div class='us-tooltip__arrow'></div>
+//           Note that this is illustrative and this figure does not reflect the credit limit you will be offered.
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+
+.us-calculator {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1 1 373px;
+  max-width: 373px;
+  justify-content: space-between;
+  position: relative;
+
+  &__heading {
+    font-size: 18px;
+    max-width: 89%;
+  }
+
+  &__input-group {
+    flex: 2 1 150px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+  }
+
+  &__text {
+    height: 37px;
+    padding: .35em .5em;
+    font-size: 1em;
+    color: $c-typegrey;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid $c-inputgrey;
+    border-radius: 0 .1875em .1875em 0;
+    outline: 0;
+    max-width: 80%;
+  
+    &--prepend {
+      width: 13%;
+      padding-right: .5em;
+      padding-left: .5em;
+      color: #84909a;
+      text-align: center;
+      background-color: #fff;
+      border: 1px solid #84909a;
+      border-radius: 3px 0 0 3px;
+      border-right: 0;
+      height: 37px;
+      line-height: 37px;
+    }
+  }
+
+  .us-btn--primary {
+    flex: 2 1 150px;
+  }
+
+  .us-tooltip__note {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+  }
+}
