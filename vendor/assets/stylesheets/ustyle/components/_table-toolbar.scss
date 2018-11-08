@@ -6,17 +6,17 @@
 //
 // @markup
 //   <div class="us-table-toolbar">
-//    <div class="us-table-toolbar__wrapper">
-//     <div class="us-table-toolbar__sort">
-//       <h3 class="us-table-toolbar__heading">Sort by:</h3>
-//       <select class="us-table-toolbar__select name="sort"">
-//         <option value="popularity">Popularity</option>
-//         <option value="apr">Lowest APR</option>
-//         <option value="min-credit-limit">Minimum credit limit</option>
-//         <option value="max-credit-limit">Maximum credit limit</option>
-//       </select>
+//     <div class="us-table-toolbar__wrapper">
+//       <div class="us-table-toolbar__sort">
+//         <h3 class="us-table-toolbar__heading">Sort by:</h3>
+//         <select class="us-table-toolbar__select name="sort"">
+//           <option value="popularity">Popularity</option>
+//           <option value="apr">Lowest APR</option>
+//           <option value="min-credit-limit">Minimum credit limit</option>
+//           <option value="max-credit-limit">Maximum credit limit</option>
+//         </select>
+//       </div>
 //     </div>
-//    </div>
 //   </div>
 
 .us-table-toolbar {
@@ -31,15 +31,24 @@
     }
   }
 
+  &__sort {
+    margin: 0 0 0 auto;
+
+    @include respond-to(to-small-tablet) {
+      margin: 15px 0 0 0;
+    }
+  }
+
   &__wrapper {
     display: flex;
     padding: 15px;
     margin: 0 auto;
+    flex-wrap: wrap;
 
     @include respond-to(tablet) {
       padding: $gutter-width $gutter-width / 2;
       align-items: center;
-      justify-content: flex-end;
+      justify-content: space-between;
       border-bottom: 0;
     }
 
@@ -51,6 +60,7 @@
 
   &__heading {
     font-size: 18px;
+    max-width: 89%;
   }
 
   &__select {
