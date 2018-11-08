@@ -16,7 +16,7 @@
 //       </div>
 //       <div class="us-col-xsm-3">
 //         <svg class="us-icon--large us-icon--notext us-icon--inputgrey us-float--right" role="presentation">
-//           <use xlink:href="/icons.svg#icon-calendar"></use>
+//           <use xlink:href="/images/icons.svg#icon-calendar"></use>
 //         </svg>
 //       </div>
 //     </div>
@@ -27,8 +27,14 @@
   border: 1px solid $c-typecyan;
   max-width: 950px;
 
+  &.us-container {
+    @include respond-to(to-small-tablet) {
+      padding: 0;
+    }
+  }
+
   &-title {
-    background-color: white;
+    background-color: #fff;
     padding: $gutter-width / 2;
     font-weight: bold;
   }
