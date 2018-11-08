@@ -124,6 +124,7 @@
               <h4>Patterns</h4>
                 <a class="nav__link" href="#breadcrumbs">Breadcrumbs</a>
                 <a class="nav__link" href="#buttons">Buttons</a>
+                <a class="nav__link" href="#calculator">Calculator</a>
                 <a class="nav__link" href="#comp_table_row">Comp table row</a>
                 <a class="nav__link" href="#compliance_banner">Compliance banner</a>
                 <a class="nav__link" href="#content_group">Content group</a>
@@ -266,6 +267,62 @@
                 <pre><code class="html">
               &lt;a href="#" class="us-btn" role="button"&gt;Link Button&lt;/a&gt;
               &lt;button class="us-btn"&gt;Button Element&lt;/button&gt;
+                </code></pre>
+              </div>
+            </div>
+            <div class="styleguide__block" id="calculator">
+              <h2 class="styleguide__block-title">
+                Calculator
+                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/components/_calculator.scss" class="styleguide__file-link"><svg class="us-icon--small us-icon--github"><use xlink:href="/images/icons.svg#icon-github">Github:</use></svg> <span class="us-tablet--inline">_calculator.scss</span></a>
+              </h2>
+            
+              <div class="styleguide__description">
+                <p>   The calculator tends to sit in the table toolbar component and is used to refine results from comparison tables, and give estimated info about products based on the input.</p>
+            
+              </div>
+            
+            
+              <div class="styleguide__block-examples">
+                <h3 class="styleguide__block-small-title">Example</h3>
+                <div class="styleguide__block-example">
+                     <div class='us-calculator'>
+                 <h2 class='us-calculator__heading'>How much would you like to transfer?</h2>
+                 <div class='us-calculator__input-group'>
+                   <div class='us-calculator__text--prepend'>£</div>
+                   <input type='text' class='us-calculator__text' pattern='[0-9]*' name='amount' id='amount' value='3000' />
+                 </div>
+                 <button class='us-btn us-btn--primary'>Update results</button>
+                 <div class='us-tooltip us-tooltip--right'>
+                   <div class='us-tooltip__wrapper'>
+                     <div class='us-tooltip__icon'></div>
+                     <div class='us-tooltip__note'>
+                       <div class='us-tooltip__arrow'></div>
+                       Note that this is illustrative and this figure does not reflect the credit limit you will be offered.
+                     </div>
+                   </div>
+                 </div>
+               </div>
+                </div>
+            
+            
+                <pre><code class="html">
+               &lt;div class='us-calculator'&gt;
+                 &lt;h2 class='us-calculator__heading'&gt;How much would you like to transfer?&lt;/h2&gt;
+                 &lt;div class='us-calculator__input-group'&gt;
+                   &lt;div class='us-calculator__text--prepend'&gt;£&lt;/div&gt;
+                   &lt;input type='text' class='us-calculator__text' pattern='[0-9]*' name='amount' id='amount' value='3000' /&gt;
+                 &lt;/div&gt;
+                 &lt;button class='us-btn us-btn--primary'&gt;Update results&lt;/button&gt;
+                 &lt;div class='us-tooltip us-tooltip--right'&gt;
+                   &lt;div class='us-tooltip__wrapper'&gt;
+                     &lt;div class='us-tooltip__icon'&gt;&lt;/div&gt;
+                     &lt;div class='us-tooltip__note'&gt;
+                       &lt;div class='us-tooltip__arrow'&gt;&lt;/div&gt;
+                       Note that this is illustrative and this figure does not reflect the credit limit you will be offered.
+                     &lt;/div&gt;
+                   &lt;/div&gt;
+                 &lt;/div&gt;
+               &lt;/div&gt;
                 </code></pre>
               </div>
             </div>
