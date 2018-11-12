@@ -37,7 +37,7 @@
   }
 
   &__input-group {
-    flex: 2 1 125px;
+    flex: 2 1 120px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -54,8 +54,7 @@
     border: 1px solid $c-inputgrey;
     border-radius: 0 .1875em .1875em 0;
     outline: 0;
-    max-width: 80%;
-    width: 100px;
+    width: 75%;
   
     &--prepend {
       width: 20%;
@@ -73,6 +72,6 @@
   }
 
   .us-btn--primary {
-    flex: 2 1 120px;
+    flex: 2 1 60px;
   }
 }
