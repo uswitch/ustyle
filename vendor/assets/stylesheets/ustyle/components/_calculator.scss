@@ -5,7 +5,7 @@
 //   The calculator tends to sit in the table toolbar component and is used to refine results from comparison tables, and give estimated info about products based on the input.
 //
 // @markup
-//   <div class='us-calculator'>
+//   <form class='us-calculator'>
 //     <h2 class='us-calculator__heading'>How much would you like to transfer?</h2>
 //     <div class='us-calculator__input-group'>
 //       <div class='us-calculator__text--prepend'>£</div>
@@ -21,7 +21,7 @@
 //         </div>
 //       </div>
 //     </div>
-//   </div>
+//   </form>
 
 .us-calculator {
   display: flex;
@@ -37,7 +37,7 @@
   }
 
   &__input-group {
-    flex: 2 1 150px;
+    flex: 2 1 120px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -54,10 +54,10 @@
     border: 1px solid $c-inputgrey;
     border-radius: 0 .1875em .1875em 0;
     outline: 0;
-    max-width: 80%;
+    width: 75%;
   
     &--prepend {
-      width: 13%;
+      width: 20%;
       padding-right: .5em;
       padding-left: .5em;
       color: #84909a;
@@ -72,6 +72,6 @@
   }
 
   .us-btn--primary {
-    flex: 2 1 150px;
+    flex: 2 1 60px;
   }
 }
