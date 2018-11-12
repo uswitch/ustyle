@@ -46,7 +46,7 @@
     flex-wrap: wrap;
 
     @include respond-to(tablet) {
-      padding: $gutter-width $gutter-width / 2;
+      padding: $gutter-width 0;
       align-items: center;
       justify-content: space-between;
       border-bottom: 0;
