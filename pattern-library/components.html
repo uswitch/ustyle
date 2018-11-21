@@ -287,12 +287,12 @@
                 <h3 class="styleguide__block-small-title">Example</h3>
                 <div class="styleguide__block-example">
                      <form class='us-calculator'>
-                 <h2 class='us-calculator__heading'>How much would you like to transfer?</h2>
-                 <div class='us-calculator__input-group'>
-                   <div class='us-calculator__text--prepend'>£</div>
-                   <input type='text' class='us-calculator__text' pattern='[0-9]*' name='amount' id='amount' value='3000' />
+                 <h2 class='us-table-toolbar__heading'>How much would you like to transfer?</h2>
+                 <div class='us-calculator__input us-input-group'>
+                   <div class='us-input-group__box'>£</div>
+                   <input type='text' class='us-form-input' pattern='[0-9]*' name='amount' id='amount' value='3000' />
                  </div>
-                 <button class='us-btn us-btn--primary'>Update results</button>
+                 <button class='us-calculator__btn us-btn us-btn--primary'>Update results</button>
                  <div class='us-tooltip us-tooltip--right'>
                    <div class='us-tooltip__wrapper'>
                      <div class='us-tooltip__icon'></div>
@@ -308,12 +308,12 @@
             
                 <pre><code class="html">
                &lt;form class='us-calculator'&gt;
-                 &lt;h2 class='us-calculator__heading'&gt;How much would you like to transfer?&lt;/h2&gt;
-                 &lt;div class='us-calculator__input-group'&gt;
-                   &lt;div class='us-calculator__text--prepend'&gt;£&lt;/div&gt;
-                   &lt;input type='text' class='us-calculator__text' pattern='[0-9]*' name='amount' id='amount' value='3000' /&gt;
+                 &lt;h2 class='us-table-toolbar__heading'&gt;How much would you like to transfer?&lt;/h2&gt;
+                 &lt;div class='us-calculator__input us-input-group'&gt;
+                   &lt;div class='us-input-group__box'&gt;£&lt;/div&gt;
+                   &lt;input type='text' class='us-form-input' pattern='[0-9]*' name='amount' id='amount' value='3000' /&gt;
                  &lt;/div&gt;
-                 &lt;button class='us-btn us-btn--primary'&gt;Update results&lt;/button&gt;
+                 &lt;button class='us-calculator__btn us-btn us-btn--primary'&gt;Update results&lt;/button&gt;
                  &lt;div class='us-tooltip us-tooltip--right'&gt;
                    &lt;div class='us-tooltip__wrapper'&gt;
                      &lt;div class='us-tooltip__icon'&gt;&lt;/div&gt;
@@ -1092,9 +1092,28 @@
                 <div class="styleguide__block-example">
                      <div class="us-table-toolbar">
                  <div class="us-table-toolbar__wrapper">
+               <form class='us-calculator'>
+                 <h2 class='us-table-toolbar__heading'>How much would you like to transfer?</h2>
+                 <div class='us-input-group us-calculator__input'>
+                   <div class='us-input-group__box'>£</div>
+                   <input type='text' class='us-form-input' pattern='[0-9]*' name='amount' id='amount' value='3000' />
+                 </div>
+                 <button class='us-btn us-btn--primary'>Update results</button>
+                 <div class='us-tooltip us-tooltip--right'>
+                   <div class='us-tooltip__wrapper'>
+                     <div class='us-tooltip__icon'></div>
+                     <div class='us-tooltip__note'>
+                       <div class='us-tooltip__arrow'></div>
+                       Note that this is illustrative and this figure does not reflect the credit limit you will be offered.
+                     </div>
+                   </div>
+                 </div>
+               </form>
+                 </div>
+                 <div class="us-table-toolbar__wrapper us-table-toolbar__wrapper--right">
                    <div class="us-table-toolbar__sort">
                      <h3 class="us-table-toolbar__heading">Sort by:</h3>
-                     <select class="us-table-toolbar__select name="sort"">
+                     <select class="us-form-select name="sort"">
                        <option value="popularity">Popularity</option>
                        <option value="apr">Lowest APR</option>
                        <option value="min-credit-limit">Minimum credit limit</option>
@@ -1109,9 +1128,28 @@
                 <pre><code class="html">
                &lt;div class="us-table-toolbar"&gt;
                  &lt;div class="us-table-toolbar__wrapper"&gt;
+               &lt;form class='us-calculator'&gt;
+                 &lt;h2 class='us-table-toolbar__heading'&gt;How much would you like to transfer?&lt;/h2&gt;
+                 &lt;div class='us-input-group us-calculator__input'&gt;
+                   &lt;div class='us-input-group__box'&gt;£&lt;/div&gt;
+                   &lt;input type='text' class='us-form-input' pattern='[0-9]*' name='amount' id='amount' value='3000' /&gt;
+                 &lt;/div&gt;
+                 &lt;button class='us-btn us-btn--primary'&gt;Update results&lt;/button&gt;
+                 &lt;div class='us-tooltip us-tooltip--right'&gt;
+                   &lt;div class='us-tooltip__wrapper'&gt;
+                     &lt;div class='us-tooltip__icon'&gt;&lt;/div&gt;
+                     &lt;div class='us-tooltip__note'&gt;
+                       &lt;div class='us-tooltip__arrow'&gt;&lt;/div&gt;
+                       Note that this is illustrative and this figure does not reflect the credit limit you will be offered.
+                     &lt;/div&gt;
+                   &lt;/div&gt;
+                 &lt;/div&gt;
+               &lt;/form&gt;
+                 &lt;/div&gt;
+                 &lt;div class="us-table-toolbar__wrapper us-table-toolbar__wrapper--right"&gt;
                    &lt;div class="us-table-toolbar__sort"&gt;
                      &lt;h3 class="us-table-toolbar__heading"&gt;Sort by:&lt;/h3&gt;
-                     &lt;select class="us-table-toolbar__select name="sort""&gt;
+                     &lt;select class="us-form-select name="sort""&gt;
                        &lt;option value="popularity"&gt;Popularity&lt;/option&gt;
                        &lt;option value="apr"&gt;Lowest APR&lt;/option&gt;
                        &lt;option value="min-credit-limit"&gt;Minimum credit limit&lt;/option&gt;
