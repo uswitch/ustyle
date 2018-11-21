@@ -6,12 +6,12 @@
 //
 // @markup
 //   <form class='us-calculator'>
-//     <h2 class='us-calculator__heading'>How much would you like to transfer?</h2>
-//     <div class='us-calculator__input-group'>
-//       <div class='us-calculator__text--prepend'>£</div>
-//       <input type='text' class='us-calculator__text' pattern='[0-9]*' name='amount' id='amount' value='3000' />
+//     <h2 class='us-table-toolbar__heading'>How much would you like to transfer?</h2>
+//     <div class='us-calculator__input us-input-group'>
+//       <div class='us-input-group__box'>£</div>
+//       <input type='text' class='us-form-input' pattern='[0-9]*' name='amount' id='amount' value='3000' />
 //     </div>
-//     <button class='us-btn us-btn--primary'>Update results</button>
+//     <button class='us-calculator__btn us-btn us-btn--primary'>Update results</button>
 //     <div class='us-tooltip us-tooltip--right'>
 //       <div class='us-tooltip__wrapper'>
 //         <div class='us-tooltip__icon'></div>
@@ -24,54 +24,17 @@
 //   </form>
 
 .us-calculator {
-  display: flex;
-  flex-wrap: wrap;
-  flex: 1 1 373px;
-  max-width: 373px;
-  justify-content: space-between;
   position: relative;
+  display: block;
+  width: 100%;
 
-  &__heading {
-    font-size: 18px;
-    max-width: 89%;
-  }
+  &__input {
+    display: inline-table;
+    width: calc(100% - 170px);
+    margin-right: 10px;
 
-  &__input-group {
-    flex: 2 1 120px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    position: relative;
-  }
-
-  &__text {
-    height: 37px;
-    padding: .35em .5em;
-    font-size: 1em;
-    color: $c-typegrey;
-    cursor: pointer;
-    background: #fff;
-    border: 1px solid $c-inputgrey;
-    border-radius: 0 .1875em .1875em 0;
-    outline: 0;
-    width: 75%;
-  
-    &--prepend {
-      width: 20%;
-      padding-right: .5em;
-      padding-left: .5em;
-      color: #84909a;
-      text-align: center;
-      background-color: #fff;
-      border: 1px solid #84909a;
-      border-radius: 3px 0 0 3px;
-      border-right: 0;
-      height: 37px;
-      line-height: 37px;
+    @include respond-to(tablet) {
+      width: auto;
     }
-  }
-
-  .us-btn--primary {
-    flex: 2 1 60px;
   }
 }

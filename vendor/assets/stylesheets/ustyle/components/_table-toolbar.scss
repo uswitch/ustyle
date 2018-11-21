@@ -7,9 +7,28 @@
 // @markup
 //   <div class="us-table-toolbar">
 //     <div class="us-table-toolbar__wrapper">
+//   <form class='us-calculator'>
+//     <h2 class='us-table-toolbar__heading'>How much would you like to transfer?</h2>
+//     <div class='us-input-group us-calculator__input'>
+//       <div class='us-input-group__box'>£</div>
+//       <input type='text' class='us-form-input' pattern='[0-9]*' name='amount' id='amount' value='3000' />
+//     </div>
+//     <button class='us-btn us-btn--primary'>Update results</button>
+//     <div class='us-tooltip us-tooltip--right'>
+//       <div class='us-tooltip__wrapper'>
+//         <div class='us-tooltip__icon'></div>
+//         <div class='us-tooltip__note'>
+//           <div class='us-tooltip__arrow'></div>
+//           Note that this is illustrative and this figure does not reflect the credit limit you will be offered.
+//         </div>
+//       </div>
+//     </div>
+//   </form>
+//     </div>
+//     <div class="us-table-toolbar__wrapper us-table-toolbar__wrapper--right">
 //       <div class="us-table-toolbar__sort">
 //         <h3 class="us-table-toolbar__heading">Sort by:</h3>
-//         <select class="us-table-toolbar__select name="sort"">
+//         <select class="us-form-select name="sort"">
 //           <option value="popularity">Popularity</option>
 //           <option value="apr">Lowest APR</option>
 //           <option value="min-credit-limit">Minimum credit limit</option>
@@ -20,73 +39,53 @@
 //   </div>
 
 .us-table-toolbar {
-  @include respond-to(to-small-tablet) {
-    background: #f4f5f6;
-    border-bottom: 1px solid $c-keylinegrey;
-    margin: 0 auto $gutter-width / 2;
+  background: $c-bggrey;
+  padding: $gutter-width / 2;
+  border-bottom: 1px solid $c-keylinegrey;
+  margin: 0 auto $gutter-width / 2;
 
-    &__sort,
-    &__select {
-      width: 100%;
-    }
-  }
-
-  &__sort {
-    margin: 0 0 0 auto;
-
-    @include respond-to(to-small-tablet) {
-      margin: 15px 0 0 0;
-    }
+  @include respond-to(tablet) {
+    display: flex;
+    background-color: transparent;
+    border-bottom: 0;
+    padding: $gutter-width 0;
+    flex-direction: row;
   }
 
   &__wrapper {
     display: flex;
-    padding: 15px;
-    margin: 0 auto;
-    flex-wrap: wrap;
+    flex: 1 1;
+
+    &:first-child {
+      margin-bottom: $gutter-width / 2;
+
+      @include respond-to(tablet) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__sort {
+    width: 100%;
 
     @include respond-to(tablet) {
-      padding: $gutter-width 0;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 0;
+      width: auto;
     }
 
-    @include respond-to(desktop) {
-      padding: $gutter-width 0;
-      max-width: 950px;
+    select {
+      width: 100%;
+
+      @include respond-to(tablet) {
+        width: auto;
+      }
     }
+  }
+
+  &__wrapper--right {
+    justify-content: flex-end;
   }
 
   &__heading {
     font-size: 18px;
-    max-width: 89%;
-  }
-
-  &__select {
-    height: 37px;
-    max-width: 100%;
-    padding: .35em .5em;
-    padding-right: 40px;
-    font-size: 1em;
-    color: $c-typegrey;
-    cursor: pointer;
-    background: #fff;
-    background-image: url("data:image/svg+xml;charset=utf-8;base64,PHN2ZyB2ZXJzaW9uPScxLjEnIGJhc2VQcm9maWxlPSd0aW55JyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHg9JzBweCcgeT0nMHB4JyB3aWR0aD0nNDBweCcgaGVpZ2h0PSc2cHgnIHZpZXdCb3g9JzAgMCA0MCA2Jz48cG9seWdvbiBmaWxsPScjODQ5MDlhJyBwb2ludHM9JzI1LjMsMCAyMC4zLDYgMTUuMywwICcvPjwvc3ZnPg==");
-    background-position: 100% 50%;
-    background-repeat: no-repeat;
-    border: 1px solid $c-inputgrey;
-    border-radius: .1875em;
-    outline: 0;
-    appearance: none;
-
-    &:hover {
-      background-image: url("data:image/svg+xml;charset=utf-8;base64,PHN2ZyB2ZXJzaW9uPScxLjEnIGJhc2VQcm9maWxlPSd0aW55JyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHg9JzBweCcgeT0nMHB4JyB3aWR0aD0nNDBweCcgaGVpZ2h0PSc2cHgnIHZpZXdCb3g9JzAgMCA0MCA2Jz48cG9seWdvbiBmaWxsPScjMDA4ZmU5JyBwb2ludHM9JzI1LjMsMCAyMC4zLDYgMTUuMywwICcvPjwvc3ZnPg==");
-      border-color: $c-typecyan;
-    }
-
-    &:focus {
-      box-shadow: inset 0 0 0 1px $c-typecyan;
-    }
   }
 }
