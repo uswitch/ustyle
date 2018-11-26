@@ -30,11 +30,7 @@
 
   &__input {
     display: inline-table;
-    width: calc(100% - 170px);
+    width: calc(100% - 163px);
     margin-right: 10px;
-
-    @include respond-to(tablet) {
-      width: auto;
-    }
   }
 }

@@ -48,7 +48,7 @@
     display: flex;
     background-color: transparent;
     border-bottom: 0;
-    padding: $gutter-width 0;
+    padding: $gutter-width $gutter-width / 2;
     flex-direction: row;
   }
 
