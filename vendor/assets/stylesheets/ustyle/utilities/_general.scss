@@ -82,7 +82,13 @@ $colors: (
   "typegrey-2" $c-typegrey-2,
   "inputgrey" $c-inputgrey,
   "bordergrey" $c-bordergrey,
-  "keylinegrey" $c-keylinegrey
+  "keylinegrey" $c-keylinegrey,
+  "blue-light" $c-blue-light,
+  "typecyan-light" $c-typecyan-light,
+  "cyan-light" $c-cyan-light,
+  "yellow" $c-yellow,
+  "orange" $c-orange,
+  "purple" $c-purple
 );
 
 @each $color in $colors {
