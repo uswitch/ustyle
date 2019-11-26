@@ -143,9 +143,12 @@ module.exports = function (grunt) {
     },
     sassdoc: {
       default: {
-        src: ['vendor/assets/stylesheets/ustyle/**/*.scss', '!./vendor/assets/stylesheets/ustyle/rebrand/**/*.scss'],
+        src: ['vendor/assets/stylesheets/ustyle/**/*.scss'],
         options: {
-          dest: './docs/sass'
+          dest: './docs/sass',
+          exclude: [
+            './vendor/assets/stylesheets/ustyle/rebrand/vendor/*'
+          ]
         }
       }
     },
