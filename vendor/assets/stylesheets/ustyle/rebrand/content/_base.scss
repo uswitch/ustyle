@@ -1,0 +1,227 @@
+@import "ustyle/rebrand/content/c-header";
+@import "ustyle/rebrand/content/c-social";
+
+$content-heading-font-sizes: 30px, 24px, 20px, 18px, 16px, 16px;
+
+.us-content {
+  // scss-lint:disable all
+
+  margin-bottom: $gutter-width;
+
+  @include baseline($base-font-size, $root: true);
+
+  @include respond-to(tablet) {
+    @include baseline(18px, $root: true);
+  }
+
+  @include respond-to(desktop) {
+    @include baseline(20px, $root: true);
+    text-rendering: optimizeSpeed;
+  }
+
+  @for $level from 1 through 6 {
+    h#{$level},
+    .us-heading--#{$level} {
+      @include heading($level, $font-sizes: $content-heading-font-sizes);
+    }
+  }
+
+  // scss-lint:enable all
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 30px;
+    margin-bottom: .5em;
+
+    @include respond-to(tablet) {
+      margin-top: 50px;
+    }
+  }
+  //
+  // Default typography styling
+  //
+  p,
+  ul,
+  blockquote {
+    a {
+      @extend %anchor-link;
+    }
+  }
+  //
+  // Default image styling
+  //
+  img {
+    height: auto;
+    max-width: 100%;
+    padding-top: 1em;
+    margin-bottom: 1em;
+  }
+  //
+  // Default table styling
+  //
+  table {
+    width: 100%;
+    font-size: 16px;
+    border-collapse: separate;
+
+    img,
+    p {
+      @extend %reset-box-model;
+    }
+
+    a {
+      border: 0;
+    }
+
+    td,
+    th {
+      padding: $gutter-width / 4;
+      text-align: left;
+      vertical-align: middle;
+      border-bottom: 1px solid $c-bordergrey;
+    }
+
+    thead {
+      background-color: $c-keylinegrey;
+    }
+  }
+  //
+  // Figure / image captions
+  //
+  figure {
+    padding: $gutter-width / 2;
+    margin: 0;
+    background-color: $c-bggrey;
+    border: 1px solid $c-keylinegrey;
+
+    img {
+      padding-top: 0;
+      margin-bottom: 0;
+    }
+
+    figcaption {
+      display: inline-block;
+      vertical-align: top;
+
+      @include respond-to(tablet, true) {
+        width: 50%;
+        margin-left: $gutter-width;
+      }
+    }
+  }
+
+  .strap {
+    @include baseline(18px);
+
+    @include respond-to(tablet) {
+      @include baseline(22px);
+      margin-bottom: 2em;
+    }
+  }
+
+  .us-cta {
+    font-size: 16px;
+  }
+
+  .internal-menu {
+    @extend %list;
+  }
+
+  // scss-lint:disable NestingDepth, SelectorDepth
+  .plans-ending {
+    @extend %clearfix;
+    @extend %reset-box-model;
+    list-style: none;
+    border-top: 1px solid $c-blue;
+
+    > li {
+      padding-top: .5em;
+      padding-bottom: .5em;
+      margin: 0;
+      border-bottom: 1px solid $c-blue;
+    }
+
+    ul {
+      list-style: disc;
+    }
+
+    .row {
+      position: relative;
+      font-weight: 700;
+      color: $c-blue;
+      cursor: pointer;
+      transition: color .3s;
+
+      &:after {
+        position: absolute;
+        top: 50%;
+        right: 1em;
+        margin-top: -.75em;
+        font-size: 2em;
+        font-weight: 700;
+        content: "\27E9";
+      }
+
+      &:hover {
+        color: $c-typecyan;
+      }
+    }
+
+    img {
+      @extend %reset-box-model;
+      margin: 0 1em 0 1em;
+      vertical-align: middle;
+    }
+
+    .table-container {
+      margin-top: .5em;
+    }
+
+    .us-btn {
+      @extend %btn;
+      @extend %btn--primary;
+    }
+
+    .js & {
+      .table-container {
+        display: none;
+      }
+    }
+  }
+
+  .fuel-breakdown {
+    @extend %clearfix;
+    @extend %reset-box-model;
+    width: 100%;
+    overflow: hidden;
+    list-style: none;
+
+    li {
+      float: left;
+      padding: $gutter-width / 2 0;
+      font-size: 16px;
+      font-size: rem(16px);
+      color: #fff;
+      text-align: center;
+      vertical-align: middle;
+
+      b {
+        display: block;
+      }
+    }
+
+    $fuel-colors: (coal, $c-bordergrey), (gas, $c-typecyan), (nuclear, $c-orange), (renewable, $c-green), (other, $c-typegrey);
+    @each $color in $fuel-colors {
+      .#{nth($color, 1)} {
+        background-color: nth($color, 2);
+        @if nth($color, 1) == other {
+          text-indent: -999em;
+        }
+      }
+    }
+  }
+  // scss-lint:enable NestingDepth, SelectorDepth
+}

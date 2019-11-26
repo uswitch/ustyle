@@ -1,0 +1,33 @@
+// @page Pattern Library/Components
+// @name Compliance banner
+//
+// @description
+//  Compliance banner and disclaimer below the comparison table
+//
+// @markup
+// <div class="us-comp-banner">
+//   <div class="us-comp-banner__inner">
+//     <p class="us-comp-banner__text">uSwitch Limited is a credit broker, not a lender, for consumer credit products.</p>
+//     <p class="us-comp-banner__text">uSwitch services are provided at no cost to you, but we may receive a commission from the companies we refer you to.</p>
+//   </div>
+// </div>
+
+.us-comp-banner {
+  width: 100%;
+  background-color: $c-cyan;
+  padding: 15px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 20px; 
+
+  &__inner {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__text:last-child {
+    padding: 0;
+    margin: 0;
+  }
+}

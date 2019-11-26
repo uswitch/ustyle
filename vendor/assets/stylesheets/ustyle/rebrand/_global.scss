@@ -1,0 +1,20 @@
+// scss-lint:disable Comment
+/*! uStyle version #{ustyle-version()}. Copyright uSwitch limited, all rights reserved. */
+
+//
+// This is the shared global file that includes uStyle's core helpers
+//
+
+// Reset
+@import "ustyle/rebrand/vendor/normalize";
+
+// Basics
+@import "ustyle/rebrand/basics/functions";
+@import "ustyle/rebrand/basics/variables";
+
+// All mixins
+@import "ustyle/rebrand/mixins/base";
+
+// Basic extends
+@import "ustyle/rebrand/basics/fonts";
+@import "ustyle/rebrand/basics/extends";

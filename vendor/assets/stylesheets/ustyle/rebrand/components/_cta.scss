@@ -1,0 +1,64 @@
+// @page Pattern Library/Components
+// @name CTAs
+//
+// @description
+//  Used within guide and news articles, these CTAs (Calls to Action) are intended to not interupt the content but to integrate in more subtle means.
+//
+// @markup
+//  <section class="us-cta cta cta-column">
+//    <form>
+//      <h3 class="us-cta__title">It's your report</h3>
+//      <p>Join the campaign to fight for free annual credit reports for everyone</p>
+//      <a href="/money/itsmyreport/" class="us-btn us-btn--primary" rel="nofollow">Sign the petition</a>
+//    </form>
+//  </section>
+
+.us-cta {
+  padding: $gutter-width / 2;
+  margin-bottom: 1.5em;
+  background-color: tint($c-typegrey, 90%);
+  border-bottom: 10px solid $c-navy;
+
+  @include respond-to(tablet, true) {
+    padding: $gutter-width / 1.5;
+    border-bottom: 0;
+    border-left: 10px solid $c-navy;
+  }
+
+  label {
+    display: block;
+
+    @include respond-to(desktop, true) {
+      display: inline-block;
+    }
+  }
+}
+
+.us-cta__title.us-cta__title {
+  @include heading-font;
+  margin-top: 0;
+  font-size: 18px;
+  font-size: rem($base-font-size + 2px);
+
+  @include respond-to(tablet) {
+    @include heading(4, $extend: false);
+  }
+
+  @include respond-to(desktop, true) {
+    @include heading(3, $extend: false);
+  }
+}
+
+.us-cta--side {
+  padding: $gutter-width / 2;
+  border-bottom: 10px solid $c-navy;
+  border-left: 0;
+
+  @include respond-to(desktop, true) {
+    padding: $gutter-width / 1.5;
+  }
+
+  .us-form-input {
+    width: 100%;
+  }
+}

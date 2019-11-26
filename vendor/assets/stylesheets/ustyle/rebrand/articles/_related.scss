@@ -1,0 +1,76 @@
+// @page Pattern Library/Articles
+// @name Related items
+//
+// @description
+//   Related lists used for content sidebars.
+//
+// @markup
+//  <h2 class="us-related__title">Title here</h2>
+//   <ul class="us-related us-list--reset">
+//     <li class="us-related__item">
+//       <a class="us-related__item-link" href="#">Car accident claims — How to make a car insurance claim</a>
+//     </li>
+//     <li class="us-related__item">
+//       <a class="us-related__item-link" href="#">How to get the best car insurance deals</a>
+//     </li>
+//     <li class="us-related__item">
+//       <a class="us-related__item-link" href="#">No claims bonus explained: how to protect a no claims discount</a>
+//     </li>
+//   </ul>
+
+.us-related {
+  margin-bottom: $gutter-width;
+}
+
+.us-related__item {
+  margin-bottom: 0;
+}
+
+.us-related__title {
+  font-size: 1.125em;
+}
+
+.us-related__item-link {
+  @extend %clearfix;
+  @include link-colors($c-typegrey-2, $c-typecyan, $c-typegrey-2, $c-typegrey-2);
+  display: block;
+  padding-top: .5em;
+  padding-bottom: .5em;
+  border-bottom: 1px solid $c-bordergrey;
+  transition: color .3s, border-color .3s;
+}
+
+.us-related__item-link--more {
+  @include link-colors($c-typegrey, $c-typecyan, $c-typegrey, $c-typegrey);
+  padding-right: .5em;
+  text-align: right;
+  background-color: $c-cyan-light;
+
+  &:after {
+    @extend %link-triangle;
+  }
+}
+
+.us-related__item-title {
+  @extend %small-font;
+  @include normal-font;
+  vertical-align: middle;
+
+  @include respond-to(desktop) {
+    display: inline-block;
+    width: calc(100% - 90px);
+    margin-left: $gutter-width / 4;
+  }
+}
+
+.us-related__item-image {
+  @include respond-to(desktop) {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    vertical-align: middle;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+}

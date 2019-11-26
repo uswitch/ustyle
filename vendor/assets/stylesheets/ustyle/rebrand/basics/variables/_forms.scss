@@ -1,0 +1,86 @@
+////
+//// @group   Forms
+////
+
+/// The base height for all our form elements
+///
+/// @type Number (pixels)
+
+$form-element-base-height: 37px !default;
+
+/// Padding that is shared across form elements
+///
+/// @type Number (em)
+
+$form-element-base-padding: .35em .5em !default;
+
+/// The base height for any large elements
+///
+/// @type Number (pixels)
+
+$form-element-base-height--large: 48px !default;
+
+/// Padding that is shared across large form elements
+///
+/// @type Number (em)
+
+$form-element-base-padding--large: .55em .5em !default;
+
+/// Form sizing map for inputs
+///
+/// @type List
+
+$form-element-sizes: (
+  (base, $form-element-base-height, $form-element-base-padding, 1em),
+  (large, $form-element-base-height--large, $form-element-base-padding--large, 1.2em)
+) !default;
+
+/// Background color for our form elements
+///
+/// @type String (hex)
+
+$c-form-element-text: $c-typegrey !default;
+
+/// Background color for our form elements
+///
+/// @type String (hex)
+
+$c-form-element-background: #fff !default;
+
+/// Default border color for all form elements
+///
+/// @type Variable | String (pixels)
+
+$c-form-element-border: $c-inputgrey !default;
+
+/// Default border active colour for all form elements
+///
+/// @type Variable | String (pixels)
+
+$c-form-element-border-hover: $c-typecyan !default;
+
+/// Disabled foreground colour for form elements
+///
+/// @type String (pixels)
+
+$c-form-element-disabled-fg: #ddd !default;
+$c-input-disabled-foreground: $c-form-element-disabled-fg;
+
+/// Disabled background colour for form elements
+///
+/// @type Variable | String (pixels)
+
+$c-form-element-disabled-bg: #fafafa !default;
+$c-input-disabled-background: $c-form-element-disabled-fg;
+
+/// Error color for form elements
+///
+/// @type Variable | String (pixels)
+
+$c-form-error: $c-red !default;
+
+/// Success color for form elements
+///
+/// @type Variable | String (pixels)
+
+$c-form-success: $c-green !default;

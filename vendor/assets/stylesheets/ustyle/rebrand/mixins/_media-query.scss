@@ -1,0 +1,121 @@
+// --------------------------
+// ! Respond to device mixins
+// --------------------------
+
+////
+//// @author David Annez
+//// @group media-queries
+////
+
+// ----------
+// Legacy support
+// ----------
+
+/// IE8 is no longer supported, but on an opt-in basis for applications.
+/// DEPRECATED: Set this to `true` if you do want .ie8 classes to be spat out for media queries
+///
+/// @type Bool
+
+$media-query-legacy-support: false !default;
+
+/// Breakpoint for extra large desktops
+///
+/// @type Number (unit)
+
+$extra-large-desktop-width: 1600px !default;
+
+/// Breakpoint for large desktops
+///
+/// @type Number (unit)
+
+$large-desktop-width: 1200px !default;
+
+/// Breakpoint for desktop
+///
+/// @type Number (unit)
+
+$desktop-width: 992px !default;
+
+/// Breakpoint for tablet
+///
+/// @type Number (unit)
+
+$tablet-width: 768px !default;
+
+/// Breakpoint for small tablets
+///
+/// @type Number (unit)
+
+$small-tablet-width: 600px !default;
+
+/// Breakpoint for mobile
+///
+/// @type Number (unit)
+
+$mobile-width: 480px !default;
+
+/// Max-breakpoint for mobiles
+///
+/// @require {variable} small-tablet-width
+/// @type Number (unit)
+
+$mobile-end-width: $small-tablet-width - 1;
+
+/// Max-breakpoint for small tablets
+///
+/// @require {variable} tablet-width
+/// @type Number (unit)
+
+$small-tablet-end-width: $tablet-width - 1;
+
+/// Max-breakpoint for tablets
+///
+/// @require {variable} desktop-width
+/// @type Number (unit)
+
+$tablet-end-width: $desktop-width - 1;
+
+/// A list containing the devices for `min-width` media-query breakpoints
+///
+/// @type List
+
+$min-breakpoints: (small-tablet, $small-tablet-width), (tablet, $tablet-width), (desktop, $desktop-width), (large-desktop, $large-desktop-width), (extra-large-desktop, $extra-large-desktop-width) !default;
+
+/// A list containing the devices for `max-width` media-query breakpoints
+///
+/// @type List
+
+$max-breakpoints: (mobile, $mobile-end-width), (to-small-tablet, $small-tablet-end-width), (to-tablet, $tablet-end-width) !default;
+
+$devices: ();
+
+@each $breakpoint in $min-breakpoints {
+  $devices: append($devices, (nth($breakpoint, 1), min, nth($breakpoint, 2)), comma);
+}
+
+@each $breakpoint in $max-breakpoints {
+  $devices: append($devices, (nth($breakpoint, 1), max, nth($breakpoint, 2)), comma);
+}
+
+/// Output a media query block for the targeted device and a potential internet explorer fallback
+///
+/// @param {String} $device
+///   The device to match up the media query with. Can be one from the list of `$min-breakpoints` (`small-tablet`, `tablet`, `desktop` etc.)
+///   or `$max-breakpoints` (`mobile`, `to-small-tablet`, `to-tablet`)
+///
+/// @param {Bool} $ie-fallback [false]
+///   DEPRECATED: If set to `true` will return a `.ie8` {content} fallback to ensure IE8 gets the supporting styling
+///
+/// @param {Bool} $ie-fallback-noherit [false]
+///   DEPRECCATED: If attaching the mixin onto the root, then set this to `true` to ensure Sass builds the correct styles
+///
+
+@mixin respond-to($device, $ie-fallback: false, $ie-fallback-noherit: false) {
+  @each $listed-device in $devices {
+    @if nth($listed-device, 1) == $device {
+      @media screen and (#{unquote("#{nth($listed-device, 2)}-width:") nth($listed-device, 3)}) {
+        @content;
+      }
+    }
+  }
+}

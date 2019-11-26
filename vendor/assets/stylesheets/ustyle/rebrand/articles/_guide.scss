@@ -1,0 +1,57 @@
+// @page Pattern Library/Articles
+// @name Guide article
+//
+// @description
+//   Our guide and news articles are used across the site to communicate news/guide snippets. The layout is decided by our grid, by default they have 100% width.
+//
+// @markup
+//   <div class='us-article-group'>
+//     <div class='us-guide-item us-col-md-4'>
+//       <a class='us-guide-item-link' href='#'>
+//         <div class='us-guide-item-image-container'>
+//           <div class='us-guide-item-image background' style='background-image: url(https://assets0.uswitch.com/s3/uswitch-wp-cms-assets/money/guides/wp-content/uploads/2014/11/DB2011AU01018_SMALL.jpg)'></div>
+//         </div>
+//         <div class='us-guide-item-content'>
+//           <h4 class='us-guide-item-title'>Car insurance guides</h4>
+//           <p class='us-guide-item-description'>Read our car insurance advice guides for the facts on why you need car insurance, the types of cover available, and tips on how to make a claim.</p>
+//         </div>
+//         <div class='us-guide-item-readmore'>
+//           <span class='us-news-item-readmorelink'>Read more</span>
+//         </div>
+//       </a>
+//     </div>
+//   </div>
+
+$guide-item-image-size: 128px !default;
+
+.us-guide-item {
+  @extend %base-item;
+}
+
+.us-guide-item-link {
+  @extend %base-item-link;
+}
+
+.us-guide-item-title {
+  @extend %base-item-title;
+}
+
+.us-guide-item-description {
+  @extend %base-item-description;
+}
+
+.us-guide-item-image-container {
+  @extend %base-item-image-container;
+}
+
+.us-guide-item-image {
+  @extend %base-item-image;
+}
+
+.us-guide-item-readmore {
+  @extend %readmore;
+}
+
+.us-guide-item-readmorelink {
+  @extend %readmore-link;
+}

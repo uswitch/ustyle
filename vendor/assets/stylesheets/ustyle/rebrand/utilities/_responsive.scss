@@ -1,0 +1,101 @@
+// @page Pattern Library/Utilities
+// @name Responsive
+//
+// @description
+//   Responsive classes to allow display of elements across devices. You have the option of displaying them as `block`, `inline-block` or `inline` elements.
+//   You can also hide elements by `.us-{DEVICE}--hidden` and will hide those elements above that breakpoint.
+//
+// @markup
+//   <div class='us-lg-desktop--block'><strong>.us-lg-desktop--block</strong> Shows on large desktop and up</div>
+//   <div class='us-desktop--block'><strong>.us-desktop--block</strong> Shows on desktop and up</div>
+//   <div class='us-tablet--block'><strong>.us-tablet--block</strong> Shows on tablet and up</div>
+//   <div class='us-sm-tablet--block'><strong>.us-sm-tablet--block</strong> Shows on small tablet and up</div>
+//   <div class='us-mobile--block'><strong>.us-mobile--block</strong> Shows on mobile only</div>
+//   <div class='us-tablet--hidden'><strong>.us-tablet--hidden</strong> Hidden on tablet and up</div>
+
+$display-properties: block, inline-block, inline;
+
+// Mobile
+.us-mobile--hidden {
+  @include respond-to(mobile) {
+    display: none;
+  }
+}
+
+@each $property in $display-properties {
+  .us-mobile--#{$property} {
+    display: none;
+
+    @include respond-to(mobile) {
+      display: $property;
+    }
+  }
+}
+
+// Small tablet
+.us-sm-tablet--hidden {
+  @include respond-to(small-tablet, true) {
+    display: none;
+  }
+}
+
+@each $property in $display-properties {
+  .us-sm-tablet--#{$property} {
+    display: none;
+
+    @include respond-to(small-tablet, true) {
+      display: $property;
+    }
+  }
+}
+
+// Tablet
+.us-tablet--hidden {
+  @include respond-to(tablet, true) {
+    display: none;
+  }
+}
+
+@each $property in $display-properties {
+  .us-tablet--#{$property} {
+    display: none;
+
+    @include respond-to(tablet, true) {
+      display: $property;
+    }
+  }
+}
+
+// Desktop
+.us-desktop--hidden {
+  @include respond-to(desktop, true) {
+    display: none;
+  }
+}
+
+@each $property in $display-properties {
+  .us-desktop--#{$property} {
+    display: none;
+
+    @include respond-to(desktop, true) {
+      display: $property;
+    }
+  }
+}
+
+// Large desktop
+.us-lg-desktop--hidden {
+  @include respond-to(large-desktop) {
+    display: none;
+  }
+}
+
+@each $property in $display-properties {
+  .us-lg-desktop--#{$property} {
+    display: none;
+
+    @include respond-to(large-desktop) {
+      display: $property;
+    }
+  }
+}

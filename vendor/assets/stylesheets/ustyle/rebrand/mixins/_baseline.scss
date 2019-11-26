@@ -1,0 +1,43 @@
+////
+//// @group typography
+////
+
+/// Baseline mixin for cascading typographical elements. It calculates the adequate top and bottom
+/// pushes for the selected font size and line height. Will vary from font to font, has been set to our
+/// defaults
+///
+/// @param {Number (unit)} $font-size [$base-font-size]
+///   The font size for the element
+///
+/// @param {Number (unit)} $line-height [$base-line-ratio]
+///   The line height ratio
+///
+/// @param {Number (unit)} $scale [$base-scale]
+///   Base scale for baseline
+///
+/// @param {Number (unit)} $cap-height [$base-cap-height]
+///   The cap height of the font being used on the element
+///
+
+@mixin baseline($font-size: $base-font-size, $line-height: $base-line-ratio, $scale: $base-scale, $cap-height: $base-cap-height, $root: false) {
+  // rhythm unit
+  $rhythm: $line-height * $font-size / $scale;
+  // number of rhythm units that can fit the font-size
+  $lines: ceil(($font-size + .001px) / $rhythm);
+  // calculate the new line-height
+  $line-height: $rhythm * $lines / $font-size;
+  // use the results
+  font-size: $font-size;
+  font-size: rem($font-size);
+  line-height: $line-height;
+  $baseline-distance: ($line-height - $cap-height) / 2;
+  // if you use this mixin only on elements that have one direction margins
+  // http://csswizardry.com/2012/06/single-direction-margin-declarations/
+  // you can use this method with no worries.
+  @if $root != true {
+    padding-top: $baseline-distance * $base-font-size;
+    padding-top: $baseline-distance + rem;
+    margin-bottom: ($line-height - $baseline-distance) * $base-font-size;
+    margin-bottom: $line-height - $baseline-distance + rem;
+  }
+}
