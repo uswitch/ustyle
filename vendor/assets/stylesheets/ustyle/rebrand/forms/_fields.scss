@@ -1,0 +1,79 @@
+// @page Pattern Library/Forms
+// @name Fields
+//
+// @description
+//   This is the basic form field, `.us-field` wrapper for any single input or select. It sets a few layout options by default (margin) and styles any labels within. You can create a fake label style with `.us-faux-label`
+//
+//   #### Best practices
+//   * All form inputs must have a corresponding label, linked to the input
+//   * The label should be visible; placeholders should not be relied on as not every browser can see them, nor can all screenreaders. A visible permanent label provides continuous context
+//   * For text inputs that are optional, add "(optional)" to the input label
+//   * Add `aria-required` to any input field that must to be filled in
+//   * See our best practices for [writing form labels](../language/microcopy.html#Form text, form labels)
+//
+// @state .us-field--blocked - Blocked label styling.
+// @state .us-field--inline - Inline label styling.
+//
+// @markup
+//   <div class="us-field {$modifiers}">
+//     <label for="name">Name</label>
+//     <input class="us-form-input" id="name" name="name" placeholder="Please enter your name">
+//   </div>
+
+$default-label-color: $c-typegrey !default;
+$default-label-size: 18px !default;
+$default-label-width: em(120px, $default-label-size) !default;
+$default-label-margin: .25em !default;
+$label-inline-breakpoint: tablet !default;
+
+%base-block-label {
+  display: block;
+  margin-bottom: $default-label-margin;
+}
+
+.us-field {
+  @extend %clearfix;
+  margin-bottom: 1em;
+
+  > label,
+  > .us-faux-label {
+    @include heading-font;
+    margin-right: 1em;
+    font-size: em($default-label-size);
+    color: $default-label-color;
+  }
+}
+
+.us-field-blocked,
+.us-field--blocked {
+  > label,
+  > .us-faux-label {
+    @extend %base-block-label;
+  }
+}
+
+// This is an inline field, for quick, easy to read forms
+.us-field--inline {
+  > label,
+  > .us-faux-label {
+    @extend %base-block-label;
+
+    @include respond-to($label-inline-breakpoint, true) {
+      display: inline-block;
+      min-width: $default-label-width;
+      vertical-align: middle;
+    }
+  }
+}
+
+// The toggle field is for radios and checkboxes. It sits within the .us-field to allow
+// styling for labels of radio/checkboxes
+.us-field-toggle {
+  label {
+    @include normal-font;
+    padding: .35em .5em;
+    font-weight: normal;
+    line-height: 1.5em;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,24 @@
+/// Clearfix mixin - http://nicolasgallagher.com/micro-clearfix-hack/
+///
+/// @author Nicolas Gallagher
+
+@mixin clearfix {
+  &:before,
+  &:after {
+    display: table;
+    content: " ";
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin hidpi($dpi: 2) {
+  @media
+  (-webkit-min-device-pixel-ratio: $dpi),
+  (min-device-pixel-ratio: $dpi),
+  (min-resolution: #{$dpi}dppx) {
+    @content;
+  }
+}

@@ -1,0 +1,30 @@
+// @page Pattern Library/Components
+// @name Anchor links
+//
+// @description
+//   Anchor tag styling, with and without a border.
+//
+// @state .us-link - Adds a border bottom to the link.
+// @state .us-link--light - Changes the link colours to white for when links are placed on dark backgrounds.
+//
+// @markup
+//   <a href="#" class="{$modifiers}">Link</a>
+
+%anchor-link {
+  border-bottom: 1px solid;
+}
+
+a,
+.us-link {
+  @include link-colors($c-blue, $c-typecyan, $c-blue, $c-blue, darken($c-blue, 15%));
+  text-decoration: none;
+  transition: color 333ms, border-color 333ms;
+}
+
+.us-link {
+  @extend %anchor-link;
+}
+
+.us-link--light {
+  @include link-colors(#fff, #fff, $c-keylinegrey, #fff, #fff);
+}

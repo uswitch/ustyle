@@ -1,0 +1,116 @@
+// @page Pattern Library/Utilities
+// @name General
+//
+// @description
+//   These utility classes allow for some basic CSS properties to be applied across elements. The classname applies to the property that is getting set, with the value as the modifier.
+//
+// @state .us-clearfix - Clear floats.
+// @state .us-float--left - Float element to the left.
+// @state .us-float--right - Float element to the right.
+// @state .us-align--left - Align content of the element to the left.
+// @state .us-align--center - Align content of the element to the center.
+// @state .us-align--right - Align content of the element to the right.
+// @state .us-block - Display element as a block.
+// @state .us-color--cyan - Change content color to blue, navy, typecyan, cyan, red, green.
+// @state .us-list--reset - Reset list style.
+//
+// @markup
+//   <div class='{$modifiers}'>
+//     <p>content</p>
+//   </div>
+
+
+// Clear floats
+.us-clearfix {
+  @extend %clearfix;
+}
+
+// Reset list styling
+.us-list--reset {
+  @extend %reset-box-model;
+  list-style: none;
+}
+
+// Blocked element
+.us-blocked {
+  display: block;
+}
+
+// Margins
+.us-trailered {
+  margin-bottom: 1em;
+}
+
+.us-trailered--large {
+  margin-bottom: 1.5em;
+}
+
+.us-trailered--small {
+  margin-bottom: .5em;
+}
+
+// Floats
+.us-float--left {
+  @extend %float-left;
+}
+
+.us-float--right {
+  @extend %float-right;
+}
+
+.us-align--left {
+  text-align: left;
+}
+
+.us-align--right {
+  text-align: right;
+}
+
+.us-align--center {
+  text-align: center;
+}
+
+// Colors
+$colors: (
+  "blue" $c-blue,
+  "navy" $c-navy,
+  "typecyan" $c-typecyan,
+  "cyan" $c-cyan,
+  "red" $c-red,
+  "green" $c-green,
+  "typegrey" $c-typegrey,
+  "typegrey-2" $c-typegrey-2,
+  "inputgrey" $c-inputgrey,
+  "bordergrey" $c-bordergrey,
+  "keylinegrey" $c-keylinegrey,
+  "blue-light" $c-blue-light,
+  "typecyan-light" $c-typecyan-light,
+  "cyan-light" $c-cyan-light,
+  "yellow" $c-yellow,
+  "orange" $c-orange,
+  "purple" $c-purple
+);
+
+@each $color in $colors {
+  .us-color--#{nth($color, 1)} {
+    color: nth($color, 2);
+  }
+
+  .us-background-color--#{nth($color, 1)} {
+    background: nth($color, 2);
+  }
+}
+
+// Fonts
+
+.us-font--normal {
+  @include normal-font;
+}
+
+.us-font--heading-p {
+  @include heading-font;
+}
+
+.us-font--heading-s {
+  @include heading-font;
+}

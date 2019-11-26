@@ -1,0 +1,103 @@
+// @page Pattern Library/Forms
+// @name Input group
+//
+// @description
+//   Input groups allow you to add "boxes" to the left or right of an input. These boxes usually contain a visual icon to represent the usage of the input.
+//
+// @state .us-input-group--disabled - Disabled state for input groups.
+// @state .us-input-group--blocked - Fluid style.
+//
+// @markup
+//   <div class="us-input-group us-margin-bottom {$modifiers}">
+//     <span class="us-input-group__box"><svg role="presentation" aria-hidden="true" class="us-icon--small us-icon--inputgrey"><use xlink:href="/images/icons.svg#icon-envelope"></use></svg></span>
+//     <input class="us-form-input" type="text" id="email" placeholder="Email" />
+//   </div>
+//
+//   <div class="us-input-group us-margin-bottom {$modifiers}">
+//     <input class="us-form-input" type="text" id="kwh" />
+//     <span class="us-input-group__box">kWh</span>
+//   </div>
+
+.us-input-group {
+  position: relative;
+  display: table;
+  vertical-align: middle;
+  border-collapse: separate;
+
+  @include respond-to(tablet, true) {
+    display: inline-table;
+  }
+
+  .us-form-input {
+    position: relative;
+    display: table-cell;
+    float: left;
+    width: 100%;
+  }
+}
+
+.us-input-group--disabled {
+  .us-input-group__box {
+    @include form-element-disabled;
+
+    [class^="us-icon--"],
+    .us-icon {
+      opacity: .35;
+    }
+  }
+
+  .us-form-input {
+    @include form-element-disabled;
+  }
+}
+
+.us-input-group--blocked {
+  width: 100%;
+
+  .us-input-group__box {
+    width: 1%;
+  }
+}
+
+.us-input-group__box {
+  display: table-cell;
+  width: 1%;
+  padding-right: .5em;
+  padding-left: .5em;
+  color: $c-inputgrey;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  background-color: $c-form-element-background;
+  border: 1px solid $c-form-element-border;
+  border-radius: 3px;
+
+  @include respond-to(tablet, true) {
+    width: auto;
+  }
+
+  [class^="us-icon--"],
+  .us-icon {
+    vertical-align: middle;
+  }
+}
+
+.us-input-group__box:first-child {
+  border-right: 0;
+}
+
+.us-input-group__box:last-child {
+  border-left: 0;
+}
+
+.us-input-group__box:first-child,
+.us-input-group .us-form-input:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.us-input-group__box:last-child,
+.us-input-group .us-form-input:last-child {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}

@@ -1,0 +1,92 @@
+// @page Pattern Library/Typography
+// @name Numbered list
+//
+// @description
+//   Our default numbered list styling.
+//
+// @state .us-custom-list-alt - Allows us to use the lists on hero/blue backgrounds.
+//
+// @markup
+//   <ul class='us-numbered-list {$modifiers}'>
+//     <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin iaculis bibendum.</li>
+//     <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin iaculis bibendum.</li>
+//   </ul>
+
+%base-custom-list {
+  padding: 0;
+  margin: 1.5em 0;
+  list-style: none;
+
+  li {
+    position: relative;
+    padding-left: 2em;
+    margin: .5em 0;
+
+    &:before {
+      position: absolute;
+      left: 0;
+    }
+  }
+}
+
+.us-numbered-list {
+  @extend %base-custom-list;
+  counter-reset: number-counter;
+
+  li {
+    counter-increment: number-counter;
+
+    &:before {
+      top: 0;
+      width: 1.5em;
+      height: 1.5em;
+      padding-top: .25em;
+      line-height: 1;
+      color: $c-typecyan;
+      text-align: center;
+      border-radius: 2em;
+      content: counter(number-counter);
+      box-sizing: border-box;
+    }
+  }
+
+  .us-hero & li:before,
+  &.us-custom-list-alt li:before {
+    color: $c-navy;
+    background: #fff;
+    background: rgba(255, 255, 255, .7);
+  }
+}
+
+// @page Pattern Library/Typography
+// @name Ticked list
+//
+// @description
+//   Our default ticked list styling.
+//
+// @state .us-custom-list-alt - Allows us to use the lists on hero/blue backgrounds.
+//
+// @markup
+//   <ul class='us-ticked-list'>
+//     <li>
+//       <svg role="presentation" aria-hidden="true" class="us-icon us-icon--small us-icon--before us-icon--typegrey"><use xlink:href="/images/icons.svg#icon-tick"/></svg>
+//       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+//     </li>
+//     <li>
+//       <svg role="presentation" aria-hidden="true" class="us-icon us-icon--small us-icon--before us-icon--typegrey"><use xlink:href="/images/icons.svg#icon-tick"/></svg>
+//       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+//     </li>
+//   </ul>
+
+.us-ticked-list {
+  @extend %base-custom-list;
+
+  li {
+    padding-left: 0;
+
+    &:before {
+      top: 50%;
+      margin-top: - 8px;
+    }
+  }
+}

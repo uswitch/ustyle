@@ -1,0 +1,74 @@
+// -------------------------
+// These are default, handy extends that can be used anywhere to minimise
+// repetition and keep everything compartmentalised in CSS
+// -------------------------
+
+%small-font {
+  font-size: em(14px);
+  line-height: 1.15em;
+}
+
+%float-left {
+  float: left;
+}
+
+%float-right {
+  float: right;
+}
+
+%reset-box-model {
+  padding: 0;
+  margin: 0;
+}
+
+// Clearfix - micro clearfix
+
+%clearfix {
+  @include clearfix;
+}
+
+// A bordered box used for all news/guide/seemore/block items
+
+%bordered-box {
+  border: 1px solid $c-bordergrey;
+  border-radius: em(5px);
+
+  &:hover {
+    border-color: $c-typecyan;
+  }
+}
+
+// Triangle used across all buttons/link lists
+
+%link-triangle {
+  position: relative;
+  left: 0;
+  display: inline;
+  margin: 0 0 0 .5em;
+  font-size: .5em;
+  line-height: 0;
+  vertical-align: middle;
+  content: "\25b6\fe0e";
+  transition: left 200ms;
+}
+
+// Vertical alignment helpers
+
+%vertical-align-parent {
+  transform-style: preserve-3d;
+}
+
+%vertical-align-child {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+// Backface visibility
+%backface-visibility--hidden {
+  backface-visibility: hidden;
+}
+
+// Normalise Firefox mobile inputs - https://bugzilla.mozilla.org/show_bug.cgi?id=763671
+%input-background--normalise {
+  background-image: none;
+}

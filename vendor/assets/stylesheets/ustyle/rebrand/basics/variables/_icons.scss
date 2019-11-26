@@ -1,0 +1,43 @@
+/// List of the supported SVG sprite colours
+///
+/// @group Icons
+/// @type List
+
+$icon-colors: "white", "typegrey", "inputgrey", "typecyan", "custom" !default;
+
+/// Legacy support for icon coloring on SVGs
+///
+/// @group Icons
+/// @type List
+$icon-colors--svg: (
+  ("white", #fff),
+  ("typegrey", $c-typegrey),
+  ("inputgrey", $c-inputgrey),
+  ("typecyan", $c-typecyan),
+  ("custom", $c-navy)
+) !default;
+
+$icon-colors--svg--custom: (
+  ("uswitch", $c-blue),
+  ("cross", $c-red),
+  ("tick", $c-green),
+  ("facebook", #3c5a99),
+  ("google", #dc4e41),
+  ("renewable", $c-green),
+  ("star-half", $c-yellow),
+  ("starline-half", $c-yellow),
+  ("star", $c-yellow),
+  ("starline", $c-yellow),
+  ("twitter", #00aced)
+) !default;
+
+/// List of the icon sizes and their respective names
+///
+/// @group Icons
+/// @type List
+
+$icon-sizes: (
+  (small, 16px, 16px),
+  (medium, 32px, 32px),
+  (large, 64px, 64px)
+) !default;

@@ -1,0 +1,183 @@
+// @page Pattern Library/Components
+// @name Buttons
+//
+// @description
+//   Our buttons used across the site. The states give different use cases. Both `<a>` and `<button>` tags are supported. Please use `role='button'` when using an `<a>` tag.
+//
+// @state .us-btn--primary - Used as a save/update button.
+// @state .us-btn--action - Navigational button.
+// @state .us-btn--secondary - Secondary.
+// @state .us-btn--hero - Navy outline used for buttons on hero banners.
+// @state .us-btn--reversed - White outline for dark backgrounds.
+// @state .us-btn--large - Larger button for heros.
+// @state .us-btn--small - Smaller button for mobile tables.
+// @state .us-btn--blocked - Full width button.
+// @state .us-btn--link - link style button.
+// @state .us-btn--stronger - Emphasis button.
+// @state .us-btn--disabled - Disabled styling (can also be styled with :disabled).
+//
+// @markup
+//  <a href="#" class="us-btn {$modifiers}" role="button">Link Button</a>
+//  <button class="us-btn {$modifiers}">Button Element</button>
+
+$button-bg--base      : $c-keylinegrey !default;
+$button-bg--base-hover: $c-typecyan !default;
+$button-bg--primary   : $c-red !default;
+$button-bg--secondary : $c-typecyan !default;
+$button-bg--action    : $c-green !default;
+$button-bg--hero      : $c-navy !default;
+$button-bg--reversed  : #fff !default;
+
+$button-text--light: #f00 !default;
+$button-text--dark: $c-typegrey !default;
+
+$button-styles: (
+  ("primary", $button-bg--primary, $button-text--light),
+  ("secondary", $button-bg--secondary, $button-text--light),
+  ("action", $button-bg--action, $button-text--light)
+) !default;
+
+$outline-button-styles: (
+  ("hero", $button-bg--hero, $button-bg--hero),
+  ("reversed", $button-bg--reversed, $button-bg--reversed)
+) !default;
+
+@mixin button-style($name, $outlined: false) {
+  @if $outlined {
+    &,
+    &:visited {
+      color: nth($name, 3);
+      background-color: transparent;
+      border-color: nth($name, 2);
+    }
+  } @else {
+    &,
+    &:visited {
+      color: nth($name, 3);
+      background-color: nth($name, 2);
+      border-color: shade(nth($name, 2), 20%);
+    }
+  }
+
+  &:hover,
+  &:focus {
+    @if $outlined {
+      color: nth($name, 2);
+      border-color: nth($name, 2);
+      @if nth($name, 2) == #fff {
+        background-color: transparentize(nth($name, 2), .8);
+      } @else {
+        background-color: tint(nth($name, 2), 90%);
+      }
+    } @else {
+      color: nth($name, 3);
+      background-color: shade(nth($name, 2), 20%);
+      border-color: shade(nth($name, 2), 20%);
+    }
+  }
+
+  &:active {
+    @if $outlined {
+      @if nth($name, 2) == #fff {
+        color: $button-text--dark;
+      } @else {
+        color: #fff;
+      }
+      background-color: nth($name, 2);
+      border-color: nth($name, 2);
+    } @else {
+      color: #fff;
+      background-color: shade(nth($name, 2), 50%);
+      border-color: shade(nth($name, 2), 50%);
+    }
+  }
+}
+
+%btn,
+.us-btn {
+  @extend %reset-box-model;
+  @extend %input-background--normalise;
+  @include normal-font;
+  display: inline-block;
+  padding: .63em 1.25em;
+  font-size: 1em;
+  line-height: 1em;
+  color: $c-typegrey;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: $button-bg--base;
+  border: 1px solid shade($button-bg--base, 20%);
+  border-radius: 3px;
+  transition: none;
+
+  &:visited {
+    color: $c-typegrey;
+  }
+
+  &:hover,
+  &:focus {
+    color: $button-bg--base-hover;
+    background-color: tint($button-bg--base-hover, 90%);
+    border-color: $button-bg--base-hover;
+  }
+
+  &:active {
+    color: #fff;
+    background-color: $button-bg--base-hover;
+  }
+}
+
+.us-btn--stronger {
+  @include heading-font;
+}
+
+.us-btn--large {
+  font-size: 1.2em;
+}
+
+.us-btn--small {
+  padding: .4em .65em;
+}
+
+.us-btn--blocked {
+  display: block;
+  width: 100%;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.us-btn--link {
+  padding: 0;
+  line-height: $base-line-ratio;
+  color: $c-blue;
+  background-color: transparent;
+  border: 0;
+
+  &:hover {
+    color: $c-navy;
+    text-decoration: underline;
+    background-color: transparent;
+  }
+}
+
+.us-btn--disabled,
+.us-btn:disabled {
+  pointer-events: none;
+  opacity: .5;
+}
+
+@each $button-style in $button-styles {
+  %btn--#{nth($button-style, 1)},
+  .us-btn--#{nth($button-style, 1)} {
+    @include button-style($button-style);
+  }
+}
+@each $button-style in $outline-button-styles {
+  %btn--#{nth($button-style, 1)},
+  .us-btn--#{nth($button-style, 1)} {
+    @include button-style($button-style, true);
+  }
+}

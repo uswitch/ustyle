@@ -1,0 +1,74 @@
+// @page Brand/Colours
+// @name Primary palette
+// @partial colour
+//
+// @description Our colours (with a "u", we're a UK company) are divided into primary, secondary and tertiary palettes. The primary and secondary are core to all our design work and supported by the tertiary which we use in infographics, graphs and the like. CMYK equivalents are available for print work.
+//   #### Best practices
+//   * Do not rely only on colour to provide information. A green circle means little, a green circle with "success" in the middle gives actual information.
+//   * Make sure your text is [sufficiently contrasted](http://a11yproject.com/posts/what-is-color-contrast/) against its background
+//
+// @variable c-cyan - Hero banners
+// @variable c-navy - Text with emphasis
+// @variable c-blue - Logo
+// @variable c-typecyan - Text links, icons
+// @variable c-typegrey - Body text
+// @variable c-typegrey-2 - Text without emphasis
+// @variable c-bggrey - Backgrounds
+// @variable c-red - Primary buttons
+// @variable c-green - Action buttons, USPs
+
+$c-navy: #1c1f4e;
+$c-blue: #002396;
+$c-typecyan: #008fe9;
+$c-cyan: #99e2ff;
+$c-typegrey: #2f353a;
+$c-typegrey-2: #65717b;
+$c-bggrey: #f4f5f6;
+$c-red: #d64226;
+$c-green: #2aaa5b;
+
+// @page Brand/Colours
+// @name Secondary palette
+// @partial colour
+// @variable c-inputgrey - Dropdowns, icons
+// @variable c-bordergrey - Borders
+// @variable c-keylinegrey - Keylines, separators
+// @variable c-blue-light
+// @variable c-typecyan-light
+// @variable c-cyan-light
+// @variable c-yellow - USPs
+// @variable c-orange - USPs
+// @variable c-purple - USPs
+
+
+$c-inputgrey: #84909a;
+$c-bordergrey: #b0b8bf;
+$c-keylinegrey: #e9ebed;
+$c-blue-light: #0c72bf;
+$c-typecyan-light: #4cc0f4;
+$c-cyan-light: #e4f8ff;
+$c-yellow: #ffd32f;
+$c-orange: #f27930;
+$c-purple: #9c55b8;
+
+
+// @page Brand/Colours
+// @name Tertiary palette
+// @partial colour
+//
+// @variable c-red-dark
+// @variable c-green-dark
+// @variable c-red-lightest
+// @variable c-green-lightest
+// @variable c-yellow-lightest
+// @variable c-orange-lightest
+// @variable c-purple-lightest
+
+
+$c-red-dark: #b53820;
+$c-green-dark: #23904d;
+$c-red-lightest: #eeb3a8;
+$c-green-lightest: #adebc5;
+$c-yellow-lightest: #ffedab;
+$c-orange-lightest: #f9c9ac;
+$c-purple-lightest: #d7bbe2;

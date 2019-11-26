@@ -1,0 +1,122 @@
+// @page Pattern Library/Forms
+// @name Toggle
+//
+// @description
+//  Toggle buttons provide an alternative way of displaying radio groups with a small number of options to a user.
+//  IE8 support is included with `radioToggle.js` which sets a `.checked` class on the radio button when clicked.
+//
+//  #### Best practices
+//  * Use as an alternative to radio groups that have short labels for each option (Yes/No, Opt-in/Opt-out).
+//  * For forms that have many short radio group questions in them, toggle buttons provide a better experience for quickly selecting answers on both desktop and mobile due to larger visible click areas for each option.
+//  * Limit the number of options in the toggle group to 3.
+//
+// @state .us-toggle__btn--disabled - Visual styling for toggle buttons that can't be interacted with.
+//
+// @javascript
+//   var radioToggle = new RadioToggle({
+//     $target: $(".us-toggle")
+//   })
+//
+// @markup
+//   <div class="us-field us-field--blocked">
+//     <label>Answer truthfully</label>
+//     <div class="us-toggle">
+//       <label class="us-toggle__label">
+//         <input class="us-form-input" name="choice" type="radio">
+//         <span class="us-toggle__btn {$modifiers}">
+//           Yes
+//         </span>
+//       </label>
+//
+//       <label class="us-toggle__label">
+//         <input class="us-form-input" name="choice" type="radio">
+//         <span class="us-toggle__btn">
+//           No
+//         </span>
+//       </label>
+//     </div>
+//   </div>
+
+$toggle-btn-padding: 5px 30px !default;
+$toggle-active-bg: $c-cyan-light !default;
+
+@mixin toggle-active-style {
+  background: $toggle-active-bg;
+  border-color: $c-form-element-border-hover;
+  text-shadow: 1px 0 0 $c-form-element-text;
+}
+
+@mixin toggle-disabled-style {
+  color: $c-form-element-disabled-fg;
+  background-color: $c-form-element-disabled-bg;
+  border-color: $c-form-element-disabled-fg;
+}
+
+.us-toggle {
+  @extend %clearfix;
+  display: block;
+
+  @include respond-to($default-grid-breakpoint, true) {
+    display: inline-block;
+  }
+}
+
+.us-toggle__label {
+  position: relative;
+  float: left;
+  width: 50%;
+  vertical-align: middle;
+  cursor: pointer;
+
+  @include respond-to($default-grid-breakpoint, true) {
+    width: auto;
+  }
+
+  // Don't hide inputs due to tabbing
+  .us-form-input {
+    position: absolute;
+    left: -999em;
+  }
+}
+
+.us-toggle__btn {
+  display: block;
+  padding: $toggle-btn-padding;
+  color: $c-form-element-text;
+  text-align: center;
+  background-color: $c-form-element-background;
+  border: 1px solid $c-form-element-border;
+
+  .us-toggle__label:hover & {
+    border-color: $c-form-element-border-hover;
+  }
+
+  .us-toggle__label:focus &,
+  .us-toggle__label .us-form-input:focus + & {
+    border-color: $c-form-element-border-hover;
+    box-shadow: inset 0 0 0 1px $c-form-element-border-hover;
+  }
+
+  // [nodoc] Legacy, as grouping selectors will fail on pseudo-selector :checked
+  .us-toggle__label .us-form-input.checked + & {
+    @include toggle-active-style;
+  }
+
+  .us-toggle__label .us-form-input:checked + & {
+    @include toggle-active-style;
+  }
+
+  .us-toggle__label:first-child & {
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+  }
+
+  .us-toggle__label:last-child & {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+}
+
+.us-toggle__btn--disabled {
+  @include form-element-disabled;
+}

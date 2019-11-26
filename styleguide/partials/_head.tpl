@@ -14,7 +14,13 @@
   <link rel="mask-icon" href="/images//safari-pinned-tab.svg" color="#5bbad5">
   <meta name="theme-color" content="#ffffff">
   <title>uStyle styleguide</title>
-  <link rel="stylesheet" href="/css/main.css" type="text/css" />
+  <script>
+    if (document.cookie.match(/rebrand=true/)) {
+      document.write('<link rel="stylesheet" href="/css/rebrand.css" type="text/css" />')
+    } else {
+      document.write('<link rel="stylesheet" href="/css/main.css" type="text/css" />')
+    }
+  </script>
   <!--[if lt IE 9]>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
   <![endif]-->
