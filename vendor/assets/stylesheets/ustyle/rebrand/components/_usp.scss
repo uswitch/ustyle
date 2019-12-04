@@ -17,42 +17,57 @@
 // @state .us-usp--red - Generic vertical specific USP.
 //
 // @markup
-//   <div class='us-usp {$modifiers}'>Shortened USP</div>
+//   <div class='us-usp {$modifiers}'>Unique Selling Point</div>
 //   <div class='us-usp us-usp--annotated'>
 //     <div class='us-usp {$modifiers}'>Annotated USP</div>
 //     More information about USP goes here
 //   </div>
 
 $variants: (
-  ('cyan', $c-cyan, $c-navy),
-  ('typecyan', $c-typecyan),
-  ('blue', $c-blue),
-  ('navy', $c-navy),
-  ('red', $c-red),
-  ('green', $c-green),
-  ('purple', $c-purple),
-  ('orange', $c-orange),
-  ('yellow', $c-yellow, $c-typegrey),
-  ('typegrey', $c-typegrey)
+  ('blue', $c-dark-blue),
+  ('orange', $c-dark-orange),
+  ('purple', $c-dark-purple),
+  ('yellow', $c-dark-yellow),
+  ('typecyan', $c-light-blue),
+  ('green', $c-dark-green),
+  ('navy', $c-dark-blue),
+  ('cyan', $c-light-blue),
+  ('typegrey', $c-darker-grey),
+  ('grey', $c-darker-grey),
+  ('red', $c-light-red),
+  ('pink', $c-dark-pink),
+  ('light-purple', $c-light-purple)
 ) !default;
+
+
+
+@mixin usp-style($colour) {
+  background-color: rgba(nth($colour, 2), .3);
+
+  &:before {
+    position: relative;
+    left: -.55em;
+    border-left: 4px solid nth($colour, 2);
+    content: "";
+    padding: .2em 0;
+  }
+}
 
 .us-usp {
   display: inline-block;
-  padding: 0 10px;
-  font-weight: bold;
+  padding: .25em .75em;
+  font-weight: 600;
+  font-size: 0.875em;
   line-height: $base-line-ratio;
-  color: #fff;
+  color: $c-uswitch-navy;
   text-align: center;
-  background-color: $c-typecyan;
+
+  @include usp-style(('blue', $c-dark-blue));
 }
 
 @each $colour in $variants {
   .us-usp--#{nth($colour, 1)} {
-    background-color: #{nth($colour, 2)};
-
-    @if length($colour) == 3 {
-      color: #{nth($colour, 3)};
-    }
+    @include usp-style($colour);
   }
 }
 
@@ -61,6 +76,10 @@ $variants: (
   color: $c-typegrey;
   text-align: left;
   background-color: $c-bggrey;
+
+  &:before {
+    border: 0;
+  }
 
   .us-usp {
     margin-right: 10px;
