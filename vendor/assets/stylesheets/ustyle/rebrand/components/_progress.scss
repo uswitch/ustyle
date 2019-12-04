@@ -39,10 +39,10 @@
 //   </div>
 //
 
-$progress-bg-color: $c-navy;
-$progress-current-color: #fff;
-$progress-complete-color: $c-cyan;
-$progress-next-color: tint($c-navy, 50%);
+$progress-bg-color: $c-white;
+$progress-current-color: $c-white;
+$progress-complete-color: $c-uswitch-navy;
+$progress-next-color: $c-grey;
 
 .us-progress {
   position: relative;
@@ -85,42 +85,54 @@ $progress-next-color: tint($c-navy, 50%);
     width: 1.5em;
     height: 1.5em;
     margin-right: $gutter-width/3;
-    font-weight: 700;
-    color: $c-navy;
+    font-weight: 500;
+    color: $c-white;
     text-align: center;
     border-radius: 50%;
     content: counter(number-counter);
     transition: background-color .3s;
+    border-width: 3px;
+    border-style: solid;
   }
 }
 
 .us-progress__link--next {
-  color: $progress-next-color;
+  color: $c-uswitch-navy;
 
   &:before {
+    border-color: $progress-next-color;
     background-color: $progress-next-color;
   }
 }
 
 
 .us-progress__link--current {
-  color: $progress-current-color;
+  color: $c-uswitch-navy;
 
   &:before {
+    color: $c-uswitch-navy;
     background-color: $progress-current-color;
+    border-color: $c-uswitch-navy;
   }
 }
 
 .us-progress__link--complete {
   @include link-colors($progress-complete-color, #fff, $progress-complete-color, $progress-complete-color, #fff);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    text-decoration-color: $c-uswitch-navy;
+  }
 
   &:before {
     background-color: $progress-complete-color;
+    border-color: $c-uswitch-navy;
   }
 
-  &:hover:before,
-  &:active:before {
-    background-color: #fff;
+  &:hover span,
+  &:focus span {
+    color: $c-uswitch-navy;
   }
 }
 
