@@ -42,12 +42,12 @@
   }
 
   &:last-child {
+    font-weight: bold;
+    color: $c-uswitch-navy;
+
     &:before {
       color: $c-darker-grey;
     }
-
-    font-weight: bold;
-    color: $c-uswitch-navy;
   }
 }
 

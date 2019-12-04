@@ -54,15 +54,15 @@ $variants: (
 }
 
 .us-usp {
+  @include usp-style(('blue', $c-dark-blue));
+
   display: inline-block;
   padding: .25em .75em;
   font-weight: 600;
-  font-size: 0.875em;
+  font-size: .875em;
   line-height: $base-line-ratio;
   color: $c-uswitch-navy;
   text-align: center;
-
-  @include usp-style(('blue', $c-dark-blue));
 }
 
 @each $colour in $variants {
