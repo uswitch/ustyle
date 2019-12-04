@@ -11,12 +11,12 @@
 //   <a href="#" class="{$modifiers}">Link</a>
 
 %anchor-link {
-  border-bottom: 1px solid;
+  text-decoration: underline;
 }
 
 a,
 .us-link {
-  @include link-colors($c-blue, $c-typecyan, $c-blue, $c-blue, darken($c-blue, 15%));
+  @include link-colors(#000, $c-darker-grey, #000, #000, #000);
   text-decoration: none;
   transition: color 333ms, border-color 333ms;
 }
@@ -26,5 +26,5 @@ a,
 }
 
 .us-link--light {
-  @include link-colors(#fff, #fff, $c-keylinegrey, #fff, #fff);
+  @include link-colors(#fff, $c-light-grey, #fff, #fff, #fff);
 }
