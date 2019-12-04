@@ -34,6 +34,36 @@
     float: left;
     width: 100%;
   }
+
+  .us-form-input:first-child {
+    border-right: 0;
+  }
+
+  .us-form-input:last-child {
+    border-left: 0;
+  }
+
+  &:not(.us-input-group--disabled) {
+    &:hover .us-input-group__box {
+      color: $c-dark-grey;
+      border-color: $c-form-element-border-hover;
+
+      [class^="us-icon--"],
+      .us-icon {
+        fill: $c-dark-grey
+      }
+    }
+
+    &:focus-within .us-input-group__box {
+      color: $c-uswitch-navy;
+      border-color: $c-form-element-border-active;
+
+      [class^="us-icon--"],
+      .us-icon {
+        fill: $c-uswitch-navy
+      }
+    }
+  }
 }
 
 .us-input-group--disabled {
@@ -64,13 +94,12 @@
   width: 1%;
   padding-right: .5em;
   padding-left: .5em;
-  color: $c-inputgrey;
+  color: $c-grey;
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
   background-color: $c-form-element-background;
   border: 1px solid $c-form-element-border;
-  border-radius: 3px;
 
   @include respond-to(tablet, true) {
     width: auto;
@@ -78,6 +107,7 @@
 
   [class^="us-icon--"],
   .us-icon {
+    fill: $c-grey;
     vertical-align: middle;
   }
 }
