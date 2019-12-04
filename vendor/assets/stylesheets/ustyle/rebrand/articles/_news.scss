@@ -108,9 +108,9 @@ $base-item-image-size: $news-item-image-size;
 }
 
 %readmore-link {
+  @extend %anchor-link;
   @include normal-font;
   @include link-colors($c-uswitch-navy, $c-darker-grey, $c-uswitch-navy, $c-uswitch-navy, $c-uswitch-navy);
-  @extend %anchor-link;
 }
 
 %readmore {

@@ -43,6 +43,7 @@
     border-left: 0;
   }
 
+  // scss-lint:disable NestingDepth
   &:not(.us-input-group--disabled) {
     &:hover .us-input-group__box {
       color: $c-dark-grey;
@@ -50,7 +51,7 @@
 
       [class^="us-icon--"],
       .us-icon {
-        fill: $c-dark-grey
+        fill: $c-dark-grey;
       }
     }
 
@@ -60,7 +61,7 @@
 
       [class^="us-icon--"],
       .us-icon {
-        fill: $c-uswitch-navy
+        fill: $c-uswitch-navy;
       }
     }
   }

@@ -28,7 +28,7 @@
   border-color: $color;
 
   &:hover {
-    border-color: if($color--hover, $color--hover, $color)
+    border-color: if($color--hover, $color--hover, $color);
   }
 
   &:focus,
