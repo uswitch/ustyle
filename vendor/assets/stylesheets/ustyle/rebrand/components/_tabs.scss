@@ -117,6 +117,7 @@ $tab-active-color: $tab-border-color;
   border-right: 3px solid $tab-border-color;
   border-radius: 0;
   transition: none;
+  text-decoration: none;
 
   @include respond-to(tablet) {
     font-size: em(14px);
