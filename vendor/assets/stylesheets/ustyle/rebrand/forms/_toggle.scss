@@ -37,7 +37,7 @@
 //     </div>
 //   </div>
 
-$toggle-btn-padding: 5px 30px !default;
+$toggle-btn-padding: 10px 26px !default;
 $toggle-active-bg: $c-cyan-light !default;
 
 @mixin toggle-active-style {
@@ -104,16 +104,6 @@ $toggle-active-bg: $c-cyan-light !default;
 
   .us-toggle__label .us-form-input:checked + & {
     @include toggle-active-style;
-  }
-
-  .us-toggle__label:first-child & {
-    border-bottom-left-radius: 3px;
-    border-top-left-radius: 3px;
-  }
-
-  .us-toggle__label:last-child & {
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
   }
 }
 
