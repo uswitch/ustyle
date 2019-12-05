@@ -112,6 +112,7 @@ $outline-button-styles: (
   cursor: pointer;
   background-color: $button-bg--base;
   border: 0;
+  border-radius: 0;
   transition: none;
 
   &:visited {
