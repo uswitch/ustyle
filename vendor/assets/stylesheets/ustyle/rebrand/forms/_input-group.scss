@@ -19,6 +19,8 @@
 //   </div>
 
 .us-input-group {
+  @include input-sizing();
+
   position: relative;
   display: table;
   vertical-align: middle;
@@ -33,6 +35,11 @@
     display: table-cell;
     float: left;
     width: 100%;
+    height: 100%;
+
+    &--large {
+      height: 100%;
+    }
   }
 
   .us-form-input:first-child {
@@ -101,6 +108,7 @@
   vertical-align: middle;
   background-color: $c-form-element-background;
   border: 1px solid $c-form-element-border;
+  height: 100%;
 
   @include respond-to(tablet, true) {
     width: auto;

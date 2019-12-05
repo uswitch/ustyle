@@ -99,10 +99,10 @@ $outline-button-styles: (
   @extend %input-background--normalise;
   @include normal-font;
   display: inline-block;
-  padding: .75em 0;
+  padding: .63em 1.25em;
   font-size: 1em;
   font-weight: bold;
-  line-height: 1.5em;
+  line-height: 1em;
   width: 17.625em;
   color: $c-typegrey;
   text-align: center;
