@@ -95,8 +95,8 @@ module.exports = function (grunt) {
         files: {
           'dist/ustyle-latest.css': 'vendor/assets/stylesheets/ustyle.scss',
           'dist/ustyle-content.css': 'vendor/assets/stylesheets/ustyle-content.scss',
-          'dist/rebrand-latest.css': 'vendor/assets/stylesheets/rebrand.scss',
-          'dist/rebrand-content.css': 'vendor/assets/stylesheets/rebrand-content.scss',
+          'dist/rebrand-latest.css': 'vendor/assets/stylesheets/rebrand/ustyle.scss',
+          'dist/rebrand-content.css': 'vendor/assets/stylesheets/rebrand/ustyle-content.scss',
           'docs/css/main.css': 'styleguide/assets/sass/main.scss',
           'docs/css/rebrand.css': 'styleguide/assets/sass/rebrand.scss'
         }
