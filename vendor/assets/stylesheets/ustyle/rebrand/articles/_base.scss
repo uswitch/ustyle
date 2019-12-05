@@ -91,7 +91,7 @@ $article-description-color: $c-dark-grey !default;
   }
 }
 
-img.us-article__image {
+.us-article__image {
   display: none;
 
   @include respond-to(desktop, true) {
