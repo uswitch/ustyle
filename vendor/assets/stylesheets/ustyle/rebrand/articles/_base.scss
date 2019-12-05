@@ -26,24 +26,24 @@
 //     </div>
 //   </article>
 
-$article-border-color: $c-keylinegrey !default;
-$article-padding: 2em !default;
-$article-description-color: $c-typegrey-2 !default;
+$article-border-color: $c-grey !default;
+$article-padding: $gutter-width !default;
+$article-description-color: $c-dark-grey !default;
 
 .us-article {
-  padding-top: $article-padding/2;
-  padding-bottom: $article-padding/2;
-  border-bottom: 1px solid $article-border-color;
+  position: relative;
+  padding: $article-padding*.75;
+  border: 1px solid $article-border-color;
 
-  @include respond-to(tablet, true) {
-    padding-top: $article-padding;
-    padding-bottom: $article-padding;
+  @include respond-to(desktop, true) {
+    padding: $article-padding/2 $article-padding;
   }
 }
 
 .us-article__link {
   display: block;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
+  text-decoration: none;
 
   &:hover {
     .us-article__title {
@@ -54,7 +54,7 @@ $article-description-color: $c-typegrey-2 !default;
 
 .us-article__link,
 .us-article__link:hover,
-.us-article__link:visited, {
+.us-article__link:visited {
   color: inherit;
 }
 
@@ -64,25 +64,37 @@ $article-description-color: $c-typegrey-2 !default;
   @include respond-to(tablet, true) {
     @include heading(3, $extend: false);
   }
-}
 
-.us-article__meta,
-.us-article__description {
-  color: $article-description-color;
+  @include respond-to(desktop, true) {
+    padding-top: $article-padding*.25;
+  }
 }
 
 .us-article__meta {
+  color: $c-uswitch-navy;
   font-size: .875em;
+  position: absolute;
+  bottom: $article-padding*.75;
+
+  @include respond-to(desktop, true) {
+    bottom: $article-padding;
+  }
 }
 
 .us-article__description {
+  color: $article-description-color;
   margin-bottom: 1em;
+  padding-bottom: 2em;
 
   @include respond-to(tablet, true) {
     font-size: 1.125em;
   }
 }
 
-.us-article__image {
-  border: 1px solid $article-border-color;
+img.us-article__image {
+  display: none;
+
+  @include respond-to(desktop, true) {
+    display: block;
+  }
 }
