@@ -26,7 +26,7 @@
 .us-tabs {
   &--page-nav {
     display: none;
-    background-color: $c-bggrey;
+    background-color: $c-super-light-grey;
 
     @include respond-to(tablet) {
       display: block;
@@ -58,7 +58,7 @@
     margin: 0;
     text-align: center;
     cursor: pointer;
-    border-right: 1px solid #fff;
+    border-right: 3px solid #fff;
     transition: background-color .2s;
     flex-grow: 1;
     align-items: center;
@@ -68,14 +68,15 @@
 
     @include respond-to(desktop) {
       font-size: 1em;
-      line-height: 1.25em;
+      line-height: 1.5em;
     }
 
     a {
       display: block;
-      color: $c-inputgrey;
+      color: $c-darker-grey;
       transition: color .2s;
-      padding: 14px 1em 12px;
+      padding: .825em 1em;
+      text-decoration: none;
     }
 
     &:last-child {
@@ -87,7 +88,7 @@
       top: 0;
       left: 0;
       width: 100%;
-      border-top: 5px solid $c-typecyan;
+      border-top: 5px solid $c-uswitch-navy;
       content: "";
       opacity: 0;
       transition: opacity .2s;
@@ -95,17 +96,18 @@
   }
 
   &__links-item:hover {
-    background-color: #f8f9f9;
+    background-color: #f4f5f6;
 
-    a { color: $c-typecyan; }
+    a { color: $c-uswitch-navy; }
 
     &::before { opacity: 1; }
   }
 
   &__links-item--active {
     background-color: #fff;
+    border-right: 0;
 
-    a { color: $c-typecyan; }
+    a { color: $c-uswitch-navy; }
 
     &::before { opacity: 1; }
   }
