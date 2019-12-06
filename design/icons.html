@@ -14,7 +14,13 @@
   <link rel="mask-icon" href="/images//safari-pinned-tab.svg" color="#5bbad5">
   <meta name="theme-color" content="#ffffff">
   <title>uStyle styleguide</title>
-  <link rel="stylesheet" href="/css/main.css" type="text/css" />
+  <script>
+    if (document.cookie.match(/rebrand=true/)) {
+      document.write('<link rel="stylesheet" href="/css/rebrand.css" type="text/css" />')
+    } else {
+      document.write('<link rel="stylesheet" href="/css/main.css" type="text/css" />')
+    }
+  </script>
   <!--[if lt IE 9]>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
   <![endif]-->
@@ -32,7 +38,7 @@
       </svg>
       uStyle
     </a>
-    <a class="version" href="https://github.com/uswitch/ustyle/releases/tag/v1.20.0">v1.20.0</a>
+    <a class="version" href="https://github.com/uswitch/ustyle/releases/tag/v1.21.0">v1.21.0</a>
     <svg class="logo__svg--hidden" xmlns="http://www.w3.org/2000/svg">
       <symbol viewBox="0 0 100 100" id="uicon-logo-icon">
       <title>logo-icon</title><path d="M26.9 51.662V12.174H.9v38.771c0 24.61 20.095 46.167 44.695 46.896 13.28.393 25.36-4.881 34.012-13.584C55.435 96.47 26.9 78.67 26.9 51.662z"/><path d="M80.9 2.138L62.733 22.174H67.9v29.378c0 13.905-13.365 24.176-26.722 19.468C58.871 92.463 93.9 79.992
@@ -114,6 +120,26 @@
         <span class="us-color--blue">uSwitch is hiring.</span>
       </a>
     </div>
+  
+    <div>
+      <script>
+        window.toggleRebrand = function (rebrand) {
+          if (rebrand) {
+            document.cookie = 'rebrand=true; path=/'
+          } else {
+            document.cookie = 'rebrand=; path=/'
+          }
+  
+          window.location.reload()
+        }
+  
+        if (!document.cookie.match(/rebrand=true/)) {
+          document.write('<a href="javascript:toggleRebrand(true)">Show rebrand</a>')
+        } else {
+          document.write('<a href="javascript:toggleRebrand(false)">Hide rebrand</a>')
+        }
+      </script>
+    </div>
   </div>
     <div id="wrapper" class="container sidebar--push header--push nav--push">
       <div class="styleguide__hero">
@@ -123,6 +149,7 @@
             <div class="js-sticky">
               <h4>Patterns</h4>
                 <a class="nav__link" href="#icons">Icons</a>
+                <a class="nav__link" href="#icons">Icons</a>
             </div>
           </nav>
       <div class="us-col-lg-10 styleguide__content styleguide__content--w-sidebar">
@@ -130,6 +157,611 @@
   <h2 class="styleguide__block-title">
     Icons
     <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/icons/_base.scss" class="styleguide__file-link"><svg class="us-icon--small us-icon--github"><use xlink:href="/images/icons.svg#icon-github">Github:</use></svg> <span class="us-tablet--inline">_base.scss</span></a>
+  </h2>
+
+  <div class="styleguide__description">
+    <p>   Our icons are displayed via <code>xlink:href</code> in the <code>&lt;use&gt;</code> tags. This allows us to directly embed SVGs in a flexible manner and be able to apply transformations and any sort of colours onto them.</p>
+<p>   We use an SVG sprite called <code>icons.svg</code> that is versioned just like ustyle. As per the examples, the icons are referenced via the ID, like this: <code>icons.svg#icon-bookmark</code></p>
+<p>   <strong>Accessibility</strong>: In most cases, icons are purely presentational elements. In this scenario, you want to add: <code>aria-hidden=&quot;true&quot;</code> and <code>role=&quot;presentation&quot;</code> to your code.</p>
+<h4 id="usage">Usage</h4>
+<ul>
+<li><p>Suffixing with <code>--{size}</code> where size is one of <em>small</em>, <em>medium</em> or <em>large</em> will change the size of the icon from 16px, 32px and 64px respectively.</p>
+</li>
+<li><p><code>.us-icon--{size}--sm-tablet</code> and <code>.us-icon--{size}--mobile</code> will override icon sizes for those screen size</p>
+</li>
+<li><p><code>.us-icon--notext</code> allows you to set any element with no content to an icon</p>
+</li>
+<li><p>blue, typegrey, inputgrey, typecyan and custom are colors that can be set on the icon with <code>.us-icon--{color}</code></p>
+</li>
+<li><p>Colors can be changed by adding your own <code>fill:</code> style to the SVG.</p>
+</li>
+<li><p><a href="https://github.com/jonathantneal/svg4everybody">svg4everybody.js</a> is needed for Internet Explorer browsers</p>
+</li>
+</ul>
+
+  </div>
+
+  <h3 class="styleguide__block-small-title">Example</h3>
+  <div class="styleguide__block-examples">
+    <pre><code class="html">
+  &lt;svg role="image" class="us-icon--medium us-icon--custom us-icon--{$modifiers}"&gt;
+    &lt;use xlink:href="/images/icons.svg#icon-{$modifiers}"&gt;&lt;/use&gt;
+  &lt;/svg&gt;
+    </code></pre>
+    <div class="us-clearfix">
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--alarm">
+    <use xlink:href="/images/icons.svg#icon-alarm"></use>
+  </svg>
+          <div class="styleguide__block-example-class">alarm</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--android">
+    <use xlink:href="/images/icons.svg#icon-android"></use>
+  </svg>
+          <div class="styleguide__block-example-class">android</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--arrow-circle">
+    <use xlink:href="/images/icons.svg#icon-arrow-circle"></use>
+  </svg>
+          <div class="styleguide__block-example-class">arrow-circle</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--arrow-up">
+    <use xlink:href="/images/icons.svg#icon-arrow-up"></use>
+  </svg>
+          <div class="styleguide__block-example-class">arrow-up</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--arrow-down">
+    <use xlink:href="/images/icons.svg#icon-arrow-down"></use>
+  </svg>
+          <div class="styleguide__block-example-class">arrow-down</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--book">
+    <use xlink:href="/images/icons.svg#icon-book"></use>
+  </svg>
+          <div class="styleguide__block-example-class">book</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--bookmark">
+    <use xlink:href="/images/icons.svg#icon-bookmark"></use>
+  </svg>
+          <div class="styleguide__block-example-class">bookmark</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--breadcrumb">
+    <use xlink:href="/images/icons.svg#icon-breadcrumb"></use>
+  </svg>
+          <div class="styleguide__block-example-class">breadcrumb</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--calculator">
+    <use xlink:href="/images/icons.svg#icon-calculator"></use>
+  </svg>
+          <div class="styleguide__block-example-class">calculator</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--calendar">
+    <use xlink:href="/images/icons.svg#icon-calendar"></use>
+  </svg>
+          <div class="styleguide__block-example-class">calendar</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--car">
+    <use xlink:href="/images/icons.svg#icon-car"></use>
+  </svg>
+          <div class="styleguide__block-example-class">car</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--checkbox-tick">
+    <use xlink:href="/images/icons.svg#icon-checkbox-tick"></use>
+  </svg>
+          <div class="styleguide__block-example-class">checkbox-tick</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--chevron-right">
+    <use xlink:href="/images/icons.svg#icon-chevron-right"></use>
+  </svg>
+          <div class="styleguide__block-example-class">chevron-right</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--clock">
+    <use xlink:href="/images/icons.svg#icon-clock"></use>
+  </svg>
+          <div class="styleguide__block-example-class">clock</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--close">
+    <use xlink:href="/images/icons.svg#icon-close"></use>
+  </svg>
+          <div class="styleguide__block-example-class">close</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--cog">
+    <use xlink:href="/images/icons.svg#icon-cog"></use>
+  </svg>
+          <div class="styleguide__block-example-class">cog</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--credit-card">
+    <use xlink:href="/images/icons.svg#icon-credit-card"></use>
+  </svg>
+          <div class="styleguide__block-example-class">credit-card</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--cross">
+    <use xlink:href="/images/icons.svg#icon-cross"></use>
+  </svg>
+          <div class="styleguide__block-example-class">cross</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--dual-fuel">
+    <use xlink:href="/images/icons.svg#icon-dual-fuel"></use>
+  </svg>
+          <div class="styleguide__block-example-class">dual-fuel</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--electric-light">
+    <use xlink:href="/images/icons.svg#icon-electric-light"></use>
+  </svg>
+          <div class="styleguide__block-example-class">electric-light</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--envelope">
+    <use xlink:href="/images/icons.svg#icon-envelope"></use>
+  </svg>
+          <div class="styleguide__block-example-class">envelope</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--exit-noexit">
+    <use xlink:href="/images/icons.svg#icon-exit-noexit"></use>
+  </svg>
+          <div class="styleguide__block-example-class">exit-noexit</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--facebook">
+    <use xlink:href="/images/icons.svg#icon-facebook"></use>
+  </svg>
+          <div class="styleguide__block-example-class">facebook</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--facebook-brand">
+    <use xlink:href="/images/icons.svg#icon-facebook-brand"></use>
+  </svg>
+          <div class="styleguide__block-example-class">facebook-brand</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--filter">
+    <use xlink:href="/images/icons.svg#icon-filter"></use>
+  </svg>
+          <div class="styleguide__block-example-class">filter</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--fixed-variable">
+    <use xlink:href="/images/icons.svg#icon-fixed-variable"></use>
+  </svg>
+          <div class="styleguide__block-example-class">fixed-variable</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--gas">
+    <use xlink:href="/images/icons.svg#icon-gas"></use>
+  </svg>
+          <div class="styleguide__block-example-class">gas</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--gauge">
+    <use xlink:href="/images/icons.svg#icon-gauge"></use>
+  </svg>
+          <div class="styleguide__block-example-class">gauge</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--github">
+    <use xlink:href="/images/icons.svg#icon-github"></use>
+  </svg>
+          <div class="styleguide__block-example-class">github</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--google">
+    <use xlink:href="/images/icons.svg#icon-google"></use>
+  </svg>
+          <div class="styleguide__block-example-class">google</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--google-brand">
+    <use xlink:href="/images/icons.svg#icon-google-brand"></use>
+  </svg>
+          <div class="styleguide__block-example-class">google-brand</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--graph-up">
+    <use xlink:href="/images/icons.svg#icon-graph-up"></use>
+  </svg>
+          <div class="styleguide__block-example-class">graph-up</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--home">
+    <use xlink:href="/images/icons.svg#icon-home"></use>
+  </svg>
+          <div class="styleguide__block-example-class">home</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--hot">
+    <use xlink:href="/images/icons.svg#icon-hot"></use>
+  </svg>
+          <div class="styleguide__block-example-class">hot</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--info">
+    <use xlink:href="/images/icons.svg#icon-info"></use>
+  </svg>
+          <div class="styleguide__block-example-class">info</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--kettle">
+    <use xlink:href="/images/icons.svg#icon-kettle"></use>
+  </svg>
+          <div class="styleguide__block-example-class">kettle</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--key">
+    <use xlink:href="/images/icons.svg#icon-key"></use>
+  </svg>
+          <div class="styleguide__block-example-class">key</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--lock">
+    <use xlink:href="/images/icons.svg#icon-lock"></use>
+  </svg>
+          <div class="styleguide__block-example-class">lock</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--magnify-in">
+    <use xlink:href="/images/icons.svg#icon-magnify-in"></use>
+  </svg>
+          <div class="styleguide__block-example-class">magnify-in</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--magnify">
+    <use xlink:href="/images/icons.svg#icon-magnify"></use>
+  </svg>
+          <div class="styleguide__block-example-class">magnify</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--menu">
+    <use xlink:href="/images/icons.svg#icon-menu"></use>
+  </svg>
+          <div class="styleguide__block-example-class">menu</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--message">
+    <use xlink:href="/images/icons.svg#icon-message"></use>
+  </svg>
+          <div class="styleguide__block-example-class">message</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--mobile">
+    <use xlink:href="/images/icons.svg#icon-mobile"></use>
+  </svg>
+          <div class="styleguide__block-example-class">mobile</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--monthly-dd">
+    <use xlink:href="/images/icons.svg#icon-monthly-dd"></use>
+  </svg>
+          <div class="styleguide__block-example-class">monthly-dd</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--network">
+    <use xlink:href="/images/icons.svg#icon-network"></use>
+  </svg>
+          <div class="styleguide__block-example-class">network</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--no-exit">
+    <use xlink:href="/images/icons.svg#icon-no-exit"></use>
+  </svg>
+          <div class="styleguide__block-example-class">no-exit</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--pdf">
+    <use xlink:href="/images/icons.svg#icon-pdf"></use>
+  </svg>
+          <div class="styleguide__block-example-class">pdf</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--pencil">
+    <use xlink:href="/images/icons.svg#icon-pencil"></use>
+  </svg>
+          <div class="styleguide__block-example-class">pencil</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--person-add">
+    <use xlink:href="/images/icons.svg#icon-person-add"></use>
+  </svg>
+          <div class="styleguide__block-example-class">person-add</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--person">
+    <use xlink:href="/images/icons.svg#icon-person"></use>
+  </svg>
+          <div class="styleguide__block-example-class">person</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--phone">
+    <use xlink:href="/images/icons.svg#icon-phone"></use>
+  </svg>
+          <div class="styleguide__block-example-class">phone</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--piggy-bank">
+    <use xlink:href="/images/icons.svg#icon-piggy-bank"></use>
+  </svg>
+          <div class="styleguide__block-example-class">piggy-bank</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--pin">
+    <use xlink:href="/images/icons.svg#icon-pin"></use>
+  </svg>
+          <div class="styleguide__block-example-class">pin</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--pound-note">
+    <use xlink:href="/images/icons.svg#icon-pound-note"></use>
+  </svg>
+          <div class="styleguide__block-example-class">pound-note</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--present">
+    <use xlink:href="/images/icons.svg#icon-present"></use>
+  </svg>
+          <div class="styleguide__block-example-class">present</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--print">
+    <use xlink:href="/images/icons.svg#icon-print"></use>
+  </svg>
+          <div class="styleguide__block-example-class">print</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--quarterly-dd">
+    <use xlink:href="/images/icons.svg#icon-quarterly-dd"></use>
+  </svg>
+          <div class="styleguide__block-example-class">quarterly-dd</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--question-circle">
+    <use xlink:href="/images/icons.svg#icon-question-circle"></use>
+  </svg>
+          <div class="styleguide__block-example-class">question-circle</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--quote">
+    <use xlink:href="/images/icons.svg#icon-quote"></use>
+  </svg>
+          <div class="styleguide__block-example-class">quote</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--recycle">
+    <use xlink:href="/images/icons.svg#icon-recycle"></use>
+  </svg>
+          <div class="styleguide__block-example-class">recycle</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--remove">
+    <use xlink:href="/images/icons.svg#icon-remove"></use>
+  </svg>
+          <div class="styleguide__block-example-class">remove</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--renewable">
+    <use xlink:href="/images/icons.svg#icon-renewable"></use>
+  </svg>
+          <div class="styleguide__block-example-class">renewable</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--results">
+    <use xlink:href="/images/icons.svg#icon-results"></use>
+  </svg>
+          <div class="styleguide__block-example-class">results</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--save">
+    <use xlink:href="/images/icons.svg#icon-save"></use>
+  </svg>
+          <div class="styleguide__block-example-class">save</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--share">
+    <use xlink:href="/images/icons.svg#icon-share"></use>
+  </svg>
+          <div class="styleguide__block-example-class">share</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--shield">
+    <use xlink:href="/images/icons.svg#icon-shield"></use>
+  </svg>
+          <div class="styleguide__block-example-class">shield</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--sim">
+    <use xlink:href="/images/icons.svg#icon-sim"></use>
+  </svg>
+          <div class="styleguide__block-example-class">sim</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--smiley">
+    <use xlink:href="/images/icons.svg#icon-smiley"></use>
+  </svg>
+          <div class="styleguide__block-example-class">smiley</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--sort">
+    <use xlink:href="/images/icons.svg#icon-sort"></use>
+  </svg>
+          <div class="styleguide__block-example-class">sort</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--speech-circle">
+    <use xlink:href="/images/icons.svg#icon-speech-circle"></use>
+  </svg>
+          <div class="styleguide__block-example-class">speech-circle</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--speech">
+    <use xlink:href="/images/icons.svg#icon-speech"></use>
+  </svg>
+          <div class="styleguide__block-example-class">speech</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--spinner">
+    <use xlink:href="/images/icons.svg#icon-spinner"></use>
+  </svg>
+          <div class="styleguide__block-example-class">spinner</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--star-half">
+    <use xlink:href="/images/icons.svg#icon-star-half"></use>
+  </svg>
+          <div class="styleguide__block-example-class">star-half</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--star">
+    <use xlink:href="/images/icons.svg#icon-star"></use>
+  </svg>
+          <div class="styleguide__block-example-class">star</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--starline-half">
+    <use xlink:href="/images/icons.svg#icon-starline-half"></use>
+  </svg>
+          <div class="styleguide__block-example-class">starline-half</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--starline">
+    <use xlink:href="/images/icons.svg#icon-starline"></use>
+  </svg>
+          <div class="styleguide__block-example-class">starline</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--talk">
+    <use xlink:href="/images/icons.svg#icon-talk"></use>
+  </svg>
+          <div class="styleguide__block-example-class">talk</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--tick-circle">
+    <use xlink:href="/images/icons.svg#icon-tick-circle"></use>
+  </svg>
+          <div class="styleguide__block-example-class">tick-circle</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--tick">
+    <use xlink:href="/images/icons.svg#icon-tick"></use>
+  </svg>
+          <div class="styleguide__block-example-class">tick</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--tv">
+    <use xlink:href="/images/icons.svg#icon-tv"></use>
+  </svg>
+          <div class="styleguide__block-example-class">tv</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--twitter">
+    <use xlink:href="/images/icons.svg#icon-twitter"></use>
+  </svg>
+          <div class="styleguide__block-example-class">twitter</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--twitter-brand">
+    <use xlink:href="/images/icons.svg#icon-twitter-brand"></use>
+  </svg>
+          <div class="styleguide__block-example-class">twitter-brand</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--uswitch">
+    <use xlink:href="/images/icons.svg#icon-uswitch"></use>
+  </svg>
+          <div class="styleguide__block-example-class">uswitch</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--variable">
+    <use xlink:href="/images/icons.svg#icon-variable"></use>
+  </svg>
+          <div class="styleguide__block-example-class">variable</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--warning-circle">
+    <use xlink:href="/images/icons.svg#icon-warning-circle"></use>
+  </svg>
+          <div class="styleguide__block-example-class">warning-circle</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--wifi">
+    <use xlink:href="/images/icons.svg#icon-wifi"></use>
+  </svg>
+          <div class="styleguide__block-example-class">wifi</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--wiki">
+    <use xlink:href="/images/icons.svg#icon-wiki"></use>
+  </svg>
+          <div class="styleguide__block-example-class">wiki</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--xml">
+    <use xlink:href="/images/icons.svg#icon-xml"></use>
+  </svg>
+          <div class="styleguide__block-example-class">xml</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--play">
+    <use xlink:href="/images/icons.svg#icon-play"></use>
+  </svg>
+          <div class="styleguide__block-example-class">play</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--pound-circle">
+    <use xlink:href="/images/icons.svg#icon-pound-circle"></use>
+  </svg>
+          <div class="styleguide__block-example-class">pound-circle</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--dashcam">
+    <use xlink:href="/images/icons.svg#icon-dashcam"></use>
+  </svg>
+          <div class="styleguide__block-example-class">dashcam</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--warning">
+    <use xlink:href="/images/icons.svg#icon-warning"></use>
+  </svg>
+          <div class="styleguide__block-example-class">warning</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--chevron-left">
+    <use xlink:href="/images/icons.svg#icon-chevron-left"></use>
+  </svg>
+          <div class="styleguide__block-example-class">chevron-left</div>
+        </div>
+        <div class="styleguide__block-example us-col-md-3 state">
+            <svg role="image" class="us-icon--medium us-icon--custom us-icon--controller">
+    <use xlink:href="/images/icons.svg#icon-controller"></use>
+  </svg>
+          <div class="styleguide__block-example-class">controller</div>
+        </div>
+    </div>
+  </div>
+
+</div>
+
+            <div class="styleguide__block styleguide__block--icons" id="icons">
+  <h2 class="styleguide__block-title">
+    Icons
+    <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/rebrand/icons/_base.scss" class="styleguide__file-link"><svg class="us-icon--small us-icon--github"><use xlink:href="/images/icons.svg#icon-github">Github:</use></svg> <span class="us-tablet--inline">_base.scss</span></a>
   </h2>
 
   <div class="styleguide__description">

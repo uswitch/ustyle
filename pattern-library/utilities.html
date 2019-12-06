@@ -14,7 +14,13 @@
   <link rel="mask-icon" href="/images//safari-pinned-tab.svg" color="#5bbad5">
   <meta name="theme-color" content="#ffffff">
   <title>uStyle styleguide</title>
-  <link rel="stylesheet" href="/css/main.css" type="text/css" />
+  <script>
+    if (document.cookie.match(/rebrand=true/)) {
+      document.write('<link rel="stylesheet" href="/css/rebrand.css" type="text/css" />')
+    } else {
+      document.write('<link rel="stylesheet" href="/css/main.css" type="text/css" />')
+    }
+  </script>
   <!--[if lt IE 9]>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
   <![endif]-->
@@ -32,7 +38,7 @@
       </svg>
       uStyle
     </a>
-    <a class="version" href="https://github.com/uswitch/ustyle/releases/tag/v1.20.0">v1.20.0</a>
+    <a class="version" href="https://github.com/uswitch/ustyle/releases/tag/v1.21.0">v1.21.0</a>
     <svg class="logo__svg--hidden" xmlns="http://www.w3.org/2000/svg">
       <symbol viewBox="0 0 100 100" id="uicon-logo-icon">
       <title>logo-icon</title><path d="M26.9 51.662V12.174H.9v38.771c0 24.61 20.095 46.167 44.695 46.896 13.28.393 25.36-4.881 34.012-13.584C55.435 96.47 26.9 78.67 26.9 51.662z"/><path d="M80.9 2.138L62.733 22.174H67.9v29.378c0 13.905-13.365 24.176-26.722 19.468C58.871 92.463 93.9 79.992
@@ -114,6 +120,26 @@
         <span class="us-color--blue">uSwitch is hiring.</span>
       </a>
     </div>
+  
+    <div>
+      <script>
+        window.toggleRebrand = function (rebrand) {
+          if (rebrand) {
+            document.cookie = 'rebrand=true; path=/'
+          } else {
+            document.cookie = 'rebrand=; path=/'
+          }
+  
+          window.location.reload()
+        }
+  
+        if (!document.cookie.match(/rebrand=true/)) {
+          document.write('<a href="javascript:toggleRebrand(true)">Show rebrand</a>')
+        } else {
+          document.write('<a href="javascript:toggleRebrand(false)">Hide rebrand</a>')
+        }
+      </script>
+    </div>
   </div>
     <div id="wrapper" class="container sidebar--push header--push nav--push">
       <div class="styleguide__hero">
@@ -126,9 +152,363 @@
                 <a class="nav__link" href="#images">Images</a>
                 <a class="nav__link" href="#responsive">Responsive</a>
                 <a class="nav__link" href="#spacing">Spacing</a>
+                <a class="nav__link" href="#general">General</a>
+                <a class="nav__link" href="#images">Images</a>
+                <a class="nav__link" href="#responsive">Responsive</a>
+                <a class="nav__link" href="#spacing">Spacing</a>
             </div>
           </nav>
       <div class="us-col-lg-10 styleguide__content styleguide__content--w-sidebar">
+            <div class="styleguide__block" id="general">
+              <h2 class="styleguide__block-title">
+                General
+                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/rebrand/utilities/_general.scss" class="styleguide__file-link"><svg class="us-icon--small us-icon--github"><use xlink:href="/images/icons.svg#icon-github">Github:</use></svg> <span class="us-tablet--inline">_general.scss</span></a>
+              </h2>
+            
+              <div class="styleguide__description">
+                <p>   These utility classes allow for some basic CSS properties to be applied across elements. The classname applies to the property that is getting set, with the value as the modifier.</p>
+            
+              </div>
+            
+                <h4>States</h4>
+                <ul class="styleguide__block-states us-clearfix">
+                    <li class="name"><strong>.us-clearfix</strong> - Clear floats.</li>
+                    <li class="name"><strong>.us-float--left</strong> - Float element to the left.</li>
+                    <li class="name"><strong>.us-float--right</strong> - Float element to the right.</li>
+                    <li class="name"><strong>.us-align--left</strong> - Align content of the element to the left.</li>
+                    <li class="name"><strong>.us-align--center</strong> - Align content of the element to the center.</li>
+                    <li class="name"><strong>.us-align--right</strong> - Align content of the element to the right.</li>
+                    <li class="name"><strong>.us-block</strong> - Display element as a block.</li>
+                    <li class="name"><strong>.us-color--cyan</strong> - Change content color to blue, navy, typecyan, cyan, red, green.</li>
+                    <li class="name"><strong>.us-list--reset</strong> - Reset list style.</li>
+                </ul>
+            
+              <div class="styleguide__block-examples">
+                <h3 class="styleguide__block-small-title">Example</h3>
+                <div class="styleguide__block-example">
+                     <div class='{$modifiers}'>
+                 <p>content</p>
+               </div>
+                </div>
+            
+                  <div class="styleguide__block-example state-us-clearfix">
+                       <div class='us-clearfix'>
+                 <p>content</p>
+               </div>
+                    <div class="styleguide__block-example-class">.us-clearfix</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-float--left">
+                       <div class='us-float--left'>
+                 <p>content</p>
+               </div>
+                    <div class="styleguide__block-example-class">.us-float--left</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-float--right">
+                       <div class='us-float--right'>
+                 <p>content</p>
+               </div>
+                    <div class="styleguide__block-example-class">.us-float--right</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-align--left">
+                       <div class='us-align--left'>
+                 <p>content</p>
+               </div>
+                    <div class="styleguide__block-example-class">.us-align--left</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-align--center">
+                       <div class='us-align--center'>
+                 <p>content</p>
+               </div>
+                    <div class="styleguide__block-example-class">.us-align--center</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-align--right">
+                       <div class='us-align--right'>
+                 <p>content</p>
+               </div>
+                    <div class="styleguide__block-example-class">.us-align--right</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-block">
+                       <div class='us-block'>
+                 <p>content</p>
+               </div>
+                    <div class="styleguide__block-example-class">.us-block</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-color--cyan">
+                       <div class='us-color--cyan'>
+                 <p>content</p>
+               </div>
+                    <div class="styleguide__block-example-class">.us-color--cyan</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-list--reset">
+                       <div class='us-list--reset'>
+                 <p>content</p>
+               </div>
+                    <div class="styleguide__block-example-class">.us-list--reset</div>
+                  </div>
+            
+                <pre><code class="html">
+               &lt;div&gt;
+                 &lt;p&gt;content&lt;/p&gt;
+               &lt;/div&gt;
+                </code></pre>
+              </div>
+            </div>
+            <div class="styleguide__block" id="images">
+              <h2 class="styleguide__block-title">
+                Images
+                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/rebrand/utilities/_images.scss" class="styleguide__file-link"><svg class="us-icon--small us-icon--github"><use xlink:href="/images/icons.svg#icon-github">Github:</use></svg> <span class="us-tablet--inline">_images.scss</span></a>
+              </h2>
+            
+              <div class="styleguide__description">
+                <p>   Helpful image classes for making images full width or floating within content.</p>
+            
+              </div>
+            
+                <h4>States</h4>
+                <ul class="styleguide__block-states us-clearfix">
+                    <li class="name"><strong>.us-img--full</strong> - Full width image.</li>
+                    <li class="name"><strong>.us-img--left</strong> - Left floated image.</li>
+                    <li class="name"><strong>.us-img--right</strong> - Right floated image.</li>
+                </ul>
+            
+              <div class="styleguide__block-examples">
+                <h3 class="styleguide__block-small-title">Example</h3>
+                <div class="styleguide__block-example">
+                     <p>
+                 <img class="{$modifiers}" src="https://assets0.uswitch.com/s3/uswitch-wp-cms-assets/money/guides/wp-content/uploads/2014/11/DB2011AU01018_SMALL.jpg" width="400">
+                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas mattis sit amet magna porta mollis. Pellentesque id pretium quam. Proin nec blandit ligula. Sed lectus orci, mattis ac hendrerit at, ultrices eget metus. Vestibulum dignissim venenatis malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent eget convallis urna, at ultrices ligula. Donec bibendum, lectus at consequat feugiat, nisi leo tincidunt purus, et condimentum lorem diam scelerisque neque. Nam imperdiet aliquet arcu a rhoncus.
+               </p>
+                </div>
+            
+                  <div class="styleguide__block-example state-us-img--full">
+                       <p>
+                 <img class="us-img--full" src="https://assets0.uswitch.com/s3/uswitch-wp-cms-assets/money/guides/wp-content/uploads/2014/11/DB2011AU01018_SMALL.jpg" width="400">
+                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas mattis sit amet magna porta mollis. Pellentesque id pretium quam. Proin nec blandit ligula. Sed lectus orci, mattis ac hendrerit at, ultrices eget metus. Vestibulum dignissim venenatis malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent eget convallis urna, at ultrices ligula. Donec bibendum, lectus at consequat feugiat, nisi leo tincidunt purus, et condimentum lorem diam scelerisque neque. Nam imperdiet aliquet arcu a rhoncus.
+               </p>
+                    <div class="styleguide__block-example-class">.us-img--full</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-img--left">
+                       <p>
+                 <img class="us-img--left" src="https://assets0.uswitch.com/s3/uswitch-wp-cms-assets/money/guides/wp-content/uploads/2014/11/DB2011AU01018_SMALL.jpg" width="400">
+                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas mattis sit amet magna porta mollis. Pellentesque id pretium quam. Proin nec blandit ligula. Sed lectus orci, mattis ac hendrerit at, ultrices eget metus. Vestibulum dignissim venenatis malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent eget convallis urna, at ultrices ligula. Donec bibendum, lectus at consequat feugiat, nisi leo tincidunt purus, et condimentum lorem diam scelerisque neque. Nam imperdiet aliquet arcu a rhoncus.
+               </p>
+                    <div class="styleguide__block-example-class">.us-img--left</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-img--right">
+                       <p>
+                 <img class="us-img--right" src="https://assets0.uswitch.com/s3/uswitch-wp-cms-assets/money/guides/wp-content/uploads/2014/11/DB2011AU01018_SMALL.jpg" width="400">
+                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas mattis sit amet magna porta mollis. Pellentesque id pretium quam. Proin nec blandit ligula. Sed lectus orci, mattis ac hendrerit at, ultrices eget metus. Vestibulum dignissim venenatis malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent eget convallis urna, at ultrices ligula. Donec bibendum, lectus at consequat feugiat, nisi leo tincidunt purus, et condimentum lorem diam scelerisque neque. Nam imperdiet aliquet arcu a rhoncus.
+               </p>
+                    <div class="styleguide__block-example-class">.us-img--right</div>
+                  </div>
+            
+                <pre><code class="html">
+               &lt;p&gt;
+                 &lt;img src="https://assets0.uswitch.com/s3/uswitch-wp-cms-assets/money/guides/wp-content/uploads/2014/11/DB2011AU01018_SMALL.jpg" width="400"&gt;
+                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas mattis sit amet magna porta mollis. Pellentesque id pretium quam. Proin nec blandit ligula. Sed lectus orci, mattis ac hendrerit at, ultrices eget metus. Vestibulum dignissim venenatis malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent eget convallis urna, at ultrices ligula. Donec bibendum, lectus at consequat feugiat, nisi leo tincidunt purus, et condimentum lorem diam scelerisque neque. Nam imperdiet aliquet arcu a rhoncus.
+               &lt;/p&gt;
+                </code></pre>
+              </div>
+            </div>
+            <div class="styleguide__block" id="responsive">
+              <h2 class="styleguide__block-title">
+                Responsive
+                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/rebrand/utilities/_responsive.scss" class="styleguide__file-link"><svg class="us-icon--small us-icon--github"><use xlink:href="/images/icons.svg#icon-github">Github:</use></svg> <span class="us-tablet--inline">_responsive.scss</span></a>
+              </h2>
+            
+              <div class="styleguide__description">
+                <p>   Responsive classes to allow display of elements across devices. You have the option of displaying them as <code>block</code>, <code>inline-block</code> or <code>inline</code> elements.</p>
+            <p>   You can also hide elements by <code>.us-{DEVICE}--hidden</code> and will hide those elements above that breakpoint.</p>
+            
+              </div>
+            
+            
+              <div class="styleguide__block-examples">
+                <h3 class="styleguide__block-small-title">Example</h3>
+                <div class="styleguide__block-example">
+                     <div class='us-lg-desktop--block'><strong>.us-lg-desktop--block</strong> Shows on large desktop and up</div>
+               <div class='us-desktop--block'><strong>.us-desktop--block</strong> Shows on desktop and up</div>
+               <div class='us-tablet--block'><strong>.us-tablet--block</strong> Shows on tablet and up</div>
+               <div class='us-sm-tablet--block'><strong>.us-sm-tablet--block</strong> Shows on small tablet and up</div>
+               <div class='us-mobile--block'><strong>.us-mobile--block</strong> Shows on mobile only</div>
+               <div class='us-tablet--hidden'><strong>.us-tablet--hidden</strong> Hidden on tablet and up</div>
+                </div>
+            
+            
+                <pre><code class="html">
+               &lt;div class='us-lg-desktop--block'&gt;&lt;strong&gt;.us-lg-desktop--block&lt;/strong&gt; Shows on large desktop and up&lt;/div&gt;
+               &lt;div class='us-desktop--block'&gt;&lt;strong&gt;.us-desktop--block&lt;/strong&gt; Shows on desktop and up&lt;/div&gt;
+               &lt;div class='us-tablet--block'&gt;&lt;strong&gt;.us-tablet--block&lt;/strong&gt; Shows on tablet and up&lt;/div&gt;
+               &lt;div class='us-sm-tablet--block'&gt;&lt;strong&gt;.us-sm-tablet--block&lt;/strong&gt; Shows on small tablet and up&lt;/div&gt;
+               &lt;div class='us-mobile--block'&gt;&lt;strong&gt;.us-mobile--block&lt;/strong&gt; Shows on mobile only&lt;/div&gt;
+               &lt;div class='us-tablet--hidden'&gt;&lt;strong&gt;.us-tablet--hidden&lt;/strong&gt; Hidden on tablet and up&lt;/div&gt;
+                </code></pre>
+              </div>
+            </div>
+            <div class="styleguide__block" id="spacing">
+              <h2 class="styleguide__block-title">
+                Spacing
+                <a href="https://github.com/uswitch/ustyle/tree/master/vendor/assets/stylesheets/ustyle/rebrand/utilities/_spacing.scss" class="styleguide__file-link"><svg class="us-icon--small us-icon--github"><use xlink:href="/images/icons.svg#icon-github">Github:</use></svg> <span class="us-tablet--inline">_spacing.scss</span></a>
+              </h2>
+            
+              <div class="styleguide__description">
+                <p>   Allow control of spacing around an element. You can set margin or padding for an element without creating an extra class.</p>
+            <p>   An example of this <code>.us-margin-top</code>, <code>.us-margin-top--small</code>, <code>.us-margin-top--large</code> where <code>margin</code> can be replaced by <code>padding</code> and <code>top</code> can be replaced by <code>bottom</code>, <code>left</code> or <code>right</code>.</p>
+            <p>   Default space for margin and padding is 1em, <code>small</code> modifier uses .5em and <code>large</code> modifier uses 1.5em.</p>
+            
+              </div>
+            
+                <h4>States</h4>
+                <ul class="styleguide__block-states us-clearfix">
+                    <li class="name"><strong>.us-margin-top</strong> - Use default top margin (1em).</li>
+                    <li class="name"><strong>.us-margin-top--small</strong> - Use small top margin (.5em).</li>
+                    <li class="name"><strong>.us-margin-top--large</strong> - Use large top margin (1.5em).</li>
+                    <li class="name"><strong>.us-margin-bottom</strong> - Use default bottom margin (1em).</li>
+                    <li class="name"><strong>.us-margin-bottom--small</strong> - Use small bottom margin (.5em).</li>
+                    <li class="name"><strong>.us-margin-bottom--large</strong> - Use large bottom margin (1.5em).</li>
+                    <li class="name"><strong>.us-margin-left</strong> - Use default left margin (1em).</li>
+                    <li class="name"><strong>.us-margin-left--small</strong> - Use small left margin (.5em).</li>
+                    <li class="name"><strong>.us-margin-left--large</strong> - Use large left margin (1.5em).</li>
+                    <li class="name"><strong>.us-margin-right</strong> - Use default right margin (1em).</li>
+                    <li class="name"><strong>.us-margin-right--small</strong> - Use small right margin (.5em).</li>
+                    <li class="name"><strong>.us-margin-right--large</strong> - Use large right margin (1.5em).</li>
+                    <li class="name"><strong>.us-padding-top</strong> - Use default top padding (1em).</li>
+                    <li class="name"><strong>.us-padding-top--small</strong> - Use small top padding (.5em).</li>
+                    <li class="name"><strong>.us-padding-top--large</strong> - Use large top padding (1.5em).</li>
+                    <li class="name"><strong>.us-padding-bottom</strong> - Use default bottom padding (1em).</li>
+                    <li class="name"><strong>.us-padding-bottom--small</strong> - Use small bottom padding (.5em).</li>
+                    <li class="name"><strong>.us-padding-bottom--large</strong> - Use large bottom padding (1.5em).</li>
+                    <li class="name"><strong>.us-padding-left</strong> - Use default left padding (1em).</li>
+                    <li class="name"><strong>.us-padding-left--small</strong> - Use small left padding (.5em).</li>
+                    <li class="name"><strong>.us-padding-left--large</strong> - Use large left padding (1.5em).</li>
+                    <li class="name"><strong>.us-padding-right</strong> - Use default right padding (1em).</li>
+                    <li class="name"><strong>.us-padding-right--small</strong> - Use small right padding (.5em).</li>
+                    <li class="name"><strong>.us-padding-right--large</strong> - Use large right padding (1.5em).</li>
+                    <li class="name"><strong>.us-reset--padding</strong> - Reset padding to 0.</li>
+                    <li class="name"><strong>.us-reset--margin</strong> - Reset margin to 0.</li>
+                    <li class="name"><strong>.us-reset</strong> - Reset padding and margin to 0.</li>
+                </ul>
+            
+              <div class="styleguide__block-examples">
+                <h3 class="styleguide__block-small-title">Example</h3>
+                <div class="styleguide__block-example">
+                  <div class='class-goes-here {$modifiers}'>Sample content</div>
+                </div>
+            
+                  <div class="styleguide__block-example state-us-margin-top">
+                    <div class='class-goes-here us-margin-top'>Sample content</div>
+                    <div class="styleguide__block-example-class">.us-margin-top</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-margin-top--small">
+                    <div class='class-goes-here us-margin-top--small'>Sample content</div>
+                    <div class="styleguide__block-example-class">.us-margin-top--small</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-margin-top--large">
+                    <div class='class-goes-here us-margin-top--large'>Sample content</div>
+                    <div class="styleguide__block-example-class">.us-margin-top--large</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-margin-bottom">
+                    <div class='class-goes-here us-margin-bottom'>Sample content</div>
+                    <div class="styleguide__block-example-class">.us-margin-bottom</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-margin-bottom--small">
+                    <div class='class-goes-here us-margin-bottom--small'>Sample content</div>
+                    <div class="styleguide__block-example-class">.us-margin-bottom--small</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-margin-bottom--large">
+                    <div class='class-goes-here us-margin-bottom--large'>Sample content</div>
+                    <div class="styleguide__block-example-class">.us-margin-bottom--large</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-margin-left">
+                    <div class='class-goes-here us-margin-left'>Sample content</div>
+                    <div class="styleguide__block-example-class">.us-margin-left</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-margin-left--small">
+                    <div class='class-goes-here us-margin-left--small'>Sample content</div>
+                    <div class="styleguide__block-example-class">.us-margin-left--small</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-margin-left--large">
+                    <div class='class-goes-here us-margin-left--large'>Sample content</div>
+                    <div class="styleguide__block-example-class">.us-margin-left--large</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-margin-right">
+                    <div class='class-goes-here us-margin-right'>Sample content</div>
+                    <div class="styleguide__block-example-class">.us-margin-right</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-margin-right--small">
+                    <div class='class-goes-here us-margin-right--small'>Sample content</div>
+                    <div class="styleguide__block-example-class">.us-margin-right--small</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-margin-right--large">
+                    <div class='class-goes-here us-margin-right--large'>Sample content</div>
+                    <div class="styleguide__block-example-class">.us-margin-right--large</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-padding-top">
+                    <div class='class-goes-here us-padding-top'>Sample content</div>
+                    <div class="styleguide__block-example-class">.us-padding-top</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-padding-top--small">
+                    <div class='class-goes-here us-padding-top--small'>Sample content</div>
+                    <div class="styleguide__block-example-class">.us-padding-top--small</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-padding-top--large">
+                    <div class='class-goes-here us-padding-top--large'>Sample content</div>
+                    <div class="styleguide__block-example-class">.us-padding-top--large</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-padding-bottom">
+                    <div class='class-goes-here us-padding-bottom'>Sample content</div>
+                    <div class="styleguide__block-example-class">.us-padding-bottom</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-padding-bottom--small">
+                    <div class='class-goes-here us-padding-bottom--small'>Sample content</div>
+                    <div class="styleguide__block-example-class">.us-padding-bottom--small</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-padding-bottom--large">
+                    <div class='class-goes-here us-padding-bottom--large'>Sample content</div>
+                    <div class="styleguide__block-example-class">.us-padding-bottom--large</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-padding-left">
+                    <div class='class-goes-here us-padding-left'>Sample content</div>
+                    <div class="styleguide__block-example-class">.us-padding-left</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-padding-left--small">
+                    <div class='class-goes-here us-padding-left--small'>Sample content</div>
+                    <div class="styleguide__block-example-class">.us-padding-left--small</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-padding-left--large">
+                    <div class='class-goes-here us-padding-left--large'>Sample content</div>
+                    <div class="styleguide__block-example-class">.us-padding-left--large</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-padding-right">
+                    <div class='class-goes-here us-padding-right'>Sample content</div>
+                    <div class="styleguide__block-example-class">.us-padding-right</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-padding-right--small">
+                    <div class='class-goes-here us-padding-right--small'>Sample content</div>
+                    <div class="styleguide__block-example-class">.us-padding-right--small</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-padding-right--large">
+                    <div class='class-goes-here us-padding-right--large'>Sample content</div>
+                    <div class="styleguide__block-example-class">.us-padding-right--large</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-reset--padding">
+                    <div class='class-goes-here us-reset--padding'>Sample content</div>
+                    <div class="styleguide__block-example-class">.us-reset--padding</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-reset--margin">
+                    <div class='class-goes-here us-reset--margin'>Sample content</div>
+                    <div class="styleguide__block-example-class">.us-reset--margin</div>
+                  </div>
+                  <div class="styleguide__block-example state-us-reset">
+                    <div class='class-goes-here us-reset'>Sample content</div>
+                    <div class="styleguide__block-example-class">.us-reset</div>
+                  </div>
+            
+                <pre><code class="html">
+            &lt;div class='class-goes-here'&gt;Sample content&lt;/div&gt;
+                </code></pre>
+              </div>
+            </div>
             <div class="styleguide__block" id="general">
               <h2 class="styleguide__block-title">
                 General
