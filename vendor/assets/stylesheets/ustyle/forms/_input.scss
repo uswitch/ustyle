@@ -17,7 +17,7 @@
 // @markup
 //   <input class="us-form-input {$modifiers}" type="text" placeholder="Placeholder">
 
-$input-placeholder-color: $c-inputgrey !default;
+$input-placeholder-color: $c-grey !default;
 
 .us-form-input {
   @extend %base-form-element;
@@ -28,7 +28,7 @@ $input-placeholder-color: $c-inputgrey !default;
   box-shadow: none;
 
   &:focus {
-    @include placeholder(darken($input-placeholder-color, 15%));
+    @include placeholder($c-uswitch-navy);
   }
 
   @if $media-query-legacy-support {

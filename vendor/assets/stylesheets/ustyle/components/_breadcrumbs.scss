@@ -24,7 +24,7 @@
 .us-crumbs__item {
   @extend %float-left;
   margin-bottom: 0;
-  color: $c-typegrey;
+  color: $c-darker-grey;
 
   &:before {
     display: inline-block;
@@ -32,6 +32,7 @@
     font-size: 1.4em;
     font-weight: normal;
     content: "\203A";
+    vertical-align: text-top;
   }
 
   &:first-child:before {
@@ -42,18 +43,24 @@
 
   &:last-child {
     font-weight: bold;
+    color: $c-uswitch-navy;
+
+    &:before {
+      color: $c-darker-grey;
+    }
   }
 }
 
 .us-crumbs__link {
-  color: $c-typegrey;
+  color: $c-darker-grey;
+  text-decoration: none;
   
   &:visited {
-    color: $c-typegrey;
+    color: $c-darker-grey;
   }
 
   &:hover {
-    color: $c-typegrey;
+    color: $c-darker-grey;
     text-decoration: underline;
   }
 }

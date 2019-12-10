@@ -27,24 +27,13 @@
     display: block;
     padding-top: .5em;
     padding-bottom: .5em;
-
-    &:after {
-      @extend %link-triangle;
-      font-size: .8em;
-    }
   }
 
   a:hover {
-    &:after {
-      left: .5em;
-    }
+    color: $c-darker-grey;
   }
 
   .us-hero & {
     margin-top: 1em;
-
-    a {
-      color: $c-navy;
-    }
   }
 }

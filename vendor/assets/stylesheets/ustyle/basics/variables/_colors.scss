@@ -7,39 +7,73 @@
 //   * Do not rely only on colour to provide information. A green circle means little, a green circle with "success" in the middle gives actual information.
 //   * Make sure your text is [sufficiently contrasted](http://a11yproject.com/posts/what-is-color-contrast/) against its background
 //
-// @variable c-cyan - Hero banners
-// @variable c-navy - Text with emphasis
-// @variable c-blue - Logo
-// @variable c-typecyan - Text links, icons
-// @variable c-typegrey - Body text
-// @variable c-typegrey-2 - Text without emphasis
-// @variable c-bggrey - Backgrounds
-// @variable c-red - Primary buttons
-// @variable c-green - Action buttons, USPs
+// @variable c-uswitch-navy
+// @variable c-darker-grey
+// @variable c-dark-grey
+// @variable c-grey
+// @variable c-light-grey
+// @variable c-super-light-grey
+// @variable c-white
+// @variable c-error-red
+// @variable c-success-green
 
-$c-navy: #1c1f4e;
-$c-blue: #002396;
-$c-typecyan: #008fe9;
-$c-cyan: #99e2ff;
-$c-typegrey: #2f353a;
-$c-typegrey-2: #65717b;
-$c-bggrey: #f4f5f6;
-$c-red: #d64226;
-$c-green: #2aaa5b;
+$c-uswitch-navy: #141424;
+$c-darker-grey: #53535e;
+$c-dark-grey: #7c7c84;
+$c-grey: #a7a7ac;
+$c-light-grey: #c6c6c8;
+$c-lighter-grey: #dadadb;
+$c-super-light-grey: #e2e2e2;
+$c-white: #fff;
+$c-error-red: #d64226;
+$c-success-green: #2aaa5b;
 
 // @page Brand/Colours
 // @name Secondary palette
 // @partial colour
-// @variable c-inputgrey - Dropdowns, icons
-// @variable c-bordergrey - Borders
-// @variable c-keylinegrey - Keylines, separators
-// @variable c-blue-light
-// @variable c-typecyan-light
-// @variable c-cyan-light
-// @variable c-yellow - USPs
-// @variable c-orange - USPs
-// @variable c-purple - USPs
+// @variable c-light-yellow
+// @variable c-light-orange
+// @variable c-light-red
+// @variable c-light-pink
+// @variable c-light-purple
+// @variable c-light-blue
+// @variable c-light-green
+// @variable c-dark-yellow
+// @variable c-dark-orange
+// @variable c-dark-red
+// @variable c-dark-pink
+// @variable c-dark-purple
+// @variable c-dark-blue
+// @variable c-dark-green
 
+$c-light-yellow: #f7f146;
+$c-light-orange: #f7c95a;
+$c-light-red: #ff8a83;
+$c-light-pink: #ff99e8;
+$c-light-purple: #acb0ff;
+$c-light-blue: #7edce9;
+$c-light-green: #b6e554;
+
+$c-dark-yellow: #ffd555;
+$c-dark-orange: #fa5;
+$c-dark-red: #fd7687;
+$c-dark-pink: #ff75d4;
+$c-dark-purple: #ac96de;
+$c-dark-blue: #84a6ff;
+$c-dark-green: #82ca50;
+
+
+// Old brand - to remove
+
+$c-navy: $c-uswitch-navy;
+$c-blue: $c-uswitch-navy;
+$c-typecyan: $c-uswitch-navy;
+$c-cyan: $c-super-light-grey;
+$c-typegrey: $c-uswitch-navy;
+$c-typegrey-2: #65717b;
+$c-bggrey: #f4f5f6;
+$c-red: #d64226;
+$c-green: #2aaa5b;
 
 $c-inputgrey: #84909a;
 $c-bordergrey: #b0b8bf;
@@ -50,20 +84,6 @@ $c-cyan-light: #e4f8ff;
 $c-yellow: #ffd32f;
 $c-orange: #f27930;
 $c-purple: #9c55b8;
-
-
-// @page Brand/Colours
-// @name Tertiary palette
-// @partial colour
-//
-// @variable c-red-dark
-// @variable c-green-dark
-// @variable c-red-lightest
-// @variable c-green-lightest
-// @variable c-yellow-lightest
-// @variable c-orange-lightest
-// @variable c-purple-lightest
-
 
 $c-red-dark: #b53820;
 $c-green-dark: #23904d;

@@ -36,14 +36,14 @@
 $tooltip-note-width: 300px !default;
 $tooltip-icon-size: 22px !default;
 $tooltip-icon-size--small: 16px !default;
-$tooltip-icon-bg-color: $c-bordergrey !default;
+$tooltip-icon-bg-color: $c-grey !default;
 $tooltip-icon-top-position: 0 !default;
 $tooltip-icon-right-position: 0 !default;
 
 $tooltip-note-padding-vertical: 1em !default;
 $tooltip-note-padding-horizontal: .75em !default;
 $tooltip-note-bg-color: #fff !default;
-$tooltip-note-border-color: $c-typecyan !default;
+$tooltip-note-border-color: $c-uswitch-navy !default;
 
 $tooltip-arrow-width: 10px !default;
 $tooltip-arrow-height: $tooltip-arrow-width * 2 !default;
@@ -128,7 +128,7 @@ $tooltip-v-positions: "left", "right";
   }
 
   .us-tooltip__icon {
-    background: $c-typecyan;
+    background: $c-uswitch-navy;
   }
 }
 
@@ -191,10 +191,9 @@ $tooltip-v-positions: "left", "right";
   padding: $tooltip-note-padding-horizontal $tooltip-note-padding-vertical;
   margin-top: 1em;
   margin-bottom: 1em;
-  color: $c-typegrey;
+  color: $c-uswitch-navy;
   background: $tooltip-note-bg-color;
   border: 1px solid $tooltip-note-border-color;
-  border-radius: 4px;
 
   @include respond-to($tooltip-default-breakpoint, true) {
     position: absolute;

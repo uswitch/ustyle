@@ -30,7 +30,7 @@ $loader-overlay-opacity: .8 !default;
 $loader-overlay-colour: #fff !default;
 $spinner-vertical-margin: 1em !default;
 $spinner-animation-time: 500ms !default;
-$spinner-file: "icons/spinner.svg" !default;
+$spinner-file: "icons/spinner-rebrand.svg" !default;
 $spinner-size: 60px !default;
 
 @keyframes loader-intro {
@@ -128,7 +128,7 @@ $spinner-size: 60px !default;
 
 .us-loader__text {
   @extend %heading-3;
-  color: $c-navy;
+  color: $c-uswitch-navy;
 }
 
 .us-loader__overlay {
