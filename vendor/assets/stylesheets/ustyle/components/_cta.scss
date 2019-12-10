@@ -16,13 +16,12 @@
 .us-cta {
   padding: $gutter-width / 2;
   margin-bottom: 1.5em;
-  background-color: tint($c-typegrey, 90%);
-  border-bottom: 10px solid $c-navy;
+  background-color: $c-white;
+  border: 1px solid $c-grey;
+  border-left: 8px solid $c-light-purple;
 
   @include respond-to(tablet, true) {
-    padding: $gutter-width / 1.5;
-    border-bottom: 0;
-    border-left: 10px solid $c-navy;
+    padding: $gutter-width;
   }
 
   label {
@@ -32,13 +31,16 @@
       display: inline-block;
     }
   }
+
+  p {
+    font-size: 1.125em;
+  }
 }
 
 .us-cta__title.us-cta__title {
   @include heading-font;
   margin-top: 0;
-  font-size: 18px;
-  font-size: rem($base-font-size + 2px);
+  font-size: 1.5em;
 
   @include respond-to(tablet) {
     @include heading(4, $extend: false);

@@ -37,13 +37,14 @@
 //     </div>
 //   </div>
 
-$toggle-btn-padding: 5px 30px !default;
-$toggle-active-bg: $c-cyan-light !default;
+$toggle-btn-padding: 10px 26px !default;
+$toggle-active-bg: $c-white !default;
 
 @mixin toggle-active-style {
   background: $toggle-active-bg;
-  border-color: $c-form-element-border-hover;
+  border-color: $c-form-element-border-active;
   text-shadow: 1px 0 0 $c-form-element-text;
+  color: $c-uswitch-navy;
 }
 
 @mixin toggle-disabled-style {
@@ -82,7 +83,7 @@ $toggle-active-bg: $c-cyan-light !default;
 .us-toggle__btn {
   display: block;
   padding: $toggle-btn-padding;
-  color: $c-form-element-text;
+  color: $c-grey;
   text-align: center;
   background-color: $c-form-element-background;
   border: 1px solid $c-form-element-border;
@@ -93,8 +94,9 @@ $toggle-active-bg: $c-cyan-light !default;
 
   .us-toggle__label:focus &,
   .us-toggle__label .us-form-input:focus + & {
-    border-color: $c-form-element-border-hover;
-    box-shadow: inset 0 0 0 1px $c-form-element-border-hover;
+    color: $c-uswitch-navy;
+    border-color: $c-form-element-border-active;
+    box-shadow: inset 0 0 0 1px $c-form-element-border-active;
   }
 
   // [nodoc] Legacy, as grouping selectors will fail on pseudo-selector :checked
@@ -104,16 +106,6 @@ $toggle-active-bg: $c-cyan-light !default;
 
   .us-toggle__label .us-form-input:checked + & {
     @include toggle-active-style;
-  }
-
-  .us-toggle__label:first-child & {
-    border-bottom-left-radius: 3px;
-    border-top-left-radius: 3px;
-  }
-
-  .us-toggle__label:last-child & {
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
   }
 }
 

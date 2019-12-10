@@ -1,12 +1,11 @@
 %base-form-element {
-  @include form-element-style($c-form-element-border, $c-form-element-border-hover);
+  @include form-element-style($c-form-element-border, $c-form-element-border-hover, $c-form-element-border-active);
   display: inline-block;
   color: $c-form-element-text;
   vertical-align: middle;
   background: $c-form-element-background;
   border-style: solid;
   border-width: 1px;
-  border-radius: em(3px);
   box-sizing: border-box;
   -ms-appearance: none;
   -webkit-appearance: none;

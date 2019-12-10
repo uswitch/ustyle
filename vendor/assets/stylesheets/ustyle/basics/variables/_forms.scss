@@ -35,52 +35,64 @@ $form-element-sizes: (
   (large, $form-element-base-height--large, $form-element-base-padding--large, 1.2em)
 ) !default;
 
+/// Text color for our form elements
+///
+/// @type String (hex)
+
+$c-form-element-text: $c-uswitch-navy !default;
+
 /// Background color for our form elements
 ///
 /// @type String (hex)
 
-$c-form-element-text: $c-typegrey !default;
-
-/// Background color for our form elements
-///
-/// @type String (hex)
-
-$c-form-element-background: #fff !default;
+$c-form-element-background: $c-white !default;
 
 /// Default border color for all form elements
 ///
 /// @type Variable | String (pixels)
 
-$c-form-element-border: $c-inputgrey !default;
+$c-form-element-border: $c-grey !default;
 
 /// Default border active colour for all form elements
 ///
 /// @type Variable | String (pixels)
 
-$c-form-element-border-hover: $c-typecyan !default;
+$c-form-element-border-hover: $c-dark-grey !default;
 
-/// Disabled foreground colour for form elements
+/// Hover border colour for form elements
 ///
 /// @type String (pixels)
 
-$c-form-element-disabled-fg: #ddd !default;
+$c-form-element-border-active: $c-uswitch-navy !default;
+
+/// Active border colour for form elements
+///
+/// @type String (pixels)
+
+$c-form-element-disabled-fg: $c-grey !default;
 $c-input-disabled-foreground: $c-form-element-disabled-fg;
 
 /// Disabled background colour for form elements
 ///
 /// @type Variable | String (pixels)
 
-$c-form-element-disabled-bg: #fafafa !default;
+$c-form-element-disabled-bg: $c-super-light-grey !default;
 $c-input-disabled-background: $c-form-element-disabled-fg;
+
+/// Disabled border colour for form elements
+///
+/// @type Variable | String (pixels)
+
+$c-form-element-disabled-border: $c-light-grey !default;
 
 /// Error color for form elements
 ///
 /// @type Variable | String (pixels)
 
-$c-form-error: $c-red !default;
+$c-form-error: $c-error-red !default;
 
 /// Success color for form elements
 ///
 /// @type Variable | String (pixels)
 
-$c-form-success: $c-green !default;
+$c-form-success: $c-success-green !default;

@@ -30,7 +30,12 @@
 
   &__input {
     display: inline-table;
-    width: calc(100% - 163px);
     margin-right: 10px;
+  }
+
+  &__btn {
+    display: block;
+    margin: .5em;
+    width: auto;
   }
 }

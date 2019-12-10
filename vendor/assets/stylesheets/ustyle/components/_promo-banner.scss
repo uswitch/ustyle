@@ -29,7 +29,7 @@
 .us-promo-banner {
   width: 100%;
   padding: 1.7em;
-  background-color: $c-navy;
+  background-color: $c-uswitch-navy;
 
   &__inner {
     display: flex;
@@ -51,15 +51,16 @@
     display: flex;
     width: 100%;
     padding: 0;
-    margin: 1em 0 1.2em 0;
+    margin: 1em 0 3em 0;
     align-items: flex-start;
     flex-direction: column;
     justify-content: center;
 
     @include respond-to(desktop) {
-      width: 70%;
+      width: 60%;
       flex-direction: row;
       flex-grow: 1;
+      margin-bottom: 1em;
     }
   }
 
@@ -77,7 +78,7 @@
 
     &:first-child {
       margin: 0;
-    }   
+    }
   }
 
   &__title {
@@ -99,29 +100,32 @@
     min-height: 36px;
     margin-right: 10px;
     line-height: 30px;
-    color: #fff;
+    color: $c-uswitch-navy;
     text-align: center;
-    background: #2aaa5b;
+    background: $c-white;
     border: solid 3px #fff;
     border-radius: 50%;
     align-self: flex-start;
+    font-weight: 800;
   }
 
   &__text {
     padding: 5px 10px 0 10px;
-    color: #fff;
+    color: $c-white;
     flex-grow: 1;
     align-self: flex-start;
   }
 
   &__button {
-    margin: 0 auto;
 
     @include respond-to(desktop) {
       width: auto;
       flex-grow: 1;
     }
 
-    a { width: 100%; }
+    a {
+      width: 100%;
+      padding: .75em 1.2em;
+    }
   }
 }

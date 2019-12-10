@@ -20,7 +20,7 @@
 //     <input class="us-form-input" id="name" name="name" placeholder="Please enter your name">
 //   </div>
 
-$default-label-color: $c-typegrey !default;
+$default-label-color: $c-uswitch-navy !default;
 $default-label-size: 18px !default;
 $default-label-width: em(120px, $default-label-size) !default;
 $default-label-margin: .25em !default;
@@ -60,7 +60,6 @@ $label-inline-breakpoint: tablet !default;
 
     @include respond-to($label-inline-breakpoint, true) {
       display: inline-block;
-      min-width: $default-label-width;
       vertical-align: middle;
     }
   }

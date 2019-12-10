@@ -14,8 +14,10 @@
 
 .us-comp-banner {
   width: 100%;
-  background-color: $c-cyan;
-  padding: 15px;
+  background-color: $c-white;
+  border: 1px solid $c-grey;
+  color: $c-uswitch-navy;
+  padding: $gutter-width * 2;
   text-align: center;
   font-size: 14px;
   line-height: 20px; 
@@ -26,8 +28,11 @@
     margin: 0 auto;
   }
 
+  &__text {
+    margin: 0;
+  }
+
   &__text:last-child {
     padding: 0;
-    margin: 0;
   }
 }

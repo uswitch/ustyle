@@ -67,14 +67,9 @@
   position: relative;
   display: block;
   margin-bottom: 15px;
-  color: $c-navy;
+  color: $c-uswitch-navy;
   background: #fff;
-  border: 1px solid $c-keylinegrey;
-  border-radius: 5px;
-
-  &--details-toggle {
-    border-bottom-width: 5px;
-  }
+  border: 1px solid $c-grey;
 
   &:hover {
     cursor: pointer;
@@ -84,10 +79,14 @@
     display: none;
     width: 100%;
     padding: $gutter-width / 2;
-    border-bottom: 1px solid $c-keylinegrey;
+    border-bottom: 1px solid $c-grey;
 
     @include respond-to(desktop) {
       display: flex;
+    }
+
+    .us-usp {
+      margin-right: 8px;
     }
   }
 
@@ -98,10 +97,11 @@
 
   &__product {
     position: relative;
-    border-bottom: 1px solid $c-keylinegrey;
+    margin: 15px 0;
 
     @include respond-to(desktop) {
       display: flex;
+      border-bottom: 1px solid $c-grey;
     }
   }
 
@@ -116,11 +116,20 @@
 
   &__title--mobile {
     margin-top: 10px;
+    font-size: 18px;
+
+    @include respond-to(tablet) {
+      font-size: 24px;
+    }
   }
 
   &__usp--mobile {
     display: flex;
-    margin-top: 10px;
+    margin: 15px 0 10px 0;
+
+    .us-usp {
+      margin-right: 8px;
+    }
   }
 
   &__title--mobile,
@@ -131,12 +140,9 @@
   }
 
   &__col {
-    padding: $gutter-width / 2;
-    border-top: 1px solid $c-keylinegrey;
+    padding: 6px $gutter-width / 2;
 
     @include respond-to(desktop) {
-      border-right: 1px solid $c-keylinegrey;
-      text-align: center;
       border-top: 0;
     }
 
@@ -144,10 +150,12 @@
       display: flex;
       align-self: stretch;
       justify-content: space-between;
+      flex-direction: row-reverse;
 
       @include respond-to(desktop) {
         display: block;
         flex: 1 1;
+        padding: 15px 0 15px 15px;
       }
     }
 
@@ -198,15 +206,11 @@
 
   &__rep-ex {
     display: block;
-    text-align: center;
-    border-bottom: 1px solid $c-keylinegrey;
-    padding: 10px;
+    font-size: 16px;
+    border-bottom: 1px solid $c-grey;
+    padding: 15px;
     font-weight: bold;
     width: 100%;
-
-    @include respond-to(small-tablet) {
-      padding: 10px 80px;
-    }
   }
 
   &__key-details-toggle {
@@ -214,8 +218,8 @@
     width: 100%;
     padding: 10px;
     font-size: 16px;
-    font-weight: 700;
-    color: $c-blue-light;
+    font-weight: 500;
+    text-decoration: underline;
     text-align: center;
     cursor: pointer;
     background: none;
@@ -228,12 +232,9 @@
     height: 20px;
     padding: 3px;
     margin-left: 4px;
-    border: 1px solid;
-    border-radius: 5px;
     transform: translateY(5px) rotate(90deg);
     stroke-width: 10px;
     transform-origin: center;
-    fill: $c-blue-light;
 
     .us-ct-row__key-details-toggle-open & {
       transform: translateY(5px) rotate(-90deg);
@@ -251,12 +252,18 @@
   }
 
   &__key-details-col {
-    padding: 0 $gutter-width / 2;
     flex: 1 1;
+    font-size: 18px;
+    margin: 10px 0;
+
+    @include respond-to(desktop) {
+      margin-right: 20px;
+    }
   }
 
   &__key-details-ul {
-    padding: 0 $gutter-width / 2 0 20px;
+    font-size: 16px;
+    padding-left: 20px;
   }
 
   &__criteria {
@@ -277,15 +284,24 @@
 
   &__criteria-additional {
     font-size: 14px;
+    color: $c-darker-grey;
+    margin-top: 10px;
   }
 
   &__name {
-    order: 2;
+    width: 33%;
+    font-size: 16px;
+
+    @include respond-to(desktop) {
+      width: 100%;
+      font-size: 24px;
+    }
   }
 
   &__value {
+    color: $c-dark-grey;
     font-size: 14px;
-    order: 1;
+    line-height: 1.4em;
   }
 
   &__eligibility {
