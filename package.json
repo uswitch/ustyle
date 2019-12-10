@@ -31,6 +31,9 @@
     "index.js"
   ],
   "repository": "uswitch/ustyle",
+  "engines": {
+    "npm": "^6.0.0"
+  },
   "scripts": {
     "start": "grunt",
     "build": "grunt build",
