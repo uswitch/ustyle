@@ -65,11 +65,11 @@ $c-dark-green: #82ca50;
 
 // Old brand - to remove
 
-$c-navy: #1c1f4e;
-$c-blue: #002396;
-$c-typecyan: #008fe9;
-$c-cyan: #99e2ff;
-$c-typegrey: #2f353a;
+$c-navy: $c-uswitch-navy;
+$c-blue: $c-uswitch-navy;
+$c-typecyan: $c-uswitch-navy;
+$c-cyan: $c-super-light-grey;
+$c-typegrey: $c-uswitch-navy;
 $c-typegrey-2: #65717b;
 $c-bggrey: #f4f5f6;
 $c-red: #d64226;
