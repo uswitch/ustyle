@@ -32,7 +32,7 @@
   ],
   "repository": "uswitch/ustyle",
   "engines": {
-    "npm": "^5.4.2"
+    "npm": "^6.9.0"
   },
   "scripts": {
     "start": "grunt",
