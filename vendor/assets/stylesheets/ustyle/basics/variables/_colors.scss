@@ -72,3 +72,33 @@ $c-green-lightest: #adebc5;
 $c-yellow-lightest: #ffedab;
 $c-orange-lightest: #f9c9ac;
 $c-purple-lightest: #d7bbe2;
+
+// New brand colours - adding them into old brand version so that we can reference them in our project CSS files without breaking the build
+
+$c-uswitch-navy: #141424;
+$c-darker-grey: #53535e;
+$c-dark-grey: #7c7c84;
+$c-grey: #a7a7ac;
+$c-light-grey: #c6c6c8;
+$c-lighter-grey: #dadadb;
+$c-super-light-grey: #e2e2e2;
+$c-white: #fff;
+$c-error-red: #d64226;
+$c-success-green: #2aaa5b;
+
+$c-light-yellow: #f7f146;
+$c-light-orange: #f7c95a;
+$c-light-red: #ff8a83;
+$c-light-pink: #ff99e8;
+$c-light-purple: #acb0ff;
+$c-light-blue: #7edce9;
+$c-light-green: #b6e554;
+
+$c-dark-yellow: #ffd555;
+$c-dark-orange: #fa5;
+$c-dark-red: #fd7687;
+$c-dark-pink: #ff75d4;
+$c-dark-purple: #ac96de;
+$c-dark-blue: #84a6ff;
+$c-dark-green: #82ca50;
+
