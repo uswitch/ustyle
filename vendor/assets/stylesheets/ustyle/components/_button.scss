@@ -26,7 +26,7 @@ $button-bg--base-hover: $c-typecyan !default;
 $button-bg--primary   : $c-uswitch-navy !default;
 $button-bg--secondary : transparent !default;
 $button-bg--action    : $c-white !default;
-$button-bg--hero      : $c-navy !default;
+$button-bg--hero      : $c-uswitch-navy !default;
 $button-bg--reversed  : transparent !default;
 
 $button-text--light: $c-white !default;
@@ -39,7 +39,7 @@ $button-styles: (
 
 $outline-button-styles: (
   ("secondary", $button-bg--secondary, $button-text--dark),
-  ("hero", $button-bg--hero, $button-bg--hero),
+  ("hero", $button-bg--secondary, $button-text--dark),
   ("reversed", $button-bg--reversed, $button-text--light)
 ) !default;
 
