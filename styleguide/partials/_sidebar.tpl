@@ -24,24 +24,4 @@
       <span class="us-color--blue">uSwitch is hiring.</span>
     </a>
   </div>
-
-  <div>
-    <script>
-      window.toggleRebrand = function (rebrand) {
-        if (rebrand) {
-          document.cookie = 'rebrand=true; path=/'
-        } else {
-          document.cookie = 'rebrand=; path=/'
-        }
-
-        window.location.reload()
-      }
-
-      if (!document.cookie.match(/rebrand=true/)) {
-        document.write('<a href="javascript:toggleRebrand(true)">Show rebrand</a>')
-      } else {
-        document.write('<a href="javascript:toggleRebrand(false)">Hide rebrand</a>')
-      }
-    </script>
-  </div>
 </div>
