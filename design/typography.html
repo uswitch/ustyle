@@ -14,13 +14,7 @@
   <link rel="mask-icon" href="/images//safari-pinned-tab.svg" color="#5bbad5">
   <meta name="theme-color" content="#ffffff">
   <title>uStyle styleguide</title>
-  <script>
-    if (document.cookie.match(/rebrand=true/)) {
-      document.write('<link rel="stylesheet" href="/css/rebrand.css" type="text/css" />')
-    } else {
-      document.write('<link rel="stylesheet" href="/css/main.css" type="text/css" />')
-    }
-  </script>
+  <link rel="stylesheet" href="/css/main.css" type="text/css" />
   <!--[if lt IE 9]>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
   <![endif]-->
@@ -38,7 +32,7 @@
       </svg>
       uStyle
     </a>
-    <a class="version" href="https://github.com/uswitch/ustyle/releases/tag/v2.0.6">v2.0.6</a>
+    <a class="version" href="https://github.com/uswitch/ustyle/releases/tag/v2.0.7">v2.0.7</a>
     <svg class="logo__svg--hidden" xmlns="http://www.w3.org/2000/svg">
       <symbol viewBox="0 0 100 100" id="uicon-logo-icon">
       <title>logo-icon</title><path d="M26.9 51.662V12.174H.9v38.771c0 24.61 20.095 46.167 44.695 46.896 13.28.393 25.36-4.881 34.012-13.584C55.435 96.47 26.9 78.67 26.9 51.662z"/><path d="M80.9 2.138L62.733 22.174H67.9v29.378c0 13.905-13.365 24.176-26.722 19.468C58.871 92.463 93.9 79.992
@@ -119,26 +113,6 @@
         </svg>
         <span class="us-color--blue">uSwitch is hiring.</span>
       </a>
-    </div>
-  
-    <div>
-      <script>
-        window.toggleRebrand = function (rebrand) {
-          if (rebrand) {
-            document.cookie = 'rebrand=true; path=/'
-          } else {
-            document.cookie = 'rebrand=; path=/'
-          }
-  
-          window.location.reload()
-        }
-  
-        if (!document.cookie.match(/rebrand=true/)) {
-          document.write('<a href="javascript:toggleRebrand(true)">Show rebrand</a>')
-        } else {
-          document.write('<a href="javascript:toggleRebrand(false)">Hide rebrand</a>')
-        }
-      </script>
     </div>
   </div>
   <div id="wrapper" class="container header--push sidebar--push">
