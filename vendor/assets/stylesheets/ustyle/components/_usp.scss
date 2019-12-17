@@ -62,7 +62,7 @@ $variants: (
   font-size: .875em;
   line-height: $base-line-ratio;
   color: $c-uswitch-navy;
-  text-align: center;
+  text-align: left;
 }
 
 @each $colour in $variants {

@@ -17,6 +17,12 @@
 //     <input class="us-form-input" type="text" id="kwh" />
 //     <span class="us-input-group__box">kWh</span>
 //   </div>
+//
+//   <div class="us-input-group us-margin-bottom {$modifiers}">
+//     <span class="us-input-group__box"><svg role="presentation" aria-hidden="true" class="us-icon--small us-icon--inputgrey"><use xlink:href="/images/icons.svg#icon-envelope"></use></svg></span>
+//     <input class="us-form-input" type="text" id="email" placeholder="Email" />
+//     <span class="us-input-group__box">kWh</span>
+//   </div>
 
 .us-input-group {
   @include input-sizing();
@@ -40,19 +46,25 @@
     &--large {
       height: 100%;
     }
-  }
 
-  .us-form-input:first-child {
-    border-right: 0;
-  }
+    &:first-child {
+      border-right: 0;
+    }
 
-  .us-form-input:last-child {
-    border-left: 0;
+    &:last-child {
+      border-left: 0;
+    }
+
+    &:not(:first-child):not(:last-child) {
+      border-right: 0;
+      border-left: 0;
+    }
   }
 
   // scss-lint:disable NestingDepth
   &:not(.us-input-group--disabled) {
-    &:hover .us-input-group__box {
+    &:hover .us-input-group__box,
+    &:hover:not(:focus-within) .us-form-input {
       color: $c-dark-grey;
       border-color: $c-form-element-border-hover;
 
