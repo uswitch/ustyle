@@ -65,13 +65,17 @@
   &:not(.us-input-group--disabled) {
     &:hover .us-input-group__box,
     &:hover:not(:focus-within) .us-form-input {
-      color: $c-dark-grey;
       border-color: $c-form-element-border-hover;
 
       [class^="us-icon--"],
       .us-icon {
         fill: $c-dark-grey;
       }
+    }
+
+    &:hover .us-input-group__box {
+      color: $c-dark-grey;
+      border-color: $c-form-element-border-hover;
     }
 
     &:focus-within .us-input-group__box {
