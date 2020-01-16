@@ -31,6 +31,7 @@
   display: table;
   vertical-align: middle;
   border-collapse: separate;
+  padding: 0;
 
   @include respond-to(tablet, true) {
     display: inline-table;
@@ -41,7 +42,6 @@
     display: table-cell;
     float: left;
     width: 100%;
-    height: 100%;
 
     &--large {
       height: 100%;
