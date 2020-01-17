@@ -26,6 +26,7 @@ $input-placeholder-color: $c-grey !default;
   @include input-sizing();
   outline: 0;
   box-shadow: none;
+  border-radius: 0;
 
   &:focus {
     @include placeholder($c-uswitch-navy);
