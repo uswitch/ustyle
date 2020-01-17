@@ -17,6 +17,7 @@
   padding: $form-element-base-padding;
   font-size: 1em;
   outline: 0;
+  border-radius: 0;
 
   &:focus {
     @include placeholder(darken($input-placeholder-color, 15%));
