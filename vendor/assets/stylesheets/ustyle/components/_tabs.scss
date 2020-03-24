@@ -287,8 +287,9 @@ $tab-active-color: $tab-border-color;
   }
 
   .us-tab.active & {
-    max-height: 9999px;
+    max-height: fit-content;
     padding-top: 1em;
+    padding-bottom: 1em;
 
     @include respond-to(tablet, true) {
       display: block;
