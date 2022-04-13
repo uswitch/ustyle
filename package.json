@@ -41,7 +41,7 @@
     "depcheck": "depcheck --specials=grunt --ignores=depcheck,grunt-*"
   },
   "devDependencies": {
-    "async": "^0.9.0",
+    "async": "^3.2.2",
     "autoprefixer": "^6.5.0",
     "browser-sync": "^1.8.2",
     "cheerio": "^0.20.0",
