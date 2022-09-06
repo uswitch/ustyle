@@ -9,7 +9,7 @@
 /// @return {Unit}
 
 @function rem($pixels, $font-size: $base-font-size) {
-  @return $pixels / $font-size * 1rem;
+    @return calc($pixels / $font-size * 1rem);
 }
 
 /// Returns a `em` value from pixels
@@ -23,7 +23,7 @@
 /// @return {Unit}
 
 @function em($pixels, $font-size: $base-font-size) {
-  @return $pixels / $font-size * 1em;
+    @return calc($pixels / $font-size * 1em);
 }
 
 /// Returns a column % from `$grid-columns`
@@ -34,7 +34,7 @@
 /// @return {Unit (percentage)}
 
 @function col-width($columns) {
-  @return percentage($columns / $grid-columns);
+    @return percentage($columns / $grid-columns);
 }
 
 /// Returns a colour based on a black + `$color` percentage mix
@@ -46,7 +46,7 @@
 ///   The percentage amount to mix of black with the colour
 
 @function shade($color, $percentage) {
-  @return mix(#000, $color, $percentage);
+    @return mix(#000, $color, $percentage);
 }
 
 /// Returns a colour based on a white + `$color` percentage mix
@@ -58,7 +58,7 @@
 ///   The percentage amount to mix of white with the colour
 
 @function tint($color, $percentage) {
-  @return mix(#fff, $color, $percentage);
+    @return mix(#fff, $color, $percentage);
 }
 
 /// Returns the opposite direction of each direction in a list
@@ -66,13 +66,18 @@
 /// @return {List} - List of opposite directions
 
 @function opposite-direction($directions) {
-  $opposite-directions: ();
-  $directions-normal: "top", "bottom", "left", "right", "up", "down";
-  $directions-opposite: "bottom", "top", "right", "left", "down", "up";
+    $opposite-directions: ();
+    $directions-normal: 'top', 'bottom', 'left', 'right', 'up', 'down';
+    $directions-opposite: 'bottom', 'top', 'right', 'left', 'down', 'up';
 
-  @each $direction in $directions {
-    $opposite-directions: append($opposite-directions, unquote(nth($directions-opposite, index($directions-normal, $direction))));
-  }
+    @each $direction in $directions {
+        $opposite-directions: append(
+            $opposite-directions,
+            unquote(
+                nth($directions-opposite, index($directions-normal, $direction))
+            )
+        );
+    }
 
-  @return $opposite-directions;
+    @return $opposite-directions;
 }
