@@ -1,6 +1,6 @@
 # [ustyle](http://ustyle.guide)
 
-![ustyle unicorn](https://assets0.uswitch.com/s3/uswitch-assets-eu/ustyle/ustyle-unicorn.png)
+![ustyle unicorn](https://www.uswitch.com/s3/uswitch-assets-eu/ustyle/ustyle-unicorn.png)
 
 uStyle, aptly named, is the styleguide gem for [uSwitch](http://www.uswitch.com). Include it in your Rails/Sinatra/Anything project as a gem to apply consistent styles according the uSwitch styleguide.
 
@@ -98,7 +98,7 @@ Alternatively, you can serve your application in a docker container with nginx (
 An example nginx configuration:
 ```nginx
 location = /icons.svg {
-  set $upstream "https://assets0.uswitch.com/s3/uswitch-assets-eu/ustyle";
+  set $upstream "https://www.uswitch.com/s3/uswitch-assets-eu/ustyle";
   proxy_pass $upstream$request_uri;
 }
 ```

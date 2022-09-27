@@ -35,9 +35,9 @@ name: Introduction
       <p>Every time uStyle gets a new version, the version gets updated across our Cloudfront distributions.
       <pre><code class="html">
         &lt;!-- get latest --&gt;
-        &lt;link href='//assets0.uswitch.com/s3/uswitch-assets-eu/ustyle/ustyle-latest.css' media='all' rel='stylesheet' type='text/css' /&gt;
+        &lt;link href='//www.uswitch.com/s3/uswitch-assets-eu/ustyle/ustyle-latest.css' media='all' rel='stylesheet' type='text/css' /&gt;
         &lt;!-- get versioned --&gt;
-        &lt;link href='//assets0.uswitch.com/s3/uswitch-assets-eu/ustyle/VERSION/ustyle-latest.css' media='all' rel='stylesheet' type='text/css' /&gt;
+        &lt;link href='//www.uswitch.com/s3/uswitch-assets-eu/ustyle/VERSION/ustyle-latest.css' media='all' rel='stylesheet' type='text/css' /&gt;
       </code></pre>
     </div>
     <div class="us-col-md-6">

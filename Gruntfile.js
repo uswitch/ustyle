@@ -71,7 +71,7 @@ module.exports = function (grunt) {
         src: 'vendor/assets/stylesheets/ustyle/**/*.scss',
         dir: 'styleguide',
         output: 'dist/ustyle.json',
-        statsFor: 'https://assets0.uswitch.com/s3/uswitch-assets-eu/ustyle/{#tag}/ustyle-latest.css',
+        statsFor: 'https://www.uswitch.com/s3/uswitch-assets-eu/ustyle/{#tag}/ustyle-latest.css',
         tagPlaceholder: '{#tag}',
         tagStartVersion: '0.9.9'
       }
