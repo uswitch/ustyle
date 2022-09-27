@@ -1,6 +1,6 @@
 # [ustyle](http://ustyle.guide)
 
-![ustyle unicorn](https://assets0.uswitch.com/s3/uswitch-assets-eu/ustyle/ustyle-unicorn.png)
+![ustyle unicorn](https://img.uswitch.com/s3/uswitch-assets-eu/ustyle/ustyle-unicorn.png)
 
 uStyle, aptly named, is the styleguide gem for [uSwitch](http://www.uswitch.com). Include it in your Rails/Sinatra/Anything project as a gem to apply consistent styles according the uSwitch styleguide.
 
